@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-09-24",
+  "sources": [
+    {
+      "source": "Nutlope/hallmark",
+      "url": "https://github.com/Nutlope/hallmark",
+      "upstreamCommit": "13ac0ec7e148655948100b6396439e481361d690",
+      "license": "MIT",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "nestedLicenses": [],
+      "material": [
+        "macrostructure index-and-load-one concept",
+        "page-shape concepts rewritten as compositions",
+        "structural variety and three-category choice practice",
+        "study / design-DNA extraction protocol idea",
+        "pre-output self-critique practice"
+      ],
+      "incorporatedInto": [
+        "shared/design-intelligence/compositions-index.md",
+        "shared/design-intelligence/compositions-narrative.md",
+        "shared/design-intelligence/selection.md"
+      ],
+      "modification": "ideas rewritten from scratch around Experience Skills' archetypes, states, responsive/RTL behavior and failure conditions; no text or code copied",
+      "noticeRequired": true
+    },
+    {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "upstreamCommit": "dcc40ff5133ef78276117db0cc34e7b83cc8aeba",
+      "license": "MIT",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "nestedLicenses": [
+        {
+          "path": ".claude/skills/ui-styling/LICENSE.txt",
+          "license": "Apache-2.0",
+          "used": false
+        },
+        {
+          "path": "cli/assets/skills/ui-styling/LICENSE.txt",
+          "license": "Apache-2.0",
+          "used": false
+        }
+      ],
+      "material": [
+        "chart selection by data type (data/charts.csv)",
+        "subset of font pairings (data/typography.csv)",
+        "style catalog used as a coverage check (data/styles.csv)"
+      ],
+      "incorporatedInto": [
+        "shared/design-intelligence/data-visualization.md",
+        "shared/design-intelligence/typography.md",
+        "shared/design-intelligence/surfaces-and-shape.md"
+      ],
+      "modification": "condensed and rewritten; pairings reorganized by character; chart guidance rewritten with accessibility and decision-first rules; styles reclassified",
+      "noticeRequired": true
+    }
+  ]
+}
