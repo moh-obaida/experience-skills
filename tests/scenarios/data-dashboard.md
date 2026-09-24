@@ -5,6 +5,9 @@ A logistics operations dashboard shows twelve KPI cards with sparklines and perc
 12-month orders chart. The operations lead uses it each morning to decide where to send support
 staff. They say: "I stare at it and still don't know what to do."
 
+## Prompt
+Our logistics operations dashboard has twelve KPI cards with sparklines and percentage changes, plus a 12-month orders chart. Our operations lead opens it every morning to decide where to send support staff, and says: 'I stare at it and still don't know what to do.' What should the dashboard be?
+
 ## Current problem
 Generic dashboard; no focal point; numbers without context; no freshness indicator; wrong chart for
 the decision.

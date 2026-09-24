@@ -5,6 +5,9 @@ A web-based diagram editor has a toolbar with 34 same-size icon buttons in two r
 every property change (color, stroke, font) opens a modal dialog. Power users complain it's slow;
 new users can't find anything.
 
+## Prompt
+Our web diagram editor has a toolbar with 34 same-size icon buttons in two rows, no labels, and every property change (color, stroke, font) opens a modal dialog. Power users say it's slow and new users can't find anything. What should we do?
+
 ## Current problem
 Flat action hierarchy, discoverability, navigation tax via modals, expert tax, cognitive load.
 

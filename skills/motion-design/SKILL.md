@@ -4,139 +4,103 @@ description: "Design meaningful, event-driven motion systems: arrival, removal, 
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   collection: experience-skills
 ---
 
 # Motion Design
 
-Motion is the strongest attention tool an interface has. Used well, it explains what
-happened: something arrived, moved, changed owner, succeeded, or needs attention. Used by
-default, it becomes a tax users pay on every visit.
+Motion is the strongest attention tool an interface has. Used well, it explains what happened.
+Used by default, it becomes a tax users pay on every visit.
 
-> Motion should explain what happened.
+## Start here
+
+1. Read `references/_shared/experience-core.md`.
+2. Keep `references/_shared/motion-events.md` open. Every animation must map to one of its events.
 
 ## Use this when
 
-- Every element fades, slides, or scales in the same way, regardless of meaning.
-- Important state changes (a score changes, an item is accepted, a task moves) happen without
-  users noticing.
-- A live, playful, or interactive product feels flat or lifeless.
-- Motion feels slow, blocks input, stutters, or drains battery.
-- Reduced-motion preferences are ignored.
+- Everything fades, slides, or scales in the same way regardless of meaning.
+- Important changes (a score, an accepted answer, a moved task) happen without users noticing.
+- A live, playful, or interactive product feels flat.
+- Motion is slow, blocks input, stutters, or ignores reduced-motion settings.
 - A product needs motion tokens or a motion language.
 
 ## Do not use this when
 
-- The real problem is missing states (state-design): motion cannot explain a state that does
-  not exist.
-- The request is to "add some animation" to a static page with no events. The right answer may
-  be very little motion; say so.
+- The real problem is missing states → state-design first.
+- The request is "add some animation" to a static page with no events. The right answer may be
+  very little motion; say so.
 
-## Core principles
+## Checkpoints
 
-1. **Start from events, not elements.** Classify the event (arrival, transfer, resolution...)
-   using `references/_shared/motion-events.md`, then decide the motion.
-2. **Every motion has a job.** If you cannot say what it explains, remove it.
-3. **Continuity.** Things move from where they were to where they go; users keep a spatial model.
-4. **Proportion.** Small events get small, fast motion. Celebrations are rare and earned.
-5. **Speed.** Most feedback under ~150 ms; most transitions ~200–400 ms; rarely longer.
-6. **Never block.** Motion is interruptible; input is never queued behind an animation.
-7. **Reduced motion keeps the information.** Replace movement with instant change, cross-fade, or
-   highlight; do not simply delete the signal.
-8. **Performance is part of design.** Animate transform and opacity; avoid layout-triggering
-   properties.
+1. **For every existing animation:** which event from the motion-events taxonomy does it explain?
+   None → remove it (page load, "element exists," and hover on non-interactive content are not events).
+   `references/_shared/motion-cliches.md` lists the usual suspects.
+2. **For every meaningful state change with no motion:** would users miss it (someone else's action,
+   a reorder, a transfer)? Yes → give it event motion (`references/event-motion.md`; anchor
+   `references/_shared/motion-that-explains.md`).
+3. **For every motion you add:** how often does it play? Many times per session → under ~150 ms
+   and subtle. Longer than ~400 ms → it must be a rare moment and skippable.
+4. **Does any motion delay input?** Yes → make it interruptible (`references/tokens-sequencing-interruption.md`).
+5. **Does every meaningful motion have a reduced-motion alternative that keeps the information?**
+   No → add it before finishing (`references/reduced-motion-and-performance.md`).
+6. **Does anything animate layout properties** (`width`, `height`, `top`, `left`, `margin`) or use
+   `transition: all`? Yes → switch to transform/opacity or FLIP. Run `scripts/scan-motion.mjs`.
 
 ## Workflow
 
-### 1. Inventory events
-List the events on the surface or flow: what happens, who causes it (user, system, other
-participant), how often, and how important it is. Mark non-events (page load, element exists)
-separately.
+1. **Inventory events** on the surface: what happens, who causes it, how often, how important.
+2. **Audit existing motion** in the rendered product and in code:
+   ```bash
+   node scripts/scan-motion.mjs src/
+   ```
+   Signals, not verdicts: layout-property animation, `transition: all`, long or infinite
+   animations, missing `prefers-reduced-motion`.
+3. **Apply checkpoints 1–3** to decide what stays, goes, and gets added.
+4. **Specify** each important event with the event spec format in
+   `references/tokens-sequencing-interruption.md` (trigger, origin, destination, responders, beats,
+   tokens, reduced-motion alternative).
+5. **Load depth as needed:**
 
-### 2. Audit existing motion
-Find current animations and transitions (code and rendered). For each: which event does it
-serve? If none, it is a candidate for removal. The scanner helps with code:
+   | Need | Load |
+   |---|---|
+   | What deserves motion; recipes per event; spatial continuity | `references/event-motion.md` |
+   | Durations, easings, beats, interruption | `references/tokens-sequencing-interruption.md` |
+   | Control feedback, celebrations, ambient motion | `references/feedback-celebration-ambient.md` |
+   | Reduced motion and performance | `references/reduced-motion-and-performance.md` |
+   | Recognizing motion slop in practice | `references/anti-patterns.md` |
 
-```bash
-node scripts/scan-motion.mjs src/
-```
-
-It flags layout-property animation, `transition: all`, very long durations, infinite animations,
-and missing `prefers-reduced-motion` handling. It reports signals, not verdicts.
-
-### 3. Choose references
-| Need | Load |
-|---|---|
-| The reasoning behind motion; what deserves it | `references/motion-philosophy.md` |
-| Mapping events to motion | `references/event-types.md` |
-| Durations, easings, distances as tokens | `references/motion-tokens.md` |
-| Multi-step events (anticipation → action → consequence → settle) | `references/sequencing.md` |
-| Moving between views; transfers | `references/spatial-continuity.md` |
-| Button, toggle, input feedback | `references/feedback.md` |
-| Success moments, achievements | `references/celebration.md` |
-| Background life, idle states | `references/ambient.md` |
-| Rapid input, cancellation, overlapping events | `references/interruption.md` |
-| Accessibility | `references/reduced-motion.md` |
-| Jank, battery, layout thrash | `references/performance.md` |
-| Recognizing motion slop | `references/anti-patterns.md` |
-
-### 4. Design the motion
-For each event worth motion, specify: trigger, origin, destination, what responds, sequence,
-tokens (duration, easing), and the reduced-motion alternative. Use the event spec format in
-`references/sequencing.md`.
-
-### 5. Implement
-Prefer CSS transitions and the Web Animations API (or platform equivalents: SwiftUI/UIKit
-animations, Jetpack Compose, etc.). Use a library only when it earns its weight (complex
-choreography, physics, shared layout transitions). Define tokens once.
-
-### 6. Verify
-- Watch each event at normal speed and at slowed speed (devtools animation panel).
-- Trigger events rapidly and simultaneously; confirm nothing blocks or stacks badly.
-- Turn on reduced motion; confirm information is preserved.
-- Check performance on a lower-end device or with CPU throttling.
+6. **Implement** with CSS transitions / Web Animations API or platform equivalents; a library only
+   when it earns its weight. Tokens defined once.
+7. **Verify:** normal and slowed speed; rapid and simultaneous triggers; reduced motion on;
+   CPU throttling.
 
 ## Execution rules
 
 - Remove motion from non-events before adding motion to events.
-- Keep one motion language across the product: shared tokens, consistent directions.
-- Direction carries meaning (forward/back, in/out, to/from a destination); keep it consistent
-  and mirror it in RTL where it represents reading direction.
-- Avoid animating `width`, `height`, `top`, `left`, `margin`, and similar layout properties on
-  large or many elements; use transforms.
-- Do not auto-play large motion or parallax on utility surfaces.
-- Anything that flashes must stay under three flashes per second.
+- One motion language: shared tokens, consistent directions (mirrored in RTL where directional).
+- No large auto-playing motion or parallax on utility surfaces.
+- Nothing flashes more than three times per second.
 
 ## Failure modes
 
-- **Animation soup:** fade + slide + scale on every card and section.
-- **Choreography tax:** 800 ms sequences users must wait through on every action.
-- **Celebration inflation:** confetti for saving a setting.
-- **Unexplained change:** a leaderboard that reorders instantly, scores that jump silently.
-- **Motion without an off switch:** no reduced-motion path.
-- **Jank:** layout-property animation, too many simultaneous animations, heavy filters.
+- Animation soup; choreography tax; celebration inflation; unexplained change; no off switch; jank.
 
 ## Completion criteria
 
-- Every remaining animation maps to a named event, or is deliberate ambient motion with a stated job.
-- Meaningful events that were silent now have proportionate motion.
+- Every remaining animation maps to a named event, or is ambient motion with a stated job.
+- Meaningful silent changes now have proportionate motion.
 - Durations and easings come from tokens.
 - Reduced-motion alternatives preserve the information.
-- Motion is interruptible and did not introduce jank (checked, or listed as unverified).
+- Motion is interruptible and did not add jank (checked, or listed as unverified).
 
 ## References
 
-- `references/motion-philosophy.md`
-- `references/event-types.md`
-- `references/motion-tokens.md`
-- `references/sequencing.md`
-- `references/spatial-continuity.md`
-- `references/feedback.md`
-- `references/celebration.md`
-- `references/ambient.md`
-- `references/interruption.md`
-- `references/reduced-motion.md`
-- `references/performance.md`
-- `references/anti-patterns.md`
-- `references/_shared/` — shared taxonomy, pattern, and worked example (`motion-that-explains.md`)
+- `references/event-motion.md` — philosophy, event recipes, spatial continuity
+- `references/tokens-sequencing-interruption.md` — tokens, event spec format, interruption
+- `references/feedback-celebration-ambient.md` — feedback, celebration, ambient
+- `references/reduced-motion-and-performance.md` — accessibility and performance
+- `references/anti-patterns.md` — motion slop in practice
+- `references/_shared/` — generated copies: `experience-core.md`, `motion-events.md`,
+  `motion-cliches.md`, `motion-that-explains.md`

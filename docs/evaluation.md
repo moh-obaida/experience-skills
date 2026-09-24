@@ -11,7 +11,7 @@ The shared evaluation modules (vendored into skills):
 | `shared/evaluation/experience-rubric.md` | Dimensions (purpose, hierarchy, composition, identity, interaction, time-to-outcome, states, responsiveness, accessibility, motion, slop risk, evidence) with verdict words instead of scores |
 | `shared/evaluation/workflow-rubric.md` | Mapping, counting, friction tagging, before/after reporting |
 | `shared/evaluation/anti-slop-gate.md` | Gate questions before presenting UI |
-| `shared/evaluation/evidence-standard.md` | Evidence levels E1 (rendered) to E6 (assumed) |
+| `shared/evaluation/evidence-standard.md` | Evidence levels E1 (rendered) to E6 (assumed), in depth; a summary table is part of the core every skill loads |
 
 ### Why no default scores
 
@@ -43,6 +43,36 @@ Findings carry their level. A repair is "verified" only at levels 1–2.
   that every skill is exercised. They are not a classifier.
 - **Scenarios:** `tests/scenarios/*.md` describe realistic situations with expected skills, key
   principles, and *unacceptable recommendations*.
+
+### Behavioral: agent evals
+
+Structure tests show the repository is correct. They do not show that an agent works better with
+the skills installed. `scripts/run-agent-evals.mjs` (`npm run eval:agents`) measures that:
+
+1. For each scenario in `tests/scenarios/`, create a fresh temporary project with the scenario's
+   fixtures.
+2. Run the agent twice with the scenario's exact `## Prompt`: **without** skills and **with** all
+   skills installed as project skills. The agent may read, list, invoke skills, and run node scripts;
+   it may not edit files.
+3. From the transcript, record which skills it actually loaded, which references it read, and which
+   scripts it ran. This tests router → specialist behavior directly.
+4. A separate judge, told nothing about the condition, grades each answer against the scenario's key
+   principles and unacceptable recommendations, and flags praise before evaluation.
+5. Write `report.md` and `summary.json` under `tests/evals/results/<timestamp>/`.
+
+Regression anchors (marked `anchor` in `tests/evals/routing.json`) encode the lessons the collection
+exists for: the join-code page (memorable environment, ordinary input), the sparse home, context-scoped
+controls, the public-service form, money transfer, long-running generation, and others. Run them after
+any change to shared content or a skill's checkpoints:
+
+```bash
+npm run eval:agents -- --anchors
+```
+
+It uses the Claude Code CLI (`CLAUDE_BIN`, logged in or `ANTHROPIC_API_KEY` set) and spends model
+usage, so it is not part of `npm run check`. `--dry-run` shows exactly what would run. Limitations:
+one run per condition (no variance estimate), an LLM judge, and the agent's own user-level skills
+load in both conditions.
 
 ### Manual (recommended before releases)
 

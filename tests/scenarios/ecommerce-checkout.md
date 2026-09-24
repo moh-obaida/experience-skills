@@ -5,6 +5,9 @@ A UK shoe store's product page shows a country-selection modal, a newsletter mod
 hero carousel, promotions, a required color picker with one color in stock, and a blank size
 picker, even for returning customers with order history. Checkout asks for the address again.
 
+## Prompt
+Our UK shoe store's product page opens a country-selection modal, then a newsletter modal, then shows an autoplaying hero carousel and promotions. The color picker is required even when only one color is in stock, the size picker starts blank even for returning customers, and delivery info is in an accordion at the bottom. Checkout asks for the address again. Conversion is low. What should we change?
+
 ## Current problem
 Redundant input, unnecessary choice, interruptions before the purchase decision, delivery info
 hidden, merchandising in front of the purchase path.

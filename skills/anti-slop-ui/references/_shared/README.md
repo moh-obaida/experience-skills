@@ -8,18 +8,14 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
-| `product-identity.md` | Product Identity | `shared/philosophy/product-identity.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
-| `design-cliches.md` | Design Clichés | `shared/anti-patterns/design-cliches.md` |
-| `motion-cliches.md` | Motion Clichés | `shared/anti-patterns/motion-cliches.md` |
+| `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
 | `fake-density.md` | Fake Density | `shared/anti-patterns/fake-density.md` |
 | `fake-minimalism.md` | Fake Minimalism | `shared/anti-patterns/fake-minimalism.md` |
-| `anti-slop-gate.md` | Anti-Slop Gate | `shared/evaluation/anti-slop-gate.md` |
-| `editorial-not-cards.md` | Worked Example: Editorial Hierarchy, Not Cards | `examples/composition/editorial-not-cards.md` |
-| `premium-slop.md` | Worked Example: "Premium" Slop | `examples/anti-slop/premium-slop.md` |
-| `kpi-card-dashboard.md` | Worked Example: The KPI-Card Dashboard | `examples/anti-slop/kpi-card-dashboard.md` |
 | `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
 | `logo-removal-test.md` | Worked Example: The Logo-Removal Test | `examples/identity/logo-removal-test.md` |
+| `premium-slop.md` | Worked Example: "Premium" Slop | `examples/anti-slop/premium-slop.md` |
+| `kpi-card-dashboard.md` | Worked Example: The KPI-Card Dashboard | `examples/anti-slop/kpi-card-dashboard.md` |
+| `editorial-not-cards.md` | Worked Example: Editorial Hierarchy, Not Cards | `examples/composition/editorial-not-cards.md` |
+| `anti-slop-gate.md` | Anti-Slop Gate | `shared/evaluation/anti-slop-gate.md` |

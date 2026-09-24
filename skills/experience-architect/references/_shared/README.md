@@ -8,12 +8,11 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `rendered-truth.md` | Rendered Truth | `shared/philosophy/rendered-truth.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
 | `page-archetypes.md` | Page Archetypes | `shared/taxonomies/page-archetypes.md` |
+| `product-maturity.md` | Product Maturity | `shared/taxonomies/product-maturity.md` |
+| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
 | `visual-problems.md` | Visual Problem Taxonomy | `shared/taxonomies/visual-problems.md` |
 | `workflow-friction.md` | Workflow Friction Taxonomy | `shared/taxonomies/workflow-friction.md` |
-| `product-maturity.md` | Product Maturity | `shared/taxonomies/product-maturity.md` |
-| `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
 | `experience-rubric.md` | Experience Rubric | `shared/evaluation/experience-rubric.md` |

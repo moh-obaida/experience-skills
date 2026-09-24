@@ -3,8 +3,8 @@
 // file points outside its own directory.
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, resolve, relative, dirname, isAbsolute } from 'node:path';
-import { loadCatalog, SKILLS_DIR, repoRel, reporter, listFiles, markdownLinks, codePathRefs, isExternal } from './lib/repo.mjs';
+import { join, resolve, relative, dirname, isAbsolute, basename } from 'node:path';
+import { ROOT, loadCatalog, SKILLS_DIR, repoRel, reporter, listFiles, markdownLinks, codePathRefs, isExternal, modulesFor } from './lib/repo.mjs';
 import { computeVendored, VENDORED_DIRS } from './lib/vendor.mjs';
 
 export function checkShared() {
@@ -25,6 +25,27 @@ export function checkShared() {
         if (!files.has(join(dir, entry))) r.error(`undeclared file in ${repoRel(dir)}: ${entry} (run npm run sync)`);
       }
     }
+  }
+
+  // Every vendored file must be named in the skill's SKILL.md (otherwise the agent never loads it),
+  // and every shared source must be used by at least one skill.
+  const used = new Set();
+  for (const skill of catalog.skills) {
+    const skillPath = join(SKILLS_DIR, skill.name, 'SKILL.md');
+    const skillText = existsSync(skillPath) ? readFileSync(skillPath, 'utf8') : '';
+    for (const source of modulesFor(catalog, skill)) {
+      used.add(source);
+      const name = basename(source);
+      // Script libraries are imported by the skill's scripts, not read by the agent.
+      if (source.endsWith('.md') && !skillText.includes(name)) {
+        r.error(`${skill.name}: vendors ${name} but SKILL.md never names it; name it where it is used or remove it from the catalog`);
+      }
+    }
+  }
+  for (const file of [...listFiles(join(ROOT, 'shared')), ...listFiles(join(ROOT, 'examples'))]) {
+    const rel = repoRel(file);
+    if (basename(file) === 'README.md') continue;
+    if (!used.has(rel)) r.error(`${rel} is not used by any skill; remove it or declare it where a skill uses it`);
   }
 
   // Self-containment: nothing inside a skill may reference a path outside that skill.

@@ -8,14 +8,8 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `rendered-truth.md` | Rendered Truth | `shared/philosophy/rendered-truth.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `state-types.md` | State Types | `shared/taxonomies/state-types.md` |
-| `page-archetypes.md` | Page Archetypes | `shared/taxonomies/page-archetypes.md` |
-| `state-header.md` | Pattern: State Header | `shared/patterns/state-header.md` |
-| `background-job.md` | Pattern: Background Job | `shared/patterns/background-job.md` |
-| `continue-where-left-off.md` | Pattern: Continue Where You Left Off | `shared/patterns/continue-where-left-off.md` |
-| `meaningful-empty-state.md` | Pattern: Meaningful Empty State | `shared/patterns/meaningful-empty-state.md` |
 | `honest-error-states.md` | Worked Example: Honest Error States | `examples/states/honest-error-states.md` |
 | `long-running-generation.md` | Worked Example: Long-Running AI Generation | `examples/full-product/long-running-generation.md` |
+| `state-header.md` | Pattern: State Header | `shared/patterns/state-header.md` |

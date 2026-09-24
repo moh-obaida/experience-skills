@@ -8,25 +8,13 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `time-to-outcome.md` | Time to Outcome | `shared/philosophy/time-to-outcome.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `interaction-frequency.md` | Interaction Frequency | `shared/taxonomies/interaction-frequency.md` |
+| `skip-known-decisions.md` | Worked Example: Skip Known Decisions | `examples/workflow/skip-known-decisions.md` |
+| `context-aware-judgment.md` | Worked Example: Context-Aware Judgment Controls | `examples/interaction/context-aware-judgment.md` |
+| `mobile-money-transfer.md` | Worked Example: Mobile Money Transfer | `examples/full-product/mobile-money-transfer.md` |
 | `human-judgment.md` | Human Judgment | `shared/philosophy/human-judgment.md` |
 | `workflow-friction.md` | Workflow Friction Taxonomy | `shared/taxonomies/workflow-friction.md` |
-| `interaction-frequency.md` | Interaction Frequency | `shared/taxonomies/interaction-frequency.md` |
-| `workflow-cliches.md` | Workflow Clichés | `shared/anti-patterns/workflow-cliches.md` |
-| `workflow-rubric.md` | Workflow Rubric | `shared/evaluation/workflow-rubric.md` |
-| `smart-default.md` | Pattern: Smart Default | `shared/patterns/smart-default.md` |
-| `one-valid-option.md` | Pattern: One Valid Option | `shared/patterns/one-valid-option.md` |
-| `inline-edit.md` | Pattern: Inline Edit | `shared/patterns/inline-edit.md` |
-| `bulk-action.md` | Pattern: Bulk Action | `shared/patterns/bulk-action.md` |
-| `recent-context.md` | Pattern: Recent Context | `shared/patterns/recent-context.md` |
-| `continue-where-left-off.md` | Pattern: Continue Where You Left Off | `shared/patterns/continue-where-left-off.md` |
-| `next-best-action.md` | Pattern: Next Best Action | `shared/patterns/next-best-action.md` |
-| `background-job.md` | Pattern: Background Job | `shared/patterns/background-job.md` |
-| `compact-power-controls.md` | Pattern: Compact Power Controls | `shared/patterns/compact-power-controls.md` |
-| `context-aware-judgment.md` | Worked Example: Context-Aware Judgment Controls | `examples/interaction/context-aware-judgment.md` |
-| `skip-known-decisions.md` | Worked Example: Skip Known Decisions | `examples/workflow/skip-known-decisions.md` |
 | `inline-rename.md` | Worked Example: Inline Rename | `examples/workflow/inline-rename.md` |
 | `cli-project-init.md` | Worked Example: CLI Project Initialization | `examples/workflow/cli-project-init.md` |
-| `mobile-money-transfer.md` | Worked Example: Mobile Money Transfer | `examples/full-product/mobile-money-transfer.md` |
+| `workflow-rubric.md` | Workflow Rubric | `shared/evaluation/workflow-rubric.md` |

@@ -5,6 +5,9 @@ A classroom quiz game's join page: small logo, "Join the game", six segmented di
 glow animation, a Join button, centered on a flat light background. The team says: "It's clean but
 feels boring. Can we make the code boxes more fun, like bouncing digits?"
 
+## Prompt
+Here's our classroom game's join page (join.html). It's clean but feels boring. Can we make the code boxes more fun, like bouncing digits? Review it and tell me what you'd change. Don't edit files yet.
+
 ## Current problem
 Aligned-not-composed layout; personality invested in the control; blank environment; custom input
 costs (paste, accessibility, autofill).

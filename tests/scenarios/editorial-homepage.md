@@ -5,6 +5,9 @@ An independent magazine's homepage presents every article as an identical rounde
 three-column grid with an icon, a pill for the category, and a gradient overlay. The editor says it
 looks "like a SaaS dashboard, not a magazine."
 
+## Prompt
+Our independent magazine's homepage shows every article as the same rounded card in a three-column grid, each with an icon, a category pill, and a gradient overlay on the image. Our editor says it looks like a SaaS dashboard, not a magazine. How should we fix it?
+
 ## Current problem
 Card overuse; flat hierarchy; no editorial identity; pill and gradient slop.
 

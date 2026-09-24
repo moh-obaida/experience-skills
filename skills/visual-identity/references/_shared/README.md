@@ -8,13 +8,11 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `page-archetypes.md` | Page Archetypes | `shared/taxonomies/page-archetypes.md` |
+| `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
 | `product-identity.md` | Product Identity | `shared/philosophy/product-identity.md` |
 | `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
-| `page-archetypes.md` | Page Archetypes | `shared/taxonomies/page-archetypes.md` |
 | `design-cliches.md` | Design Clichés | `shared/anti-patterns/design-cliches.md` |
-| `identity-without-logo.md` | Pattern: Identity Without Logo | `shared/patterns/identity-without-logo.md` |
-| `branded-environment-simple-form.md` | Pattern: Branded Environment, Simple Form | `shared/patterns/branded-environment-simple-form.md` |
-| `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
 | `logo-removal-test.md` | Worked Example: The Logo-Removal Test | `examples/identity/logo-removal-test.md` |
+| `branded-environment-simple-form.md` | Pattern: Branded Environment, Simple Form | `shared/patterns/branded-environment-simple-form.md` |

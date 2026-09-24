@@ -11,8 +11,10 @@ folders.
 ## Source of truth and generated files
 
 - `shared/**` and `examples/**` are the source of truth for shared content.
-- `catalog/skills.json` declares which shared modules each skill receives (`coreModules`,
-  `shared`, `sharedScripts`) plus `category` and `useWhen`.
+- `catalog/skills.json` declares which shared modules each skill receives (`coreModules` for all,
+  `shared`, `sharedScripts`) plus `category` and `useWhen`. A skill may only receive a markdown
+  module that its `SKILL.md` names where it is used, and every shared source must be used by some
+  skill (`check-shared` enforces both).
 - `npm run sync` copies declared modules into `skills/<name>/references/_shared/` and
   `skills/<name>/scripts/_shared/` with a `GENERATED FROM` header.
 - **Never edit files under `_shared/` directly.** Edit the source and run `npm run sync`.
@@ -25,8 +27,10 @@ folders.
    (no `../../shared/`). If a skill needs shared content, declare it in the catalog and sync.
 2. **Shared modules contain no relative links.** Refer to other modules by name; vendored copies
    would otherwise break.
-3. **Thin SKILL.md.** Target under 300 lines; hard limit 500. Required sections: Use this when,
-   Do not use this when, Workflow, Completion criteria. Every file in `references/` must be
+3. **Thin SKILL.md.** Target under 200 lines; hard limit 500. Required sections: Start here (must
+   tell the agent to read `references/_shared/experience-core.md`), Use this when, Do not use this
+   when, Checkpoints (at least four numbered decision points that change the agent's branch),
+   Workflow, Completion criteria. Every file in `references/` must be
    mentioned in `SKILL.md`, loaded directly (no chains of references pointing to references).
 4. **Descriptions say what and when.** Frontmatter `description` ≤ 1024 characters and contains
    "Use when …". It is what agents route on.
@@ -41,6 +45,11 @@ folders.
 9. **Versioning.** All skills share `package.json`'s version. On release, update `package.json`,
    every `metadata.version`, and `CHANGELOG.md` together (validation enforces consistency).
 10. **Writing style.** See CONTRIBUTING.md: specific, tradeoff-aware, no hype vocabulary.
+11. **The file test.** Before adding or keeping a file, answer: where does it force the agent to
+    behave differently (what it observes, rejects, measures, loads, edits, or counts as done)? If the
+    answer is only "it explains a principle," merge it into a checkpoint or remove it.
+12. **References are sized by decision.** One file per decision the workflow routes to; merge files
+    that are always loaded together.
 
 ## Commands
 
@@ -50,6 +59,7 @@ npm run catalog         # after changing a skill description or adding/removing 
 npm run check           # full gate (includes CLI discovery; SKIP_DISCOVERY=1 offline)
 npm test                # tests only
 npm run test:discovery  # install test with the public skills CLI in a temp dir
+npm run eval:agents     # behavioral evals with a real agent (spends usage; not part of check)
 ```
 
 Before finishing any change: `npm run check` must pass.

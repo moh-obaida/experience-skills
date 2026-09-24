@@ -43,10 +43,13 @@ The Agent Skills model has three levels: metadata (name, description) is always 
 `SKILL.md` body loads when the skill activates; references, scripts, and assets load when the
 instructions call for them. This repository uses that deliberately:
 
-- `SKILL.md` stays under ~300 lines and contains a table mapping diagnoses to references.
+- `SKILL.md` stays under ~200 lines and contains a table mapping diagnoses to references.
+- References are sized by decision: one file per decision the workflow routes to (59 across the
+  collection), so an agent reads one file to act, not a chain of fragments.
 - References are loaded directly from `SKILL.md` (no reference that exists only to point to
   another reference).
-- Validation fails if a reference is not mentioned in `SKILL.md` (orphans are unreachable).
+- Validation fails if a reference is not mentioned in `SKILL.md` (orphans are unreachable), and
+  if a vendored shared file is not named in `SKILL.md` (the agent would never be told to read it).
 
 ## Decision 3: shared source, vendored copies
 
@@ -57,7 +60,9 @@ would break as soon as someone installed only that skill.
 Solution:
 
 1. Shared content lives once in `shared/` and `examples/`.
-2. `catalog/skills.json` declares, per skill, which modules it needs. `coreModules` go to every skill.
+2. `catalog/skills.json` declares, per skill, which modules it needs. `coreModules` (only
+   `experience-core.md`) go to every skill. A skill declares a module only if its `SKILL.md` names
+   it where it is used.
 3. `scripts/sync-shared.mjs` copies each declared module into the skill's `references/_shared/`
    (markdown) or `scripts/_shared/` (JavaScript), flattened by filename, with a
    `GENERATED FROM <source>` header. It writes a `references/_shared/README.md` index and removes
@@ -69,7 +74,8 @@ Solution:
 Worked examples live in the top-level `examples/` folder rather than `shared/examples/` because
 they are also meant to be browsed by people; the sync treats both folders as sources.
 
-The tradeoff is repository size (about 160 generated files). The benefit is that every installed
+The tradeoff is repository size (about 108 generated files: 91 markdown copies, 12 indexes, 5
+   script libraries). The benefit is that every installed
 skill is complete, which the discovery test verifies with the real CLI.
 
 ## Decision 4: the existing `skills` CLI, no custom installer
@@ -96,18 +102,42 @@ skill folder, the current project, or `PLAYWRIGHT_MODULE`, and can use an instal
 Script contract: `--help`; exit 0 (clean), 1 (findings), 2 (usage or environment error); no hidden
 network use; files written only when a flag asks.
 
+## Decision 7: the core loads, and principles are checkpoints
+
+Having a principle in a file does not make an agent follow it. Two mechanisms make it active:
+
+1. **The core loads first.** `experience-core.md` is 26 operating rules, each phrased as a behavior
+   ("before any question, field, or choice screen: does the software already know the answer? If
+   yes, use it"). Every `SKILL.md` starts with "Start here: read `references/_shared/experience-core.md`."
+   Validation fails a skill without it.
+2. **Checkpoints change the branch.** Every `SKILL.md` has at least four numbered decision points
+   in the form "For every X: question? Yes → do this. No → do that." They are placed where the
+   agent makes the decision (before diagnosing, before adding a control, before presenting), not in
+   a philosophy section it may skip.
+
+The test for every file: where does it force the agent to behave differently? If it only explains
+a principle, it is folded into a checkpoint or a loaded reference, or removed.
+
+## Decision 8: sibling orchestration is tested, not assumed
+
+The Agent Skills format does not guarantee that one skill can hand work to another. The router
+names specialists and, when they are not installed, carries a compressed fallback method for each.
+Whether agents actually load the specialists is measured by `scripts/run-agent-evals.mjs`, which
+records every skill, reference, and script an agent loads during a scenario.
+
 ## Validation layers
 
 | Check | Script | Catches |
 |---|---|---|
 | Spec + conventions | `validate-skills.mjs` | Frontmatter rules, name/dir match, description length and "Use when", required sections, line limits, placeholders, missing referenced paths, orphan references, undocumented scripts |
 | Repository | `validate-repo.mjs` | Required files, catalog ↔ disk, version consistency, private paths, secrets, image files |
-| Vendoring | `check-shared.mjs` | Stale, missing, or hand-edited copies; escaping references |
+| Vendoring | `check-shared.mjs` | Stale, missing, or hand-edited copies; vendored files the skill never names; shared sources no skill uses; escaping references |
 | Links | `check-links.mjs` | Broken relative links anywhere |
 | Catalog | `generate-catalog.mjs --check` | Stale catalog or README table |
 | Official validator | `agentskills validate` from the `skills-ref` package (CI) | Spec conformance per the reference implementation |
 | Behavior | `npm test` | Analyzer logic, scripts against fixture pages in a real browser, scanners, workflow ledger, routing fixtures |
 | Distribution | `test-skill-discovery.mjs` | The real CLI lists all skills; installs arrive complete and working |
+| Agent behavior | `run-agent-evals.mjs` (manual, spends usage) | With vs without skills on real scenarios: skills and references actually loaded, principles applied, unacceptable recommendations avoided |
 
 ## Future: project profiles
 

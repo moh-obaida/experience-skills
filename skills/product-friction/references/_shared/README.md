@@ -8,14 +8,10 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `time-to-outcome.md` | Time to Outcome | `shared/philosophy/time-to-outcome.md` |
-| `workflow-friction.md` | Workflow Friction Taxonomy | `shared/taxonomies/workflow-friction.md` |
-| `information-priority.md` | Information Priority | `shared/taxonomies/information-priority.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `product-maturity.md` | Product Maturity | `shared/taxonomies/product-maturity.md` |
-| `workflow-cliches.md` | Workflow Clichés | `shared/anti-patterns/workflow-cliches.md` |
 | `overengineering.md` | Overengineering | `shared/anti-patterns/overengineering.md` |
-| `workflow-rubric.md` | Workflow Rubric | `shared/evaluation/workflow-rubric.md` |
 | `next-best-action.md` | Pattern: Next Best Action | `shared/patterns/next-best-action.md` |
 | `continue-where-left-off.md` | Pattern: Continue Where You Left Off | `shared/patterns/continue-where-left-off.md` |
+| `workflow-friction.md` | Workflow Friction Taxonomy | `shared/taxonomies/workflow-friction.md` |
+| `information-priority.md` | Information Priority | `shared/taxonomies/information-priority.md` |

@@ -4,127 +4,106 @@ description: "Verify, not assume, that an experience works across real condition
 license: MIT
 compatibility: "The layout-report script needs Node.js 18+ and Playwright (or playwright-core with an installed Chrome). The checklist works without it."
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   collection: experience-skills
 ---
 
 # Responsive Validation
 
-Responsive design is not "there are media queries." It is the claim that the experience holds
-up across the sizes, inputs, languages, and settings real people use. This skill tests that claim.
+Responsive design is not "there are media queries." It is the claim that the experience holds up
+across the sizes, inputs, languages, and settings real people use. This skill tests that claim.
 
-> Rendered truth beats beautiful source code.
-> Do not optimize one screenshot while breaking the product.
+## Start here
+
+1. Read `references/_shared/experience-core.md`.
+2. Decide the audience's real conditions before choosing sizes (`references/validation-matrix.md`).
 
 ## Use this when
 
 - A layout change is about to ship.
-- Something looks right at the designer's size and nowhere else.
-- A bug mentions a device, a zoom level, a language, or "on my laptop."
-- A product adds RTL languages or long translations.
-- Touch, keyboard, or screen-magnification users report problems.
+- Something looks right at one size and nowhere else.
+- A bug mentions a device, zoom level, language, or "on my laptop."
+- The product adds RTL languages or long translations.
+- Touch, keyboard, or magnification users report problems.
 
 ## Do not use this when
 
-- The layout is broken at every size (composition-repair first).
-- Native mobile layout constraints are the question without a runnable build; use the checklist in
-  `references/native-and-desktop.md` and mark results unverified.
+- The layout is broken at every size → composition-repair first.
+- Only a native build question without a runnable build → use `references/mobile-and-native.md`
+  as a checklist and mark results unverified.
 
-## Core principles
+## Checkpoints
 
-1. **Test the audience's conditions,** not a fetish list. Start from who uses the product and how.
-2. **Width is not the only axis.** Height, zoom, text size, input type, language, and orientation
-   break layouts too.
-3. **Content stress is part of responsiveness.** Long names and translations break more layouts
-   than widths do.
-4. **Composition should adapt, not shrink.** Re-rank and restructure at small sizes.
-5. **Measure where possible;** look at screenshots; report evidence levels.
+1. **Before running anything:** does the matrix include at least one narrow phone (≤ 360 px wide
+   where the audience warrants), one short viewport (≤ 800 px tall, or landscape phone), and 200%
+   zoom? No → add them.
+2. **For any claim that it "works on mobile":** was it rendered at that size (E1/E2)? No → it is
+   unverified; say so.
+3. **For horizontal overflow:** do not fix it with `overflow-x: hidden` on the page. Find the culprit
+   (the report names it) and contain or reflow it.
+4. **For touch audiences:** anything hover-only, or interactive targets under 24 px, is a defect;
+   touch sheets and modals must not replace direct controls (anchor
+   `references/_shared/bottom-sheet-overuse.md`).
+5. **If the product supports RTL or translations:** were they checked with real or pseudo-localized
+   content? No → list as not tested.
+6. **Before reporting:** did you look at each size, not only read numbers? Scripts miss awkward wraps,
+   lost hierarchy, and focus order.
 
 ## Workflow
 
-### 1. Build the matrix
-From the audience, pick sizes and conditions. Load `references/validation-matrix.md` for the
-default matrix and how to adapt it. A typical web matrix:
+1. **Build the matrix** from the audience (`references/validation-matrix.md`). Typical web matrix:
+   ```
+   1920×1080 · 1440×900 · 1366×768 · 1280×800 · 1024×768 · 768×1024
+   430×932 · 390×844 · 375×812 · 360×800 · 200% zoom at 1280×800 · RTL (if supported)
+   ```
+2. **Run it** when a browser is available:
+   ```bash
+   node scripts/layout-report.mjs <url-or-file>
+   node scripts/layout-report.mjs <url> --sizes 1366x768,390x844 --zoom 1,2
+   node scripts/layout-report.mjs <url> --rtl --screenshots ./shots
+   ```
+   Per run it reports overflow (with culprits), collisions, small targets, sticky chrome share, and
+   first-viewport coverage. It writes screenshots only with `--screenshots`. Without a browser,
+   inspect CSS for fixed widths, `100vh`, absolute positioning, `overflow: hidden`, missing
+   `min-width: 0`, breakpoint gaps; list checks for the user.
+3. **Check conditions beyond width:**
 
-```
-1920×1080 · 1440×900 · 1366×768 · 1280×800 · 1024×768 · 768×1024
-430×932 · 390×844 · 375×812 · 360×800 · + 200% zoom at 1280×800 · + RTL (if supported)
-```
+   | Condition | Load |
+   |---|---|
+   | Zoom, text size, reflow; touch vs pointer vs keyboard | `references/zoom-and-input.md` |
+   | Safe areas, on-screen keyboard, native apps, desktop windows, terminals | `references/mobile-and-native.md` |
+   | RTL, translations, long and missing content | `references/rtl-and-content-stress.md` |
 
-### 2. Run the matrix
-If a browser is available:
-
-```bash
-node scripts/layout-report.mjs <url-or-file>                       # default matrix
-node scripts/layout-report.mjs <url> --sizes 1366x768,390x844 --zoom 1,2
-node scripts/layout-report.mjs <url> --rtl --screenshots ./shots   # also capture PNGs
-```
-
-The report gives, per size: horizontal overflow, content collisions, small interactive targets,
-sticky/fixed chrome share, and first-viewport content coverage. Screenshots are only written
-when `--screenshots` is given.
-
-Then *look* at the screenshots or the live page at each size. Scripts miss things eyes catch
-(awkward wraps, lost hierarchy, orphaned elements).
-
-Without a browser: inspect CSS for fixed widths, `100vh`, absolute positioning, `overflow: hidden`,
-missing `min-width: 0`, and breakpoint gaps; list the checks for the user to run.
-
-### 3. Check conditions beyond width
-| Condition | Load |
-|---|---|
-| Zoom, large text, reflow | `references/zoom-and-text-scaling.md` |
-| Touch, pointer, keyboard, hover absence | `references/input-modalities.md` |
-| Safe areas, notches, on-screen keyboard | `references/safe-areas-and-keyboard.md` |
-| RTL, long translations, scripts | `references/rtl-and-localization.md` |
-| Long content, empty content, extremes | `references/content-stress.md` |
-| Native apps and desktop windows | `references/native-and-desktop.md` |
-
-### 4. Report
-Use `references/reporting.md`: a matrix of sizes × checks with evidence levels, a ranked list of
-defects with size, screenshot/measure reference, and suggested fix.
-
-### 5. Repair and re-run (REPAIR mode)
-Fix structurally (composition-repair for layout, interaction-design for targets and reach). Re-run
-the same matrix and compare.
+4. **Report** with `references/reporting.md`: matrix summary, ranked defects with codes from
+   `references/_shared/visual-problems.md`, evidence levels, untested conditions.
+5. **Repair and re-run** the same matrix (composition-repair for layout, interaction-design for
+   targets and reach).
 
 ## Execution rules
 
-- Include at least one short viewport (≤ 800 px tall on desktop; landscape phone) in every matrix.
-- Include at least one narrow phone (360 px wide or less where the audience warrants).
-- Treat horizontal page scroll as a defect unless the content is inherently wide (and then contain
-  it in a scroll region).
-- Do not "fix" overflow with `overflow-x: hidden` on body without finding what overflows; it can
-  hide content and break sticky positioning.
-- Verify focus visibility and order at mobile sizes too.
+- Re-compose at small sizes; do not just shrink.
+- Verify focus order at each layout; CSS reordering can scramble it.
 - Report what was not tested.
 
 ## Failure modes
 
-- Testing only at the developer's monitor size and one phone.
-- Treating media queries as proof.
-- Shrinking desktop layouts instead of re-composing.
-- Ignoring height: sticky chrome and `100vh` heroes on short laptops.
-- Ignoring zoom and text size.
-- Screenshots without measurement, or measurement without looking.
+- Testing only the developer's monitor and one phone; media queries as proof; ignoring height,
+  zoom, and text size; screenshots without measurement or measurement without looking.
 
 ## Completion criteria
 
-- A matrix appropriate to the audience was defined and run (or statically assessed, stated as such).
-- No horizontal overflow, collisions, or clipped primary actions at matrix sizes, or defects are
-  listed with fixes.
-- Zoom (200%) reflow, keyboard focus, and touch targets were checked.
-- RTL and long-text stress were checked if the product supports them.
-- A report with evidence levels and untested conditions was delivered.
+- An audience-appropriate matrix was defined and run (or statically assessed, stated as such).
+- No overflow, collisions, or clipped primary actions at matrix sizes, or defects are listed with fixes.
+- Zoom reflow, keyboard focus, and touch targets were checked.
+- RTL and long-text stress were checked if supported.
+- The report states evidence levels and untested conditions.
 
 ## References
 
 - `references/validation-matrix.md` — choosing and running the matrix
-- `references/zoom-and-text-scaling.md`
-- `references/input-modalities.md`
-- `references/safe-areas-and-keyboard.md`
-- `references/rtl-and-localization.md`
-- `references/content-stress.md`
-- `references/native-and-desktop.md`
+- `references/zoom-and-input.md` — zoom, text scaling, input modalities
+- `references/mobile-and-native.md` — safe areas, keyboards, native apps, desktop, CLI output
+- `references/rtl-and-content-stress.md` — RTL, localization, content stress
 - `references/reporting.md` — report format
-- `references/_shared/` — shared taxonomy and examples (`bottom-sheet-overuse.md`)
+- `references/_shared/` — generated copies: `experience-core.md`, `visual-problems.md`,
+  `bottom-sheet-overuse.md`

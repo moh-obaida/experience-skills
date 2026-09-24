@@ -8,20 +8,12 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `human-judgment.md` | Human Judgment | `shared/philosophy/human-judgment.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `interaction-frequency.md` | Interaction Frequency | `shared/taxonomies/interaction-frequency.md` |
 | `overengineering.md` | Overengineering | `shared/anti-patterns/overengineering.md` |
-| `design-cliches.md` | Design Clichés | `shared/anti-patterns/design-cliches.md` |
-| `inline-edit.md` | Pattern: Inline Edit | `shared/patterns/inline-edit.md` |
-| `contextual-controls.md` | Pattern: Contextual Controls | `shared/patterns/contextual-controls.md` |
-| `compact-power-controls.md` | Pattern: Compact Power Controls | `shared/patterns/compact-power-controls.md` |
-| `smart-default.md` | Pattern: Smart Default | `shared/patterns/smart-default.md` |
-| `branded-environment-simple-form.md` | Pattern: Branded Environment, Simple Form | `shared/patterns/branded-environment-simple-form.md` |
 | `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
 | `context-aware-judgment.md` | Worked Example: Context-Aware Judgment Controls | `examples/interaction/context-aware-judgment.md` |
-| `search-proportionality.md` | Worked Example: Search Proportionality | `examples/interaction/search-proportionality.md` |
 | `undo-vs-confirm.md` | Worked Example: Undo vs Confirmation | `examples/interaction/undo-vs-confirm.md` |
 | `bottom-sheet-overuse.md` | Worked Example: Bottom-Sheet Overuse on Mobile | `examples/interaction/bottom-sheet-overuse.md` |
 | `public-service-form.md` | Worked Example: Public-Service Form | `examples/full-product/public-service-form.md` |
+| `search-proportionality.md` | Worked Example: Search Proportionality | `examples/interaction/search-proportionality.md` |

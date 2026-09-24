@@ -8,15 +8,8 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `page-archetypes.md` | Page Archetypes | `shared/taxonomies/page-archetypes.md` |
-| `state-types.md` | State Types | `shared/taxonomies/state-types.md` |
-| `information-priority.md` | Information Priority | `shared/taxonomies/information-priority.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `fake-density.md` | Fake Density | `shared/anti-patterns/fake-density.md` |
-| `fake-minimalism.md` | Fake Minimalism | `shared/anti-patterns/fake-minimalism.md` |
-| `meaningful-empty-state.md` | Pattern: Meaningful Empty State | `shared/patterns/meaningful-empty-state.md` |
-| `next-best-action.md` | Pattern: Next Best Action | `shared/patterns/next-best-action.md` |
-| `recent-context.md` | Pattern: Recent Context | `shared/patterns/recent-context.md` |
 | `empty-state-overcorrection.md` | Worked Example: Empty-State Overcorrection | `examples/states/empty-state-overcorrection.md` |
 | `sparse-operational-home.md` | Worked Example: The Sparse Operational Home | `examples/composition/sparse-operational-home.md` |
+| `meaningful-empty-state.md` | Pattern: Meaningful Empty State | `shared/patterns/meaningful-empty-state.md` |

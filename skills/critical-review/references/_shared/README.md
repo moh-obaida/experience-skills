@@ -8,13 +8,13 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `human-judgment.md` | Human Judgment | `shared/philosophy/human-judgment.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
 | `overengineering.md` | Overengineering | `shared/anti-patterns/overengineering.md` |
+| `human-judgment.md` | Human Judgment | `shared/philosophy/human-judgment.md` |
 | `experience-rubric.md` | Experience Rubric | `shared/evaluation/experience-rubric.md` |
-| `anti-slop-gate.md` | Anti-Slop Gate | `shared/evaluation/anti-slop-gate.md` |
 | `workflow-rubric.md` | Workflow Rubric | `shared/evaluation/workflow-rubric.md` |
+| `anti-slop-gate.md` | Anti-Slop Gate | `shared/evaluation/anti-slop-gate.md` |
 | `public-service-form.md` | Worked Example: Public-Service Form | `examples/full-product/public-service-form.md` |
 | `product-page-purchase-path.md` | Worked Example: Product Page Purchase Path | `examples/full-product/product-page-purchase-path.md` |
+| `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |

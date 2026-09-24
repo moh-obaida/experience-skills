@@ -1,7 +1,7 @@
 # Evidence and Claims
 
-Match the strength of a claim to the strength of its evidence. The shared standard
-(`references/_shared/evidence-standard.md`) defines levels E1–E6.
+Match the strength of a claim to the strength of its evidence. The evidence levels E1–E6 are
+defined at the end of `references/_shared/experience-core.md`.
 
 ## Claim types
 

@@ -140,14 +140,20 @@ agents supported by the CLI should work but were not individually tested.
 
 ## How it works
 
-- **Progressive disclosure.** Each `SKILL.md` is short: when to use it, when not to, the workflow,
-  which reference to load for which problem, and what "done" means. Depth lives in `references/`
-  and loads only when needed.
+- **A core that loads.** Every skill starts by reading the same 26 operating rules
+  (`experience-core.md`), each phrased as a behavior, not a slogan.
+- **Checkpoints, not advice.** Each `SKILL.md` has decision points that change what the agent does:
+  "For any change to a basic control: does it make the task faster or more reliable? No → reject it
+  and move the personality into the environment."
+- **Progressive disclosure.** Each `SKILL.md` is short (about 100–125 lines): when to use it, when
+  not to, checkpoints, the workflow, which reference to load for which decision, and what "done"
+  means. Each reference answers one decision.
 - **A thin router.** `experience-architect` diagnoses and routes; it does not duplicate the specialists.
 - **Shared source, vendored copies.** Common philosophy, taxonomies, patterns, and worked examples
   are written once in `shared/` and `examples/`, then copied into each skill's
-  `references/_shared/` by `npm run sync`. An individually installed skill is self-contained;
-  CI fails if a copy is stale or a skill references anything outside its folder.
+  `references/_shared/` by `npm run sync`. An individually installed skill is self-contained, and
+  it ships only the shared files its instructions actually point to. CI fails if a copy is stale, a
+  shipped file is never referenced, or a skill points outside its folder.
 - **Evidence levels.** Findings say whether they rest on rendered behavior, measurement, source,
   screenshots, or assumption.
 
@@ -160,8 +166,8 @@ skills/        12 installable skills (the product)
 shared/        source of truth for shared philosophy, taxonomies, patterns, anti-patterns, evaluation, tools
 examples/      20 worked examples (problem, bad version, analysis, better version, tradeoffs)
 catalog/       skills.json: categories, shared-module declarations, generated metadata
-scripts/       sync, validation, link checking, catalog generation, CLI discovery test
-tests/         unit and browser tests, routing evals, scenarios, fixtures
+scripts/       sync, validation, link checking, catalog generation, CLI discovery test, agent evals
+tests/         unit and browser tests, routing fixtures, agent-eval scenarios, fixtures
 research/      prior art, visual reference catalog, research notes
 docs/          architecture, philosophy, authoring, evaluation, installation, contributing
 ```
@@ -172,6 +178,7 @@ docs/          architecture, philosophy, authoring, evaluation, installation, co
 npm install          # installs playwright-core for browser tests (uses your installed Chrome)
 npm run sync         # after editing anything in shared/ or examples/
 npm run check        # full gate: shared sync, validation, links, catalog, tests, CLI discovery
+npm run eval:agents  # with vs without skills on real scenarios (uses a logged-in Claude Code CLI; spends usage)
 ```
 
 `npm run check` includes a discovery test that fetches the `skills` CLI with `npx`. Set

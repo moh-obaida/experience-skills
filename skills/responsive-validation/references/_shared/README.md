@@ -8,9 +8,6 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `rendered-truth.md` | Rendered Truth | `shared/philosophy/rendered-truth.md` |
-| `page-archetypes.md` | Page Archetypes | `shared/taxonomies/page-archetypes.md` |
-| `visual-problems.md` | Visual Problem Taxonomy | `shared/taxonomies/visual-problems.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `bottom-sheet-overuse.md` | Worked Example: Bottom-Sheet Overuse on Mobile | `examples/interaction/bottom-sheet-overuse.md` |
+| `visual-problems.md` | Visual Problem Taxonomy | `shared/taxonomies/visual-problems.md` |

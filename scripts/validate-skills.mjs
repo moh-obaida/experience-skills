@@ -13,10 +13,12 @@ const NAME_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const ALLOWED_KEYS = new Set(['name', 'description', 'license', 'compatibility', 'metadata', 'allowed-tools']);
 
 // Repository conventions
-const REQUIRED_SECTIONS = ['## Use this when', '## Do not use this when', '## Workflow', '## Completion criteria'];
+const REQUIRED_SECTIONS = ['## Start here', '## Use this when', '## Do not use this when', '## Checkpoints', '## Workflow', '## Completion criteria'];
+const CORE = 'references/_shared/experience-core.md';
+const MIN_CHECKPOINTS = 4;
 const PLACEHOLDER_RE = /\b(?:TODO|TBD|FIXME|lorem ipsum)\b|\[placeholder\]/i;
 const SKILL_MAX_LINES = 500; // spec recommendation (hard limit here)
-const SKILL_TARGET_LINES = 300; // repo target (warning)
+const SKILL_TARGET_LINES = 200; // repo target (warning)
 const MIN_REFERENCE_LINES = 15;
 
 export function validateSkill(name, r, { version } = {}) {
@@ -74,6 +76,12 @@ export function validateSkill(name, r, { version } = {}) {
   for (const section of REQUIRED_SECTIONS) {
     if (!body.includes(`\n${section}`)) r.error(`${where}: missing section "${section}"`);
   }
+  const sectionText = (heading) => (body.split(`\n${heading}\n`)[1] ?? '').split('\n## ')[0];
+  // The universal core must be loaded before the skill does anything else.
+  if (!sectionText('## Start here').includes(CORE)) r.error(`${where}: "## Start here" must tell the agent to read ${CORE}`);
+  // Checkpoints are the decision points that change the agent's branch.
+  const checkpoints = sectionText('## Checkpoints').match(/^\d+\. \*\*/gm) ?? [];
+  if (checkpoints.length < MIN_CHECKPOINTS) r.error(`${where}: "## Checkpoints" needs at least ${MIN_CHECKPOINTS} numbered, bolded decision points (found ${checkpoints.length})`);
 
   // files in the skill
   const files = listFiles(root);

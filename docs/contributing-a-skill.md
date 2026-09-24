@@ -17,7 +17,8 @@ proposal* issue first to discuss scope.
 1. **Create** `skills/<name>/SKILL.md` following [authoring-skills.md](authoring-skills.md).
 2. **Write references** for the diagnoses your workflow routes to.
 3. **Declare shared modules** in `catalog/skills.json`: add an entry with `name`, `category`,
-   `useWhen`, `shared` (and `sharedScripts` if needed). Include `coreModules` implicitly.
+   `useWhen`, `shared` (and `sharedScripts` if needed). `coreModules` are added automatically.
+   Name every shared file in `SKILL.md` where it is used.
 4. **Sync and generate**: `npm run sync && npm run catalog`.
 5. **Route to it**: add a row to `skills/experience-architect/references/routing.md` (including a
    fallback method) and, if relevant, to `cross-skill-composition.md`.
@@ -31,8 +32,11 @@ proposal* issue first to discuss scope.
 
 - [ ] Valid `SKILL.md` frontmatter; name matches the folder
 - [ ] Description says what and when ("Use when …"), with distinctive keywords
-- [ ] Progressive disclosure: `SKILL.md` under ~300 lines; depth in references
-- [ ] Every reference is mentioned in `SKILL.md`; no reference chains
+- [ ] "Start here" loads `references/_shared/experience-core.md`
+- [ ] At least four checkpoints that change the agent's branch
+- [ ] Progressive disclosure: `SKILL.md` under ~200 lines; one reference per decision
+- [ ] Every reference and every vendored file is named in `SKILL.md`; no reference chains
+- [ ] Scenario with a prompt added, and an eval run (`npm run eval:agents -- --scenarios <id>`) if you can
 - [ ] No broken links; nothing references paths outside the skill
 - [ ] Shared content declared in the catalog, not duplicated by hand
 - [ ] Examples and anti-patterns included

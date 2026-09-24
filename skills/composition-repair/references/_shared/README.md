@@ -8,17 +8,14 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
-| `rendered-truth.md` | Rendered Truth | `shared/philosophy/rendered-truth.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `page-archetypes.md` | Page Archetypes | `shared/taxonomies/page-archetypes.md` |
-| `visual-problems.md` | Visual Problem Taxonomy | `shared/taxonomies/visual-problems.md` |
-| `information-priority.md` | Information Priority | `shared/taxonomies/information-priority.md` |
-| `fake-minimalism.md` | Fake Minimalism | `shared/anti-patterns/fake-minimalism.md` |
 | `fake-density.md` | Fake Density | `shared/anti-patterns/fake-density.md` |
 | `branded-environment-simple-form.md` | Pattern: Branded Environment, Simple Form | `shared/patterns/branded-environment-simple-form.md` |
-| `state-header.md` | Pattern: State Header | `shared/patterns/state-header.md` |
 | `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
 | `sparse-operational-home.md` | Worked Example: The Sparse Operational Home | `examples/composition/sparse-operational-home.md` |
 | `editorial-not-cards.md` | Worked Example: Editorial Hierarchy, Not Cards | `examples/composition/editorial-not-cards.md` |
+| `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
+| `information-priority.md` | Information Priority | `shared/taxonomies/information-priority.md` |
+| `visual-problems.md` | Visual Problem Taxonomy | `shared/taxonomies/visual-problems.md` |
+| `fake-minimalism.md` | Fake Minimalism | `shared/anti-patterns/fake-minimalism.md` |

@@ -1,6 +1,6 @@
 {
   "name": "experience-skills",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Portable agent skills for designing digital experiences that are distinctive, obvious, efficient, state-aware, and resistant to AI slop.",
   "license": "MIT",
@@ -16,6 +16,7 @@
     "catalog": "node scripts/generate-catalog.mjs",
     "check:catalog": "node scripts/generate-catalog.mjs --check",
     "test": "node --test \"tests/**/*.test.mjs\"",
+    "eval:agents": "node scripts/run-agent-evals.mjs",
     "test:discovery": "node scripts/test-skill-discovery.mjs",
     "check": "npm run check:shared && npm run validate && npm run links && npm run check:catalog && npm test && npm run test:discovery"
   },

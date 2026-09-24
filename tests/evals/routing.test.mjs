@@ -38,6 +38,6 @@ test('scenario files have required sections and list the expected skills', () =>
 });
 
 test('the router routing reference covers every specialist', () => {
-  const routing = readFileSync(join(ROOT, 'skills', 'experience-architect', 'references', 'routing.md'), 'utf8');
-  for (const s of skills.filter((n) => n !== 'experience-architect')) assert.ok(routing.includes(s), `routing.md does not mention ${s}`);
+  const routing = readFileSync(join(ROOT, 'skills', 'experience-architect', 'references', 'diagnosis-and-routing.md'), 'utf8');
+  for (const s of skills.filter((n) => n !== 'experience-architect')) assert.ok(routing.includes(s), `diagnosis-and-routing.md does not mention ${s}`);
 });

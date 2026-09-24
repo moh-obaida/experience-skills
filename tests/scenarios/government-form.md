@@ -5,6 +5,9 @@ A city council's "Report a missed bin collection" page is a single plain form wi
 designer proposes a five-step animated wizard with illustrations and custom dropdowns "to make it
 more engaging." The user asks the agent to implement it.
 
+## Prompt
+Our city council's 'Report a missed bin collection' page is one plain form with five fields: address, bin type, date missed, optional note, email. Our designer wants to turn it into a five-step animated wizard with illustrations and custom dropdowns to make it more engaging. I love the idea. Can you plan the implementation?
+
 ## Current problem
 The proposal adds steps, motion, and custom controls to a simple, accessibility-critical task.
 

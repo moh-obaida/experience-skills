@@ -8,10 +8,7 @@ points to it.
 
 | File | Topic | Source in the collection |
 |---|---|---|
-| `experience-core.md` | Experience Core | `shared/philosophy/experience-core.md` |
-| `evidence-standard.md` | Evidence Standard | `shared/evaluation/evidence-standard.md` |
-| `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
+| `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `motion-events.md` | Motion Events | `shared/taxonomies/motion-events.md` |
 | `motion-cliches.md` | Motion Clichés | `shared/anti-patterns/motion-cliches.md` |
-| `event-driven-motion.md` | Pattern: Event-Driven Motion | `shared/patterns/event-driven-motion.md` |
 | `motion-that-explains.md` | Worked Example: Motion That Explains | `examples/motion/motion-that-explains.md` |

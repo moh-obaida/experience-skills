@@ -6,3 +6,7 @@ node_modules/
 shots/
 screenshots/
 skills-lock.json
+
+# Raw agent transcripts from run-agent-evals (reports and summaries are kept)
+tests/evals/results/**/*.jsonl
+tests/evals/results/**/*.answer.md

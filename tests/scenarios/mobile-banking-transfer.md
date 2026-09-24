@@ -5,6 +5,9 @@ A banking app's transfer flow takes 9 screens: select account (only one), transf
 currency (only one valid), recipient, amount, "please confirm you want to continue", review,
 PIN, "submitted". The product owner asks to "make transfers one tap."
 
+## Prompt
+Our banking app's transfer flow has 9 screens: select account (users have one), transfer type (domestic/international), currency, recipient, amount, 'please confirm you want to continue', review, PIN, then 'submitted'. Our product owner wants transfers to be one tap. How should we redesign it?
+
 ## Current problem
 Fake decisions and a fake confirmation dilute the real safeguard; ambiguous final state.
 

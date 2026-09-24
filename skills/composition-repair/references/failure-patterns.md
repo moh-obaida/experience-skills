@@ -6,13 +6,13 @@ and the repair direction.
 ## 1. The Lonely Card
 Logo, heading, small card, button in the middle of a blank viewport.
 - **Why:** centering is the default; nothing else was designed.
-- **Repair:** compose the environment and scale the task region; see `alignment.md`.
+- **Repair:** compose the environment and scale the task region; see `references/hierarchy-and-alignment.md`.
 - **Worked example:** `references/_shared/join-code-page.md`.
 
 ## 2. The Welcome Void
 Operational home with "Welcome back!" and three big buttons, 70% empty.
 - **Why:** no real state was surfaced.
-- **Repair:** show recent and in-progress items and next actions; see `density.md`.
+- **Repair:** show recent and in-progress items and next actions; see `references/viewport-and-space.md`.
 - **Worked example:** `references/_shared/sparse-operational-home.md`.
 
 ## 3. Container Soup
@@ -37,7 +37,7 @@ A `100vh` hero pushes the task below the fold on every visit.
 
 ## 7. The Chrome Sandwich
 Header, sub-nav, banner, and a bottom bar leave 40% of a laptop screen for content.
-- **Repair:** see `fixed-sticky.md`.
+- **Repair:** see `references/layout-mechanics.md`.
 
 ## 8. Dead Middle
 Two items flung to opposite edges with `space-between` on a wide screen.
@@ -59,11 +59,11 @@ Absolutely positioned badges, labels, or decorations overlapping content at cert
 
 ## 12. The Scroll Trap
 A fixed-height inner scroll region holds the main content; the page does not scroll.
-- **Repair:** see `scroll-ownership.md`.
+- **Repair:** see `references/layout-mechanics.md`.
 
 ## 13. Equal Everything
 Every section the same size and weight; the page has no rhythm.
-- **Repair:** rank and vary; see `hierarchy.md`.
+- **Repair:** rank and vary; see `references/hierarchy-and-alignment.md`.
 
 ## 14. The Decorative Focal Point
 The biggest, brightest element is an illustration or a decorative stat, not the task.

@@ -5,6 +5,9 @@ A deployment CLI's `init` command asks six interactive questions (project name, 
 manager, output directory, Node version, confirmation). All answers are present in the repository
 (package.json, lockfile, .nvmrc). In CI it hangs waiting for input.
 
+## Prompt
+Our deployment CLI's `init` command asks six interactive questions: project name, framework, package manager, output directory, Node version, and 'are you sure?'. All of that is already in the repo (package.json, lockfile, .nvmrc). In CI it hangs waiting for input. How should `init` work?
+
 ## Current problem
 Redundant input; confirmation tax; non-interactive failure; no override flags; no next step.
 

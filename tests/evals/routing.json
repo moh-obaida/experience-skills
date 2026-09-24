@@ -1,35 +1,277 @@
 {
-  "$comment": "Routing fixtures: user phrasing → skills the router should reach for. Documentation and validation aids, not a classifier. 'expected' must all be relevant; 'notExpected' would be a routing mistake.",
+  "$comment": "Routing fixtures: user phrasing → skills the router should reach for. Documentation and validation aids, not a classifier. 'expected' must all be relevant; 'notExpected' would be a routing mistake. Scenarios with 'anchor' are regression anchors for the agent eval harness (scripts/run-agent-evals.mjs); 'fixtures' are copied into the agent's temporary project.",
   "cases": [
-    { "input": "this settings flow takes 12 clicks", "expected": ["workflow-compression", "product-friction"], "notExpected": ["motion-design"] },
-    { "input": "the page is clean but looks blank and generic", "expected": ["composition-repair", "visual-identity", "anti-slop-ui"], "notExpected": ["workflow-compression"] },
-    { "input": "animation is just fades", "expected": ["motion-design", "state-design"], "notExpected": ["empty-state-design"] },
-    { "input": "mobile layout overflows", "expected": ["responsive-validation", "composition-repair"], "notExpected": ["visual-identity"] },
-    { "input": "do you think my redesign is good?", "expected": ["critical-review"], "notExpected": [] },
-    { "input": "our join page has fancy code boxes but the page feels empty", "expected": ["composition-repair", "visual-identity", "interaction-design", "anti-slop-ui"], "notExpected": [] },
-    { "input": "users keep asking support where the export button is", "expected": ["product-friction", "interaction-design"], "notExpected": ["motion-design"] },
-    { "input": "the error just says something went wrong", "expected": ["state-design"], "notExpected": ["visual-identity"] },
-    { "input": "the library is empty for new users and looks broken", "expected": ["empty-state-design", "composition-repair"], "notExpected": ["motion-design"] },
-    { "input": "the host has separate correct and wrong buttons for every team", "expected": ["interaction-design", "workflow-compression"], "notExpected": ["visual-identity"] },
-    { "input": "our landing page looks like every other AI startup", "expected": ["anti-slop-ui", "visual-identity"], "notExpected": ["state-design"] },
-    { "input": "users wait three minutes on a spinner while the report generates", "expected": ["state-design", "workflow-compression"], "notExpected": ["visual-identity"] },
-    { "input": "the dashboard only looks good on my 27 inch monitor", "expected": ["responsive-validation", "composition-repair"], "notExpected": [] },
-    { "input": "the leaderboard updates but nobody notices who moved", "expected": ["motion-design", "state-design"], "notExpected": ["workflow-compression"] },
-    { "input": "our CLI asks too many questions during setup", "expected": ["workflow-compression", "interaction-design"], "notExpected": ["visual-identity"] },
-    { "input": "the product has gotten confusing as we added features", "expected": ["product-friction"], "notExpected": ["motion-design"] },
-    { "input": "I love this glassmorphism idea for our tax form, should we ship it?", "expected": ["critical-review", "anti-slop-ui"], "notExpected": [] },
-    { "input": "something about this screen feels off but I can't say what", "expected": ["experience-architect"], "notExpected": [] }
+    {
+      "input": "this settings flow takes 12 clicks",
+      "expected": [
+        "workflow-compression",
+        "product-friction"
+      ],
+      "notExpected": [
+        "motion-design"
+      ]
+    },
+    {
+      "input": "the page is clean but looks blank and generic",
+      "expected": [
+        "composition-repair",
+        "visual-identity",
+        "anti-slop-ui"
+      ],
+      "notExpected": [
+        "workflow-compression"
+      ]
+    },
+    {
+      "input": "animation is just fades",
+      "expected": [
+        "motion-design",
+        "state-design"
+      ],
+      "notExpected": [
+        "empty-state-design"
+      ]
+    },
+    {
+      "input": "mobile layout overflows",
+      "expected": [
+        "responsive-validation",
+        "composition-repair"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "do you think my redesign is good?",
+      "expected": [
+        "critical-review"
+      ],
+      "notExpected": []
+    },
+    {
+      "input": "our join page has fancy code boxes but the page feels empty",
+      "expected": [
+        "composition-repair",
+        "visual-identity",
+        "interaction-design",
+        "anti-slop-ui"
+      ],
+      "notExpected": []
+    },
+    {
+      "input": "users keep asking support where the export button is",
+      "expected": [
+        "product-friction",
+        "interaction-design"
+      ],
+      "notExpected": [
+        "motion-design"
+      ]
+    },
+    {
+      "input": "the error just says something went wrong",
+      "expected": [
+        "state-design"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "the library is empty for new users and looks broken",
+      "expected": [
+        "empty-state-design",
+        "composition-repair"
+      ],
+      "notExpected": [
+        "motion-design"
+      ]
+    },
+    {
+      "input": "the host has separate correct and wrong buttons for every team",
+      "expected": [
+        "interaction-design",
+        "workflow-compression"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "our landing page looks like every other AI startup",
+      "expected": [
+        "anti-slop-ui",
+        "visual-identity"
+      ],
+      "notExpected": [
+        "state-design"
+      ]
+    },
+    {
+      "input": "users wait three minutes on a spinner while the report generates",
+      "expected": [
+        "state-design",
+        "workflow-compression"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "the dashboard only looks good on my 27 inch monitor",
+      "expected": [
+        "responsive-validation",
+        "composition-repair"
+      ],
+      "notExpected": []
+    },
+    {
+      "input": "the leaderboard updates but nobody notices who moved",
+      "expected": [
+        "motion-design",
+        "state-design"
+      ],
+      "notExpected": [
+        "workflow-compression"
+      ]
+    },
+    {
+      "input": "our CLI asks too many questions during setup",
+      "expected": [
+        "workflow-compression",
+        "interaction-design"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "the product has gotten confusing as we added features",
+      "expected": [
+        "product-friction"
+      ],
+      "notExpected": [
+        "motion-design"
+      ]
+    },
+    {
+      "input": "I love this glassmorphism idea for our tax form, should we ship it?",
+      "expected": [
+        "critical-review",
+        "anti-slop-ui"
+      ],
+      "notExpected": []
+    },
+    {
+      "input": "something about this screen feels off but I can't say what",
+      "expected": [
+        "experience-architect"
+      ],
+      "notExpected": []
+    }
   ],
   "scenarios": [
-    { "file": "tests/scenarios/blank-saas-dashboard.md", "expected": ["empty-state-design", "composition-repair", "anti-slop-ui"] },
-    { "file": "tests/scenarios/playful-game-join.md", "expected": ["visual-identity", "composition-repair", "interaction-design", "anti-slop-ui"] },
-    { "file": "tests/scenarios/government-form.md", "expected": ["critical-review", "workflow-compression", "interaction-design"] },
-    { "file": "tests/scenarios/ecommerce-checkout.md", "expected": ["workflow-compression", "interaction-design", "composition-repair", "product-friction"] },
-    { "file": "tests/scenarios/mobile-banking-transfer.md", "expected": ["workflow-compression", "interaction-design", "state-design", "critical-review"] },
-    { "file": "tests/scenarios/creative-tool-toolbar.md", "expected": ["interaction-design", "product-friction", "workflow-compression", "composition-repair"] },
-    { "file": "tests/scenarios/CLI-project-init.md", "expected": ["workflow-compression", "interaction-design", "state-design"] },
-    { "file": "tests/scenarios/editorial-homepage.md", "expected": ["composition-repair", "visual-identity", "anti-slop-ui"] },
-    { "file": "tests/scenarios/long-running-ai-job.md", "expected": ["state-design", "workflow-compression", "interaction-design"] },
-    { "file": "tests/scenarios/data-dashboard.md", "expected": ["anti-slop-ui", "composition-repair", "state-design", "product-friction"] }
+    {
+      "file": "tests/scenarios/blank-saas-dashboard.md",
+      "expected": [
+        "empty-state-design",
+        "composition-repair",
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "home.html": "tests/fixtures/pages/sparse-home.html"
+      },
+      "anchor": "examples/composition/sparse-operational-home.md"
+    },
+    {
+      "file": "tests/scenarios/playful-game-join.md",
+      "expected": [
+        "visual-identity",
+        "composition-repair",
+        "interaction-design",
+        "anti-slop-ui",
+        "critical-review"
+      ],
+      "fixtures": {
+        "join.html": "tests/fixtures/pages/centered-card.html"
+      },
+      "anchor": "examples/identity/join-code-page.md"
+    },
+    {
+      "file": "tests/scenarios/government-form.md",
+      "expected": [
+        "critical-review",
+        "workflow-compression",
+        "interaction-design"
+      ],
+      "anchor": "examples/full-product/public-service-form.md"
+    },
+    {
+      "file": "tests/scenarios/ecommerce-checkout.md",
+      "expected": [
+        "workflow-compression",
+        "interaction-design",
+        "composition-repair",
+        "product-friction"
+      ],
+      "anchor": "examples/full-product/product-page-purchase-path.md"
+    },
+    {
+      "file": "tests/scenarios/mobile-banking-transfer.md",
+      "expected": [
+        "workflow-compression",
+        "interaction-design",
+        "state-design",
+        "critical-review"
+      ],
+      "anchor": "examples/full-product/mobile-money-transfer.md"
+    },
+    {
+      "file": "tests/scenarios/creative-tool-toolbar.md",
+      "expected": [
+        "interaction-design",
+        "product-friction",
+        "workflow-compression",
+        "composition-repair"
+      ]
+    },
+    {
+      "file": "tests/scenarios/CLI-project-init.md",
+      "expected": [
+        "workflow-compression",
+        "interaction-design",
+        "state-design"
+      ],
+      "anchor": "examples/workflow/cli-project-init.md"
+    },
+    {
+      "file": "tests/scenarios/editorial-homepage.md",
+      "expected": [
+        "composition-repair",
+        "visual-identity",
+        "anti-slop-ui"
+      ],
+      "anchor": "examples/composition/editorial-not-cards.md"
+    },
+    {
+      "file": "tests/scenarios/long-running-ai-job.md",
+      "expected": [
+        "state-design",
+        "workflow-compression",
+        "interaction-design"
+      ],
+      "anchor": "examples/full-product/long-running-generation.md"
+    },
+    {
+      "file": "tests/scenarios/data-dashboard.md",
+      "expected": [
+        "anti-slop-ui",
+        "composition-repair",
+        "state-design",
+        "product-friction"
+      ],
+      "anchor": "examples/anti-slop/kpi-card-dashboard.md"
+    }
   ]
 }

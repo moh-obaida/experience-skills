@@ -1,7 +1,8 @@
 # Philosophy
 
-The compact, canonical version is `shared/philosophy/experience-core.md`, which every skill
-carries. This page explains where it comes from and how the pieces relate.
+The operational version is `shared/philosophy/experience-core.md`: 26 rules, each phrased as a
+behavior, which every skill tells the agent to read first. This page explains where the ideas come
+from and how they relate.
 
 ## The problem
 

@@ -54,7 +54,9 @@ The repository should itself resist slop.
   revolutionize, and similar.
 - Vendor-neutral: "the agent," not a specific product.
 - No "Obviously," no hype, no fake numbers.
-- Keep `SKILL.md` files under ~300 lines; move depth to references.
+- Keep `SKILL.md` files under ~200 lines; move depth to references.
+- Apply the file test: where does this file force the agent to behave differently? If it only
+  explains a principle, fold it into a checkpoint or a reference that a checkpoint loads.
 
 ## Code of conduct
 

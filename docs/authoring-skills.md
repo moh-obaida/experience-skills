@@ -22,7 +22,7 @@ description: "What it does, with concrete keywords. Use when <triggers>; when <m
 license: MIT
 compatibility: "Only if scripts need something (Node version, Playwright)."   # optional, ≤ 500 chars
 metadata:
-  version: "0.1.0"             # equals package.json version
+  version: "0.1.1"             # equals package.json version
   collection: experience-skills
 ---
 ```
@@ -42,24 +42,39 @@ The description is the only text an agent sees before deciding to load the skill
 
 ## SKILL.md body
 
-Recommended sections (the first, second, workflow, and completion are required by validation):
+Sections (bold ones are required by validation):
 
-1. **Purpose**: one short paragraph and, if helpful, a canonical rule in a quote block.
-2. **Use this when**: concrete triggers.
-3. **Do not use this when**: anti-triggers and where to go instead.
-4. **Core principles**: 5–9 durable rules.
-5. **Workflow**: numbered steps, including observation and verification.
-6. **Choose references**: a table from diagnosis to reference file.
-7. **Execution rules**: invariants.
-8. **Failure modes**: what goes wrong, named.
+1. Purpose: one short paragraph.
+2. **Start here**: tells the agent to read `references/_shared/experience-core.md` first, plus any
+   skill-specific first step (for example, "name the archetype").
+3. **Use this when**: concrete triggers.
+4. **Do not use this when**: anti-triggers and where to go instead.
+5. **Checkpoints**: at least four numbered decision points in the form "**Before/For every X:**
+   question? Yes → do this. No → do that." Each must change what the agent does next. A principle
+   that does not change a branch belongs in a reference, or nowhere.
+6. **Workflow**: numbered steps, including observation and verification, with a table from diagnosis
+   to the one reference to load.
+7. Execution rules: invariants.
+8. Failure modes.
 9. **Completion criteria**: what "done" means, checkable.
-10. **References**: list of every reference file.
+10. References: every own reference, and every vendored shared file by name.
 
-Keep it under ~300 lines. If a section grows, move it to a reference.
+Keep it under ~200 lines. If a section grows, move it to a reference.
+
+### Writing a good checkpoint
+
+Weak (explains): "Personality belongs in the environment, not in controls."
+
+Strong (branches): "**For any change to a basic control:** does it make the task faster or more
+reliable? No → reject it and move the personality into the environment."
+
+The strong version tells the agent what to reject.
 
 ## References
 
-- One coherent question per file ("how to design undo vs confirmation"), 30–150 lines.
+- One file per decision the workflow routes to ("how to design undo vs confirmation"), usually
+  60–200 lines. Merge files that are always loaded together; split only when two decisions are
+  loaded at different times.
 - Start with a `# ` heading.
 - Include tradeoffs: when the advice applies and when it does not.
 - Prefer tables, checklists, and short examples over essays.
@@ -70,7 +85,9 @@ Keep it under ~300 lines. If a section grows, move it to a reference.
 ## Shared content
 
 If two or more skills need the same material, put it in `shared/` (or `examples/`) and declare it
-per skill in `catalog/skills.json`. Shared markdown must not contain relative links; mention other
+per skill in `catalog/skills.json`. Declare it only for skills whose `SKILL.md` names it where it is
+used; `check-shared` rejects shipped files the agent is never told to read, and shared sources no
+skill uses. Shared markdown must not contain relative links; mention other
 modules by name. Filenames must be unique across shared sources.
 
 ## Scripts

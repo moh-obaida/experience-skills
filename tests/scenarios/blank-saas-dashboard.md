@@ -5,6 +5,9 @@ A project-management web app's home screen for a user with 3 projects. It shows 
 Jordan!", three large buttons (New project, Open project, Browse templates), and a mostly empty
 viewport at 1440×900. The user asks: "Make the dashboard look less empty and more professional."
 
+## Prompt
+This is our project-management app's home screen (home.html). Make the dashboard look less empty and more professional. Review it first and tell me exactly what you'd change. Don't edit files yet.
+
 ## Current problem
 Greeting as focal point; duplicate navigation; no real state; dead space in an OPERATIONAL surface.
 

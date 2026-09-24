@@ -3,7 +3,7 @@ name: workflow-compression
 description: "Reduce time-to-outcome in any user workflow by mapping it step by step, classifying friction (redundant input, unnecessary choice, repeated configuration, navigation tax, confirmation tax, serial work, memory failure, waiting tax, dead ends, expert tax), and removing work the software could do, while preserving safety and meaningful human judgment. Use when a flow takes too many clicks, screens, questions, or waits; when users re-enter known information; when setup or configuration repeats; or when asked to make something faster or simpler. Always measures steps before and after."
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   collection: experience-skills
 ---
 
@@ -12,160 +12,109 @@ metadata:
 Functionality is the baseline. Once a flow works, the question is how long it takes and how
 much of that time buys the user anything.
 
-> If the software already knows the answer, do not ask the user again.
-> If there is only one meaningful option, do not create a choice screen.
-> Automate mechanics. Preserve judgment.
+## Start here
+
+1. Read `references/_shared/experience-core.md`.
+2. Identify the flow's outcome, actor, and frequency. Frequency decides how much each step costs
+   (`references/_shared/interaction-frequency.md`).
 
 ## Use this when
 
-- A task takes many clicks, screens, or questions for what it achieves.
-- Users re-enter information the product already has.
-- A choice screen has only one real option.
-- Harmless actions ask for confirmation.
-- Small edits require navigating to a separate page or modal.
-- Users process items one at a time that could be handled together.
-- Setup or configuration is repeated every session.
-- Users wait on a screen while background-capable work runs.
-- A completed task ends in a dead end.
-- Frequent users are forced through the beginner path.
+- A task takes many clicks, screens, questions, or waits for what it achieves.
+- Users re-enter information the product already has, or choose from one valid option.
+- Harmless actions ask for confirmation; small edits require separate pages or modals.
+- Users process items one at a time, repeat the same setup, or babysit long work.
+- A completed task ends in a dead end; frequent users are stuck on the beginner path.
 - A CLI asks interactive questions whose answers are inferable.
 
 ## Do not use this when
 
-- The concern is how the flow *looks* rather than how long it takes (composition-repair,
-  visual-identity).
-- The whole product feels confusing rather than one flow being slow (product-friction first).
-- The step in question is a legal, safety, or financial safeguard the user explicitly wants
-  to keep. Improve its clarity instead of removing it.
+- The issue is how the flow looks → composition-repair or visual-identity.
+- The whole product is confusing rather than one flow being slow → product-friction first.
+- The step is a safeguard the user wants kept → make it clearer, not shorter.
 
-## Core principles
+## Checkpoints
 
-1. **Measure before and after.** Actions, inputs, decisions, navigations, confirmations,
-   blocking waits. No "simpler" without numbers.
-2. **Decisions are the expensive unit.** Removing one real question is worth more than removing
-   two obvious clicks.
-3. **Weight by frequency.** A small cost on a path used 40 times a day beats a large cost on a
-   path used once. See `references/_shared/interaction-frequency.md`.
-4. **Known answers are not questions.** Carry context forward; prefill; infer and display.
-5. **Protect safety and judgment.** Money movement, irreversible deletion, publishing to many
-   people, and the user's value-producing decision stay (and get clearer, not shorter).
-6. **Show automated decisions.** Inferred values appear where the question would have been,
-   with a way to change them.
-7. **Every outcome has a next action.**
+1. **Before proposing any change:** have you mapped the current flow and counted it? No → map it
+   first (`references/workflow-mapping.md`). No counts, no claim.
+2. **For every input, question, or choice step:** does the product already know this value, or is
+   only one option valid? Yes → remove the step and show the value with a way to change it.
+   Method: `references/known-answers.md`; anchor: `references/_shared/skip-known-decisions.md`.
+3. **For every set of controls that names a subject** ("Approve order 4411", "Correct Team A"):
+   does the context already determine the subject? Yes → scope one set of controls to the context
+   (anchor: `references/_shared/context-aware-judgment.md`).
+4. **For every confirmation:** is the action reversible? Yes → act immediately with undo. Money,
+   irreversible deletion, or publishing to many people → keep one clear confirmation
+   (anchor: `references/_shared/mobile-money-transfer.md`).
+5. **For every step you plan to remove:** does it carry the user's judgment, safety, legal
+   requirement, or necessary comprehension? Yes → keep it and list it as preserved
+   (`references/_shared/human-judgment.md`).
+6. **For every wait over ~10 seconds:** can the architecture run it in the background? Yes →
+   background it (`references/waiting-and-endings.md`). No → say so honestly; do not pretend.
+7. **Before finishing:** recount the redesigned flow and report before/after with preserved steps.
 
 ## Workflow
 
-### 1. Define the flow
-Name the outcome, the starting point, the actor, and how often it happens. If several user
-types use it (new vs frequent), map the most frequent first.
+1. **Define** outcome, start, end, actor, frequency.
+2. **Map** each step with a type (`action`, `input`, `decision`, `navigation`, `confirmation`,
+   `wait`, `lookup`, `recovery`, `outcome`): `references/workflow-mapping.md`. Walk the running
+   product when possible.
+3. **Count.** Optionally:
+   ```bash
+   node scripts/workflow-ledger.mjs my-flow.json
+   ```
+   `assets/workflow-template.json` is a starting file. The script counts and tags; it does not judge.
+4. **Classify** friction with the codes in `references/_shared/workflow-friction.md` and load:
 
-### 2. Map it
-Walk the flow in the product if you can (rendered evidence); otherwise from code or
-description (and say so). Record each step with a type: `action`, `input`, `decision`,
-`navigation`, `confirmation`, `wait`, `lookup`, `recovery`, `outcome`.
-
-Load `references/workflow-mapping.md` for the mapping method and table format.
-`assets/workflow-template.json` is a starting file for `scripts/workflow-ledger.mjs`.
-
-### 3. Count
-Produce the baseline counts. Optionally run:
-
-```bash
-node scripts/workflow-ledger.mjs my-flow.json
-```
-
-The script totals the steps, tags likely friction from step attributes, and prints before/after
-deltas. It is arithmetic plus tagging, not judgment.
-
-### 4. Classify friction
-Tag wasteful steps with the canonical codes (`references/_shared/workflow-friction.md`) and
-load the matching reference:
-
-| Friction | Reference |
-|---|---|
-| F1 Redundant input, scope restatement | `references/redundant-input.md`, `references/context-reuse.md` |
-| F2 Unnecessary choice | `references/unnecessary-choice.md` |
-| F3 Repeated configuration | `references/remembered-settings.md`, `references/smart-defaults.md` |
-| F4 Navigation tax | `references/navigation-tax.md`, `references/inline-actions.md` |
-| F5 Confirmation tax | `references/confirmation-tax.md` |
-| F6 Serial work | `references/bulk-actions.md` |
-| F7 Memory failure | `references/context-reuse.md`, `references/remembered-settings.md` |
-| F8 Waiting tax | `references/waiting-tax.md`, `references/background-work.md` |
-| F9 Dead end | `references/next-action.md` |
-| F10 Expert tax | `references/expert-shortcuts.md`, `references/progressive-disclosure.md` |
-| Too many options up front | `references/progressive-disclosure.md` |
-
-### 5. Mark what must stay
-Identify steps that buy safety, judgment, comprehension, or compliance. Write them down as
-"preserved" so no later optimization removes them.
-
-### 6. Redesign
-Apply the smallest set of changes that removes the most weighted friction. Typical moves:
-prefill and infer; skip one-option steps; inline small edits; undo instead of confirm; bulk
-select; remember last-used configuration; background long work; add the next action; add
-shortcuts for experts.
-
-Where the implementation is available (REPAIR/BUILD mode), make the change, then walk the flow
-again.
-
-### 7. Recount and report
-Report before/after counts, what was preserved, and the frequency context:
-
-```
-Flow: Host a saved quiz (teacher, ~15×/week)
-Before: 9 actions · 4 screens · 3 decisions (1 one-option) · 2 re-asked inputs · 0 waits
-After:  3 actions · 1 screen  · 1 decision                · 0 re-asked inputs · 0 waits
-Removed: language picker (known from quiz), team-size step (remembered), confirm dialog (undo)
-Preserved: final "Start game" action (the host's decision)
-```
+   | Friction | Load |
+   |---|---|
+   | F1 redundant input, F2 unnecessary choice, F3 repeated configuration, F7 memory failure | `references/known-answers.md` |
+   | F4 navigation tax, F5 confirmation tax, F6 serial work, too many options up front | `references/steps-and-screens.md` |
+   | F8 waiting tax (including background architecture), F9 dead end | `references/waiting-and-endings.md` |
+   | F10 expert tax | `references/expert-shortcuts.md` |
+5. **Mark preserved steps** (checkpoint 5).
+6. **Redesign** with the smallest set of changes that removes the most frequency-weighted friction.
+   In REPAIR/BUILD mode, implement and walk the flow again. Anchor examples:
+   `references/_shared/inline-rename.md`, `references/_shared/cli-project-init.md`.
+7. **Recount and report** in the format of `references/_shared/workflow-rubric.md`:
+   ```
+   Before: 9 actions · 4 screens · 3 decisions (1 one-option) · 2 re-asked inputs · 0 waits
+   After:  3 actions · 1 screen  · 1 decision · 0 re-asked inputs · 0 waits
+   Preserved: final "Start game" (the host's decision)
+   ```
 
 ## Execution rules
 
-- Change behavior only with real knowledge. Do not infer a value the system does not actually
-  have; do not fake certainty.
-- Keep every automated decision reversible from where it is displayed.
-- Do not remove a confirmation from an irreversible action without replacing it with undo that
-  genuinely reverses it.
-- Keep accessibility: inline edits and shortcuts must work with keyboard and screen readers.
-- Do not make the beginner path harder to speed up the expert path; add expert paths alongside.
-- For CLIs: infer from the project, print the resolved plan, accept flags to override, and never
-  block on prompts in non-interactive environments.
+- Infer only what the system actually knows; never fake certainty.
+- Every automated decision is visible and changeable where it is shown.
+- Expert paths are additions, never replacements for discoverable UI.
+- Inline edits and shortcuts must work with keyboard and screen readers.
+- CLIs: infer from the project, print the resolved plan, accept override flags, never prompt when
+  not interactive.
 
 ## Failure modes
 
-- **Deleting control:** removing a meaningful choice because it "adds a step."
-- **Silent magic:** inferring values without showing them, so users cannot correct them.
-- **Moving the work:** a shorter flow that makes users fix things afterward.
-- **Optimizing a rare path** while the frequent path stays slow.
-- **Unmeasured claims:** "streamlined" with no counts.
-- **Wizard to wall:** collapsing a wizard into one overwhelming page. Fewer screens is not the goal;
-  less work is.
+- Deleting a meaningful choice because it "adds a step."
+- Silent inference users cannot correct.
+- A shorter flow that makes users fix things afterward.
+- Optimizing a rare path while the frequent path stays slow.
+- "Streamlined" with no counts; collapsing a wizard into an overwhelming wall.
 
 ## Completion criteria
 
-- The flow is mapped with typed steps and baseline counts.
-- Friction is classified with canonical codes and weighted by frequency.
+- Current and proposed flows are mapped, typed, and counted.
+- Friction is coded and weighted by frequency.
 - Preserved safeguards and judgment steps are named.
-- The redesigned flow has recounted numbers, measured when possible.
-- Every inferred value is visible and changeable.
-- The flow ends with a useful next action.
+- Inferred values are visible and changeable; the flow ends with a next action.
 
 ## References
 
-- `references/workflow-mapping.md` — how to map, type, and count a flow
-- `references/redundant-input.md` — F1 and scope restatement
-- `references/unnecessary-choice.md` — F2
-- `references/smart-defaults.md` — choosing defaults responsibly
-- `references/context-reuse.md` — carrying context across steps and sessions
-- `references/remembered-settings.md` — F3, presets, last-used
-- `references/progressive-disclosure.md` — common path first
-- `references/bulk-actions.md` — F6
-- `references/inline-actions.md` — editing where the value is
-- `references/navigation-tax.md` — F4
-- `references/confirmation-tax.md` — F5; undo versus confirm
-- `references/waiting-tax.md` — F8
-- `references/background-work.md` — architecture for leaving and returning
-- `references/next-action.md` — F9
-- `references/expert-shortcuts.md` — F10
-- `references/_shared/` — shared taxonomy, rubric, patterns, and worked examples
-  (`skip-known-decisions.md`, `inline-rename.md`, `cli-project-init.md`, `mobile-money-transfer.md`)
+- `references/workflow-mapping.md` — mapping, typing, counting, weighting
+- `references/known-answers.md` — redundant input, unnecessary choice, defaults, context reuse, memory
+- `references/steps-and-screens.md` — navigation tax, inline actions, confirmation tax, bulk, disclosure
+- `references/waiting-and-endings.md` — waiting tax, background work, next action
+- `references/expert-shortcuts.md` — expert paths
+- `references/_shared/` — generated copies: `experience-core.md`, `interaction-frequency.md`,
+  `workflow-friction.md`, `workflow-rubric.md`, `human-judgment.md`, and examples
+  (`skip-known-decisions.md`, `context-aware-judgment.md`, `inline-rename.md`, `cli-project-init.md`,
+  `mobile-money-transfer.md`)

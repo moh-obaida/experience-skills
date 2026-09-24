@@ -50,7 +50,7 @@ test('catalog and README table are generated and current', () => {
 test('SKILL.md files stay thin', () => {
   for (const name of skillDirs()) {
     const lines = readSkill(name).text.split('\n').length;
-    assert.ok(lines < 300, `${name} has ${lines} lines`);
+    assert.ok(lines < 200, `${name} has ${lines} lines`);
   }
 });
 

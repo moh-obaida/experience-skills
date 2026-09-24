@@ -5,6 +5,9 @@ An app generates a video summary from an uploaded lecture (2–6 minutes). The U
 spinner and "Please don't close this page." Network hiccups make the status poll fail, and the UI
 shows "Generation failed" while the server job continues. Retrying creates duplicates.
 
+## Prompt
+Our app generates a video summary from an uploaded lecture, which takes 2–6 minutes. The UI shows a full-screen spinner and 'Please don't close this page'. When the network blips, the status check fails and we show 'Generation failed' even though the server job keeps running, and retrying creates duplicate jobs. How should this work?
+
 ## Current problem
 Waiting tax; transport vs product state confusion; no reattachment; non-idempotent retry.
 
