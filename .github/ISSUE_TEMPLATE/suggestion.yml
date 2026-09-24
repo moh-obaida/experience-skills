@@ -1,0 +1,26 @@
+name: Suggestion / new pattern
+description: Propose a pattern, anti-pattern, worked example, or clearer guidance.
+labels: ["suggestion"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The suggestion
+    validations:
+      required: true
+  - type: textarea
+    id: applies
+    attributes:
+      label: When it applies
+    validations:
+      required: true
+  - type: textarea
+    id: not-applies
+    attributes:
+      label: When it does NOT apply
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example (described in your own words)

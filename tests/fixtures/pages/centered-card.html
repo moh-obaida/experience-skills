@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: centered card on a blank page</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f4f4f6; font: 16px/1.5 system-ui, sans-serif; }
+  .card { width: 320px; padding: 24px; background: #fff; border-radius: 16px; text-align: center; }
+  h1 { font-size: 20px; margin: 8px 0 16px; }
+  .codes { display: flex; gap: 6px; justify-content: center; margin-bottom: 16px; }
+  .codes input { width: 36px; height: 44px; text-align: center; font-size: 20px; }
+  button { width: 100%; height: 44px; font-size: 16px; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div>Logo</div>
+    <h1>Join the game</h1>
+    <div class="codes"><input><input><input><input><input><input></div>
+    <button>Join</button>
+  </main>
+</body>
+</html>

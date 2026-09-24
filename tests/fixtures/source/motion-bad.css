@@ -1,0 +1,5 @@
+.card { transition: all 300ms ease; }
+.panel { transition: height 250ms ease, opacity 250ms ease; }
+.blob { animation: float 6s ease-in-out infinite; }
+.intro { animation-duration: 2400ms; }
+@keyframes grow { from { width: 0; } to { width: 100%; } }

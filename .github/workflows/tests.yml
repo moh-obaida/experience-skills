@@ -1,0 +1,26 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Browser tests use playwright-core with the Google Chrome preinstalled on GitHub's Ubuntu
+      # runners. If no browser is found they are skipped, and the log says so.
+      - name: Unit, browser, and routing tests
+        run: npm test
+      - name: Discovery and install with the public skills CLI
+        run: npm run test:discovery

@@ -1,0 +1,38 @@
+name: False positive / bad recommendation
+description: A skill gave advice that was wrong for your context.
+labels: ["bad-recommendation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Example: "The anti-slop skill told my government form to add a gradient." These reports are the most useful feedback we get.
+  - type: input
+    id: skill
+    attributes:
+      label: Skill
+      placeholder: anti-slop-ui
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Product and surface
+      description: What kind of product, which screen or flow, who uses it. Describe; do not paste private code or data.
+    validations:
+      required: true
+  - type: textarea
+    id: advice
+    attributes:
+      label: What the agent recommended
+    validations:
+      required: true
+  - type: textarea
+    id: why-wrong
+    attributes:
+      label: Why it was wrong here
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent and version (optional)

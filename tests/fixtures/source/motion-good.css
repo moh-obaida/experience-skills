@@ -1,0 +1,6 @@
+.token { transition: transform 320ms var(--ease-move), opacity 160ms ease-out; }
+.toast { animation: toast-in 200ms ease-out; }
+@keyframes toast-in { from { transform: translateY(8px); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .token, .toast { transition: none; animation: none; }
+}

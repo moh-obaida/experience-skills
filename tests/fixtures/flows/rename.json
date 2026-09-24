@@ -1,0 +1,20 @@
+{
+  "name": "Rename a project",
+  "actor": "project owner",
+  "frequency": "several per week",
+  "before": [
+    { "step": "Open Settings", "type": "navigation", "tiny": true },
+    { "step": "Open General tab", "type": "navigation", "tiny": true },
+    { "step": "Click Edit", "type": "action" },
+    { "step": "Type new name", "type": "input" },
+    { "step": "Continue", "type": "action" },
+    { "step": "Save changes?", "type": "confirmation", "reversible": true },
+    { "step": "Success page", "type": "outcome", "next": false }
+  ],
+  "after": [
+    { "step": "Click title", "type": "action" },
+    { "step": "Type new name", "type": "input" },
+    { "step": "Press Enter", "type": "action" },
+    { "step": "Title updated in place", "type": "outcome", "next": true }
+  ]
+}

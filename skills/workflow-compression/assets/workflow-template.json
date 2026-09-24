@@ -1,0 +1,20 @@
+{
+  "name": "Describe the flow, e.g. Host a saved quiz",
+  "actor": "Who performs it, e.g. teacher",
+  "frequency": "How often, e.g. 15 per week",
+  "before": [
+    { "step": "Open library", "type": "navigation" },
+    { "step": "Choose quiz", "type": "decision" },
+    { "step": "Choose language", "type": "decision", "options": 1 },
+    { "step": "Enter class name", "type": "input", "known": true },
+    { "step": "Confirm settings", "type": "confirmation", "reversible": true },
+    { "step": "Wait for lobby", "type": "wait", "seconds": 5, "blocking": true },
+    { "step": "Lobby ready", "type": "outcome", "next": true }
+  ],
+  "after": [
+    { "step": "Choose quiz (recent list)", "type": "decision" },
+    { "step": "Start", "type": "action" },
+    { "step": "Lobby ready", "type": "outcome", "next": true }
+  ],
+  "preserved": ["The host chooses which quiz to run"]
+}

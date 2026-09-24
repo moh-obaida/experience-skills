@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: composed focused page</title>
+<style>
+  body { margin: 0; font: 16px/1.5 system-ui, sans-serif; }
+  .stage { min-height: 100vh; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: center; gap: 48px; padding: 48px; box-sizing: border-box;
+    background: radial-gradient(circle at 30% 40%, #3b2a7a 0, #140c33 70%); color: #fff; }
+  .intro h1 { font-size: 64px; line-height: 1.05; margin: 0 0 16px; }
+  .intro p { font-size: 20px; max-width: 32ch; margin: 0; }
+  .panel { background: #fff; color: #111; padding: 32px; border-radius: 12px; }
+  .panel label { display: block; font-weight: 600; margin-bottom: 8px; }
+  .panel input { box-sizing: border-box; width: 100%; height: 56px; font-size: 28px; letter-spacing: 0.2em; margin-bottom: 16px; }
+  .panel button { width: 100%; height: 52px; font-size: 18px; }
+  @media (max-width: 720px) { .stage { grid-template-columns: 1fr; padding: 24px; } .intro h1 { font-size: 40px; } }
+</style>
+</head>
+<body>
+  <main class="stage">
+    <section class="intro">
+      <h1>Game night starts here</h1>
+      <p>Enter the code on the host's screen to join your team.</p>
+    </section>
+    <form class="panel">
+      <label for="code">Game code</label>
+      <input id="code" inputmode="numeric" autocomplete="one-time-code">
+      <button>Join</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+name: Skill proposal
+description: Propose a new skill for the collection.
+labels: ["skill-proposal"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Proposed name
+      placeholder: content-design
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: What gap does it fill that existing skills do not?
+    validations:
+      required: true
+  - type: textarea
+    id: triggers
+    attributes:
+      label: When should an agent use it? When should it not?
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Sketch of the workflow
+  - type: textarea
+    id: examples
+    attributes:
+      label: Worked examples you can contribute

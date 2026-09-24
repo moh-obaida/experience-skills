@@ -1,0 +1,35 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Vendored shared files are current and skills are self-contained
+        run: npm run check:shared
+      - name: Skill and repository validation
+        run: npm run validate
+      - name: Local links
+        run: npm run links
+      - name: Catalog and README table are current
+        run: npm run check:catalog
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Official validator (skills-ref package, agentskills command)
+        run: |
+          pip install "skills-ref==0.1.1"
+          for dir in skills/*/; do agentskills validate "$dir"; done

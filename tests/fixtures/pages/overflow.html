@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: horizontal overflow</title>
+<style>
+  body { margin: 0; font: 16px/1.5 system-ui, sans-serif; }
+  main { padding: 16px; }
+  .wide-table { width: 640px; border: 1px solid #ccc; }
+  .scroller { overflow-x: auto; }
+  .contained { width: 900px; }
+</style>
+</head>
+<body>
+  <main>
+    <h1>Report</h1>
+    <div class="wide-table">A fixed 640px table that escapes small viewports</div>
+    <div class="scroller"><div class="contained">Wide content correctly inside a scroll container</div></div>
+  </main>
+</body>
+</html>

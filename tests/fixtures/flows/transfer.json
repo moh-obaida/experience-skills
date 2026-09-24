@@ -1,0 +1,20 @@
+{
+  "name": "Send money to a saved contact",
+  "before": [
+    { "step": "Select account", "type": "decision", "options": 1 },
+    { "step": "Choose transfer type", "type": "decision", "known": true },
+    { "step": "Choose currency", "type": "decision", "options": 1 },
+    { "step": "Select recipient", "type": "decision" },
+    { "step": "Enter amount", "type": "input" },
+    { "step": "Please confirm you want to continue", "type": "confirmation", "reversible": true },
+    { "step": "Review and confirm", "type": "confirmation", "preserve": true },
+    { "step": "Transfer submitted", "type": "outcome", "next": false }
+  ],
+  "after": [
+    { "step": "Select recipient (recent)", "type": "decision" },
+    { "step": "Enter amount", "type": "input" },
+    { "step": "Review and send", "type": "confirmation", "preserve": true },
+    { "step": "Sent, with receipt and send again", "type": "outcome", "next": true }
+  ],
+  "preserved": ["Final review with amount, recipient, fee, timing"]
+}

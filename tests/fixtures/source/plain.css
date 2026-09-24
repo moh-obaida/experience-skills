@@ -1,0 +1,3 @@
+.report-title { font-size: 2rem; font-weight: 700; }
+.report-table td { padding: 8px 12px; border-bottom: 1px solid var(--rule); }
+.primary { background: var(--action); color: var(--on-action); border-radius: 6px; }

@@ -1,0 +1,26 @@
+name: Bug in a skill
+description: Broken reference, script error, validation problem, or install issue.
+labels: ["bug"]
+body:
+  - type: input
+    id: skill
+    attributes:
+      label: Skill
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Include commands and output. Remove private paths and data.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "Node 22, skills CLI 1.7.0, macOS"

@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+# Local, owner-specific terms checked by validate-repo (never commit)
+.private-terms
+# Screenshot output from layout scripts
+shots/
+screenshots/
+skills-lock.json
