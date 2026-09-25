@@ -31,7 +31,7 @@ proposal* issue first to discuss scope.
 ## Contribution checklist
 
 - [ ] Valid `SKILL.md` frontmatter; name matches the folder
-- [ ] Description says what and when ("Use when …"), with distinctive keywords
+- [ ] Description leads with when ("Use this skill whenever …"), in user phrasing, then what, with distinctive keywords
 - [ ] "Start here" loads `references/_shared/experience-core.md`
 - [ ] At least four checkpoints that change the agent's branch
 - [ ] Progressive disclosure: `SKILL.md` under ~200 lines; one reference per decision

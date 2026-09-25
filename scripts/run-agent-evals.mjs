@@ -131,6 +131,7 @@ async function runOne(entry, scenario, condition, opts, outDir) {
   }
   if (!opts.keep) rmSync(project, { recursive: true, force: true });
   delete record.transcript.answer;
+  delete record.project; // machine-specific temp path; not part of the public record
   return record;
 }
 

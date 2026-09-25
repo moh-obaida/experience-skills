@@ -18,7 +18,7 @@ skills/<name>/
 ```yaml
 ---
 name: my-skill                 # lowercase, digits, single hyphens; matches the folder; ≤ 64 chars
-description: "What it does, with concrete keywords. Use when <triggers>; when <more triggers>."
+description: "Use this skill whenever <user phrasings and situations>; when <more triggers>. What it does, with concrete keywords."
 license: MIT
 compatibility: "Only if scripts need something (Node version, Playwright)."   # optional, ≤ 500 chars
 metadata:
@@ -36,7 +36,7 @@ The description is the only text an agent sees before deciding to load the skill
 
 - Say what the skill does, with the nouns a user would use ("dashboard," "empty," "overflow,"
   "clicks," "gradients").
-- Say when to use it, starting with "Use when".
+- Lead with when to use it ('Use this skill whenever …'), in the words users actually say ('make it more fun', 'is this good?', 'one tap'). Capability lists come second. In the 2026-09-25 evals, capability-first descriptions were invoked in 3 of 13 runs; see `tests/evals/results/`.
 - Distinguish it from siblings (what makes this the right skill, not a neighbor).
 - Stay under 1024 characters.
 

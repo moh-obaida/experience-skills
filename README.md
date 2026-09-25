@@ -143,7 +143,9 @@ instructions are vendor-neutral.
 
 Tested for this release: discovery and installation with `skills` CLI 1.7.0 (installing for Claude
 Code in a temporary project); validation of every skill with the reference validator (`skills-ref`
-0.1.1, `agentskills validate`); and behavioral runs with Claude Code (see `tests/evals/results/`).
+0.1.1, `agentskills validate`); and behavioral runs with Claude Code on 13 scenarios, with and
+without the skills (summary in `tests/evals/results/README.md`: 35/51 principles met without, 45/51
+with; skills invoked in 12 of 13 runs; specialist handoff and rendered measurement are still weak).
 Codex and other agents supported by the CLI were not tested.
 
 ## Precedent and design intelligence

@@ -1,6 +1,6 @@
 ---
 name: anti-slop-ui
-description: "Detect and repair AI-generated design clichés and the superficial reasoning behind them: centered-card syndrome, fake-premium whitespace, card and pill overuse, gradient and glass abuse, bento everywhere, meaningless stat cards, hero clichés, overdesigned inputs, generic copy, icon and typography slop, motion slop, fake depth, and fake personality. Use when a UI looks template-made or 'AI-generated', before presenting any generated UI, when reviewing a design described as clean, modern, or premium, or when asked to de-slop, de-genericize, or sharpen a design. Includes a static signal scanner and a final slop gate."
+description: "Use this skill whenever a UI looks template-made or AI-generated, before presenting any UI the agent generated, when a design is described as clean, modern, sleek, or premium, when someone proposes or questions a trend (gradients, glass, bento, dark mode, big rounded cards), or when asked to de-slop, de-genericize, or sharpen a design. Detects and repairs centered-card syndrome, fake-premium whitespace, card and pill overuse, gradient and glass abuse, meaningless stat cards, hero clichés, overdesigned inputs, generic copy, and motion slop, and keeps a trend when it does a real job (no reverse dogma). Includes a static signal scanner and a final slop gate."
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
@@ -23,6 +23,30 @@ one without a job.
 1. Read `references/_shared/experience-core.md`.
 2. Read `references/_shared/model-instincts.md`. Most slop comes from those reflexes
    (whitespace → premium, cards → organized, empty page → add filler, simple input → make it special).
+
+<!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
+**Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
+Read that file (the full rules and evidence levels) before a full review, repair, or build.
+
+- **Verdict before adjectives.** Do not write "clean," "modern," "great idea," or "looks good" until
+  an observation earns it. The user's enthusiasm is not evidence; test the proposal against the goal.
+- **Evidence levels on findings.** E1 rendered, E2 measured, E3 source, E4 documented,
+  E5 screenshot, E6 assumed. If files, a browser, or a terminal are available, look or measure before
+  claiming. Otherwise, name the checks you did not run.
+- **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
+  with filler (stats, tips, promos, decoration).
+- **Personality belongs in the environment, not in standard controls.** A control changes only if
+  the change makes the task faster or more reliable.
+- **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
+  is wrong by category, so keep one that does a job.
+- **Count steps before and after.** If the software already knows an answer, do not ask for it.
+  Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
+- **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
+  screen, the keyboard path.
+- **Hand off when another experience skill fits better.** If part of the problem belongs to one
+  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
+  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+<!-- core-brief:end -->
 
 ## Use this when
 

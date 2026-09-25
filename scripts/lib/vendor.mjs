@@ -16,8 +16,21 @@ export function computeVendored(catalog) {
   const files = new Map();
   const problems = [];
   const basenames = new Map();
+  const brief = catalog.coreBrief && existsSync(join(ROOT, catalog.coreBrief))
+    ? readFileSync(join(ROOT, catalog.coreBrief), 'utf8').trim()
+    : null;
+  if (catalog.coreBrief && !brief) problems.push(`coreBrief "${catalog.coreBrief}" does not exist`);
 
   for (const skill of catalog.skills) {
+    // The core brief is inlined into SKILL.md itself: the body is the only part of a skill an agent
+    // reliably reads (evals showed "read experience-core.md first" was usually skipped).
+    if (brief) {
+      const skillPath = join(SKILLS_DIR, skill.name, 'SKILL.md');
+      const text = existsSync(skillPath) ? readFileSync(skillPath, 'utf8') : '';
+      const block = /<!-- core-brief:start[^>]*-->[\s\S]*?<!-- core-brief:end -->/;
+      if (!block.test(text)) problems.push(`${skill.name}: SKILL.md has no <!-- core-brief:start --> … <!-- core-brief:end --> markers`);
+      else files.set(skillPath, text.replace(block, () => `${CORE_BRIEF_START}\n${brief}\n<!-- core-brief:end -->`));
+    }
     const modules = modulesFor(catalog, skill);
     const indexRows = [];
     for (const source of modules) {
@@ -66,5 +79,7 @@ export function computeVendored(catalog) {
   }
   return { files, problems };
 }
+
+export const CORE_BRIEF_START = '<!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->';
 
 export const VENDORED_DIRS = ['references/_shared', 'scripts/_shared'];

@@ -1,6 +1,6 @@
 ---
 name: composition-repair
-description: "Repair the composition of digital surfaces: focal point, hierarchy, viewport budget, dead space versus useful density, alignment versus composition, grid and flex proportions, typography as geometry, fixed and sticky chrome, scroll ownership, overflow, collisions, short viewports, content extremes, and RTL. Use when a page, screen, or view looks empty, cramped, unbalanced, generic-centered, or broken at some size; when whitespace is being called premium without evidence; or when a layout was changed and must be verified in the rendered result. Includes optional browser measurement scripts."
+description: "Use this skill whenever a page, screen, dashboard, or view looks empty, cramped, unbalanced, boring, centered in a void, or broken at some size; when a homepage, dashboard, or layout is being reviewed or restructured; when whitespace is being called premium without evidence; or after a layout change that must be verified in the rendered result. Repairs focal point, hierarchy, viewport budget, dead space versus useful density, alignment versus composition, grid and flex proportions, typography as geometry, sticky chrome, scroll ownership, overflow, collisions, short viewports, content extremes, and RTL. Includes optional browser measurement scripts."
 license: MIT
 compatibility: "Measurement scripts need Node.js 18+ and Playwright (or playwright-core with an installed Chrome). All guidance works without them."
 metadata:
@@ -19,6 +19,30 @@ guarantee it.
 1. Read `references/_shared/experience-core.md`.
 2. Name the surface's archetype using `references/_shared/page-archetypes.md`. It sets how dense
    and how expressive the surface should be.
+
+<!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
+**Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
+Read that file (the full rules and evidence levels) before a full review, repair, or build.
+
+- **Verdict before adjectives.** Do not write "clean," "modern," "great idea," or "looks good" until
+  an observation earns it. The user's enthusiasm is not evidence; test the proposal against the goal.
+- **Evidence levels on findings.** E1 rendered, E2 measured, E3 source, E4 documented,
+  E5 screenshot, E6 assumed. If files, a browser, or a terminal are available, look or measure before
+  claiming. Otherwise, name the checks you did not run.
+- **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
+  with filler (stats, tips, promos, decoration).
+- **Personality belongs in the environment, not in standard controls.** A control changes only if
+  the change makes the task faster or more reliable.
+- **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
+  is wrong by category, so keep one that does a job.
+- **Count steps before and after.** If the software already knows an answer, do not ask for it.
+  Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
+- **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
+  screen, the keyboard path.
+- **Hand off when another experience skill fits better.** If part of the problem belongs to one
+  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
+  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+<!-- core-brief:end -->
 
 ## Use this when
 

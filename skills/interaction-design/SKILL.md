@@ -1,6 +1,6 @@
 ---
 name: interaction-design
-description: "Make controls obvious, fast, safe, and accessible: affordance, action hierarchy, primary/secondary/destructive actions, inputs and forms, inline edit, direct manipulation, context-scoped controls, keyboard and touch, confirmation versus undo, disabled states, feedback, and power-user paths. Use when controls are confusing, over-customized, slow to operate, error-prone, or inaccessible; when someone proposes a custom version of a standard control; when actions restate context the system already knows; or when designing forms and live-control surfaces. Default stance: do not reinvent familiar interactions without user value."
+description: "Use this skill whenever controls, inputs, forms, pickers, buttons, confirmations, or keyboard and touch behavior are designed or reviewed: especially when someone proposes a custom, animated, or 'more fun' version of a standard control (segmented code boxes, bespoke dropdowns, bouncing digits), when actions are confusing, slow, error-prone, or inaccessible, when actions restate context the system already knows, or when building forms and live-control surfaces. Covers affordance, action hierarchy, primary/secondary/destructive actions, inline edit, direct manipulation, confirmation versus undo, disabled states, feedback, and power-user paths. Default stance: do not reinvent familiar interactions without user value."
 license: MIT
 metadata:
   version: "0.2.0"
@@ -17,6 +17,30 @@ frequent users, safe around consequences, and usable by everyone.
 1. Read `references/_shared/experience-core.md`.
 2. For each control in scope, note how often it is used and what it costs if misused
    (`references/_shared/interaction-frequency.md`). Frequency and consequence decide the design.
+
+<!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
+**Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
+Read that file (the full rules and evidence levels) before a full review, repair, or build.
+
+- **Verdict before adjectives.** Do not write "clean," "modern," "great idea," or "looks good" until
+  an observation earns it. The user's enthusiasm is not evidence; test the proposal against the goal.
+- **Evidence levels on findings.** E1 rendered, E2 measured, E3 source, E4 documented,
+  E5 screenshot, E6 assumed. If files, a browser, or a terminal are available, look or measure before
+  claiming. Otherwise, name the checks you did not run.
+- **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
+  with filler (stats, tips, promos, decoration).
+- **Personality belongs in the environment, not in standard controls.** A control changes only if
+  the change makes the task faster or more reliable.
+- **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
+  is wrong by category, so keep one that does a job.
+- **Count steps before and after.** If the software already knows an answer, do not ask for it.
+  Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
+- **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
+  screen, the keyboard path.
+- **Hand off when another experience skill fits better.** If part of the problem belongs to one
+  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
+  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+<!-- core-brief:end -->
 
 ## Use this when
 

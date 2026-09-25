@@ -1,6 +1,6 @@
 ---
 name: responsive-validation
-description: "Verify, not assume, that an experience works across real conditions: desktop, laptop, tablet, phone, very small phones, short and ultra-wide viewports, landscape, browser zoom and large text, RTL and long translations, touch versus pointer versus keyboard, safe areas, on-screen keyboards, sticky controls, and navigation collapse. Use when layouts change, before shipping a UI, when something 'only looks good at one size', or when a bug report mentions a device, zoom level, or language. Includes a scripted viewport matrix report with overflow, collision, and target-size checks."
+description: "Use this skill whenever a layout, component, or page changes and must hold on real devices and real content; before shipping a UI; when something only looks good at one size or with demo data; when names, translations, long text, RTL, zoom, large text, or a specific device break it; or when reviewing CSS for fragility (fixed heights, nowrap, single-line assumptions). Verifies desktop, laptop, tablet, phone, very small phones, short and ultra-wide viewports, landscape, touch versus pointer versus keyboard, safe areas, on-screen keyboards, sticky controls, and navigation collapse. Includes a viewport matrix report and a content stress script."
 license: MIT
 compatibility: "The layout-report script needs Node.js 18+ and Playwright (or playwright-core with an installed Chrome). The checklist works without it."
 metadata:
@@ -17,6 +17,30 @@ across the sizes, inputs, languages, and settings real people use. This skill te
 
 1. Read `references/_shared/experience-core.md`.
 2. Decide the audience's real conditions before choosing sizes (`references/validation-matrix.md`).
+
+<!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
+**Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
+Read that file (the full rules and evidence levels) before a full review, repair, or build.
+
+- **Verdict before adjectives.** Do not write "clean," "modern," "great idea," or "looks good" until
+  an observation earns it. The user's enthusiasm is not evidence; test the proposal against the goal.
+- **Evidence levels on findings.** E1 rendered, E2 measured, E3 source, E4 documented,
+  E5 screenshot, E6 assumed. If files, a browser, or a terminal are available, look or measure before
+  claiming. Otherwise, name the checks you did not run.
+- **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
+  with filler (stats, tips, promos, decoration).
+- **Personality belongs in the environment, not in standard controls.** A control changes only if
+  the change makes the task faster or more reliable.
+- **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
+  is wrong by category, so keep one that does a job.
+- **Count steps before and after.** If the software already knows an answer, do not ask for it.
+  Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
+- **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
+  screen, the keyboard path.
+- **Hand off when another experience skill fits better.** If part of the problem belongs to one
+  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
+  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+<!-- core-brief:end -->
 
 ## Use this when
 

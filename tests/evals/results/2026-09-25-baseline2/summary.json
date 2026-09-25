@@ -1,0 +1,1194 @@
+{
+  "meta": {
+    "date": "2026-09-25",
+    "agent": "CLI default",
+    "judge": "CLI default"
+  },
+  "runs": [
+    {
+      "scenarioId": "blank-saas-dashboard",
+      "condition": "without",
+      "anchor": "examples/composition/sparse-operational-home.md",
+      "seconds": 25,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {
+          "Glob": 1,
+          "Read": 2
+        },
+        "costUsd": 0.1758676,
+        "turns": 4,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "I read home.html.",
+        "hypeWords": [],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 671
+      },
+      "routing": {
+        "expected": [
+          "empty-state-design",
+          "composition-repair",
+          "anti-slop-ui"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "empty-state-design",
+          "composition-repair",
+          "anti-slop-ui"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "Fills the space with real data: 'Needs your attention' (4 tasks due in Q3 Launch, 2 mentions) and a 'Recent projects' list with last-edited times, 'not with decorative charts or made-up KPIs'."
+          },
+          {
+            "id": 2,
+            "met": true,
+            "evidence": "Never uses the word 'operational', but treats the page as a working tool where empty space is a problem: 'This is what someone opening a PM tool needs first'; 'shows none of the data it already has'."
+          },
+          {
+            "id": 3,
+            "met": true,
+            "evidence": "'Open project' goes away, since the Recent projects list replaces it; 'New project' becomes the one primary button and 'Browse templates' a secondary text button."
+          },
+          {
+            "id": 4,
+            "met": false,
+            "evidence": "Doesn't measure or propose measuring how much of the first viewport is filled before and after; it only read the 32-line file."
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": false,
+            "evidence": "Rejects them outright: '\"Total projects: 3\" style stat cards: they take up room without telling Jordan what to do.'"
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "Suggests no carousel, illustration or upgrade banner; it rejects charts and placeholder feeds."
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "Says the page 'reads as unfinished' and gives concrete changes."
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "strong",
+        "notes": "It reframes 'less empty' as showing useful data rather than adding filler, demotes the duplicate buttons, and rejects stat cards and charts. Its gaps are that it never measures viewport coverage and never names the page as operational in so many words.",
+        "principlesMet": 3,
+        "principlesTotal": 4,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.1087076
+    },
+    {
+      "scenarioId": "playful-game-join",
+      "condition": "without",
+      "anchor": "examples/identity/join-code-page.md",
+      "seconds": 24,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {
+          "Glob": 1,
+          "Read": 2
+        },
+        "costUsd": 0.16903420000000002,
+        "turns": 4,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "I looked at join.html.",
+        "hypeWords": [],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 603
+      },
+      "routing": {
+        "expected": [
+          "visual-identity",
+          "composition-repair",
+          "interaction-design",
+          "anti-slop-ui",
+          "critical-review"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "visual-identity",
+          "composition-repair",
+          "interaction-design",
+          "anti-slop-ui",
+          "critical-review"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": false,
+            "evidence": "Most of the 'fun' goes into the boxes themselves (bounce, per-box colors, lift, wave, shake). The only background idea is a generic 'soft gradient or confetti-dot background' extra."
+          },
+          {
+            "id": 2,
+            "met": false,
+            "evidence": "Keeps the six segmented boxes and patches them (maxlength=1, auto-advance, paste-to-fill, per-digit aria-labels) instead of replacing them with one large input."
+          },
+          {
+            "id": 3,
+            "met": false,
+            "evidence": "The palette (coral, sunflower, mint...) and the confetti dots are generic. Nothing comes from the game board, team colors or stage."
+          },
+          {
+            "id": 4,
+            "met": false,
+            "evidence": "It covers 4.5:1 contrast and small-phone width, but never projector distance or Chromebook resolutions."
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": true,
+            "evidence": "'Bounce each digit when it's typed' plus game-tile styled segmented boxes, with no challenge to the request."
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "Never calls the page clean and modern."
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "No glassmorphism or gradient text. A 'soft gradient' background is listed only as a minor extra."
+          }
+        ],
+        "praiseBeforeEvaluation": true,
+        "challengedFlawedPremise": false,
+        "overall": "weak",
+        "notes": "It opens by agreeing that 'Bouncing digits would suit a classroom game' and then builds the fun around segmented, animated digit boxes, which is the core anti-pattern. The usability and accessibility fixes are solid, but they keep the segmented pattern and never make the environment interesting or check projector readability.",
+        "principlesMet": 0,
+        "principlesTotal": 4,
+        "violations": 1
+      },
+      "judgeCostUsd": 0.10875960000000001
+    },
+    {
+      "scenarioId": "government-form",
+      "condition": "without",
+      "anchor": "examples/full-product/public-service-form.md",
+      "seconds": 35,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {
+          "Glob": 1,
+          "Read": 1
+        },
+        "costUsd": 0.1844438,
+        "turns": 3,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "There's no existing code in this folder, only a placeholder README, so this plan is stack-agnostic.",
+        "hypeWords": [],
+        "evidenceLabels": true,
+        "beforeAfterCounts": false,
+        "words": 771
+      },
+      "routing": {
+        "expected": [
+          "critical-review",
+          "workflow-compression",
+          "interaction-design"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "critical-review",
+          "workflow-compression",
+          "interaction-design"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "Says '\"Engaging\" is the wrong goal for this form': people want to finish fast and trust that it worked. It also judges illustrations outside the bin-type step to be 'decoration'."
+          },
+          {
+            "id": 2,
+            "met": false,
+            "evidence": "It rates each wizard idea separately and approves multi-step ('\u2705 Keep'). It never asks whether a multi-page flow is worse than the current single page. The only comparison with the current form is a later A/B test."
+          },
+          {
+            "id": 3,
+            "met": true,
+            "evidence": "Proposes postcode lookup, 'Today/Yesterday/Another date' radios in place of a free date field, and illustrated radio cards for bin type."
+          },
+          {
+            "id": 4,
+            "met": true,
+            "evidence": "'Confirmation: a reference number, what happens next and when, and a confirmation email.'"
+          },
+          {
+            "id": 5,
+            "met": false,
+            "evidence": "The plan has 7 pages (5 questions, a check page and a confirmation). It never says this replaces 1 page or weighs the extra steps."
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": false,
+            "evidence": "It evaluates each element first, drops custom dropdowns and limits motion before giving the plan."
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "Illustrations are only for the bin-type choice, which helps users identify their bin. There is no hero image, gradient or mascot."
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "It never calls the proposal 'more modern'. It frames success as completion rate, errors and fewer calls."
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "adequate",
+        "notes": "It rejects 'engagement' as the goal, drops the custom dropdowns and adds good concrete improvements. But it approves the multi-step wizard without comparing it to the single-page form and never counts the steps: 1 page becomes 7.",
+        "principlesMet": 3,
+        "principlesTotal": 5,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.11790360000000001
+    },
+    {
+      "scenarioId": "ecommerce-checkout",
+      "condition": "without",
+      "anchor": "examples/full-product/product-page-purchase-path.md",
+      "seconds": 20,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {},
+        "costUsd": 0.11934720000000001,
+        "turns": 1,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "Every item on your list puts one more step between arriving on the page and paying.",
+        "hypeWords": [],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 709
+      },
+      "routing": {
+        "expected": [
+          "workflow-compression",
+          "interaction-design",
+          "composition-repair",
+          "product-friction"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "workflow-compression",
+          "interaction-design",
+          "composition-repair",
+          "product-friction"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "Replaces the autoplay carousel with a product gallery, puts the buy controls above the fold, and moves promotions to 'one slim banner' or to the point where they apply"
+          },
+          {
+            "id": 2,
+            "met": true,
+            "evidence": "'pre-select their last purchased or saved size... Say why it's selected (\"Your usual size: UK 8\")' with all sizes still shown as buttons; 'If only one colour is in stock, select it automatically'"
+          },
+          {
+            "id": 3,
+            "met": true,
+            "evidence": "Price above the fold; right under Add to basket: 'Order in the next 3h 20m for delivery Thursday', delivery cost or free-delivery threshold, and 'free returns / exchange window'"
+          },
+          {
+            "id": 4,
+            "met": true,
+            "evidence": "'Before changing anything, record funnel conversion at each step... how many people close each modal and how many hit the size-picker error'; A/B test the changes that involve a trade-off"
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "met": false,
+            "violated": false,
+            "evidence": "Keeps size as a choice: pre-selects a default but still shows all sizes as buttons"
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "Removes the carousel and reduces promotions to a slim banner; adds no upsell carousels"
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "Suggests 'one page or a short set of steps' and does not propose removing the order review"
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "strong",
+        "notes": "The answer covers all four principles with concrete, well-prioritised fixes and no unacceptable recommendations. It could have said more clearly that the default size stays changeable, and it did not mention measuring scroll-to-action.",
+        "principlesMet": 4,
+        "principlesTotal": 4,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.11092760000000002
+    },
+    {
+      "scenarioId": "mobile-banking-transfer",
+      "condition": "without",
+      "anchor": "examples/full-product/mobile-money-transfer.md",
+      "seconds": 25,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {},
+        "costUsd": 0.1284272,
+        "turns": 1,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "Redesigning the transfer flow: one tap for repeat transfers, not every transfer A literal one-tap transfer to anyone isn't something I'd recommend.",
+        "hypeWords": [],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 635
+      },
+      "routing": {
+        "expected": [
+          "workflow-compression",
+          "interaction-design",
+          "state-design",
+          "critical-review"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "workflow-compression",
+          "interaction-design",
+          "state-design",
+          "critical-review"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "Removes account select ('a question with one possible answer'), infers transfer type from IBAN/country, folds currency inline, deletes the 'please confirm' screen."
+          },
+          {
+            "id": 2,
+            "met": true,
+            "evidence": "Merges review with auth: 'Send \u20ac50 to Alex \u00b7 Confirm with Face ID' with PIN fallback; keeps Confirmation of Payee and scam warnings for new payees."
+          },
+          {
+            "id": 3,
+            "met": false,
+            "evidence": "Gives 'sent, pending or scheduled' states, a receipt link and 'Send again', but never covers failed or unknown/timeout outcomes, so the honest-final-state set is incomplete."
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": false,
+            "evidence": "Explicitly rejects literal one-tap-to-anyone; the auth skip is limited to regulated trusted-beneficiary/low-value exemptions, subject to a compliance check."
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "No failure-on-timeout handling is proposed at all, so it doesn't mislabel unknown outcomes as failed."
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "No confetti or celebration; asks for a 'lighter' in-place success state instead."
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "adequate",
+        "notes": "Strong on removing steps and keeping one real review plus authentication, and it reframes the one-tap goal well. It misses the failed and unknown/timeout end states, which are key to honest final status in money transfers.",
+        "principlesMet": 2,
+        "principlesTotal": 3,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.1097876
+    },
+    {
+      "scenarioId": "CLI-project-init",
+      "condition": "without",
+      "anchor": "examples/workflow/cli-project-init.md",
+      "seconds": 26,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {},
+        "costUsd": 0.1363592,
+        "turns": 1,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "init should detect first and ask only when it has to Every question init asks today has an answer in the repo.",
+        "hypeWords": [],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 701
+      },
+      "routing": {
+        "expected": [
+          "workflow-compression",
+          "interaction-design",
+          "state-design"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "workflow-compression",
+          "interaction-design",
+          "state-design"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "Includes a resolution table that checks flags, then package.json, lockfile and .nvmrc. Prints a 'Detected project settings' summary with the source of each value. Precedence: 'CLI flags, then env vars ... then what was detected, then defaults'."
+          },
+          {
+            "id": 2,
+            "met": true,
+            "evidence": "'When nobody is at a terminal to answer, it should never prompt.' In CI, uses 'exits non-zero with a message you can act on: error: found both yarn.lock and package-lock.json; pass --pm yarn|npm'."
+          },
+          {
+            "id": 3,
+            "met": false,
+            "evidence": "The success output prints the summary and exits 0. It never tells the user what command to run next, such as `deploy`."
+          },
+          {
+            "id": 4,
+            "met": true,
+            "evidence": "Applies the infer-and-confirm approach to a CLI and a CI pipeline rather than a web UI. It also lets `deploy` reuse the same resolver. It never says outright that the philosophy is not web-only."
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": false,
+            "evidence": "It removes the prompts rather than restyling them: 'ask only about things it can't work out'."
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "Every field can be overridden with a flag (--name, --framework, --pm, --out-dir, --node) or an env var."
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "Fallbacks come with a warning ('Default to npm, with a warning'). Missing or ambiguous values fail in CI with a flag hint."
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "adequate",
+        "notes": "This is a strong, concrete design: detection is separated from prompting, CI never prompts, errors name the flag to pass, and the pointless 'are you sure?' is dropped. It misses one principle: the output never prints the next command, such as the `deploy` step.",
+        "principlesMet": 3,
+        "principlesTotal": 4,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.11692360000000002
+    },
+    {
+      "scenarioId": "editorial-homepage",
+      "condition": "without",
+      "anchor": "examples/composition/editorial-not-cards.md",
+      "seconds": 27,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {
+          "Glob": 1,
+          "Read": 1
+        },
+        "costUsd": 0.1643946,
+        "turns": 3,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "Your editor is right.",
+        "hypeWords": [],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 743
+      },
+      "routing": {
+        "expected": [
+          "composition-repair",
+          "visual-identity",
+          "anti-slop-ui"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "composition-repair",
+          "visual-identity",
+          "anti-slop-ui"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "\"Pick one lead story and give it the most space\u2026 two or three secondary stories\u2026 then text-heavy lists\" plus \"Typography as the identity. This matters most.\""
+          },
+          {
+            "id": 2,
+            "met": true,
+            "evidence": "\"Put headlines below or beside images and let the photography show at full strength\"; allows a flat, deliberate treatment only on the lead story, plus a full-width photo-essay band."
+          },
+          {
+            "id": 3,
+            "met": false,
+            "evidence": "It drops cards everywhere in favour of hairline rules. It never says cards still suit items that are genuinely independent and comparable; it only hints at this with \"That's how a list of records works.\""
+          },
+          {
+            "id": 4,
+            "met": false,
+            "evidence": "Its only test is \"Cover the images and look at the page\", which is a hierarchy check. It gives no logo test and never looks at an article page."
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": false,
+            "evidence": "No bento grid. It proposes an asymmetric 12-column editorial grid instead."
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "It tells them to remove icons, pills, radius and shadows, and recommends no glass effects."
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "It explicitly replaces the uniform grid: \"A column grid, not three equal columns.\""
+          }
+        ],
+        "praiseBeforeEvaluation": true,
+        "challengedFlawedPremise": true,
+        "overall": "adequate",
+        "notes": "This is a strong, specific editorial redesign covering hierarchy, typography, varied story types and dropping the dashboard styling, but it opens by agreeing (\"Your editor is right\"). It also misses two principles: it gives no guidance on where cards are still appropriate, and it has no logo test covering both the homepage and an article page.",
+        "principlesMet": 2,
+        "principlesTotal": 4,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.1146876
+    },
+    {
+      "scenarioId": "long-running-ai-job",
+      "condition": "without",
+      "anchor": "examples/full-product/long-running-generation.md",
+      "seconds": 28,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {},
+        "costUsd": 0.1335112,
+        "turns": 1,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "The core problem is that the UI treats a failed status check as a failed job.",
+        "hypeWords": [],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 729
+      },
+      "routing": {
+        "expected": [
+          "state-design",
+          "workflow-compression",
+          "interaction-design"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "state-design",
+          "workflow-compression",
+          "interaction-design"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "'POST /jobs creates the job and returns { jobId }'; 'Put the job in the URL\u2026 Reloading, closing the tab or switching devices then picks the job back up'"
+          },
+          {
+            "id": 2,
+            "met": true,
+            "evidence": "'A failed poll is a \"can't reach the server\" state, not a job state'; shows 'Connection lost, reconnecting\u2026 Your video is still being generated'; 'Only the server decides that a job failed'"
+          },
+          {
+            "id": 3,
+            "met": true,
+            "evidence": "Idempotency-Key plus dedupe on (userId, uploadId); resumable uploads keep the inputs; server-controlled POST /jobs/:id/retry. It does not say that partial output is kept."
+          },
+          {
+            "id": 4,
+            "met": false,
+            "evidence": "'Tell the user when the video is ready with an in-app toast, a browser notification or an email', but the notification is not said to include a link to the result or a next action"
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "met": false,
+            "violated": false,
+            "evidence": "It replaces the spinner with a non-blocking card that shows real stages. It does not treat a nicer animation as the fix."
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "'Remove \"Please don't close this page\"'"
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "Progress comes from the server state, named stages, elapsed time and the honest estimate 'usually 2\u20136 min'. It does not suggest a fake percentage."
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "strong",
+        "notes": "The answer correctly separates a failed poll from a failed job and fixes duplicates with idempotency keys. It is weaker on the completion notification, which has no link or next action, and it does not mention keeping partial output.",
+        "principlesMet": 3,
+        "principlesTotal": 4,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.1137596
+    },
+    {
+      "scenarioId": "data-dashboard",
+      "condition": "without",
+      "anchor": "examples/anti-slop/kpi-card-dashboard.md",
+      "seconds": 31,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {},
+        "costUsd": 0.1271832,
+        "turns": 1,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "The dashboard reports how the business did.",
+        "hypeWords": [],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 568
+      },
+      "routing": {
+        "expected": [
+          "anti-slop-ui",
+          "composition-repair",
+          "state-design",
+          "product-friction"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "anti-slop-ui",
+          "composition-repair",
+          "state-design",
+          "product-friction"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "A one-line recommendation at the top, then 'One row per place staff can be sent, sorted by gap' with a 'Why' column (e.g. '2 inbound trailers early, 2 call-outs'). Rows on plan stay grey."
+          },
+          {
+            "id": 2,
+            "met": true,
+            "evidence": "Uses a table because the question is a ranked comparison. Each figure sits next to its reference: expected work vs capacity on shift, gap in people, SLA risk. It also notes '+4.2% vs last week' is meaningless without the gap to target. The 12-month chart is moved because it answers a different question."
+          },
+          {
+            "id": 3,
+            "met": false,
+            "evidence": "There is no timestamp, 'last updated' indicator or stale-data state. The data inputs (rostering, inbound schedules, backlog) are listed, but the answer never says to show how fresh they are or to flag when a feed is late."
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": false,
+            "evidence": "Removes the 12 KPI cards from the morning view ('Move the 12 KPI cards... to a separate weekly or monthly review page') and uses colour 'only for rows past a threshold'."
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "No donut chart is proposed. Every visual element is tied to the staffing decision."
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "Keeps the numbers (units, capacity, people gap) at the centre of the design."
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "strong",
+        "notes": "The answer correctly reframes the dashboard from reporting on the business to deciding where to send staff. It gives a ranked gap table with causes and thresholds, plus a way to validate it. The one clear gap is that it says nothing about data freshness or stale states, which matters when the recommendation depends on live roster and inbound feeds.",
+        "principlesMet": 2,
+        "principlesTotal": 3,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.1058396
+    },
+    {
+      "scenarioId": "justified-gradient",
+      "condition": "without",
+      "anchor": "shared/precedent/justified-trends.md",
+      "seconds": 26,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {
+          "Read": 1
+        },
+        "costUsd": 0.1642818,
+        "turns": 2,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "No, don't replace it with flat grey.",
+        "hypeWords": [],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 507
+      },
+      "routing": {
+        "expected": [
+          "anti-slop-ui",
+          "visual-identity",
+          "critical-review"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "anti-slop-ui",
+          "visual-identity",
+          "critical-review"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "\"The gradient isn't decoration here. It carries information... what time of day and what sky it is at a glance\" and notes it is the app's signature"
+          },
+          {
+            "id": 2,
+            "met": true,
+            "evidence": "\"No, don't replace it with flat grey.\" ... \"Keep the gradient and fix readability\""
+          },
+          {
+            "id": 3,
+            "met": true,
+            "evidence": "Measures white-text contrast at each stop (7.6:1, 2.5:1, 1.6:1), flags the 'Search another city' label, and notes the search box's white border disappearing"
+          },
+          {
+            "id": 4,
+            "met": true,
+            "evidence": "\"Your teammate's 'looks AI-generated' worry is about gradients added just for looks. This one tells the user what time of day...\""
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": false,
+            "evidence": "Explicitly rejects flattening: \"Swapping it for grey would throw away a feature and the brand\""
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "No neutral background recommended; the fixes are overlays, text shadow, and per-phase text colour"
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "No 'clean and modern' praise; the answer gives a detailed contrast and function evaluation"
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "strong",
+        "notes": "Opens with a direct verdict backed by reasoning about the gradient's job, with no praise first. It gives specific contrast numbers, covers all four phases and the search field, notes the gap between the comment and the code, and recommends concrete fixes that keep the signature gradient.",
+        "principlesMet": 4,
+        "principlesTotal": 4,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.1018116
+    },
+    {
+      "scenarioId": "fragile-layout-real-content",
+      "condition": "without",
+      "anchor": "examples/composition/editorial-not-cards.md",
+      "seconds": 30,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {
+          "Read": 1,
+          "Bash": 1
+        },
+        "costUsd": 0.18809380000000003,
+        "turns": 3,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "No, it's not ready to ship.",
+        "hypeWords": [
+          "clean"
+        ],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 518
+      },
+      "routing": {
+        "expected": [
+          "responsive-validation",
+          "composition-repair",
+          "state-design"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "responsive-validation",
+          "composition-repair",
+          "state-design"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "Rejects approval ('It looks clean because the three sample names are short'). It measures the long name against the card (~480px vs ~208px), checks behavior below ~816px, and works through the RTL case. This was done by reading the CSS, not by rendering."
+          },
+          {
+            "id": 2,
+            "met": true,
+            "evidence": "Names every cause with its CSS: white-space:nowrap, height:120px, badge position:absolute;right:12px, repeat(3,240px), and physical right/left/padding that don't flip in RTL."
+          },
+          {
+            "id": 3,
+            "met": false,
+            "evidence": "Recommends wrapping (overflow-wrap:anywhere), an auto-fill/minmax grid, logical properties and dir=rtl. It never considers designing for few versus many people, such as a single card stretching under 1fr or a large directory."
+          },
+          {
+            "id": 4,
+            "met": true,
+            "evidence": "'I got this from reading the CSS; I didn't render the page, since I couldn't get a browser here without approval.' It also lists the real-data and 375px tests still to run."
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": false,
+            "evidence": "Opens with 'No, it's not ready to ship.'"
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "Wrapping is the main fix. Clamping is only an alternative, and it keeps the full name in a title tooltip."
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "Every fix targets a content or layout problem. It suggests no new colors or visual restyle."
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "strong",
+        "notes": "The diagnosis is precise, estimates widths per cause and is honest that nothing was rendered. The only gap is that it doesn't discuss layouts with very few or very many people.",
+        "principlesMet": 3,
+        "principlesTotal": 4,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.1094556
+    },
+    {
+      "scenarioId": "admin-setup-flow",
+      "condition": "without",
+      "anchor": "examples/workflow/skip-known-decisions.md",
+      "seconds": 20,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {},
+        "costUsd": 0.1210752,
+        "turns": 1,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "Recommendation: one screen, four fields, one click Five of the seven screens ask for things the system already knows or add friction without adding safety.",
+        "hypeWords": [],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 630
+      },
+      "routing": {
+        "expected": [
+          "workflow-compression",
+          "product-friction",
+          "interaction-design"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "workflow-compression",
+          "product-friction",
+          "interaction-design"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "Removes 'Choose company' ('Use the admin's company automatically') and 'Choose language' ('Use the company's language'). Welcome-email language is filled in from the company and shown as one line."
+          },
+          {
+            "id": 2,
+            "met": false,
+            "evidence": "It removes the 'Are you sure?' screen, but it also drops the final review: 'Merge into the form... A separate review screen doesn't add information.' It relies on Undo, not a review before the real email is sent. Only bulk invite keeps a review table."
+          },
+          {
+            "id": 3,
+            "met": false,
+            "evidence": "The counts are loose and don't agree. The heading says 'one screen, four fields, one click' but the end says 'about 3 fields and 1 click, down from 7 screens'. Decisions and inputs are never counted before and after."
+          },
+          {
+            "id": 4,
+            "met": true,
+            "evidence": "Uses the 'dozens of times a week' frequency. Proposes 'Send & invite another' that keeps the account type, keyboard support, and CSV or paste bulk invite."
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": true,
+            "evidence": "Drops the separate final review before a real invitation is sent ('Merge into the form') and uses an Undo toast plus a delayed send instead."
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "No progress bar or stepper. The redundant steps are removed."
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "There is only one language setting, filled in automatically ('Welcome email in English \u00b7 Change'). The language question is not asked twice."
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "adequate",
+        "notes": "The answer removes the right screens and handles frequent use well. However, it removes the final review before a real email goes out and relies on Undo. Its before and after counts also contradict each other (four fields vs. about 3).",
+        "principlesMet": 2,
+        "principlesTotal": 4,
+        "violations": 1
+      },
+      "judgeCostUsd": 0.1161036
+    },
+    {
+      "scenarioId": "fashionable-redesign",
+      "condition": "without",
+      "anchor": "examples/anti-slop/kpi-card-dashboard.md",
+      "seconds": 21,
+      "transcript": {
+        "skillsInvoked": [],
+        "skillFilesRead": [],
+        "skillsLoaded": [],
+        "referencesRead": [],
+        "scriptsRun": [],
+        "toolCounts": {},
+        "costUsd": 0.12007119999999999,
+        "turns": 1,
+        "error": null
+      },
+      "signals": {
+        "openingPraise": false,
+        "opening": "I wouldn't build it as proposed.",
+        "hypeWords": [
+          "modern"
+        ],
+        "evidenceLabels": false,
+        "beforeAfterCounts": false,
+        "words": 491
+      },
+      "routing": {
+        "expected": [
+          "critical-review",
+          "anti-slop-ui",
+          "composition-repair"
+        ],
+        "loaded": [],
+        "hit": [],
+        "missed": [
+          "critical-review",
+          "anti-slop-ui",
+          "composition-repair"
+        ],
+        "extra": []
+      },
+      "judge": {
+        "principles": [
+          {
+            "id": 1,
+            "met": true,
+            "evidence": "Frames the verdict around the job: 'would likely make dispatchers slower at their actual job', and lists real dispatch tasks (slipping ETAs, Zone 4, a driver's load). The goal is implied rather than stated first as its own point."
+          },
+          {
+            "id": 2,
+            "met": true,
+            "evidence": "Compares against the table directly: about 18\u201320 rows vs 6\u20139 cards per screen, scanning down columns, 'Sorting by ETA and filtering by zone also work more naturally in a table', WCAG contrast, and GPU load on mid-range laptops."
+          },
+          {
+            "id": 3,
+            "met": true,
+            "evidence": "Names concrete costs: stat tiles take 150\u2013200px, fewer deliveries visible, contrast shifts under the moving gradient, backdrop-filter GPU cost, eye strain from constant motion, and neon drowning out status colors."
+          },
+          {
+            "id": 4,
+            "met": true,
+            "evidence": "'Keep the table, and bring the good parts of the design into it': status pills, strong highlighting of late rows, sticky header, an optional calm dark theme, and cards only for a mobile view."
+          }
+        ],
+        "unacceptable": [
+          {
+            "id": 1,
+            "violated": false,
+            "evidence": "'I wouldn't build it as proposed.' The only nod to looks ('looks good in a mockup') comes after the verdict and is immediately qualified."
+          },
+          {
+            "id": 2,
+            "violated": false,
+            "evidence": "Rejects cards for dispatch and limits them to 'a mobile or driver-facing view'."
+          },
+          {
+            "id": 3,
+            "violated": false,
+            "evidence": "Shrinks the tiles to a 40px strip of actionable counts (late, unassigned) that filter the table when clicked, which ties them to dispatch decisions."
+          }
+        ],
+        "praiseBeforeEvaluation": false,
+        "challengedFlawedPremise": true,
+        "overall": "strong",
+        "notes": "The answer is quantitative and tied to the task. It rejects the redesign, keeps the table, and suggests a timed test with real users. Its one weakness is that it gives the verdict before explicitly stating the goal (fast dispatch decisions), though the goal is clear from context.",
+        "principlesMet": 4,
+        "principlesTotal": 4,
+        "violations": 0
+      },
+      "judgeCostUsd": 0.1121956
+    }
+  ]
+}

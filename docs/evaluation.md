@@ -87,7 +87,7 @@ load in both conditions.
 | Real states | `fragile-layout-real-content`, `long-running-ai-job` | Tests long content and RTL; separates transport from product state |
 
 Results of recorded runs, including where the skills made no difference or were not invoked, are in
-`tests/evals/results/`.
+`tests/evals/results/` (`README.md` there interprets them).
 
 ### Manual (recommended before releases)
 

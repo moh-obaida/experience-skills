@@ -56,8 +56,9 @@ export function parseTranscript(jsonl) {
         const ref = path.match(/skills\/([a-z0-9-]+)\/(references\/.+\.md)$/);
         if (ref) note(referencesRead, `${ref[1]}/${ref[2]}`);
         const cmd = String(input.command ?? '');
-        const script = cmd.match(/skills\/([a-z0-9-]+)\/(scripts\/[a-z0-9-]+\.mjs)/);
-        if (block.name === 'Bash' && script) note(scriptsRun, `${script[1]}/${script[2]}`);
+        if (block.name === 'Bash') {
+          for (const script of cmd.matchAll(/skills\/([a-z0-9-]+)\/(scripts\/[a-z0-9-]+\.mjs)/g)) note(scriptsRun, `${script[1]}/${script[2]}`);
+        }
       }
     }
     if (ev.type === 'result') {

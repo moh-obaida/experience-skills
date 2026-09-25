@@ -50,7 +50,7 @@ export function validateSkill(name, r, { version } = {}) {
   if (typeof data.description !== 'string' || !data.description.trim()) r.error(`${where}: "description" is required`);
   else {
     if (data.description.length > 1024) r.error(`${where}: description is ${data.description.length} characters (max 1024)`);
-    if (!/\bUse (?:when|this when|it when|before)\b/.test(data.description)) r.error(`${where}: description must say when to use the skill ("Use when …")`);
+    if (!/\bUse (?:when|this when|it when|before|this skill (?:when|whenever|before))\b/.test(data.description)) r.error(`${where}: description must say when to use the skill ("Use when …")`);
     if (data.description.length < 200) r.warn(`${where}: description is short (${data.description.length} chars); include trigger keywords`);
   }
   // optional fields

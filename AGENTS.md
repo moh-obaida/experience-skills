@@ -17,7 +17,8 @@ folders.
   skill (`check-shared` enforces both).
 - `npm run sync` copies declared modules into `skills/<name>/references/_shared/` and
   `skills/<name>/scripts/_shared/` with a `GENERATED FROM` header.
-- **Never edit files under `_shared/` directly.** Edit the source and run `npm run sync`.
+- **Never edit files under `_shared/` directly**, nor the `core-brief` block inside each SKILL.md
+  (generated from `shared/philosophy/core-brief.md`). Edit the source and run `npm run sync`.
 - `npm run catalog` regenerates derived catalog fields (descriptions, versions, file lists) and the
   README skills table. Do not hand-edit those parts.
 
@@ -32,8 +33,9 @@ folders.
    when, Checkpoints (at least four numbered decision points that change the agent's branch),
    Workflow, Completion criteria. Every file in `references/` must be
    mentioned in `SKILL.md`, loaded directly (no chains of references pointing to references).
-4. **Descriptions say what and when.** Frontmatter `description` ≤ 1024 characters and contains
-   "Use when …". It is what agents route on.
+4. **Descriptions say when, then what.** Frontmatter `description` ≤ 1024 characters and opens with
+   the trigger ("Use this skill whenever …" or "Use when …"). It is what agents route on; the
+   2026-09-25 evals showed passive, capability-first descriptions were rarely invoked.
 5. **Vendor-neutral language.** "The agent," not a product name, in skill instructions.
 6. **Public safety.** No private paths, secrets, personal data, screenshots, or copied proprietary
    text. `npm run validate` scans for these.

@@ -109,7 +109,10 @@ Having a principle in a file does not make an agent follow it. Two mechanisms ma
 1. **The core loads first.** `experience-core.md` is 26 operating rules, each phrased as a behavior
    ("before any question, field, or choice screen: does the software already know the answer? If
    yes, use it"). Every `SKILL.md` starts with "Start here: read `references/_shared/experience-core.md`."
-   Validation fails a skill without it.
+   Validation fails a skill without it. Recorded evals (2026-09-25) showed agents usually skip that
+   read, so the eight rules that matter most are also inlined into every `SKILL.md` as a generated
+   `core-brief` block (source `shared/philosophy/core-brief.md`, drift-checked by `check-shared`).
+   The body of `SKILL.md` is the only part of a skill an agent reliably reads.
 2. **Checkpoints change the branch.** Every `SKILL.md` has at least four numbered decision points
    in the form "For every X: question? Yes → do this. No → do that." They are placed where the
    agent makes the decision (before diagnosing, before adding a control, before presenting), not in
@@ -123,7 +126,9 @@ a principle, it is folded into a checkpoint or a loaded reference, or removed.
 The Agent Skills format does not guarantee that one skill can hand work to another. The router
 names specialists and, when they are not installed, carries a compressed fallback method for each.
 Whether agents actually load the specialists is measured by `scripts/run-agent-evals.mjs`, which
-records every skill, reference, and script an agent loads during a scenario.
+records every skill, reference, and script an agent loads during a scenario. The first recorded
+runs found the router loaded but rarely handing off, so its checkpoint 3 now requires invoking the
+specialists before any recommendation is written.
 
 ## Decision 9: evidence, interpretation, and vocabulary are separate layers
 

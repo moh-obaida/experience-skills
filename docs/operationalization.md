@@ -23,7 +23,13 @@ principle to the places where it forces a different branch, measurement, or comp
 
 ## Honest gaps
 
-- Whether an agent *invokes* a skill at all depends on the agent. The eval harness measures it; see
-  `tests/evals/results/` for observed rates. A checkpoint cannot change behavior in a skill that is
-  never loaded.
+- Whether an agent *invokes* a skill at all depends on the agent and on the description. Observed
+  with Claude Code: 3 of 13 runs with capability-first descriptions, 12 of 13 with trigger-first
+  ones (`tests/evals/results/README.md`). A checkpoint cannot change behavior in a skill that is never
+  loaded.
+- Agents rarely open referenced files they are told to read first (the core was opened in 1 of 23
+  skill-loading runs). Rules that must apply are therefore inlined in the `SKILL.md` body (the
+  generated core brief); references hold depth, not obligations.
+- Checkpoints that require rendering or measuring were followed in 1 of 13 runs, even with fixtures
+  and a browser available. "Rendered truth" is the least operational principle so far.
 - Scripts gather evidence; they cannot judge taste. Every script says so in its output.

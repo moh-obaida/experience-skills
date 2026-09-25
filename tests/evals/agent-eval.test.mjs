@@ -25,14 +25,14 @@ test('parseTranscript finds skills, references, scripts, and the answer', () => 
     { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Skill', input: { skill: 'experience-architect' } }] } },
     { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Read', input: { file_path: '/tmp/p/.claude/skills/composition-repair/SKILL.md' } }] } },
     { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Read', input: { file_path: '/tmp/p/.claude/skills/composition-repair/references/_shared/join-code-page.md' } }] } },
-    { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Bash', input: { command: 'node .claude/skills/composition-repair/scripts/measure-layout.mjs join.html' } }] } },
+    { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Bash', input: { command: 'node .claude/skills/composition-repair/scripts/measure-layout.mjs join.html; node .claude/skills/responsive-validation/scripts/stress-content.mjs join.html' } }] } },
     { type: 'result', result: 'Verdict: worse than current.', total_cost_usd: 0.42, num_turns: 7, is_error: false },
   ].map((l) => JSON.stringify(l)).join('\n');
   const t = parseTranscript(`${lines}\nnot json\n`);
   assert.equal(t.answer, 'Verdict: worse than current.');
   assert.deepEqual(t.skillsLoaded.sort(), ['composition-repair', 'experience-architect']);
   assert.deepEqual(t.referencesRead, ['composition-repair/references/_shared/join-code-page.md']);
-  assert.deepEqual(t.scriptsRun, ['composition-repair/scripts/measure-layout.mjs']);
+  assert.deepEqual(t.scriptsRun, ['composition-repair/scripts/measure-layout.mjs', 'responsive-validation/scripts/stress-content.mjs']);
   assert.equal(t.costUsd, 0.42);
 });
 

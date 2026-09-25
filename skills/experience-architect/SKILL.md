@@ -1,6 +1,6 @@
 ---
 name: experience-architect
-description: "Diagnose product-experience problems in any digital product (website, app, game, tool, CLI) and route to the right specialist method: composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty states, AI-slop cleanup, or critical review. Use when a user says something feels off, generic, slow, confusing, empty, flat, or broken and the cause is unclear; when a task spans several experience concerns; or when a build, redesign, or review needs a structured loop and a final quality gate. Loads only the depth the problem needs."
+description: "Use this skill whenever the user asks to review, critique, improve, redesign, or build a user-facing surface (page, screen, flow, app, game, dashboard, form, CLI), asks what to change, says something feels off, boring, generic, slow, confusing, empty, flat, or broken, or brings a design idea to evaluate. Invoke it before answering, even when the fix seems obvious. Diagnoses the product-experience problem and routes to the right specialist skill: composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty states, AI-slop cleanup, or critical review. Loads only the depth the problem needs and ends with a quality gate."
 license: MIT
 metadata:
   version: "0.2.0"
@@ -18,6 +18,30 @@ build-verify-critique loop, and applies a final gate.
 1. Read `references/_shared/experience-core.md`. Its operating rules apply to everything below.
 2. Establish the mode: REVIEW (report only), REPAIR (change and verify), BUILD (create), or VERIFY
    (check finished work). Honor it.
+
+<!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
+**Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
+Read that file (the full rules and evidence levels) before a full review, repair, or build.
+
+- **Verdict before adjectives.** Do not write "clean," "modern," "great idea," or "looks good" until
+  an observation earns it. The user's enthusiasm is not evidence; test the proposal against the goal.
+- **Evidence levels on findings.** E1 rendered, E2 measured, E3 source, E4 documented,
+  E5 screenshot, E6 assumed. If files, a browser, or a terminal are available, look or measure before
+  claiming. Otherwise, name the checks you did not run.
+- **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
+  with filler (stats, tips, promos, decoration).
+- **Personality belongs in the environment, not in standard controls.** A control changes only if
+  the change makes the task faster or more reliable.
+- **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
+  is wrong by category, so keep one that does a job.
+- **Count steps before and after.** If the software already knows an answer, do not ask for it.
+  Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
+- **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
+  screen, the keyboard path.
+- **Hand off when another experience skill fits better.** If part of the problem belongs to one
+  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
+  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+<!-- core-brief:end -->
 
 ## Use this when
 
@@ -42,8 +66,12 @@ Decision points, not advice. At each one, take the branch it names.
    If none is available → say so now and mark findings E3/E5/E6.
 2. **Before naming a problem:** can you point to an observation (a measurement, an element, a step
    count)? No → it is a hypothesis; label it and go find the evidence.
-3. **Before loading a specialist:** does a ranked problem require it? Load at most three at first.
-   A fourth needs a stated reason. Never load every specialist "to be thorough."
+3. **After ranking problems, before writing any recommendation:** invoke the specialist skill for
+   each top problem (at most three at first; a fourth needs a stated reason) through the agent's
+   skill mechanism. The specialists are separate skills. The routing table only names them; it does
+   not contain their method. If a specialist is not installed, use its fallback in
+   `references/diagnosis-and-routing.md` and say so. Answering from this file alone is a routing
+   failure.
 4. **If the user proposed a solution** ("add animations," "make the boxes fancier"): evaluate it
    against the goal before implementing it (critical-review method). If it fails the goal, say so
    and propose the alternative before doing any work.

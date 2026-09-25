@@ -31,7 +31,13 @@ anti-slop alternatives, new rendered-evidence tools, and real agent evaluations.
 - **Third-party handling:** `THIRD_PARTY_NOTICES.md`, `third-party/provenance.json`, `docs/third-party.md`;
   adapted Hallmark and UI UX Pro Max ideas rewritten, with notices vendored alongside adapted material.
 - **Behavioral evaluation:** new scenarios (anti-slop nuance, real states, admin setup, fashionable
-  redesign) and a recorded with/without run with Claude Code (see `tests/evals/results/`).
+  redesign) and five recorded runs with Claude Code on the 13 anchor scenarios (see
+  `tests/evals/results/README.md`). Principles met: 35/51 in each of two runs without skills; 42/51,
+  45/51, and 45/51 in three runs with skills as they were revised. One run per cell, so these are
+  smoke signals, not effect sizes.
+- **Core brief inside every SKILL.md:** a generated block (source `shared/philosophy/core-brief.md`,
+  drift-checked) with the eight rules that matter most. Evals showed agents rarely follow "read
+  `experience-core.md` first".
 - Catalog fields generated from SKILL.md: activation examples, anti-triggers, related skills,
   precedent and design-intelligence modules.
 - Docs: `docs/design-intelligence.md`, `docs/third-party.md`, `research/audit-2026-09.md`.
@@ -44,6 +50,12 @@ anti-slop alternatives, new rendered-evidence tools, and real agent evaluations.
 - Worked examples are labeled as invented teaching examples and extended with goals, constraints,
   alternative directions, implementation notes, verification, and failure conditions.
 - The public-service form example was corrected against GOV.UK's research-backed question-page guidance.
+- **Descriptions are trigger-first** ("Use this skill whenever …", in user phrasing). With the old
+  capability-first descriptions, a skill loaded in 3 of 13 eval runs; with the new ones, in 11–12
+  of 13. The authoring rule and validator changed to match.
+- `experience-architect` checkpoint 3 requires invoking specialist skills before writing any
+  recommendation. In evals, the expected specialist skills loaded went from 7 to 13 of 44.
+- The eval harness records every skill script in a command and no longer stores temp paths.
 - Validation checks precedent citations against the observation log, provenance targets, and that
   adapted material ships with its license notice.
 

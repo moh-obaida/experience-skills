@@ -29,7 +29,7 @@ export function checkShared() {
 
   // Every vendored file must be named in the skill's SKILL.md (otherwise the agent never loads it),
   // and every shared source must be used by at least one skill.
-  const used = new Set();
+  const used = new Set(catalog.coreBrief ? [catalog.coreBrief] : []);
   for (const skill of catalog.skills) {
     const skillPath = join(SKILLS_DIR, skill.name, 'SKILL.md');
     const skillText = existsSync(skillPath) ? readFileSync(skillPath, 'utf8') : '';
