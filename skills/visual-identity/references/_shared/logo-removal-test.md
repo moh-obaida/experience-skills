@@ -2,6 +2,8 @@
 
 # Worked Example: The Logo-Removal Test
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Duolingo DU1, Raycast RC1, Brilliant BR1; 2026-09-24).*
+
 **Archetype:** OPERATIONAL and EXPERIENTIAL · **Product types:** any
 **Skills:** visual-identity, anti-slop-ui
 
@@ -71,6 +73,26 @@ Results:  the words learned today, set in display type, with the snap motion rep
 
 The identity comes from what the product *is* (words in context, conversation), expressed in
 type, one motif, and one motion signature. It is recognizable on sparse and dense screens.
+
+## User goal and constraints
+
+The product should be recognizable on every surface without adding clutter. Constraints: daily 10-minute use on phones; many screens are dense lesson and review views.
+
+## Alternative direction
+
+A purely typographic identity: one distinctive display face for target-language words plus tight color roles, no motif. Cheaper; weaker on empty and celebration states.
+
+## Implementation notes
+
+Define carriers as tokens (display font role, speech-bubble radius and tail component, 'snap' motion token); apply to headers, empty states, results; keep lesson controls standard.
+
+## Verification
+
+Logo test on home, lesson, empty review queue, and settings; reduced-motion check of the snap; contrast of display type.
+
+## Failure conditions
+
+Carriers applied to every button; a mascot added without a role; identity visible only in marketing screenshots.
 
 ## When this lesson does not apply
 

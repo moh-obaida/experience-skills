@@ -56,7 +56,7 @@ every observation as true on its date only. No screenshots are stored in this re
 
 ## Apple — iPhone page (https://www.apple.com/iphone/) — R, 2026-09-24
 - AP1 A dismissible banner asks the visitor to confirm or change the detected region ("United Arab Emirates · Continue") rather than silently redirecting.
-- AP2 A very large "iPhone" heading, then a horizontal model navigator of product thumbnails with "New" labels: the lineup is the navigation.
+- AP2 A very large "iPhone" heading, then a horizontal model navigator of product thumbnails with "New" labels: the model range is the navigation.
 - AP3 Model sections are rounded panels with a short headline ("iPhone Duo — Hello, hello."), one filled "Learn more" and one text link "View pricing"; the product image is the focal weight.
 - AP4 The page was blank white for about 3 seconds before content appeared.
 

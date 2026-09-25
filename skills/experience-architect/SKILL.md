@@ -3,7 +3,7 @@ name: experience-architect
 description: "Diagnose product-experience problems in any digital product (website, app, game, tool, CLI) and route to the right specialist method: composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty states, AI-slop cleanup, or critical review. Use when a user says something feels off, generic, slow, confusing, empty, flat, or broken and the cause is unclear; when a task spans several experience concerns; or when a build, redesign, or review needs a structured loop and a final quality gate. Loads only the depth the problem needs."
 license: MIT
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -50,6 +50,8 @@ Decision points, not advice. At each one, take the branch it names.
 5. **Before presenting any result:** run `references/final-gate.md`. Any FAIL you did not fix is
    listed; any unchecked item is NOT VERIFIED. Then reread your summary against
    `references/_shared/model-instincts.md` and delete praise you did not earn.
+6. **Before routing:** name the problem class from the table in `references/diagnosis-and-routing.md` and its observable signal. A symptom without a confirmed signal stays a hypothesis.
+7. **When two or more specialists apply:** use the matching recipe under "Specialist compositions" in the same reference, and pass each specialist's output (counted flow, state matrix, chosen direction) to the next instead of re-diagnosing.
 
 ## Workflow
 
@@ -96,6 +98,12 @@ Surface: <name> · Archetype: <archetype> · Mode: REVIEW · Evidence: <highest 
 
 For overall scoring, use verdict words from `references/_shared/experience-rubric.md`, not numbers.
 
+## Product archetype and evidence
+
+Classify the whole product with `references/_shared/product-archetypes.md` (it sets density, identity
+intensity, motion, and empty-state defaults) and each surface with `references/_shared/page-archetypes.md`.
+When the product is not a web app, `references/product-archetypes.md` explains how the advice changes.
+
 ## Failure modes
 
 - Loading many references and producing a generic essay.
@@ -120,5 +128,5 @@ For overall scoring, use verdict words from `references/_shared/experience-rubri
 - `references/execution-loop.md` — the build/repair loop
 - `references/final-gate.md` — the gate before presenting
 - `references/_shared/` — generated copies: `experience-core.md`, `evidence-standard.md`,
-  `page-archetypes.md`, `product-maturity.md`, `visual-problems.md`, `workflow-friction.md`,
-  `experience-rubric.md`, `model-instincts.md`
+  `page-archetypes.md`, `product-archetypes.md`, `product-maturity.md`, `visual-problems.md`,
+  `workflow-friction.md`, `experience-rubric.md`, `model-instincts.md`

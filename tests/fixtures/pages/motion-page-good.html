@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Fixture: motion with reduced-motion support</title>
+<style>
+ .toast{padding:8px;background:#222;color:#fff;animation:in 200ms ease-out}
+ @keyframes in{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+ @media (prefers-reduced-motion: reduce){.toast{animation:none}}
+</style></head>
+<body><div class="toast">Saved</div></body></html>

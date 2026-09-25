@@ -13,6 +13,7 @@ export const REQUIRED_FILES = [
   'docs/installation.md', 'docs/contributing-a-skill.md',
   'research/prior-art.md', 'research/visual-reference-catalog.md', 'research/design-research-notes.md',
   '.github/workflows/validate.yml', '.github/pull_request_template.md',
+  'THIRD_PARTY_NOTICES.md', 'third-party/provenance.json', 'docs/design-intelligence.md', 'docs/third-party.md',
 ];
 
 const TEXT_EXT = new Set(['.md', '.mjs', '.js', '.json', '.yml', '.yaml', '.html', '.css', '.txt', '']);
@@ -69,6 +70,32 @@ export function validateRepo({ quiet = false } = {}) {
   }
   const changelog = existsSync(join(ROOT, 'CHANGELOG.md')) ? readFileSync(join(ROOT, 'CHANGELOG.md'), 'utf8') : '';
   if (!changelog.includes(`## [${version}]`)) r.error(`CHANGELOG.md has no "## [${version}]" entry`);
+
+  // research evidence: observation IDs unique; precedent citations resolve; provenance targets exist
+  const obsIds = new Map();
+  for (const file of listFiles(join(ROOT, 'research', 'observations')).filter((f) => f.endsWith('.md'))) {
+    for (const m of readFileSync(file, 'utf8').matchAll(/^- ([A-Za-z]+[0-9]+) /gm)) {
+      if (obsIds.has(m[1])) r.error(`observation ID ${m[1]} is duplicated (${repoRel(file)})`);
+      obsIds.set(m[1], repoRel(file));
+    }
+  }
+  for (const file of listFiles(join(ROOT, 'shared', 'precedent')).filter((f) => f.endsWith('.md'))) {
+    const text = readFileSync(file, 'utf8');
+    let entries = 0;
+    for (const m of text.matchAll(/^`([A-Za-z0-9 ]+)`/gm)) {
+      entries++;
+      for (const id of m[1].split(/\s+/)) if (!obsIds.has(id)) r.error(`${repoRel(file)}: cites unknown observation ${id}`);
+    }
+    if (entries < 5) r.warn(`${repoRel(file)}: only ${entries} precedent entries`);
+    if (!/observed|Observed/.test(text)) r.error(`${repoRel(file)}: must state when observations were made`);
+  }
+  const provPath = join(ROOT, 'third-party', 'provenance.json');
+  if (existsSync(provPath)) {
+    for (const src of JSON.parse(readFileSync(provPath, 'utf8')).sources) {
+      for (const f of src.incorporatedInto ?? []) if (!existsSync(join(ROOT, f))) r.error(`provenance: ${src.source} lists missing file ${f}`);
+      if (!/^[0-9a-f]{40}$/.test(src.upstreamCommit ?? '')) r.error(`provenance: ${src.source} needs a full upstream commit SHA`);
+    }
+  }
 
   // public safety scans
   const terms = privateTerms();

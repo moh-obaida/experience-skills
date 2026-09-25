@@ -2,6 +2,8 @@
 
 # Worked Example: Long-Running AI Generation
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Grafana GF1 (no loading indicator), GOV.UK UKD4 (once-only actions); 2026-09-24).*
+
 **Archetype:** CREATION · **Product types:** AI tools, video rendering, imports, exports, analysis
 **Skills:** state-design, workflow-compression
 
@@ -49,6 +51,26 @@ Toast on completion (anywhere in the app): "Cell Biology is ready · Open"
 Before: ~120 s blocking wait · work lost if tab closed · false failures on network blips
 After:  0 s blocking wait · reattach from anywhere · transport errors separated from job errors
 ```
+
+## User goal and constraints
+
+Generate a quiz from a long document without babysitting the page. Constraints: 1–3 minute jobs, flaky networks.
+
+## Alternative direction
+
+Streaming partial results into the editor as they arrive, when the model supports streaming.
+
+## Implementation notes
+
+Job table with status and stage; job ID on the user; polling with backoff; transport errors as 'still checking'; idempotent retry; notification with a link.
+
+## Verification
+
+Reload mid-job; kill the network during polling; retry after failure creates no duplicate.
+
+## Failure conditions
+
+Claiming 'you can leave' when the job dies with the tab; fake percentage bars.
 
 ## When this lesson does not apply
 

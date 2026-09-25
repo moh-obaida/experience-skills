@@ -4,7 +4,7 @@ description: "Design meaningful, event-driven motion systems: arrival, removal, 
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -47,6 +47,8 @@ Used by default, it becomes a tax users pay on every visit.
    No → add it before finishing (`references/reduced-motion-and-performance.md`).
 6. **Does anything animate layout properties** (`width`, `height`, `top`, `left`, `margin`) or use
    `transition: all`? Yes → switch to transform/opacity or FLIP. Run `scripts/scan-motion.mjs`.
+7. **When a browser is available, run `scripts/check-motion-rendered.mjs`**: it lists the animations that actually run, with and without reduced motion. Anything still running under reduced motion is a defect unless it carries essential information another way.
+8. **Choose one motion language** from `references/_shared/motion-languages.md` derived from the product's world, and name its tokens before specifying events.
 
 ## Workflow
 
@@ -83,6 +85,12 @@ Used by default, it becomes a tax users pay on every visit.
 - No large auto-playing motion or parallax on utility surfaces.
 - Nothing flashes more than three times per second.
 
+## Precedent
+
+Platform guidance and the few observable product behaviors are collected in
+`references/_shared/motion-guidelines.md` (Apple HIG and Material transitions, labeled as
+documentation). Motion is hard to observe in static research; treat that module as guidance.
+
 ## Failure modes
 
 - Animation soup; choreography tax; celebration inflation; unexplained change; no off switch; jank.
@@ -102,5 +110,6 @@ Used by default, it becomes a tax users pay on every visit.
 - `references/feedback-celebration-ambient.md` — feedback, celebration, ambient
 - `references/reduced-motion-and-performance.md` — accessibility and performance
 - `references/anti-patterns.md` — motion slop in practice
+- `scripts/check-motion-rendered.mjs` — running animations under normal and reduced motion
 - `references/_shared/` — generated copies: `experience-core.md`, `motion-events.md`,
-  `motion-cliches.md`, `motion-that-explains.md`
+  `motion-cliches.md`, `motion-that-explains.md`, `motion-languages.md`, `motion-guidelines.md`

@@ -10,11 +10,15 @@ points to it.
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `interaction-frequency.md` | Interaction Frequency | `shared/taxonomies/interaction-frequency.md` |
+| `workflow-friction.md` | Workflow Friction Taxonomy | `shared/taxonomies/workflow-friction.md` |
+| `workflow-rubric.md` | Workflow Rubric | `shared/evaluation/workflow-rubric.md` |
+| `human-judgment.md` | Human Judgment | `shared/philosophy/human-judgment.md` |
 | `skip-known-decisions.md` | Worked Example: Skip Known Decisions | `examples/workflow/skip-known-decisions.md` |
 | `context-aware-judgment.md` | Worked Example: Context-Aware Judgment Controls | `examples/interaction/context-aware-judgment.md` |
-| `mobile-money-transfer.md` | Worked Example: Mobile Money Transfer | `examples/full-product/mobile-money-transfer.md` |
-| `human-judgment.md` | Human Judgment | `shared/philosophy/human-judgment.md` |
-| `workflow-friction.md` | Workflow Friction Taxonomy | `shared/taxonomies/workflow-friction.md` |
 | `inline-rename.md` | Worked Example: Inline Rename | `examples/workflow/inline-rename.md` |
 | `cli-project-init.md` | Worked Example: CLI Project Initialization | `examples/workflow/cli-project-init.md` |
-| `workflow-rubric.md` | Workflow Rubric | `shared/evaluation/workflow-rubric.md` |
+| `mobile-money-transfer.md` | Worked Example: Mobile Money Transfer | `examples/full-product/mobile-money-transfer.md` |
+| `known-context-and-defaults.md` | Precedent: Using What the Product Already Knows | `shared/precedent/known-context-and-defaults.md` |
+| `interruptions-and-consent.md` | Precedent: Interruptions, Overlays, and Consent | `shared/precedent/interruptions-and-consent.md` |
+| `progressive-disclosure-and-expert-speed.md` | Precedent: Progressive Disclosure and Expert Speed | `shared/precedent/progressive-disclosure-and-expert-speed.md` |
+| `transactional-clarity.md` | Precedent: Consequences Visible at the Point of Commitment | `shared/precedent/transactional-clarity.md` |

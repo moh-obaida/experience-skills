@@ -3,7 +3,7 @@ name: visual-identity
 description: "Give a product a distinctive, recognizable identity derived from its domain, content, and mechanics rather than from trends, logos, or decorated controls. Covers environment versus controls, product-derived motifs, color roles, typography character, surface and shape language, illustration and imagery, competitor analysis without copying, and the logo-removal recognition test. Use when a product looks generic or template-like, when pages feel like no particular place, when identity is being added to inputs and buttons instead of the environment, or when establishing or extending a visual direction."
 license: MIT
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -53,6 +53,8 @@ around the task, not in the controls.
    your product shares those conditions. Otherwise do not cite it.
 6. **Before finishing:** logo test again on a sparse and a dense surface; check text contrast over any
    new background; check asset weight.
+7. **Before proposing a direction:** follow `references/_shared/selection.md`: three candidates from different families in `references/_shared/directions-index.md`, compared in its table. Never choose a palette, typeface, or style from the product's industry.
+8. **For every state surface** (empty, loading, error, success) and one dense surface: where does identity live there? Use `references/branded-states-and-density.md`; identity that exists only in the hero fails.
 
 ## Workflow
 
@@ -82,6 +84,24 @@ around the task, not in the controls.
 - Never copy another product's assets, illustrations, or distinctive trade dress.
 - Record identity decisions (a short note or design-system entry) when building.
 
+## Precedent and design intelligence
+
+| When | Load |
+|---|---|
+| Choosing a direction (after the audit) | `references/_shared/selection.md`, `references/_shared/directions-index.md`, then two or three family files from `references/_shared/` (`directions-editorial.md`, `directions-structural.md`, `directions-quiet.md`, `directions-institutional.md`, `directions-technical.md`, `directions-expressive.md`, `directions-atmospheric.md`, `directions-material.md`, `directions-retro.md`, `directions-product.md`) |
+| Color roles | `references/_shared/palettes.md` (contrast ratios computed) |
+| Type | `references/_shared/typography.md` |
+| Surfaces, shape, named treatments (glass, neumorphism, gradients) | `references/_shared/surfaces-and-shape.md` |
+| Imagery, illustration, icons | `references/_shared/imagery-illustration-icons.md` |
+| Motion identity | `references/_shared/motion-languages.md` |
+| Identity budget for the whole product | `references/_shared/product-archetypes.md` |
+| Real products: expressive environments with plain controls | `references/_shared/environment-first-identity.md` |
+| Real products: identity from the product itself | `references/_shared/product-derived-identity.md` |
+| A technique looks like a cliché but may be justified | `references/_shared/justified-trends.md` |
+
+Adapted third-party material (study protocol, font pairings, style coverage) is credited in
+`references/_shared/third-party-notices.md`.
+
 ## Failure modes
 
 - Decorated controls as "personality."
@@ -102,6 +122,14 @@ around the task, not in the controls.
 - `references/environment-vs-controls.md` — where personality belongs
 - `references/identity-carriers.md` — color roles, typography, surface language
 - `references/imagery-and-illustration.md` — illustration, characters, photography
+- `references/branded-states-and-density.md` — branded empty/loading/error/success; identity under sparse and dense content
 - `references/_shared/` — generated copies: `experience-core.md`, `page-archetypes.md`,
-  `product-identity.md`, `design-vs-decoration.md`, `design-cliches.md`,
-  `branded-environment-simple-form.md`, `join-code-page.md`, `logo-removal-test.md`
+  `product-archetypes.md`, `product-identity.md`, `design-vs-decoration.md`, `design-cliches.md`,
+  `branded-environment-simple-form.md`, `join-code-page.md`, `logo-removal-test.md`, `selection.md`,
+  `directions-index.md`, `directions-editorial.md`, `directions-structural.md`,
+  `directions-quiet.md`, `directions-institutional.md`, `directions-technical.md`,
+  `directions-expressive.md`, `directions-atmospheric.md`, `directions-material.md`,
+  `directions-retro.md`, `directions-product.md`, `palettes.md`, `typography.md`,
+  `surfaces-and-shape.md`, `imagery-illustration-icons.md`, `motion-languages.md`,
+  `environment-first-identity.md`, `product-derived-identity.md`, `justified-trends.md`,
+  `third-party-notices.md`

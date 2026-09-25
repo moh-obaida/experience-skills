@@ -4,7 +4,7 @@ description: "Repair the composition of digital surfaces: focal point, hierarchy
 license: MIT
 compatibility: "Measurement scripts need Node.js 18+ and Playwright (or playwright-core with an installed Chrome). All guidance works without them."
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -56,6 +56,9 @@ guarantee it.
    No job → do not add it.
 8. **Before saying "fixed":** re-render at the primary size, one phone width, and one short height;
    re-run `scripts/detect-overflow.mjs` and `scripts/detect-collisions.mjs` if you used them before.
+9. **Largest dead region over ~30% of the first viewport** (`scripts/measure-layout.mjs` reports it) with no environment treatment: name its job or remove it. "It looks premium" is not a job.
+10. **Before restructuring a surface:** pick a composition from `references/_shared/compositions-index.md` by archetype and P0 content, load only its family file, and name it in your plan. Do not invent a layout from habit.
+11. **Before citing another product's layout as justification:** find the matching entry in the precedent modules and state which of its "Right when" conditions your surface shares. None shared → it argues against you.
 
 ## Workflow
 
@@ -94,6 +97,22 @@ guarantee it.
 - Never hide overflow without finding what overflows.
 - Keep DOM order aligned with visual order; headings in order; reflow at 320 CSS px.
 
+## Precedent and design intelligence
+
+| When | Load |
+|---|---|
+| Choosing or changing a page structure | `references/_shared/compositions-index.md`, then one family: `compositions-focus.md`, `compositions-flows.md`, `compositions-narrative.md`, `compositions-content.md`, `compositions-discovery.md`, `compositions-workspaces.md`, `compositions-operational.md`, or `compositions-mobile.md` (all in `references/_shared/`) |
+| Deciding density, spatial model, or navigation | `references/_shared/spatial-density-navigation.md` |
+| Type is shaping the page (scale, measure, wraps, numerals, RTL scripts) | `references/_shared/typography.md` |
+| Dashboards and charts | `references/_shared/data-visualization.md` |
+| Arguing about space vs emptiness | `references/_shared/whitespace-and-dead-space.md` (real products, observed) |
+| Dense operational layouts | `references/_shared/dense-operational-layouts.md` |
+| Editorial and typographic composition | `references/_shared/editorial-and-typography.md` |
+| Catalogs, stores, marketplaces | `references/_shared/commerce-and-discovery.md` |
+| Phones, tablets, landscape, keyboard-open, huge screens, zoom | `references/device-and-viewport-edges.md` |
+
+Adapted third-party material in the composition files is credited in `references/_shared/third-party-notices.md`.
+
 ## Failure modes
 
 - Re-centering harder: a bigger lonely card with a shadow.
@@ -118,7 +137,14 @@ guarantee it.
 - `references/content-stress-and-rtl.md` — extreme content, RTL mirroring
 - `references/browser-measurement.md` — the scripts and their limits
 - `references/failure-patterns.md` — field guide to broken compositions
+- `references/device-and-viewport-edges.md` — phones, tablets, landscape, keyboard-open, huge displays, zoom
 - `references/_shared/` — generated copies: `experience-core.md`, `page-archetypes.md`,
   `information-priority.md`, `visual-problems.md`, `design-vs-decoration.md`, `fake-density.md`,
   `fake-minimalism.md`, `branded-environment-simple-form.md`, `join-code-page.md`,
-  `sparse-operational-home.md`, `editorial-not-cards.md`
+  `sparse-operational-home.md`, `editorial-not-cards.md`, `compositions-index.md`,
+  `compositions-focus.md`, `compositions-flows.md`, `compositions-narrative.md`,
+  `compositions-content.md`, `compositions-discovery.md`, `compositions-workspaces.md`,
+  `compositions-operational.md`, `compositions-mobile.md`, `spatial-density-navigation.md`,
+  `typography.md`, `data-visualization.md`, `whitespace-and-dead-space.md`,
+  `dense-operational-layouts.md`, `editorial-and-typography.md`, `commerce-and-discovery.md`,
+  `third-party-notices.md`

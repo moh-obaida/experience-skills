@@ -2,6 +2,8 @@
 
 # Worked Example: CLI Project Initialization
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Stripe Docs SD1 (branching once, in place); 2026-09-24).*
+
 **Archetype:** CREATION (terminal) · **Product types:** developer tools, CLIs
 **Skills:** workflow-compression, interaction-design, state-design
 
@@ -62,6 +64,26 @@ Next: tool deploy --preview
 
 It infers, shows what it inferred, allows override, and prints the next step. The philosophy is
 the same as in graphical interfaces.
+
+## User goal and constraints
+
+Set up deployment configuration in seconds, locally and in CI. Constraints: many frameworks; non-interactive environments.
+
+## Alternative direction
+
+A single `--from package.json` mode plus an interactive TUI only when `--interactive` is passed.
+
+## Implementation notes
+
+Detection functions per value with a source label; resolved plan printed before writing; `--yes` implied when not a TTY; `--dry-run`; actionable errors listing valid values.
+
+## Verification
+
+Run in a TTY and in CI (no TTY); run with detection failing; `NO_COLOR` output; 80-column terminal.
+
+## Failure conditions
+
+Prettier prompts instead of fewer prompts; guessing silently when detection fails.
 
 ## Universal analogues
 

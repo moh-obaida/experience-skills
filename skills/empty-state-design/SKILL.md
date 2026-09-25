@@ -3,7 +3,7 @@ name: empty-state-design
 description: "Design low-content states that are useful rather than blank or stuffed: zero items, one item, first-run, empty search, filtered-empty, no permission, no history, incomplete setup, unavailable, archived, and skeleton-versus-empty. Distinguishes intentional focus from dead space and useful density from filler, calibrated by page archetype. Use when a list, dashboard, library, inbox, search, or home screen has little or no content; when a sparse page feels unfinished; or when someone has filled an empty page with illustrations, fake stats, tips, or marketing."
 license: MIT
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -49,6 +49,7 @@ fake stats, a banner, a quote).
    laptop sizes?** No → fix before anything else.
 6. **After the first item is created:** does the layout move cleanly to the one-item and few-item
    states? Check it.
+7. **Set density from the product archetype** (`references/_shared/product-archetypes.md`): a focused task may be spare; an operational surface needs real state; an experiential one keeps its world.
 
 ## Workflow
 
@@ -74,6 +75,11 @@ fake stats, a banner, a quote).
 - Recent items on shared screens (projectors, kiosks) may need hiding.
 - An empty state stays inside the product's navigation and identity.
 
+## Precedent
+
+Real empty, loading, and error states (Spotify, Grafana, GOV.UK, and first-paint failures) are in
+`references/_shared/states-loading-empty-error.md`.
+
 ## Failure modes
 
 - "No data" with no cause or action; illustration pushing the action below the fold; filler;
@@ -95,5 +101,5 @@ fake stats, a banner, a quote).
 - `references/first-run.md` — first-run experiences
 - `references/empty-state-copy.md` — wording
 - `references/_shared/` — generated copies: `experience-core.md`, `fake-density.md`,
-  `meaningful-empty-state.md`,
-  `empty-state-overcorrection.md`, `sparse-operational-home.md`
+  `meaningful-empty-state.md`, `empty-state-overcorrection.md`, `sparse-operational-home.md`,
+  `product-archetypes.md`, `states-loading-empty-error.md`

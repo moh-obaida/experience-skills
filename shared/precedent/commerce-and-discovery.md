@@ -14,7 +14,7 @@ Observed 2026-09-24; IDs refer to `research/observations/`.
 `ST1 ST2` · https://store.steampowered.com/ · rendered
 - **What works:** dense category nav, featured carousel, price and reviews on each capsule.
 
-### Apple — lineup as navigation
+### Apple — model range as navigation
 `AP2 AP3` · https://www.apple.com/iphone/ · rendered
 - **What works:** a horizontal model navigator at the top; each model panel pairs "Learn more" with
   "View pricing".

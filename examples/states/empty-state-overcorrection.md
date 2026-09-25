@@ -1,5 +1,7 @@
 # Worked Example: Empty-State Overcorrection
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Spotify SPd1, Grafana GF2; 2026-09-24).*
+
 **Archetype:** OPERATIONAL · **Product types:** any list, library, or history
 **Skills:** empty-state-design, anti-slop-ui, composition-repair
 
@@ -30,7 +32,7 @@ Games you host will appear here.
 [ Watch tutorial ]  [ Read the guide ]  [ Host a game ]  (below the fold at 1366×768)
 ```
 
-## The typical wrong review of version 2
+## Bad AI instinct of version 2
 
 > "Engaging and helpful empty state with lots of guidance."
 
@@ -57,6 +59,26 @@ path. Optionally a small motif in the product's style.
 ## Why this works
 
 It turns absence into the next step, using real data, without noise.
+
+## User goal and constraints
+
+A teacher with quizzes but no games should host one quickly. Constraints: new accounts, shared screens.
+
+## Alternative direction
+
+An inline 'host' row inside the library instead of a separate empty page.
+
+## Implementation notes
+
+Empty-type detection from the data layer (never-had-any vs filtered vs error); ready-item query; one primary action; illustration optional and small.
+
+## Verification
+
+Render never-had-any, filtered-empty, and error states separately; primary action above the fold at 390×844 and 1366×768.
+
+## Failure conditions
+
+Filtered-empty showing first-use copy; tips and stats returning.
 
 ## When this lesson does not apply
 

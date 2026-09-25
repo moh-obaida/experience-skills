@@ -20,6 +20,11 @@ Sections: Empty State Types · Search-Empty and Filtered-Empty · Permissions, U
 | No history | Nothing happened yet (no activity, no results) | That this fills over time | Do the thing that generates history |
 | Archived / deleted | Items moved away | Where they went | View archive; restore |
 | Error-empty | Failed to load | That this is an error, not emptiness | Retry (state-design) |
+| Disconnected integration | A connected service lost access (expired token, revoked permission) | Which integration, since when, what is missing | Reconnect; view last synced data |
+| Deleted | The user or someone else deleted it | What was deleted and whether it can be restored | Restore from trash; go to a sensible parent |
+| Temporarily unavailable | Maintenance, rate limits, outage | That it is temporary; when it may return | Retry later; status page |
+| Background processing | Content is being generated or imported | That it is on its way; progress; that leaving is safe | View progress; notify when ready |
+| Loading mistaken for empty | Data not loaded yet shown as "no items" | Nothing; this is a bug | Show loading; see the skeleton section |
 
 ### Why the type matters
 

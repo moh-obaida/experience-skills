@@ -66,3 +66,54 @@ test('scripts exit 2 with a clear message for a missing file', () => {
   assert.equal(r.status, 2);
   assert.match(r.stderr, /File not found/);
 });
+
+const ANTI_SLOP = join(ROOT, 'skills', 'anti-slop-ui', 'scripts');
+const INTERACTION = join(ROOT, 'skills', 'interaction-design', 'scripts');
+const MOTION = join(ROOT, 'skills', 'motion-design', 'scripts');
+
+test('inventory-styles counts treatments and repeated cards on the template fixture', { skip }, () => {
+  const r = run(join(ANTI_SLOP, 'inventory-styles.mjs'), [join(PAGES, 'slop-page.html')]);
+  assert.equal(r.status, 1);
+  assert.ok(r.json.inventory.gradients >= 4);
+  assert.equal(r.json.inventory.blur, 1);
+  assert.ok(r.json.inventory.maxBoxDepth >= 3);
+  assert.ok(r.json.inventory.cardGroups.some((g) => g.count === 3));
+});
+
+test('inventory-styles raises no signals on the composed fixture', { skip }, () => {
+  const r = run(join(ANTI_SLOP, 'inventory-styles.mjs'), [join(PAGES, 'composed.html')]);
+  assert.equal(r.status, 0, JSON.stringify(r.json?.signals));
+});
+
+test('stress-content finds failures that appear only under stress, at phone width', { skip }, () => {
+  const r = run(join(RESPONSIVE, 'stress-content.mjs'), [join(PAGES, 'controls-and-stress.html'), '--sizes', '1280x800,390x844']);
+  assert.equal(r.status, 1);
+  const [desktop, phone] = r.json.results;
+  assert.equal(desktop.newPageOverflowPx, 0);
+  assert.ok(phone.newPageOverflowPx > 0 || phone.newOverflow.length > 0);
+});
+
+test('check-controls finds unnamed, unlabeled, alt, tabindex, contrast, and focus issues', { skip }, () => {
+  const r = run(join(INTERACTION, 'check-controls.mjs'), [join(PAGES, 'controls-and-stress.html')]);
+  assert.equal(r.status, 1);
+  assert.deepEqual(r.json.unnamed, ['button.icon']);
+  assert.equal(r.json.unlabeled[0].note, 'placeholder is the only label');
+  assert.equal(r.json.alt.length, 1);
+  assert.equal(r.json.tabindex.length, 1);
+  assert.ok(r.json.contrast.failures.some((c) => c.text.startsWith('Last updated')));
+  assert.ok(r.json.noVisibleFocus.some((f) => f.text === 'Assign'));
+});
+
+test('check-motion-rendered flags motion that ignores reduced motion and animates layout', { skip }, () => {
+  const bad = run(join(MOTION, 'check-motion-rendered.mjs'), [join(PAGES, 'motion-page.html')]);
+  assert.equal(bad.status, 1);
+  assert.ok(bad.json.signals.some((s) => s.includes('reduced-motion')));
+  assert.ok(bad.json.signals.some((s) => s.includes('layout properties')));
+  const good = run(join(MOTION, 'check-motion-rendered.mjs'), [join(PAGES, 'motion-page-good.html'), '--wait', '50']);
+  assert.equal(good.status, 0, JSON.stringify(good.json?.signals));
+});
+
+test('measure-layout reports the largest dead region', { skip }, () => {
+  const r = run(join(COMPOSITION, 'measure-layout.mjs'), [join(PAGES, 'centered-card.html'), '--size', '1440x900']);
+  assert.ok(r.json.viewport.largestEmptyRect.shareOfViewport > 0.3);
+});

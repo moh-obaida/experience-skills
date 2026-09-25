@@ -123,3 +123,26 @@ test('argument helpers validate input', () => {
   });
   assert.throws(() => parseArgs(['--nope'], {}), UsageError);
 });
+
+test('contrast helpers and analyzer', async () => {
+  const { contrastRatio, parseRgb, analyzeContrast } = await import('../../shared/tools/layout-probe.mjs');
+  assert.equal(Math.round(contrastRatio([0, 0, 0], [255, 255, 255])), 21);
+  assert.deepEqual(parseRgb('rgba(1, 2, 3, 0.5)'), [1, 2, 3, 0.5]);
+  const s = snapshot([
+    { hasText: true, text: 'faint', fg: 'rgb(176, 176, 176)', bg: 'rgb(255, 255, 255)', fontSize: 16, x: 0, y: 0, w: 10, h: 10 },
+    { hasText: true, text: 'strong', fg: 'rgb(20, 20, 20)', bg: 'rgb(255, 255, 255)', fontSize: 16, x: 0, y: 20, w: 10, h: 10 },
+    { hasText: true, text: 'over image', fg: 'rgb(255, 255, 255)', bg: 'image', fontSize: 16, x: 0, y: 40, w: 10, h: 10 },
+    { hasText: true, text: 'large', fg: 'rgb(140, 140, 140)', bg: 'rgb(255, 255, 255)', fontSize: 28, x: 0, y: 60, w: 10, h: 10 },
+  ]);
+  const r = analyzeContrast(s);
+  assert.equal(r.checked, 3);
+  assert.equal(r.overImages, 1);
+  assert.deepEqual(r.failures.map((f) => f.text), ['faint']);
+});
+
+test('largest empty rectangle is found', () => {
+  const s = snapshot([{ hasText: true, x: 0, y: 0, w: 400, h: 100 }], { width: 400, height: 400 });
+  const r = analyzeViewportUse(s);
+  assert.equal(r.largestEmptyRect.y, 112);
+  assert.ok(r.largestEmptyRect.shareOfViewport >= 0.7);
+});

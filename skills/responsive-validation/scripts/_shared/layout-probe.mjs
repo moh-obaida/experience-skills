@@ -182,6 +182,18 @@ export function collectSnapshot(maxElements = 4000) {
     return parts.join(' > ') || el.tagName.toLowerCase();
   };
 
+  const resolveBackground = (el) => {
+    let node = el;
+    while (node && node.nodeType === 1) {
+      const st = getComputedStyle(node);
+      if (st.backgroundImage && st.backgroundImage !== 'none') return 'image';
+      const bg = st.backgroundColor;
+      if (bg && bg !== 'transparent' && !/rgba\([^)]*,\s*0\)$/.test(bg)) return bg;
+      node = node.parentElement;
+    }
+    return 'rgb(255, 255, 255)';
+  };
+
   const ownText = (el) => {
     let text = '';
     for (const child of el.childNodes) {
@@ -223,6 +235,11 @@ export function collectSnapshot(maxElements = 4000) {
       scrollsX: ['auto', 'scroll'].includes(style.overflowX) && el.scrollWidth > el.clientWidth + 1,
       background: style.backgroundImage !== 'none' ? 'image' : (style.backgroundColor !== 'rgba(0, 0, 0, 0)' && style.backgroundColor !== 'transparent' ? 'color' : 'none'),
     };
+    if (text.length > 0) {
+      record.fg = style.color;
+      record.bg = resolveBackground(el);
+      record.bold = (Number(style.fontWeight) || 400) >= 700;
+    }
     index.set(el, record.i);
     elements.push(record);
   }
@@ -393,6 +410,25 @@ export function analyzeViewportUse(snapshot, { cell = 16 } = {}) {
     run = empty ? run + 1 : 0;
     largestBand = Math.max(largestBand, run);
   }
+  // Largest all-empty rectangle on the grid (maximal rectangle via histogram method).
+  let bestArea = 0;
+  let best = null;
+  const heights = new Array(cols).fill(0);
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) heights[c] = grid[r * cols + c] ? 0 : heights[c] + 1;
+    const stack = [];
+    for (let c = 0; c <= cols; c++) {
+      const h = c === cols ? 0 : heights[c];
+      let start = c;
+      while (stack.length && stack[stack.length - 1][1] >= h) {
+        const [s0, sh] = stack.pop();
+        const a = sh * (c - s0);
+        if (a > bestArea) { bestArea = a; best = { x: s0 * cell, y: (r - sh + 1) * cell, width: (c - s0) * cell, height: sh * cell }; }
+        start = s0;
+      }
+      stack.push([start, h]);
+    }
+  }
   const area = vw * vh;
   const bbox = box
     ? {
@@ -413,6 +449,7 @@ export function analyzeViewportUse(snapshot, { cell = 16 } = {}) {
     contentCoverage: round2(filled / grid.length),
     contentBox: bbox,
     largestEmptyBandPx: largestBand * cell,
+    largestEmptyRect: best ? { ...best, shareOfViewport: round2((best.width * best.height) / area) } : null,
     environmentTreatment: Boolean(largeBackground || rootImage || largeMedia),
   };
 }
@@ -469,6 +506,49 @@ export function analyzeTargets(snapshot, { min = 24 } = {}) {
 }
 
 function round2(n) { return Math.round(n * 100) / 100; }
+
+/** Parse "rgb(r, g, b)" or "rgba(r, g, b, a)" into [r, g, b, a]. */
+export function parseRgb(value) {
+  const m = String(value).match(/rgba?\(([^)]+)\)/);
+  if (!m) return null;
+  const parts = m[1].split(/[\s,/]+/).filter(Boolean).map(Number);
+  return [parts[0], parts[1], parts[2], parts.length > 3 ? parts[3] : 1];
+}
+
+export function contrastRatio(fg, bg) {
+  const lum = ([r, g, b]) => {
+    const f = (c) => { const v = c / 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+    return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+  };
+  const a = lum(fg);
+  const b = lum(bg);
+  return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+}
+
+/**
+ * Text elements whose color contrast against the resolved background is below WCAG AA
+ * (4.5:1, or 3:1 for large text: >= 24px, or >= 18.66px bold). Text over images is skipped
+ * and counted, because its contrast cannot be computed from styles.
+ */
+export function analyzeContrast(snapshot, { limit = 30 } = {}) {
+  const failures = [];
+  let checked = 0;
+  let overImages = 0;
+  for (const el of snapshot.elements) {
+    if (!el.hasText || !el.fg) continue;
+    if (el.bg === 'image') { overImages++; continue; }
+    const fg = parseRgb(el.fg);
+    const bg = parseRgb(el.bg);
+    if (!fg || !bg || fg[3] === 0) continue;
+    checked++;
+    const ratio = contrastRatio(fg, bg);
+    const large = el.fontSize >= 24 || (el.bold && el.fontSize >= 18.66);
+    const needed = large ? 3 : 4.5;
+    if (ratio < needed) failures.push({ path: el.path, text: el.text, ratio: round2(ratio), needed, fontSize: el.fontSize });
+  }
+  failures.sort((p, q) => p.ratio - q.ratio);
+  return { checked, overImages, count: failures.length, failures: failures.slice(0, limit) };
+}
 
 // ---------------------------------------------------------------------------
 // Output helpers

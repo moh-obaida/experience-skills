@@ -1,5 +1,7 @@
 # Worked Example: Mobile Money Transfer
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Wise W1–W3 (consequences at the commit point); 2026-09-24).*
+
 **Archetype:** TRANSACTIONAL · **Product types:** banking, payments, wallets
 **Skills:** workflow-compression, interaction-design, state-design
 
@@ -53,6 +55,26 @@ Preserved: explicit final review showing amount, recipient details, fee, timing;
 
 Compression removed fake decisions and a fake confirmation; it did **not** remove the real
 safeguard. The remaining confirmation is clearer because it is the only one.
+
+## User goal and constraints
+
+Send money to a saved contact safely and quickly. Constraints: regulation, fraud risk, unreliable networks.
+
+## Alternative direction
+
+Repeat-transfer shortcut: 'Send £50 to Mum again' from the receipt, still through review and authentication.
+
+## Implementation notes
+
+Skip one-option steps server-side; single review with amount, recipient, fee, timing; biometric auth; idempotency keys; pending state never shown as failed.
+
+## Verification
+
+Workflow ledger before/after; network drop after authorize; screen reader reads the review in order.
+
+## Failure conditions
+
+Removing the review to reach 'one tap'; celebratory motion on money movement.
 
 ## Canonical rule
 

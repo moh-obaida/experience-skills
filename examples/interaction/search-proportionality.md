@@ -1,5 +1,7 @@
 # Worked Example: Search Proportionality
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (GitHub GH3, Grafana GF4, GOV.UK UKm2; 2026-09-24).*
+
 **Archetype:** OPERATIONAL, DISCOVERY · **Product types:** apps, admin tools, libraries
 **Skills:** interaction-design, anti-slop-ui, composition-repair
 
@@ -14,7 +16,7 @@ Every list gets a giant, centered "Search anything… ⌘K" bar with a glow, an 
 hint, taking 120 px at the top of each page. The team list of 8 people has one. The settings page
 has one. The command palette opens a modal that searches only the current list.
 
-## The typical wrong review
+## Bad AI instinct
 
 > "Modern command-bar search gives a premium, keyboard-first feel across the app."
 
@@ -38,6 +40,26 @@ has one. The command palette opens a modal that searches only the current list.
 ## Why this works
 
 Search appears where scale requires it, scoped honestly, sized to its importance.
+
+## User goal and constraints
+
+Users find items quickly in lists of very different sizes. Constraints: one design system, mixed expert and occasional users.
+
+## Alternative direction
+
+No search at all on small lists; instead grouping and alphabetical order, plus one global palette for the whole app.
+
+## Implementation notes
+
+Search component variants by scale (none, inline field, field with filters, global palette); result counts; empty results with suggestions; shortcut shown in the field.
+
+## Verification
+
+Count items per list; time to find a target item with and without search; keyboard access to the palette.
+
+## Failure conditions
+
+Palette shipped without global scope; search that does not understand users' words.
 
 ## When this lesson does not apply
 

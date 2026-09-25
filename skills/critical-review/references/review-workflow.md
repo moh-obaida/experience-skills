@@ -6,27 +6,28 @@ Sections: Review Workflow · Comparing to the Current State · Review Report Tem
 
 ## Review Workflow
 
-### 1. Frame
+### The mandatory sequence
 
-Write three lines before judging:
+Judgment comes last. Do the steps in order; write each one down, even briefly.
 
-```
-Goal: <what outcome, for whom>
-Proposal: <what changes, specifically>
-Constraints: <audience, platform, brand, maturity, time, tech>
-```
+| # | Step | Output |
+|---|---|---|
+| 1 | Intended outcome | One sentence: what should be true for whom after this change |
+| 2 | Proposed solution | Precisely what changes, where |
+| 3 | Constraints | Audience, platform, brand, maturity, time, technical limits, accessibility |
+| 4 | Evidence | What you can observe or measure (render, measure, read) and at what level |
+| 5 | Current state | How well the current version serves the outcome (with evidence) |
+| 6 | Proposed state | How well the proposal would serve it (render or reason from specifics) |
+| 7 | Benefits | Concrete gains, for which users and states |
+| 8 | Costs | Build, maintenance, performance, learning, accessibility |
+| 9 | New complexity | Concepts, modes, custom controls, dependencies added |
+| 10 | Regressions | What gets worse (states, sizes, speed, familiarity, consistency) |
+| 11 | Alternatives | The simplest alternative and "do nothing", compared on the same criteria |
+| 12 | Judgment | Verdict from the vocabulary, recommendation, next step |
 
-If you cannot write the goal, you cannot evaluate the proposal. Infer it, state the inference, and
-continue unless the verdict hinges on it.
+If you notice yourself forming a verdict before step 11, write it down as a hypothesis and keep going.
 
-### 2. Evaluate against the goal
-
-- Does the proposal achieve the outcome? For the main user? For edge users (new, expert, mobile,
-  keyboard, screen reader, other languages)?
-- Does it work in real states (empty, dense, error, slow), not just the showcase state?
-- Does it introduce new problems?
-
-### 3. Hidden-cost checklist
+### Hidden-cost checklist (for steps 8–10)
 
 | Cost | Questions |
 |---|---|
@@ -39,27 +40,13 @@ continue unless the verdict hinges on it.
 | States | Which states does it not handle? |
 | Maintenance | Who maintains it; does it fight the design system? |
 | Migration | Does it break learned behavior, links, docs, or data? |
-| Identity | Does it make the product more or less recognizable? More generic? |
+| Identity | More or less recognizable? More generic? |
 | Opportunity | What else could this effort have improved? |
 
-### 4. Compare
+### Recommendation types
 
-Against the current state, against doing nothing, and against the simplest alternative that
-achieves the goal. See the “Comparing to the Current State” section.
-
-### 5. Decide and recommend
-
-Choose a verdict from the vocabulary. Recommend one of:
-
-- **Ship** (as is)
-- **Ship with changes** (list the must-fix changes)
-- **Rethink** (the goal is right; the approach is not; suggest a direction)
-- **Keep current** (the proposal is worse or unnecessary)
-- **Test** (genuinely uncertain; propose the cheapest test that would decide)
-
-### 6. Write it
-
-Use the “Review Report Template” section. Lead with the verdict and the most important reason.
+- **Ship** · **Ship with changes** (list must-fix) · **Rethink** (goal right, approach wrong) ·
+  **Keep current** · **Test** (the cheapest test that would decide)
 
 ## Comparing to the Current State
 

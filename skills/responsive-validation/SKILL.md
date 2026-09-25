@@ -4,7 +4,7 @@ description: "Verify, not assume, that an experience works across real condition
 license: MIT
 compatibility: "The layout-report script needs Node.js 18+ and Playwright (or playwright-core with an installed Chrome). The checklist works without it."
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -48,6 +48,7 @@ across the sizes, inputs, languages, and settings real people use. This skill te
    content? No → list as not tested.
 6. **Before reporting:** did you look at each size, not only read numbers? Scripts miss awkward wraps,
    lost hierarchy, and focus order.
+7. **Before trusting any layout with ideal content, run `scripts/stress-content.mjs`** (long text, unbroken strings, RTL) at the narrowest and primary sizes; report only failures the stress introduced.
 
 ## Workflow
 
@@ -85,6 +86,13 @@ across the sizes, inputs, languages, and settings real people use. This skill te
 - Verify focus order at each layout; CSS reordering can scramble it.
 - Report what was not tested.
 
+## Precedent and composition
+
+| When | Load |
+|---|---|
+| Mobile navigation, reach, and first-screen budget | `references/_shared/mobile-navigation.md` |
+| How compositions should transform on phones and tablets | `references/_shared/compositions-mobile.md` |
+
 ## Failure modes
 
 - Testing only the developer's monitor and one phone; media queries as proof; ignoring height,
@@ -105,5 +113,6 @@ across the sizes, inputs, languages, and settings real people use. This skill te
 - `references/mobile-and-native.md` — safe areas, keyboards, native apps, desktop, CLI output
 - `references/rtl-and-content-stress.md` — RTL, localization, content stress
 - `references/reporting.md` — report format
+- `scripts/stress-content.mjs` — content stress injection before/after comparison
 - `references/_shared/` — generated copies: `experience-core.md`, `visual-problems.md`,
-  `bottom-sheet-overuse.md`
+  `bottom-sheet-overuse.md`, `mobile-navigation.md`, `compositions-mobile.md`

@@ -1,5 +1,7 @@
 # Worked Example: Context-Aware Judgment Controls
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (GitHub Actions GA1 (status-first rows) for the scoped-context principle; 2026-09-24).*
+
 **Archetype:** LIVE CONTROL · **Product types:** games, quizzes, auctions, support queues, moderation
 **Skills:** interaction-design, workflow-compression, state-design
 
@@ -20,7 +22,7 @@ game, under time pressure, while talking to the room.
 └─────────────────────────────────────────────────┘
 ```
 
-## The typical wrong review
+## Bad AI instinct
 
 > "Clear labels, and the host has full control over every team."
 
@@ -65,6 +67,26 @@ game, under time pressure, while talking to the room.
 
 The system's knowledge (who is answering) replaces a user decision. The one judgment that is
 genuinely human (is the answer right?) stays with the host.
+
+## User goal and constraints
+
+Hosts judge 30–60 answers per game while talking to a room. Constraints: time pressure, projector mirroring, touch laptops, occasional simultaneous buzzes.
+
+## Alternative direction
+
+Keyboard-only judging bar (C/W/U) with the state header, for hosts who project a separate view. Faster for experts; needs visible shortcut hints.
+
+## Implementation notes
+
+State header bound to the authoritative 'answering' state; buttons disabled with a reason when no one is answering; lock the target team at press time to avoid races; polite live-region announcement on change.
+
+## Verification
+
+Simulate rapid team switches; press Correct during a switch; screen reader hears the change; targets ≥ 44 px on touch.
+
+## Failure conditions
+
+Header too small to read at a glance; actions apply to the team that answers *after* the press.
 
 ## When this lesson does not apply
 

@@ -20,10 +20,18 @@ function ownFiles(skill, sub, ext) {
 
 export function buildCatalog() {
   const catalog = loadCatalog();
+  const names = catalog.skills.map((s) => s.name);
+  const section = (body, heading) => (body.split(`\n${heading}\n`)[1] ?? '').split('\n## ')[0];
+  const bullets = (text) => text.split('\n').filter((l) => l.startsWith('- ')).map((l) => l.slice(2).trim());
   for (const skill of catalog.skills) {
-    const { data } = readSkill(skill.name);
+    const { data, body } = readSkill(skill.name);
     skill.description = data.description;
     skill.version = data.metadata?.version;
+    skill.activationExamples = bullets(section(body, '## Use this when')).slice(0, 4);
+    skill.antiTriggers = bullets(section(body, '## Do not use this when'));
+    skill.relatedSkills = names.filter((n) => n !== skill.name && new RegExp(`\\b${n}\\b`).test(body));
+    skill.precedentModules = (skill.shared ?? []).filter((m) => m.startsWith('shared/precedent/'));
+    skill.designIntelligenceModules = (skill.shared ?? []).filter((m) => m.startsWith('shared/design-intelligence/'));
     skill.references = ownFiles(skill.name, 'references', '.md');
     skill.scripts = ownFiles(skill.name, 'scripts', '.mjs');
   }

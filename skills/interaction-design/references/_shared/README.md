@@ -15,5 +15,10 @@ points to it.
 | `context-aware-judgment.md` | Worked Example: Context-Aware Judgment Controls | `examples/interaction/context-aware-judgment.md` |
 | `undo-vs-confirm.md` | Worked Example: Undo vs Confirmation | `examples/interaction/undo-vs-confirm.md` |
 | `bottom-sheet-overuse.md` | Worked Example: Bottom-Sheet Overuse on Mobile | `examples/interaction/bottom-sheet-overuse.md` |
-| `public-service-form.md` | Worked Example: Public-Service Form | `examples/full-product/public-service-form.md` |
 | `search-proportionality.md` | Worked Example: Search Proportionality | `examples/interaction/search-proportionality.md` |
+| `public-service-form.md` | Worked Example: Public-Service Form | `examples/full-product/public-service-form.md` |
+| `progressive-disclosure-and-expert-speed.md` | Precedent: Progressive Disclosure and Expert Speed | `shared/precedent/progressive-disclosure-and-expert-speed.md` |
+| `transactional-clarity.md` | Precedent: Consequences Visible at the Point of Commitment | `shared/precedent/transactional-clarity.md` |
+| `interruptions-and-consent.md` | Precedent: Interruptions, Overlays, and Consent | `shared/precedent/interruptions-and-consent.md` |
+| `mobile-navigation.md` | Precedent: Mobile Navigation and Thumb-First Layouts | `shared/precedent/mobile-navigation.md` |
+| `spatial-density-navigation.md` | Spatial, Density, and Navigation Models | `shared/design-intelligence/spatial-density-navigation.md` |

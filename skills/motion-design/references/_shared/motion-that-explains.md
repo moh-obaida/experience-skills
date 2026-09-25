@@ -2,6 +2,8 @@
 
 # Worked Example: Motion That Explains
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Apple HIG AHM1–AHM4, Material MDT1–MDT3; 2026-09-24).*
+
 **Archetype:** EXPERIENTIAL, OPERATIONAL, TRANSACTIONAL · **Product types:** games, commerce, tools
 **Skills:** motion-design, state-design
 
@@ -51,6 +53,26 @@ paused during play and under reduced motion.
 | Project tool | Task moved to Done | Card travels to the column; column count updates |
 | Finance | Transfer confirmed | Amount moves from source to destination; balances count to new values |
 | Chat | Message sent | Bubble moves from composer into the thread; delivery mark resolves |
+
+## User goal and constraints
+
+The room notices who scored and where. Constraints: projector frame rates, reduced-motion users, rapid host input.
+
+## Alternative direction
+
+No travel animation; a strong color change plus a brief outline and a sound cue, for low-end devices.
+
+## Implementation notes
+
+Transform/opacity only; FLIP for leaderboard; tokens from the motion language; interruptible sequences; reduced-motion branch.
+
+## Verification
+
+`check-motion-rendered.mjs` normal vs reduced; slowed-down playback; press Next mid-sequence.
+
+## Failure conditions
+
+Sequences that block the host; motion on page load reintroduced.
 
 ## Canonical rule
 

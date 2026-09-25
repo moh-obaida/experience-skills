@@ -1,5 +1,7 @@
 # Worked Example: The Join-Code Page
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Kahoot KH1–KH2 and Blooket BK1–BK2; 2026-09-24).*
+
 **Archetype:** FOCUSED · **Product types:** games, events, classrooms, live polls, meeting rooms
 **Skills:** composition-repair, visual-identity, interaction-design, anti-slop-ui
 
@@ -28,7 +30,7 @@ join from school Chromebooks (1366×768) or phones. The page is the first thing 
 
 Six segmented digit boxes with glow and bounce animation, centered on a blank page.
 
-## The typical wrong review
+## Bad AI instinct
 
 > "Clean, modern, and spacious. The segmented code input feels playful and game-like, and the
 > minimal layout keeps focus on the task."
@@ -88,6 +90,26 @@ is attached to the wrong element.
 Personality moved from the control, where it cost usability, to the environment, where it costs
 nothing and is seen by everyone. The control became faster and more robust. The page became a
 place.
+
+## User goal and constraints
+
+Players join in seconds from classroom Chromebooks and phones; hosts want the game to feel like an event. Constraints: shared projector, young and non-native readers, school networks, paste from shared screens.
+
+## Alternative direction
+
+Asymmetric split: task panel on the start side, a live preview of the lobby (players joining) on the other. Stronger sense of event; costs lobby data on the join page and more states to design.
+
+## Implementation notes
+
+Pattern as a lightweight SVG or CSS background; `inputmode="numeric"` or text for alphanumeric codes; `autocomplete="one-time-code"`; strip spaces and dashes on paste; submit on Enter; panel on a solid surface for contrast; ambient motion off under reduced motion.
+
+## Verification
+
+`measure-layout.mjs` before/after (coverage, dead region, environment treatment); paste a code with spaces; screen reader announces one labeled field; 1366×768 and 390×844 with keyboard open; contrast of panel text.
+
+## Failure conditions
+
+Pattern competing with the field; hero art so heavy the page loads slowly on school networks; segmented boxes reintroduced for 'fun'.
 
 ## When this lesson does not apply
 

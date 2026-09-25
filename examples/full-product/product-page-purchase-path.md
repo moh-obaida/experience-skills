@@ -1,5 +1,7 @@
 # Worked Example: Product Page Purchase Path
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Apple AP1–AP3, IKEA IK1–IK2, Airbnb ABd2/ABm4; 2026-09-24).*
+
 **Archetype:** DISCOVERY → TRANSACTIONAL · **Product types:** commerce, marketplaces, ticketing
 **Skills:** workflow-compression, interaction-design, composition-repair, critical-review
 
@@ -52,6 +54,26 @@ Before: 2 dismissals · 2 decisions (1 one-option) · 1 blank known input · act
 After:  0 dismissals · 1 decision (size, defaulted, changeable) · action in first viewport
 Preserved: size choice remains visible and changeable; price and returns explicit
 ```
+
+## User goal and constraints
+
+Returning customers buy the right size quickly; new customers understand fit and delivery. Constraints: regional pricing, mobile majority.
+
+## Alternative direction
+
+Story-first layout for a flagship launch, with a sticky purchase bar from the first scroll.
+
+## Implementation notes
+
+Region from domain with a quiet switch; size default from order history; skip one-option color; delivery and returns next to the button; newsletter offer after add-to-bag.
+
+## Verification
+
+Mobile first viewport shows price, size, delivery, and buy; count dismissals and decisions before/after.
+
+## Failure conditions
+
+Auto-selecting size without showing it; hiding delivery cost until checkout.
 
 ## When this lesson does not apply
 

@@ -1,5 +1,7 @@
 # Worked Example: Bottom-Sheet Overuse on Mobile
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Airbnb mobile ABm1–ABm4; 2026-09-24).*
+
 **Archetype:** OPERATIONAL (mobile) · **Product types:** mobile apps and mobile web
 **Skills:** interaction-design, responsive-validation, workflow-compression
 
@@ -39,6 +41,26 @@ Mark as done: 4 taps + 1 swipe → 1 tap (checkbox) or 1 swipe. Change priority:
 
 Direct controls on the object remove layers; the sheet is kept for its good use: a contextual
 menu of infrequent actions.
+
+## User goal and constraints
+
+Change status, priority, or due date in one or two taps on a phone. Constraints: one-handed use, platform conventions on iOS and Android.
+
+## Alternative direction
+
+Swipe actions on rows (with visible alternatives) for the two most frequent changes; one sheet for the rest.
+
+## Implementation notes
+
+Inline status control on the row; native date picker; segmented priority in detail; gestures with visible buttons; undo toast.
+
+## Verification
+
+Tap counts before/after; one-handed reach on a large phone; screen reader and switch control paths.
+
+## Failure conditions
+
+Gesture-only actions; sheets reintroduced for single choices.
 
 ## When this lesson does not apply
 

@@ -35,6 +35,8 @@ test('tagStep handles serial work and expert tax', () => {
   assert.deepEqual(tagStep({ type: 'action', perItem: 30 }), ['F6']);
   assert.deepEqual(tagStep({ type: 'decision', expertRepeat: true }), ['F10']);
   assert.deepEqual(tagStep({ type: 'confirmation', reversible: true, preserve: true }), []);
+  assert.deepEqual(tagStep({ type: 'lookup' }), ['F13']);
+  assert.deepEqual(tagStep({ type: 'action', mode: true, interrupts: true, hiddenStatus: true, duplicate: true }), ['F11', 'F12', 'F14', 'F15']);
 });
 
 test('invalid step types are rejected with exit code 2', () => {

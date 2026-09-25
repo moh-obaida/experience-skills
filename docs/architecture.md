@@ -125,6 +125,19 @@ names specialists and, when they are not installed, carries a compressed fallbac
 Whether agents actually load the specialists is measured by `scripts/run-agent-evals.mjs`, which
 records every skill, reference, and script an agent loads during a scenario.
 
+## Decision 9: evidence, interpretation, and vocabulary are separate layers
+
+- **Evidence** (`research/observations/`): what was seen, when, and how. Not vendored.
+- **Interpretation** (`shared/precedent/`): concept modules that cite evidence IDs and state transfer
+  conditions. Vendored into the skills that decide with them.
+- **Vocabulary** (`shared/design-intelligence/`): directions, compositions, palettes, type, surfaces,
+  motion languages, models, and the selection procedure. Index files let an agent load one family
+  instead of the whole library.
+
+Skills load these only from checkpoints and "when → load" tables, so a skill that ships 30 library
+files still reads two or three for a given task. Installed sizes and vendored ratios are reported in
+the v0.2.0 upgrade notes.
+
 ## Validation layers
 
 | Check | Script | Catches |

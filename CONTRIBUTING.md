@@ -44,6 +44,24 @@ generated and CI rejects hand edits.
 - Writing follows the style below.
 - Add a line to `CHANGELOG.md` under an "Unreleased" heading.
 
+## Contributing design intelligence or precedent
+
+A new direction, composition, palette family, typography note, or precedent entry must include:
+
+- a clear concept and the job it does
+- appropriate and inappropriate contexts (archetypes, audiences)
+- reasoning (why it works, not that it looks good)
+- failure modes and AI-slop risks
+- accessibility notes (contrast computed, not estimated) and responsive/RTL notes where relevant
+- real precedents with URL, date observed, and evidence method; add the observation to
+  `research/observations/` with a new ID and cite the ID
+- license and provenance if anything is copied or adapted (update `third-party/provenance.json` and
+  `THIRD_PARTY_NOTICES.md`)
+- test or eval implications (a scenario, a fixture, or a routing case)
+
+Rejected: "here is a cool style" without context, name-dropping lists, invented examples presented as
+observed products, and palettes or fonts chosen by industry.
+
 ## Writing style
 
 The repository should itself resist slop.

@@ -2,6 +2,27 @@
 
 Load for F1 redundant input, F2 unnecessary choice, F3 repeated configuration, and F7 memory failure.
 
+## Known-context inventory (run this for every flow)
+
+Before any field, question, picker, or confirmation stays in a flow, check each source and record
+what the product already knows at that step:
+
+| Source | Ask | Typical use |
+|---|---|---|
+| Current user and account | Name, email, role, organization, plan, locale, time zone | Prefill; skip role-irrelevant steps |
+| Selected object | The item, record, file, participant, or order the user acted on | Scope actions; prefill target |
+| Current route and state | Which page, step, tab, filter, phase | Infer intent; keep context on return |
+| Language and region | UI language, source-content language, currency, units | Default and display, don't ask |
+| Previous choices | Last-used settings for this task | Default to last deliberate choice |
+| Recent objects | Recently opened, created, or used items | Offer first in pickers |
+| Ownership and permissions | What this user can do here | Hide impossible options; explain restricted ones |
+| Already-entered data | Anything typed earlier in this journey | Never ask twice (GOV.UK: ask once per journey) |
+| Only-valid-option constraints | Options filtered to one by data, plan, or permission | Skip the step; show the value |
+| Inferable values | Values derivable from files, metadata, device, or other answers | Infer, show, allow override |
+
+Branch: known → prefill, infer, skip, or show as editable context; unknown but predictable →
+default with visible "change"; genuinely the user's decision → ask, once.
+
 Sections: Redundant Input (F1) · Unnecessary Choice (F2) · Smart Defaults · Context Reuse · Remembered Settings and Presets (F3)
 
 ## Redundant Input (F1)

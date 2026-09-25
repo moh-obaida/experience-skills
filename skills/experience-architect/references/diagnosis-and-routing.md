@@ -57,6 +57,51 @@ Rank by user impact, not by how easy they are to talk about:
 A slop problem on the marketing page may matter less than a redundant input on a task done
 fifty times a day. Say so when you rank.
 
+## Problem classes the router must distinguish
+
+Each class names its observable signal, so a symptom can be confirmed before routing.
+
+| Problem class | Observable signal | Route to |
+|---|---|---|
+| Visually generic | Fails the logo test; template structure; trend treatments | anti-slop-ui, visual-identity |
+| Visually chaotic | Many accents, competing emphases, no focal point in a squint test | composition-repair, anti-slop-ui |
+| Visually empty | Low first-viewport coverage without an environment | composition-repair, empty-state-design, visual-identity |
+| Hierarchy failure | Wrong or missing focal point; flat type scale | composition-repair |
+| Workflow too long | Step, decision, and navigation counts high for frequency | workflow-compression |
+| Repeated configuration | Same setup each session | workflow-compression |
+| Confusing controls | Mis-clicks, hesitation, restated scope, unclear affordance | interaction-design |
+| Inappropriate interaction novelty | Custom version of a standard control without measurable gain | interaction-design, critical-review |
+| Bad information architecture | "Where is…?" questions; duplicate locations; vague labels | product-friction |
+| Poor state handling | Generic errors, blank loading, false failures, lost input | state-design |
+| Weak empty state | Blank or stuffed low-content surfaces | empty-state-design |
+| Responsive failure | Overflow, collisions, clipped actions at some size or zoom | responsive-validation, composition-repair |
+| Motion without meaning | Uniform entrances; silent important changes | motion-design |
+| Identity mismatch | Identity intensity wrong for the archetype (spectacle on a tax form; blandness on a game) | visual-identity, critical-review |
+| Design cliché | Gradients, glass, pills, KPI tiles, eyebrows without jobs | anti-slop-ui |
+| Inaccessible experience | Keyboard traps, contrast failures, color-only meaning, small targets | interaction-design, responsive-validation |
+| Sparse operational page | Greeting + buttons on a surface users return to daily | empty-state-design, composition-repair |
+| Overly dense focused page | A single-purpose page crowded with secondary content | composition-repair, product-friction |
+| Design direction mismatch | The visual direction contradicts audience or context | visual-identity (selection procedure) |
+| Product-specific identity missing | Nothing derived from the product's mechanic, object, or content | visual-identity |
+| Proposed redesign worse than current | A proposal adds cost without serving the goal better | critical-review, then the domain specialist |
+
+## Specialist compositions
+
+Recipes for common multi-class problems. Order matters: structure before surface, judgment last.
+
+| Situation | Specialists, in order | Handoff between them |
+|---|---|---|
+| Generic sparse dashboard | empty-state-design → composition-repair → visual-identity → anti-slop-ui | Real state list → focal and viewport budget → environment carriers → gate |
+| Slow creation flow | workflow-compression → product-friction → interaction-design | Counted flow and known-context inventory → concept and naming fixes → control design |
+| Live multiplayer experience feels lifeless | state-design → motion-design → visual-identity → composition-repair | State matrix and events → event motion specs → world and color roles → stage composition |
+| Proposed visual redesign | critical-review → visual-identity → anti-slop-ui → composition-repair | Goal and comparison → direction check → justification of treatments → rendered verification |
+| Join / sign-in feels generic | composition-repair → visual-identity → interaction-design → anti-slop-ui | Dead space measured → environment derived → control kept standard → gate |
+| Mobile breaks | responsive-validation → composition-repair → interaction-design | Failing sizes → restructure → reach and targets |
+| Long job holds users hostage | state-design → workflow-compression | Job lifecycle and honesty → waiting tax removed |
+
+After loading a specialist, carry its output forward explicitly (for example the counted flow, the
+state matrix, the chosen direction); do not let the next specialist re-diagnose from scratch.
+
 ## Routing
 
 How to pick specialist skills from a diagnosis. Specialists are sibling skills in this

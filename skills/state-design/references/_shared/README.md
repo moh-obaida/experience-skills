@@ -10,6 +10,8 @@ points to it.
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `state-types.md` | State Types | `shared/taxonomies/state-types.md` |
+| `state-header.md` | Pattern: State Header | `shared/patterns/state-header.md` |
 | `honest-error-states.md` | Worked Example: Honest Error States | `examples/states/honest-error-states.md` |
 | `long-running-generation.md` | Worked Example: Long-Running AI Generation | `examples/full-product/long-running-generation.md` |
-| `state-header.md` | Pattern: State Header | `shared/patterns/state-header.md` |
+| `states-loading-empty-error.md` | Precedent: Loading, Empty, and Error States in the Wild | `shared/precedent/states-loading-empty-error.md` |
+| `transactional-clarity.md` | Precedent: Consequences Visible at the Point of Commitment | `shared/precedent/transactional-clarity.md` |

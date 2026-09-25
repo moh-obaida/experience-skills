@@ -10,12 +10,29 @@ points to it.
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `page-archetypes.md` | Page Archetypes | `shared/taxonomies/page-archetypes.md` |
+| `information-priority.md` | Information Priority | `shared/taxonomies/information-priority.md` |
+| `visual-problems.md` | Visual Problem Taxonomy | `shared/taxonomies/visual-problems.md` |
+| `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
 | `fake-density.md` | Fake Density | `shared/anti-patterns/fake-density.md` |
+| `fake-minimalism.md` | Fake Minimalism | `shared/anti-patterns/fake-minimalism.md` |
 | `branded-environment-simple-form.md` | Pattern: Branded Environment, Simple Form | `shared/patterns/branded-environment-simple-form.md` |
 | `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
 | `sparse-operational-home.md` | Worked Example: The Sparse Operational Home | `examples/composition/sparse-operational-home.md` |
 | `editorial-not-cards.md` | Worked Example: Editorial Hierarchy, Not Cards | `examples/composition/editorial-not-cards.md` |
-| `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
-| `information-priority.md` | Information Priority | `shared/taxonomies/information-priority.md` |
-| `visual-problems.md` | Visual Problem Taxonomy | `shared/taxonomies/visual-problems.md` |
-| `fake-minimalism.md` | Fake Minimalism | `shared/anti-patterns/fake-minimalism.md` |
+| `compositions-index.md` | Compositions: Index | `shared/design-intelligence/compositions-index.md` |
+| `compositions-focus.md` | Compositions: Focus Family | `shared/design-intelligence/compositions-focus.md` |
+| `compositions-flows.md` | Compositions: Flow Family | `shared/design-intelligence/compositions-flows.md` |
+| `compositions-narrative.md` | Compositions: Narrative Family | `shared/design-intelligence/compositions-narrative.md` |
+| `compositions-content.md` | Compositions: Content Family | `shared/design-intelligence/compositions-content.md` |
+| `compositions-discovery.md` | Compositions: Discovery and Commerce Family | `shared/design-intelligence/compositions-discovery.md` |
+| `compositions-workspaces.md` | Compositions: Workspace Family | `shared/design-intelligence/compositions-workspaces.md` |
+| `compositions-operational.md` | Compositions: Operational and Data Family | `shared/design-intelligence/compositions-operational.md` |
+| `compositions-mobile.md` | Compositions: Mobile and Tablet Family | `shared/design-intelligence/compositions-mobile.md` |
+| `spatial-density-navigation.md` | Spatial, Density, and Navigation Models | `shared/design-intelligence/spatial-density-navigation.md` |
+| `typography.md` | Typography Intelligence | `shared/design-intelligence/typography.md` |
+| `data-visualization.md` | Data Visualization Selection | `shared/design-intelligence/data-visualization.md` |
+| `whitespace-and-dead-space.md` | Precedent: Intentional Space vs Dead Space | `shared/precedent/whitespace-and-dead-space.md` |
+| `dense-operational-layouts.md` | Precedent: Useful Density in Operational and Data Surfaces | `shared/precedent/dense-operational-layouts.md` |
+| `editorial-and-typography.md` | Precedent: Editorial Composition and Typography | `shared/precedent/editorial-and-typography.md` |
+| `commerce-and-discovery.md` | Precedent: Commerce and Discovery Surfaces | `shared/precedent/commerce-and-discovery.md` |
+| `third-party-notices.md` | Third-Party Notices | `shared/legal/third-party-notices.md` |

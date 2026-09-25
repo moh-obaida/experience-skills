@@ -1,7 +1,9 @@
 # Experience Skills
 
-Agent skills for product-experience judgment: composition, identity, workflow speed, states,
-motion, and honest critique, for any digital product.
+Portable agent skills for product experience: composition, identity, workflow speed, states,
+motion, responsive behavior, and honest critique, for any digital product. They combine
+experience reasoning, real-world precedent, a design-intelligence library, workflow analysis,
+browser verification, anti-slop reasoning, and critical review.
 
 Make the environment memorable. Make the interaction obvious. Make the outcome fast.
 
@@ -122,6 +124,10 @@ Some skills include small scripts. They report measurements; the agent supplies 
 | `workflow-ledger.mjs` | workflow-compression | Before/after step counts and friction tags from a JSON flow map |
 | `scan-motion.mjs` | motion-design | Static signals: layout-property animation, `transition: all`, long or infinite animations, missing reduced motion |
 | `scan-slop.mjs` | anti-slop-ui | Static signals: gradients, glass, huge radii, pills, eyebrows, generic copy |
+| `inventory-styles.mjs` | anti-slop-ui | Rendered inventory: radii, shadows, gradients, blur, type sizes, container nesting, repeated cards |
+| `check-controls.mjs` | interaction-design | Unnamed controls, placeholder-only labels, missing alt, positive tabindex, small targets, contrast, invisible focus |
+| `check-motion-rendered.mjs` | motion-design | Animations actually running, with and without reduced motion |
+| `stress-content.mjs` | responsive-validation | Long text, unbroken strings, and RTL injected; reports failures that appear only under stress |
 
 The browser scripts need Playwright (or `playwright-core` with an installed Chrome) in the project
 being checked. Without a browser, the skills fall back to static analysis and say what remains
@@ -135,8 +141,27 @@ a folder with a `SKILL.md` (YAML frontmatter plus instructions) and optional `re
 instructions are vendor-neutral.
 
 Tested for this release: discovery and installation with `skills` CLI 1.7.0 (installing for Claude
-Code in a temporary project), and validation of every skill with the reference validator (`skills-ref` 0.1.1, `agentskills validate`). Other
-agents supported by the CLI should work but were not individually tested.
+Code in a temporary project); validation of every skill with the reference validator (`skills-ref`
+0.1.1, `agentskills validate`); and behavioral runs with Claude Code (see `tests/evals/results/`).
+Codex and other agents supported by the CLI were not tested.
+
+## Precedent and design intelligence
+
+- **Real-world precedent.** 167 dated observations of 64 public product surfaces (GOV.UK, Wise,
+  GitHub, Kahoot, Stripe, Wikipedia, Airbnb, MDN, and others), interpreted in 15 concept modules. Every
+  entry says when the lesson applies and when copying it would fail. Invented examples are labeled as
+  such.
+- **Design intelligence.** 45 design directions, 48 compositions, 17 palette families with computed
+  contrast, typography (including Arabic/Latin), surfaces, imagery, motion languages, navigation and
+  density models, and chart selection. A selection procedure compares three directions from different
+  families, so a product category never picks a style.
+- **Anti-slop that proposes alternatives.** When a default is detected, the skill checks whether it is
+  justified here; if not, it generates alternatives from different families and chooses by context.
+  Gradients, glass, cards, and dense layouts are never rejected by category.
+
+Details: [docs/design-intelligence.md](docs/design-intelligence.md). Adapted third-party material is
+credited in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and explained in
+[docs/third-party.md](docs/third-party.md).
 
 ## How it works
 
@@ -163,12 +188,14 @@ Details: [docs/architecture.md](docs/architecture.md).
 
 ```
 skills/        12 installable skills (the product)
-shared/        source of truth for shared philosophy, taxonomies, patterns, anti-patterns, evaluation, tools
-examples/      20 worked examples (problem, bad version, analysis, better version, tradeoffs)
+shared/        source of truth: philosophy, taxonomies, patterns, anti-patterns, evaluation, tools,
+               precedent modules, design-intelligence library, license notices
+examples/      20 worked teaching examples (goal, bad instinct, analysis, better and alternative directions, verification)
 catalog/       skills.json: categories, shared-module declarations, generated metadata
 scripts/       sync, validation, link checking, catalog generation, CLI discovery test, agent evals
 tests/         unit and browser tests, routing fixtures, agent-eval scenarios, fixtures
-research/      prior art, visual reference catalog, research notes
+research/      dated observations of real products, prior art, audit, research notes
+third-party/   provenance of adapted third-party material
 docs/          architecture, philosophy, authoring, evaluation, installation, contributing
 ```
 

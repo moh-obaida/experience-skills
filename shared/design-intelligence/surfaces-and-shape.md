@@ -16,6 +16,9 @@ strokes, and geometry. Both should follow one logic per product.
 
 ## Named surface treatments (not directions)
 
+This table reclassifies several entries from the UI UX Pro Max style catalog, which was used as
+a coverage check (see the third-party notices file).
+
 These are often presented as "styles." They are treatments with specific honest uses.
 
 | Treatment | Honest when | Default (slop) when | Accessibility / performance |

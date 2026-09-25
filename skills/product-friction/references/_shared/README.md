@@ -10,8 +10,10 @@ points to it.
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `product-maturity.md` | Product Maturity | `shared/taxonomies/product-maturity.md` |
+| `workflow-friction.md` | Workflow Friction Taxonomy | `shared/taxonomies/workflow-friction.md` |
+| `information-priority.md` | Information Priority | `shared/taxonomies/information-priority.md` |
 | `overengineering.md` | Overengineering | `shared/anti-patterns/overengineering.md` |
 | `next-best-action.md` | Pattern: Next Best Action | `shared/patterns/next-best-action.md` |
 | `continue-where-left-off.md` | Pattern: Continue Where You Left Off | `shared/patterns/continue-where-left-off.md` |
-| `workflow-friction.md` | Workflow Friction Taxonomy | `shared/taxonomies/workflow-friction.md` |
-| `information-priority.md` | Information Priority | `shared/taxonomies/information-priority.md` |
+| `interruptions-and-consent.md` | Precedent: Interruptions, Overlays, and Consent | `shared/precedent/interruptions-and-consent.md` |
+| `known-context-and-defaults.md` | Precedent: Using What the Product Already Knows | `shared/precedent/known-context-and-defaults.md` |

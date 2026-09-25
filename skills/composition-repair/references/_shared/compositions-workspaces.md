@@ -1,0 +1,60 @@
+<!-- GENERATED FROM shared/design-intelligence/compositions-workspaces.md. DO NOT EDIT DIRECTLY. Edit the source and run `npm run sync`. -->
+
+# Compositions: Workspace Family
+
+---
+
+## Sidebar workspace
+
+| Aspect | Guidance |
+|---|---|
+| Solves | Navigating many objects of a few types |
+| Content needs | Object types in the sidebar; the current object in the main area |
+| Hierarchy / focal | The main area; sidebar is P2 |
+| Scroll | Sidebar and main scroll independently; the page does not |
+| Responsive | Sidebar collapses to a drawer or bottom navigation |
+| Precedent | GitHub Actions (GA3), Linear Docs (LD1) |
+
+## Master-detail
+
+| Aspect | Guidance |
+|---|---|
+| Solves | Triage a list and inspect items without losing the list |
+| Content needs | Dense list rows with status; detail pane |
+| Responsive | Split view on tablets; push navigation on phones with state preserved |
+| Fails when | Returning from detail resets filters or scroll |
+
+## Canvas workspace
+
+| Aspect | Guidance |
+|---|---|
+| Solves | Making or analyzing something on a canvas |
+| Content needs | Canvas, tool rail, contextual inspector |
+| Hierarchy / focal | The canvas; chrome recedes |
+| Accessibility | Icon tools need labels and keyboard access; canvas content needs alternatives |
+| Precedent | TradingView (TV1, TV2) |
+
+## Authoring workspace
+
+| Aspect | Guidance |
+|---|---|
+| Solves | Writing and structured editing |
+| Content needs | The document; commands at the cursor; outline |
+| Precedent | Notion (NO1–NO3) |
+
+## Media console
+
+| Aspect | Guidance |
+|---|---|
+| Solves | Playing and controlling media |
+| Content needs | Now-playing, queue, library; persistent transport controls |
+| Precedent | Spotify (SPd2) |
+
+## Terminal / CLI companion
+
+| Aspect | Guidance |
+|---|---|
+| Solves | Structuring command output |
+| Content needs | Resolved plan, progress, results, next command |
+| Responsive | Works at 80 columns and without color |
+| Precedent | See the CLI project-init worked example |

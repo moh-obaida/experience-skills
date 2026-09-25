@@ -42,6 +42,15 @@ export function checkShared() {
       }
     }
   }
+  // Adapted third-party material must travel with its license notice.
+  for (const skill of catalog.skills) {
+    const modules = modulesFor(catalog, skill);
+    const needsNotice = modules.filter((m) => m.endsWith('.md') && existsSync(join(ROOT, m)) && /third-party notices file/i.test(readFileSync(join(ROOT, m), 'utf8')));
+    if (needsNotice.length && !modules.includes('shared/legal/third-party-notices.md')) {
+      r.error(`${skill.name}: ships adapted third-party material (${needsNotice.map((m) => basename(m)).join(', ')}) without shared/legal/third-party-notices.md`);
+    }
+  }
+
   for (const file of [...listFiles(join(ROOT, 'shared')), ...listFiles(join(ROOT, 'examples'))]) {
     const rel = repoRel(file);
     if (basename(file) === 'README.md') continue;

@@ -25,6 +25,11 @@ Attributes that drive friction tags:
   wait             "blocking": true        → F8 WAITING TAX ("seconds": n)
   outcome          "next": false           → F9 DEAD END
   any              "expertRepeat": true    → F10 EXPERT TAX
+  any              "mode": true            → F11 MODE TAX
+  any              "interrupts": true      → F12 INTERRUPTION TAX (a modal, banner, or promo in the way)
+  any              "contextSwitch": true   → F13 CONTEXT-SWITCH TAX (leaving to fetch information)
+  any              "hiddenStatus": true    → F14 HIDDEN-STATUS TAX (outcome not visible)
+  any              "duplicate": true       → F15 DUPLICATE-OBJECT TAX
   any              "preserve": true        → marks a safeguard/judgment step (never tagged)
 
 Options:
@@ -39,6 +44,7 @@ export const TYPES = ['action', 'input', 'decision', 'navigation', 'confirmation
 const TAGS = {
   F1: 'REDUNDANT INPUT', F2: 'UNNECESSARY CHOICE', F3: 'REPEATED CONFIGURATION', F4: 'NAVIGATION TAX',
   F5: 'CONFIRMATION TAX', F6: 'SERIAL WORK', F7: 'MEMORY FAILURE', F8: 'WAITING TAX', F9: 'DEAD END', F10: 'EXPERT TAX',
+  F11: 'MODE TAX', F12: 'INTERRUPTION TAX', F13: 'CONTEXT-SWITCH TAX', F14: 'HIDDEN-STATUS TAX', F15: 'DUPLICATE-OBJECT TAX',
 };
 
 export function tagStep(s) {
@@ -54,6 +60,11 @@ export function tagStep(s) {
   if (s.type === 'wait' && s.blocking) tags.push('F8');
   if (s.type === 'outcome' && s.next === false) tags.push('F9');
   if (s.expertRepeat) tags.push('F10');
+  if (s.mode) tags.push('F11');
+  if (s.interrupts) tags.push('F12');
+  if (s.contextSwitch || s.type === 'lookup') tags.push('F13');
+  if (s.hiddenStatus) tags.push('F14');
+  if (s.duplicate) tags.push('F15');
   return tags;
 }
 

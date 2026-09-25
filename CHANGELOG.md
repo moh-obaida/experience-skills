@@ -4,6 +4,49 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org/). All skills share the repository version.
 
+## [0.2.0] - 2026-09-25
+
+The deep intelligence upgrade: real-world precedent, a design-intelligence library, positive
+anti-slop alternatives, new rendered-evidence tools, and real agent evaluations.
+
+### Added
+- **Real-world evidence:** `research/observations/` with 167 dated observations of 64 public product
+  surfaces (observed in a browser or read from official documentation on 2026-09-24).
+- **Precedent modules:** 15 concept modules in `shared/precedent/`, each entry with what works, why,
+  when it is right, what does not transfer, and when copying fails. Vendored into the skills that use them.
+- **Design-intelligence library** (`shared/design-intelligence/`): a selection procedure, 45 design
+  directions in 10 families, 48 compositions in 7 families, 17 palette families with computed contrast,
+  typography (including multilingual and Arabic/Latin), surfaces and shape, imagery and icons, motion
+  languages, density/spatial/navigation models, data visualization, and an anti-generic alternatives map.
+- **Product archetypes** taxonomy (26 archetypes and their defaults).
+- **New scripts:** `inventory-styles.mjs` (anti-slop-ui), `check-controls.mjs` (interaction-design),
+  `check-motion-rendered.mjs` (motion-design), `stress-content.mjs` (responsive-validation). The layout
+  library now reports the largest dead region and text contrast.
+- **New references:** interruptions, modes, and status (workflow-compression); branded states and
+  sparse/dense identity (visual-identity); search, selection, and bulk (interaction-design); trust and
+  transparency (product-friction); the alternatives engine (anti-slop-ui); verdict examples
+  (critical-review); device and viewport edges (composition-repair).
+- **Friction classes F11–F15** (mode, interruption, context switch, hidden status, duplicate object) in
+  the taxonomy and `workflow-ledger.mjs`; lifecycle and collaboration states; six new motion events.
+- **Third-party handling:** `THIRD_PARTY_NOTICES.md`, `third-party/provenance.json`, `docs/third-party.md`;
+  adapted Hallmark and UI UX Pro Max ideas rewritten, with notices vendored alongside adapted material.
+- **Behavioral evaluation:** new scenarios (anti-slop nuance, real states, admin setup, fashionable
+  redesign) and a recorded with/without run with Claude Code (see `tests/evals/results/`).
+- Catalog fields generated from SKILL.md: activation examples, anti-triggers, related skills,
+  precedent and design-intelligence modules.
+- Docs: `docs/design-intelligence.md`, `docs/third-party.md`, `research/audit-2026-09.md`.
+
+### Changed
+- Every skill gained checkpoints that use the new material (for example, composition-repair must name a
+  composition from the library before restructuring; visual-identity must compare three directions
+  from different families; anti-slop-ui must generate three alternatives and run a reverse-dogma check;
+  critical-review follows a mandatory 12-step sequence).
+- Worked examples are labeled as invented teaching examples and extended with goals, constraints,
+  alternative directions, implementation notes, verification, and failure conditions.
+- The public-service form example was corrected against GOV.UK's research-backed question-page guidance.
+- Validation checks precedent citations against the observation log, provenance targets, and that
+  adapted material ships with its license notice.
+
 ## [0.1.1] - 2026-09-24
 
 A structural revision after a critical review of v0.1.0. The principle applied throughout: every

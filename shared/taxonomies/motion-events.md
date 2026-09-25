@@ -16,6 +16,12 @@ Motion is justified by an event. Classify the event first; the motion follows fr
 | CELEBRATION | Meaningful achievement | Reward proportionate to the achievement | Win screen; streak milestone |
 | HIERARCHY CHANGE | Importance changed | Reorder with visible movement | Leaderboard rows swap places |
 | AMBIENT | System is alive, waiting | Signal liveness without distraction | Slow background drift in a lobby |
+| CREATION | Something new was made by the user | Show it appearing where it lives | New card grows in place in the column |
+| REJECTION | Input was refused | Signal "not accepted" without shaming | A brief horizontal shake of the field plus a message (never alone) |
+| UNDO | An action was reversed | Reverse the original motion | Archived row slides back into place |
+| FOCUS CHANGE | Attention moved to another region | Guide the eye to the new focus | Panel edge highlight as a panel opens |
+| GESTURE RESPONSE | The user is dragging, swiping, pinching | Follow the finger exactly; settle on release | Card follows the swipe and snaps |
+| OBJECT PERMANENCE | The same object appears in two places | Keep its identity visible across views | Thumbnail morphs into the detail image |
 
 ## Non-events
 

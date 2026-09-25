@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Run a viewport matrix against a page and report overflow, collisions, small targets,
+// Run a viewport matrix against a page and report overflow, collisions, small targets, text contrast,
 // fixed/sticky chrome share, and first-viewport content coverage per size.
 // Usage: node layout-report.mjs <url-or-file> [--sizes ...] [--zoom 1,2] [--rtl] [--screenshots dir] [--json]
 
@@ -7,7 +7,7 @@ import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   parseArgs, parseSizes, toUrl, launch, openPage, snapshotPage, runCli, UsageError,
-  analyzeOverflow, analyzeCollisions, analyzeTargets, analyzeChrome, analyzeViewportUse, truncate,
+  analyzeOverflow, analyzeCollisions, analyzeTargets, analyzeChrome, analyzeViewportUse, analyzeContrast, truncate,
 } from './_shared/layout-probe.mjs';
 
 export const DEFAULT_SIZES = '1920x1080,1536x864,1440x900,1366x768,1280x800,1024x768,768x1024,430x932,390x844,375x812,360x800';
@@ -39,6 +39,7 @@ export function summarize(snapshot, { minTarget = 24 } = {}) {
   const targets = analyzeTargets(snapshot, { min: minTarget }).filter((t) => !t.inlineLink);
   const chrome = analyzeChrome(snapshot);
   const use = analyzeViewportUse(snapshot);
+  const contrast = analyzeContrast(snapshot);
   return {
     overflowPx: overflow.hasPageOverflow ? overflow.pageOverflowPx : 0,
     overflowCulprits: overflow.culprits.slice(0, 10),
@@ -48,6 +49,8 @@ export function summarize(snapshot, { minTarget = 24 } = {}) {
     smallTargetCount: targets.length,
     chromeShare: chrome.shareOfViewportHeight,
     coverage: use.contentCoverage,
+    contrastFailures: contrast.count,
+    contrastExamples: contrast.failures.slice(0, 5),
   };
 }
 
@@ -66,9 +69,9 @@ function pct(n) { return `${Math.round(n * 100)}%`; }
 
 function toText(url, runs) {
   const out = [`layout-report · ${url}`, ''];
-  out.push(`${'Run'.padEnd(22)}${'Overflow'.padEnd(10)}${'Collide'.padEnd(9)}${'Small'.padEnd(7)}${'Chrome'.padEnd(8)}Coverage`);
+  out.push(`${'Run'.padEnd(22)}${'Overflow'.padEnd(10)}${'Collide'.padEnd(9)}${'Small'.padEnd(7)}${'Contrast'.padEnd(10)}${'Chrome'.padEnd(8)}Coverage`);
   for (const r of runs) {
-    out.push(`${label(r).padEnd(22)}${(r.overflowPx ? `+${r.overflowPx}px` : r.overflowCulprits.length ? 'escape' : '–').padEnd(10)}${String(r.collisionCount || '–').padEnd(9)}${String(r.smallTargetCount || '–').padEnd(7)}${pct(r.chromeShare).padEnd(8)}${pct(r.coverage)}`);
+    out.push(`${label(r).padEnd(22)}${(r.overflowPx ? `+${r.overflowPx}px` : r.overflowCulprits.length ? 'escape' : '–').padEnd(10)}${String(r.collisionCount || '–').padEnd(9)}${String(r.smallTargetCount || '–').padEnd(7)}${String(r.contrastFailures || '–').padEnd(10)}${pct(r.chromeShare).padEnd(8)}${pct(r.coverage)}`);
   }
   const defective = runs.filter(hasDefects);
   if (defective.length) {

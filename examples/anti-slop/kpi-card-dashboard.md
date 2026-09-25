@@ -1,5 +1,7 @@
 # Worked Example: The KPI-Card Dashboard
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (GitHub Actions GA1–GA3, Bloomberg BL1; 2026-09-24).*
+
 **Archetype:** DATA-HEAVY · **Product types:** analytics, admin, operations
 **Skills:** anti-slop-ui, composition-repair, state-design
 
@@ -48,6 +50,26 @@ decoration.
 
 Structure follows the decision: exceptions → change → status by zone. Numbers carry context.
 Freshness is visible.
+
+## User goal and constraints
+
+The operations lead decides where to send staff each morning. Constraints: data from several systems with different freshness.
+
+## Alternative direction
+
+A map-centered command view of zones with exceptions pinned, for regionally organized teams.
+
+## Implementation notes
+
+Exception queries with causes; freshness per source; table by zone; charts only for intraday shape.
+
+## Verification
+
+Ask 'where do I send staff?' and time the answer before/after; stale data shows as stale; color never alone.
+
+## Failure conditions
+
+KPI tiles creeping back; charts without a question.
 
 ## Canonical rule
 

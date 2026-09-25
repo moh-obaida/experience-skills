@@ -19,7 +19,7 @@ Options:
   --json            Print JSON instead of text
   --help            Show this help
 
-Reports content coverage, content box, largest empty band, environment treatment,
+Reports content coverage, content box, largest empty band and dead region, environment treatment,
 focal candidates, fixed/sticky chrome share, and inner scroll regions.
 
 Exit codes: 0 no heuristic flags · 1 flags raised · 2 usage or environment error`;
@@ -73,6 +73,10 @@ function toText(r) {
     lines.push('  Content box:            none (no content in first viewport)');
   }
   lines.push(`  Largest empty band:     ${r.viewport.largestEmptyBandPx}px tall`);
+  if (r.viewport.largestEmptyRect) {
+    const e = r.viewport.largestEmptyRect;
+    lines.push(`  Largest dead region:    ${e.width}×${e.height} at (${e.x},${e.y}) · ${pct(e.shareOfViewport)} of viewport`);
+  }
   lines.push(`  Environment treatment:  ${r.viewport.environmentTreatment ? 'yes (large background image/gradient or media)' : 'none detected'}`);
   lines.push('');
   lines.push('Focal candidates (largest type in view)');

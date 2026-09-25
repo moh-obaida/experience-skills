@@ -57,6 +57,18 @@ a surface must handle.
 | CONFLICTED | Local and authoritative state disagree |
 | SAVED-NOT-COMPLETE | Progress persisted but the process is not finished (draft, partial application) |
 
+## Lifecycle and collaboration states
+
+| State | Definition | Common failure |
+|---|---|---|
+| UNTOUCHED | Exists but never edited (a new document, a default configuration) | Treated like user content; or indistinguishable from empty |
+| DEGRADED | Works with reduced capability (a data source down, slow mode) | Presented as fully working |
+| RESTORED | Brought back from archive or trash | Returns without its relationships or with no confirmation |
+| SYNCHRONIZED | Local and authoritative copies agree | Never confirmed, so users keep checking |
+| LOCALLY PENDING | Changed on this device, not yet synced | Looks saved everywhere |
+| COLLABORATIVE | Others are viewing or editing | Silent overwrites; no presence |
+| DISCONNECTED INTEGRATION | A connected service lost access | Features vanish without explanation |
+
 ## Presence and context states
 
 - FIRST VISIT vs RETURNING

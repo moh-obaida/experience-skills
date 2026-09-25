@@ -4,7 +4,7 @@ description: "Detect and repair AI-generated design clichés and the superficial
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -53,6 +53,8 @@ one without a job.
    specific, checkable claim. A synonym swap is not a rewrite.
 6. **Before presenting:** run `references/final-slop-gate.md`. Your summary contains no "clean,"
    "modern," "sleek," or "premium" unless followed by the evidence.
+7. **Never delete a flagged pattern without running `references/alternatives-engine.md`:** at least three alternatives from different families, compared, then chosen by context.
+8. **Reverse-dogma check:** before removing a gradient, glass, card, pill, centered layout, dark theme, serif, density, or animation, look for its justification in `references/_shared/justified-trends.md`. Justified → keep and strengthen.
 
 ## Workflow
 
@@ -89,6 +91,20 @@ Anchors: `references/_shared/premium-slop.md`, `references/_shared/kpi-card-dash
 - When removing fake data, check whether real data can take its place.
 - Do not cure slop with another trend (brutalism, grain, oversized serif) without a product reason.
 
+## Design intelligence and precedent
+
+| When | Load |
+|---|---|
+| Turning a detected default into alternatives | `references/alternatives-engine.md`, `references/_shared/anti-generic-alternatives.md` |
+| Alternatives that change the page structure | `references/_shared/compositions-index.md` |
+| Alternatives that change the visual direction | `references/_shared/directions-index.md`, `references/_shared/selection.md` |
+| Showing the product instead of decorating around it | `references/_shared/product-first-presentation.md` |
+| Dashboards | `references/_shared/data-visualization.md` |
+| Measuring treatments in the rendered page | `scripts/inventory-styles.mjs` |
+
+Adapted third-party material in the composition index, selection method, and chart guidance is
+credited in `references/_shared/third-party-notices.md`.
+
 ## Failure modes
 
 - Reverse dogma: removing every gradient, pill, or card by category.
@@ -111,7 +127,11 @@ Anchors: `references/_shared/premium-slop.md`, `references/_shared/kpi-card-dash
 - `references/content-slop.md`
 - `references/personality-slop.md`
 - `references/final-slop-gate.md` — the gate before presenting
+- `references/alternatives-engine.md` — detect, test justification, generate three alternatives, choose
+- `scripts/inventory-styles.mjs` — rendered inventory of radii, shadows, gradients, blur, type, nesting, repeated cards
 - `references/_shared/` — generated copies: `experience-core.md`, `model-instincts.md`,
   `design-vs-decoration.md`, `fake-density.md`, `fake-minimalism.md`, `anti-slop-gate.md`,
   `join-code-page.md`, `logo-removal-test.md`, `premium-slop.md`, `kpi-card-dashboard.md`,
-  `editorial-not-cards.md`
+  `editorial-not-cards.md`, `anti-generic-alternatives.md`, `compositions-index.md`,
+  `directions-index.md`, `selection.md`, `data-visualization.md`, `justified-trends.md`,
+  `product-first-presentation.md`, `third-party-notices.md`

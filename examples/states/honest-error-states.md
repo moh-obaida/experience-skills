@@ -1,5 +1,7 @@
 # Worked Example: Honest Error States
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (GOV.UK error summary UKE1–UKE2, Grafana GF3 (duplicated error); 2026-09-24).*
+
 **Archetype:** any · **Product types:** any product that talks to a server
 **Skills:** state-design, interaction-design
 
@@ -43,6 +45,26 @@ are not presented as product failures, and unknown outcomes are reconciled befor
 
 Payments (pending vs declined vs unknown), AI generation (queued vs failed vs connection lost),
 messaging (sending vs failed vs delivered).
+
+## User goal and constraints
+
+Users recover from failures without losing work or duplicating actions. Constraints: flaky mobile networks, collaborative editing.
+
+## Alternative direction
+
+A single activity/status panel listing pending, failed, and conflicted items for power users.
+
+## Implementation notes
+
+Client state machine with unknown outcomes; idempotency keys; per-object error placement; one message per event.
+
+## Verification
+
+Throttle and drop the network mid-save; return 409, 413, 503; confirm messages and recovery per case.
+
+## Failure conditions
+
+Toast plus inline for the same event; 'try again' on unknown outcomes causing duplicates.
 
 ## Canonical rule
 

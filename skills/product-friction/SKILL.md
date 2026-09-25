@@ -3,7 +3,7 @@ name: product-friction
 description: "Find and rank product-level friction beyond individual clicks: confusing terminology, cognitive load, poor discoverability, lost context and session continuity, information architecture problems, dead ends, status ambiguity, unnecessary modes, duplicate concepts, inconsistent behavior, first-use burden, and expert burden, recorded in a prioritized friction ledger. Use when a product feels hard to use overall, when users get lost or ask the same support questions, when features pile up without getting easier, or when auditing a whole product or area rather than one flow."
 license: MIT
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -48,6 +48,7 @@ ranks it.
 5. **For every context loss** (filters reset, draft lost, flow restarts): name what should persist
    (`references/_shared/continue-where-left-off.md`).
 6. **Before recommending:** group issues into themes and fix causes, not symptoms.
+7. **When users distrust what the product shows or does** ("I thought it saved", "why did it change?"): use the trust lens in `references/trust-and-transparency.md` and record what users believed vs what was true.
 
 ## Workflow
 
@@ -77,6 +78,13 @@ ranks it.
 - In REVIEW mode, deliver the ledger; do not edit.
 - Tours and tooltips are never the first repair.
 
+## Precedent
+
+| When | Load |
+|---|---|
+| Interruptions, overlays, and consent patterns | `references/_shared/interruptions-and-consent.md` |
+| What products infer or remember instead of asking | `references/_shared/known-context-and-defaults.md` |
+
 ## Failure modes
 
 - Generic audit without located examples; feature pile as the fix; tour reflex; unranked list;
@@ -96,6 +104,7 @@ ranks it.
 - `references/consistency-and-concepts.md` — concept model, behavioral consistency
 - `references/first-use-and-expert-burden.md` — newcomer vs expert balance
 - `assets/friction-ledger-template.md` — copyable ledger
+- `references/trust-and-transparency.md` — mental models, hidden and stale state, opaque automation, recovery, platform conventions
 - `references/_shared/` — generated copies: `experience-core.md`, `product-maturity.md`,
   `workflow-friction.md`, `information-priority.md`, `overengineering.md`, `next-best-action.md`,
-  `continue-where-left-off.md`
+  `continue-where-left-off.md`, `interruptions-and-consent.md`, `known-context-and-defaults.md`

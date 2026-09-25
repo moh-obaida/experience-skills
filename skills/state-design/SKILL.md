@@ -3,7 +3,7 @@ name: state-design
 description: "Design how a product behaves and presents itself across real states: first-use, loading, processing, partial, success, failure, offline, reconnecting, empty, sparse, dense, permission-denied, paused, stale, background and long-running work, optimistic versus authoritative state. Separates transport state from product state so the UI never lies. Use when only the happy path exists; when errors say 'Something went wrong'; when loading, retries, uploads, payments, real-time sync, games, or AI generation behave ambiguously; or when auditing a feature for missing states."
 license: MIT
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -53,6 +53,7 @@ through, after a partial failure.
    No → add a state header (`references/_shared/state-header.md`).
 8. **Before finishing:** trigger the states (offline, throttled, 500, timeout, empty and large
    fixtures, reload mid-job, double click). Record which were verified at which level.
+9. **Include lifecycle and collaboration states** from the taxonomy (untouched, degraded, restored, synchronized, locally pending, collaborative, disconnected integration) when the product has sync, sharing, or integrations.
 
 ## Workflow
 
@@ -81,6 +82,13 @@ through, after a partial failure.
 - Announce important state changes to assistive technology (polite; assertive only for urgent errors).
 - Do not invent states the architecture cannot support.
 
+## Precedent
+
+| When | Load |
+|---|---|
+| Real loading, empty, error, and not-found behavior | `references/_shared/states-loading-empty-error.md` |
+| Payments, submissions, undo windows, once-only actions | `references/_shared/transactional-clarity.md` |
+
 ## Failure modes
 
 - Collapsed errors; transport shown as truth; optimistic lies; spinner prison; skeleton theatre;
@@ -103,4 +111,5 @@ through, after a partial failure.
 - `references/realtime-and-reconnection.md` — live and multiplayer states
 - `references/domain-states.md` — domain checklists
 - `references/_shared/` — generated copies: `experience-core.md`, `state-types.md`,
-  `state-header.md`, `honest-error-states.md`, `long-running-generation.md`
+  `state-header.md`, `honest-error-states.md`, `long-running-generation.md`,
+  `states-loading-empty-error.md`, `transactional-clarity.md`

@@ -9,5 +9,7 @@ points to it.
 | File | Topic | Source in the collection |
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
-| `bottom-sheet-overuse.md` | Worked Example: Bottom-Sheet Overuse on Mobile | `examples/interaction/bottom-sheet-overuse.md` |
 | `visual-problems.md` | Visual Problem Taxonomy | `shared/taxonomies/visual-problems.md` |
+| `bottom-sheet-overuse.md` | Worked Example: Bottom-Sheet Overuse on Mobile | `examples/interaction/bottom-sheet-overuse.md` |
+| `mobile-navigation.md` | Precedent: Mobile Navigation and Thumb-First Layouts | `shared/precedent/mobile-navigation.md` |
+| `compositions-mobile.md` | Compositions: Mobile and Tablet Family | `shared/design-intelligence/compositions-mobile.md` |

@@ -3,7 +3,7 @@ name: workflow-compression
 description: "Reduce time-to-outcome in any user workflow by mapping it step by step, classifying friction (redundant input, unnecessary choice, repeated configuration, navigation tax, confirmation tax, serial work, memory failure, waiting tax, dead ends, expert tax), and removing work the software could do, while preserving safety and meaningful human judgment. Use when a flow takes too many clicks, screens, questions, or waits; when users re-enter known information; when setup or configuration repeats; or when asked to make something faster or simpler. Always measures steps before and after."
 license: MIT
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -52,6 +52,8 @@ much of that time buys the user anything.
 6. **For every wait over ~10 seconds:** can the architecture run it in the background? Yes →
    background it (`references/waiting-and-endings.md`). No → say so honestly; do not pretend.
 7. **Before finishing:** recount the redesigned flow and report before/after with preserved steps.
+8. **For every flow, run the known-context inventory** at the top of `references/known-answers.md` (user, selected object, route, language, previous choices, recents, ownership, entered data, only-valid options, inferable values) before any field or question stays.
+9. **Count hidden costs separately** (modes, interruptions, context switches, hidden status, duplicate objects; F11–F15 in `references/interruptions-modes-and-status.md`). A flow with few clicks and three overlays is not short.
 
 ## Workflow
 
@@ -92,6 +94,17 @@ much of that time buys the user anything.
 - CLIs: infer from the project, print the resolved plan, accept override flags, never prompt when
   not interactive.
 
+## Precedent
+
+| When | Load |
+|---|---|
+| Deciding what to infer, default, or remember | `references/_shared/known-context-and-defaults.md` |
+| Modals, banners, consent, promotions in the way | `references/_shared/interruptions-and-consent.md` |
+| Balancing beginner and expert paths | `references/_shared/progressive-disclosure-and-expert-speed.md` |
+| Commit steps: fees, timing, undo, once-only actions | `references/_shared/transactional-clarity.md` |
+
+Each entry is a dated observation of a real product with the conditions under which it transfers.
+
 ## Failure modes
 
 - Deleting a meaningful choice because it "adds a step."
@@ -114,7 +127,9 @@ much of that time buys the user anything.
 - `references/steps-and-screens.md` — navigation tax, inline actions, confirmation tax, bulk, disclosure
 - `references/waiting-and-endings.md` — waiting tax, background work, next action
 - `references/expert-shortcuts.md` — expert paths
+- `references/interruptions-modes-and-status.md` — F11–F15: modes, interruptions, context switches, hidden status, duplicates
 - `references/_shared/` — generated copies: `experience-core.md`, `interaction-frequency.md`,
-  `workflow-friction.md`, `workflow-rubric.md`, `human-judgment.md`, and examples
-  (`skip-known-decisions.md`, `context-aware-judgment.md`, `inline-rename.md`, `cli-project-init.md`,
-  `mobile-money-transfer.md`)
+  `workflow-friction.md`, `workflow-rubric.md`, `human-judgment.md`, `skip-known-decisions.md`,
+  `context-aware-judgment.md`, `inline-rename.md`, `cli-project-init.md`,
+  `mobile-money-transfer.md`, `known-context-and-defaults.md`, `interruptions-and-consent.md`,
+  `progressive-disclosure-and-expert-speed.md`, `transactional-clarity.md`

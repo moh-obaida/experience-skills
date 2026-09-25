@@ -3,7 +3,7 @@ name: critical-review
 description: "Evaluate ideas, interfaces, workflows, and proposed changes before praising them. Separates understanding from agreement, checks the proposal against the actual goal, looks for hidden costs, compares against the current state, and reaches an evidence-backed verdict that may be 'worse than current', 'unnecessary', or 'excellent for this context'. Use when a user asks 'is this good?', 'what do you think?', or 'should we do this?'; when reviewing a redesign, mockup, PR, or product idea; when the user is enthusiastic about an approach; or before endorsing the agent's own output."
 license: MIT
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -52,6 +52,8 @@ reasons too.
    explicitly.
 7. **Before sending:** delete every adjective; if the review still says something, keep the adjectives
    that are backed. If it says nothing, rewrite with observations.
+8. **Follow the 12-step sequence in `references/review-workflow.md` in order.** Any verdict formed before step 11 (alternatives) is written as a hypothesis, not a conclusion.
+9. **Check whether the right answer is not "new is better":** `references/verdict-examples.md` covers keeping the current version, simplifying, rejecting a trend, removing a feature, preserving a familiar control, and justified whitespace, cards, dramatic motion, or added complexity.
 
 ## Workflow
 
@@ -87,6 +89,15 @@ the purchase), `references/_shared/join-code-page.md` (a proposal to decorate th
 | Confusing | Users are likely to misunderstand or misuse it |
 | Operationally costly | Works, but expensive to build, run, or maintain relative to value |
 
+## Precedent and alternatives
+
+| When | Load |
+|---|---|
+| The proposal is a visual direction change | `references/_shared/selection.md` (compare three candidates on the same criteria) |
+| The proposal removes a technique because it "looks AI" | `references/_shared/justified-trends.md` |
+
+The selection method adapts ideas credited in `references/_shared/third-party-notices.md`.
+
 ## Failure modes
 
 - Opening with praise; hedging into mush; harshness without reasons or a path forward; reviewing
@@ -104,6 +115,8 @@ the purchase), `references/_shared/join-code-page.md` (a proposal to decorate th
 - `references/review-workflow.md` — procedure, cost checklist, comparison, report template
 - `references/disagreement-and-praise.md` — disagreeing, earned praise, sycophancy patterns
 - `references/evidence-and-claims.md` — claims matched to evidence
+- `references/verdict-examples.md` — ten short verdicts, observed and invented, across the full range
 - `references/_shared/` — generated copies: `experience-core.md`, `model-instincts.md`,
   `human-judgment.md`, `overengineering.md`, `experience-rubric.md`, `workflow-rubric.md`,
-  `anti-slop-gate.md`, `public-service-form.md`, `product-page-purchase-path.md`, `join-code-page.md`
+  `anti-slop-gate.md`, `public-service-form.md`, `product-page-purchase-path.md`,
+  `join-code-page.md`, `selection.md`, `justified-trends.md`, `third-party-notices.md`

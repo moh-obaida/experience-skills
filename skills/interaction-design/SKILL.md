@@ -3,7 +3,7 @@ name: interaction-design
 description: "Make controls obvious, fast, safe, and accessible: affordance, action hierarchy, primary/secondary/destructive actions, inputs and forms, inline edit, direct manipulation, context-scoped controls, keyboard and touch, confirmation versus undo, disabled states, feedback, and power-user paths. Use when controls are confusing, over-customized, slow to operate, error-prone, or inaccessible; when someone proposes a custom version of a standard control; when actions restate context the system already knows; or when designing forms and live-control surfaces. Default stance: do not reinvent familiar interactions without user value."
 license: MIT
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
   collection: experience-skills
 ---
 
@@ -58,6 +58,8 @@ frequent users, safe around consequences, and usable by everyone.
    (anchor `references/_shared/search-proportionality.md`)? No → a normal control.
 8. **Before finishing:** operate it with keyboard only, touch (or emulation), and bad input.
    Anything hover-only, unfocusable, or input-losing is a defect.
+9. **For search, pickers, multi-select, bulk actions, and command palettes:** size the solution to scale and frequency using `references/search-selection-and-bulk.md`. A palette for a dozen actions is overengineering.
+10. **When a browser is available, run `scripts/check-controls.mjs`** on the surface: unnamed controls, placeholder-only labels, missing alt, positive tabindex, small targets, contrast, and invisible focus are defects to fix or list.
 
 ## Workflow
 
@@ -87,6 +89,16 @@ frequent users, safe around consequences, and usable by everyone.
 - Disabled controls explain why, or stay enabled and explain on use.
 - User input survives every validation error.
 
+## Precedent
+
+| When | Load |
+|---|---|
+| Beginner vs expert paths, shortcuts, disclosure | `references/_shared/progressive-disclosure-and-expert-speed.md` |
+| Commit, undo, and once-only actions | `references/_shared/transactional-clarity.md` |
+| Overlays and interruptions around controls | `references/_shared/interruptions-and-consent.md` |
+| Mobile navigation and reach | `references/_shared/mobile-navigation.md` |
+| Navigation models and density | `references/_shared/spatial-density-navigation.md` |
+
 ## Failure modes
 
 - Gimmick controls; button walls; duplicated per-subject controls; confirmation reflex;
@@ -109,7 +121,10 @@ frequent users, safe around consequences, and usable by everyone.
 - `references/direct-and-contextual.md` — context-scoped controls, inline edit, direct manipulation
 - `references/input-modes-and-access.md` — keyboard, touch, accessibility requirements
 - `references/feedback-and-errors.md` — feedback timing, disabled states, errors, modes
+- `references/search-selection-and-bulk.md` — search, autocomplete, selection, mixed states, bulk, context menus, palettes, control states
+- `scripts/check-controls.mjs` — rendered accessibility quick checks for controls
 - `references/_shared/` — generated copies: `experience-core.md`, `interaction-frequency.md`,
-  `overengineering.md`, `join-code-page.md`,
-  `context-aware-judgment.md`, `undo-vs-confirm.md`, `bottom-sheet-overuse.md`,
-  `search-proportionality.md`, `public-service-form.md`
+  `overengineering.md`, `join-code-page.md`, `context-aware-judgment.md`, `undo-vs-confirm.md`,
+  `bottom-sheet-overuse.md`, `search-proportionality.md`, `public-service-form.md`,
+  `progressive-disclosure-and-expert-speed.md`, `transactional-clarity.md`,
+  `interruptions-and-consent.md`, `mobile-navigation.md`, `spatial-density-navigation.md`

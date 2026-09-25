@@ -17,6 +17,11 @@ reports are comparable across tasks.
 | F8 | WAITING TAX | The user babysits background work | Must keep a tab open during a 3-minute job | Background job with status and notification |
 | F9 | DEAD END | No useful next action after an outcome | "Success!" with only a Home button | Surface the likely continuation |
 | F10 | EXPERT TAX | Frequent users are forced through the beginner path | No shortcuts, no direct entry, no defaults | Shortcuts, remembered choices, compact power controls |
+| F11 | MODE TAX | The same input does different things in states the user must track | Edit mode vs view mode; host vs player mode; hidden toggles | Remove the mode (edit in place); make the mode unmistakable |
+| F12 | INTERRUPTION TAX | Something blocks or covers the task before or during it | Arrival modals, stacked banners, promotions over the form | Non-blocking messages; defer promotions until after the task |
+| F13 | CONTEXT-SWITCH TAX | The user must leave the current tool or screen to get what the task needs | Checking email for a code; opening another tab to find an ID | Bring the information into the flow (autofill, lookup, inline) |
+| F14 | HIDDEN-STATUS TAX | The user cannot tell whether something worked, is pending, or failed | Silent saves; jobs with no status; stale data shown as current | Visible status, timestamps, "last updated", honest pending states |
+| F15 | DUPLICATE-OBJECT TAX | Two concepts or copies do the same job, so users manage both | Templates and presets; folders and collections; copies drifting apart | Merge concepts; one canonical object with views |
 
 ## Secondary friction types
 
@@ -27,6 +32,7 @@ Less common, still worth naming:
 - **SCOPE RESTATEMENT:** the user must specify context already implied by the current selection
   or state (for example "Correct for Team A" when Team A is the one answering). Often a
   special case of REDUNDANT INPUT with its own interaction repair: scoped controls.
+- **LOOKUP TAX:** see F13 for the general case.
 - **FORMAT TAX:** the user must match a rigid format the software could normalize
   (phone numbers, dates, codes with dashes).
 

@@ -10,6 +10,8 @@ points to it.
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `fake-density.md` | Fake Density | `shared/anti-patterns/fake-density.md` |
+| `meaningful-empty-state.md` | Pattern: Meaningful Empty State | `shared/patterns/meaningful-empty-state.md` |
 | `empty-state-overcorrection.md` | Worked Example: Empty-State Overcorrection | `examples/states/empty-state-overcorrection.md` |
 | `sparse-operational-home.md` | Worked Example: The Sparse Operational Home | `examples/composition/sparse-operational-home.md` |
-| `meaningful-empty-state.md` | Pattern: Meaningful Empty State | `shared/patterns/meaningful-empty-state.md` |
+| `product-archetypes.md` | Product Archetypes | `shared/taxonomies/product-archetypes.md` |
+| `states-loading-empty-error.md` | Precedent: Loading, Empty, and Error States in the Wild | `shared/precedent/states-loading-empty-error.md` |

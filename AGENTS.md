@@ -51,6 +51,15 @@ folders.
 12. **References are sized by decision.** One file per decision the workflow routes to; merge files
     that are always loaded together.
 
+## Precedent and design intelligence
+
+- Observations in `research/observations/` are evidence: dated, method-labeled, with stable IDs.
+  Never invent an observation; never edit an old one to say something new (add a new dated one).
+- Precedent modules cite observation IDs; `npm run validate` fails on unknown IDs.
+- Invented examples must say they are invented.
+- Design-intelligence entries state where they are wrong. No industry-to-style lookups.
+- Adapted third-party material needs provenance and must ship with `third-party-notices.md`.
+
 ## Commands
 
 ```bash

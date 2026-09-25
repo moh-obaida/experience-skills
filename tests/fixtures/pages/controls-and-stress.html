@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixture: control issues and fragile content</title>
+<style>
+ body{margin:0;font:16px/1.5 system-ui,sans-serif;padding:16px}
+ .toolbar{display:flex;gap:8px;width:360px}
+ .toolbar button{width:110px;white-space:nowrap;overflow:visible}
+ .faint{color:#b0b0b0}
+ .nofocus:focus{outline:none}
+ .icon{width:16px;height:16px;padding:0;border:0;background:#ddd}
+</style></head>
+<body>
+ <h1>Orders</h1>
+ <p class="faint">Last updated 2 minutes ago</p>
+ <div class="toolbar"><button>Export</button><button>Archive</button><button class="nofocus">Assign</button></div>
+ <p><input placeholder="Search orders"></p>
+ <p><button class="icon"></button> <a href="#x" tabindex="3">Details</a></p>
+ <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="40" height="40">
+</body></html>

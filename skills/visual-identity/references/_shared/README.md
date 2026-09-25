@@ -10,9 +10,31 @@ points to it.
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `page-archetypes.md` | Page Archetypes | `shared/taxonomies/page-archetypes.md` |
-| `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
+| `product-archetypes.md` | Product Archetypes | `shared/taxonomies/product-archetypes.md` |
 | `product-identity.md` | Product Identity | `shared/philosophy/product-identity.md` |
 | `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
 | `design-cliches.md` | Design Clichés | `shared/anti-patterns/design-cliches.md` |
-| `logo-removal-test.md` | Worked Example: The Logo-Removal Test | `examples/identity/logo-removal-test.md` |
 | `branded-environment-simple-form.md` | Pattern: Branded Environment, Simple Form | `shared/patterns/branded-environment-simple-form.md` |
+| `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
+| `logo-removal-test.md` | Worked Example: The Logo-Removal Test | `examples/identity/logo-removal-test.md` |
+| `selection.md` | Design Direction Selection | `shared/design-intelligence/selection.md` |
+| `directions-index.md` | Design Directions: Index | `shared/design-intelligence/directions-index.md` |
+| `directions-editorial.md` | Directions: Editorial Family | `shared/design-intelligence/directions-editorial.md` |
+| `directions-structural.md` | Directions: Structural Family | `shared/design-intelligence/directions-structural.md` |
+| `directions-quiet.md` | Directions: Quiet Family | `shared/design-intelligence/directions-quiet.md` |
+| `directions-institutional.md` | Directions: Institutional Family | `shared/design-intelligence/directions-institutional.md` |
+| `directions-technical.md` | Directions: Technical Family | `shared/design-intelligence/directions-technical.md` |
+| `directions-expressive.md` | Directions: Expressive Family | `shared/design-intelligence/directions-expressive.md` |
+| `directions-atmospheric.md` | Directions: Atmospheric Family | `shared/design-intelligence/directions-atmospheric.md` |
+| `directions-material.md` | Directions: Material Family | `shared/design-intelligence/directions-material.md` |
+| `directions-retro.md` | Directions: Retro and Speculative Family | `shared/design-intelligence/directions-retro.md` |
+| `directions-product.md` | Directions: Product and Content-Led Family | `shared/design-intelligence/directions-product.md` |
+| `palettes.md` | Palette Families | `shared/design-intelligence/palettes.md` |
+| `typography.md` | Typography Intelligence | `shared/design-intelligence/typography.md` |
+| `surfaces-and-shape.md` | Surfaces and Shape Language | `shared/design-intelligence/surfaces-and-shape.md` |
+| `imagery-illustration-icons.md` | Imagery, Illustration, and Iconography | `shared/design-intelligence/imagery-illustration-icons.md` |
+| `motion-languages.md` | Motion Languages | `shared/design-intelligence/motion-languages.md` |
+| `environment-first-identity.md` | Precedent: Expressive Environment, Ordinary Controls | `shared/precedent/environment-first-identity.md` |
+| `product-derived-identity.md` | Precedent: Identity Derived From the Product | `shared/precedent/product-derived-identity.md` |
+| `justified-trends.md` | Precedent: When "AI-Looking" Techniques Are Right | `shared/precedent/justified-trends.md` |
+| `third-party-notices.md` | Third-Party Notices | `shared/legal/third-party-notices.md` |

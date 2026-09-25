@@ -1,5 +1,7 @@
 # Worked Example: Undo vs Confirmation
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Gmail GM1 (undo window); 2026-09-24).*
+
 **Archetype:** OPERATIONAL, TRANSACTIONAL · **Product types:** any
 **Skills:** interaction-design, workflow-compression
 
@@ -46,6 +48,26 @@ rare, read confirmation.
 ## Why this works
 
 Protection is proportional to consequence. Confirmations become rare, so they are read.
+
+## User goal and constraints
+
+People move, archive, and rename items many times a day; rarely they delete whole boards. Constraints: shared workspaces, real-time collaboration.
+
+## Alternative direction
+
+Trash with 30-day recovery for everything, and a strong confirmation only when emptying the trash.
+
+## Implementation notes
+
+Undo toast reachable by keyboard, lasting long enough and not dismissed while focused; undo reverses side effects (notifications, counts); typed confirmation for permanent board deletion.
+
+## Verification
+
+Archive then undo via keyboard; delete a board and confirm the name must be typed; check collaborators see the reversal.
+
+## Failure conditions
+
+Undo that only restores locally; confirmation dialogs creeping back for routine actions.
 
 ## When this lesson does not apply
 

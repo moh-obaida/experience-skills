@@ -2,6 +2,8 @@
 
 # Worked Example: "Premium" Slop
 
+*Invented teaching example. Where it cites real products, the observations are in the repository's research log (Wise W1–W5, Stripe SR3 (justified gradient); 2026-09-24).*
+
 **Archetype:** marketing, FOCUSED · **Product types:** any landing page or sign-in
 **Skills:** anti-slop-ui, composition-repair, visual-identity
 
@@ -47,3 +49,24 @@ copy verbatim.
 ## Canonical question
 
 **What useful hierarchy or identity did these choices create? If none, remove them.**
+
+## User goal and constraints
+
+Visitors understand what the budgeting app does and trust it. Constraints: small team, no photography budget.
+
+## Alternative direction
+
+A long-document composition: a founder's plain explanation with one real screenshot, for a trust-first audience.
+
+## Implementation notes
+
+Remove gradient and glass tokens from buttons and panels; keep at most one brand gradient in the environment; rewrite copy to checkable claims; real product screenshot.
+
+## Verification
+
+`inventory-styles.mjs` and `scan-slop.mjs` before/after; logo test; contrast of all text.
+
+## Failure conditions
+
+Replacing slop with another trend; deleting the brand's one legitimate gradient.
+

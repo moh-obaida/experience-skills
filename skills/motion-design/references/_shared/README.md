@@ -12,3 +12,5 @@ points to it.
 | `motion-events.md` | Motion Events | `shared/taxonomies/motion-events.md` |
 | `motion-cliches.md` | Motion Clichés | `shared/anti-patterns/motion-cliches.md` |
 | `motion-that-explains.md` | Worked Example: Motion That Explains | `examples/motion/motion-that-explains.md` |
+| `motion-languages.md` | Motion Languages | `shared/design-intelligence/motion-languages.md` |
+| `motion-guidelines.md` | Precedent: Motion Guidance From Platform Owners | `shared/precedent/motion-guidelines.md` |
