@@ -392,7 +392,6 @@
       "useWhen": "Animation is generic fade-and-slide, missing where events need explaining, or slow, janky, or inaccessible.",
       "shared": [
         "shared/taxonomies/motion-events.md",
-        "shared/anti-patterns/motion-cliches.md",
         "examples/motion/motion-that-explains.md",
         "shared/design-intelligence/motion-languages.md",
         "shared/precedent/motion-guidelines.md"

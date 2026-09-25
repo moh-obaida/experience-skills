@@ -62,7 +62,8 @@ which questions to ask, when to push back, and how to verify the rendered result
 - **Evidence before praise.** "Clean" is a conclusion, not an observation.
 - **Context is part of taste.** A tax form and a classroom game should not look alike.
 
-Full text: [docs/philosophy.md](docs/philosophy.md).
+Full text: [docs/philosophy.md](docs/philosophy.md). Where each principle changes what an agent does
+(checkpoints, scripts, gates): [docs/operationalization.md](docs/operationalization.md).
 
 ## Skills
 

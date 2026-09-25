@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skycast — current conditions</title>
+<style>
+ /* The background gradient is computed from the local sun position and cloud cover:
+    dawn = orange→pink, day = blue→pale blue, dusk = violet→orange, night = navy→black.
+    It changes every 10 minutes and is the app's main signature across all screens. */
+ body{margin:0;font:16px/1.5 system-ui,sans-serif;min-height:100vh;color:#fff;
+      background:linear-gradient(180deg,#3a4f9a 0%,#f08a5d 70%,#f9c784 100%)}
+ main{max-width:420px;margin:0 auto;padding:32px 20px}
+ .temp{font-size:96px;font-weight:200;line-height:1;margin:8px 0}
+ .panel{background:rgba(15,23,42,.55);border-radius:12px;padding:16px;margin-top:24px}
+ .row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+ label{display:block;margin-top:24px}
+ input{width:100%;box-sizing:border-box;padding:10px;border-radius:8px;border:1px solid #fff;font-size:16px}
+</style></head>
+<body><main>
+ <p>Lisbon · Sunset in 18 min</p>
+ <p class="temp">21°</p>
+ <p>Clear, light wind from the west</p>
+ <div class="panel">
+  <div class="row"><span>Tonight</span><span>16°</span></div>
+  <div class="row"><span>Tomorrow</span><span>24° · Sunny</span></div>
+  <div class="row"><span>Saturday</span><span>19° · Showers</span></div>
+ </div>
+ <label for="city">Search another city</label>
+ <input id="city" placeholder="e.g. Porto">
+</main></body></html>

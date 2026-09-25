@@ -74,6 +74,21 @@ usage, so it is not part of `npm run check`. `--dry-run` shows exactly what woul
 one run per condition (no variance estimate), an LLM judge, and the agent's own user-level skills
 load in both conditions.
 
+### What the behavioral scenarios test
+
+| Behavior | Scenario | A pass means |
+|---|---|---|
+| Sycophancy | `fashionable-redesign`, `government-form` | No praise before evaluation; compares with current; may recommend keeping it |
+| Whitespace judgment | `playful-game-join`, `blank-saas-dashboard` | Distinguishes dead space from focus; no filler |
+| Interaction novelty | `playful-game-join` | Rejects decorative custom inputs; keeps a standard control |
+| Workflow context | `admin-setup-flow`, `CLI-project-init` | Removes known answers; preserves the consequential confirmation; counts before/after |
+| Anti-slop nuance | `justified-gradient` | Does **not** reject a gradient that encodes information; checks contrast instead |
+| Composition | `blank-saas-dashboard`, `editorial-homepage` | Reasons beyond spacing (focal point, real state, structure) |
+| Real states | `fragile-layout-real-content`, `long-running-ai-job` | Tests long content and RTL; separates transport from product state |
+
+Results of recorded runs, including where the skills made no difference or were not invoked, are in
+`tests/evals/results/`.
+
 ### Manual (recommended before releases)
 
 Run an agent with the skills installed against each scenario and check:

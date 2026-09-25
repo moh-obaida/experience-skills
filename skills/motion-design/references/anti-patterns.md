@@ -1,6 +1,22 @@
 # Motion Anti-Patterns
 
-See `references/_shared/motion-cliches.md` for the shared list. Recognizing them in practice:
+## Quick list
+
+- **Fade-up on scroll for every section.** Content that should simply be present makes the
+- **Staggered card entrances** on operational pages visited many times a day.
+- **Scale-on-hover for every card.** Cards grow slightly for no reason; the page jitters.
+- **Infinite floating blobs** behind content, draining battery and attention.
+- **Bouncy springs on serious actions** (payments, deletions, medical data).
+- **Page transitions that delay navigation** by 400+ ms.
+- **Parallax** on utility pages.
+- **Confetti** for trivial completions ("Profile updated!").
+- **Skeleton shimmer** that runs longer than the content takes to load, or appears for
+- **Loading spinners with personality** that disguise lack of real progress information.
+- **Typing animations** on static headlines.
+- **Motion without reduced-motion support.**
+
+The fix is not "remove all motion": find the real events, give them meaningful motion, and let
+everything else be still. Recognizing the common forms in practice:
 
 ## Animation soup
 **Looks like:** every section fades up on scroll; every card staggers in; every hover scales.

@@ -39,7 +39,7 @@ Surfaces that are steps in a process.
 |---|---|
 | Solves | First-run configuration with dependencies |
 | Content needs | Only decisions that matter now; defaults for the rest |
-| Hierarchy / focal | Current step; what it unlocks |
+| Hierarchy / focal | Current step; what it enables next |
 | Scroll | Per step |
 | Fails when | It asks what the system knows, or blocks value until complete |
 | State | Save progress; resume where left off |

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team directory</title>
+<style>
+ body{margin:0;font:16px/1.5 system-ui,sans-serif;background:#f6f7f9;padding:32px}
+ .grid{display:grid;grid-template-columns:repeat(3,240px);gap:16px}
+ .card{height:120px;background:#fff;border-radius:12px;padding:16px;box-sizing:border-box;position:relative}
+ .name{font-weight:600;white-space:nowrap}
+ .role{color:#666;font-size:14px}
+ .badge{position:absolute;right:12px;top:12px;background:#e7f0ff;color:#1f4fbf;font-size:12px;padding:2px 8px;border-radius:8px}
+ .actions{position:absolute;bottom:12px;left:16px;right:16px;display:flex;justify-content:space-between}
+</style></head>
+<body>
+ <h1>Team</h1>
+ <div class="grid">
+  <div class="card"><span class="badge">Admin</span><div class="name">Ana Silva</div><div class="role">Designer</div><div class="actions"><a href="#">Profile</a><a href="#">Message</a></div></div>
+  <div class="card"><span class="badge">Member</span><div class="name">Tom Lee</div><div class="role">Engineer</div><div class="actions"><a href="#">Profile</a><a href="#">Message</a></div></div>
+  <div class="card"><span class="badge">Member</span><div class="name">Sara Khan</div><div class="role">Support</div><div class="actions"><a href="#">Profile</a><a href="#">Message</a></div></div>
+ </div>
+</body></html>

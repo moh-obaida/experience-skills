@@ -272,6 +272,48 @@
         "product-friction"
       ],
       "anchor": "examples/anti-slop/kpi-card-dashboard.md"
+    },
+    {
+      "file": "tests/scenarios/justified-gradient.md",
+      "expected": [
+        "anti-slop-ui",
+        "visual-identity",
+        "critical-review"
+      ],
+      "fixtures": {
+        "weather.html": "tests/fixtures/pages/weather-gradient.html"
+      },
+      "anchor": "shared/precedent/justified-trends.md"
+    },
+    {
+      "file": "tests/scenarios/fragile-layout-real-content.md",
+      "expected": [
+        "responsive-validation",
+        "composition-repair",
+        "state-design"
+      ],
+      "fixtures": {
+        "team.html": "tests/fixtures/pages/team-cards.html"
+      },
+      "anchor": "examples/composition/editorial-not-cards.md"
+    },
+    {
+      "file": "tests/scenarios/admin-setup-flow.md",
+      "expected": [
+        "workflow-compression",
+        "product-friction",
+        "interaction-design"
+      ],
+      "anchor": "examples/workflow/skip-known-decisions.md"
+    },
+    {
+      "file": "tests/scenarios/fashionable-redesign.md",
+      "expected": [
+        "critical-review",
+        "anti-slop-ui",
+        "composition-repair"
+      ],
+      "anchor": "examples/anti-slop/kpi-card-dashboard.md"
     }
   ]
 }

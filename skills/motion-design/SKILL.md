@@ -36,7 +36,7 @@ Used by default, it becomes a tax users pay on every visit.
 
 1. **For every existing animation:** which event from the motion-events taxonomy does it explain?
    None → remove it (page load, "element exists," and hover on non-interactive content are not events).
-   `references/_shared/motion-cliches.md` lists the usual suspects.
+   `references/anti-patterns.md` lists the usual suspects.
 2. **For every meaningful state change with no motion:** would users miss it (someone else's action,
    a reorder, a transfer)? Yes → give it event motion (`references/event-motion.md`; anchor
    `references/_shared/motion-that-explains.md`).
@@ -112,4 +112,4 @@ documentation). Motion is hard to observe in static research; treat that module 
 - `references/anti-patterns.md` — motion slop in practice
 - `scripts/check-motion-rendered.mjs` — running animations under normal and reduced motion
 - `references/_shared/` — generated copies: `experience-core.md`, `motion-events.md`,
-  `motion-cliches.md`, `motion-that-explains.md`, `motion-languages.md`, `motion-guidelines.md`
+  `motion-that-explains.md`, `motion-languages.md`, `motion-guidelines.md`
