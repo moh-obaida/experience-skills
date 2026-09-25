@@ -9,6 +9,7 @@ points to it.
 | File | Topic | Source in the collection |
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
 | `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
 | `human-judgment.md` | Human Judgment | `shared/philosophy/human-judgment.md` |
 | `overengineering.md` | Overengineering | `shared/anti-patterns/overengineering.md` |

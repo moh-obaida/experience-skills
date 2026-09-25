@@ -9,6 +9,7 @@ points to it.
 | File | Topic | Source in the collection |
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
 | `state-types.md` | State Types | `shared/taxonomies/state-types.md` |
 | `state-header.md` | Pattern: State Header | `shared/patterns/state-header.md` |
 | `honest-error-states.md` | Worked Example: Honest Error States | `examples/states/honest-error-states.md` |

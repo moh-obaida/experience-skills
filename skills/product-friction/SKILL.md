@@ -3,7 +3,7 @@ name: product-friction
 description: "Use this skill whenever a product or area feels hard to use overall, users get lost or keep asking the same support questions, terminology or duplicate concepts confuse people, features pile up without getting easier, an admin, settings, or setup area is being redesigned, or a whole product or area needs an audit rather than one flow. Finds and ranks product-level friction: terminology, cognitive load, discoverability, lost context, information architecture, dead ends, status ambiguity, unnecessary modes, inconsistent behavior, trust and transparency, first-use burden, and expert burden, in a prioritized friction ledger."
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -17,7 +17,9 @@ ranks it.
 ## Start here
 
 1. Read `references/_shared/experience-core.md`.
-2. Note the product's maturity (`references/_shared/product-maturity.md`). Renames and
+2. Read `references/_shared/experience-operating-contract.md`; carry the friction ledger forward
+   to the next specialist instead of restarting diagnosis.
+3. Note the product's maturity (`references/_shared/product-maturity.md`). Renames and
    restructures cost more in mature products; your recommendations must include that cost.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
@@ -42,6 +44,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -119,6 +126,8 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - A ledger of located issues with frequency, severity, costs, risk, and repair.
 - Issues ranked and grouped into themes; top themes have repairs with tradeoffs and migration cost.
 - Evidence sources and gaps stated.
+- The friction ledger is handed off with the selected next specialist, preserved constraints, and
+  open risks; the next specialist does not repeat the audit.
 
 ## References
 
@@ -129,6 +138,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - `references/first-use-and-expert-burden.md` — newcomer vs expert balance
 - `assets/friction-ledger-template.md` — copyable ledger
 - `references/trust-and-transparency.md` — mental models, hidden and stale state, opaque automation, recovery, platform conventions
-- `references/_shared/` — generated copies: `experience-core.md`, `product-maturity.md`,
+- `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
+  `product-maturity.md`,
   `workflow-friction.md`, `information-priority.md`, `overengineering.md`, `next-best-action.md`,
   `continue-where-left-off.md`, `interruptions-and-consent.md`, `known-context-and-defaults.md`

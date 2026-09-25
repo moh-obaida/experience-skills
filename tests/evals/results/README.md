@@ -1,5 +1,9 @@
 # Recorded Agent Evaluation Runs
 
+The runs below are historical 0.2-era evidence. The 0.3 enforcement, depth, handoff, and
+telemetry changes have not yet been sampled with fresh agent conversations; the current turn
+verified the eval harness and dry-run command only.
+
 Each folder holds `report.md` (the generated comparison) and `summary.json` (per-run data: tools
 used, skills loaded, references read, scripts run, judge verdicts, cost). Transcripts and raw answers
 are generated locally and not committed.

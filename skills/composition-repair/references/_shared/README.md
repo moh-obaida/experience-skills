@@ -9,6 +9,7 @@ points to it.
 | File | Topic | Source in the collection |
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
 | `page-archetypes.md` | Page Archetypes | `shared/taxonomies/page-archetypes.md` |
 | `information-priority.md` | Information Priority | `shared/taxonomies/information-priority.md` |
 | `visual-problems.md` | Visual Problem Taxonomy | `shared/taxonomies/visual-problems.md` |

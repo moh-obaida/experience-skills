@@ -2,6 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
 import { validateSkills } from '../../scripts/validate-skills.mjs';
 import { validateRepo } from '../../scripts/validate-repo.mjs';
@@ -45,6 +46,18 @@ test('catalog and README table are generated and current', () => {
   assert.equal(readFileSync(CATALOG_PATH, 'utf8'), `${JSON.stringify(catalog, null, 2)}\n`);
   const readme = readFileSync(join(ROOT, 'README.md'), 'utf8');
   assert.equal(renderReadme(readme, catalog), readme);
+});
+
+test('depth audit is reproducible and reports every design-intelligence family', () => {
+  const script = join(ROOT, 'scripts', 'audit-depth.mjs');
+  const result = spawnSync(process.execPath, [script, '--json'], { encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stderr);
+  const report = JSON.parse(result.stdout);
+  assert.equal(report.summary.observationCount, 167);
+  assert.equal(report.summary.surfaceCount, 64);
+  assert.ok(report.rows.some((row) => row.type === 'direction'));
+  assert.ok(report.rows.some((row) => row.type === 'composition'));
+  assert.ok(report.rows.some((row) => row.type === 'precedent module'));
 });
 
 test('SKILL.md files stay thin', () => {

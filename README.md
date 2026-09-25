@@ -7,6 +7,11 @@ browser verification, anti-slop reasoning, and critical review.
 
 Make the environment memorable. Make the interaction obvious. Make the outcome fast.
 
+The collection is an operating system, not a style preset: it routes ordinary product language to
+the smallest specialist graph, loads depth by decision, consults real precedent, and treats rendered
+output as the source of truth when a runnable surface exists. See
+[repository integration](docs/repository-integration.md) for the optional host-repository contract.
+
 ## Install in 10 seconds
 
 ```bash
@@ -166,6 +171,10 @@ Details: [docs/design-intelligence.md](docs/design-intelligence.md). Adapted thi
 credited in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and explained in
 [docs/third-party.md](docs/third-party.md).
 
+Current depth limits are published in the [coverage report](research/coverage-report.md), including
+items that still need item-specific precedent. Upstream curation decisions are recorded in the
+[current audit](research/upstream-audit-2026-09.md).
+
 ## How it works
 
 - **A core that loads.** Every skill starts by reading the same 26 operating rules
@@ -184,6 +193,9 @@ credited in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and explained in
   shipped file is never referenced, or a skill points outside its folder.
 - **Evidence levels.** Findings say whether they rest on rendered behavior, measurement, source,
   screenshots, or assumption.
+- **Conditional enforcement.** Direction changes select from three families; composition changes
+  name a composition; workflow changes count before/after; custom controls justify their cost; and
+  meaningful runnable UI is rendered or reported as **NOT VERIFIED IN RENDERED OUTPUT**.
 
 Details: [docs/architecture.md](docs/architecture.md).
 
@@ -202,7 +214,11 @@ third-party/   provenance of adapted third-party material
 docs/          architecture, philosophy, authoring, evaluation, installation, contributing
 ```
 
-## Development
+## Integration and development
+
+Copy [`assets/experience-contract.md`](assets/experience-contract.md) into `AGENTS.md`,
+`CLAUDE.md`, Cursor rules, or the equivalent repository instruction file when you want the pre-ship
+checks to be visible to the host agent. Keep it scoped to meaningful user-facing work.
 
 ```bash
 npm install          # installs playwright-core for browser tests (uses your installed Chrome)

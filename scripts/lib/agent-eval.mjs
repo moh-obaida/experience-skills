@@ -21,10 +21,24 @@ export function parseScenario(markdown) {
   };
 }
 
-/**
- * Parse a stream-json transcript (one JSON object per line) from an agent run.
- * Returns the final answer and what the agent actually loaded and ran.
- */
+const DESIGN_INTELLIGENCE = new Set([
+  'selection.md', 'directions-index.md', 'palettes.md', 'typography.md', 'surfaces-and-shape.md',
+  'imagery-illustration-icons.md', 'motion-languages.md', 'compositions-index.md',
+  'compositions-focus.md', 'compositions-flows.md', 'compositions-narrative.md',
+  'compositions-content.md', 'compositions-discovery.md', 'compositions-workspaces.md',
+  'compositions-operational.md', 'compositions-mobile.md', 'data-visualization.md',
+  'spatial-density-navigation.md', 'anti-generic-alternatives.md',
+]);
+const PRECEDENT = new Set([
+  'commerce-and-discovery.md', 'dense-operational-layouts.md', 'editorial-and-typography.md',
+  'environment-first-identity.md', 'interruptions-and-consent.md', 'justified-trends.md',
+  'known-context-and-defaults.md', 'mobile-navigation.md', 'motion-guidelines.md',
+  'product-derived-identity.md', 'product-first-presentation.md',
+  'progressive-disclosure-and-expert-speed.md', 'states-loading-empty-error.md',
+  'transactional-clarity.md', 'whitespace-and-dead-space.md',
+]);
+
+/** Parse a stream-json transcript and record activation, depth, evidence, and completion signals. */
 export function parseTranscript(jsonl) {
   const events = [];
   for (const line of jsonl.split('\n')) {
@@ -35,6 +49,8 @@ export function parseTranscript(jsonl) {
   const skillsInvoked = [];
   const skillFilesRead = [];
   const referencesRead = [];
+  const designIntelligenceModulesLoaded = [];
+  const precedentModulesLoaded = [];
   const scriptsRun = [];
   const toolCounts = {};
   let answer = '';
@@ -54,7 +70,13 @@ export function parseTranscript(jsonl) {
         const skillFile = path.match(/skills\/([a-z0-9-]+)\/SKILL\.md$/);
         if (skillFile) note(skillFilesRead, skillFile[1]);
         const ref = path.match(/skills\/([a-z0-9-]+)\/(references\/.+\.md)$/);
-        if (ref) note(referencesRead, `${ref[1]}/${ref[2]}`);
+        if (ref) {
+          const reference = `${ref[1]}/${ref[2]}`;
+          note(referencesRead, reference);
+          const file = reference.split('/').pop();
+          if (DESIGN_INTELLIGENCE.has(file)) note(designIntelligenceModulesLoaded, reference);
+          if (PRECEDENT.has(file)) note(precedentModulesLoaded, reference);
+        }
         const cmd = String(input.command ?? '');
         if (block.name === 'Bash') {
           for (const script of cmd.matchAll(/skills\/([a-z0-9-]+)\/(scripts\/[a-z0-9-]+\.mjs)/g)) note(scriptsRun, `${script[1]}/${script[2]}`);
@@ -70,7 +92,19 @@ export function parseTranscript(jsonl) {
   }
   // Skills count as loaded if invoked through the Skill tool or read directly.
   const skillsLoaded = [...new Set([...skillsInvoked, ...skillFilesRead])];
-  return { answer, skillsInvoked, skillFilesRead, skillsLoaded, referencesRead, scriptsRun, toolCounts, costUsd, turns, error };
+  const specialistsTriggered = skillsLoaded.filter((skill) => skill !== 'experience-architect');
+  const renderedEvidenceGathered = scriptsRun.some((script) => /measure|layout|overflow|collision|stress|motion-rendered|inventory-styles|check-controls/.test(script))
+    || /playwright|screenshot|browser|chrome/i.test(jsonl);
+  const completionCriteriaSatisfied = {
+    evidenceContract: /\bObserved:\b[\s\S]*\bMeasured:\b[\s\S]*\bChanged:\b[\s\S]*\bVerified:\b[\s\S]*\bNot verified:\b/i.test(answer),
+    finalGate: /final gate|PASS\s*[·|]|NOT VERIFIED IN RENDERED OUTPUT/i.test(answer),
+    beforeAfter: /before[^\n]{0,120}\d[\s\S]{0,400}after[^\n]{0,120}\d/i.test(answer),
+    stateMatrix: /state matrix/i.test(answer),
+    selectedDirection: /selected direction|direction selected/i.test(answer),
+    selectedComposition: /selected composition|composition selected/i.test(answer),
+    handoffArtifact: /\bmode:\b[\s\S]*\bsurface\b[\s\S]*\bevidence:\b[\s\S]*\bdecision:\b[\s\S]*\bverification:\b/i.test(answer),
+  };
+  return { answer, skillsInvoked, skillFilesRead, skillsLoaded, specialistsTriggered, referencesRead, designIntelligenceModulesLoaded, precedentModulesLoaded, scriptsRun, renderedEvidenceGathered, completionCriteriaSatisfied, toolCounts, costUsd, turns, error };
 }
 
 const PRAISE_OPENING = /^(great|love|nice|awesome|excellent|amazing|beautiful|clean|good (idea|question|call)|what a|i love|this (looks|is|seems) (great|clean|good|nice|solid|amazing|excellent|modern))/i;
@@ -172,12 +206,12 @@ export function renderReport(runs, meta) {
     'Each scenario ran twice in a fresh temporary project: **without** the skills and **with** all',
     'skills installed as project skills. A separate judge graded answers without knowing the condition.',
     '',
-    '| Scenario | Principles met (without → with) | Unacceptable (without → with) | Praise opening (without → with) | Expected skills loaded (with) | References read (with) | Scripts run (with) |',
-    '|---|---|---|---|---|---|---|',
+    '| Scenario | Principles met (without → with) | Unacceptable (without → with) | Praise opening (without → with) | Expected skills loaded (with) | References / DI / precedent (with) | Required refs | Rendered evidence | Completion signals |',
+    '|---|---|---|---|---|---|---|---|---|',
   ];
   for (const [id, c] of Object.entries(by)) {
     const w = c.with; const wo = c.without;
-    lines.push(`| ${id}${c.with?.anchor || c.without?.anchor ? ' (anchor)' : ''} | ${cell(wo, pct)} → ${cell(w, pct)} | ${cell(wo, (r) => r.judge?.violations ?? '?')} → ${cell(w, (r) => r.judge?.violations ?? '?')} | ${cell(wo, (r) => (r.signals?.openingPraise ? 'yes' : 'no'))} → ${cell(w, (r) => (r.signals?.openingPraise ? 'yes' : 'no'))} | ${cell(w, (r) => `${r.routing.hit.length}/${r.routing.expected.length}${r.routing.missed.length ? ` (missed: ${r.routing.missed.join(', ')})` : ''}`)} | ${cell(w, (r) => r.transcript.referencesRead.length)} | ${cell(w, (r) => r.transcript.scriptsRun.join(', ') || 'none')} |`);
+    lines.push(`| ${id}${c.with?.anchor || c.without?.anchor ? ' (anchor)' : ''} | ${cell(wo, pct)} → ${cell(w, pct)} | ${cell(wo, (r) => r.judge?.violations ?? '?')} → ${cell(w, (r) => r.judge?.violations ?? '?')} | ${cell(wo, (r) => (r.signals?.openingPraise ? 'yes' : 'no'))} → ${cell(w, (r) => (r.signals?.openingPraise ? 'yes' : 'no'))} | ${cell(w, (r) => `${r.routing.hit.length}/${r.routing.expected.length}${r.routing.missed.length ? ` (missed: ${r.routing.missed.join(', ')})` : ''}`)} | ${cell(w, (r) => `${(r.transcript.referencesRead ?? []).length} / ${(r.transcript.designIntelligenceModulesLoaded ?? []).length} / ${(r.transcript.precedentModulesLoaded ?? []).length}`)} | ${cell(w, (r) => r.requiredReferenceCompliance ? `${r.requiredReferenceCompliance.loaded.length}/${r.requiredReferenceCompliance.required.length}` : 'n/a')} | ${cell(w, (r) => r.transcript.renderedEvidenceGathered ? 'yes' : 'no')} | ${cell(w, (r) => Object.values(r.transcript.completionCriteriaSatisfied ?? {}).filter(Boolean).length)} |`);
   }
   const totals = (cond) => {
     const rs = runs.filter((r) => r.condition === cond && r.judge);
@@ -185,14 +219,16 @@ export function renderReport(runs, meta) {
     const tot = rs.reduce((s, r) => s + r.judge.principlesTotal, 0);
     const viol = rs.reduce((s, r) => s + r.judge.violations, 0);
     const praise = rs.filter((r) => r.signals.openingPraise).length;
-    return { n: rs.length, met, tot, viol, praise };
+    const specialists = rs.reduce((s, r) => s + (r.transcript?.specialistsTriggered?.length ?? 0), 0);
+    const rendered = rs.filter((r) => r.transcript?.renderedEvidenceGathered).length;
+    return { n: rs.length, met, tot, viol, praise, specialists, rendered };
   };
   const a = totals('without'); const b = totals('with');
   lines.push('', '## Totals', '',
-    `| Condition | Runs graded | Principles met | Unacceptable recommendations | Praise openings |`,
-    `|---|---|---|---|---|`,
-    `| without skills | ${a.n} | ${a.met}/${a.tot} | ${a.viol} | ${a.praise} |`,
-    `| with skills | ${b.n} | ${b.met}/${b.tot} | ${b.viol} | ${b.praise} |`,
+    `| Condition | Runs graded | Principles met | Unacceptable recommendations | Praise openings | Specialists | Rendered evidence |`,
+    `|---|---|---|---|---|---|---|`,
+    `| without skills | ${a.n} | ${a.met}/${a.tot} | ${a.viol} | ${a.praise} | ${a.specialists} | ${a.rendered} |`,
+    `| with skills | ${b.n} | ${b.met}/${b.tot} | ${b.viol} | ${b.praise} | ${b.specialists} | ${b.rendered} |`,
     '', '## Per-run notes', '');
   for (const r of runs) {
     lines.push(`- **${r.scenarioId} · ${r.condition}:** ${r.error ? `ERROR: ${r.error}` : (r.judge?.notes ?? 'no judge notes')}${r.condition === 'with' && r.transcript ? ` Skills loaded: ${r.transcript.skillsLoaded.join(', ') || 'none'}.` : ''}`);

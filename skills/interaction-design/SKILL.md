@@ -3,7 +3,7 @@ name: interaction-design
 description: "Use this skill whenever controls, inputs, forms, pickers, buttons, confirmations, or keyboard and touch behavior are designed or reviewed: especially when someone proposes a custom, animated, or 'more fun' version of a standard control (segmented code boxes, bespoke dropdowns, bouncing digits), when actions are confusing, slow, error-prone, or inaccessible, when actions restate context the system already knows, or when building forms and live-control surfaces. Covers affordance, action hierarchy, primary/secondary/destructive actions, inline edit, direct manipulation, confirmation versus undo, disabled states, feedback, and power-user paths. Default stance: do not reinvent familiar interactions without user value."
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -15,7 +15,9 @@ frequent users, safe around consequences, and usable by everyone.
 ## Start here
 
 1. Read `references/_shared/experience-core.md`.
-2. For each control in scope, note how often it is used and what it costs if misused
+2. Read `references/_shared/experience-operating-contract.md`; a custom-control branch must load
+   its interaction-cost evidence before implementation.
+3. For each control in scope, note how often it is used and what it costs if misused
    (`references/_shared/interaction-frequency.md`). Frequency and consequence decide the design.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
@@ -40,6 +42,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -136,6 +143,8 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - Custom controls have a stated, measurable value and pass keyboard, screen-reader, touch, paste,
   and autofill checks, or were replaced.
 - Keyboard path and visible focus work end to end; targets are adequately sized.
+- The familiar-control or custom-control reference was loaded for the relevant branch, and the
+  handoff names action scope, safety choice, accessibility evidence, and remaining risks.
 
 ## References
 
@@ -147,7 +156,8 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - `references/feedback-and-errors.md` — feedback timing, disabled states, errors, modes
 - `references/search-selection-and-bulk.md` — search, autocomplete, selection, mixed states, bulk, context menus, palettes, control states
 - `scripts/check-controls.mjs` — rendered accessibility quick checks for controls
-- `references/_shared/` — generated copies: `experience-core.md`, `interaction-frequency.md`,
+- `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
+  `interaction-frequency.md`,
   `overengineering.md`, `join-code-page.md`, `context-aware-judgment.md`, `undo-vs-confirm.md`,
   `bottom-sheet-overuse.md`, `search-proportionality.md`, `public-service-form.md`,
   `progressive-disclosure-and-expert-speed.md`, `transactional-clarity.md`,

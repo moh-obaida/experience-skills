@@ -3,7 +3,7 @@ name: state-design
 description: "Use this skill whenever a feature loads, saves, uploads, pays, syncs, generates, or runs work that can be slow, fail, or finish in the background; when only the happy path exists; when errors say 'Something went wrong'; when a screen or dashboard can be stale, partial, empty, offline, or unknown; or when auditing a feature for missing states. Designs first-use, loading, processing, partial, success, failure, offline, reconnecting, sparse, dense, permission-denied, paused, stale, long-running, optimistic, and authoritative states, and separates transport state from product state so the UI never lies."
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -16,7 +16,9 @@ through, after a partial failure.
 ## Start here
 
 1. Read `references/_shared/experience-core.md`.
-2. Open `references/_shared/state-types.md`. It is the checklist you walk in step 1 below.
+2. Read `references/_shared/experience-operating-contract.md`; state changes require an explicit
+   matrix, authority, recovery path, and evidence status.
+3. Open `references/_shared/state-types.md`. It is the checklist you walk in step 1 below.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
 **Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
@@ -40,6 +42,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -125,6 +132,8 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - Every error explains and offers recovery; input is preserved.
 - Long work is backgrounded or honestly explained.
 - Key states were triggered and observed, or listed with how to trigger them.
+- The handoff contains the state matrix, authority, recovery, next action, and unresolved risks for
+  the interaction and motion specialists; skipped states are explicit.
 
 ## References
 
@@ -134,6 +143,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - `references/errors-and-recovery.md` — error taxonomy and recovery
 - `references/realtime-and-reconnection.md` — live and multiplayer states
 - `references/domain-states.md` — domain checklists
-- `references/_shared/` — generated copies: `experience-core.md`, `state-types.md`,
+- `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
+  `state-types.md`,
   `state-header.md`, `honest-error-states.md`, `long-running-generation.md`,
   `states-loading-empty-error.md`, `transactional-clarity.md`

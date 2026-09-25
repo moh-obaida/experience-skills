@@ -20,6 +20,9 @@ principle to the places where it forces a different branch, measurement, or comp
 | Functionality is the baseline; measure time to outcome | workflow-compression checkpoints 1 and 7 (no claim without counts; recount after); core rule 11 | `workflow-ledger.mjs` (before/after, F1–F15) |
 | Real states, not one screenshot | state-design checkpoints 1, 8, 9; empty-state-design checkpoints 1, 7; responsive-validation checkpoint 7 | `stress-content.mjs`; `fragile-layout-real-content` scenario |
 | Automate mechanics, preserve judgment | workflow-compression checkpoint 5 (preserve judgment and safety steps); core rule 14 | `workflow-ledger.mjs` (`preserve: true` never tagged) |
+| Meaningful runnable UI must earn rendered claims | shared operating contract; architect and responsive completion criteria; explicit exception branch | rendered-evidence telemetry plus `NOT VERIFIED IN RENDERED OUTPUT` requirement |
+| Specialist handoff is a graph, not a list | architect recipes and every specialist's transfer artifact | `recipes.md`; specialist output fields and completion checks |
+| Reference reads must cause a decision | shared operating contract conditional-loading table; direction/composition/workflow/state branches | required-reference telemetry and completion-signal fields |
 
 ## Honest gaps
 
@@ -33,3 +36,6 @@ principle to the places where it forces a different branch, measurement, or comp
 - Checkpoints that require rendering or measuring were followed in 1 of 13 runs, even with fixtures
   and a browser available. "Rendered truth" is the least operational principle so far.
 - Scripts gather evidence; they cannot judge taste. Every script says so in its output.
+- The 0.3.0 enforcement fields are implemented but have not yet been run against a fresh multi-agent,
+  multi-sample benchmark. Treat the telemetry schema and local coverage report as infrastructure,
+  not as evidence of behavioral improvement until those runs exist.

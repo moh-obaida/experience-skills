@@ -9,7 +9,7 @@
 
 import { spawnSync } from 'node:child_process';
 import { mkdtempSync, rmSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
-import { tmpdir, homedir } from 'node:os';
+import { tmpdir } from 'node:os';
 import { join, relative } from 'node:path';
 import { ROOT, SKILLS_DIR, loadCatalog, modulesFor, vendoredPath, listFiles, toPosix, markdownLinks, isExternal } from './lib/repo.mjs';
 
@@ -24,6 +24,7 @@ Usage: node scripts/test-skill-discovery.mjs
 Env:
   SKILLS_CLI_VERSION   CLI version to test (default 1.7.0)
   DISCOVERY_SKILLS     Comma-separated skills to install (default ${INSTALL.join(',')})
+  DISCOVERY_NPM_CACHE  Optional npm cache to reuse (default: isolated temp cache)
   SKIP_DISCOVERY=1     Skip this test (prints SKIPPED)
 `);
   process.exit(0);
@@ -49,7 +50,9 @@ const env = {
   DISABLE_TELEMETRY: '1',
   DO_NOT_TRACK: '1',
   CI: '1',
-  npm_config_cache: process.env.npm_config_cache ?? join(homedir(), '.npm'),
+  // Keep discovery isolated from a user's possibly unwritable global npm cache. Callers can
+  // still provide npm_config_cache when they explicitly want to reuse one.
+  npm_config_cache: process.env.DISCOVERY_NPM_CACHE ?? join(temp, 'npm-cache'),
   npm_config_update_notifier: 'false',
 };
 

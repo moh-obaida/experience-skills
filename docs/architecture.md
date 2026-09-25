@@ -8,6 +8,11 @@
 4. The structure is verifiable by scripts, not by trust.
 5. No custom infrastructure: folders, markdown, a few scripts, tests.
 
+The 0.3 operating contract adds enforcement without changing those goals: conditional depth rules
+live in a vendored shared reference, while recurring multi-skill graphs and handoff artifacts live
+in the router. Meaningful runnable UI follows a render contract with explicit exceptions; simple or
+backend-only work remains below the significance threshold.
+
 ## Layout
 
 ```
@@ -129,6 +134,11 @@ Whether agents actually load the specialists is measured by `scripts/run-agent-e
 records every skill, reference, and script an agent loads during a scenario. The first recorded
 runs found the router loaded but rarely handing off, so its checkpoint 3 now requires invoking the
 specialists before any recommendation is written.
+
+Named recurring graphs are recorded in `skills/experience-architect/references/recipes.md`. Each
+specialist leaves a compact transfer artifact; the next specialist consumes it rather than repeating
+diagnosis. The eval harness now separates specialist activation, design-intelligence reads,
+precedent reads, rendered-evidence signals, completion signals, and required-reference compliance.
 
 ## Decision 9: evidence, interpretation, and vocabulary are separate layers
 

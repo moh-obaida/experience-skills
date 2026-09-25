@@ -3,7 +3,7 @@ name: critical-review
 description: "Use this skill before giving any opinion on an idea, interface, mockup, redesign, PR, feature proposal, or plan: whenever the user asks 'is this good?', 'what do you think?', 'should we do this?', or 'review this', arrives enthusiastic about an approach (including 'make it more fun, modern, or like product X'), or before endorsing the agent's own output. Forms the verdict before any praise: separates understanding from agreement, checks the proposal against the actual goal, lists hidden costs, compares against the current state, and reaches an evidence-backed verdict that may be 'worse than current', 'unnecessary', or 'excellent for this context'."
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -17,7 +17,9 @@ reasons too.
 ## Start here
 
 1. Read `references/_shared/experience-core.md`.
-2. Read `references/_shared/model-instincts.md`. You will check your draft against it at the end.
+2. Read `references/_shared/experience-operating-contract.md`; a verdict about implemented UI
+   must distinguish rendered evidence from source-only inspection.
+3. Read `references/_shared/model-instincts.md`. You will check your draft against it at the end.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
 **Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
@@ -41,6 +43,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -133,6 +140,8 @@ The selection method adapts ideas credited in `references/_shared/third-party-no
 - The verdict uses the vocabulary and is backed by specific, evidence-labeled observations.
 - Hidden costs and the comparison with the current state are addressed.
 - A clear recommendation and next step; no unearned praise.
+- Implemented UI was rendered when runnable, or the verdict says NOT VERIFIED IN RENDERED OUTPUT
+  with the reason; the handoff carries the verdict, evidence, and open risks.
 
 ## References
 
@@ -140,7 +149,8 @@ The selection method adapts ideas credited in `references/_shared/third-party-no
 - `references/disagreement-and-praise.md` — disagreeing, earned praise, sycophancy patterns
 - `references/evidence-and-claims.md` — claims matched to evidence
 - `references/verdict-examples.md` — ten short verdicts, observed and invented, across the full range
-- `references/_shared/` — generated copies: `experience-core.md`, `model-instincts.md`,
+- `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
+  `model-instincts.md`,
   `human-judgment.md`, `overengineering.md`, `experience-rubric.md`, `workflow-rubric.md`,
   `anti-slop-gate.md`, `public-service-form.md`, `product-page-purchase-path.md`,
   `join-code-page.md`, `selection.md`, `justified-trends.md`, `third-party-notices.md`

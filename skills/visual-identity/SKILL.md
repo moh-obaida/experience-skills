@@ -3,7 +3,7 @@ name: visual-identity
 description: "Use this skill whenever a product, page, or homepage looks generic, boring, template-like, or like it could belong to anyone; when someone wants more personality, fun, or brand; when identity is being added to inputs and buttons instead of the environment; or when establishing or extending a visual direction. Derives identity from the product's domain, content, and mechanics rather than from trends, logos, or decorated controls. Covers environment versus controls, product-derived motifs, color roles, typography character, surface and shape language, imagery, competitor analysis without copying, and the logo-removal recognition test."
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -16,7 +16,9 @@ around the task, not in the controls.
 ## Start here
 
 1. Read `references/_shared/experience-core.md`.
-2. Name the archetype (`references/_shared/page-archetypes.md`). It sets the identity budget: high
+2. Read `references/_shared/experience-operating-contract.md`; a direction change must use the
+   selection branch and record the selected direction before styling.
+3. Name the archetype (`references/_shared/page-archetypes.md`). It sets the identity budget: high
    for experiential and marketing surfaces, restrained for operational and transactional ones,
    clarity-as-identity for public services.
 
@@ -42,6 +44,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -138,6 +145,8 @@ Adapted third-party material (study protocol, font pairings, style coverage) is 
 - The logo test passes on three representative surfaces, or plainness is a stated choice.
 - Controls remain conventional, legible, accessible.
 - Identity holds on sparse and dense pages; contrast and weight were checked or listed as unverified.
+- The selection reference and three-family comparison were used for any direction change; the
+  handoff names the selected direction, carriers, environment, controls, states, and avoid list.
 
 ## References
 
@@ -147,7 +156,8 @@ Adapted third-party material (study protocol, font pairings, style coverage) is 
 - `references/identity-carriers.md` — color roles, typography, surface language
 - `references/imagery-and-illustration.md` — illustration, characters, photography
 - `references/branded-states-and-density.md` — branded empty/loading/error/success; identity under sparse and dense content
-- `references/_shared/` — generated copies: `experience-core.md`, `page-archetypes.md`,
+- `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
+  `page-archetypes.md`,
   `product-archetypes.md`, `product-identity.md`, `design-vs-decoration.md`, `design-cliches.md`,
   `branded-environment-simple-form.md`, `join-code-page.md`, `logo-removal-test.md`, `selection.md`,
   `directions-index.md`, `directions-editorial.md`, `directions-structural.md`,

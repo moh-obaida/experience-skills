@@ -9,6 +9,7 @@ points to it.
 | File | Topic | Source in the collection |
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
 | `interaction-frequency.md` | Interaction Frequency | `shared/taxonomies/interaction-frequency.md` |
 | `overengineering.md` | Overengineering | `shared/anti-patterns/overengineering.md` |
 | `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |

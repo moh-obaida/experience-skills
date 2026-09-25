@@ -4,7 +4,7 @@ description: "Use this skill whenever animation, transitions, or micro-interacti
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -16,7 +16,9 @@ Used by default, it becomes a tax users pay on every visit.
 ## Start here
 
 1. Read `references/_shared/experience-core.md`.
-2. Keep `references/_shared/motion-events.md` open. Every animation must map to one of its events.
+2. Read `references/_shared/experience-operating-contract.md`; meaningful motion changes require
+   rendered or explicitly unverified evidence and a handoff artifact.
+3. Keep `references/_shared/motion-events.md` open. Every animation must map to one of its events.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
 **Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
@@ -40,6 +42,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -126,6 +133,8 @@ documentation). Motion is hard to observe in static research; treat that module 
 - Durations and easings come from tokens.
 - Reduced-motion alternatives preserve the information.
 - Motion is interruptible and did not add jank (checked, or listed as unverified).
+- The event map and motion language are handed off with reduced-motion behavior; runnable motion was
+  rendered and checked, or is explicitly marked NOT VERIFIED IN RENDERED OUTPUT.
 
 ## References
 
@@ -135,5 +144,6 @@ documentation). Motion is hard to observe in static research; treat that module 
 - `references/reduced-motion-and-performance.md` — accessibility and performance
 - `references/anti-patterns.md` — motion slop in practice
 - `scripts/check-motion-rendered.mjs` — running animations under normal and reduced motion
-- `references/_shared/` — generated copies: `experience-core.md`, `motion-events.md`,
+- `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
+  `motion-events.md`,
   `motion-that-explains.md`, `motion-languages.md`, `motion-guidelines.md`

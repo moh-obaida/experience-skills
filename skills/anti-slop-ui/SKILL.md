@@ -4,7 +4,7 @@ description: "Use this skill whenever a UI looks template-made or AI-generated, 
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -21,7 +21,9 @@ one without a job.
 ## Start here
 
 1. Read `references/_shared/experience-core.md`.
-2. Read `references/_shared/model-instincts.md`. Most slop comes from those reflexes
+2. Read `references/_shared/experience-operating-contract.md`; its significance, render, and
+   evidence rules are mandatory for pre-ship work.
+3. Read `references/_shared/model-instincts.md`. Most slop comes from those reflexes
    (whitespace → premium, cards → organized, empty page → add filler, simple input → make it special).
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
@@ -46,6 +48,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -143,6 +150,9 @@ credited in `references/_shared/third-party-notices.md`.
 - No fabricated content remains; copy is specific.
 - Removed slop was replaced by structure, identity, or real content.
 - The gate was run and reported, with unverified items listed.
+- The anti-slop branch records the job, product root, alternative, cost, and failure condition for
+  every treatment kept; a runnable surface was rendered or marked NOT VERIFIED IN RENDERED OUTPUT.
+- The handoff artifact carries the chosen alternative and open risks to the next specialist.
 
 ## References
 
@@ -153,7 +163,8 @@ credited in `references/_shared/third-party-notices.md`.
 - `references/final-slop-gate.md` — the gate before presenting
 - `references/alternatives-engine.md` — detect, test justification, generate three alternatives, choose
 - `scripts/inventory-styles.mjs` — rendered inventory of radii, shadows, gradients, blur, type, nesting, repeated cards
-- `references/_shared/` — generated copies: `experience-core.md`, `model-instincts.md`,
+- `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
+  `model-instincts.md`,
   `design-vs-decoration.md`, `fake-density.md`, `fake-minimalism.md`, `anti-slop-gate.md`,
   `join-code-page.md`, `logo-removal-test.md`, `premium-slop.md`, `kpi-card-dashboard.md`,
   `editorial-not-cards.md`, `anti-generic-alternatives.md`, `compositions-index.md`,

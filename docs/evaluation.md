@@ -32,6 +32,19 @@ Findings carry their level. A repair is "verified" only at levels 1–2.
 
 ## Evaluating the skills
 
+### Enforcement telemetry
+
+The behavioral harness records more than whether an answer mentioned a principle. Each transcript
+records skills invoked and specialists triggered; references read with design-intelligence and
+precedent modules separated; scripts executed and rendered-evidence signals; completion signals
+such as before/after counts, selected direction/composition, state matrix, and final-gate reporting;
+and scenario-declared required-reference compliance.
+
+The useful metrics are expected-specialist recall, irrelevant specialist rate, reference activation
+rate, design-intelligence usage, precedent usage, required-reference compliance, rendered-evidence
+compliance, handoff completeness, and the condition-blind quality delta. More reads are not
+automatically better: a correct required read with its decision artifact is the unit that matters.
+
 ### Automated
 
 - **Structure and spec:** `npm run validate` and the official reference validator (`pip install skills-ref`, then `agentskills validate skills/<name>`).

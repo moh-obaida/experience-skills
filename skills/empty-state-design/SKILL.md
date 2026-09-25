@@ -3,7 +3,7 @@ name: empty-state-design
 description: "Use this skill whenever a list, dashboard, library, inbox, search, or home screen has little or no content; when a first-run or new-account view is designed; when someone asks to make a sparse page 'less empty' or it feels unfinished; or when a page has been filled with illustrations, fake stats, tips, or marketing. Designs zero-item, one-item, first-run, empty-search, filtered-empty, no-permission, no-history, incomplete-setup, unavailable, archived, and skeleton-versus-empty states, and distinguishes intentional focus from dead space and useful density from filler, calibrated by page archetype."
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -16,7 +16,9 @@ fake stats, a banner, a quote).
 ## Start here
 
 1. Read `references/_shared/experience-core.md`.
-2. Identify which kind of empty this is (`references/empty-state-types.md`) before designing anything.
+2. Read `references/_shared/experience-operating-contract.md`; classify significant sparse-state
+   work, render real states when possible, and report skipped evidence explicitly.
+3. Identify which kind of empty this is (`references/empty-state-types.md`) before designing anything.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
 **Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
@@ -40,6 +42,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -117,6 +124,8 @@ Real empty, loading, and error states (Spotify, Grafana, GOV.UK, and first-paint
 - Real context is surfaced where it exists; nothing is fabricated.
 - One-item and few-item states were considered.
 - The filler test was applied.
+- The sparse-state handoff names cause, authority, next action, and checked or unverified states;
+  no visual claim is marked verified without rendered evidence.
 
 ## References
 
@@ -124,6 +133,7 @@ Real empty, loading, and error states (Spotify, Grafana, GOV.UK, and first-paint
 - `references/density-and-filler.md` — density by archetype, useful density vs filler
 - `references/first-run.md` — first-run experiences
 - `references/empty-state-copy.md` — wording
-- `references/_shared/` — generated copies: `experience-core.md`, `fake-density.md`,
+- `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
+  `fake-density.md`,
   `meaningful-empty-state.md`, `empty-state-overcorrection.md`, `sparse-operational-home.md`,
   `product-archetypes.md`, `states-loading-empty-error.md`

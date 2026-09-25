@@ -182,6 +182,10 @@
       "fixtures": {
         "home.html": "tests/fixtures/pages/sparse-home.html"
       },
+      "requiredReferences": [
+        "empty-state-design/references/empty-state-types.md",
+        "composition-repair/references/_shared/compositions-index.md"
+      ],
       "anchor": "examples/composition/sparse-operational-home.md"
     },
     {
@@ -196,6 +200,11 @@
       "fixtures": {
         "join.html": "tests/fixtures/pages/centered-card.html"
       },
+      "requiredReferences": [
+        "visual-identity/references/_shared/selection.md",
+        "composition-repair/references/_shared/compositions-index.md",
+        "interaction-design/references/familiar-controls.md"
+      ],
       "anchor": "examples/identity/join-code-page.md"
     },
     {
@@ -206,6 +215,10 @@
         "interaction-design"
       ],
       "anchor": "examples/full-product/public-service-form.md"
+      ,"requiredReferences": [
+        "workflow-compression/references/known-answers.md",
+        "interaction-design/references/familiar-controls.md"
+      ]
     },
     {
       "file": "tests/scenarios/ecommerce-checkout.md",
@@ -226,6 +239,10 @@
         "critical-review"
       ],
       "anchor": "examples/full-product/mobile-money-transfer.md"
+      ,"requiredReferences": [
+        "workflow-compression/references/known-answers.md",
+        "state-design/references/state-inventory.md"
+      ]
     },
     {
       "file": "tests/scenarios/creative-tool-toolbar.md",
@@ -262,6 +279,10 @@
         "interaction-design"
       ],
       "anchor": "examples/full-product/long-running-generation.md"
+      ,"requiredReferences": [
+        "state-design/references/state-inventory.md",
+        "workflow-compression/references/waiting-and-endings.md"
+      ]
     },
     {
       "file": "tests/scenarios/data-dashboard.md",

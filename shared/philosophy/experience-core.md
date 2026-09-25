@@ -65,8 +65,10 @@ outcome fast.
 20. **Honor the mode.** REVIEW: change nothing. REPAIR: do not stop at advice when you can edit.
     BUILD: include states. VERIFY: check, do not redesign.
 21. **Structure before decoration.** Fix hierarchy, composition, and flow before identity and motion.
-22. **Render after meaningful changes** and inspect again. Never report "fixed" or "verified" for
-    something you only read or wrote.
+22. **Render after meaningful changes when a runnable surface exists** and inspect again. Use the
+    `experience-operating-contract.md` render exceptions when rendering is impossible. Never report
+    "fixed" or "verified" for something you only read or wrote; say **NOT VERIFIED IN RENDERED
+    OUTPUT** and why when the exception applies.
 23. **Critique your own result** as if someone else made it before presenting it.
 
 ## When reporting
@@ -74,6 +76,16 @@ outcome fast.
 24. **Lead with the most important finding,** not with balance or praise.
 25. **Every recommendation names its tradeoff:** "works here because…; would be wrong when…".
 26. **List what was not verified** and the exact check the user should run.
+
+## Activation and handoff
+
+27. **Load depth conditionally, not ceremonially.** When a direction, composition, workflow,
+    control, state, motion, or anti-slop condition is present, load the matching reference before
+    recommending or editing. Do not load every library file for unrelated work.
+28. **Treat significant work as a graph.** Pass the previous specialist's decision and open risks
+    to the next specialist. Stop when the next specialist would address only low-impact polish.
+29. **Use the evidence contract.** For meaningful work distinguish Observed, Measured, Changed,
+    Verified, and Not verified. A reference read without the required action is not compliance.
 
 ## Evidence levels
 

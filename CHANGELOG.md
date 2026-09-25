@@ -4,6 +4,28 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org/). All skills share the repository version.
 
+## [0.3.0] - 2026-09-25
+
+The enforcement and repository-wide intelligence upgrade.
+
+### Added
+- Shared experience operating contract with significance thresholds, conditional reference rules,
+  rendered-evidence exceptions, evidence reporting, and specialist handoff artifacts.
+- Named multi-skill recipes for visually dead products, flow compression, live experiences, redesign
+  review, and generated-UI ship gates.
+- Repository integration guide and copyable `assets/experience-contract.md`.
+- Current upstream curation audit for Hallmark and UI/UX Pro Max at reviewed commits.
+- Generated coverage audit for directions, compositions, palettes, typography, motion, and precedent.
+- Eval telemetry for specialist activation, design-intelligence use, precedent use, rendered evidence,
+  completion signals, and required-reference compliance.
+
+### Changed
+- All skills require the operating contract and add conditional-loading and handoff completion checks.
+- Meaningful runnable UI work now requires rendered verification unless an explicit exception applies;
+  skipped rendering is reported as NOT VERIFIED IN RENDERED OUTPUT.
+- Experience Architect now routes through named graphs while keeping the significance gate to avoid
+  specialist spam.
+
 ## [0.2.0] - 2026-09-25
 
 The deep intelligence upgrade: real-world precedent, a design-intelligence library, positive

@@ -1,9 +1,9 @@
 ---
 name: experience-architect
-description: "Use this skill whenever the user asks to review, critique, improve, redesign, or build a user-facing surface (page, screen, flow, app, game, dashboard, form, CLI), asks what to change, says something feels off, boring, generic, slow, confusing, empty, flat, or broken, or brings a design idea to evaluate. Invoke it before answering, even when the fix seems obvious. Diagnoses the product-experience problem and routes to the right specialist skill: composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty states, AI-slop cleanup, or critical review. Loads only the depth the problem needs and ends with a quality gate."
+description: "Use this skill whenever the user asks to build, fix, finish, review, redesign, or improve a user-facing product surface—page, screen, dashboard, form, flow, game, app, or CLI—or says it feels boring, generic, empty, confusing, slow, broken, cramped, modern, fun, or off. Use it for substantial product-facing work when the right specialist is unclear or several concerns interact. Diagnoses the observable problem, activates the smallest ordered specialist graph, loads only required depth, enforces rendered evidence when runnable, and ends with a quality gate."
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -16,7 +16,9 @@ build-verify-critique loop, and applies a final gate.
 ## Start here
 
 1. Read `references/_shared/experience-core.md`. Its operating rules apply to everything below.
-2. Establish the mode: REVIEW (report only), REPAIR (change and verify), BUILD (create), or VERIFY
+2. Read `references/_shared/experience-operating-contract.md`; use its significance gate, named
+   recipes, render contract, evidence contract, and handoff artifact.
+3. Establish the mode: REVIEW (report only), REPAIR (change and verify), BUILD (create), or VERIFY
    (check finished work). Honor it.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
@@ -41,6 +43,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -79,7 +86,9 @@ Decision points, not advice. At each one, take the branch it names.
    listed; any unchecked item is NOT VERIFIED. Then reread your summary against
    `references/_shared/model-instincts.md` and delete praise you did not earn.
 6. **Before routing:** name the problem class from the table in `references/diagnosis-and-routing.md` and its observable signal. A symptom without a confirmed signal stays a hypothesis.
-7. **When two or more specialists apply:** use the matching recipe under "Specialist compositions" in the same reference, and pass each specialist's output (counted flow, state matrix, chosen direction) to the next instead of re-diagnosing.
+7. **When two or more specialists apply:** use the matching recipe in `references/recipes.md` (or the
+   closest recipe in `references/diagnosis-and-routing.md`), and pass each specialist's output
+   (counted flow, state matrix, chosen direction) to the next instead of re-diagnosing.
 
 ## Workflow
 
@@ -102,8 +111,10 @@ UNDERSTAND → OBSERVE → CLASSIFY → LOAD DEPTH → CHANGE/ADVISE → RENDER/
    surface; judgment last). If a specialist is not installed, use its fallback method listed there
    and tell the user the full skill exists.
 5. **Change or advise.** REVIEW: write findings. REPAIR/BUILD: follow `references/execution-loop.md`.
-6. **Render and verify.** Primary size, one small and one short size, a sparse and a dense state,
-   keyboard path. If you cannot render, list precise checks for the user.
+6. **Render and verify.** For meaningful runnable work, follow the required loop in
+   `references/_shared/experience-operating-contract.md`: primary size, one small and one short
+   size, a sparse and a dense state, and the keyboard path. If you cannot render, write **NOT
+   VERIFIED IN RENDERED OUTPUT** and list the exact reason and checks for the user.
 7. **Critique.** Checkpoint 5.
 8. **Finalize.** Report changes, evidence levels, gate results, unverified items, next step.
 
@@ -146,6 +157,9 @@ When the product is not a web app, `references/product-archetypes.md` explains h
 - Problems are named with shared codes, evidence-labeled, and ranked.
 - Only needed specialists were applied, in a stated order.
 - Changes were rendered and checked in more than one state and size, or the gap is stated.
+- Required conditional references were read and their required outputs (selection, composition,
+  counts, state matrix, or anti-slop alternatives) are present, or explicitly marked not verified.
+- Each handoff carries the previous specialist's decision and open risks.
 - The final gate was run and reported honestly.
 - The user knows what changed, what is verified, and the next step.
 
@@ -155,6 +169,8 @@ When the product is not a web app, `references/product-archetypes.md` explains h
 - `references/product-archetypes.md` — how product type changes the advice
 - `references/execution-loop.md` — the build/repair loop
 - `references/final-gate.md` — the gate before presenting
+- `references/recipes.md` — named multi-specialist graphs and handoff contracts
 - `references/_shared/` — generated copies: `experience-core.md`, `evidence-standard.md`,
+  `experience-operating-contract.md`,
   `page-archetypes.md`, `product-archetypes.md`, `product-maturity.md`, `visual-problems.md`,
   `workflow-friction.md`, `experience-rubric.md`, `model-instincts.md`

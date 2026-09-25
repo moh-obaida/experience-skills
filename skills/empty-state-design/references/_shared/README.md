@@ -9,6 +9,7 @@ points to it.
 | File | Topic | Source in the collection |
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
 | `fake-density.md` | Fake Density | `shared/anti-patterns/fake-density.md` |
 | `meaningful-empty-state.md` | Pattern: Meaningful Empty State | `shared/patterns/meaningful-empty-state.md` |
 | `empty-state-overcorrection.md` | Worked Example: Empty-State Overcorrection | `examples/states/empty-state-overcorrection.md` |

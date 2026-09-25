@@ -9,6 +9,7 @@ points to it.
 | File | Topic | Source in the collection |
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
 | `interaction-frequency.md` | Interaction Frequency | `shared/taxonomies/interaction-frequency.md` |
 | `workflow-friction.md` | Workflow Friction Taxonomy | `shared/taxonomies/workflow-friction.md` |
 | `workflow-rubric.md` | Workflow Rubric | `shared/evaluation/workflow-rubric.md` |

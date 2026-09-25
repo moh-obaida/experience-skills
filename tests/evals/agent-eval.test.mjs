@@ -32,7 +32,12 @@ test('parseTranscript finds skills, references, scripts, and the answer', () => 
   assert.equal(t.answer, 'Verdict: worse than current.');
   assert.deepEqual(t.skillsLoaded.sort(), ['composition-repair', 'experience-architect']);
   assert.deepEqual(t.referencesRead, ['composition-repair/references/_shared/join-code-page.md']);
+  assert.deepEqual(t.designIntelligenceModulesLoaded, []);
+  assert.deepEqual(t.precedentModulesLoaded, []);
   assert.deepEqual(t.scriptsRun, ['composition-repair/scripts/measure-layout.mjs', 'responsive-validation/scripts/stress-content.mjs']);
+  assert.equal(t.specialistsTriggered.includes('composition-repair'), true);
+  assert.equal(t.renderedEvidenceGathered, true);
+  assert.equal(t.completionCriteriaSatisfied.handoffArtifact, false);
   assert.equal(t.costUsd, 0.42);
 });
 

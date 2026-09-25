@@ -11,7 +11,7 @@ portions. Experience Skills itself is also MIT-licensed.
 ## Hallmark
 
 - Repository: https://github.com/Nutlope/hallmark
-- Commit reviewed: 13ac0ec7e148655948100b6396439e481361d690 (2026-09-24)
+- Commit reviewed: 13ac0ec7e148655948100b6396439e481361d690 (2026-09-25)
 - License: MIT (root LICENSE; no nested licenses found)
 - What was adapted, in rewritten form:
   - The idea of choosing a named page shape ("macrostructure") from an index and loading only that
@@ -52,7 +52,7 @@ SOFTWARE.
 ## UI UX Pro Max
 
 - Repository: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
-- Commit reviewed: dcc40ff5133ef78276117db0cc34e7b83cc8aeba (2026-09-24)
+- Commit reviewed: dcc40ff5133ef78276117db0cc34e7b83cc8aeba (2026-09-25)
 - License: MIT (root LICENSE). A nested Apache-2.0 license applies to the repository's
   `.claude/skills/ui-styling` and `cli/assets/skills/ui-styling` folders; nothing from those folders
   was used.

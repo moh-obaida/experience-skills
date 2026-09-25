@@ -9,6 +9,7 @@ points to it.
 | File | Topic | Source in the collection |
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
 | `motion-events.md` | Motion Events | `shared/taxonomies/motion-events.md` |
 | `motion-that-explains.md` | Worked Example: Motion That Explains | `examples/motion/motion-that-explains.md` |
 | `motion-languages.md` | Motion Languages | `shared/design-intelligence/motion-languages.md` |

@@ -4,7 +4,7 @@ description: "Use this skill whenever a layout, component, or page changes and m
 license: MIT
 compatibility: "The layout-report script needs Node.js 18+ and Playwright (or playwright-core with an installed Chrome). The checklist works without it."
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -16,7 +16,9 @@ across the sizes, inputs, languages, and settings real people use. This skill te
 ## Start here
 
 1. Read `references/_shared/experience-core.md`.
-2. Decide the audience's real conditions before choosing sizes (`references/validation-matrix.md`).
+2. Read `references/_shared/experience-operating-contract.md`; if the project can run, rendering
+   is required for meaningful responsive work, not an optional suggestion.
+3. Decide the audience's real conditions before choosing sizes (`references/validation-matrix.md`).
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
 **Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
@@ -40,6 +42,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -129,6 +136,8 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - Zoom reflow, keyboard focus, and touch targets were checked.
 - RTL and long-text stress were checked if supported.
 - The report states evidence levels and untested conditions.
+- If the project could run, the matrix includes rendered evidence; otherwise the report says NOT
+  VERIFIED IN RENDERED OUTPUT and names the environment blocker.
 
 ## References
 
@@ -138,5 +147,6 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - `references/rtl-and-content-stress.md` — RTL, localization, content stress
 - `references/reporting.md` — report format
 - `scripts/stress-content.mjs` — content stress injection before/after comparison
-- `references/_shared/` — generated copies: `experience-core.md`, `visual-problems.md`,
+- `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
+  `visual-problems.md`,
   `bottom-sheet-overuse.md`, `mobile-navigation.md`, `compositions-mobile.md`

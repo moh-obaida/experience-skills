@@ -119,6 +119,14 @@ async function runOne(entry, scenario, condition, opts, outDir) {
   writeFileSync(join(outDir, `${id}.${condition}.answer.md`), record.transcript.answer || '');
   record.signals = answerSignals(record.transcript.answer || '');
   record.routing = routingScore(scenario.expectedSkills, record.transcript.skillsLoaded);
+  const requiredReferences = entry.requiredReferences ?? [];
+  const loadedReferences = record.transcript.referencesRead;
+  record.requiredReferenceCompliance = {
+    required: requiredReferences,
+    loaded: requiredReferences.filter((reference) => loadedReferences.includes(reference)),
+    missed: requiredReferences.filter((reference) => !loadedReferences.includes(reference)),
+    rate: requiredReferences.length ? requiredReferences.filter((reference) => loadedReferences.includes(reference)).length / requiredReferences.length : null,
+  };
   if (!record.error) {
     const j = await exec(judgeArgs(judgePrompt(scenario, record.transcript.answer), opts), tmpdir(), process.env, 5 * 60 * 1000);
     try {
@@ -159,7 +167,9 @@ async function main() {
 
   const stamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
   const outDir = opts.out ?? join(ROOT, 'tests', 'evals', 'results', stamp);
-  mkdirSync(outDir, { recursive: true });
+  // Dry runs only prepare commands; do not create a repository results directory that concurrent
+  // structural tests could observe while it is being removed.
+  if (!opts.dryRun) mkdirSync(outDir, { recursive: true });
 
   const tasks = [];
   for (const entry of entries) {
@@ -176,7 +186,6 @@ async function main() {
   if (opts.dryRun) {
     for (const r of runs) process.stdout.write(`\n[${r.scenarioId} · ${r.condition}] cwd=${r.project}\n${r.command}\n`);
     if (!opts.keep) for (const r of runs) rmSync(r.project, { recursive: true, force: true });
-    rmSync(outDir, { recursive: true, force: true });
     return 0;
   }
 

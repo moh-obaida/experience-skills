@@ -14,6 +14,8 @@ export const REQUIRED_FILES = [
   'research/prior-art.md', 'research/visual-reference-catalog.md', 'research/design-research-notes.md',
   '.github/workflows/validate.yml', '.github/pull_request_template.md',
   'THIRD_PARTY_NOTICES.md', 'third-party/provenance.json', 'docs/design-intelligence.md', 'docs/third-party.md',
+  'docs/repository-integration.md', 'assets/experience-contract.md', 'research/coverage-report.md',
+  'research/upstream-audit-2026-09.md',
 ];
 
 const TEXT_EXT = new Set(['.md', '.mjs', '.js', '.json', '.yml', '.yaml', '.html', '.css', '.txt', '']);

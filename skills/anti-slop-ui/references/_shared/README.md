@@ -9,6 +9,7 @@ points to it.
 | File | Topic | Source in the collection |
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
+| `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
 | `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
 | `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
 | `fake-density.md` | Fake Density | `shared/anti-patterns/fake-density.md` |

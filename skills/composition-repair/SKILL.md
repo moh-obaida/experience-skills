@@ -4,7 +4,7 @@ description: "Use this skill whenever a page, screen, dashboard, or view looks e
 license: MIT
 compatibility: "Measurement scripts need Node.js 18+ and Playwright (or playwright-core with an installed Chrome). All guidance works without them."
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   collection: experience-skills
 ---
 
@@ -17,7 +17,9 @@ guarantee it.
 ## Start here
 
 1. Read `references/_shared/experience-core.md`.
-2. Name the surface's archetype using `references/_shared/page-archetypes.md`. It sets how dense
+2. Read `references/_shared/experience-operating-contract.md`; composition changes require a named
+   composition, render evidence when possible, and an explicit unverified note otherwise.
+3. Name the surface's archetype using `references/_shared/page-archetypes.md`. It sets how dense
    and how expressive the surface should be.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
@@ -42,6 +44,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Hand off when another experience skill fits better.** If part of the problem belongs to one
   (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
   states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -152,6 +159,8 @@ Adapted third-party material in the composition files is credited in `references
 - No overflow, collisions, or clipping at checked sizes (measured where possible).
 - Grouping works without boxing everything.
 - Evidence levels stated; unverified sizes and states listed.
+- A named composition from `compositions-index.md` was selected, and the handoff includes P0,
+  viewport budget, dead regions, responsive behavior, and verification status.
 
 ## References
 
@@ -162,7 +171,8 @@ Adapted third-party material in the composition files is credited in `references
 - `references/browser-measurement.md` — the scripts and their limits
 - `references/failure-patterns.md` — field guide to broken compositions
 - `references/device-and-viewport-edges.md` — phones, tablets, landscape, keyboard-open, huge displays, zoom
-- `references/_shared/` — generated copies: `experience-core.md`, `page-archetypes.md`,
+- `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
+  `page-archetypes.md`,
   `information-priority.md`, `visual-problems.md`, `design-vs-decoration.md`, `fake-density.md`,
   `fake-minimalism.md`, `branded-environment-simple-form.md`, `join-code-page.md`,
   `sparse-operational-home.md`, `editorial-not-cards.md`, `compositions-index.md`,
