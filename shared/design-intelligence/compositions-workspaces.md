@@ -21,6 +21,19 @@
 | Content needs | Dense list rows with status; detail pane |
 | Responsive | Split view on tablets; push navigation on phones with state preserved |
 | Fails when | Returning from detail resets filters or scroll |
+| Precedent | MDE1, MDE2, MDE3, MDE4, MDE5, MDE6, MDE7, MDE8, MDE9, MDE10; load `master-detail-workspaces.md` for project, database, record, and deployment surfaces |
+
+The list is a triage instrument and the detail is an authoritative continuation of the selected
+object. Preserve selection, filter, sort, scroll, URL/deep-link identity, and unsaved edits when
+moving between them. Linear and Notion show that the detail can remain a side peek while the
+collection stays live; Airtable shows when editable fields, permissions, comments, and history make
+the detail more than a preview; Vercel shows that environment, commit, URL, logs, and errors must
+remain visible when the selected record is operationally consequential. On phones, use push
+navigation with a durable back path and restore the list exactly; do not squeeze two unreadable
+columns. For sparse, loading, stale, forbidden, and deleted states, explain whether the collection
+or the selected object is unavailable. Test keyboard focus return, screen-reader naming of the
+selected row, RTL pane order, long titles, and whether the detail's actions have authority over the
+source record.
 
 ## Canvas workspace
 

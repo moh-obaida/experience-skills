@@ -64,6 +64,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - The problem is layout at one state → composition-repair.
 - The problem is specifically how an empty surface looks → empty-state-design.
 
+## Mandatory conditional loading
+
+If asynchronous, empty, failure, or collaborative state is in scope, MUST load `references/state-inventory.md` and `references/_shared/empty-and-lifecycle-states.md` before designing it. If truth can be delayed or uncertain, MUST load `references/truth-and-authority.md`; if the operation is long, MUST load `references/loading-and-long-work.md`. Runnable work MUST trigger representative states or list the exact unverified states.
+
 ## Checkpoints
 
 1. **Before designing any state:** have you listed the surface's states from the checklist and

@@ -5,6 +5,26 @@ project. Both repositories were inspected from fresh shallow clones on 2026-09-2
 IDs below are also recorded in `third-party/provenance.json`; adapted material remains rewritten and
 MIT-noticed there.
 
+## Local checkout cross-check
+
+The workspace was also searched under `Documents/GitHub` for existing upstream checkouts. No
+standalone UI/UX Pro Max checkout was present there; the current UI/UX Pro Max commit in this audit
+therefore remains the fresh shallow clone recorded below. Several product repositories contain
+Hallmark runtime state under `.hallmark/`; those local records were inspected as evidence of how
+Hallmark is actually used in projects, not treated as upstream source:
+
+| Local project | Recorded Hallmark behavior | Curation implication |
+|---|---|---|
+| local classroom project | `Split Studio`, custom light/geometric/warm axes, bilingual classroom energy | Theme axes are useful as a brief, but must remain subordinate to product mechanics and language support. |
+| local developer project | `Workbench`, `Ecosystem Index`, `Full-bleed Workbench Hero`, locked dark/cyan system | Macrostructures are reusable routing vocabulary; the locked product identity must not be overwritten by rotation. |
+| local request tool | `Manifesto`, midnight/lime, practical and opinionated | A named macrostructure can express a product story, but it still needs interior and state verification. |
+| local editorial project | `Long Document`, warm roman-serif, gazette/seal-red cues | Editorial structure transfers when the content is the product; it does not justify decorative heritage cues elsewhere. |
+| local terminal-learning project | `Workbench`, simulated desktop, night-lab training computer | “Workbench” must be interpreted from the product object and audience, not copied as a generic dashboard. |
+
+No local Hallmark state was copied into the collection, and no private project paths or logs are
+vendored. The local cross-check strengthened the decisions to keep macrostructure vocabulary,
+custom-theme briefs, and locked-system respect while rejecting blind theme rotation.
+
 ## Hallmark
 
 - Repository: [Nutlope/hallmark](https://github.com/Nutlope/hallmark)

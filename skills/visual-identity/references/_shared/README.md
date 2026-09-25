@@ -19,6 +19,7 @@ points to it.
 | `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
 | `logo-removal-test.md` | Worked Example: The Logo-Removal Test | `examples/identity/logo-removal-test.md` |
 | `selection.md` | Design Direction Selection | `shared/design-intelligence/selection.md` |
+| `context-adaptation.md` | Design Intelligence: Context Adaptation Contract | `shared/design-intelligence/context-adaptation.md` |
 | `directions-index.md` | Design Directions: Index | `shared/design-intelligence/directions-index.md` |
 | `directions-editorial.md` | Directions: Editorial Family | `shared/design-intelligence/directions-editorial.md` |
 | `directions-structural.md` | Directions: Structural Family | `shared/design-intelligence/directions-structural.md` |
@@ -38,4 +39,8 @@ points to it.
 | `environment-first-identity.md` | Precedent: Expressive Environment, Ordinary Controls | `shared/precedent/environment-first-identity.md` |
 | `product-derived-identity.md` | Precedent: Identity Derived From the Product | `shared/precedent/product-derived-identity.md` |
 | `justified-trends.md` | Precedent: When "AI-Looking" Techniques Are Right | `shared/precedent/justified-trends.md` |
+| `product-interiors-and-dense-states.md` | Precedent: Product Interiors and Dense States | `shared/precedent/product-interiors-and-dense-states.md` |
+| `neo-brutalist-products.md` | Precedent: Neo-brutalist Products and Adjacent Evidence | `shared/precedent/neo-brutalist-products.md` |
+| `soft-minimal-products.md` | Precedent: Soft Minimal Products | `shared/precedent/soft-minimal-products.md` |
+| `playful-products.md` | Precedent: Playful Products with Real Mechanics | `shared/precedent/playful-products.md` |
 | `third-party-notices.md` | Third-Party Notices | `shared/legal/third-party-notices.md` |

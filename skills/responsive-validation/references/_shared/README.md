@@ -13,4 +13,6 @@ points to it.
 | `visual-problems.md` | Visual Problem Taxonomy | `shared/taxonomies/visual-problems.md` |
 | `bottom-sheet-overuse.md` | Worked Example: Bottom-Sheet Overuse on Mobile | `examples/interaction/bottom-sheet-overuse.md` |
 | `mobile-navigation.md` | Precedent: Mobile Navigation and Thumb-First Layouts | `shared/precedent/mobile-navigation.md` |
+| `controls-and-inputs.md` | Precedent: Controls and Inputs | `shared/precedent/controls-and-inputs.md` |
 | `compositions-mobile.md` | Compositions: Mobile and Tablet Family | `shared/design-intelligence/compositions-mobile.md` |
+| `context-adaptation.md` | Design Intelligence: Context Adaptation Contract | `shared/design-intelligence/context-adaptation.md` |

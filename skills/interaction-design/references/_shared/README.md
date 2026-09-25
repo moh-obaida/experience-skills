@@ -23,3 +23,4 @@ points to it.
 | `interruptions-and-consent.md` | Precedent: Interruptions, Overlays, and Consent | `shared/precedent/interruptions-and-consent.md` |
 | `mobile-navigation.md` | Precedent: Mobile Navigation and Thumb-First Layouts | `shared/precedent/mobile-navigation.md` |
 | `spatial-density-navigation.md` | Spatial, Density, and Navigation Models | `shared/design-intelligence/spatial-density-navigation.md` |
+| `context-adaptation.md` | Design Intelligence: Context Adaptation Contract | `shared/design-intelligence/context-adaptation.md` |

@@ -92,3 +92,9 @@ text, not in images.
 | Accessibility | Every diagram needs a text description |
 
 **Adapt:** a diagram must explain something the text cannot do as fast.
+### Family checks
+
+Responsive behavior turns wide proof into a sequence or scrollable diagram while retaining the
+claim and next action. Accessibility and RTL require text labels, logical order, and alternatives to
+spatial-only meaning. AI failure: fake screenshots, diagrams, or metrics. Show the real product and
+derive the visual carrier from the object users care about.

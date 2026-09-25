@@ -63,6 +63,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - The request is "add some animation" to a static page with no events. The right answer may be
   very little motion; say so.
 
+## Mandatory conditional loading
+
+If motion is proposed, MUST load `references/event-motion.md` and `references/_shared/empty-and-lifecycle-states.md` and map each animation to an event. If it affects layout, duration, or accessibility, MUST load `references/reduced-motion-and-performance.md`. If the surface is runnable, MUST run the rendered motion check or report **NOT VERIFIED IN RENDERED OUTPUT**.
+
 ## Checkpoints
 
 1. **For every existing animation:** which event from the motion-events taxonomy does it explain?

@@ -66,6 +66,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - The issue is behavior over time (loading, errors, sync) → state-design.
 - The issue is identity → visual-identity. Never solve identity by decorating controls.
 
+## Mandatory conditional loading
+
+If a control is custom, animated, or replaces a native control, MUST load `references/familiar-controls.md`, `references/input-modes-and-access.md`, and `references/_shared/context-adaptation.md`. If it names a subject, MUST load `references/direct-and-contextual.md`; if it commits or destroys, MUST load `references/actions-and-safety.md`. A runnable control MUST be operated with keyboard, touch, and bad input before it is called verified.
+
 ## Checkpoints
 
 1. **For any custom or proposed-custom control:** list what the standard control gives for free

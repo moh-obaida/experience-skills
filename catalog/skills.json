@@ -19,7 +19,8 @@
         "shared/taxonomies/visual-problems.md",
         "shared/taxonomies/workflow-friction.md",
         "shared/evaluation/experience-rubric.md",
-        "shared/anti-patterns/model-instincts.md"
+        "shared/anti-patterns/model-instincts.md",
+        "shared/precedent/experience-routing.md"
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks to build, fix, finish, review, redesign, or improve a user-facing product surface—page, screen, dashboard, form, flow, game, app, or CLI—or says it feels boring, generic, empty, confusing, slow, broken, cramped, modern, fun, or off. Use it for substantial product-facing work when the right specialist is unclear or several concerns interact. Diagnoses the observable problem, activates the smallest ordered specialist graph, loads only required depth, enforces rendered evidence when runnable, and ends with a quality gate.",
@@ -46,7 +47,9 @@
       "relatedSkills": [
         "critical-review"
       ],
-      "precedentModules": [],
+      "precedentModules": [
+        "shared/precedent/experience-routing.md"
+      ],
       "designIntelligenceModules": []
     },
     {
@@ -76,10 +79,14 @@
         "shared/design-intelligence/spatial-density-navigation.md",
         "shared/design-intelligence/typography.md",
         "shared/design-intelligence/data-visualization.md",
+        "shared/design-intelligence/context-adaptation.md",
         "shared/precedent/whitespace-and-dead-space.md",
         "shared/precedent/dense-operational-layouts.md",
         "shared/precedent/editorial-and-typography.md",
         "shared/precedent/commerce-and-discovery.md",
+        "shared/precedent/product-interiors-and-dense-states.md",
+        "shared/precedent/master-detail-workspaces.md",
+        "shared/precedent/command-center-systems.md",
         "shared/legal/third-party-notices.md"
       ],
       "sharedScripts": [
@@ -122,7 +129,10 @@
         "shared/precedent/whitespace-and-dead-space.md",
         "shared/precedent/dense-operational-layouts.md",
         "shared/precedent/editorial-and-typography.md",
-        "shared/precedent/commerce-and-discovery.md"
+        "shared/precedent/commerce-and-discovery.md",
+        "shared/precedent/product-interiors-and-dense-states.md",
+        "shared/precedent/master-detail-workspaces.md",
+        "shared/precedent/command-center-systems.md"
       ],
       "designIntelligenceModules": [
         "shared/design-intelligence/compositions-index.md",
@@ -136,7 +146,8 @@
         "shared/design-intelligence/compositions-mobile.md",
         "shared/design-intelligence/spatial-density-navigation.md",
         "shared/design-intelligence/typography.md",
-        "shared/design-intelligence/data-visualization.md"
+        "shared/design-intelligence/data-visualization.md",
+        "shared/design-intelligence/context-adaptation.md"
       ]
     },
     {
@@ -156,7 +167,8 @@
         "shared/precedent/known-context-and-defaults.md",
         "shared/precedent/interruptions-and-consent.md",
         "shared/precedent/progressive-disclosure-and-expert-speed.md",
-        "shared/precedent/transactional-clarity.md"
+        "shared/precedent/transactional-clarity.md",
+        "shared/precedent/controls-and-inputs.md"
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks to make a flow faster, simpler, shorter, or 'one tap'; when a wizard, checkout, onboarding, setup, transfer, form, or CLI prompt sequence takes too many steps, screens, questions, confirmations, or waits; or when users re-enter information the software already knows. Maps the workflow step by step, classifies friction (redundant input, unnecessary choice, repeated configuration, navigation tax, confirmation tax, serial work, memory failure, waiting tax, dead ends, expert tax, interruptions, hidden status), and removes work the software could do while preserving safety and meaningful human judgment. Always counts steps before and after.",
@@ -192,7 +204,8 @@
         "shared/precedent/known-context-and-defaults.md",
         "shared/precedent/interruptions-and-consent.md",
         "shared/precedent/progressive-disclosure-and-expert-speed.md",
-        "shared/precedent/transactional-clarity.md"
+        "shared/precedent/transactional-clarity.md",
+        "shared/precedent/controls-and-inputs.md"
       ],
       "designIntelligenceModules": []
     },
@@ -210,6 +223,7 @@
         "examples/identity/join-code-page.md",
         "examples/identity/logo-removal-test.md",
         "shared/design-intelligence/selection.md",
+        "shared/design-intelligence/context-adaptation.md",
         "shared/design-intelligence/directions-index.md",
         "shared/design-intelligence/directions-editorial.md",
         "shared/design-intelligence/directions-structural.md",
@@ -226,9 +240,14 @@
         "shared/design-intelligence/surfaces-and-shape.md",
         "shared/design-intelligence/imagery-illustration-icons.md",
         "shared/design-intelligence/motion-languages.md",
+        "shared/design-intelligence/context-adaptation.md",
         "shared/precedent/environment-first-identity.md",
         "shared/precedent/product-derived-identity.md",
         "shared/precedent/justified-trends.md",
+        "shared/precedent/product-interiors-and-dense-states.md",
+        "shared/precedent/neo-brutalist-products.md",
+        "shared/precedent/soft-minimal-products.md",
+        "shared/precedent/playful-products.md",
         "shared/legal/third-party-notices.md"
       ],
       "sharedScripts": [],
@@ -261,10 +280,15 @@
       "precedentModules": [
         "shared/precedent/environment-first-identity.md",
         "shared/precedent/product-derived-identity.md",
-        "shared/precedent/justified-trends.md"
+        "shared/precedent/justified-trends.md",
+        "shared/precedent/product-interiors-and-dense-states.md",
+        "shared/precedent/neo-brutalist-products.md",
+        "shared/precedent/soft-minimal-products.md",
+        "shared/precedent/playful-products.md"
       ],
       "designIntelligenceModules": [
         "shared/design-intelligence/selection.md",
+        "shared/design-intelligence/context-adaptation.md",
         "shared/design-intelligence/directions-index.md",
         "shared/design-intelligence/directions-editorial.md",
         "shared/design-intelligence/directions-structural.md",
@@ -280,7 +304,8 @@
         "shared/design-intelligence/typography.md",
         "shared/design-intelligence/surfaces-and-shape.md",
         "shared/design-intelligence/imagery-illustration-icons.md",
-        "shared/design-intelligence/motion-languages.md"
+        "shared/design-intelligence/motion-languages.md",
+        "shared/design-intelligence/context-adaptation.md"
       ]
     },
     {
@@ -300,7 +325,8 @@
         "shared/precedent/transactional-clarity.md",
         "shared/precedent/interruptions-and-consent.md",
         "shared/precedent/mobile-navigation.md",
-        "shared/design-intelligence/spatial-density-navigation.md"
+        "shared/design-intelligence/spatial-density-navigation.md",
+        "shared/design-intelligence/context-adaptation.md"
       ],
       "sharedScripts": [
         "shared/tools/layout-probe.mjs"
@@ -342,7 +368,8 @@
         "shared/precedent/mobile-navigation.md"
       ],
       "designIntelligenceModules": [
-        "shared/design-intelligence/spatial-density-navigation.md"
+        "shared/design-intelligence/spatial-density-navigation.md",
+        "shared/design-intelligence/context-adaptation.md"
       ]
     },
     {
@@ -355,7 +382,8 @@
         "examples/states/honest-error-states.md",
         "examples/full-product/long-running-generation.md",
         "shared/precedent/states-loading-empty-error.md",
-        "shared/precedent/transactional-clarity.md"
+        "shared/precedent/transactional-clarity.md",
+        "shared/precedent/empty-and-lifecycle-states.md"
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a feature loads, saves, uploads, pays, syncs, generates, or runs work that can be slow, fail, or finish in the background; when only the happy path exists; when errors say 'Something went wrong'; when a screen or dashboard can be stale, partial, empty, offline, or unknown; or when auditing a feature for missing states. Designs first-use, loading, processing, partial, success, failure, offline, reconnecting, sparse, dense, permission-denied, paused, stale, long-running, optimistic, and authoritative states, and separates transport state from product state so the UI never lies.",
@@ -385,7 +413,8 @@
       ],
       "precedentModules": [
         "shared/precedent/states-loading-empty-error.md",
-        "shared/precedent/transactional-clarity.md"
+        "shared/precedent/transactional-clarity.md",
+        "shared/precedent/empty-and-lifecycle-states.md"
       ],
       "designIntelligenceModules": []
     },
@@ -397,7 +426,8 @@
         "shared/taxonomies/motion-events.md",
         "examples/motion/motion-that-explains.md",
         "shared/design-intelligence/motion-languages.md",
-        "shared/precedent/motion-guidelines.md"
+        "shared/precedent/motion-guidelines.md",
+        "shared/precedent/empty-and-lifecycle-states.md"
       ],
       "sharedScripts": [
         "shared/tools/source-scan.mjs",
@@ -430,7 +460,8 @@
         "state-design"
       ],
       "precedentModules": [
-        "shared/precedent/motion-guidelines.md"
+        "shared/precedent/motion-guidelines.md",
+        "shared/precedent/empty-and-lifecycle-states.md"
       ],
       "designIntelligenceModules": [
         "shared/design-intelligence/motion-languages.md"
@@ -448,7 +479,8 @@
         "shared/patterns/next-best-action.md",
         "shared/patterns/continue-where-left-off.md",
         "shared/precedent/interruptions-and-consent.md",
-        "shared/precedent/known-context-and-defaults.md"
+        "shared/precedent/known-context-and-defaults.md",
+        "shared/precedent/controls-and-inputs.md"
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a product or area feels hard to use overall, users get lost or keep asking the same support questions, terminology or duplicate concepts confuse people, features pile up without getting easier, an admin, settings, or setup area is being redesigned, or a whole product or area needs an audit rather than one flow. Finds and ranks product-level friction: terminology, cognitive load, discoverability, lost context, information architecture, dead ends, status ambiguity, unnecessary modes, inconsistent behavior, trust and transparency, first-use burden, and expert burden, in a prioritized friction ledger.",
@@ -481,7 +513,8 @@
       ],
       "precedentModules": [
         "shared/precedent/interruptions-and-consent.md",
-        "shared/precedent/known-context-and-defaults.md"
+        "shared/precedent/known-context-and-defaults.md",
+        "shared/precedent/controls-and-inputs.md"
       ],
       "designIntelligenceModules": []
     },
@@ -493,7 +526,9 @@
         "shared/taxonomies/visual-problems.md",
         "examples/interaction/bottom-sheet-overuse.md",
         "shared/precedent/mobile-navigation.md",
-        "shared/design-intelligence/compositions-mobile.md"
+        "shared/precedent/controls-and-inputs.md",
+        "shared/design-intelligence/compositions-mobile.md",
+        "shared/design-intelligence/context-adaptation.md"
       ],
       "sharedScripts": [
         "shared/tools/layout-probe.mjs"
@@ -526,10 +561,12 @@
         "interaction-design"
       ],
       "precedentModules": [
-        "shared/precedent/mobile-navigation.md"
+        "shared/precedent/mobile-navigation.md",
+        "shared/precedent/controls-and-inputs.md"
       ],
       "designIntelligenceModules": [
-        "shared/design-intelligence/compositions-mobile.md"
+        "shared/design-intelligence/compositions-mobile.md",
+        "shared/design-intelligence/context-adaptation.md"
       ]
     },
     {
@@ -542,7 +579,8 @@
         "examples/states/empty-state-overcorrection.md",
         "examples/composition/sparse-operational-home.md",
         "shared/taxonomies/product-archetypes.md",
-        "shared/precedent/states-loading-empty-error.md"
+        "shared/precedent/states-loading-empty-error.md",
+        "shared/precedent/empty-and-lifecycle-states.md"
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a list, dashboard, library, inbox, search, or home screen has little or no content; when a first-run or new-account view is designed; when someone asks to make a sparse page 'less empty' or it feels unfinished; or when a page has been filled with illustrations, fake stats, tips, or marketing. Designs zero-item, one-item, first-run, empty-search, filtered-empty, no-permission, no-history, incomplete-setup, unavailable, archived, and skeleton-versus-empty states, and distinguishes intentional focus from dead space and useful density from filler, calibrated by page archetype.",
@@ -569,7 +607,8 @@
         "state-design"
       ],
       "precedentModules": [
-        "shared/precedent/states-loading-empty-error.md"
+        "shared/precedent/states-loading-empty-error.md",
+        "shared/precedent/empty-and-lifecycle-states.md"
       ],
       "designIntelligenceModules": []
     },
@@ -593,8 +632,10 @@
         "shared/design-intelligence/directions-index.md",
         "shared/design-intelligence/selection.md",
         "shared/design-intelligence/data-visualization.md",
+        "shared/design-intelligence/context-adaptation.md",
         "shared/precedent/justified-trends.md",
         "shared/precedent/product-first-presentation.md",
+        "shared/precedent/product-interiors-and-dense-states.md",
         "shared/legal/third-party-notices.md"
       ],
       "sharedScripts": [
@@ -634,14 +675,16 @@
       ],
       "precedentModules": [
         "shared/precedent/justified-trends.md",
-        "shared/precedent/product-first-presentation.md"
+        "shared/precedent/product-first-presentation.md",
+        "shared/precedent/product-interiors-and-dense-states.md"
       ],
       "designIntelligenceModules": [
         "shared/design-intelligence/anti-generic-alternatives.md",
         "shared/design-intelligence/compositions-index.md",
         "shared/design-intelligence/directions-index.md",
         "shared/design-intelligence/selection.md",
-        "shared/design-intelligence/data-visualization.md"
+        "shared/design-intelligence/data-visualization.md",
+        "shared/design-intelligence/context-adaptation.md"
       ]
     },
     {

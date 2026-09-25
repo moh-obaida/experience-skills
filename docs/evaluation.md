@@ -45,6 +45,19 @@ rate, design-intelligence usage, precedent usage, required-reference compliance,
 compliance, handoff completeness, and the condition-blind quality delta. More reads are not
 automatically better: a correct required read with its decision artifact is the unit that matters.
 
+Build and repair runs use the same telemetry but enable file edits and record a before/after file
+snapshot, changed files, and the final evidence contract:
+
+```bash
+node scripts/run-agent-evals.mjs --agent claude --mode edit --scenarios repair-join-page
+node scripts/run-agent-evals.mjs --agent codex --mode edit --scenarios repair-join-page --repeat 3
+```
+
+Use `--repeat 3` or `--repeat 5` for independent samples. Claude is the default adapter; Codex uses
+the local `codex exec --json` adapter when available. A build run is not successful because the
+agent wrote a recommendation: it must change the fixture, report changed files, and show rendered
+evidence or the explicit `NOT VERIFIED IN RENDERED OUTPUT` exception.
+
 ### Automated
 
 - **Structure and spec:** `npm run validate` and the official reference validator (`pip install skills-ref`, then `agentskills validate skills/<name>`).
@@ -65,8 +78,8 @@ the skills installed. `scripts/run-agent-evals.mjs` (`npm run eval:agents`) meas
 1. For each scenario in `tests/scenarios/`, create a fresh temporary project with the scenario's
    fixtures.
 2. Run the agent twice with the scenario's exact `## Prompt`: **without** skills and **with** all
-   skills installed as project skills. The agent may read, list, invoke skills, and run node scripts;
-   it may not edit files.
+   skills installed as project skills. Review mode is read-only; edit mode is available for build /
+   repair scenarios and records file changes.
 3. From the transcript, record which skills it actually loaded, which references it read, and which
    scripts it ran. This tests router → specialist behavior directly.
 4. A separate judge, told nothing about the condition, grades each answer against the scenario's key
@@ -82,10 +95,11 @@ any change to shared content or a skill's checkpoints:
 npm run eval:agents -- --anchors
 ```
 
-It uses the Claude Code CLI (`CLAUDE_BIN`, logged in or `ANTHROPIC_API_KEY` set) and spends model
-usage, so it is not part of `npm run check`. `--dry-run` shows exactly what would run. Limitations:
-one run per condition (no variance estimate), an LLM judge, and the agent's own user-level skills
-load in both conditions.
+It uses the Claude Code CLI (`CLAUDE_BIN`) by default or the Codex CLI (`CODEX_BIN`) with
+`--agent codex`, and spends model usage, so it is not part of `npm run check`. `--dry-run` shows
+exactly what would run. Use `--repeat 3` or `--repeat 5` to report sampling spread. Limitations:
+the judge is an LLM and the agent's own user-level skills load in both conditions. Historical
+results are explicitly marked as historical in `tests/evals/results/README.md`.
 
 ### What the behavioral scenarios test
 

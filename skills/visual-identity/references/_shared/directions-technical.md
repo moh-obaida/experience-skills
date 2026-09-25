@@ -125,3 +125,9 @@ panels legible.
 | Accessibility | Safety colors must also be labeled |
 
 **Fails when:** safety colors are used as decoration. **Adapt:** borrow labeling and legibility, not grime.
+### Family checks
+
+Responsive behavior prioritizes status, safe actions, and real-time context over decorative chrome.
+Accessibility and RTL require labeled icon controls, non-color status, readable numerals, and touch
+fallbacks. AI failure: dark monochrome, glowing data, or fake terminal windows without technical
+content. Technical identity must be earned by the product's mechanics.

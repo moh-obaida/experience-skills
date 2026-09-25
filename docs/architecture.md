@@ -49,7 +49,8 @@ The Agent Skills model has three levels: metadata (name, description) is always 
 instructions call for them. This repository uses that deliberately:
 
 - `SKILL.md` stays under ~200 lines and contains a table mapping diagnoses to references.
-- References are sized by decision: one file per decision the workflow routes to (59 across the
+- References are sized by decision: one file per decision the workflow routes to (67 skill-specific
+  references across the
   collection), so an agent reads one file to act, not a chain of fragments.
 - References are loaded directly from `SKILL.md` (no reference that exists only to point to
   another reference).
@@ -111,7 +112,7 @@ network use; files written only when a flag asks.
 
 Having a principle in a file does not make an agent follow it. Two mechanisms make it active:
 
-1. **The core loads first.** `experience-core.md` is 26 operating rules, each phrased as a behavior
+1. **The core loads first.** `experience-core.md` is 29 operating rules, each phrased as a behavior
    ("before any question, field, or choice screen: does the software already know the answer? If
    yes, use it"). Every `SKILL.md` starts with "Start here: read `references/_shared/experience-core.md`."
    Validation fails a skill without it. Recorded evals (2026-09-25) showed agents usually skip that

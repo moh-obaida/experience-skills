@@ -71,3 +71,9 @@ tied to the audience or product; otherwise they read as costume.
 
 **Slop risk:** high; "futuristic dark with glow" is a model default for AI products. **Adapt:** only
 when the product is genuinely speculative.
+### Family checks
+
+Responsive behavior keeps the interface legible when chrome, scanlines, or decorative depth are
+removed. Accessibility and RTL require text-first labels, reduced motion, contrast, and an ordinary
+keyboard/touch path. AI failure: neon gradients and fake terminals without product meaning. Borrow
+an era's constraints only where the product's object or audience makes them useful.

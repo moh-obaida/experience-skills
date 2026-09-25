@@ -32,8 +32,12 @@ points to it.
 | `spatial-density-navigation.md` | Spatial, Density, and Navigation Models | `shared/design-intelligence/spatial-density-navigation.md` |
 | `typography.md` | Typography Intelligence | `shared/design-intelligence/typography.md` |
 | `data-visualization.md` | Data Visualization Selection | `shared/design-intelligence/data-visualization.md` |
+| `context-adaptation.md` | Design Intelligence: Context Adaptation Contract | `shared/design-intelligence/context-adaptation.md` |
 | `whitespace-and-dead-space.md` | Precedent: Intentional Space vs Dead Space | `shared/precedent/whitespace-and-dead-space.md` |
 | `dense-operational-layouts.md` | Precedent: Useful Density in Operational and Data Surfaces | `shared/precedent/dense-operational-layouts.md` |
 | `editorial-and-typography.md` | Precedent: Editorial Composition and Typography | `shared/precedent/editorial-and-typography.md` |
 | `commerce-and-discovery.md` | Precedent: Commerce and Discovery Surfaces | `shared/precedent/commerce-and-discovery.md` |
+| `product-interiors-and-dense-states.md` | Precedent: Product Interiors and Dense States | `shared/precedent/product-interiors-and-dense-states.md` |
+| `master-detail-workspaces.md` | Precedent: Master-detail Workspaces | `shared/precedent/master-detail-workspaces.md` |
+| `command-center-systems.md` | Precedent: Command-center and Live-control Systems | `shared/precedent/command-center-systems.md` |
 | `third-party-notices.md` | Third-Party Notices | `shared/legal/third-party-notices.md` |

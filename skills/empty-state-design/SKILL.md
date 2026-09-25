@@ -64,6 +64,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - The state is really loading or an error → state-design (see the skeleton-vs-empty section of
   `references/empty-state-types.md` for the boundary).
 
+## Mandatory conditional loading
+
+If a surface has zero or few items, MUST load `references/empty-state-types.md` and `references/_shared/empty-and-lifecycle-states.md` before writing copy. If the proposed fix adds density, MUST load `references/_shared/fake-density.md`. If layout is changed and runnable, MUST verify the true-empty and one-item states in rendered output or name the rendering blocker.
+
 ## Checkpoints
 
 1. **Before writing copy or choosing an action:** which type of empty is it (never-had-any, first run,

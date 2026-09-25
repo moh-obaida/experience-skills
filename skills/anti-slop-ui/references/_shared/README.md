@@ -25,6 +25,8 @@ points to it.
 | `directions-index.md` | Design Directions: Index | `shared/design-intelligence/directions-index.md` |
 | `selection.md` | Design Direction Selection | `shared/design-intelligence/selection.md` |
 | `data-visualization.md` | Data Visualization Selection | `shared/design-intelligence/data-visualization.md` |
+| `context-adaptation.md` | Design Intelligence: Context Adaptation Contract | `shared/design-intelligence/context-adaptation.md` |
 | `justified-trends.md` | Precedent: When "AI-Looking" Techniques Are Right | `shared/precedent/justified-trends.md` |
 | `product-first-presentation.md` | Precedent: Showing the Product Instead of Decorating Around It | `shared/precedent/product-first-presentation.md` |
+| `product-interiors-and-dense-states.md` | Precedent: Product Interiors and Dense States | `shared/precedent/product-interiors-and-dense-states.md` |
 | `third-party-notices.md` | Third-Party Notices | `shared/legal/third-party-notices.md` |

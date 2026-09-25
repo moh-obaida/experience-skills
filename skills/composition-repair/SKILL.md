@@ -67,6 +67,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - The data is genuinely empty → empty-state-design first.
 - The task is a regression sweep across many sizes → responsive-validation.
 
+## Mandatory conditional loading
+
+If structure or whitespace changes, MUST load `references/_shared/compositions-index.md`, `references/_shared/context-adaptation.md`, and exactly one candidate family before recommending a layout. If the selected composition is Master-detail, MUST also load `references/_shared/master-detail-workspaces.md`; if it is Command center / live control room, MUST load `references/_shared/command-center-systems.md`. If whitespace or density is the complaint, MUST load `references/_shared/whitespace-and-dead-space.md` and `references/_shared/product-interiors-and-dense-states.md`. If the surface is runnable, MUST use the browser measurement branch before calling the repair verified.
+
 ## Checkpoints
 
 1. **Before judging:** render it. With a browser, run `scripts/measure-layout.mjs` at the audience's
@@ -138,6 +142,8 @@ Read that file (the full rules and evidence levels) before a full review, repair
 | Dashboards and charts | `references/_shared/data-visualization.md` |
 | Arguing about space vs emptiness | `references/_shared/whitespace-and-dead-space.md` (real products, observed) |
 | Dense operational layouts | `references/_shared/dense-operational-layouts.md` |
+| Master-detail workspaces | `references/_shared/master-detail-workspaces.md` |
+| Command centers and live control rooms | `references/_shared/command-center-systems.md` |
 | Editorial and typographic composition | `references/_shared/editorial-and-typography.md` |
 | Catalogs, stores, marketplaces | `references/_shared/commerce-and-discovery.md` |
 | Phones, tablets, landscape, keyboard-open, huge screens, zoom | `references/device-and-viewport-edges.md` |
@@ -180,5 +186,6 @@ Adapted third-party material in the composition files is credited in `references
   `compositions-content.md`, `compositions-discovery.md`, `compositions-workspaces.md`,
   `compositions-operational.md`, `compositions-mobile.md`, `spatial-density-navigation.md`,
   `typography.md`, `data-visualization.md`, `whitespace-and-dead-space.md`,
-  `dense-operational-layouts.md`, `editorial-and-typography.md`, `commerce-and-discovery.md`,
+  `dense-operational-layouts.md`, `master-detail-workspaces.md`, `command-center-systems.md`,
+  `editorial-and-typography.md`, `commerce-and-discovery.md`,
   `third-party-notices.md`

@@ -83,3 +83,9 @@ the voice and marks; controls stay standard.
 
 **Fails when:** "luxury" means empty space and grey text with stock photos. **Adapt:** precision
 everywhere, including forms and checkout.
+### Family checks
+
+Responsive behavior removes texture and oversized imagery before removing product facts or actions.
+Accessibility and RTL require contrast, readable body text, script-safe type, and a non-image path.
+AI failure: beige, serif, and empty space as a shortcut to premium. Earn restraint through product
+quality and precision.

@@ -63,3 +63,9 @@ patterns transfer to any form-heavy product.
 
 **Fails when:** contrast is high but hierarchy is flat. **Adapt:** combine with any direction as a
 constraint layer rather than a look.
+### Family checks
+
+Responsive behavior preserves headings, error summaries, and task order before decorative symmetry.
+Accessibility and RTL are primary constraints: test focus order, 200% zoom, long translations,
+script line-height, and non-color status. AI failure: using heritage cues as authority without useful
+content. Customize through clarity, not ornament.

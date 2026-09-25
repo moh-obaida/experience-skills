@@ -5,7 +5,7 @@ This catalog was the v0.1 research summary. From v0.2.0, real-world research is 
 - **Evidence:** `research/observations/` — 167 dated observations of 64 public product surfaces
   (2026-09-24), each with a stable ID and an observation method (rendered in a browser, or text and
   documentation).
-- **Interpretation:** `shared/precedent/` — 15 concept modules (intentional space vs dead space,
+- **Interpretation:** `shared/precedent/` — 19 concept modules (intentional space vs dead space,
   expressive environments with plain controls, product-derived identity, dense operational layouts,
   known context and defaults, interruptions and consent, progressive disclosure, states in the wild,
   transactional clarity, motion guidelines, mobile navigation, editorial typography, commerce and

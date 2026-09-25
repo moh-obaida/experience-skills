@@ -67,6 +67,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - The request is to add trendy effects → evaluate with anti-slop-ui first.
 - A public service or regulated tool: use lightly (voice, clarity, consistency), not ornament.
 
+## Mandatory conditional loading
+
+If a direction changes, MUST load `references/_shared/selection.md`, choose three families, and load the chosen family files before implementation. If the selected row is Neo-brutalist, Soft minimal, or Playful, MUST also load its matching product precedent module (`neo-brutalist-products.md`, `soft-minimal-products.md`, or `playful-products.md`) and name the product/surface conditions being transferred. If a treatment is proposed, MUST load `references/_shared/context-adaptation.md`, `references/_shared/product-interiors-and-dense-states.md`, and `references/_shared/justified-trends.md`. If the surface is runnable, identity claims MUST survive rendered sparse and dense states or be marked unverified.
+
 ## Checkpoints
 
 1. **Before proposing anything:** run the logo test on at least three surfaces
@@ -128,6 +132,9 @@ Read that file (the full rules and evidence levels) before a full review, repair
 | Identity budget for the whole product | `references/_shared/product-archetypes.md` |
 | Real products: expressive environments with plain controls | `references/_shared/environment-first-identity.md` |
 | Real products: identity from the product itself | `references/_shared/product-derived-identity.md` |
+| Neo-brutalist direction | `references/_shared/neo-brutalist-products.md` |
+| Soft minimal direction | `references/_shared/soft-minimal-products.md` |
+| Playful direction | `references/_shared/playful-products.md` |
 | A technique looks like a cliché but may be justified | `references/_shared/justified-trends.md` |
 
 Adapted third-party material (study protocol, font pairings, style coverage) is credited in
@@ -165,5 +172,6 @@ Adapted third-party material (study protocol, font pairings, style coverage) is 
   `directions-expressive.md`, `directions-atmospheric.md`, `directions-material.md`,
   `directions-retro.md`, `directions-product.md`, `palettes.md`, `typography.md`,
   `surfaces-and-shape.md`, `imagery-illustration-icons.md`, `motion-languages.md`,
-  `environment-first-identity.md`, `product-derived-identity.md`, `justified-trends.md`,
+  `environment-first-identity.md`, `product-derived-identity.md`, `neo-brutalist-products.md`,
+  `soft-minimal-products.md`, `playful-products.md`, `justified-trends.md`,
   `third-party-notices.md`

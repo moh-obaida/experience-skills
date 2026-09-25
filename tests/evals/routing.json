@@ -208,6 +208,28 @@
       "anchor": "examples/identity/join-code-page.md"
     },
     {
+      "file": "tests/scenarios/repair-join-page.md",
+      "expected": [
+        "composition-repair",
+        "visual-identity",
+        "interaction-design",
+        "anti-slop-ui",
+        "responsive-validation",
+        "critical-review"
+      ],
+      "fixtures": {
+        "join.html": "tests/fixtures/pages/centered-card.html"
+      },
+      "requiredReferences": [
+        "composition-repair/references/_shared/compositions-index.md",
+        "visual-identity/references/_shared/selection.md",
+        "interaction-design/references/familiar-controls.md"
+      ],
+      "mode": "edit",
+      "buildRepair": true,
+      "anchor": "build-repair"
+    },
+    {
       "file": "tests/scenarios/government-form.md",
       "expected": [
         "critical-review",

@@ -23,3 +23,4 @@ points to it.
 | `interruptions-and-consent.md` | Precedent: Interruptions, Overlays, and Consent | `shared/precedent/interruptions-and-consent.md` |
 | `progressive-disclosure-and-expert-speed.md` | Precedent: Progressive Disclosure and Expert Speed | `shared/precedent/progressive-disclosure-and-expert-speed.md` |
 | `transactional-clarity.md` | Precedent: Consequences Visible at the Point of Commitment | `shared/precedent/transactional-clarity.md` |
+| `controls-and-inputs.md` | Precedent: Controls and Inputs | `shared/precedent/controls-and-inputs.md` |

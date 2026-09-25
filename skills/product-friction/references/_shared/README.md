@@ -18,3 +18,4 @@ points to it.
 | `continue-where-left-off.md` | Pattern: Continue Where You Left Off | `shared/patterns/continue-where-left-off.md` |
 | `interruptions-and-consent.md` | Precedent: Interruptions, Overlays, and Consent | `shared/precedent/interruptions-and-consent.md` |
 | `known-context-and-defaults.md` | Precedent: Using What the Product Already Knows | `shared/precedent/known-context-and-defaults.md` |
+| `controls-and-inputs.md` | Precedent: Controls and Inputs | `shared/precedent/controls-and-inputs.md` |

@@ -14,3 +14,4 @@ points to it.
 | `motion-that-explains.md` | Worked Example: Motion That Explains | `examples/motion/motion-that-explains.md` |
 | `motion-languages.md` | Motion Languages | `shared/design-intelligence/motion-languages.md` |
 | `motion-guidelines.md` | Precedent: Motion Guidance From Platform Owners | `shared/precedent/motion-guidelines.md` |
+| `empty-and-lifecycle-states.md` | Precedent: Empty and Lifecycle States | `shared/precedent/empty-and-lifecycle-states.md` |

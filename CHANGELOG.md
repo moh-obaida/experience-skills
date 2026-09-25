@@ -16,6 +16,10 @@ The enforcement and repository-wide intelligence upgrade.
 - Repository integration guide and copyable `assets/experience-contract.md`.
 - Current upstream curation audit for Hallmark and UI/UX Pro Max at reviewed commits.
 - Generated coverage audit for directions, compositions, palettes, typography, motion, and precedent.
+- Specialist precedent packs for controls, product interiors, lifecycle states, and cross-concern
+  routing; structured observation metadata and a reproducible repository self-audit.
+- Edit-mode build/repair evals with Claude/Codex adapters, repeatable samples, before/after snapshots,
+  changed-file tracking, and explicit multi-agent limitations.
 - Eval telemetry for specialist activation, design-intelligence use, precedent use, rendered evidence,
   completion signals, and required-reference compliance.
 

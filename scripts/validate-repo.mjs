@@ -16,6 +16,8 @@ export const REQUIRED_FILES = [
   'THIRD_PARTY_NOTICES.md', 'third-party/provenance.json', 'docs/design-intelligence.md', 'docs/third-party.md',
   'docs/repository-integration.md', 'assets/experience-contract.md', 'research/coverage-report.md',
   'research/upstream-audit-2026-09.md',
+  'research/observations/README.md', 'research/observations/metadata.json',
+  'research/repository-audit-2026-09.md',
 ];
 
 const TEXT_EXT = new Set(['.md', '.mjs', '.js', '.json', '.yml', '.yaml', '.html', '.css', '.txt', '']);
@@ -84,19 +86,77 @@ export function validateRepo({ quiet = false } = {}) {
   for (const file of listFiles(join(ROOT, 'shared', 'precedent')).filter((f) => f.endsWith('.md'))) {
     const text = readFileSync(file, 'utf8');
     let entries = 0;
-    for (const m of text.matchAll(/^`([A-Za-z0-9 ]+)`/gm)) {
+    for (const m of [...text.matchAll(/^`([A-Za-z0-9 ]+)`/gm), ...text.matchAll(/^## `([^`]+)`/gm)]) {
       entries++;
       for (const id of m[1].split(/\s+/)) if (!obsIds.has(id)) r.error(`${repoRel(file)}: cites unknown observation ${id}`);
     }
     if (entries < 5) r.warn(`${repoRel(file)}: only ${entries} precedent entries`);
-    if (!/observed|Observed/.test(text)) r.error(`${repoRel(file)}: must state when observations were made`);
+    if (!/observed|observations/i.test(text)) r.error(`${repoRel(file)}: must state when observations were made`);
   }
   const provPath = join(ROOT, 'third-party', 'provenance.json');
   if (existsSync(provPath)) {
+    const notices = readFileSync(join(ROOT, 'THIRD_PARTY_NOTICES.md'), 'utf8');
     for (const src of JSON.parse(readFileSync(provPath, 'utf8')).sources) {
       for (const f of src.incorporatedInto ?? []) if (!existsSync(join(ROOT, f))) r.error(`provenance: ${src.source} lists missing file ${f}`);
       if (!/^[0-9a-f]{40}$/.test(src.upstreamCommit ?? '')) r.error(`provenance: ${src.source} needs a full upstream commit SHA`);
+      if (!notices.includes(src.source) || !notices.includes(src.upstreamCommit)) r.error(`provenance: ${src.source} is not fully represented in THIRD_PARTY_NOTICES.md`);
+      if (!src.material?.length || !src.modification) r.error(`provenance: ${src.source} needs material-used and modification notes`);
     }
+  }
+
+  // Structured research metadata keeps the dated observation log honest. Missing details are
+  // allowed only when the manifest says they were not recorded; they must not silently disappear.
+  const metadataPath = join(ROOT, 'research', 'observations', 'metadata.json');
+  if (existsSync(metadataPath)) {
+    try {
+      const metadata = JSON.parse(readFileSync(metadataPath, 'utf8'));
+      if (metadata.schemaVersion !== 1) r.error('research/observations/metadata.json: unsupported schemaVersion');
+      if (!Array.isArray(metadata.observations) || metadata.observations.length === 0) {
+        r.error(`research/observations/metadata.json: expected a non-empty observations array (found ${metadata.observations?.length ?? 0})`);
+      }
+      for (const item of metadata.observations ?? []) {
+        for (const key of ['product', 'surface', 'url', 'observedAt', 'method', 'viewport', 'access', 'region', 'interactionPerformed', 'stateObserved']) {
+          if (!item[key]) r.error(`research/observations/metadata.json: ${item.id ?? 'record'} missing ${key}`);
+        }
+        if (!/^https?:\/\//.test(item.url ?? '')) r.error(`research/observations/metadata.json: ${item.id ?? 'record'} has invalid URL`);
+      }
+    } catch (e) { r.error(`research/observations/metadata.json: invalid JSON (${e.message})`); }
+  }
+
+  // Depth modules must expose the operational context contract; a family file that only names a
+  // style is not sufficient evidence for a product recommendation.
+  const depthModules = [
+    'shared/design-intelligence/context-adaptation.md',
+    'shared/precedent/controls-and-inputs.md',
+    'shared/precedent/product-interiors-and-dense-states.md',
+    'shared/precedent/empty-and-lifecycle-states.md',
+    'shared/precedent/experience-routing.md',
+    'shared/precedent/neo-brutalist-products.md',
+    'shared/precedent/soft-minimal-products.md',
+    'shared/precedent/master-detail-workspaces.md',
+    'shared/precedent/command-center-systems.md',
+    'shared/precedent/playful-products.md',
+  ];
+  for (const file of depthModules) {
+    const path = join(ROOT, file);
+    if (!existsSync(path)) continue;
+    const text = readFileSync(path, 'utf8');
+    if (text.split('\n').length < 40) r.error(`${file}: depth module is too short to carry operational guidance`);
+    if (!/right when|transfer|wrong when|verification/i.test(text)) r.error(`${file}: must distinguish transfer conditions and verification`);
+  }
+
+  const directionFamilies = listFiles(join(ROOT, 'shared', 'design-intelligence')).filter((f) => /^directions-(?!index)[^/]+\.md$/.test(repoRel(f)));
+  for (const file of directionFamilies) {
+    const text = readFileSync(file, 'utf8');
+    if (!/unsuitable|usually wrong for|fails when/i.test(text)) r.error(`${repoRel(file)}: every direction family needs wrong-context/failure guidance`);
+    if (!/accessibility|multilingual|RTL/i.test(text)) r.error(`${repoRel(file)}: needs accessibility or multilingual/RTL guidance`);
+  }
+  const compositionFamilies = listFiles(join(ROOT, 'shared', 'design-intelligence')).filter((f) => /^compositions-(?!index)[^/]+\.md$/.test(repoRel(f)));
+  for (const file of compositionFamilies) {
+    const text = readFileSync(file, 'utf8');
+    if (!/responsive/i.test(text)) r.error(`${repoRel(file)}: every composition family needs responsive behavior`);
+    if (!/fails when|failure/i.test(text)) r.error(`${repoRel(file)}: every composition family needs failure conditions`);
+    if (!/precedent/i.test(text)) r.error(`${repoRel(file)}: every composition family needs precedent`);
   }
 
   // public safety scans

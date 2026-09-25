@@ -18,6 +18,7 @@ export function parseScenario(markdown) {
     expectedSkills: bullets(sections['Expected skills']).map((l) => l.split(/[\s(]/)[0]).filter((n) => n !== 'experience-architect'),
     principles: bullets(sections['Key principles expected']),
     unacceptable: bullets(sections['Unacceptable recommendations']),
+    mode: (sections.Mode ?? 'review').trim().toLowerCase(),
   };
 }
 
@@ -27,7 +28,7 @@ const DESIGN_INTELLIGENCE = new Set([
   'compositions-focus.md', 'compositions-flows.md', 'compositions-narrative.md',
   'compositions-content.md', 'compositions-discovery.md', 'compositions-workspaces.md',
   'compositions-operational.md', 'compositions-mobile.md', 'data-visualization.md',
-  'spatial-density-navigation.md', 'anti-generic-alternatives.md',
+  'spatial-density-navigation.md', 'anti-generic-alternatives.md', 'context-adaptation.md',
 ]);
 const PRECEDENT = new Set([
   'commerce-and-discovery.md', 'dense-operational-layouts.md', 'editorial-and-typography.md',
@@ -35,7 +36,10 @@ const PRECEDENT = new Set([
   'known-context-and-defaults.md', 'mobile-navigation.md', 'motion-guidelines.md',
   'product-derived-identity.md', 'product-first-presentation.md',
   'progressive-disclosure-and-expert-speed.md', 'states-loading-empty-error.md',
-  'transactional-clarity.md', 'whitespace-and-dead-space.md',
+  'transactional-clarity.md', 'whitespace-and-dead-space.md', 'controls-and-inputs.md',
+  'product-interiors-and-dense-states.md', 'empty-and-lifecycle-states.md', 'experience-routing.md',
+  'neo-brutalist-products.md', 'soft-minimal-products.md', 'master-detail-workspaces.md',
+  'command-center-systems.md', 'playful-products.md',
 ]);
 
 /** Parse a stream-json transcript and record activation, depth, evidence, and completion signals. */
@@ -52,6 +56,8 @@ export function parseTranscript(jsonl) {
   const designIntelligenceModulesLoaded = [];
   const precedentModulesLoaded = [];
   const scriptsRun = [];
+  const editToolsUsed = [];
+  const renderedToolActivity = [];
   const toolCounts = {};
   let answer = '';
   let costUsd = null;
@@ -64,7 +70,11 @@ export function parseTranscript(jsonl) {
       for (const block of ev.message.content) {
         if (block.type !== 'tool_use') continue;
         toolCounts[block.name] = (toolCounts[block.name] ?? 0) + 1;
+        if (block.name === 'Edit' || block.name === 'Write') note(editToolsUsed, block.name);
         const input = block.input ?? {};
+        const commandText = String(input.command ?? '');
+        if (/playwright|screenshot|layout-report|measure-layout|detect-overflow|detect-collisions|stress-content|check-controls|check-motion-rendered|inventory-styles/i.test(commandText)
+          || /browser|screenshot|computer/i.test(block.name)) note(renderedToolActivity, block.name);
         if (block.name === 'Skill') note(skillsInvoked, String(input.skill ?? input.command ?? input.name ?? '').replace(/^\//, ''));
         const path = String(input.file_path ?? input.path ?? '');
         const skillFile = path.match(/skills\/([a-z0-9-]+)\/SKILL\.md$/);
@@ -77,7 +87,7 @@ export function parseTranscript(jsonl) {
           if (DESIGN_INTELLIGENCE.has(file)) note(designIntelligenceModulesLoaded, reference);
           if (PRECEDENT.has(file)) note(precedentModulesLoaded, reference);
         }
-        const cmd = String(input.command ?? '');
+        const cmd = commandText;
         if (block.name === 'Bash') {
           for (const script of cmd.matchAll(/skills\/([a-z0-9-]+)\/(scripts\/[a-z0-9-]+\.mjs)/g)) note(scriptsRun, `${script[1]}/${script[2]}`);
         }
@@ -89,12 +99,29 @@ export function parseTranscript(jsonl) {
       turns = ev.num_turns ?? turns;
       if (ev.is_error) error = ev.result ?? ev.subtype ?? 'error';
     }
+    // Codex `exec --json` emits typed items rather than Claude's assistant/tool_use envelope.
+    // Normalize the evidence we can observe without pretending that a hidden skill router ran.
+    if (ev.type === 'item.completed' || ev.type === 'item.started') {
+      const item = ev.item ?? {};
+      if (item.type === 'agent_message' && typeof item.text === 'string') answer = item.text;
+      if (item.type === 'command_execution') {
+        toolCounts.Bash = (toolCounts.Bash ?? 0) + 1;
+        const command = String(item.command ?? '');
+        if (/playwright|screenshot|layout-report|measure-layout|detect-overflow|detect-collisions|stress-content|check-controls|check-motion-rendered|inventory-styles/i.test(command)) note(renderedToolActivity, 'Codex command');
+        for (const script of command.matchAll(/skills\/([a-z0-9-]+)\/(scripts\/[a-z0-9-]+\.mjs)/g)) note(scriptsRun, `${script[1]}/${script[2]}`);
+      }
+      if (item.type === 'file_change') toolCounts.Edit = (toolCounts.Edit ?? 0) + 1;
+    }
+    if (ev.type === 'turn.completed') {
+      costUsd = ev.usage?.cost_usd ?? costUsd;
+      turns = (turns ?? 0) + 1;
+    }
   }
   // Skills count as loaded if invoked through the Skill tool or read directly.
   const skillsLoaded = [...new Set([...skillsInvoked, ...skillFilesRead])];
   const specialistsTriggered = skillsLoaded.filter((skill) => skill !== 'experience-architect');
   const renderedEvidenceGathered = scriptsRun.some((script) => /measure|layout|overflow|collision|stress|motion-rendered|inventory-styles|check-controls/.test(script))
-    || /playwright|screenshot|browser|chrome/i.test(jsonl);
+    || renderedToolActivity.length > 0;
   const completionCriteriaSatisfied = {
     evidenceContract: /\bObserved:\b[\s\S]*\bMeasured:\b[\s\S]*\bChanged:\b[\s\S]*\bVerified:\b[\s\S]*\bNot verified:\b/i.test(answer),
     finalGate: /final gate|PASS\s*[·|]|NOT VERIFIED IN RENDERED OUTPUT/i.test(answer),
@@ -103,8 +130,9 @@ export function parseTranscript(jsonl) {
     selectedDirection: /selected direction|direction selected/i.test(answer),
     selectedComposition: /selected composition|composition selected/i.test(answer),
     handoffArtifact: /\bmode:\b[\s\S]*\bsurface\b[\s\S]*\bevidence:\b[\s\S]*\bdecision:\b[\s\S]*\bverification:\b/i.test(answer),
+    renderedExceptionNamed: /NOT VERIFIED IN RENDERED OUTPUT[\s\S]{0,240}(?:because|reason|unavailable|cannot|not available)/i.test(answer),
   };
-  return { answer, skillsInvoked, skillFilesRead, skillsLoaded, specialistsTriggered, referencesRead, designIntelligenceModulesLoaded, precedentModulesLoaded, scriptsRun, renderedEvidenceGathered, completionCriteriaSatisfied, toolCounts, costUsd, turns, error };
+  return { answer, skillsInvoked, skillFilesRead, skillsLoaded, specialistsTriggered, referencesRead, designIntelligenceModulesLoaded, precedentModulesLoaded, scriptsRun, editToolsUsed, renderedEvidenceGathered, renderedToolActivity, completionCriteriaSatisfied, toolCounts, costUsd, turns, error };
 }
 
 const PRAISE_OPENING = /^(great|love|nice|awesome|excellent|amazing|beautiful|clean|good (idea|question|call)|what a|i love|this (looks|is|seems) (great|clean|good|nice|solid|amazing|excellent|modern))/i;
@@ -201,17 +229,17 @@ export function renderReport(runs, meta) {
   const lines = [
     `# Agent Evaluation Report`,
     '',
-    `Date: ${meta.date} · Agent: ${meta.agent} · Judge: ${meta.judge} · Scenarios: ${Object.keys(by).length}`,
+    `Date: ${meta.date} · Agent: ${meta.agent} · Model: ${meta.model ?? 'default'} · Mode: ${meta.mode ?? 'review'} · Judge: ${meta.judge} · Scenarios/samples: ${Object.keys(by).length}`,
     '',
     'Each scenario ran twice in a fresh temporary project: **without** the skills and **with** all',
     'skills installed as project skills. A separate judge graded answers without knowing the condition.',
     '',
-    '| Scenario | Principles met (without → with) | Unacceptable (without → with) | Praise opening (without → with) | Expected skills loaded (with) | References / DI / precedent (with) | Required refs | Rendered evidence | Completion signals |',
-    '|---|---|---|---|---|---|---|---|---|',
+    '| Scenario | Principles met (without → with) | Unacceptable (without → with) | Praise opening (without → with) | Expected skills loaded (with) | References / DI / precedent (with) | Required refs | Rendered evidence | Changed files | Completion signals |',
+    '|---|---|---|---|---|---|---|---|---|---|',
   ];
   for (const [id, c] of Object.entries(by)) {
     const w = c.with; const wo = c.without;
-    lines.push(`| ${id}${c.with?.anchor || c.without?.anchor ? ' (anchor)' : ''} | ${cell(wo, pct)} → ${cell(w, pct)} | ${cell(wo, (r) => r.judge?.violations ?? '?')} → ${cell(w, (r) => r.judge?.violations ?? '?')} | ${cell(wo, (r) => (r.signals?.openingPraise ? 'yes' : 'no'))} → ${cell(w, (r) => (r.signals?.openingPraise ? 'yes' : 'no'))} | ${cell(w, (r) => `${r.routing.hit.length}/${r.routing.expected.length}${r.routing.missed.length ? ` (missed: ${r.routing.missed.join(', ')})` : ''}`)} | ${cell(w, (r) => `${(r.transcript.referencesRead ?? []).length} / ${(r.transcript.designIntelligenceModulesLoaded ?? []).length} / ${(r.transcript.precedentModulesLoaded ?? []).length}`)} | ${cell(w, (r) => r.requiredReferenceCompliance ? `${r.requiredReferenceCompliance.loaded.length}/${r.requiredReferenceCompliance.required.length}` : 'n/a')} | ${cell(w, (r) => r.transcript.renderedEvidenceGathered ? 'yes' : 'no')} | ${cell(w, (r) => Object.values(r.transcript.completionCriteriaSatisfied ?? {}).filter(Boolean).length)} |`);
+    lines.push(`| ${id}${c.with?.anchor || c.without?.anchor ? ' (anchor)' : ''} | ${cell(wo, pct)} → ${cell(w, pct)} | ${cell(wo, (r) => r.judge?.violations ?? '?')} → ${cell(w, (r) => r.judge?.violations ?? '?')} | ${cell(wo, (r) => (r.signals?.openingPraise ? 'yes' : 'no'))} → ${cell(w, (r) => (r.signals?.openingPraise ? 'yes' : 'no'))} | ${cell(w, (r) => `${r.routing.hit.length}/${r.routing.expected.length}${r.routing.missed.length ? ` (missed: ${r.routing.missed.join(', ')})` : ''}`)} | ${cell(w, (r) => `${(r.transcript.referencesRead ?? []).length} / ${(r.transcript.designIntelligenceModulesLoaded ?? []).length} / ${(r.transcript.precedentModulesLoaded ?? []).length}`)} | ${cell(w, (r) => r.requiredReferenceCompliance ? `${r.requiredReferenceCompliance.loaded.length}/${r.requiredReferenceCompliance.required.length}` : 'n/a')} | ${cell(w, (r) => r.transcript.renderedEvidenceGathered ? 'yes' : 'no')} | ${cell(w, (r) => r.mode === 'edit' ? `${r.changedFiles?.length ?? 0}` : '–')} | ${cell(w, (r) => Object.values(r.transcript.completionCriteriaSatisfied ?? {}).filter(Boolean).length)} |`);
   }
   const totals = (cond) => {
     const rs = runs.filter((r) => r.condition === cond && r.judge);
@@ -221,19 +249,36 @@ export function renderReport(runs, meta) {
     const praise = rs.filter((r) => r.signals.openingPraise).length;
     const specialists = rs.reduce((s, r) => s + (r.transcript?.specialistsTriggered?.length ?? 0), 0);
     const rendered = rs.filter((r) => r.transcript?.renderedEvidenceGathered).length;
-    return { n: rs.length, met, tot, viol, praise, specialists, rendered };
+    const required = rs.filter((r) => r.requiredReferenceCompliance?.required?.length).reduce((sum, r) => sum + r.requiredReferenceCompliance.loaded.length, 0);
+    const requiredTotal = rs.filter((r) => r.requiredReferenceCompliance?.required?.length).reduce((sum, r) => sum + r.requiredReferenceCompliance.required.length, 0);
+    const changed = rs.reduce((sum, r) => sum + (r.changedFiles?.length ?? 0), 0);
+    const extra = rs.reduce((sum, r) => sum + (r.routing?.extra?.length ?? 0), 0);
+    return { n: rs.length, met, tot, viol, praise, specialists, rendered, required, requiredTotal, changed, extra };
   };
   const a = totals('without'); const b = totals('with');
   lines.push('', '## Totals', '',
-    `| Condition | Runs graded | Principles met | Unacceptable recommendations | Praise openings | Specialists | Rendered evidence |`,
-    `|---|---|---|---|---|---|---|`,
-    `| without skills | ${a.n} | ${a.met}/${a.tot} | ${a.viol} | ${a.praise} | ${a.specialists} | ${a.rendered} |`,
-    `| with skills | ${b.n} | ${b.met}/${b.tot} | ${b.viol} | ${b.praise} | ${b.specialists} | ${b.rendered} |`,
+    `| Condition | Runs graded | Principles met | Unacceptable recommendations | Praise openings | Specialists | Rendered evidence | Required refs | Extra specialists | Changed files |`,
+    `|---|---|---|---|---|---|---|---|---|---|`,
+    `| without skills | ${a.n} | ${a.met}/${a.tot} | ${a.viol} | ${a.praise} | ${a.specialists} | ${a.rendered} | ${a.requiredTotal ? `${a.required}/${a.requiredTotal}` : 'n/a'} | ${a.extra} | ${a.changed} |`,
+    `| with skills | ${b.n} | ${b.met}/${b.tot} | ${b.viol} | ${b.praise} | ${b.specialists} | ${b.rendered} | ${b.requiredTotal ? `${b.required}/${b.requiredTotal}` : 'n/a'} | ${b.extra} | ${b.changed} |`,
     '', '## Per-run notes', '');
   for (const r of runs) {
     lines.push(`- **${r.scenarioId} · ${r.condition}:** ${r.error ? `ERROR: ${r.error}` : (r.judge?.notes ?? 'no judge notes')}${r.condition === 'with' && r.transcript ? ` Skills loaded: ${r.transcript.skillsLoaded.join(', ') || 'none'}.` : ''}`);
   }
-  lines.push('', 'Limitations: one run per condition (no variance estimate); an LLM judge; the agent\'s own',
-    'user-level skills and settings load in both conditions.');
+  lines.push('', `Sampling: ${meta.repeat ?? 1} independent sample(s) per scenario/condition. Use ` +
+    '`--repeat 3` or `--repeat 5` for a spread estimate; do not interpret one run as scientific proof.',
+    'Limitations: the judge is an LLM; the agent\'s own user-level skills and settings load in both conditions.');
+  const withRuns = runs.filter((r) => r.condition === 'with');
+  const ratio = (n, d) => d ? `${Math.round((n / d) * 100)}% (${n}/${d})` : 'n/a';
+  const requiredRuns = withRuns.filter((r) => r.requiredReferenceCompliance?.required?.length);
+  lines.push('', '## Enforcement metrics', '',
+    '| Metric | With-skills result |', '|---|---|',
+    `| Reference activation rate | ${ratio(withRuns.filter((r) => (r.transcript?.referencesRead?.length ?? 0) > 0).length, withRuns.length)} |`,
+    `| Design-intelligence usage rate | ${ratio(withRuns.filter((r) => (r.transcript?.designIntelligenceModulesLoaded?.length ?? 0) > 0).length, withRuns.length)} |`,
+    `| Precedent usage rate | ${ratio(withRuns.filter((r) => (r.transcript?.precedentModulesLoaded?.length ?? 0) > 0).length, withRuns.length)} |`,
+    `| Required-reference compliance | ${requiredRuns.length ? ratio(requiredRuns.reduce((n, r) => n + r.requiredReferenceCompliance.loaded.length, 0), requiredRuns.reduce((n, r) => n + r.requiredReferenceCompliance.required.length, 0)) : 'n/a'} |`,
+    `| Measurement/render compliance | ${ratio(withRuns.filter((r) => r.transcript?.renderedEvidenceGathered).length, withRuns.length)} |`,
+    `| Handoff completeness | ${ratio(withRuns.filter((r) => r.transcript?.completionCriteriaSatisfied?.handoffArtifact).length, withRuns.length)} |`,
+    `| Extra-specialist activation rate | ${ratio(withRuns.reduce((n, r) => n + (r.routing?.extra?.length ?? 0), 0), withRuns.length)} extra activations/run |`);
   return `${lines.join('\n')}\n`;
 }

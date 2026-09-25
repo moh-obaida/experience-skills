@@ -22,7 +22,15 @@ Directions where delight, character, and play are part of the value.
 | Accessibility | Bright fields often fail contrast; flashing limits |
 
 **Fails when:** play is applied to controls (bouncing inputs) instead of the environment. **Precedent:**
-Kahoot (KH1, KH2), Blooket (BK1, BK2). **Adapt:** world playful, controls plain.
+Kahoot (KH1, KH2), Blooket (BK1, BK2), and the deeper `playful-products.md` module
+(PLY1, PLY2, PLY3, PLY4).
+Use Scratch and Finch as evidence that play can live in the creation loop, feedback model, and
+non-competitive progress—not only in bright cards. On mobile, keep the task surface and primary
+control stable while moving celebration into an interruptible layer; in loading, error, and empty
+states, preserve plain explanations and a recoverable action. Test reduced motion, flashing limits,
+keyboard/focus visibility, non-color status, readable type, RTL order, and whether the product's
+audience actually wants delight. If the user is resolving a financial, medical, legal, or serious
+operational issue, route away from this row or constrain play to the surrounding environment.
 
 ## Character-driven
 
@@ -83,3 +91,9 @@ lesson content be the visual.
 
 **Precedent:** Steam (ST2), PlayStation (PS1), Nintendo (NI3). **Adapt:** keep settings, purchase, and
 account surfaces conventional.
+### Family checks
+
+Responsive behavior moves spectacle behind the task and preserves a stable action path. Accessibility
+and RTL require text alternatives, non-color feedback, pause/reduced-motion behavior, and mirrored
+reading order. AI failure: applying character and bounce to every control. Put personality in the
+world and derive motifs from the product's content.

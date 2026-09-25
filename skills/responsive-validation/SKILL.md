@@ -63,6 +63,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - Only a native build question without a runnable build → use `references/mobile-and-native.md`
   as a checklist and mark results unverified.
 
+## Mandatory conditional loading
+
+If a meaningful layout change can run, MUST load `references/validation-matrix.md`, `references/_shared/controls-and-inputs.md`, and `references/_shared/context-adaptation.md` and execute the matrix. If content, locale, or RTL can vary, MUST load `references/rtl-and-content-stress.md` and run `scripts/stress-content.mjs`. A source-only result MUST say **NOT VERIFIED IN RENDERED OUTPUT**.
+
 ## Checkpoints
 
 1. **Before running anything:** does the matrix include at least one narrow phone (≤ 360 px wide

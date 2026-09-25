@@ -26,6 +26,7 @@ test('parseTranscript finds skills, references, scripts, and the answer', () => 
     { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Read', input: { file_path: '/tmp/p/.claude/skills/composition-repair/SKILL.md' } }] } },
     { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Read', input: { file_path: '/tmp/p/.claude/skills/composition-repair/references/_shared/join-code-page.md' } }] } },
     { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Bash', input: { command: 'node .claude/skills/composition-repair/scripts/measure-layout.mjs join.html; node .claude/skills/responsive-validation/scripts/stress-content.mjs join.html' } }] } },
+    { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Edit', input: { file_path: '/tmp/p/join.html' } }] } },
     { type: 'result', result: 'Verdict: worse than current.', total_cost_usd: 0.42, num_turns: 7, is_error: false },
   ].map((l) => JSON.stringify(l)).join('\n');
   const t = parseTranscript(`${lines}\nnot json\n`);
@@ -37,6 +38,7 @@ test('parseTranscript finds skills, references, scripts, and the answer', () => 
   assert.deepEqual(t.scriptsRun, ['composition-repair/scripts/measure-layout.mjs', 'responsive-validation/scripts/stress-content.mjs']);
   assert.equal(t.specialistsTriggered.includes('composition-repair'), true);
   assert.equal(t.renderedEvidenceGathered, true);
+  assert.deepEqual(t.editToolsUsed, ['Edit']);
   assert.equal(t.completionCriteriaSatisfied.handoffArtifact, false);
   assert.equal(t.costUsd, 0.42);
 });
@@ -82,4 +84,8 @@ test('run-agent-evals --help and --dry-run work without calling an agent', () =>
   assert.equal(r.status, 0, r.stderr);
   assert.match(r.stdout, /DRY RUN: 2 runs/);
   assert.match(r.stdout, /--allowedTools Read Glob Grep Skill/);
+  const build = spawnSync(process.execPath, [script, '--dry-run', '--scenarios', 'repair-join-page', '--mode', 'edit', '--agent', 'codex'], { encoding: 'utf8', env: { ...process.env, CODEX_BIN: 'codex-not-called' } });
+  assert.equal(build.status, 0, build.stderr);
+  assert.match(build.stdout, /DRY RUN: 2 runs/);
+  assert.match(build.stdout, /codex-not-called exec --json/);
 });

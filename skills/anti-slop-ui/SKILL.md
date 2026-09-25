@@ -68,6 +68,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - A treatment belongs to an established, deliberate brand system; evaluate it, do not strip it for
   being unusual.
 
+## Mandatory conditional loading
+
+If generated UI is about to be presented, MUST load `references/final-slop-gate.md`. If a pattern is flagged, MUST load `references/alternatives-engine.md`, `references/_shared/context-adaptation.md`, `references/_shared/product-interiors-and-dense-states.md`, and `references/_shared/justified-trends.md` before removing it. If the surface can run, MUST collect rendered or scanner evidence before the final recommendation.
+
 ## Checkpoints
 
 1. **For every flagged treatment or pattern:** can you state the job it does *here* (hierarchy,

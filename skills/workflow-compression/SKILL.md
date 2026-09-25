@@ -64,6 +64,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - The whole product is confusing rather than one flow being slow → product-friction first.
 - The step is a safeguard the user wants kept → make it clearer, not shorter.
 
+## Mandatory conditional loading
+
+If a flow changes, MUST load `references/workflow-mapping.md`, `references/known-answers.md`, and `references/_shared/controls-and-inputs.md` before removing any step. If waiting or resumability is involved, MUST load `references/waiting-and-endings.md`. Before completion, MUST produce typed before/after counts and name preserved judgment and unresolved state risks.
+
 ## Checkpoints
 
 1. **Before proposing any change:** have you mapped the current flow and counted it? No → map it

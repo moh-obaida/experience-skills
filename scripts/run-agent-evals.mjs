@@ -5,9 +5,10 @@
 // This spends model usage. It is not part of `npm run check`. Use --dry-run to see what would run.
 
 import { spawn } from 'node:child_process';
-import { mkdtempSync, mkdirSync, cpSync, writeFileSync, readFileSync, rmSync, existsSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, cpSync, writeFileSync, readFileSync, rmSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, basename } from 'node:path';
+import { createHash } from 'node:crypto';
 import { ROOT, readJson } from './lib/repo.mjs';
 import { parseScenario, parseTranscript, answerSignals, judgePrompt, parseJudge, routingScore, renderReport } from './lib/agent-eval.mjs';
 
@@ -22,6 +23,9 @@ Options:
   --conditions LIST  with,without (default both)
   --model NAME       Model for the agent under test (default: the CLI's default)
   --judge-model NAME Model for the judge (default: the CLI's default)
+  --agent NAME        claude (default) or codex; select the adapter explicitly
+  --mode MODE         review (default) or edit; edit enables file changes for build/repair scenarios
+  --repeat N          independent samples per scenario/condition (default 1)
   --max-turns N      Agent turn limit (default 30)
   --parallel N       Concurrent runs (default 2)
   --out DIR          Output directory (default tests/evals/results/<timestamp>)
@@ -34,11 +38,11 @@ Env:
                      logged in, or ANTHROPIC_API_KEY must be set.
 
 Each run: a fresh temporary project containing the scenario's fixtures; for "with", all skills
-copied to .claude/skills/. The agent may read files, list them, invoke skills, and run node
-scripts; it may not edit files. The judge sees only the scenario and the answer.`;
+copied to .claude/skills/. Review runs are read-only. Edit runs enable file changes and record a
+before/after file snapshot plus changed files. The judge sees only the scenario and the answer.`;
 
 function parse(argv) {
-  const opts = { conditions: ['with', 'without'], maxTurns: 30, parallel: 2 };
+  const opts = { conditions: ['with', 'without'], maxTurns: 30, parallel: 2, agent: 'claude', mode: 'review', repeat: 1 };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     const next = () => { const v = argv[++i]; if (v === undefined) throw new Error(`${a} needs a value`); return v; };
@@ -48,6 +52,9 @@ function parse(argv) {
     else if (a === '--conditions') opts.conditions = next().split(',');
     else if (a === '--model') opts.model = next();
     else if (a === '--judge-model') opts.judgeModel = next();
+    else if (a === '--agent') opts.agent = next();
+    else if (a === '--mode') opts.mode = next();
+    else if (a === '--repeat') opts.repeat = Math.max(1, Number(next()));
     else if (a === '--max-turns') opts.maxTurns = Number(next());
     else if (a === '--parallel') opts.parallel = Math.max(1, Number(next()));
     else if (a === '--out') opts.out = next();
@@ -59,11 +66,21 @@ function parse(argv) {
 }
 
 const CLAUDE = process.env.CLAUDE_BIN || 'claude';
-const ALLOWED_TOOLS = ['Read', 'Glob', 'Grep', 'Skill', 'Bash(node:*)', 'Bash(ls:*)'];
+const CODEX = process.env.CODEX_BIN || 'codex';
+
+function agentConfig(opts) {
+  if (opts.agent === 'codex') return { bin: CODEX, args: ['exec', '--json', '--ephemeral', '--skip-git-repo-check', '-s', opts.mode === 'edit' ? 'workspace-write' : 'read-only'] };
+  if (opts.agent !== 'claude') throw new Error(`unknown --agent ${opts.agent}; use claude or codex`);
+  const allowed = ['Read', 'Glob', 'Grep', 'Skill', 'Bash(node:*)', 'Bash(ls:*)'];
+  if (opts.mode === 'edit') allowed.push('Edit', 'Write');
+  return { bin: CLAUDE, args: ['-p', '--output-format', 'stream-json', '--verbose', '--no-session-persistence', '--max-turns', String(opts.maxTurns), '--allowedTools', ...allowed] };
+}
 
 function agentArgs(prompt, opts) {
-  const args = ['-p', prompt, '--output-format', 'stream-json', '--verbose', '--no-session-persistence',
-    '--max-turns', String(opts.maxTurns), '--allowedTools', ...ALLOWED_TOOLS];
+  const config = agentConfig(opts);
+  const args = [...config.args];
+  if (opts.agent === 'claude') args.splice(1, 0, prompt);
+  else args.push(prompt);
   if (opts.model) args.push('--model', opts.model);
   return args;
 }
@@ -74,9 +91,9 @@ function judgeArgs(prompt, opts) {
   return args;
 }
 
-function exec(args, cwd, env, timeoutMs) {
+function exec(args, cwd, env, timeoutMs, bin = CLAUDE) {
   return new Promise((resolve) => {
-    const child = spawn(CLAUDE, args, { cwd, env, stdio: ['ignore', 'pipe', 'pipe'] });
+    const child = spawn(bin, args, { cwd, env, stdio: ['ignore', 'pipe', 'pipe'] });
     let stdout = '';
     let stderr = '';
     const timer = setTimeout(() => { child.kill('SIGTERM'); stderr += '\n[timeout]'; }, timeoutMs);
@@ -85,6 +102,21 @@ function exec(args, cwd, env, timeoutMs) {
     child.on('error', (e) => { clearTimeout(timer); resolve({ code: -1, stdout, stderr: `${stderr}${e.message}` }); });
     child.on('close', (code) => { clearTimeout(timer); resolve({ code, stdout, stderr }); });
   });
+}
+
+function snapshotProject(root) {
+  const files = {};
+  const visit = (dir) => {
+    for (const entry of readdirSync(dir)) {
+      if (entry === '.claude' || entry === '.git' || entry === 'node_modules') continue;
+      const path = join(dir, entry);
+      const rel = path.slice(root.length + 1);
+      if (statSync(path).isDirectory()) visit(path);
+      else files[rel] = createHash('sha256').update(readFileSync(path)).digest('hex');
+    }
+  };
+  visit(root);
+  return files;
 }
 
 function prepareProject(entry, condition) {
@@ -98,25 +130,36 @@ function prepareProject(entry, condition) {
   return dir;
 }
 
-async function runOne(entry, scenario, condition, opts, outDir) {
+async function runOne(entry, scenario, condition, opts, outDir, sample = 1) {
   const id = basename(entry.file, '.md');
   const project = prepareProject(entry, condition);
-  const record = { scenarioId: id, condition, anchor: entry.anchor ?? null, project };
+  const mode = opts.mode !== 'review' ? opts.mode : (entry.mode ?? scenario.mode ?? 'review');
+  const runOpts = { ...opts, mode };
+  const scenarioId = opts.repeat > 1 ? `${id}#${sample}` : id;
+  const record = { scenarioId, sourceScenarioId: id, sample, condition, mode, anchor: entry.anchor ?? null, project };
+  const beforeFiles = snapshotProject(project);
+  record.beforeFiles = Object.keys(beforeFiles).length;
   const env = { ...process.env, PLAYWRIGHT_MODULE: join(ROOT, 'node_modules', 'playwright-core', 'index.mjs') };
-  const args = agentArgs(scenario.prompt, opts);
+  const args = agentArgs(scenario.prompt, runOpts);
   if (opts.dryRun) {
-    record.command = [CLAUDE, ...args.map((a) => (a.includes(' ') ? JSON.stringify(a) : a))].join(' ');
+    const config = agentConfig(runOpts);
+    record.command = [config.bin, ...args.map((a) => (a.includes(' ') ? JSON.stringify(a) : a))].join(' ');
     return record;
   }
   const started = Date.now();
-  const res = await exec(args, project, env, 15 * 60 * 1000);
+  const config = agentConfig(runOpts);
+  const res = await exec(args, project, env, 15 * 60 * 1000, config.bin);
   record.seconds = Math.round((Date.now() - started) / 1000);
-  writeFileSync(join(outDir, `${id}.${condition}.transcript.jsonl`), res.stdout);
+  writeFileSync(join(outDir, `${id}.${condition}.${sample}.transcript.jsonl`), res.stdout);
   record.transcript = parseTranscript(res.stdout);
+  const afterFiles = snapshotProject(project);
+  record.afterFiles = Object.keys(afterFiles).length;
+  record.changedFiles = [...new Set([...Object.keys(beforeFiles), ...Object.keys(afterFiles)])]
+    .filter((file) => beforeFiles[file] !== afterFiles[file]);
   if (res.code !== 0 || record.transcript.error || !record.transcript.answer) {
     record.error = record.transcript.error ?? (res.stderr.trim().split('\n').pop() || `exit ${res.code}`);
   }
-  writeFileSync(join(outDir, `${id}.${condition}.answer.md`), record.transcript.answer || '');
+  writeFileSync(join(outDir, `${id}.${condition}.${sample}.answer.md`), record.transcript.answer || '');
   record.signals = answerSignals(record.transcript.answer || '');
   record.routing = routingScore(scenario.expectedSkills, record.transcript.skillsLoaded);
   const requiredReferences = entry.requiredReferences ?? [];
@@ -128,7 +171,7 @@ async function runOne(entry, scenario, condition, opts, outDir) {
     rate: requiredReferences.length ? requiredReferences.filter((reference) => loadedReferences.includes(reference)).length / requiredReferences.length : null,
   };
   if (!record.error) {
-    const j = await exec(judgeArgs(judgePrompt(scenario, record.transcript.answer), opts), tmpdir(), process.env, 5 * 60 * 1000);
+    const j = await exec(judgeArgs(judgePrompt(scenario, record.transcript.answer), opts), tmpdir(), process.env, 5 * 60 * 1000, CLAUDE);
     try {
       const outer = JSON.parse(j.stdout);
       record.judge = parseJudge(outer.result ?? '');
@@ -175,10 +218,12 @@ async function main() {
   for (const entry of entries) {
     const scenario = parseScenario(readFileSync(join(ROOT, entry.file), 'utf8'));
     if (!scenario.prompt) throw new Error(`${entry.file} has no "## Prompt" section`);
-    for (const condition of opts.conditions) tasks.push(() => {
-      process.stdout.write(`… ${basename(entry.file, '.md')} [${condition}]\n`);
-      return runOne(entry, scenario, condition, opts, outDir);
-    });
+    for (let sample = 1; sample <= opts.repeat; sample++) {
+      for (const condition of opts.conditions) tasks.push(() => {
+        process.stdout.write(`… ${basename(entry.file, '.md')} [${condition} sample ${sample}]\n`);
+        return runOne(entry, scenario, condition, opts, outDir, sample);
+      });
+    }
   }
   process.stdout.write(`${opts.dryRun ? 'DRY RUN: ' : ''}${tasks.length} runs → ${outDir}\n`);
   const runs = await pool(tasks, opts.parallel);
@@ -189,7 +234,7 @@ async function main() {
     return 0;
   }
 
-  const meta = { date: new Date().toISOString().slice(0, 10), agent: opts.model ?? 'CLI default', judge: opts.judgeModel ?? 'CLI default' };
+  const meta = { date: new Date().toISOString().slice(0, 10), agent: opts.agent, model: opts.model ?? 'CLI default', judge: opts.judgeModel ?? 'CLI default', mode: opts.mode, repeat: opts.repeat };
   writeFileSync(join(outDir, 'summary.json'), `${JSON.stringify({ meta, runs }, null, 2)}\n`);
   writeFileSync(join(outDir, 'report.md'), renderReport(runs, meta));
   const cost = runs.reduce((s, r) => s + (r.transcript?.costUsd ?? 0) + (r.judgeCostUsd ?? 0), 0);

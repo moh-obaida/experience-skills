@@ -84,3 +84,9 @@ express which plane is interactive.
 | Accessibility | Non-spatial alternatives for every task |
 
 **Adapt:** keep a list or search alternative for everything placed in space.
+### Family checks
+
+Responsive behavior removes depth before removing orientation. Accessibility and RTL require a
+readable non-spatial path, logical focus order, reduced motion, and script-safe labels. AI failure:
+turning every product into a dark cinematic hero. Customize the environment from a real product
+object or place; keep controls familiar.

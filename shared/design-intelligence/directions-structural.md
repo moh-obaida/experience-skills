@@ -109,4 +109,20 @@ saturated fills.
 
 **Fails when:** every element gets the heavy treatment and hierarchy disappears. **Slop risk:**
 now a common template look in its own right. **Adapt:** reserve the heavy treatment for primary
-actions and key objects.
+actions and key objects. **Precedent depth:** load `neo-brutalist-products.md` before choosing this
+direction. NBR1, NBR2 are style-gallery evidence, not independent product precedents; NBR3, NBR4,
+NBR5, NBR6, NBR7
+are the product/surface observations that justify the transfer. Use the direction only when the
+product can carry an expressive environment while keeping creation, search, fields, status, and
+publishing controls conventional and high-contrast. On narrow screens, collapse stacked blocks into
+one clear reading/action order and remove decorative shadow layers before shrinking target sizes.
+For dense or error states, keep borders and fills semantic rather than applying the same heavy shell
+to every row; test focus, forced colors, RTL order, and long labels. If the product is trusted,
+regulated, or precision-critical, this row is usually a wrong-context warning, not permission to
+add black borders and saturated cards.
+### Family checks
+
+Responsive behavior reflows explicit structure instead of preserving decorative borders at tiny
+widths. Accessibility and RTL require target size, focus visibility, readable contrast, and logical
+order. AI failure: thick borders, hard shadows, and saturated color as a new template. Use visible
+structure only when it clarifies the product's real hierarchy.

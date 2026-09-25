@@ -16,3 +16,4 @@ points to it.
 | `long-running-generation.md` | Worked Example: Long-Running AI Generation | `examples/full-product/long-running-generation.md` |
 | `states-loading-empty-error.md` | Precedent: Loading, Empty, and Error States in the Wild | `shared/precedent/states-loading-empty-error.md` |
 | `transactional-clarity.md` | Precedent: Consequences Visible at the Point of Commitment | `shared/precedent/transactional-clarity.md` |
+| `empty-and-lifecycle-states.md` | Precedent: Empty and Lifecycle States | `shared/precedent/empty-and-lifecycle-states.md` |

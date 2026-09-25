@@ -18,3 +18,4 @@ points to it.
 | `workflow-friction.md` | Workflow Friction Taxonomy | `shared/taxonomies/workflow-friction.md` |
 | `experience-rubric.md` | Experience Rubric | `shared/evaluation/experience-rubric.md` |
 | `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
+| `experience-routing.md` | Precedent: Cross-Concern Product Surfaces | `shared/precedent/experience-routing.md` |

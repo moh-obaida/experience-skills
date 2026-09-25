@@ -65,7 +65,16 @@ ChatGPT start (CG1). **Adapt:** the one remaining element must be the product.
 
 **Fails when:** low contrast and large radii everywhere erase hierarchy. **Slop risk:** high (soft
 cards and pastel gradients are model favorites). **Adapt:** keep softness in the environment; give
-text and actions full contrast.
+text and actions full contrast. **Precedent depth:** load `soft-minimal-products.md` and separate
+the calm visual layer from the product's actual state model. SFM1, SFM2, SFM3, SFM4, SFM5, SFM6,
+SFM7, SFM8, SFM9, SFM10, SFM11 show that wellness surfaces
+still need taxonomy, entitlement, time, progression, trend, privacy, and gated-action signals. Use
+soft minimal for reassurance, recovery, or repeated small actions—not for hiding complexity. On
+mobile, preserve the next action and current state before decorative breathing room; in dense views,
+use explicit grouping and a stronger action color rather than more pastel cards. Test contrast,
+focus, reduced motion, dynamic text, RTL reading order, locked/unlocked states, and empty versus
+unavailable content. If those states cannot remain obvious, choose utilitarian or calm-health
+adaptation instead of decorating the ambiguity.
 
 ## Utilitarian
 
@@ -106,3 +115,9 @@ text and actions full contrast.
 
 **Fails when:** calm becomes vague (unclear status, hidden next steps). **Adapt:** calm tone,
 precise content.
+### Family checks
+
+Responsive behavior protects reading measure and the next action instead of shrinking type into
+soft cards. Accessibility and RTL require high contrast, visible focus, large targets, and script
+fallbacks. AI failure: neutral rounded cards with no product-specific carrier. Calm is a behavior and
+content choice, not a lack of hierarchy.

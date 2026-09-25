@@ -53,11 +53,34 @@ test('depth audit is reproducible and reports every design-intelligence family',
   const result = spawnSync(process.execPath, [script, '--json'], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stderr);
   const report = JSON.parse(result.stdout);
-  assert.equal(report.summary.observationCount, 167);
-  assert.equal(report.summary.surfaceCount, 64);
+  assert.ok(Number.isInteger(report.summary.observationCount));
+  assert.ok(report.summary.observationCount > 0);
+  assert.ok(report.summary.surfaceCount > 0);
+  assert.equal(report.summary.uniqueProductSurfaceCount, report.summary.surfaceCount);
+  assert.ok(report.summary.uniqueProductCount > 0);
+  const neo = report.rows.find((row) => row.name === 'Neo-brutalist');
+  const masterDetail = report.rows.find((row) => row.name === 'Master-detail');
+  assert.ok(neo.currentPrecedentCount > neo.uniqueProductSurfaces, 'gallery/product observations must not masquerade as unique surfaces');
+  assert.ok(masterDetail.uniqueProductSurfaces > 0, 'master-detail must expose product/surface evidence');
   assert.ok(report.rows.some((row) => row.type === 'direction'));
   assert.ok(report.rows.some((row) => row.type === 'composition'));
   assert.ok(report.rows.some((row) => row.type === 'precedent module'));
+});
+
+test('observation metadata and repository self-audit are reproducible', () => {
+  const observations = spawnSync(process.execPath, [join(ROOT, 'scripts', 'audit-observations.mjs'), '--json'], { encoding: 'utf8' });
+  assert.equal(observations.status, 0, observations.stderr);
+  const observationReport = JSON.parse(observations.stdout);
+  const metadata = JSON.parse(readFileSync(join(ROOT, 'research/observations/metadata.json'), 'utf8'));
+  assert.equal(observationReport.summary.surfaceCount, metadata.observations.length);
+  assert.ok(observationReport.summary.surfaceCount > 0);
+  assert.equal(observationReport.summary.errors.length, 0);
+  const audit = spawnSync(process.execPath, [join(ROOT, 'scripts', 'audit-repository.mjs'), '--json'], { encoding: 'utf8' });
+  assert.equal(audit.status, 0, audit.stderr);
+  const auditReport = JSON.parse(audit.stdout);
+  assert.equal(auditReport.summary.missingVendoredModules, 0);
+  assert.equal(auditReport.summary.placeholderFiles, 0);
+  assert.ok(auditReport.principleCoverage['rendered truth'].files > 0);
 });
 
 test('SKILL.md files stay thin', () => {

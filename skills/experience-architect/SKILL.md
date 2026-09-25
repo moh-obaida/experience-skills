@@ -64,6 +64,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - The task is backend or infrastructure with no user-facing behavior.
 - The user asked for a narrow mechanical change ("rename this button to Save"). Just do it.
 
+## Mandatory conditional loading
+
+MUST load `references/diagnosis-and-routing.md`, `references/_shared/experience-routing.md`, and the shared operating contract before routing. When two or more problem classes are confirmed, MUST select a named recipe and pass its handoff artifact forward. A specialist graph is incomplete until its final node reports evidence, open risks, and rendered verification status.
+
 ## Checkpoints
 
 Decision points, not advice. At each one, take the branch it names.

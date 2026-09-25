@@ -63,6 +63,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   briefly if there is one.
 - The question has a factual, verifiable answer.
 
+## Mandatory conditional loading
+
+If the proposal changes visual direction, MUST load `references/_shared/selection.md` and compare three families. If it rejects a familiar trend, MUST load `references/_shared/justified-trends.md`. If implemented UI is runnable, MUST render or state **NOT VERIFIED IN RENDERED OUTPUT** with the exact blocker before issuing a final verdict.
+
 ## Checkpoints
 
 1. **Your first sentence contains no praise or evaluative adjective.** It states the goal, the

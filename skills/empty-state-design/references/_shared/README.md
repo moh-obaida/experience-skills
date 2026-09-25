@@ -16,3 +16,4 @@ points to it.
 | `sparse-operational-home.md` | Worked Example: The Sparse Operational Home | `examples/composition/sparse-operational-home.md` |
 | `product-archetypes.md` | Product Archetypes | `shared/taxonomies/product-archetypes.md` |
 | `states-loading-empty-error.md` | Precedent: Loading, Empty, and Error States in the Wild | `shared/precedent/states-loading-empty-error.md` |
+| `empty-and-lifecycle-states.md` | Precedent: Empty and Lifecycle States | `shared/precedent/empty-and-lifecycle-states.md` |

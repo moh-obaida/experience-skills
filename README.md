@@ -148,15 +148,15 @@ instructions are vendor-neutral.
 
 Tested for this release: discovery and installation with `skills` CLI 1.7.0 (installing for Claude
 Code in a temporary project); validation of every skill with the reference validator (`skills-ref`
-0.1.1, `agentskills validate`); and behavioral runs with Claude Code on 13 scenarios, with and
-without the skills (summary in `tests/evals/results/README.md`: 35/51 principles met without, 45/51
-with; skills invoked in 12 of 13 runs; specialist handoff and rendered measurement are still weak).
-Codex and other agents supported by the CLI were not tested.
+0.1.1, `agentskills validate`); and the committed historical Claude Code behavioral runs on 13
+scenarios (summary in `tests/evals/results/README.md`). The eval harness now has explicit Claude and
+Codex adapters plus edit-mode build/repair scenarios, but fresh multi-agent behavior samples are
+not claimed until they are run.
 
 ## Precedent and design intelligence
 
 - **Real-world precedent.** 167 dated observations of 64 public product surfaces (GOV.UK, Wise,
-  GitHub, Kahoot, Stripe, Wikipedia, Airbnb, MDN, and others), interpreted in 15 concept modules. Every
+  GitHub, Kahoot, Stripe, Wikipedia, Airbnb, MDN, and others), interpreted in 19 concept modules. Every
   entry says when the lesson applies and when copying it would fail. Invented examples are labeled as
   such.
 - **Design intelligence.** 45 design directions, 48 compositions, 17 palette families with computed
@@ -177,7 +177,7 @@ items that still need item-specific precedent. Upstream curation decisions are r
 
 ## How it works
 
-- **A core that loads.** Every skill starts by reading the same 26 operating rules
+- **A core that loads.** Every skill starts by reading the same 29 operating rules
   (`experience-core.md`), each phrased as a behavior, not a slogan.
 - **Checkpoints, not advice.** Each `SKILL.md` has decision points that change what the agent does:
   "For any change to a basic control: does it make the task faster or more reliable? No → reject it

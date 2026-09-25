@@ -65,6 +65,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - One flow's step count is the problem → workflow-compression.
 - One screen's layout or look is the problem → composition-repair, visual-identity.
 
+## Mandatory conditional loading
+
+If the audit covers a product area, MUST load `references/friction-ledger.md`, `references/finding-and-continuing.md`, and `references/_shared/controls-and-inputs.md`. If friction involves repeated questions or lost context, MUST load `references/_shared/known-context-and-defaults.md`. Do not propose a feature until the located issue, frequency, and cheaper repair are recorded.
+
 ## Checkpoints
 
 1. **Before writing any issue:** is it specific and located (screen, label, action)? "Navigation is
