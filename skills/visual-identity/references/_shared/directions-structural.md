@@ -89,7 +89,12 @@ honesty.
 
 **Fails when:** used to seem edgy on a product whose users need reassurance. **Slop risk:**
 "brutalism" as the default cure for SaaS clichés. **Precedent:** Hacker News as utilitarian cousin
-(HN1). **Adapt:** honesty of structure, not intentional hostility.
+(HN1); Craigslist (CRL1–CRL3) is the purest real case: default-blue links, zero imagery, zero
+marketing copy, and dozens of real functional destinations visible in one viewport with no onboarding
+at all (CRL3) — one of the most-used classifieds sites in the world runs on exactly this. **Adapt:**
+Craigslist works because every single link is a real, specific destination (CRL1) — the density is
+genuine, not decorative; the same raw HTML aesthetic on a page full of placeholder links or vague
+categories would just look broken, not honest.
 
 ## Neo-brutalist
 

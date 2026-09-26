@@ -18,6 +18,25 @@ and RTL typography, and responsive scaling. Precedent IDs refer to the observati
 Many strong systems use one characterful display face plus one highly legible UI/body face, or a
 single family used with discipline (Wikipedia's structure, GitHub's system stack).
 
+**Precedent:** MIT homepage (MIT1–MIT4). Measured computed styles (2026-09-26) show a single family,
+Neue Haas Grotesk Text, used for the h1 (600 weight, ~47px), the h2 (400 weight, ~32px), body copy
+(400 weight, ~15px), navigation (400 weight, ~15px), and lead paragraphs (500 weight, 26px,
+letter-spacing −0.39px) — one neo-grotesk family carries the entire hierarchy through weight and size
+alone, with no separate display or data face. Rolex (RX3) shows the same single-family pattern in an
+unrelated context — Helvetica Now Text at light weight for nearly all UI text — confirming this is
+not a "utilitarian institution" habit but a real option for a prestige brand too. MoMA (MOMA3) shows
+a third variation on the same single-family idea: a fully custom, commissioned typeface ("MoMA Sans")
+rather than a licensed grotesk, used at maximum weight (900) specifically for the wordmark and
+headings — a family can be disciplined (one face for everything) and still be entirely bespoke.
+Excalidraw (EXC2, EXC4) shows the other real pattern: a distinctive custom face (Excalifont) reserved
+for exactly one tone-setting moment, with every operable control in a plain system-font stack.
+**Adapt:** these are legitimate, opposite answers to "roles before fonts" — MIT, Rolex, and MoMA
+prove one disciplined family (licensed or custom-commissioned) can carry a whole system through
+weight and size; Excalidraw proves a second, characterful face works when it's confined to a single
+deliberate moment rather than spread across functional chrome. The failure this precedent rules out
+is a third option none of these sites use: several different fonts mixed across roles without a
+stated reason.
+
 ## 2. Type as geometry
 
 - Headlines are shapes. Balance multi-line headlines (`text-wrap: balance` or manual breaks); avoid
@@ -88,6 +107,19 @@ design uses the range. Subset for the scripts you need. Optical size axes help s
 - Fluid display type with `clamp()` must include a `rem` component so zoom still has effect.
 - Minimum body size about 16 px on the web; larger for older audiences and kiosks.
 - Do not rely on thin weights; they disappear on low-DPI screens and projectors.
+
+**Precedent:** RNIB (RN1–RN4). Measured computed styles (2026-09-26) show a custom accessible face
+(Ingra, falling back to Arial) at a 16px body base with 24px line-height (a 1.5× ratio, the
+WCAG-cited minimum for body text spacing), 700-weight headings, and — notably — button text set
+larger and heavier (20px/600) than body paragraphs (16px), so the most important interactive
+elements are the most legible text on the page, not an afterthought sized like everything else. The
+same measurement also caught a real counterexample on the same page: one paragraph element computed
+to font-weight 100, precisely the thin-weight failure this section already warns against — even a
+page built around accessibility can regress on a single overridden style, which is why "test, never
+assume" belongs in this direction's own guidance. **Adapt:** RN's button-sizing pattern (larger,
+heavier text on the controls that matter most) transfers to any product; the thin-weight regression
+is a reminder to spot-check computed styles on real pages rather than trusting a design system's
+intent.
 
 ## 11. Long-content behavior
 

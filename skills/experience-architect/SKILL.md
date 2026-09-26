@@ -60,6 +60,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Do not use this when
 
+- The user explicitly asked to use all Experience Skills for a substantial product: use use-all-skills.
 - The problem is already scoped to one specialist ("the table overflows at 360px"). Use that skill.
 - The task is backend or infrastructure with no user-facing behavior.
 - The user asked for a narrow mechanical change ("rename this button to Save"). Just do it.

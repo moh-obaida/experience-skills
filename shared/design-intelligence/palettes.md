@@ -95,6 +95,11 @@ text and UI component boundaries 3:1.
 **Surface hierarchy and use:** One signal accent at most; code and numbers in mono. The failure is grey-on-grey secondary text and borders below 3:1.
 
 **Other mode:** Light mode: white canvas, near-black text, the same single accent.
+**Precedent:** teenage engineering (TE1–TE3) evidences the light-mode variant: white canvas, near-black
+text and line art, exactly one accent color (a small orange logotype and label chip) (TE3), with the
+brand's character carried entirely by icon and illustration precision rather than by a second color
+or texture (TE1–TE2). **Adapt:** the one-accent discipline (TE3) is the transferable part; it holds
+whether the canvas is near-black or near-white.
 
 ## Industrial
 
@@ -115,6 +120,12 @@ text and UI component boundaries 3:1.
 **Surface hierarchy and use:** Safety yellow/orange are reserved for real warnings and always paired with a label; neutrals do the rest.
 
 **Other mode:** Dark mode for control rooms: charcoal canvas, high-contrast labels, warnings unchanged.
+**Precedent:** Caterpillar (CAT1–CAT4): the brand's real-world equipment yellow is reserved for
+exactly the primary action and search fill against a black header (CAT1) — matching this family's
+rule that the accent stays scarce and tied to what matters. Documentary photography of real
+equipment and workers (CAT3) reinforces the palette's credibility rather than illustration softening
+it. **Adapt:** a brand with a real physical safety or equipment color should use CAT1's restraint —
+one reserved accent — rather than spreading the color across decorative elements.
 
 ## Soft consumer
 
@@ -135,6 +146,11 @@ text and UI component boundaries 3:1.
 **Surface hierarchy and use:** Pastel surfaces with full-contrast text and a stronger action color. The failure is pastel text or pastel buttons.
 
 **Other mode:** Dark mode: deep warm neutrals; pastels become muted tints, never text colors.
+**Precedent:** Headspace (HS1–HS4): warm cream and pastel-adjacent surface cards carry two very
+different product tracks (consumer meditation, clinical therapy) in the same soft register (HS1),
+while the one element that must be pressed — the CTA — is rendered as a solid black pill, the only
+hard-contrast shape on the page (HS2). **Adapt:** HS2 is this family's stated rule in practice:
+never let the action itself go pastel; the softness belongs to everything around it.
 
 ## Fashion
 
@@ -155,6 +171,12 @@ text and UI component boundaries 3:1.
 **Surface hierarchy and use:** Monochrome frame so photography provides color; one seasonal signature color used rarely.
 
 **Other mode:** Dark mode inverts cleanly; check thin type on black.
+**Precedent:** Loewe (LW1–LW3): the entire storefront is white, grey, and black except the product
+photograph itself (a single purple suede shoe on a plain studio backdrop) (LW2) — the family's rule
+in its purest form, with color budget spent on the product, not the chrome. Nav and utility icons
+stay unlabeled and monochrome (LW1). **Adapt:** LW2 works because the photography is genuinely rich
+(real material, real color); the same restraint around a weak or generic photo would read as empty,
+not confident.
 
 ## Luxury
 
@@ -175,6 +197,14 @@ text and UI component boundaries 3:1.
 **Surface hierarchy and use:** Deep neutrals and one metallic-feeling accent used for small details only; never gold text on white (fails contrast).
 
 **Other mode:** Dark mode: deep warm black with ivory text.
+**Precedent:** Rolex (RX1–RX4): the header carries no wordmark at all, only a crown mark and utility
+icons (RX1) — identity spent entirely on one recognizable mark rather than on color or ornament. The
+brand's real accent in a genuine UI moment (the region-selector "Change" button) is a deep green, not
+the gold or black a model defaults to for "luxury" (RX4), and the hero leads with documentary
+photography and a partnership story (RX2) before any product appears. **Adapt:** RX4 is the concrete
+fix for this family's most common failure: a luxury palette does not require gold or black by
+default — pick one real, specific accent (whatever the brand's actual color is) and use it exactly
+once per screen, the way RX1's single crown mark carries identity without a logotype.
 
 ## Retro digital
 
@@ -193,6 +223,12 @@ text and UI component boundaries 3:1.
 | Danger on canvas | `#8B0000` | 5.5:1 |
 
 **Surface hierarchy and use:** System-era greys and primaries; bevels imply depth. Keep body text on white surfaces for legibility.
+**Precedent:** Neocities (NEO1–NEO3) evidences a second real branch this hex table doesn't cover: a
+warmer, hand-drawn DIY register (a dusty teal background, hand-drawn stars, a warm illustrated
+mascot) rather than Windows-grey system chrome — see `directions-retro.md`'s Retro-digital entry for
+the full transfer note. **Adapt:** treat this table as the OS/window branch specifically; a DIY
+personal-homepage branch needs its own warmer, less systemic palette rather than forcing every
+"retro-digital" product into System-era grey.
 
 **Other mode:** Dark variants exist in terminal-green styles; check green-on-black contrast and glare.
 
@@ -255,6 +291,13 @@ text and UI component boundaries 3:1.
 **Surface hierarchy and use:** Borders instead of tints, thick focus rings, no information in color alone.
 
 **Other mode:** Dark mode: black canvas, white text, yellow or cyan focus.
+**Precedent:** RNIB (RN1–RN4) evidences a third real mode beyond light/dark: a black-on-warm-yellow
+pairing offered as an explicit, named choice ("Yellow") alongside Light and Dark (RN2–RN3), not a
+forced default — the appearance control sits at the same header prominence as the site's primary
+commerce actions (RN1). The one saturated brand color (a pink CTA) stays constant and singular
+across all three modes (RN4). **Adapt:** RN2's lesson is the transferable one: when real alternatives
+to light/dark exist for the audience a product serves, offer them as visible, equal choices, not a
+single inverted theme.
 
 ## Dark creator tool
 
@@ -357,6 +400,14 @@ text and UI component boundaries 3:1.
 **Surface hierarchy and use:** Chrome is neutral; categorical series colors are distinguishable for color-vision deficiency; status always pairs color with icon or text.
 
 **Other mode:** Dark mode common for control rooms; recheck every series and status color.
+**Precedent:** Flightradar24 (FDR1–FDR4): chrome is reduced to a thin top bar and a low-contrast
+floating control pill (FDR3), leaving the realistic, muted map itself as the only large color field
+— hundreds of live aircraft icons are the "meaningful data color" this family calls for, distinguished
+by position and heading rather than by a palette of categorical hues (FDR2). Promotional content in
+the side rail uses its own distinct dark-charcoal-plus-lime-green treatment, kept visually separate
+from the map's credibility-coded neutral tones (FDR4). **Adapt:** when the data itself is inherently
+spatial or visual (positions on a map, not abstract categories), the family's "meaningful data color"
+principle can be satisfied by the canvas's own realism rather than by an added color-coding system.
 
 ## Near-duplicates deliberately excluded
 

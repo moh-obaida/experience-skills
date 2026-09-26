@@ -19,6 +19,7 @@ into the skills that use it (mainly visual-identity, composition-repair, and ant
 | `motion-languages.md` | Seven motion languages and transition relationships. |
 | `spatial-density-navigation.md` | Density, spatial, and navigation models. |
 | `data-visualization.md` | Chart selection by question, with "not when" conditions and accessibility risk. |
+| `niche-atlas-index.md` + 15 niche files | The Niche Design Atlas: 90 niche profiles (reality, jobs, density, surfaces, states, interaction, trust, generated-UI failures) and 150 authored niche-adapted systems, each with a thesis, fingerprint, layer contract (composition through failure conditions), and seven contrast-validated color roles. Includes the difference test and critique stage for accepting new systems. Authored with AI assistance and critiqued; not observations. |
 | `anti-generic-alternatives.md` | For 17 common defaults: the job they try to do and alternatives from different families, with precedent. |
 
 Precedent modules (`shared/precedent/`, 15 files) interpret dated observations of real products
@@ -26,7 +27,7 @@ Precedent modules (`shared/precedent/`, 15 files) interpret dated observations o
 
 ## Why it is not a template engine
 
-- A product category never selects a style. The selection procedure starts from the product's goals,
+- A product category never selects a style. The niche atlas narrows candidates by product realities; the three-way comparison chooses. The selection procedure starts from the product's goals,
   audience, and constraints and requires three candidates from *different* families.
 - Directions and compositions are separate. Any direction can use many compositions.
 - Palettes describe roles and contrast behavior, not "the fintech palette."

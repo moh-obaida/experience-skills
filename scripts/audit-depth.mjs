@@ -59,17 +59,36 @@ function compositionRows(observationIndex) {
   });
 }
 
-function simpleRows(file, type, targetDepth) {
+function simpleRows(file, type, targetDepth, observationIndex) {
   const text = read(`shared/design-intelligence/${file}`);
-  const headings = [...text.matchAll(/^## (.+)$/gm)].map((m) => m[1].trim()).filter((name) => !/how to use|near-duplicates/i.test(name));
-  return headings.map((name) => ({ type, name, family: file, currentPrecedentCount: 0, uniqueProducts: 0, uniqueProductSurfaces: 0, quality: 'not item-addressable', contextCoverage: 'documented in source', mobileCoverage: /mobile|responsive|rtl/i.test(text) ? 'module-level only' : 'not explicit', desktopCoverage: /desktop|viewport|wide/i.test(text) ? 'module-level only' : 'not explicit', productInteriorCoverage: /dashboard|tool|workflow|app|operational|product|docs|data/i.test(text) ? 'module-level only' : 'not explicit', goodExamples: 'none item-addressed', counterexamples: 'not item-addressed', missingEvidence: 'Separate real-product observations are not attached to this item.', targetDepth }));
+  const headings = [...text.matchAll(/^## (.+)$/gm)].map((m) => ({ name: m[1].trim(), index: m.index }))
+    .filter((h) => !/how to use|near-duplicates/i.test(h.name));
+  return headings.map(({ name, index }, i) => {
+    const end = i + 1 < headings.length ? headings[i + 1].index : undefined;
+    const section = text.slice(index, end);
+    const precedent = unique([...section.matchAll(/\*\*Precedent(?: depth)?:\*\*([\s\S]*?)(?:\n\n|$)/gi)].flatMap((match) => ids(match[1])));
+    if (!precedent.length) {
+      return { type, name, family: file, currentPrecedentCount: 0, uniqueProducts: 0, uniqueProductSurfaces: 0, quality: 'not item-addressable', contextCoverage: 'documented in source', mobileCoverage: /mobile|responsive|rtl/i.test(text) ? 'module-level only' : 'not explicit', desktopCoverage: /desktop|viewport|wide/i.test(text) ? 'module-level only' : 'not explicit', productInteriorCoverage: /dashboard|tool|workflow|app|operational|product|docs|data/i.test(text) ? 'module-level only' : 'not explicit', goodExamples: 'none item-addressed', counterexamples: 'not item-addressed', missingEvidence: 'Separate real-product observations are not attached to this item.', targetDepth };
+    }
+    return { type, name, family: file, currentPrecedentCount: precedent.length, ...evidenceStats(precedent, observationIndex), quality: precedent.length >= 10 ? 'mature' : precedent.length >= 5 ? 'narrow' : 'thin', contextCoverage: 'documented in source', mobileCoverage: /mobile|responsive|rtl/i.test(section) ? 'explicit' : 'not explicit', desktopCoverage: /desktop|viewport|wide/i.test(section) ? 'explicit' : 'not explicit', productInteriorCoverage: /dashboard|tool|workflow|app|operational|product|docs|data/i.test(section) ? 'possible; inspect IDs' : 'not explicit', goodExamples: precedent.join(', '), counterexamples: /counterexample/i.test(section) ? 'present' : 'not item-addressed', missingEvidence: precedent.length < 5 ? 'Add item-specific product interiors and responsive observations.' : 'Review transfer conditions against current products.', targetDepth: precedent.length >= 10 ? '10–20' : targetDepth };
+  });
 }
 
-function motionRows() {
+function motionRows(observationIndex) {
   const text = read('shared/design-intelligence/motion-languages.md');
-  return [...text.matchAll(/^\| ([^|]+) \|([^|]+) \|([^|]+) \|([^|]+) \|([^|]+) \|$/gm)]
-    .map((m) => m[1].trim()).filter((name) => !/Language|---/.test(name))
-    .map((name) => ({ type: 'motion', name, family: 'motion-languages.md', currentPrecedentCount: 0, uniqueProducts: 0, uniqueProductSurfaces: 0, quality: 'not item-addressable', contextCoverage: 'documented in source', mobileCoverage: 'module-level only', desktopCoverage: 'module-level only', productInteriorCoverage: 'not item-addressed', goodExamples: 'platform guidance is module-level', counterexamples: 'not item-addressed', missingEvidence: 'Attach event-specific product observations and rendered behavior.', targetDepth: '5–10 narrow precedents' }));
+  const names = [...text.matchAll(/^\| ([^|]+) \|([^|]+) \|([^|]+) \|([^|]+) \|([^|]+) \|$/gm)]
+    .map((m) => m[1].trim()).filter((name) => !/Language|---/.test(name));
+  const sections = [...text.matchAll(/^### (.+)$/gm)].map((m) => ({ name: m[1].trim(), index: m.index }));
+  return names.map((name) => {
+    const match = sections.find((s) => s.name === name);
+    const end = match ? sections[sections.indexOf(match) + 1]?.index : undefined;
+    const section = match ? text.slice(match.index, end) : '';
+    const precedent = unique([...section.matchAll(/\*\*Precedent(?: depth)?:\*\*([\s\S]*?)(?:\n\n|$)/gi)].flatMap((m) => ids(m[1])));
+    if (!precedent.length) {
+      return { type: 'motion', name, family: 'motion-languages.md', currentPrecedentCount: 0, uniqueProducts: 0, uniqueProductSurfaces: 0, quality: 'not item-addressable', contextCoverage: 'documented in source', mobileCoverage: 'module-level only', desktopCoverage: 'module-level only', productInteriorCoverage: 'not item-addressed', goodExamples: 'platform guidance is module-level', counterexamples: 'not item-addressed', missingEvidence: 'Attach event-specific product observations and rendered behavior.', targetDepth: '5–10 narrow precedents' };
+    }
+    return { type: 'motion', name, family: 'motion-languages.md', currentPrecedentCount: precedent.length, ...evidenceStats(precedent, observationIndex), quality: precedent.length >= 10 ? 'mature' : precedent.length >= 5 ? 'narrow' : 'thin', contextCoverage: 'documented in source', mobileCoverage: /mobile|responsive|phone/i.test(section) ? 'explicit' : 'not explicit', desktopCoverage: /desktop|viewport|wide/i.test(section) ? 'explicit' : 'not explicit', productInteriorCoverage: 'possible; inspect IDs', goodExamples: precedent.join(', '), counterexamples: /counterexample/i.test(section) ? 'present' : 'not item-addressed', missingEvidence: precedent.length < 5 ? 'Attach event-specific product observations and rendered behavior.' : 'Review transfer conditions against current products.', targetDepth: '5–10 narrow precedents' };
+  });
 }
 
 function precedentRows(observationIndex) {
@@ -99,7 +118,7 @@ function buildReport() {
   }
   const surfaceCount = observationIndex.size ? unique([...observationIndex.values()].map((record) => `${record.product} — ${record.surface}`)).length : observations.reduce((n, text) => n + (text.match(/^## /gm) ?? []).length, 0);
   const uniqueProductCount = unique([...observationIndex.values()].map((record) => record.product)).length;
-  const rows = [...directionRows(observationIndex), ...compositionRows(observationIndex), ...simpleRows('palettes.md', 'palette family', '5–10 narrow precedents'), ...simpleRows('typography.md', 'typography strategy', '5–10 narrow precedents'), ...motionRows(), ...precedentRows(observationIndex)];
+  const rows = [...directionRows(observationIndex), ...compositionRows(observationIndex), ...simpleRows('palettes.md', 'palette family', '5–10 narrow precedents', observationIndex), ...simpleRows('typography.md', 'typography strategy', '5–10 narrow precedents', observationIndex), ...motionRows(observationIndex), ...precedentRows(observationIndex)];
   const below = rows.filter((row) => row.currentPrecedentCount < (row.type === 'precedent module' ? 5 : 5));
   const avg = rows.reduce((sum, row) => sum + row.currentPrecedentCount, 0) / rows.length;
   const columns = ['type', 'name', 'currentPrecedentCount', 'uniqueProducts', 'uniqueProductSurfaces', 'quality', 'contextCoverage', 'mobileCoverage', 'desktopCoverage', 'productInteriorCoverage', 'goodExamples', 'counterexamples', 'missingEvidence', 'targetDepth'];

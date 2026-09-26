@@ -1,6 +1,6 @@
 # Worked Examples
 
-Twenty worked examples. Each has the same shape: context, the bad version, the typical wrong
+Twenty-two worked examples. Each has the same shape: context, the bad version, the typical wrong
 review, the correct analysis, the better version, measurements where they apply, why it works,
 when the lesson does **not** apply, and universal analogues.
 
@@ -25,6 +25,8 @@ These files are the source of truth. Skills receive copies of the relevant ones 
 | [Motion that explains](motion/motion-that-explains.md) | Games, commerce, tools | EXPERIENTIAL | Motion explains events |
 | ["Premium" slop](anti-slop/premium-slop.md) | Landing pages | marketing | What job does each treatment do? |
 | [KPI-card dashboard](anti-slop/kpi-card-dashboard.md) | Operations, analytics | DATA-HEAVY | What changed, why, what needs action |
+| [Identity-preserving repair](anti-slop/identity-preserving-repair.md) | Local businesses, any generated site | marketing → TRANSACTIONAL | Remove generated decisions; keep and extend the owner's carriers |
+| [Sparse account surface](anti-slop/sparse-account-surface.md) | Commerce, subscriptions, any account area | OPERATIONAL | Every element earns its place against what's already visible and how often it's used |
 | [Product page purchase path](full-product/product-page-purchase-path.md) | Commerce | DISCOVERY → TRANSACTIONAL | Richness around, not in front of, purchase |
 | [Public-service form](full-product/public-service-form.md) | Government, utilities | TRANSACTIONAL | Plain can be the excellent answer |
 | [Mobile money transfer](full-product/mobile-money-transfer.md) | Banking, payments | TRANSACTIONAL | Compression must preserve safety |

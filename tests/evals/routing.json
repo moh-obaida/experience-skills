@@ -169,6 +169,76 @@
         "experience-architect"
       ],
       "notExpected": []
+    },
+    {
+      "input": "Audit this account page, go over every inch, check the CSS and fix all the small issues",
+      "expected": [
+        "interface-forensics"
+      ],
+      "notExpected": [
+        "workflow-compression"
+      ]
+    },
+    {
+      "input": "Why does this specific screen feel annoying? Trace the rendered issues to components and styles",
+      "expected": [
+        "interface-forensics"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "Is my proposed redesign good?",
+      "expected": [
+        "critical-review"
+      ],
+      "notExpected": [
+        "interface-forensics"
+      ]
+    },
+    {
+      "input": "Use all skills to turn this starter frontend into a finished product",
+      "expected": [
+        "use-all-skills"
+      ],
+      "notExpected": []
+    },
+    {
+      "input": "Run a full Experience Skills pass on this app, from design system selection through rendered verification",
+      "expected": [
+        "use-all-skills"
+      ],
+      "notExpected": []
+    },
+    {
+      "input": "our site looks like every other AI-generated landing page; fix it but keep our brand",
+      "expected": [
+        "anti-ai-slop"
+      ],
+      "notExpected": [
+        "workflow-compression"
+      ]
+    },
+    {
+      "input": "strip the purple glow, glass cards, and sparkle icons out of this app without making it bland",
+      "expected": [
+        "anti-ai-slop",
+        "anti-slop-ui"
+      ],
+      "notExpected": [
+        "product-friction"
+      ]
+    },
+    {
+      "input": "is this gradient hero AI slop or does it work?",
+      "expected": [
+        "anti-slop-ui",
+        "critical-review"
+      ],
+      "notExpected": [
+        "anti-ai-slop"
+      ]
     }
   ],
   "scenarios": [
@@ -236,8 +306,8 @@
         "workflow-compression",
         "interaction-design"
       ],
-      "anchor": "examples/full-product/public-service-form.md"
-      ,"requiredReferences": [
+      "anchor": "examples/full-product/public-service-form.md",
+      "requiredReferences": [
         "workflow-compression/references/known-answers.md",
         "interaction-design/references/familiar-controls.md"
       ]
@@ -260,8 +330,8 @@
         "state-design",
         "critical-review"
       ],
-      "anchor": "examples/full-product/mobile-money-transfer.md"
-      ,"requiredReferences": [
+      "anchor": "examples/full-product/mobile-money-transfer.md",
+      "requiredReferences": [
         "workflow-compression/references/known-answers.md",
         "state-design/references/state-inventory.md"
       ]
@@ -300,8 +370,8 @@
         "workflow-compression",
         "interaction-design"
       ],
-      "anchor": "examples/full-product/long-running-generation.md"
-      ,"requiredReferences": [
+      "anchor": "examples/full-product/long-running-generation.md",
+      "requiredReferences": [
         "state-design/references/state-inventory.md",
         "workflow-compression/references/waiting-and-endings.md"
       ]
@@ -357,6 +427,54 @@
         "composition-repair"
       ],
       "anchor": "examples/anti-slop/kpi-card-dashboard.md"
+    },
+    {
+      "file": "tests/scenarios/full-starter-product.md",
+      "expected": [
+        "use-all-skills",
+        "experience-architect",
+        "product-friction",
+        "workflow-compression",
+        "interaction-design",
+        "visual-identity",
+        "composition-repair",
+        "state-design",
+        "empty-state-design",
+        "motion-design",
+        "responsive-validation",
+        "anti-slop-ui",
+        "anti-ai-slop",
+        "interface-forensics",
+        "critical-review"
+      ],
+      "fixtures": {
+        "service.html": "tests/fixtures/pages/starter-service.html"
+      },
+      "requiredReferences": [
+        "use-all-skills/references/phase-map.md",
+        "use-all-skills/references/participation-ledger.md",
+        "use-all-skills/references/_shared/design-system-selector.md",
+        "use-all-skills/references/_shared/design-systems-index.md"
+      ],
+      "mode": "edit",
+      "buildRepair": true,
+      "anchor": "full-starter-product"
+    },
+    {
+      "file": "tests/scenarios/de-ai-existing-site.md",
+      "expected": [
+        "anti-ai-slop"
+      ],
+      "fixtures": {
+        "studio.html": "tests/fixtures/pages/generated-studio.html"
+      },
+      "requiredReferences": [
+        "anti-ai-slop/references/identity-extraction.md",
+        "anti-ai-slop/references/repair-loop.md"
+      ],
+      "mode": "edit",
+      "buildRepair": true,
+      "anchor": "examples/anti-slop/identity-preserving-repair.md"
     }
   ]
 }

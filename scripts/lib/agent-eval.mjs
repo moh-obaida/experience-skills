@@ -15,7 +15,7 @@ export function parseScenario(markdown) {
     scenario: sections.Scenario ?? '',
     prompt: sections.Prompt ?? '',
     problem: sections['Current problem'] ?? '',
-    expectedSkills: bullets(sections['Expected skills']).map((l) => l.split(/[\s(]/)[0]).filter((n) => n !== 'experience-architect'),
+    expectedSkills: bullets(sections['Expected skills']).map((l) => l.split(/[\s(]/)[0]).filter((n, _, all) => n !== 'experience-architect' || all.includes('use-all-skills')),
     principles: bullets(sections['Key principles expected']),
     unacceptable: bullets(sections['Unacceptable recommendations']),
     mode: (sections.Mode ?? 'review').trim().toLowerCase(),
@@ -24,6 +24,10 @@ export function parseScenario(markdown) {
 
 const DESIGN_INTELLIGENCE = new Set([
   'selection.md', 'directions-index.md', 'palettes.md', 'typography.md', 'surfaces-and-shape.md',
+  'design-system-selector.md', 'design-systems-index.md', 'design-system-grammar.md',
+  'design-systems-workspaces.md', 'design-systems-services.md', 'design-systems-culture.md',
+  'design-systems-learning.md', 'design-systems-operations.md', 'palette-themes.md',
+  'type-strategies.md', 'font-pairings.md', 'family-components.md', 'component-patterns.md', 'system-application-examples.md',
   'imagery-illustration-icons.md', 'motion-languages.md', 'compositions-index.md',
   'compositions-focus.md', 'compositions-flows.md', 'compositions-narrative.md',
   'compositions-content.md', 'compositions-discovery.md', 'compositions-workspaces.md',
@@ -42,6 +46,24 @@ const PRECEDENT = new Set([
   'command-center-systems.md', 'playful-products.md',
 ]);
 
+/** Resolve literal/brace-expanded skill reads from a completed shell command. */
+export function shellSkillReads(command, output = '') {
+  if (!/\b(?:cat|sed|head|tail|less|awk|rg)\b/.test(command)) return { skills: [], references: [] };
+  const skills = new Set(); const references = new Set();
+  const expand = (value) => {
+    const match = value.match(/\{([^{}]+)\}/);
+    if (!match) return [value];
+    return match[1].split(',').flatMap((part) => expand(value.replace(match[0], part)));
+  };
+  for (const match of command.matchAll(/(?:^|\/)([a-z0-9-]+|\{[a-z0-9,-]+\})\/SKILL\.md/g))
+    for (const name of expand(match[1])) skills.add(name);
+  for (const match of output.matchAll(/^#####\s+(?:\.claude\/skills\/)?([a-z0-9-]+)\/SKILL\.md/gm)) skills.add(match[1]);
+  for (const match of output.matchAll(/^=====\s+(?:\.claude\/skills\/)?([a-z0-9-]+)\/SKILL\.md\s+=====$/gm)) skills.add(match[1]);
+  for (const match of command.matchAll(/([a-z0-9-]+|\{[a-z0-9,-]+\})\/(references\/(?:_shared\/)?(?:[a-z0-9-]+|\{[a-z0-9,-]+\})\.md)/g))
+    for (const path of expand(`${match[1]}/${match[2]}`)) references.add(path);
+  return { skills: [...skills], references: [...references] };
+}
+
 /** Parse a stream-json transcript and record activation, depth, evidence, and completion signals. */
 export function parseTranscript(jsonl) {
   const events = [];
@@ -59,6 +81,7 @@ export function parseTranscript(jsonl) {
   const editToolsUsed = [];
   const renderedToolActivity = [];
   const toolCounts = {};
+  const timeline = [];
   let answer = '';
   let costUsd = null;
   let turns = null;
@@ -70,19 +93,19 @@ export function parseTranscript(jsonl) {
       for (const block of ev.message.content) {
         if (block.type !== 'tool_use') continue;
         toolCounts[block.name] = (toolCounts[block.name] ?? 0) + 1;
-        if (block.name === 'Edit' || block.name === 'Write') note(editToolsUsed, block.name);
+        if (block.name === 'Edit' || block.name === 'Write') { note(editToolsUsed, block.name); timeline.push('implementation'); }
         const input = block.input ?? {};
         const commandText = String(input.command ?? '');
         if (/playwright|screenshot|layout-report|measure-layout|detect-overflow|detect-collisions|stress-content|check-controls|check-motion-rendered|inventory-styles/i.test(commandText)
-          || /browser|screenshot|computer/i.test(block.name)) note(renderedToolActivity, block.name);
-        if (block.name === 'Skill') note(skillsInvoked, String(input.skill ?? input.command ?? input.name ?? '').replace(/^\//, ''));
+          || /browser|screenshot|computer/i.test(block.name)) { note(renderedToolActivity, block.name); timeline.push('render'); }
+        if (block.name === 'Skill') { const name = String(input.skill ?? input.command ?? input.name ?? '').replace(/^\//, ''); note(skillsInvoked, name); timeline.push(`skill:${name}`); }
         const path = String(input.file_path ?? input.path ?? '');
         const skillFile = path.match(/skills\/([a-z0-9-]+)\/SKILL\.md$/);
-        if (skillFile) note(skillFilesRead, skillFile[1]);
+        if (skillFile) { note(skillFilesRead, skillFile[1]); timeline.push(`skill:${skillFile[1]}`); }
         const ref = path.match(/skills\/([a-z0-9-]+)\/(references\/.+\.md)$/);
         if (ref) {
           const reference = `${ref[1]}/${ref[2]}`;
-          note(referencesRead, reference);
+          note(referencesRead, reference); timeline.push(`reference:${reference}`);
           const file = reference.split('/').pop();
           if (DESIGN_INTELLIGENCE.has(file)) note(designIntelligenceModulesLoaded, reference);
           if (PRECEDENT.has(file)) note(precedentModulesLoaded, reference);
@@ -107,10 +130,27 @@ export function parseTranscript(jsonl) {
       if (item.type === 'command_execution') {
         toolCounts.Bash = (toolCounts.Bash ?? 0) + 1;
         const command = String(item.command ?? '');
-        if (/playwright|screenshot|layout-report|measure-layout|detect-overflow|detect-collisions|stress-content|check-controls|check-motion-rendered|inventory-styles/i.test(command)) note(renderedToolActivity, 'Codex command');
+        const browserScript = /\bnode\s+\S*(?:layout-report|measure-layout|detect-overflow|detect-collisions|stress-content|check-controls|check-motion-rendered|inventory-styles)\.mjs\b/i.test(command);
+        if (ev.type === 'item.completed' && browserScript && item.exit_code === 0) { note(renderedToolActivity, 'Codex browser script'); timeline.push('render'); }
+        if (ev.type === 'item.completed') {
+          const reads = shellSkillReads(command, String(item.aggregated_output ?? ''));
+          for (const name of reads.skills) { note(skillFilesRead, name); timeline.push(`skill:${name}`); }
+          for (const reference of reads.references) {
+            note(referencesRead, reference); timeline.push(`reference:${reference}`);
+            const file = reference.split('/').pop();
+            if (DESIGN_INTELLIGENCE.has(file)) note(designIntelligenceModulesLoaded, reference);
+            if (PRECEDENT.has(file)) note(precedentModulesLoaded, reference);
+          }
+        }
         for (const script of command.matchAll(/skills\/([a-z0-9-]+)\/(scripts\/[a-z0-9-]+\.mjs)/g)) note(scriptsRun, `${script[1]}/${script[2]}`);
       }
-      if (item.type === 'file_change') toolCounts.Edit = (toolCounts.Edit ?? 0) + 1;
+      if (item.type === 'mcp_tool_call' && ev.type === 'item.completed' && /(?:browser|cua_repl)/i.test(String(item.server ?? '') + String(item.tool ?? ''))) {
+        const result = JSON.stringify(item.result ?? '');
+        if (!item.error && !/browser is not available|rejected this action|declined permission|security policy|access denied/i.test(result) && /screenshot|snapshot|accessibility|page state|elements/i.test(result)) {
+          note(renderedToolActivity, 'Codex browser'); timeline.push('render');
+        }
+      }
+      if (item.type === 'file_change') { toolCounts.Edit = (toolCounts.Edit ?? 0) + 1; if (ev.type === 'item.completed') timeline.push('implementation'); }
     }
     if (ev.type === 'turn.completed') {
       costUsd = ev.usage?.cost_usd ?? costUsd;
@@ -132,7 +172,39 @@ export function parseTranscript(jsonl) {
     handoffArtifact: /\bmode:\b[\s\S]*\bsurface\b[\s\S]*\bevidence:\b[\s\S]*\bdecision:\b[\s\S]*\bverification:\b/i.test(answer),
     renderedExceptionNamed: /NOT VERIFIED IN RENDERED OUTPUT[\s\S]{0,240}(?:because|reason|unavailable|cannot|not available)/i.test(answer),
   };
-  return { answer, skillsInvoked, skillFilesRead, skillsLoaded, specialistsTriggered, referencesRead, designIntelligenceModulesLoaded, precedentModulesLoaded, scriptsRun, editToolsUsed, renderedEvidenceGathered, renderedToolActivity, completionCriteriaSatisfied, toolCounts, costUsd, turns, error };
+  return { answer, skillsInvoked, skillFilesRead, skillsLoaded, specialistsTriggered, referencesRead, designIntelligenceModulesLoaded, precedentModulesLoaded, scriptsRun, editToolsUsed, renderedEvidenceGathered, renderedToolActivity, completionCriteriaSatisfied, timeline, toolCounts, costUsd, turns, error };
+}
+
+/** Observable gates for an explicit all-skills run. A loaded skill alone is not participation. */
+export function fullPassSignals(transcript, changedFiles = []) {
+  const siblings = ['experience-architect','product-friction','workflow-compression','interaction-design','visual-identity','composition-repair','state-design','empty-state-design','motion-design','responsive-validation','anti-slop-ui','anti-ai-slop','interface-forensics','critical-review'];
+  const events = transcript.timeline ?? [];
+  const first = (value) => events.indexOf(value);
+  const after = (value, index) => events.findIndex((event, i) => i > index && event === value);
+  const implementationAt = first('implementation');
+  const specialistAfter = (name, index) => events.findIndex((event, i) => i > index && (event === `skill:${name}` || event.startsWith(`reference:${name}/`)));
+  const deSlopAt = implementationAt >= 0 ? specialistAfter('anti-ai-slop', implementationAt) : -1;
+  const forensicAt = deSlopAt >= 0 ? specialistAfter('interface-forensics', deSlopAt) : -1;
+  const reviewAt = forensicAt >= 0 ? specialistAfter('critical-review', forensicAt) : -1;
+  const finalRenderAt = reviewAt >= 0 ? after('render', reviewAt) : -1;
+  const allLoaded = siblings.every((name) => transcript.skillsLoaded.includes(name));
+  const answer = transcript.answer ?? '';
+  const ledgerRows = siblings.filter((name) => {
+    const display = name.replace(/-/g, '[ -]');
+    return new RegExp(`(?:^\\|\\s*${name}\\s*\\|[^\\n]{20,}|^[-*]\\s+\\*\\*${display}:\\*\\*[^\\n]{20,})`, 'mi').test(answer);
+  });
+  return {
+    allSiblingsLoaded: allLoaded,
+    allSiblingLedgerRows: ledgerRows.length === siblings.length,
+    selectiveReferences: transcript.referencesRead.length > 0 && transcript.referencesRead.length <= 80,
+    designSystemSelected: /(?:selected|chosen) (?:design )?system|(?:design choice|design system)[\s\S]{0,350}\bI chose\b/i.test(answer) && transcript.referencesRead.some((r) => r.endsWith('/design-system-selector.md')),
+    implementationChangedFiles: changedFiles.length > 0,
+    renderedAfterImplementation: implementationAt >= 0 && after('render', implementationAt) >= 0,
+    deSlopAfterImplementation: implementationAt >= 0 && deSlopAt >= 0,
+    forensicsAfterImplementation: implementationAt >= 0 && forensicAt >= 0,
+    reviewAfterForensics: forensicAt >= 0 && reviewAt >= 0,
+    finalVerificationAfterReview: reviewAt >= 0 && finalRenderAt >= 0,
+  };
 }
 
 const PRAISE_OPENING = /^(great|love|nice|awesome|excellent|amazing|beautiful|clean|good (idea|question|call)|what a|i love|this (looks|is|seems) (great|clean|good|nice|solid|amazing|excellent|modern))/i;
@@ -231,8 +303,8 @@ export function renderReport(runs, meta) {
     '',
     `Date: ${meta.date} · Agent: ${meta.agent} · Model: ${meta.model ?? 'default'} · Mode: ${meta.mode ?? 'review'} · Judge: ${meta.judge} · Scenarios/samples: ${Object.keys(by).length}`,
     '',
-    'Each scenario ran twice in a fresh temporary project: **without** the skills and **with** all',
-    'skills installed as project skills. A separate judge graded answers without knowing the condition.',
+    'Each scenario and selected condition ran in a fresh temporary project. A separate judge graded',
+    'completed answers without knowing whether project skills were installed.',
     '',
     '| Scenario | Principles met (without → with) | Unacceptable (without → with) | Praise opening (without → with) | Expected skills loaded (with) | References / DI / precedent (with) | Required refs | Rendered evidence | Changed files | Completion signals |',
     '|---|---|---|---|---|---|---|---|---|---|',
@@ -264,6 +336,14 @@ export function renderReport(runs, meta) {
     '', '## Per-run notes', '');
   for (const r of runs) {
     lines.push(`- **${r.scenarioId} · ${r.condition}:** ${r.error ? `ERROR: ${r.error}` : (r.judge?.notes ?? 'no judge notes')}${r.condition === 'with' && r.transcript ? ` Skills loaded: ${r.transcript.skillsLoaded.join(', ') || 'none'}.` : ''}`);
+  }
+  const fullRuns = runs.filter((r) => r.fullPass);
+  if (fullRuns.length) {
+    lines.push('', '## Full-pass behavior gates', '', '| Run | Skills | Ledger | Selective refs | System | Changed | Rendered after change | De-AI after build | Forensics after de-AI | Review after forensics | Final render |', '|---|---|---|---|---|---|---|---|---|---|---|');
+    for (const r of fullRuns) {
+      const f = r.fullPass; const flag = (v) => v ? 'yes' : 'no';
+      lines.push(`| ${r.scenarioId} · ${r.condition} | ${flag(f.allSiblingsLoaded)} | ${flag(f.allSiblingLedgerRows)} | ${flag(f.selectiveReferences)} | ${flag(f.designSystemSelected)} | ${flag(f.implementationChangedFiles)} | ${flag(f.renderedAfterImplementation)} | ${flag(f.deSlopAfterImplementation)} | ${flag(f.forensicsAfterImplementation)} | ${flag(f.reviewAfterForensics)} | ${flag(f.finalVerificationAfterReview)} |`);
+    }
   }
   lines.push('', `Sampling: ${meta.repeat ?? 1} independent sample(s) per scenario/condition. Use ` +
     '`--repeat 3` or `--repeat 5` for a spread estimate; do not interpret one run as scientific proof.',

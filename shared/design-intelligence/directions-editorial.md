@@ -90,7 +90,13 @@ commerce-compatible adaptation. **Adapt:** spectacle above, efficient commerce s
 | Accessibility | Watch small targets and low-contrast metadata |
 
 **Fails when:** used for newcomers or touch-first audiences without larger targets. **Precedent:**
-Hacker News (HN1, HN2), Wikipedia mobile (WPm1). **Adapt:** keep the speed; raise contrast and target size.
+Hacker News (HN1, HN2), Wikipedia mobile (WPm1); Are.na (ARN1–ARN3) shows the register at its most
+extreme: no imagery, no cards, one button, identity carried entirely by a small glyph mark and a
+distinctive writing voice — including a self-description written as an open, literally editable
+outline (ARN1) and a live-computed running duration standing in for a static founding date (ARN2).
+**Adapt:** ARN2's move — replacing a static fact with a small piece of real, live-computed data — is
+a cheap way to make plain text feel considered rather than templated, without adding any visual
+system at all; keep the speed; raise contrast and target size.
 
 ## Archival
 
@@ -110,4 +116,10 @@ Hacker News (HN1, HN2), Wikipedia mobile (WPm1). **Adapt:** keep the speed; rais
 | Accessibility | Dense metadata must remain readable at 200% zoom |
 
 **Fails when:** metadata overwhelms the item. **Precedent:** Our World in Data "Cite this article",
-"Browse past versions" (OW2); Wikipedia revision notice (WPm1). **Adapt:** credibility tools beside the content.
+"Browse past versions" (OW2); Wikipedia revision notice (WPm1); Google Arts & Culture (GAC1–GAC3)
+offers geographic browsing ("Nearby") as a first-class peer to topical browsing rather than a buried
+filter (GAC1), with map controls following ordinary convention (GAC2) and depth in featured content
+suggested through a simple stacked-card offset rather than heavy rendering (GAC3). **Adapt:**
+credibility tools beside the content; for a real-world/museum archive specifically, offering location
+as an equally-weighted browse dimension (not just topic or date) helps when the underlying items are
+tied to physical places.

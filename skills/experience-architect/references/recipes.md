@@ -4,6 +4,38 @@ Use a recipe when two or more problem classes are material. The order is a depen
 next specialist consumes the previous artifact and does not restart diagnosis. Stop at the first
 point where the next specialist would address only low-impact polish.
 
+## EXPLICIT FULL EXPERIENCE PASS
+
+```text
+use-all-skills → all fourteen sibling skills in its phase map → final rendered verification
+```
+
+Use only when the user explicitly requests all skills or a substantial starter-to-finished product
+pass. The conductor records genuine participation and a selected design-system artifact; specialists
+load only relevant depth. It owns the final verification and does not recursively invoke itself.
+
+## PAGE-SCOPED FORENSIC AUDIT
+
+```text
+interface-forensics → relevant domain specialist if needed → interface-forensics
+```
+
+Use when the user asks to inspect or polish one rendered page in detail. The first pass inventories
+regions, controls, states, and source traces; a specialist owns only a broader structural or
+workflow decision. The final pass verifies the exact repaired surface and reports remaining gaps.
+
+## DE-AI AN EXISTING PRODUCT
+
+```text
+anti-ai-slop → interface-forensics → anti-ai-slop → critical-review
+```
+
+Use when a real, rendered product looks generated or templated and the user wants it repaired, not
+redesigned. anti-ai-slop writes the identity ledger and protected list, sweeps every surface, and
+classifies findings by severity; interface-forensics traces S0/S1 findings to source; anti-ai-slop
+chooses replacements the product itself would make, repairs, and rerenders; critical-review checks
+the result beats the original. If the ledger shows no identity to protect, run visual-identity first.
+
 ## EXPERIENCE REPAIR — VISUALLY DEAD PRODUCT
 
 ```text

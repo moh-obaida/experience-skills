@@ -13,7 +13,7 @@
 | Sparse state | One or two items must not stretch full width |
 | Dense state | Pagination or "load more" with a reachable footer |
 | Fails when | Cards show decoration instead of decision data |
-| Precedent | IKEA (IK2, IK3), Steam (ST2) |
+| Precedent | IKEA (IK2, IK3), Steam (ST2); itch.io (IT1–IT2) shows a distinct lesson for catalogs of highly varied visual content: the platform's own chrome (nav, sidebar, search) stays plain and neutral rather than adopting the aesthetic of any hosted item, so thousands of visually unrelated products (games in wildly different art styles) can sit in the same grid without the platform fighting each item's own presentation. |
 
 ## Masonry discovery
 
@@ -49,7 +49,7 @@
 | Solves | Selling through imagery |
 | Content needs | Consistent, art-directed images; price and availability close by |
 | Fails when | Images push price and purchase far below |
-| Precedent | Nike (NK1), Aesop (AE1), Patagonia (PA2) |
+| Precedent | Nike (NK1), Aesop (AE1), Patagonia (PA2); Loewe's homepage (LW1–LW3) is a counterexample worth naming: the hero product photograph carries the entire message with no price, variant, or purchase action anywhere in the first viewport (LW2–LW3) — appropriate for a brand homepage whose job is a story, not a decision, but wrong for an actual product or category page, which still needs price and availability close by as this row states. |
 
 ## Product-first commerce
 

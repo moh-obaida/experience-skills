@@ -5,6 +5,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, extname } from 'node:path';
 import { ROOT, loadCatalog, skillDirs, packageVersion, readSkill, reporter, repoRel, listFiles } from './lib/repo.mjs';
+import { checkNicheAtlas } from './lib/niche-atlas.mjs';
 
 export const REQUIRED_FILES = [
   'README.md', 'LICENSE', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', 'SECURITY.md', 'CHANGELOG.md',
@@ -158,6 +159,9 @@ export function validateRepo({ quiet = false } = {}) {
     if (!/fails when|failure/i.test(text)) r.error(`${repoRel(file)}: every composition family needs failure conditions`);
     if (!/precedent/i.test(text)) r.error(`${repoRel(file)}: every composition family needs precedent`);
   }
+
+  // Niche atlas: profiles, ten systems per niche, fingerprints, color roles, difference test.
+  checkNicheAtlas(r);
 
   // public safety scans
   const terms = privateTerms();

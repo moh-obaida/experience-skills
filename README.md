@@ -87,12 +87,43 @@ Full text: [docs/philosophy.md](docs/philosophy.md). Where each principle change
 | [`empty-state-design`](skills/empty-state-design/SKILL.md) | states | A surface has little or no content and feels unfinished, or has been stuffed with filler. |
 | [`anti-slop-ui`](skills/anti-slop-ui/SKILL.md) | quality | Work looks AI-generated or template-made: gradients, glass, pills, cards, fake stats, generic copy. |
 | [`critical-review`](skills/critical-review/SKILL.md) | quality | Someone asks whether an idea, design, or change is good, and needs a real answer. |
+| [`interface-forensics`](skills/interface-forensics/SKILL.md) | quality | A specific page or component needs exhaustive rendered inspection, source tracing, and verified repair. |
+| [`use-all-skills`](skills/use-all-skills/SKILL.md) | router | Explicitly use every Experience Skill for a substantial frontend build or complete product experience pass. |
+| [`anti-ai-slop`](skills/anti-ai-slop/SKILL.md) | quality | An existing site or app looks AI-generated or template-made and must be repaired end to end while keeping its own identity. |
 <!-- skills-table:end -->
 
 Start with `experience-architect` if you are unsure. It diagnoses the problem and pulls in only
 the specialists it needs. Every specialist also works on its own.
 
+## Design-system library
+
+The [original system index](shared/design-intelligence/design-systems-index.md) offers 30 authored
+systems across five families. The [selector](shared/design-intelligence/design-system-selector.md)
+compares three different systems before a substantial greenfield build, after the
+[Niche Design Atlas](shared/design-intelligence/niche-atlas-index.md) identifies what kind of product it
+is: 15 niche groups, 90 niche profiles, and 150 niche-adapted systems with fingerprints checked
+for structural difference. The
+[57 palette themes](shared/design-intelligence/palette-themes.md) and
+[24 type strategies](shared/design-intelligence/type-strategies.md) translate the choice into
+implementation roles. A small [Signal Foundry fixture](tests/fixtures/pages/signal-foundry.html)
+demonstrates one system without acting as a production template.
+
 ## Quick examples
+
+**"Use all Experience Skills to finish this starter product."** → `use-all-skills`
+inspects the current repo, identifies the product's niche, compares three design systems,
+implements with all fourteen specialists, then renders, de-slops, inspects, critiques, repairs, and
+verifies the result.
+
+**"Our site looks like every AI-generated site. Fix it, but keep what's ours."** → `anti-ai-slop`
+renders the site, writes an identity ledger (what is intentional, what is a library default),
+protects the owner's carriers, sweeps every surface for generated patterns, traces them to source,
+replaces them with what this product would do, and rerenders.
+([worked example](examples/anti-slop/identity-preserving-repair.md))
+
+**"Audit this account page and check the CSS."** → `interface-forensics` inspects the rendered
+route, traces significant findings through DOM and styles to source, then verifies repairs in the
+same state and at stress sizes.
 
 **"Something about our join page feels off."** → `experience-architect` measures the page,
 classifies it as a FOCUSED surface with dead space and personality in the wrong place, and
@@ -202,10 +233,10 @@ Details: [docs/architecture.md](docs/architecture.md).
 ## Repository layout
 
 ```
-skills/        12 installable skills (the product)
+skills/        15 installable skills (the product)
 shared/        source of truth: philosophy, taxonomies, patterns, anti-patterns, evaluation, tools,
                precedent modules, design-intelligence library, license notices
-examples/      20 worked teaching examples (goal, bad instinct, analysis, better and alternative directions, verification)
+examples/      22 worked teaching examples (goal, bad instinct, analysis, better and alternative directions, verification)
 catalog/       skills.json: categories, shared-module declarations, generated metadata
 scripts/       sync, validation, link checking, catalog generation, CLI discovery test, agent evals
 tests/         unit and browser tests, routing fixtures, agent-eval scenarios, fixtures

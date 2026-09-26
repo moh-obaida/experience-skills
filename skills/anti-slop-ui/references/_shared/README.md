@@ -14,11 +14,14 @@ points to it.
 | `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |
 | `fake-density.md` | Fake Density | `shared/anti-patterns/fake-density.md` |
 | `fake-minimalism.md` | Fake Minimalism | `shared/anti-patterns/fake-minimalism.md` |
+| `control-necessity.md` | Control and Content Necessity | `shared/anti-patterns/control-necessity.md` |
+| `product-copy.md` | Natural Product Copy | `shared/philosophy/product-copy.md` |
 | `anti-slop-gate.md` | Anti-Slop Gate | `shared/evaluation/anti-slop-gate.md` |
 | `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
 | `logo-removal-test.md` | Worked Example: The Logo-Removal Test | `examples/identity/logo-removal-test.md` |
 | `premium-slop.md` | Worked Example: "Premium" Slop | `examples/anti-slop/premium-slop.md` |
 | `kpi-card-dashboard.md` | Worked Example: The KPI-Card Dashboard | `examples/anti-slop/kpi-card-dashboard.md` |
+| `sparse-account-surface.md` | Worked Example: The Sparse Account Surface | `examples/anti-slop/sparse-account-surface.md` |
 | `editorial-not-cards.md` | Worked Example: Editorial Hierarchy, Not Cards | `examples/composition/editorial-not-cards.md` |
 | `anti-generic-alternatives.md` | Anti-Generic Alternatives | `shared/design-intelligence/anti-generic-alternatives.md` |
 | `compositions-index.md` | Compositions: Index | `shared/design-intelligence/compositions-index.md` |

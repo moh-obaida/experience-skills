@@ -69,6 +69,8 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Mandatory conditional loading
 
+For substantial greenfield or whole-product design, MUST load `references/_shared/niche-atlas-index.md` and the product's niche file first (what kind of product is this?), then `references/_shared/design-system-selector.md` and `references/_shared/design-systems-index.md`, compare three distinct systems, then load only their relevant family files. For the chosen system, load `references/_shared/design-system-grammar.md`, `references/_shared/palette-themes.md`, `references/_shared/type-strategies.md`, and `references/_shared/font-pairings.md` before implementing. Use `references/_shared/family-components.md` for the selected family and `references/_shared/component-patterns.md` only when a recurring task needs a new pattern; use `references/_shared/system-application-examples.md` only to test how the system transfers to a route.
+
 If a direction changes, MUST load `references/_shared/selection.md`, choose three families, and load the chosen family files before implementation. If the selected row is Neo-brutalist, Soft minimal, or Playful, MUST also load its matching product precedent module (`neo-brutalist-products.md`, `soft-minimal-products.md`, or `playful-products.md`) and name the product/surface conditions being transferred. If a treatment is proposed, MUST load `references/_shared/context-adaptation.md`, `references/_shared/product-interiors-and-dense-states.md`, and `references/_shared/justified-trends.md`. If the surface is runnable, identity claims MUST survive rendered sparse and dense states or be marked unverified.
 
 ## Checkpoints
@@ -88,8 +90,9 @@ If a direction changes, MUST load `references/_shared/selection.md`, choose thre
    your product shares those conditions. Otherwise do not cite it.
 6. **Before finishing:** logo test again on a sparse and a dense surface; check text contrast over any
    new background; check asset weight.
-7. **Before proposing a direction:** follow `references/_shared/selection.md`: three candidates from different families in `references/_shared/directions-index.md`, compared in its table. Never choose a palette, typeface, or style from the product's industry.
-8. **For every state surface** (empty, loading, error, success) and one dense surface: where does identity live there? Use `references/branded-states-and-density.md`; identity that exists only in the hero fails.
+7. **Before proposing a direction:** follow `references/_shared/selection.md`: three candidates from different families in `references/_shared/directions-index.md`, compared in its table. Never choose a palette, typeface, or style from the product's industry: the niche atlas narrows candidates by product realities (jobs, density, states, trust), and the comparison chooses.
+8. **For greenfield product identity:** have three system candidates been compared and a system translated into code roles? No → use the design-system selector and implementation grammar before components.
+9. **For every state surface** (empty, loading, error, success) and one dense surface: where does identity live there? Use `references/branded-states-and-density.md`; identity that exists only in the hero fails.
 
 ## Workflow
 
@@ -124,6 +127,9 @@ If a direction changes, MUST load `references/_shared/selection.md`, choose thre
 | When | Load |
 |---|---|
 | Choosing a direction (after the audit) | `references/_shared/selection.md`, `references/_shared/directions-index.md`, then two or three family files from `references/_shared/` (`directions-editorial.md`, `directions-structural.md`, `directions-quiet.md`, `directions-institutional.md`, `directions-technical.md`, `directions-expressive.md`, `directions-atmospheric.md`, `directions-material.md`, `directions-retro.md`, `directions-product.md`) |
+| What kind of product this is (before system selection) | `references/_shared/niche-atlas-index.md`, then one niche file: `niche-business.md`, `niche-developer.md`, `niche-ai.md`, `niche-games.md`, `niche-education.md`, `niche-commerce.md`, `niche-finance.md`, `niche-media.md`, `niche-social.md`, `niche-health.md`, `niche-public.md`, `niche-travel.md`, `niche-physical.md`, `niche-creative.md`, or `niche-personal.md` |
+| Whole-product system selection | `references/_shared/design-system-selector.md`, `references/_shared/design-systems-index.md`; then selected family files (`design-systems-workspaces.md`, `design-systems-services.md`, `design-systems-culture.md`, `design-systems-learning.md`, `design-systems-operations.md`) and `references/_shared/design-system-grammar.md` |
+| Theme, type, and component grammar | `references/_shared/palette-themes.md`, `references/_shared/type-strategies.md`, `references/_shared/font-pairings.md`; conditionally `references/_shared/component-patterns.md` and `references/_shared/system-application-examples.md` |
 | Color roles | `references/_shared/palettes.md` (contrast ratios computed) |
 | Type | `references/_shared/typography.md` |
 | Surfaces, shape, named treatments (glass, neumorphism, gradients) | `references/_shared/surfaces-and-shape.md` |
@@ -174,4 +180,9 @@ Adapted third-party material (study protocol, font pairings, style coverage) is 
   `surfaces-and-shape.md`, `imagery-illustration-icons.md`, `motion-languages.md`,
   `environment-first-identity.md`, `product-derived-identity.md`, `neo-brutalist-products.md`,
   `soft-minimal-products.md`, `playful-products.md`, `justified-trends.md`,
+  `design-system-grammar.md`, `design-system-selector.md`, `design-systems-index.md`,
+  `design-systems-workspaces.md`, `design-systems-services.md`, `design-systems-culture.md`,
+  `design-systems-learning.md`, `design-systems-operations.md`, `palette-themes.md`,
+  `type-strategies.md`, `font-pairings.md`, `family-components.md`, `component-patterns.md`,
+  `system-application-examples.md`, `niche-atlas-index.md` and the fifteen `niche-*.md` files,
   `third-party-notices.md`

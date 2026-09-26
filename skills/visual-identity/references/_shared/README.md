@@ -44,3 +44,33 @@ points to it.
 | `soft-minimal-products.md` | Precedent: Soft Minimal Products | `shared/precedent/soft-minimal-products.md` |
 | `playful-products.md` | Precedent: Playful Products with Real Mechanics | `shared/precedent/playful-products.md` |
 | `third-party-notices.md` | Third-Party Notices | `shared/legal/third-party-notices.md` |
+| `design-system-grammar.md` | Design System Grammar | `shared/design-intelligence/design-system-grammar.md` |
+| `design-system-selector.md` | Design System Selector | `shared/design-intelligence/design-system-selector.md` |
+| `design-systems-index.md` | Original Design Systems: Index | `shared/design-intelligence/design-systems-index.md` |
+| `design-systems-workspaces.md` | Design Systems: Workspaces | `shared/design-intelligence/design-systems-workspaces.md` |
+| `design-systems-services.md` | Design Systems: Services | `shared/design-intelligence/design-systems-services.md` |
+| `design-systems-culture.md` | Design Systems: Culture and Commerce | `shared/design-intelligence/design-systems-culture.md` |
+| `design-systems-learning.md` | Design Systems: Learning and Knowledge | `shared/design-intelligence/design-systems-learning.md` |
+| `design-systems-operations.md` | Design Systems: Operations and Decision Tools | `shared/design-intelligence/design-systems-operations.md` |
+| `palette-themes.md` | Palette Themes: 57 Authored Variations | `shared/design-intelligence/palette-themes.md` |
+| `type-strategies.md` | Typography Strategy Library | `shared/design-intelligence/type-strategies.md` |
+| `font-pairings.md` | System-Font Pairing Library | `shared/design-intelligence/font-pairings.md` |
+| `component-patterns.md` | Original Component Patterns | `shared/design-intelligence/component-patterns.md` |
+| `system-application-examples.md` | Authored System Application Examples | `shared/design-intelligence/system-application-examples.md` |
+| `family-components.md` | Component Languages by System Family | `shared/design-intelligence/family-components.md` |
+| `niche-atlas-index.md` | Niche Design Atlas: Index | `shared/design-intelligence/niche-atlas-index.md` |
+| `niche-business.md` | Niche Atlas: Business & Productivity | `shared/design-intelligence/niche-business.md` |
+| `niche-developer.md` | Niche Atlas: Developer & Technical | `shared/design-intelligence/niche-developer.md` |
+| `niche-ai.md` | Niche Atlas: AI Products | `shared/design-intelligence/niche-ai.md` |
+| `niche-games.md` | Niche Atlas: Games | `shared/design-intelligence/niche-games.md` |
+| `niche-education.md` | Niche Atlas: Education | `shared/design-intelligence/niche-education.md` |
+| `niche-commerce.md` | Niche Atlas: Commerce | `shared/design-intelligence/niche-commerce.md` |
+| `niche-finance.md` | Niche Atlas: Finance | `shared/design-intelligence/niche-finance.md` |
+| `niche-media.md` | Niche Atlas: Media | `shared/design-intelligence/niche-media.md` |
+| `niche-social.md` | Niche Atlas: Social | `shared/design-intelligence/niche-social.md` |
+| `niche-health.md` | Niche Atlas: Health & Wellness | `shared/design-intelligence/niche-health.md` |
+| `niche-public.md` | Niche Atlas: Public & Institutional | `shared/design-intelligence/niche-public.md` |
+| `niche-travel.md` | Niche Atlas: Travel & Hospitality | `shared/design-intelligence/niche-travel.md` |
+| `niche-physical.md` | Niche Atlas: Physical-World Operations | `shared/design-intelligence/niche-physical.md` |
+| `niche-creative.md` | Niche Atlas: Creative Software | `shared/design-intelligence/niche-creative.md` |
+| `niche-personal.md` | Niche Atlas: Personal Products | `shared/design-intelligence/niche-personal.md` |

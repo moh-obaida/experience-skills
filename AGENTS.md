@@ -59,7 +59,10 @@ folders.
   Never invent an observation; never edit an old one to say something new (add a new dated one).
 - Precedent modules cite observation IDs; `npm run validate` fails on unknown IDs.
 - Invented examples must say they are invented.
-- Design-intelligence entries state where they are wrong. No industry-to-style lookups.
+- Design-intelligence entries state where they are wrong. No industry-to-style lookups: the Niche
+  Design Atlas describes product realities and offers candidates; the selector's three-way comparison
+  chooses. New atlas systems need a fingerprint, must pass the difference test and the critique stage
+  in `niche-atlas-index.md`, and are validated by `npm run validate`. Merge synonyms instead of adding them.
 - Adapted third-party material needs provenance and must ship with `third-party-notices.md`.
 
 ## Commands

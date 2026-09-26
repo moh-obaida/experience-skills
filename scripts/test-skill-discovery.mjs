@@ -14,7 +14,7 @@ import { join, relative } from 'node:path';
 import { ROOT, SKILLS_DIR, loadCatalog, modulesFor, vendoredPath, listFiles, toPosix, markdownLinks, isExternal } from './lib/repo.mjs';
 
 const CLI = `skills@${process.env.SKILLS_CLI_VERSION ?? '1.7.0'}`;
-const INSTALL = (process.env.DISCOVERY_SKILLS ?? 'experience-architect,composition-repair,anti-slop-ui').split(',');
+const INSTALL = (process.env.DISCOVERY_SKILLS ?? 'experience-architect,composition-repair,anti-slop-ui,anti-ai-slop,interface-forensics,use-all-skills').split(',');
 
 if (process.argv.includes('--help')) {
   process.stdout.write(`test-skill-discovery — verify the repo with the public skills CLI

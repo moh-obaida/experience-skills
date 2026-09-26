@@ -40,12 +40,14 @@
         "The user asks for an experience audit of a product or area."
       ],
       "antiTriggers": [
+        "The user explicitly asked to use all Experience Skills for a substantial product: use use-all-skills.",
         "The problem is already scoped to one specialist (\"the table overflows at 360px\"). Use that skill.",
         "The task is backend or infrastructure with no user-facing behavior.",
         "The user asked for a narrow mechanical change (\"rename this button to Save\"). Just do it."
       ],
       "relatedSkills": [
-        "critical-review"
+        "critical-review",
+        "use-all-skills"
       ],
       "precedentModules": [
         "shared/precedent/experience-routing.md"
@@ -248,7 +250,37 @@
         "shared/precedent/neo-brutalist-products.md",
         "shared/precedent/soft-minimal-products.md",
         "shared/precedent/playful-products.md",
-        "shared/legal/third-party-notices.md"
+        "shared/legal/third-party-notices.md",
+        "shared/design-intelligence/design-system-grammar.md",
+        "shared/design-intelligence/design-system-selector.md",
+        "shared/design-intelligence/design-systems-index.md",
+        "shared/design-intelligence/design-systems-workspaces.md",
+        "shared/design-intelligence/design-systems-services.md",
+        "shared/design-intelligence/design-systems-culture.md",
+        "shared/design-intelligence/design-systems-learning.md",
+        "shared/design-intelligence/design-systems-operations.md",
+        "shared/design-intelligence/palette-themes.md",
+        "shared/design-intelligence/type-strategies.md",
+        "shared/design-intelligence/font-pairings.md",
+        "shared/design-intelligence/component-patterns.md",
+        "shared/design-intelligence/system-application-examples.md",
+        "shared/design-intelligence/family-components.md",
+        "shared/design-intelligence/niche-atlas-index.md",
+        "shared/design-intelligence/niche-business.md",
+        "shared/design-intelligence/niche-developer.md",
+        "shared/design-intelligence/niche-ai.md",
+        "shared/design-intelligence/niche-games.md",
+        "shared/design-intelligence/niche-education.md",
+        "shared/design-intelligence/niche-commerce.md",
+        "shared/design-intelligence/niche-finance.md",
+        "shared/design-intelligence/niche-media.md",
+        "shared/design-intelligence/niche-social.md",
+        "shared/design-intelligence/niche-health.md",
+        "shared/design-intelligence/niche-public.md",
+        "shared/design-intelligence/niche-travel.md",
+        "shared/design-intelligence/niche-physical.md",
+        "shared/design-intelligence/niche-creative.md",
+        "shared/design-intelligence/niche-personal.md"
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a product, page, or homepage looks generic, boring, template-like, or like it could belong to anyone; when someone wants more personality, fun, or brand; when identity is being added to inputs and buttons instead of the environment; or when establishing or extending a visual direction. Derives identity from the product's domain, content, and mechanics rather than from trends, logos, or decorated controls. Covers environment versus controls, product-derived motifs, color roles, typography character, surface and shape language, imagery, competitor analysis without copying, and the logo-removal recognition test.",
@@ -305,7 +337,37 @@
         "shared/design-intelligence/surfaces-and-shape.md",
         "shared/design-intelligence/imagery-illustration-icons.md",
         "shared/design-intelligence/motion-languages.md",
-        "shared/design-intelligence/context-adaptation.md"
+        "shared/design-intelligence/context-adaptation.md",
+        "shared/design-intelligence/design-system-grammar.md",
+        "shared/design-intelligence/design-system-selector.md",
+        "shared/design-intelligence/design-systems-index.md",
+        "shared/design-intelligence/design-systems-workspaces.md",
+        "shared/design-intelligence/design-systems-services.md",
+        "shared/design-intelligence/design-systems-culture.md",
+        "shared/design-intelligence/design-systems-learning.md",
+        "shared/design-intelligence/design-systems-operations.md",
+        "shared/design-intelligence/palette-themes.md",
+        "shared/design-intelligence/type-strategies.md",
+        "shared/design-intelligence/font-pairings.md",
+        "shared/design-intelligence/component-patterns.md",
+        "shared/design-intelligence/system-application-examples.md",
+        "shared/design-intelligence/family-components.md",
+        "shared/design-intelligence/niche-atlas-index.md",
+        "shared/design-intelligence/niche-business.md",
+        "shared/design-intelligence/niche-developer.md",
+        "shared/design-intelligence/niche-ai.md",
+        "shared/design-intelligence/niche-games.md",
+        "shared/design-intelligence/niche-education.md",
+        "shared/design-intelligence/niche-commerce.md",
+        "shared/design-intelligence/niche-finance.md",
+        "shared/design-intelligence/niche-media.md",
+        "shared/design-intelligence/niche-social.md",
+        "shared/design-intelligence/niche-health.md",
+        "shared/design-intelligence/niche-public.md",
+        "shared/design-intelligence/niche-travel.md",
+        "shared/design-intelligence/niche-physical.md",
+        "shared/design-intelligence/niche-creative.md",
+        "shared/design-intelligence/niche-personal.md"
       ]
     },
     {
@@ -621,11 +683,14 @@
         "shared/philosophy/design-vs-decoration.md",
         "shared/anti-patterns/fake-density.md",
         "shared/anti-patterns/fake-minimalism.md",
+        "shared/anti-patterns/control-necessity.md",
+        "shared/philosophy/product-copy.md",
         "shared/evaluation/anti-slop-gate.md",
         "examples/identity/join-code-page.md",
         "examples/identity/logo-removal-test.md",
         "examples/anti-slop/premium-slop.md",
         "examples/anti-slop/kpi-card-dashboard.md",
+        "examples/anti-slop/sparse-account-surface.md",
         "examples/composition/editorial-not-cards.md",
         "shared/design-intelligence/anti-generic-alternatives.md",
         "shared/design-intelligence/compositions-index.md",
@@ -642,7 +707,7 @@
         "shared/tools/source-scan.mjs",
         "shared/tools/layout-probe.mjs"
       ],
-      "description": "Use this skill whenever a UI looks template-made or AI-generated, before presenting any UI the agent generated, when a design is described as clean, modern, sleek, or premium, when someone proposes or questions a trend (gradients, glass, bento, dark mode, big rounded cards), or when asked to de-slop, de-genericize, or sharpen a design. Detects and repairs centered-card syndrome, fake-premium whitespace, card and pill overuse, gradient and glass abuse, meaningless stat cards, hero clichés, overdesigned inputs, generic copy, and motion slop, and keeps a trend when it does a real job (no reverse dogma). Includes a static signal scanner and a final slop gate.",
+      "description": "Use this skill whenever a UI looks template-made or AI-generated, before presenting any UI the agent generated, when a design is described as clean, modern, sleek, or premium, when someone proposes or questions a trend (gradients, glass, bento, dark mode, big rounded cards), or when asked whether a pattern is slop or to de-genericize or sharpen a design or component. Detects and repairs centered-card syndrome, fake-premium whitespace, card and pill overuse, gradient and glass abuse, meaningless stat cards, hero clichés, overdesigned inputs, generic copy, and motion slop, and keeps a trend when it does a real job (no reverse dogma). Includes a static signal scanner and a final slop gate.",
       "version": "0.3.0",
       "references": [
         "references/alternatives-engine.md",
@@ -664,6 +729,7 @@
       ],
       "antiTriggers": [
         "The structure or workflow is the main problem; route through experience-architect.",
+        "An existing product must be swept end to end, its identity extracted and protected, and every",
         "A treatment belongs to an established, deliberate brand system; evaluate it, do not strip it for"
       ],
       "relatedSkills": [
@@ -671,7 +737,8 @@
         "composition-repair",
         "visual-identity",
         "state-design",
-        "empty-state-design"
+        "empty-state-design",
+        "anti-ai-slop"
       ],
       "precedentModules": [
         "shared/precedent/justified-trends.md",
@@ -695,12 +762,15 @@
         "shared/anti-patterns/model-instincts.md",
         "shared/philosophy/human-judgment.md",
         "shared/anti-patterns/overengineering.md",
+        "shared/anti-patterns/control-necessity.md",
+        "shared/philosophy/product-copy.md",
         "shared/evaluation/experience-rubric.md",
         "shared/evaluation/workflow-rubric.md",
         "shared/evaluation/anti-slop-gate.md",
         "examples/full-product/public-service-form.md",
         "examples/full-product/product-page-purchase-path.md",
         "examples/identity/join-code-page.md",
+        "examples/anti-slop/sparse-account-surface.md",
         "shared/design-intelligence/selection.md",
         "shared/precedent/justified-trends.md",
         "shared/legal/third-party-notices.md"
@@ -731,6 +801,248 @@
       ],
       "designIntelligenceModules": [
         "shared/design-intelligence/selection.md"
+      ]
+    },
+    {
+      "name": "interface-forensics",
+      "category": "quality",
+      "useWhen": "A specific page or component needs exhaustive rendered inspection, source tracing, and verified repair.",
+      "shared": [],
+      "sharedScripts": [],
+      "description": "Use this skill whenever the user asks to audit a specific page, inspect every inch of a screen, find everything wrong with a UI, check its CSS, fix small visual and interaction issues, or explain why one rendered surface feels off. Investigates the actual route and states from rendered symptom through DOM, computed style, CSS cascade, component source, root cause, repair, and rerendered verification. Covers controls, copy, accessibility, responsive behavior, and annoying details without turning a page audit into a product redesign.",
+      "version": "0.3.0",
+      "activationExamples": [
+        "\"Audit this page,\" \"go over every inch,\" \"check the CSS too,\" \"find all the small issues,\" or \"why does this screen feel annoying?\"",
+        "A particular route or component needs detailed rendered, DOM, CSS, interaction, content, and state inspection.",
+        "Another experience skill finds a surface defect that needs implementation-level tracing."
+      ],
+      "antiTriggers": [
+        "The question is whether a proposed design decision is good: use critical-review.",
+        "The whole page's information structure must be redesigned: use composition-repair, then inspect the resulting surface here if needed.",
+        "Only a known mechanical edit is requested and no audit is needed."
+      ],
+      "relatedSkills": [
+        "composition-repair",
+        "workflow-compression",
+        "visual-identity",
+        "interaction-design",
+        "state-design",
+        "motion-design",
+        "responsive-validation",
+        "anti-slop-ui",
+        "critical-review"
+      ],
+      "precedentModules": [],
+      "designIntelligenceModules": [],
+      "references": [
+        "references/control-and-copy.md",
+        "references/forensic-process.md",
+        "references/source-tracing.md",
+        "references/stress-and-accessibility.md",
+        "references/surface-inspection.md",
+        "references/verification-and-report.md"
+      ],
+      "scripts": [
+        "scripts/collect-evidence.mjs"
+      ]
+    },
+    {
+      "name": "use-all-skills",
+      "category": "router",
+      "useWhen": "Explicitly use every Experience Skill for a substantial frontend build or complete product experience pass.",
+      "shared": [
+        "shared/design-intelligence/design-system-grammar.md",
+        "shared/design-intelligence/design-system-selector.md",
+        "shared/design-intelligence/design-systems-index.md",
+        "shared/design-intelligence/design-systems-workspaces.md",
+        "shared/design-intelligence/design-systems-services.md",
+        "shared/design-intelligence/design-systems-culture.md",
+        "shared/design-intelligence/design-systems-learning.md",
+        "shared/design-intelligence/design-systems-operations.md",
+        "shared/design-intelligence/palette-themes.md",
+        "shared/design-intelligence/type-strategies.md",
+        "shared/design-intelligence/font-pairings.md",
+        "shared/design-intelligence/component-patterns.md",
+        "shared/design-intelligence/system-application-examples.md",
+        "shared/design-intelligence/family-components.md",
+        "shared/design-intelligence/selection.md",
+        "shared/legal/third-party-notices.md",
+        "shared/design-intelligence/niche-atlas-index.md",
+        "shared/design-intelligence/niche-business.md",
+        "shared/design-intelligence/niche-developer.md",
+        "shared/design-intelligence/niche-ai.md",
+        "shared/design-intelligence/niche-games.md",
+        "shared/design-intelligence/niche-education.md",
+        "shared/design-intelligence/niche-commerce.md",
+        "shared/design-intelligence/niche-finance.md",
+        "shared/design-intelligence/niche-media.md",
+        "shared/design-intelligence/niche-social.md",
+        "shared/design-intelligence/niche-health.md",
+        "shared/design-intelligence/niche-public.md",
+        "shared/design-intelligence/niche-travel.md",
+        "shared/design-intelligence/niche-physical.md",
+        "shared/design-intelligence/niche-creative.md",
+        "shared/design-intelligence/niche-personal.md"
+      ],
+      "sharedScripts": [],
+      "description": "Use this skill whenever the user explicitly says 'use all skills', 'run every Experience Skill', 'full Experience Skills pass', or asks to take a starter frontend project from skeleton to a fully designed, implemented, inspected, and verified product. Orchestrates all fourteen sibling skills in a deliberate sequence, identifies the product's niche, chooses an original design system from three candidates, preserves handoffs, and checks rendered work without loading every reference or forcing needless changes. Do not use for a narrow UI edit unless the user explicitly requests all skills.",
+      "version": "0.3.0",
+      "activationExamples": [
+        "The user explicitly requests all Experience Skills or a full experience pass.",
+        "The user asks to take a substantial starter/greenfield frontend project through complete product design, implementation, repair, and verification."
+      ],
+      "antiTriggers": [
+        "A button, component, copy string, CSS defect, or other narrow issue is requested without an explicit all-skills instruction. Use the matching specialist.",
+        "The task has no user-facing product surface to design or inspect."
+      ],
+      "relatedSkills": [
+        "experience-architect",
+        "composition-repair",
+        "workflow-compression",
+        "visual-identity",
+        "interaction-design",
+        "state-design",
+        "motion-design",
+        "product-friction",
+        "responsive-validation",
+        "empty-state-design",
+        "anti-slop-ui",
+        "critical-review",
+        "interface-forensics",
+        "anti-ai-slop"
+      ],
+      "precedentModules": [],
+      "designIntelligenceModules": [
+        "shared/design-intelligence/design-system-grammar.md",
+        "shared/design-intelligence/design-system-selector.md",
+        "shared/design-intelligence/design-systems-index.md",
+        "shared/design-intelligence/design-systems-workspaces.md",
+        "shared/design-intelligence/design-systems-services.md",
+        "shared/design-intelligence/design-systems-culture.md",
+        "shared/design-intelligence/design-systems-learning.md",
+        "shared/design-intelligence/design-systems-operations.md",
+        "shared/design-intelligence/palette-themes.md",
+        "shared/design-intelligence/type-strategies.md",
+        "shared/design-intelligence/font-pairings.md",
+        "shared/design-intelligence/component-patterns.md",
+        "shared/design-intelligence/system-application-examples.md",
+        "shared/design-intelligence/family-components.md",
+        "shared/design-intelligence/selection.md",
+        "shared/design-intelligence/niche-atlas-index.md",
+        "shared/design-intelligence/niche-business.md",
+        "shared/design-intelligence/niche-developer.md",
+        "shared/design-intelligence/niche-ai.md",
+        "shared/design-intelligence/niche-games.md",
+        "shared/design-intelligence/niche-education.md",
+        "shared/design-intelligence/niche-commerce.md",
+        "shared/design-intelligence/niche-finance.md",
+        "shared/design-intelligence/niche-media.md",
+        "shared/design-intelligence/niche-social.md",
+        "shared/design-intelligence/niche-health.md",
+        "shared/design-intelligence/niche-public.md",
+        "shared/design-intelligence/niche-travel.md",
+        "shared/design-intelligence/niche-physical.md",
+        "shared/design-intelligence/niche-creative.md",
+        "shared/design-intelligence/niche-personal.md"
+      ],
+      "references": [
+        "references/design-artifact.md",
+        "references/participation-ledger.md",
+        "references/phase-map.md"
+      ],
+      "scripts": []
+    },
+    {
+      "name": "anti-ai-slop",
+      "category": "quality",
+      "useWhen": "An existing site or app looks AI-generated or template-made and must be repaired end to end while keeping its own identity.",
+      "shared": [
+        "shared/anti-patterns/model-instincts.md",
+        "shared/anti-patterns/design-cliches.md",
+        "shared/philosophy/design-vs-decoration.md",
+        "shared/philosophy/product-identity.md",
+        "shared/philosophy/product-copy.md",
+        "shared/precedent/justified-trends.md",
+        "shared/design-intelligence/anti-generic-alternatives.md",
+        "shared/design-intelligence/compositions-index.md",
+        "examples/identity/logo-removal-test.md",
+        "examples/anti-slop/identity-preserving-repair.md",
+        "shared/design-intelligence/niche-atlas-index.md",
+        "shared/design-intelligence/niche-business.md",
+        "shared/design-intelligence/niche-developer.md",
+        "shared/design-intelligence/niche-ai.md",
+        "shared/design-intelligence/niche-games.md",
+        "shared/design-intelligence/niche-education.md",
+        "shared/design-intelligence/niche-commerce.md",
+        "shared/design-intelligence/niche-finance.md",
+        "shared/design-intelligence/niche-media.md",
+        "shared/design-intelligence/niche-social.md",
+        "shared/design-intelligence/niche-health.md",
+        "shared/design-intelligence/niche-public.md",
+        "shared/design-intelligence/niche-travel.md",
+        "shared/design-intelligence/niche-physical.md",
+        "shared/design-intelligence/niche-creative.md",
+        "shared/design-intelligence/niche-personal.md",
+        "shared/legal/third-party-notices.md"
+      ],
+      "sharedScripts": [
+        "shared/tools/source-scan.mjs"
+      ],
+      "description": "Use this skill whenever the user asks to remove the AI look from an existing site or app, says a real implementation looks AI-generated, templated, v0/shadcn/Tailwind-default, or 'like every other AI site', asks to de-AI, exterminate slop, or hunt down every generated-looking decision in a rendered product and fix it. Renders the current product, extracts and protects its existing identity, sweeps every surface for decorative, gradient, glass, card, pill, radius, shadow, typography, color, copy, hero, dashboard, bento, icon, dark-mode, depth, motion, empty-space, component-library, and fake-personality slop, traces each to source, replaces it with what this product would do instead, rerenders, and checks the result is neither generic nor merely weird. Not a style swap: keeps justified gradients, play, density, and expression.",
+      "version": "0.3.0",
+      "activationExamples": [
+        "An existing site or app \"looks AI-generated,\" \"looks like every v0/shadcn/Tailwind site,\" or",
+        "A generated or template-started product must be de-slopped end to end before launch.",
+        "`use-all-skills` reaches its de-generate phase after implementation and anti-slop-ui.",
+        "anti-slop-ui or critical-review found widespread generated patterns across many surfaces."
+      ],
+      "antiTriggers": [
+        "The question is whether one trend or treatment is justified, or a gate before presenting new UI",
+        "The product has no identity yet and needs a direction or system → visual-identity (then return).",
+        "One page needs exhaustive DOM/CSS inspection for all defects → interface-forensics.",
+        "The structure is broken (overflow, no focal point) → composition-repair first.",
+        "There is no implementation to render or read."
+      ],
+      "relatedSkills": [
+        "composition-repair",
+        "visual-identity",
+        "anti-slop-ui",
+        "critical-review",
+        "interface-forensics",
+        "use-all-skills"
+      ],
+      "precedentModules": [
+        "shared/precedent/justified-trends.md"
+      ],
+      "designIntelligenceModules": [
+        "shared/design-intelligence/anti-generic-alternatives.md",
+        "shared/design-intelligence/compositions-index.md",
+        "shared/design-intelligence/niche-atlas-index.md",
+        "shared/design-intelligence/niche-business.md",
+        "shared/design-intelligence/niche-developer.md",
+        "shared/design-intelligence/niche-ai.md",
+        "shared/design-intelligence/niche-games.md",
+        "shared/design-intelligence/niche-education.md",
+        "shared/design-intelligence/niche-commerce.md",
+        "shared/design-intelligence/niche-finance.md",
+        "shared/design-intelligence/niche-media.md",
+        "shared/design-intelligence/niche-social.md",
+        "shared/design-intelligence/niche-health.md",
+        "shared/design-intelligence/niche-public.md",
+        "shared/design-intelligence/niche-travel.md",
+        "shared/design-intelligence/niche-physical.md",
+        "shared/design-intelligence/niche-creative.md",
+        "shared/design-intelligence/niche-personal.md"
+      ],
+      "references": [
+        "references/identity-extraction.md",
+        "references/repair-loop.md",
+        "references/slop-structure-motion.md",
+        "references/slop-surfaces.md",
+        "references/slop-type-color-copy.md"
+      ],
+      "scripts": [
+        "scripts/extract-identity.mjs"
       ]
     }
   ]

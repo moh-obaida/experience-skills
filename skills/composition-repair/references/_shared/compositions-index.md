@@ -59,6 +59,7 @@ states, and responsive behavior (see the third-party notices file).
 | Data investigation | `compositions-operational.md` | Exploring and slicing data | DATA-HEAVY |
 | Command center / live control room | `compositions-operational.md` | Operating something in real time | LIVE CONTROL |
 | Mobile thumb-first | `compositions-mobile.md` | One-handed phone use | any, mobile |
+| Mobile list-detail | `compositions-mobile.md` | Browsing a list and opening one item's detail on a narrow screen | OPERATIONAL, CONTENT |
 | Bottom-navigation workspace | `compositions-mobile.md` | Several top-level areas on a phone | OPERATIONAL, DISCOVERY |
 | Contextual sheet system | `compositions-mobile.md` | Secondary options without leaving context | mobile |
 | Split-view tablet | `compositions-mobile.md` | List and detail together on tablets | OPERATIONAL, CREATION |

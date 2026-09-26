@@ -84,6 +84,31 @@ no visible loading indicator.
 **Transfer:** reserve a visible loading/connection state for the focal data surface. **Wrong when:**
 chrome suggests readiness while the operator cannot trust the data yet.
 
+## `FDR2`
+
+**Observed:** Flightradar24's live map renders hundreds of simultaneous aircraft as small icons
+rotated to match each one's actual heading, directly on the geography, with no separate list needed
+to read direction of travel.
+
+**Right when:** position and orientation together are the information, and the volume is genuinely
+high (hundreds of live objects in a busy region).
+**Transfer:** let the canvas itself carry density through real spatial and directional encoding
+instead of a metrics panel bolted alongside it. **Wrong when:** the underlying objects don't have a
+meaningful heading or position, and rotation/placement would be decorative rather than informative.
+
+## `FDR3`
+
+**Observed:** Flightradar24 keeps its only controls (Settings, Weather, Filters) in a small,
+low-contrast floating bar at the bottom of the map that recedes until touched, rather than a
+persistent sidebar or toolbar framing the canvas.
+
+**Right when:** the live data is the product and controls are used occasionally relative to how
+often the operator just watches.
+**Transfer:** let chrome recede in contrast (not disappear entirely) so the monitored surface stays
+the focal point; bring it forward only on interaction. **Wrong when:** controls are used frequently
+enough that low discoverability would slow the operator down — in that case, keep them visible at
+full contrast.
+
 ## Transfer checklist
 
 1. Name the monitored system, scope, freshness, authority, and operator action.

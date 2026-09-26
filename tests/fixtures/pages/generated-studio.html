@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northside Clay — ceramics classes</title>
+<!-- Invented fixture. The owner added: terracotta wordmark (#B4532A), the serif "About" heading,
+     their own kiln photograph, and the thin kiln-glow band under the header (taken from that photo).
+     Everything else came from a generator. -->
+<style>
+ :root{--radius:1.5rem}
+ body{margin:0;font:16px/1.5 Inter,system-ui,sans-serif;color:#111827;background:#fff}
+ header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px}
+ .wordmark{font:700 22px/1 Georgia,serif;color:#B4532A;letter-spacing:.02em}
+ .kiln-band{height:6px;background:linear-gradient(90deg,#B4532A,#E08A3C,#E9B949)}
+ nav a{margin-left:20px;color:#4F46E5;text-decoration:none}
+ .hero{position:relative;overflow:hidden;text-align:center;padding:140px 24px}
+ .blob{position:absolute;width:420px;height:420px;border-radius:9999px;filter:blur(80px);opacity:.45;z-index:-1}
+ .blob.a{background:#8B5CF6;top:-80px;left:-60px}.blob.b{background:#3B82F6;bottom:-120px;right:-40px}
+ .badge{display:inline-block;border-radius:9999px;padding:4px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:#6B7280;border:1px solid #E5E7EB}
+ h1{font-size:88px;line-height:1;font-weight:800;margin:24px auto;max-width:900px;
+    background:linear-gradient(90deg,#7C3AED,#2563EB);-webkit-background-clip:text;background-clip:text;color:transparent}
+ .lead{color:#9CA3AF;font-size:20px;max-width:640px;margin:0 auto}
+ .ctas a{display:inline-block;margin:32px 8px 0;padding:14px 28px;border-radius:9999px;text-decoration:none}
+ .primary{background:linear-gradient(90deg,#7C3AED,#2563EB);color:#fff;box-shadow:0 0 40px rgba(124,58,237,.5)}
+ .secondary{border:1px solid #E5E7EB;color:#111827}
+ .glass{margin:64px auto 0;max-width:720px;padding:32px;border-radius:var(--radius);background:rgba(255,255,255,.1);
+        backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.2);box-shadow:0 25px 50px rgba(0,0,0,.25)}
+ .features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:80px auto;padding:0 24px}
+ .card{border-radius:var(--radius);padding:32px;box-shadow:0 20px 40px rgba(0,0,0,.08);border:1px solid #F3F4F6;transition:all .3s}
+ .card:hover{transform:translateY(-6px)}
+ .icon{width:44px;height:44px;border-radius:12px;background:#EDE9FE;display:grid;place-items:center;color:#7C3AED}
+ .classes{display:grid;grid-template-columns:2fr 1fr;gap:24px;max-width:1100px;margin:0 auto 80px;padding:0 24px}
+ .about{max-width:680px;margin:0 auto 96px;padding:0 24px}
+ .about h2{font:600 34px/1.2 Georgia,serif}
+ .about img{width:100%;height:260px;object-fit:cover;background:#C9A68A}
+ .reveal{animation:fadeUp .8s ease both}
+ @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+ @media (max-width:700px){h1{font-size:48px}.features,.classes{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header><span class="wordmark">Northside Clay</span><nav><a href="#classes">Classes</a><a href="#about">About</a><a href="#book">Book</a></nav></header>
+<div class="kiln-band" aria-hidden="true"></div>
+<section class="hero reveal">
+ <div class="blob a"></div><div class="blob b"></div>
+ <span class="badge">✨ Unlock your creativity</span>
+ <h1>Elevate your craft journey</h1>
+ <p class="lead">Seamlessly discover the art of ceramics in a space built for modern makers.</p>
+ <div class="ctas"><a class="primary" href="#book">Get Started</a><a class="secondary" href="#about">Learn More</a></div>
+ <div class="glass">Booking widget preview</div>
+</section>
+<section class="features reveal">
+ <div class="card"><div class="icon">✦</div><h3>Seamless booking</h3><p>Book in seconds.</p></div>
+ <div class="card"><div class="icon">⚡</div><h3>Expert guidance</h3><p>Learn from the best.</p></div>
+ <div class="card"><div class="icon">♥</div><h3>Community vibes</h3><p>Join our community.</p></div>
+</section>
+<section id="classes" class="classes reveal">
+ <div class="card"><h3>Wheel throwing</h3><p>Our most popular class.</p></div>
+ <div class="card"><h3>Glazing</h3><p>Colour and finish.</p></div>
+ <div class="card"><h3>Hand building</h3><p>Pinch, coil, slab.</p></div>
+</section>
+<section id="about" class="about">
+ <h2>About the studio</h2>
+ <img alt="Hands shaping a bowl on the wheel beside the open kiln" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
+ <p>Six wheels, one gas kiln, and classes of up to eight people in a former print works in Leith.
+ Sessions run Tuesday to Saturday; clay, glazes, and two firings are included.</p>
+</section>
+</body></html>

@@ -34,8 +34,8 @@ tests/                     tests, fixtures, scenarios, routing evals
 
 ## Decision 1: flat sibling skills with a thin router
 
-The collection is twelve sibling skills rather than one large skill. Agents route on skill
-descriptions; distinct descriptions for distinct problems route better than one description that
+The collection is fourteen specialist/router skills plus `use-all-skills`, a thin conductor,
+rather than one large skill. Agents route on skill descriptions; distinct descriptions for distinct problems route better than one description that
 tries to cover everything. Users can install one specialist without the rest.
 
 `experience-architect` is a router, not an encyclopedia. It diagnoses, maps symptoms to problem
@@ -66,8 +66,8 @@ would break as soon as someone installed only that skill.
 Solution:
 
 1. Shared content lives once in `shared/` and `examples/`.
-2. `catalog/skills.json` declares, per skill, which modules it needs. `coreModules` (only
-   `experience-core.md`) go to every skill. A skill declares a module only if its `SKILL.md` names
+2. `catalog/skills.json` declares, per skill, which modules it needs. `coreModules`
+   (`experience-core.md` and `experience-operating-contract.md`) go to every skill. A skill declares a module only if its `SKILL.md` names
    it where it is used.
 3. `scripts/sync-shared.mjs` copies each declared module into the skill's `references/_shared/`
    (markdown) or `scripts/_shared/` (JavaScript), flattened by filename, with a
@@ -80,9 +80,9 @@ Solution:
 Worked examples live in the top-level `examples/` folder rather than `shared/examples/` because
 they are also meant to be browsed by people; the sync treats both folders as sources.
 
-The tradeoff is repository size (about 108 generated files: 91 markdown copies, 12 indexes, 5
-   script libraries). The benefit is that every installed
-skill is complete, which the discovery test verifies with the real CLI.
+The tradeoff is repository size: each selected shared source is copied into every skill that uses it.
+The benefit is that every installed skill is complete, which the discovery test verifies with the
+real CLI.
 
 ## Decision 4: the existing `skills` CLI, no custom installer
 
@@ -141,13 +141,22 @@ specialist leaves a compact transfer artifact; the next specialist consumes it r
 diagnosis. The eval harness now separates specialist activation, design-intelligence reads,
 precedent reads, rendered-evidence signals, completion signals, and required-reference compliance.
 
-## Decision 9: evidence, interpretation, and vocabulary are separate layers
+## Decision 9: full-product orchestration stays thin
+
+`use-all-skills` invokes the other fourteen skills in a dependency order (after responsive
+validation: anti-slop-ui → anti-ai-slop → interface-forensics → critical-review → repair → verify). It records each
+specialist's inspected scope, decision, references, changed work, and verification. The authored
+design-system library separates direction, implementation system, and theme; the conductor reads
+only selected systems and references. It cannot claim a complete pass by merely naming skills.
+
+## Decision 10: evidence, interpretation, and vocabulary are separate layers
 
 - **Evidence** (`research/observations/`): what was seen, when, and how. Not vendored.
 - **Interpretation** (`shared/precedent/`): concept modules that cite evidence IDs and state transfer
   conditions. Vendored into the skills that decide with them.
-- **Vocabulary** (`shared/design-intelligence/`): directions, compositions, palettes, type, surfaces,
-  motion languages, models, and the selection procedure. Index files let an agent load one family
+- **Vocabulary** (`shared/design-intelligence/`): the Niche Design Atlas (15 niche groups, 150 niche-adapted
+  systems), directions, 30 general authored systems, 57 palette themes,
+  24 type strategies, compositions, surfaces, motion languages, and the selection procedure. Index files let an agent load one family
   instead of the whole library.
 
 Skills load these only from checkpoints and "when → load" tables, so a skill that ships 30 library
@@ -174,3 +183,22 @@ A later version may let a project include an optional `EXPERIENCE.md` describing
 preference, motion appetite, brand principles, forbidden patterns, and workflow priorities. Skills
 would read it when present and behave exactly as today when absent. It is intentionally not part
 of v0.1: the public skills must be useful without any profile.
+
+## Decision 11: niche before look, and a separate repair specialist
+
+The design-system selector first asks what kind of product it is. The Niche Design Atlas
+(`shared/design-intelligence/niche-atlas-index.md` and fifteen `niche-*.md` files) records product
+realities per niche (jobs, density, surfaces, states, interaction, trust, generated-UI failures) and
+ten or more authored systems per niche group. The atlas narrows candidates; it never picks a style,
+so the existing "no industry-to-style lookups" rule still holds. Size is deliberate but loading is
+not: an agent reads the index and one niche file. Each system carries a machine-readable
+fingerprint; `scripts/lib/niche-atlas.mjs` (run by `npm run validate`) enforces the index contract,
+computes color-role contrast, and fails sibling systems that differ in fewer than four of eleven
+dimensions, so synonyms cannot inflate the library.
+
+Two anti-slop skills exist on purpose. `anti-slop-ui` is the knowledge, prevention, and gate
+specialist: is this pattern justified, and what are the alternatives? `anti-ai-slop` is the
+remediation specialist for an existing rendered product: it extracts and protects the product's
+identity, sweeps every surface, traces generated decisions to source, replaces them with what that
+product would do, and rerenders. Keeping them separate keeps each description routable.
+

@@ -86,6 +86,19 @@ playful layer supports several emotional states rather than only celebration.
 **Transfer:** design quiet, incomplete, missed-day, and restart states before celebration states.
 **Wrong when:** the product punishes absence with loud streak loss or forced cheer.
 
+## `NEO1`
+
+**Observed:** Neocities' homepage uses a hand-drawn cartoon mascot (a cat in a construction helmet)
+over a plain line-art cityscape and hand-drawn stars, with informal, friendly copy ("Share your web
+creation with the world") rather than corporate SaaS language.
+
+**Right when:** the product's whole premise is personal, DIY creative expression and the audience
+expects warmth over polish.
+**Transfer:** let the illustration and copy voice carry personality together; a hand-drawn mascot
+paired with corporate copy undercuts itself. **Wrong when:** the product is a professional tool
+where users need to be taken seriously by third parties (a portfolio meant to impress employers,
+for instance) — the same warmth would work against the user's actual goal there.
+
 ## Transfer checklist
 
 1. Put personality in environment, content, character, sound, or event feedback before styling a

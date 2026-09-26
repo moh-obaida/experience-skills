@@ -1,0 +1,104 @@
+---
+name: use-all-skills
+description: "Use this skill whenever the user explicitly says 'use all skills', 'run every Experience Skill', 'full Experience Skills pass', or asks to take a starter frontend project from skeleton to a fully designed, implemented, inspected, and verified product. Orchestrates all fourteen sibling skills in a deliberate sequence, identifies the product's niche, chooses an original design system from three candidates, preserves handoffs, and checks rendered work without loading every reference or forcing needless changes. Do not use for a narrow UI edit unless the user explicitly requests all skills."
+license: MIT
+metadata:
+  version: "0.3.0"
+  collection: experience-skills
+---
+
+# Use ALL skills
+
+The full product build mode. Invoke every other Experience Skill meaningfully; each specialist loads only the references needed for its decision. This skill conducts, records handoffs, and verifies the final result. Never invoke this skill recursively.
+
+## Start here
+
+1. Read `references/_shared/experience-core.md` and `references/_shared/experience-operating-contract.md`.
+2. Read `references/phase-map.md`. Inspect the repository and current rendered product before deciding what to change.
+
+<!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
+**Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
+Read that file (the full rules and evidence levels) before a full review, repair, or build.
+
+- **Verdict before adjectives.** Do not write "clean," "modern," "great idea," or "looks good" until
+  an observation earns it. The user's enthusiasm is not evidence; test the proposal against the goal.
+- **Evidence levels on findings.** E1 rendered, E2 measured, E3 source, E4 documented,
+  E5 screenshot, E6 assumed. If files, a browser, or a terminal are available, look or measure before
+  claiming. Otherwise, name the checks you did not run.
+- **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
+  with filler (stats, tips, promos, decoration).
+- **Personality belongs in the environment, not in standard controls.** A control changes only if
+  the change makes the task faster or more reliable.
+- **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
+  is wrong by category, so keep one that does a job.
+- **Count steps before and after.** If the software already knows an answer, do not ask for it.
+  Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
+- **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
+  screen, the keyboard path.
+- **Hand off when another experience skill fits better.** If part of the problem belongs to one
+  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
+  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
+  states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
+- **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
+  anti-slop branch must load its required reference before recommendation or edit; unrelated work
+  must not load the whole library.
+<!-- core-brief:end -->
+
+## Use this when
+
+- The user explicitly requests all Experience Skills or a full experience pass.
+- The user asks to take a substantial starter/greenfield frontend project through complete product design, implementation, repair, and verification.
+
+## Do not use this when
+
+- A button, component, copy string, CSS defect, or other narrow issue is requested without an explicit all-skills instruction. Use the matching specialist.
+- The task has no user-facing product surface to design or inspect.
+
+## Checkpoints
+
+1. **Before design:** have you inspected the repo, existing routes, content, system, and rendered state when runnable? No → inspect first; protect what already works (`references/phase-map.md`).
+2. **Before components:** do you have the product map, simplified workflow, three distinct system candidates, chosen system, composition, interaction model, and state model? No → finish those decisions before generating UI (`references/design-artifact.md`).
+3. **For each sibling skill:** did it inspect something, make or explicitly decline a decision, load only relevant references, and hand off its result? No → it has not participated; revisit it (`references/participation-ledger.md`).
+4. **Before adding motion, new controls, or visual treatment:** does it help a product task or state? No → leave it out. Participation never requires a change.
+5. **After implementation:** has the actual product been rendered, stressed responsively, screened for generic UI by anti-slop-ui, de-generated by anti-ai-slop, inspected by interface-forensics, challenged by critical-review, and repaired, in that order? No → continue the phase sequence (`references/phase-map.md`).
+6. **Before final response:** do build/tests and the final rendered route, state, keyboard, and stress checks pass? No → if a renderer is unavailable, try an installed skill browser script or Playwright. If access was denied by a browser security policy, respect the denial and state the exact unverified gaps. Never claim a full pass from source alone.
+7. **Before final response:** does the response itself summarize the product's niche, the three system candidates, chosen system, ordered anti-ai-slop/forensic/review result, and all fourteen contributions? No → include a compact ledger summary; a link to an artifact alone is insufficient.
+
+## Workflow
+
+1. **Inspect and understand:** experience-architect maps product, audience, jobs, routes, and evidence; product-friction records recurring confusion. Preserve existing strengths.
+2. **Simplify:** workflow-compression counts and improves steps; interaction-design chooses familiar controls, scope, safety, and keyboard behavior.
+3. **Select a design system:** visual-identity first identifies the product's niche with `references/_shared/niche-atlas-index.md` and loads only that niche file (for example `references/_shared/niche-education.md`), then loads `references/_shared/design-system-selector.md`, compares three meaningfully different candidates from `references/_shared/design-systems-index.md`, and chooses one. For the chosen family, load only its system file and the relevant `references/_shared/palette-themes.md` and `references/_shared/type-strategies.md`. Record an implementation artifact (`references/design-artifact.md`).
+4. **Compose:** composition-repair selects route-specific structures and viewport budgets. Do not repeat one layout on every page.
+5. **Model states:** state-design covers the lifecycle; empty-state-design resolves zero, sparse, filtered-empty, and permission states.
+6. **Implement:** build coherent routes/components/tokens/content with the chosen system. Keep design decisions in code, not only prose.
+7. **Motion and responsive:** motion-design maps real events, including reduced-motion behavior; responsive-validation renders and repairs sizes, zoom, content stress, and RTL where applicable.
+8. **Quality passes:** anti-slop-ui checks treatments against general pattern knowledge and removes unjustified defaults; anti-ai-slop sweeps the rendered product, protects the identity just built, and reconstructs any area that still looks generated; interface-forensics inspects the rendered implementation and traces significant issues to source; critical-review compares the result to the original and the simplest alternative. Revert choices that worsen the product.
+9. **Final verification:** rerun build/lint/tests and rendered primary/secondary paths, states, keyboard, touch assumptions, overflow, and reduced motion as relevant. Record every skill's actual contribution (`references/participation-ledger.md`).
+
+## The fourteen sibling skills
+
+`experience-architect`, `product-friction`, `workflow-compression`, `interaction-design`, `visual-identity`, `composition-repair`, `state-design`, `empty-state-design`, `motion-design`, `responsive-validation`, `anti-slop-ui`, `anti-ai-slop`, `interface-forensics`, `critical-review`.
+
+## Completion criteria
+
+- All fourteen have ledger entries with inspected scope, decision or justified no-change, references used, changes caused, and verification.
+- Three conceptually different systems were compared; the selected system materially shaped typography, color, geometry, composition, components, states, responsive behavior, and justified motion.
+- Major routes and workflows were implemented and rendered, or exact blockers and unverified outcomes are listed.
+- anti-slop-ui and then anti-ai-slop ran after responsive validation; interface forensics occurred after anti-ai-slop; critical review occurred after forensics; repairs followed review; final verification occurred after repairs.
+- Final response briefly states what was built, system choice, product decisions, skill contributions, tests, and remaining risks.
+
+## References
+
+- `references/phase-map.md` — phase gates and ordering
+- `references/participation-ledger.md` — evidence of genuine specialist participation
+- `references/design-artifact.md` — selected system translated into code decisions
+- `references/_shared/experience-core.md`, `references/_shared/experience-operating-contract.md` — collection contract
+- `references/_shared/niche-atlas-index.md` — identify the niche first; then load one of `niche-business.md`, `niche-developer.md`, `niche-ai.md`, `niche-games.md`, `niche-education.md`, `niche-commerce.md`, `niche-finance.md`, `niche-media.md`, `niche-social.md`, `niche-health.md`, `niche-public.md`, `niche-travel.md`, `niche-physical.md`, `niche-creative.md`, `niche-personal.md`
+- `references/_shared/selection.md`, `references/_shared/design-system-selector.md`, `references/_shared/design-systems-index.md` — candidate choice
+- `references/_shared/design-systems-workspaces.md`, `references/_shared/design-systems-services.md`, `references/_shared/design-systems-culture.md`, `references/_shared/design-systems-learning.md`, `references/_shared/design-systems-operations.md` — load only selected family
+- `references/_shared/design-system-grammar.md`, `references/_shared/palette-themes.md`, `references/_shared/type-strategies.md`, `references/_shared/font-pairings.md` — implementation rules
+- `references/_shared/family-components.md` — selected family component language
+- `references/_shared/component-patterns.md`, `references/_shared/system-application-examples.md` — load only for relevant component or route decisions
+- `references/_shared/third-party-notices.md` — provenance for the adapted selection protocol

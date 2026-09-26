@@ -45,6 +45,25 @@ patterns transfer to any form-heavy product.
 | Accessibility | Dense institutional content needs strong structure |
 
 **Fails when:** heritage cues replace usability. **Adapt:** restraint and structure, not crests everywhere.
+**Precedent:** MIT homepage (MIT1–MIT4): a restrained maroon-and-white identity carries the whole
+page; instead of decoration, the homepage's real design effort goes into audience-segmented
+wayfinding (MIT2) — a search module plus links grouped by "who are you" (prospective student,
+current student, faculty, alumni, parent), because an institution's homepage serves structurally
+different visitors with different jobs, not one visitor with one job. A bordered, low-saturation
+callout (MIT3) carries time-sensitive institutional notices without breaking the page's restraint.
+**Adapt:** the audience-segmented link pattern (MIT2) transfers to any product serving several
+distinct user types from one entry point (a platform with buyers and sellers, a school with
+students and parents) — segment by who the visitor is before segmenting by topic.
+
+**Precedent:** MoMA (MOMA1–MOMA3) shows the same family from a museum rather than a university: a black-and-white
+identity broken exactly once, by a saturated blue "Tickets" button next to a grey "Donate" button
+(MOMA2) — color spent on the one transactional action, not on decoration. Computed styles confirm a
+real commissioned typeface, "MoMA Sans," at maximum weight for the wordmark (MOMA3), and the hero
+photograph shows real visitors in the gallery rather than artwork alone (MOMA1) — selling the
+experience of visiting, the institution's actual product, not just its collection. **Adapt:**
+MOMA2's one-saturated-action-only discipline is the concrete version of this direction's "restraint,
+not decoration" rule — pick exactly one moment (usually the one action that produces revenue or the
+mission) to break an otherwise monochrome identity.
 
 ## Accessibility-first high contrast
 
@@ -65,6 +84,17 @@ patterns transfer to any form-heavy product.
 
 **Fails when:** contrast is high but hierarchy is flat. **Adapt:** combine with any direction as a
 constraint layer rather than a look.
+**Precedent:** RNIB (RN1–RN4): the appearance control sits in the header at the same visual level
+as the site's primary commerce actions (RN1) — treated as a first-class setting, not something
+buried in a footer. The choice is a visible three-way switch (Light/Dark/Yellow), not a hidden
+binary toggle (RN2); "Yellow" mode is a specific, deliberately chosen high-legibility pairing
+(black on a warm yellow-gold), not just an inverted theme (RN3). Across every mode the phone
+helpline stays a plain, undisguised tappable link at consistent prominence (RN3), and the one
+saturated brand color is spent on exactly one action, the primary CTA (RN4) — restraint elsewhere is
+what makes that one color legible as "this is the important one." **Adapt:** make the appearance
+control itself as discoverable as the product's primary actions, offer more than a binary choice
+when real alternatives exist (not just dark mode), and keep informational content (like a phone
+number) as plain, unstyled text rather than a decorated control at every appearance setting.
 ### Family checks
 
 Responsive behavior preserves headings, error summaries, and task order before decorative symmetry.

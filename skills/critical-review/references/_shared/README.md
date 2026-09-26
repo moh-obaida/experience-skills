@@ -13,12 +13,15 @@ points to it.
 | `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
 | `human-judgment.md` | Human Judgment | `shared/philosophy/human-judgment.md` |
 | `overengineering.md` | Overengineering | `shared/anti-patterns/overengineering.md` |
+| `control-necessity.md` | Control and Content Necessity | `shared/anti-patterns/control-necessity.md` |
+| `product-copy.md` | Natural Product Copy | `shared/philosophy/product-copy.md` |
 | `experience-rubric.md` | Experience Rubric | `shared/evaluation/experience-rubric.md` |
 | `workflow-rubric.md` | Workflow Rubric | `shared/evaluation/workflow-rubric.md` |
 | `anti-slop-gate.md` | Anti-Slop Gate | `shared/evaluation/anti-slop-gate.md` |
 | `public-service-form.md` | Worked Example: Public-Service Form | `examples/full-product/public-service-form.md` |
 | `product-page-purchase-path.md` | Worked Example: Product Page Purchase Path | `examples/full-product/product-page-purchase-path.md` |
 | `join-code-page.md` | Worked Example: The Join-Code Page | `examples/identity/join-code-page.md` |
+| `sparse-account-surface.md` | Worked Example: The Sparse Account Surface | `examples/anti-slop/sparse-account-surface.md` |
 | `selection.md` | Design Direction Selection | `shared/design-intelligence/selection.md` |
 | `justified-trends.md` | Precedent: When "AI-Looking" Techniques Are Right | `shared/precedent/justified-trends.md` |
 | `third-party-notices.md` | Third-Party Notices | `shared/legal/third-party-notices.md` |

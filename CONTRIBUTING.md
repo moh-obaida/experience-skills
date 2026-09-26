@@ -60,7 +60,9 @@ A new direction, composition, palette family, typography note, or precedent entr
 - test or eval implications (a scenario, a fixture, or a routing case)
 
 Rejected: "here is a cool style" without context, name-dropping lists, invented examples presented as
-observed products, and palettes or fonts chosen by industry.
+observed products, and palettes or fonts chosen by industry. Niche atlas systems are judged by the
+index's critique stage and fingerprint difference test; a system that differs from a sibling mostly
+in color, font, or naming is merged, not added.
 
 ## Writing style
 

@@ -46,7 +46,11 @@ one carrier (type voice, a signature color role, interaction speed) and make it 
 | Accessibility | Easy to get right |
 
 **Fails when:** minimal becomes empty (see fake minimalism). **Precedent:** Brilliant (BR1),
-ChatGPT start (CG1). **Adapt:** the one remaining element must be the product.
+ChatGPT start (CG1); Excalidraw (EXC1–EXC4) is the purest case in this library: no frame at all
+around the canvas, one floating icon-only toolbar as the entire chrome (EXC1), and even the one
+moment of typographic character (the hand-drawn welcome heading) is confined to a single instance
+rather than spread across the interface (EXC2, EXC4) — confirming this direction's core test that
+the one remaining element must BE the product, not decorate it. **Adapt:** the one remaining element must be the product.
 
 ## Soft minimal
 
@@ -117,6 +121,15 @@ adaptation instead of decorating the ambiguity.
 
 **Fails when:** calm becomes vague (unclear status, hidden next steps). **Adapt:** calm tone,
 precise content.
+**Precedent:** Headspace (HS1–HS4): a consumer wellness track and a clinical, insurance-driven
+therapy track sit in two equally weighted cards using the same soft, warm visual language (HS1) —
+calm doesn't mean casual; the same restraint serves a regulated clinical claim and a lifestyle app
+alike. Contrast is spent only on the call to action — solid black pills against a cream, rounded
+environment (HS2) — and the marketing page previews real session screens by name ("Managing
+Anxiety," "Drift Off at Denali") rather than an abstract app-icon collage (HS3). The brand's sun
+motif appears as identity, not as a guiding mascot that talks to the user (HS4). **Adapt:** the
+contrast-budget pattern (HS2) transfers directly: keep the environment soft and let the one thing
+that must be pressed be the only hard-edged, high-contrast shape on the screen.
 ### Family checks
 
 Responsive behavior protects reading measure and the next action instead of shrinking type into

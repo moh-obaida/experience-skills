@@ -25,6 +25,15 @@ Directions that borrow physical materials, craft, and quality cues.
 
 **Fails when:** fake leather and stitching decorate unrelated software. **Adapt:** texture tied to
 a real object users know.
+**Precedent:** teenage engineering (TE1–TE3): every nav destination pairs with a small hand-inked
+line-art icon drawn in the same style as the page's illustration (TE1) — the icon language itself is
+the tactile/craft reference, not a generic icon font with a texture filter over it. A firmware
+update is presented as a full hand-drawn comic (TE2) instead of a screenshot or changelog, and the
+palette stays black, white, and one accent color (TE3) — physical, tactile character comes from
+illustration and line quality, not from added color or skeuomorphic gloss. **Adapt:** the
+restrained-palette-plus-rich-illustration pattern (TE3) transfers well beyond hardware brands: a
+distinctive hand-drawn or engraved icon system can carry a tactile identity through interface
+chrome that is otherwise completely flat.
 
 ## Analog-inspired
 
@@ -85,6 +94,15 @@ the voice and marks; controls stay standard.
 
 **Fails when:** "luxury" means empty space and grey text with stock photos. **Adapt:** precision
 everywhere, including forms and checkout.
+**Precedent:** Loewe (LW1–LW3): the nav is five plain words and four unlabeled utility icons (LW1)
+— restraint comes from removing explanation, not from removing function. The hero is a single studio
+product photograph with no lifestyle staging (LW2), captioned by a short editorial line about
+material and craft rather than price or a discount (LW3); no urgency language appears anywhere in
+the first viewport. **Counterexample:** a luxury-styled page that spends its restraint budget on
+decoration instead of on removing sales pressure — beige and serif with a countdown timer or "only 2
+left" undercuts the exact quality luxury direction is selling. **Adapt:** the unlabeled-icon
+restraint (LW1) only works because the icons follow near-universal e-commerce convention; unlabeled
+icons for anything less standard need labels regardless of how premium the surrounding page looks.
 ### Family checks
 
 Responsive behavior removes texture and oversized imagery before removing product facts or actions.

@@ -5,15 +5,19 @@ stable ID that precedent modules cite. Observations describe what was seen; inte
 the precedent modules (`shared/precedent/`) and the design-intelligence library.
 
 **Method codes:** R = the live page was opened in a browser and looked at (desktop viewport about
-800×600 CSS px unless noted; mobile at 375×812); T = page text or documentation read; R+T = both.
-Regional versions differ; the region is noted where it affected what was seen. Sites change; treat
-every observation as true on its date only. No screenshots are stored in this repository.
+800×600 CSS px unless noted; mobile at 375×812); T = page text or documentation read; R+T = both;
+R+JS = computed styles were read directly from the DOM via an in-page script. Regional versions
+differ; the region is noted where it affected what was seen. Sites change; treat every observation
+as true on its date only. No screenshots are stored in this repository.
 
 ## GitHub — repository page (https://github.com/vercel-labs/skills) — R, 2026-09-24
 - GH1 Tabs carry live counts (Issues 670, Pull requests 245): navigation doubles as status.
 - GH2 The file list shows, per row, the last commit message and its relative age: every row answers "what changed here and when" without opening anything.
 - GH3 One filled green primary action ("Code") per region; "Go to file" search sits beside the branch picker, where file-finding starts.
 - GH4 Right sidebar holds reference metadata (About, license, stars, releases) at P2/P3 weight; the file list is P0.
+
+## GitHub — homepage, computed motion tokens (https://github.com/) — R+JS, 2026-09-26
+- GH5 The "Sign in" link's computed transition is `background-color 0.2s, border-color 0.2s` — a plain 200ms linear-default timing on exactly the two properties that change on hover, not a shorthand `all` transition covering every property.
 
 ## GitHub Actions — workflow runs list (https://github.com/vercel-labs/skills/actions) — R, 2026-09-24
 - GA1 Each run row shows a status icon (success check, failure cross), the commit title, workflow name, branch chip, trigger, relative time, and duration: dense but scannable because every column is a real attribute.

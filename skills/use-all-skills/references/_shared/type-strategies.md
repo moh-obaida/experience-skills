@@ -1,0 +1,38 @@
+<!-- GENERATED FROM shared/design-intelligence/type-strategies.md. DO NOT EDIT DIRECTLY. Edit the source and run `npm run sync`. -->
+
+# Typography Strategy Library
+
+Choose the job before a font name. The rows below describe authored strategies, not typeface endorsements. “System sans” means `system-ui, sans-serif`; “system serif” means `ui-serif, Georgia, serif`; “system mono” means `ui-monospace, SFMono-Regular, Consolas, monospace`. System fonts need no bundled font license but render differently by platform. If bundling a specific open font, verify license, glyph coverage, weight files, and rendering in the project. Never assume a Latin display face supports Arabic. Test numerals, currency, diacritics, long labels, zoom, and real content.
+
+Default role mapping unless a row overrides it: heading 28–36px/1.1–1.25, body 15–17px/1.45–1.6, labels 13–15px/1.25–1.4, metadata 12–14px/1.3–1.5, data 14–16px tabular, code 13–15px mono. Scale by available measure and language, not by a fixed phone percentage. Maintain at least readable 16px body for long mobile text when possible; do not force tracking/caps onto Arabic.
+
+| Strategy | Character, density, fits / avoid | Heading / body / labels / metadata | Data / code | Mobile, accessibility, multilingual decision |
+|---|---|---|---|---|
+| Neo-grotesk | Neutral, compact; systems and formal products / avoid when voice depends on warmth | Same system sans family; weight and size establish hierarchy | tabular sans / mono only for code | Check similar glyphs at 12px; choose Arabic companion with matching density. |
+| Humanist sans | Open, readable, warm; services and education / avoid ultra-tight dashboards | Humanist category for all reading roles; modest weight steps | tabular figures / mono code | Good long-form UI; Arabic should preserve open counters and line-height. |
+| Geometric sans | Crisp, constructed; short display and consumer UI / avoid dense body copy | Geometric headings, neutral body/labels, small metadata sans | neutral tabular / mono code | Limit display use on narrow screens; watch circular glyph ambiguity. |
+| Technical sans | Exact, restrained; developer and diagram UI / avoid emotional storytelling | Technical headings/labels, system body | mono data/code | Test 0/O and 1/l/I, especially at compact sizes and in mixed scripts. |
+| Industrial sans | Durable, high-signal; field work / avoid intimate wellness | Condensed headings, plain body, strong labels | tabular data / mono IDs | Do not condense instructions; test outdoors and Arabic glyph width. |
+| Condensed sans | Space-efficient display; maps/routes / avoid long paragraphs | Condensed headings only, normal-width body and labels | tabular normal-width / mono code | Let long place names wrap; never rely on condensed body at mobile. |
+| Wide sans | Stage-like titles; media and culture / avoid dense settings | Wide display, restrained system body/labels | tabular sans / mono code | Reduce headline width and line breaks on phone; Arabic display may need separate strategy. |
+| Soft sans | Gentle without infantile forms; family and service / avoid emergency controls | Soft headings, neutral UI body/labels | tabular neutral / mono code | Preserve focus/contrast; overly rounded numerals harm data scan. |
+| Editorial serif | Reading voice; publishing / avoid operational tables | Serif headings/body, sans labels/metadata | tabular sans / mono code | 65–75 character desktop measure; Arabic uses appropriate reading face, not faux serif. |
+| Old-style serif | Textual, historical; archives / avoid real-time ops | Old-style reading/display, neutral sans controls | tabular sans / mono code | Watch thin strokes at small sizes; keep labels sans. |
+| Transitional serif | Formal but legible; institutions / avoid playful microcopy | Transitional short headings, system sans body/labels | tabular sans / mono code | High contrast can disappear on low-density screens; test actual weight. |
+| Modern serif | Dramatic contrast; cultural product display / avoid small UI | Modern serif large display only, humanist body | tabular sans / mono code | Keep out of mobile multi-line controls and high-stakes instructions. |
+| Display serif | Singular editorial statement; launches / avoid repetitive dashboards | Display for one focal heading, body/labels in calm sans | tabular sans / mono code | Clamp size to real content; never let display font hide primary action. |
+| Slab serif | Sturdy annotation; learning/industrial stories / avoid luxurious delicacy | Slab headings, system sans body/labels | tabular sans / mono code | Strong at moderate sizes; inspect dense diacritics and Arabic substitution. |
+| Humanist mono | Readable structured data; docs and IDs / avoid full body in consumer UI | Mono short headings/data, humanist body and labels | tabular mono / mono code | Avoid excessive character count on mobile; allow code scrolling with focus. |
+| Technical mono | Precise commands; consoles / avoid prose-heavy services | Mono IDs/commands, technical sans headings/body | mono tabular / mono code | Test ambiguous glyphs; use proportional text for explanatory paragraphs. |
+| Terminal mono | Deliberate command environment / avoid mere “tech vibe” | Mono for actual terminal surface, sans adjacent UI | mono data/code | Preserve wrapping and copy; don't use terminal aesthetics for nontechnical users. |
+| Serif + sans | Contrast between reading and operation; editorial commerce | Serif content heading/body, sans navigation/forms | tabular sans / mono code | Match perceived size/x-height, not nominal px; Arabic may use one coherent companion. |
+| Sans + mono | Work vs machine data; operations / avoid decorating all labels with mono | Sans headings/body/labels, mono IDs/data | mono tabular/code | Distinguish data from controls; avoid monospace metadata everywhere. |
+| Serif + mono | Annotation and record tension; archives/technical essays | Serif reading, mono captions/IDs, sans control labels | mono tabular/code | Keep mono sparse; mixed scripts and long IDs need direction isolation. |
+| Single-family variable | Consistency through weight/width/optical size; broad platforms | One family with clear role sizes/weights | tabular feature / mono only for code | Confirm loaded axes and fallback; avoid synthetic bold and layout shift. |
+| Expressive display + restrained body | Product voice in one place; campaigns/creator tools | Display on one focal element, system body/labels | tabular sans / mono code | Replace display on constrained routes if it harms task; no forced Arabic mimicry. |
+| Arabic-first | Arabic reading rhythm sets hierarchy; Arabic-majority products | Arabic-capable system stack for all UI roles, Latin companion aligned by perceived size | Arabic/Latin tabular numerals chosen by locale; mono code isolated | Test RTL layout separately from font; avoid letter-spacing/caps; inspect mixed numerals and diacritics. |
+| Latin + Arabic companions | Bilingual system; services, commerce, learning | Two families chosen for similar x-height/perceived weight and complementary tone | localized numerals; code stays LTR | Test title wrapping in both languages, direction isolation, and font loading order. |
+
+## Font pairing decisions
+
+Use `font-pairings.md` for concrete system-stack examples. Pairings work by role contrast, not by famous names. Compare x-height, width, texture, stroke modulation, language coverage, numeral behavior, and loading cost on the same rendered page. A type strategy is wrong if it only succeeds in a hero screenshot but fails on forms, data, or mobile.

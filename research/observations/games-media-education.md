@@ -5,9 +5,13 @@ stable ID that precedent modules cite. Observations describe what was seen; inte
 the precedent modules (`shared/precedent/`) and the design-intelligence library.
 
 **Method codes:** R = the live page was opened in a browser and looked at (desktop viewport about
-800×600 CSS px unless noted; mobile at 375×812); T = page text or documentation read; R+T = both.
-Regional versions differ; the region is noted where it affected what was seen. Sites change; treat
-every observation as true on its date only. No screenshots are stored in this repository.
+800×600 CSS px unless noted; mobile at 375×812); T = page text or documentation read; R+T = both;
+R+JS = computed styles were read directly from the DOM via an in-page script. Regional versions
+differ; the region is noted where it affected what was seen. Sites change; treat every observation
+as true on its date only. No screenshots are stored in this repository.
+
+## Kahoot — marketing homepage, computed motion tokens (https://kahoot.com/) — R+JS, 2026-09-26
+- KH3 Nav links and buttons compute `border-color 0.2s, filter 0.2s` (or plain `0.1s`/`0.2s` shorthand) on hover, with no transform, scale, or overshoot on any measured element — the brand's actual playful, bouncy motion is not present anywhere in the marketing site's own navigation chrome.
 
 ## Steam — store front (https://store.steampowered.com/) — R, 2026-09-24
 - ST1 Dark blue environment with a dense top category nav (Browse, Recommendations, Categories, Ways to Play, Special Sections) and a search field built into the nav bar.

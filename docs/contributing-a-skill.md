@@ -20,7 +20,7 @@ proposal* issue first to discuss scope.
    `useWhen`, `shared` (and `sharedScripts` if needed). `coreModules` are added automatically.
    Name every shared file in `SKILL.md` where it is used.
 4. **Sync and generate**: `npm run sync && npm run catalog`.
-5. **Route to it**: add a row to `skills/experience-architect/references/routing.md` (including a
+5. **Route to it**: add a row to `skills/experience-architect/references/diagnosis-and-routing.md` (including a
    fallback method) and, if relevant, to `cross-skill-composition.md`.
 6. **Add routing cases** to `tests/evals/routing.json` and, if useful, a scenario in `tests/scenarios/`.
 7. **Add an example** under `examples/<category>/` if the skill introduces a new lesson.

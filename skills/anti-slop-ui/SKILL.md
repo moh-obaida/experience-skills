@@ -1,6 +1,6 @@
 ---
 name: anti-slop-ui
-description: "Use this skill whenever a UI looks template-made or AI-generated, before presenting any UI the agent generated, when a design is described as clean, modern, sleek, or premium, when someone proposes or questions a trend (gradients, glass, bento, dark mode, big rounded cards), or when asked to de-slop, de-genericize, or sharpen a design. Detects and repairs centered-card syndrome, fake-premium whitespace, card and pill overuse, gradient and glass abuse, meaningless stat cards, hero clichés, overdesigned inputs, generic copy, and motion slop, and keeps a trend when it does a real job (no reverse dogma). Includes a static signal scanner and a final slop gate."
+description: "Use this skill whenever a UI looks template-made or AI-generated, before presenting any UI the agent generated, when a design is described as clean, modern, sleek, or premium, when someone proposes or questions a trend (gradients, glass, bento, dark mode, big rounded cards), or when asked whether a pattern is slop or to de-genericize or sharpen a design or component. Detects and repairs centered-card syndrome, fake-premium whitespace, card and pill overuse, gradient and glass abuse, meaningless stat cards, hero clichés, overdesigned inputs, generic copy, and motion slop, and keeps a trend when it does a real job (no reverse dogma). Includes a static signal scanner and a final slop gate."
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
@@ -65,12 +65,15 @@ Read that file (the full rules and evidence levels) before a full review, repair
 ## Do not use this when
 
 - The structure or workflow is the main problem; route through experience-architect.
+- An existing product must be swept end to end, its identity extracted and protected, and every
+  generated-looking area reconstructed and rerendered: use anti-ai-slop (this skill supplies the
+  pattern knowledge and the final gate).
 - A treatment belongs to an established, deliberate brand system; evaluate it, do not strip it for
   being unusual.
 
 ## Mandatory conditional loading
 
-If generated UI is about to be presented, MUST load `references/final-slop-gate.md`. If a pattern is flagged, MUST load `references/alternatives-engine.md`, `references/_shared/context-adaptation.md`, `references/_shared/product-interiors-and-dense-states.md`, and `references/_shared/justified-trends.md` before removing it. If the surface can run, MUST collect rendered or scanner evidence before the final recommendation.
+If generated UI is about to be presented, MUST load `references/final-slop-gate.md`. If a pattern is flagged, MUST load `references/alternatives-engine.md`, `references/_shared/context-adaptation.md`, `references/_shared/product-interiors-and-dense-states.md`, and `references/_shared/justified-trends.md` before removing it. If the surface can run, MUST collect rendered or scanner evidence before the final recommendation. Before judging any individual control, card, badge, or label, MUST load `references/_shared/control-necessity.md` and run its eight core questions; before judging any string, MUST load `references/_shared/product-copy.md`.
 
 ## Checkpoints
 
@@ -79,13 +82,19 @@ If generated UI is about to be presented, MUST load `references/final-slop-gate.
    or replace it. Never remove something only because it belongs to a category on a list
    (`references/_shared/design-vs-decoration.md`).
 2. **For every number, card, tip, or illustration:** is it true, specific to this user, and does it
-   change what they do next? No → remove it (`references/_shared/fake-density.md`).
+   change what they do next? No → remove it (`references/_shared/fake-density.md`). For every
+   button, pill, badge, or icon: is it already available elsewhere on this screen, and does its
+   visual weight match how often it's actually used? Run the full catalog in
+   `references/_shared/control-necessity.md`; the worked critique in
+   `references/_shared/sparse-account-surface.md` shows the expected level of specificity.
 3. **After removing slop:** is the surface now dead space? Yes → fill it with structure, identity, or
    real content (`references/_shared/fake-minimalism.md`), never with a different trend.
 4. **For every custom control:** does it make the task faster or more reliable? No → standard control;
    personality moves to the environment (anchor `references/_shared/join-code-page.md`).
 5. **For every sentence of copy:** could a competitor use it unchanged? Yes → rewrite it with a
-   specific, checkable claim. A synonym swap is not a rewrite.
+   specific, checkable claim. A synonym swap is not a rewrite. Check it against the generic-phrase
+   list and copy-type table in `references/_shared/product-copy.md`, including personalization that
+   reads as generated (truncated names, unearned possessives).
 6. **Before presenting:** run `references/final-slop-gate.md`. Your summary contains no "clean,"
    "modern," "sleek," or "premium" unless followed by the evidence.
 7. **Never delete a flagged pattern without running `references/alternatives-engine.md`:** at least three alternatives from different families, compared, then chosen by context.
@@ -169,8 +178,10 @@ credited in `references/_shared/third-party-notices.md`.
 - `scripts/inventory-styles.mjs` — rendered inventory of radii, shadows, gradients, blur, type, nesting, repeated cards
 - `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
   `model-instincts.md`,
-  `design-vs-decoration.md`, `fake-density.md`, `fake-minimalism.md`, `anti-slop-gate.md`,
+  `design-vs-decoration.md`, `fake-density.md`, `fake-minimalism.md`, `control-necessity.md`,
+  `product-copy.md`, `anti-slop-gate.md`,
   `join-code-page.md`, `logo-removal-test.md`, `premium-slop.md`, `kpi-card-dashboard.md`,
+  `sparse-account-surface.md`,
   `editorial-not-cards.md`, `anti-generic-alternatives.md`, `compositions-index.md`,
   `directions-index.md`, `selection.md`, `data-visualization.md`, `justified-trends.md`,
   `product-first-presentation.md`, `third-party-notices.md`

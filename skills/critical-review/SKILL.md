@@ -65,7 +65,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Mandatory conditional loading
 
-If the proposal changes visual direction, MUST load `references/_shared/selection.md` and compare three families. If it rejects a familiar trend, MUST load `references/_shared/justified-trends.md`. If implemented UI is runnable, MUST render or state **NOT VERIFIED IN RENDERED OUTPUT** with the exact blocker before issuing a final verdict.
+If the proposal changes visual direction, MUST load `references/_shared/selection.md` and compare three families. If it rejects a familiar trend, MUST load `references/_shared/justified-trends.md`. If implemented UI is runnable, MUST render or state **NOT VERIFIED IN RENDERED OUTPUT** with the exact blocker before issuing a final verdict. If the review covers a specific rendered screen (not just a proposal in the abstract), MUST load `references/_shared/control-necessity.md` and interrogate each visible control, card, and label against its eight core questions before writing hidden costs — see the worked account-page critique in `references/_shared/sparse-account-surface.md` for the level of specificity expected. If any interface copy is part of the review, MUST load `references/_shared/product-copy.md` before judging whether it reads as natural or generated.
 
 ## Checkpoints
 
@@ -155,6 +155,8 @@ The selection method adapts ideas credited in `references/_shared/third-party-no
 - `references/verdict-examples.md` — ten short verdicts, observed and invented, across the full range
 - `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
   `model-instincts.md`,
-  `human-judgment.md`, `overengineering.md`, `experience-rubric.md`, `workflow-rubric.md`,
+  `human-judgment.md`, `overengineering.md`, `control-necessity.md`, `product-copy.md`,
+  `experience-rubric.md`, `workflow-rubric.md`,
   `anti-slop-gate.md`, `public-service-form.md`, `product-page-purchase-path.md`,
-  `join-code-page.md`, `selection.md`, `justified-trends.md`, `third-party-notices.md`
+  `join-code-page.md`, `sparse-account-surface.md`, `selection.md`, `justified-trends.md`,
+  `third-party-notices.md`

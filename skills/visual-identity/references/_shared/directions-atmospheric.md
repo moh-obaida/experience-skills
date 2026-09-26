@@ -84,6 +84,14 @@ express which plane is interactive.
 | Accessibility | Non-spatial alternatives for every task |
 
 **Adapt:** keep a list or search alternative for everything placed in space.
+**Precedent:** Google Arts & Culture (GAC1–GAC3): geographic browsing ("Nearby") is offered as a
+first-class top-level destination equal to topic-based browsing, not a filter buried under search
+(GAC1), and its map controls follow ordinary map-app convention (a locate-me button in the standard
+bottom-right position) rather than inventing bespoke spatial chrome (GAC2). Depth in a featured card
+is suggested with a simple stacked, offset-card motif rather than 3D rendering (GAC3) — a cheap,
+robust way to imply "there is more here to browse" without the performance and accessibility cost
+of real 3D. **Adapt:** GAC1's lesson generalizes beyond galleries: whenever "near me" or a real
+location is a genuine way to browse, make it a peer destination, not a mode hidden inside search.
 ### Family checks
 
 Responsive behavior removes depth before removing orientation. Accessibility and RTL require a

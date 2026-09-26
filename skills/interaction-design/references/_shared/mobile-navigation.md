@@ -34,6 +34,28 @@ Native apps were not observed in this pass; these are mobile web surfaces.
 - **What works:** a floating pill with menu, wishlist, search (emphasized), cart, account.
 - **Caution:** a mobile pattern at desktop width; it covers content near the bottom edge.
 
+### MIT — text-labeled menu control at 375px
+`MIT1` · https://www.mit.edu/ · rendered at 375×812
+- **What works:** the full top-level nav collapses into a single control labeled "Menu" with a
+  down-arrow glyph, not an unlabeled hamburger icon; the search icon stays visible standalone next
+  to it, and the page's one active institutional callout keeps the same full-width priority it has
+  on desktop.
+- **Lesson:** a text label on the nav-collapse control ("Menu") costs a little more width than a bare
+  hamburger icon and buys unambiguous discoverability — worth it for an audience (prospective
+  students, parents, press) that can't be assumed to know the icon.
+
+### RNIB — appearance control promoted above the header on mobile
+`RN2` · https://www.rnib.org.uk/ · rendered at 375×812
+- **What works:** at desktop width the appearance switcher sits inside the header row; at 375px it
+  gets its own full-width strip above the header — more prominent on the narrower, more
+  space-constrained viewport, not less. The hamburger menu and search icons both keep a text label
+  underneath ("Menu", "Search") rather than going icon-only, and the phone helpline stays a
+  full-width, undiminished bar directly under the header.
+- **Lesson:** don't assume a control should shrink or move to a menu on mobile just because space is
+  tighter — if it's genuinely important to the audience, mobile can be the platform that gives it
+  *more* prominence, and pairing a familiar icon with its label costs little width while removing all
+  ambiguity about what it does.
+
 ---
 
 ## Summary rules

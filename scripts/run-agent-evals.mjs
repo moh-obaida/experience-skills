@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os';
 import { join, basename } from 'node:path';
 import { createHash } from 'node:crypto';
 import { ROOT, readJson } from './lib/repo.mjs';
-import { parseScenario, parseTranscript, answerSignals, judgePrompt, parseJudge, routingScore, renderReport } from './lib/agent-eval.mjs';
+import { parseScenario, parseTranscript, fullPassSignals, answerSignals, judgePrompt, parseJudge, routingScore, renderReport } from './lib/agent-eval.mjs';
 
 const HELP = `run-agent-evals — with/without-skills behavioral evaluation on tests/scenarios
 
@@ -162,6 +162,7 @@ async function runOne(entry, scenario, condition, opts, outDir, sample = 1) {
   writeFileSync(join(outDir, `${id}.${condition}.${sample}.answer.md`), record.transcript.answer || '');
   record.signals = answerSignals(record.transcript.answer || '');
   record.routing = routingScore(scenario.expectedSkills, record.transcript.skillsLoaded);
+  if (scenario.expectedSkills.includes('use-all-skills')) record.fullPass = fullPassSignals(record.transcript, record.changedFiles);
   const requiredReferences = entry.requiredReferences ?? [];
   const loadedReferences = record.transcript.referencesRead;
   record.requiredReferenceCompliance = {

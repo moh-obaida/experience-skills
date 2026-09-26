@@ -82,8 +82,14 @@ anatomy everywhere; branch by reader path in place.
 | Interaction | Keyboard, filters, drill-down, alert acknowledgement |
 | Accessibility | Never color-only status; zoom and reflow are hard; test |
 
-**Precedent:** GitHub Actions (GA1), Bloomberg ticker (BL1), TradingView (TV1), Datadog (DD2).
-**Adapt:** start from "what needs action" (see the KPI-card example).
+**Precedent:** GitHub Actions (GA1), Bloomberg ticker (BL1), TradingView (TV1), Datadog (DD2),
+Flightradar24 (FDR1–FDR4): the map itself is the entire product, with no dashboard frame around it
+(FDR1), hundreds of live objects encode both position and heading through icon rotation alone
+(FDR2), and the few controls that exist recede into a low-contrast floating bar until touched (FDR3)
+— maximum information density lives in the canvas, not in surrounding chrome. **Adapt:** start from
+"what needs action" (see the KPI-card example); Flightradar24 also shows that promotional or
+secondary content (FDR4) must be visually separated from the credibility-coded live data, not
+blended into the same card language.
 
 ## Sci-fi control system
 
@@ -104,6 +110,15 @@ anatomy everywhere; branch by reader path in place.
 
 **Fails when:** borrowed for real dashboards. **Adapt:** use in the fiction layer, keep operational
 panels legible.
+**Precedent:** Flightradar24 (FDR1–FDR4) serves as a counterexample: a real, high-stakes live-tracking surface (hundreds
+of simultaneous aircraft, genuinely safety-adjacent data) that a designer might expect to reach for
+sci-fi HUD styling, instead renders aircraft as small heading-oriented icons directly on a muted,
+realistic map with no glow, scanlines, or bracketed frames (FDR2), and keeps its few controls in a
+low-contrast floating bar that recedes until touched (FDR3) — real operational legibility wins over
+the diegetic-equipment look every time stakes are genuine. **Adapt:** when a product's control
+surface is doing real work rather than telling a story, prefer Flightradar24's restraint (realistic
+rendering, controls that recede) over this direction's fictional-equipment vocabulary; reserve the
+sci-fi language for products whose actual content is a game, simulation, or entertainment property.
 
 ## Industrial
 
@@ -123,6 +138,16 @@ panels legible.
 | Accessibility | Safety colors must also be labeled |
 
 **Fails when:** safety colors are used as decoration. **Adapt:** borrow labeling and legibility, not grime.
+**Precedent:** Caterpillar (CAT1–CAT4): the brand's real-world equipment yellow is reserved for the
+search button and the primary CTA fill against a pure black header (CAT1) — the color reads as
+"the brand" because it is the exact color on the physical machines, not an arbitrary accent choice.
+Utility actions a buyer needs first (dealer locator, sign-in) sit in a strip above content
+navigation (CAT2), ahead of browsing — matching what an equipment buyer actually needs before they
+need a product catalog. The hero uses documentary photography of a real worker in branded gear
+(CAT3), and a floating assistant affordance stays visually subordinate to the primary CTA rather
+than competing with it (CAT4). **Adapt:** when a product has a real-world physical or brand color
+(safety equipment, a uniform, a physical product line), reserving it for exactly the interface's
+primary action carries more identity than an arbitrary "brand blue" ever will.
 ### Family checks
 
 Responsive behavior prioritizes status, safe actions, and real-time context over decorative chrome.

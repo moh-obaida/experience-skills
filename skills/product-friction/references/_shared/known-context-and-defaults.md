@@ -66,6 +66,14 @@ inference your flow could make and check how these products expose it for correc
 - **What works:** the product works immediately; the sidebar explains what signing in adds.
 - **Lesson:** do not ask for an account before the user has a reason.
 
+### RNIB — remembered appearance choice
+`RN2` · https://www.rnib.org.uk/ · rendered
+- **What works:** picking a Light/Dark/Yellow appearance mode takes one click, applies with no page
+  reload, and persists for the rest of the visit — the product doesn't ask again on the next page.
+- **Lesson:** a preference stated once should not need restating on every screen in the same session;
+  this applies to any per-visit choice (currency, region, density, appearance), not only accessibility
+  settings.
+
 ---
 
 ## Summary rules

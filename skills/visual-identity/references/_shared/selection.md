@@ -56,6 +56,10 @@ UNDERSTAND → CLASSIFY → CONSTRAIN → GENERATE (3, different families) → C
 9. **Check.** Logo test on three surfaces including a sparse and a dense one; anti-slop gate;
    contrast; reduced motion; RTL if relevant.
 
+## From direction to a buildable system
+
+For substantial greenfield work, a direction is only the first level. Use `design-system-selector.md` and `design-systems-index.md` to compare three authored systems with different structural theses. Load the selected family file, then `design-system-grammar.md`, `palette-themes.md`, `type-strategies.md`, and `font-pairings.md` for implementation roles. A theme varies tokens within the chosen system; it does not replace its composition or controls. If no system fits, derive a new one from the product and document the same roles before components.
+
 ## Offering choices to a user
 
 When the user should decide, present the three candidates with the comparison table and a

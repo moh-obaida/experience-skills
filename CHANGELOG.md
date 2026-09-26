@@ -4,6 +4,21 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org/). All skills share the repository version.
 
+## Unreleased
+
+### Added
+- The Niche Design Atlas: an index plus fifteen niche-group files (business, developer, AI, games, education, commerce, finance, media, social, health, public, travel, physical-world operations, creative, personal) with 90 product-reality profiles and 150 authored, niche-adapted design systems. Each system has a machine-readable fingerprint, a thirteen-row layer contract, and seven color roles; validation enforces the contract, computes contrast, and fails siblings that differ in fewer than four of eleven fingerprint dimensions.
+- `anti-ai-slop`, the fifteenth skill: renders an existing product, extracts and protects its identity, sweeps every surface with a repair-oriented slop taxonomy (surfaces, typography/color/copy/icons, structure/motion/personality), traces generated decisions to source, replaces them with identity-compatible alternatives, and rerenders; includes `extract-identity.mjs` (token census, library-default fingerprints, utility slop stacks), a worked example, a routing scenario, and tests.
+- `use-all-skills`, a full-project conductor with a thirteen-skill participation ledger and ordered implementation/verification phases.
+- A starter-product behavioral eval scenario and Codex shell-read trace parsing, with a dated result showing the remaining rendered-verification gap.
+- Thirty authored implementation-ready design systems, 57 palette themes, twenty-four typography strategies, system-font pairings, component patterns, and canonical examples.
+- `interface-forensics`, a page-scoped rendered audit and repair skill with DOM/CSS evidence collection, source tracing, responsive and state stress, and before/after verification.
+
+### Changed
+- The design-system selector is niche-first: identify the product's niche, read its realities, then compare three structurally different candidates.
+- `use-all-skills` conducts fourteen siblings; after responsive validation the order is anti-slop-ui → anti-ai-slop → interface-forensics → critical-review → repair → verify. Full-pass eval signals check the new order.
+- `anti-slop-ui` hands whole-product remediation to `anti-ai-slop` and remains the knowledge, prevention, and gate specialist.
+
 ## [0.3.0] - 2026-09-25
 
 The enforcement and repository-wide intelligence upgrade.

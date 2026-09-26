@@ -30,6 +30,9 @@ specialists can act on. Many symptoms map to more than one class; confirm with o
 | "I lost my work" | MEMORY FAILURE, missing drafts, validation clearing input | Interrupt the flow; refresh; fail validation |
 | "Users keep asking support about X" | Terminology, discoverability, status ambiguity | Read the question; find where the product answers it |
 | "Is this design good?" | Needs critical review, not reassurance | Apply critical-review workflow |
+| "Use all skills" / "full Experience Skills pass" | Explicit complete-project orchestration | Run all fourteen sibling skills through ordered build and verification phases |
+| "Audit this page" / "go over every inch" / "check the CSS too" | Page-scoped surface defects requiring rendered and source evidence | Inspect every region, control, state, and trace significant findings to source |
+| "Remove the AI look from our site" / "it looks like every v0 site" | Generated decisions across an existing product; identity buried | Render, extract the identity, sweep every surface, classify and trace generated patterns |
 | "Make it pop" / "make it modern" | Vague; often identity or hierarchy | Ask what feels wrong now; observe first |
 
 ### Problem classes by specialist
@@ -63,7 +66,10 @@ Each class names its observable signal, so a symptom can be confirmed before rou
 
 | Problem class | Observable signal | Route to |
 |---|---|---|
+| Full product pass | User explicitly requests all skills or complete starter-to-finish experience work | use-all-skills |
+| Page-scoped forensic audit | User asks for detailed inspection of one route or component, including CSS and micro-UX | interface-forensics |
 | Visually generic | Fails the logo test; template structure; trend treatments | anti-slop-ui, visual-identity |
+| Generated look across an existing product | Many surfaces use library defaults, generated heroes, glow, glass, card grids, generic copy; the user wants it repaired end to end | anti-ai-slop (with interface-forensics for traces) |
 | Visually chaotic | Many accents, competing emphases, no focal point in a squint test | composition-repair, anti-slop-ui |
 | Visually empty | Low first-viewport coverage without an environment | composition-repair, empty-state-design, visual-identity |
 | Hierarchy failure | Wrong or missing focal point; flat type scale | composition-repair |
@@ -94,6 +100,8 @@ Recipes for common multi-class problems. Order matters: structure before surface
 | Generic sparse dashboard | empty-state-design → composition-repair → visual-identity → anti-slop-ui | Real state list → focal and viewport budget → environment carriers → gate |
 | Slow creation flow | workflow-compression → product-friction → interaction-design | Counted flow and known-context inventory → concept and naming fixes → control design |
 | Live multiplayer experience feels lifeless | state-design → motion-design → visual-identity → composition-repair | State matrix and events → event motion specs → world and color roles → stage composition |
+| De-AI an existing product | anti-ai-slop → interface-forensics → anti-ai-slop → critical-review | Identity ledger and protected list → exact source traces → identity-compatible replacements, rerendered → verdict against the original |
+| Deep page audit | interface-forensics → relevant domain specialist → interface-forensics | Evidence table and root causes → domain decision when needed → same-state and stress verification |
 | Proposed visual redesign | critical-review → visual-identity → anti-slop-ui → composition-repair | Goal and comparison → direction check → justification of treatments → rendered verification |
 | Join / sign-in feels generic | composition-repair → visual-identity → interaction-design → anti-slop-ui | Dead space measured → environment derived → control kept standard → gate |
 | Mobile breaks | responsive-validation → composition-repair → interaction-design | Failing sizes → restructure → reach and targets |
@@ -118,6 +126,8 @@ to the user that the full skill exists.
 
 | Specialist | Route here when | Fallback method if not installed |
 |---|---|---|
+| use-all-skills | Explicit all-skills request or complete substantial starter-product build | Inspect current product, invoke every sibling skill with a participation ledger, select a system from three, implement, render, forensic-audit, critically review, and verify. |
+| interface-forensics | Audit this exact page, find every meaningful issue, check CSS/source, or repair a specific rendered surface | Render and scan the full page. Record viewport/state. For each significant defect trace element → component → winning style/behavior → root cause; fix and rerender. State unverified gaps. |
 | composition-repair | Dead space, no focal point, cramped, centered-but-not-composed, overflow, collisions, sticky chrome eating the viewport, scroll confusion | Rank content (P0–P4). Give P0 the focal position and size. Relate content to viewport (not just centered). Remove container soup. Render at 3 sizes. Check overflow and overlaps. |
 | visual-identity | Generic look, fails the logo test, personality on controls instead of environment, trend copying | List the product's domain, content, mechanics, audience. Derive 2–4 identity carriers (type voice, color roles, motif, surface). Apply them to the environment, not to controls. Run the logo test. |
 | workflow-compression | Too many steps, repeated inputs, choice screens with one option, confirmations everywhere, waiting | Map every step. Tag friction (redundant input, unnecessary choice, confirmation tax, navigation tax, etc.). Remove or default what the system knows. Keep safety and judgment. Count before/after. |
@@ -127,12 +137,14 @@ to the user that the full skill exists.
 | product-friction | Whole product feels hard; users get lost; terminology confusing; duplicate concepts; support burden | Build a friction ledger: issue, frequency, severity, time cost, cognitive cost, risk, repair. Rank by frequency × cost. |
 | responsive-validation | Breaks at some size; zoom, RTL, touch, or keyboard issues; "works on my screen" | Check a matrix (large desktop, laptop, short laptop, tablet, common phone, small phone, 200% zoom, RTL if relevant). Look for overflow, collisions, clipped content, sticky obstruction, target size. |
 | empty-state-design | Zero/one item, first-run, no results, filtered-empty, no permission; sparse page feels unfinished or stuffed with filler | Explain the absence specifically. Offer the most useful next action. Surface real context. Remove filler. |
+| anti-ai-slop | An existing rendered product looks generated or templated and must be repaired while keeping its identity | Render. Write an identity ledger and protected list. Sweep every surface; classify each generated pattern (decorative, gradient, glass, card, pill, radius, shadow, type, color, copy, hero, dashboard, bento, icon, dark mode, depth, motion, empty space, library default). Trace S0/S1 to source; replace with what this product would do; rerender; answer the twenty-sites and weirdness tests. |
 | anti-slop-ui | Looks AI-generated or template-made; gradients, glass, pills, cards, fake stats, generic copy | Run the anti-slop gate. For each flag, state its job or remove it. Replace generic copy with specific copy. |
 | critical-review | User asks "is this good?"; enthusiastic proposal; redesign to evaluate; about to endorse own work | State goal, proposal, constraints. Evaluate against the goal and the current state. Find hidden costs. Verdict with evidence. No praise before evaluation. |
 
 ### Routing by product type
 
-Product type changes emphasis, not the method.
+Product type changes emphasis, not the method. For whole-product design, visual-identity (or use-all-skills) identifies the niche in the
+Niche Design Atlas before comparing systems; the niche narrows candidates, it never picks a style.
 
 | Product | Usual first specialists | Watch for |
 |---|---|---|
@@ -172,7 +184,7 @@ evaluation at the end.
 4. **Identity** (visual-identity): express the product through the environment.
 5. **Motion** (motion-design): explain events in the final structure.
 6. **Verification** (responsive-validation): check real sizes and conditions.
-7. **Judgment** (anti-slop-ui, critical-review): gate the result.
+7. **Judgment** (anti-slop-ui, anti-ai-slop, critical-review): gate the result; anti-ai-slop reconstructs what still looks generated.
 
 Skipping ahead causes rework: animating a layout that later changes, or branding a flow that
 later loses two screens.

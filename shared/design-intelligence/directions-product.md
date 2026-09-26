@@ -92,6 +92,18 @@ text, not in images.
 | Accessibility | Every diagram needs a text description |
 
 **Adapt:** a diagram must explain something the text cannot do as fast.
+**Precedent:** Excalidraw (EXC1–EXC4): the entire product is an unframed infinite canvas with one
+floating, icon-only toolbar as the only chrome (EXC1). Measured computed styles show the custom
+hand-drawn typeface (Excalifont) is reserved for exactly one moment — the empty-canvas welcome
+heading that sets the product's tone — while every operable control (menu buttons, shortcut labels)
+renders in plain system-font fallbacks, not the distinctive face (EXC2, EXC4): character lives in
+one deliberate place, legibility and speed govern everything the user actually operates. Toolbar
+icons show their keyboard shortcut letter directly on the icon for at-a-glance recall by repeat
+users (EXC3). **Adapt:** EXC2/EXC4's principle — spend a distinctive typeface on the one moment that
+sets tone, and keep every functional control in a plain, fast, legible system font — transfers to
+any authoring tool (a tool for writing formal prose should not have a playful UI font; a tool for
+sketching should not
+have a rigid, corporate one).
 ### Family checks
 
 Responsive behavior turns wide proof into a sequence or scrollable diagram while retaining the
