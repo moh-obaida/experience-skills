@@ -3,7 +3,7 @@ name: workflow-compression
 description: "Use this skill whenever the user asks to make a flow faster, simpler, shorter, or 'one tap'; when a wizard, checkout, onboarding, setup, transfer, form, or CLI prompt sequence takes too many steps, screens, questions, confirmations, or waits; or when users re-enter information the software already knows. Maps the workflow step by step, classifies friction (redundant input, unnecessary choice, repeated configuration, navigation tax, confirmation tax, serial work, memory failure, waiting tax, dead ends, expert tax, interruptions, hidden status), and removes work the software could do while preserving safety and meaningful human judgment. Always counts steps before and after."
 license: MIT
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

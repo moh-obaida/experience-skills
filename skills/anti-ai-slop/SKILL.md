@@ -4,7 +4,7 @@ description: "Use this skill whenever the user asks to remove the AI look from a
 license: MIT
 compatibility: "Browser rendering strongly recommended. The optional identity extractor needs Node.js 18+ and reads local source only."
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

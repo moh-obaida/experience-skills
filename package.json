@@ -1,6 +1,6 @@
 {
   "name": "experience-skills",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "private": true,
   "description": "Portable agent skills for designing digital experiences that are distinctive, obvious, efficient, state-aware, and resistant to AI slop.",
   "license": "MIT",

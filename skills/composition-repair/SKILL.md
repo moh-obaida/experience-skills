@@ -4,7 +4,7 @@ description: "Use this skill whenever a page, screen, dashboard, or view looks e
 license: MIT
 compatibility: "Measurement scripts need Node.js 18+ and Playwright (or playwright-core with an installed Chrome). All guidance works without them."
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

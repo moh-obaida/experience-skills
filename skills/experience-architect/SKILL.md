@@ -3,7 +3,7 @@ name: experience-architect
 description: "Use this skill whenever the user asks to build, fix, finish, review, redesign, or improve a user-facing product surface—page, screen, dashboard, form, flow, game, app, or CLI—or says it feels boring, generic, empty, confusing, slow, broken, cramped, modern, fun, or off. Use it for substantial product-facing work when the right specialist is unclear or several concerns interact. Diagnoses the observable problem, activates the smallest ordered specialist graph, loads only required depth, enforces rendered evidence when runnable, and ends with a quality gate."
 license: MIT
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

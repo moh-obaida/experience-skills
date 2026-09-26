@@ -4,7 +4,7 @@ description: "Use this skill whenever a layout, component, or page changes and m
 license: MIT
 compatibility: "The layout-report script needs Node.js 18+ and Playwright (or playwright-core with an installed Chrome). The checklist works without it."
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

@@ -3,7 +3,7 @@ name: state-design
 description: "Use this skill whenever a feature loads, saves, uploads, pays, syncs, generates, or runs work that can be slow, fail, or finish in the background; when only the happy path exists; when errors say 'Something went wrong'; when a screen or dashboard can be stale, partial, empty, offline, or unknown; or when auditing a feature for missing states. Designs first-use, loading, processing, partial, success, failure, offline, reconnecting, sparse, dense, permission-denied, paused, stale, long-running, optimistic, and authoritative states, and separates transport state from product state so the UI never lies."
 license: MIT
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

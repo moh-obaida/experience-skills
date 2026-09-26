@@ -3,7 +3,7 @@ name: use-all-skills
 description: "Use this skill whenever the user explicitly says 'use all skills', 'run every Experience Skill', 'full Experience Skills pass', or asks to take a starter frontend project from skeleton to a fully designed, implemented, inspected, and verified product. Orchestrates all fourteen sibling skills in a deliberate sequence, identifies the product's niche, chooses an original design system from three candidates, preserves handoffs, and checks rendered work without loading every reference or forcing needless changes. Do not use for a narrow UI edit unless the user explicitly requests all skills."
 license: MIT
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

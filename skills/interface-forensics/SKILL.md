@@ -4,7 +4,7 @@ description: "Use this skill whenever the user asks to audit a specific page, in
 license: MIT
 compatibility: "Browser inspection recommended; the optional evidence collector needs Node.js and Playwright or an installed Chrome."
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

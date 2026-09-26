@@ -6,6 +6,8 @@ All notable changes to this project are documented here. The format follows
 
 ## Unreleased
 
+## [0.5.0] - 2026-09-26
+
 ### Added
 - The Niche Design Atlas: an index plus fifteen niche-group files (business, developer, AI, games, education, commerce, finance, media, social, health, public, travel, physical-world operations, creative, personal) with 90 product-reality profiles and 150 authored, niche-adapted design systems. Each system has a machine-readable fingerprint, a thirteen-row layer contract, and seven color roles; validation enforces the contract, computes contrast, and fails siblings that differ in fewer than four of eleven fingerprint dimensions.
 - `anti-ai-slop`, the fifteenth skill: renders an existing product, extracts and protects its identity, sweeps every surface with a repair-oriented slop taxonomy (surfaces, typography/color/copy/icons, structure/motion/personality), traces generated decisions to source, replaces them with identity-compatible alternatives, and rerenders; includes `extract-identity.mjs` (token census, library-default fingerprints, utility slop stacks), a worked example, a routing scenario, and tests.

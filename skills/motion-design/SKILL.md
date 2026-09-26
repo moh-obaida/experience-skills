@@ -4,7 +4,7 @@ description: "Use this skill whenever animation, transitions, or micro-interacti
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

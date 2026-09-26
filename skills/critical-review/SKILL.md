@@ -3,7 +3,7 @@ name: critical-review
 description: "Use this skill before giving any opinion on an idea, interface, mockup, redesign, PR, feature proposal, or plan: whenever the user asks 'is this good?', 'what do you think?', 'should we do this?', or 'review this', arrives enthusiastic about an approach (including 'make it more fun, modern, or like product X'), or before endorsing the agent's own output. Forms the verdict before any praise: separates understanding from agreement, checks the proposal against the actual goal, lists hidden costs, compares against the current state, and reaches an evidence-backed verdict that may be 'worse than current', 'unnecessary', or 'excellent for this context'."
 license: MIT
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

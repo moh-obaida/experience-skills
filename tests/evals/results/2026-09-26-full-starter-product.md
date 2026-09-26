@@ -1,6 +1,8 @@
-# Full Starter Product Eval — 2026-09-26
+# Pre-0.5.0 Full Starter Product Eval — 2026-09-26
 
-**Method:** Two Codex CLI edit runs on the invented `full-starter-product` fixture, with all 14 skills installed. The second run used the revised conductor and an available Chromium installation. No without-skills comparison was run. Traces were reanalyzed after fixing the Codex shell-read parser to recognize wildcard, brace-expanded, and delimited reads. These are two behavioral observations, not a success-rate estimate.
+**Scope:** This evaluation predates the final v0.5.0 shape: Skill 15 (`anti-ai-slop`) and the Niche Design Atlas were not part of the evaluated conductor workflow. The runs had 14 skills total: `use-all-skills` plus 13 specialists. Do not treat this as evidence that v0.5.0 improves results.
+
+**Method:** Two Codex CLI edit runs on the invented `full-starter-product` fixture. The second run used the revised conductor and an available Chromium installation. No without-skills comparison was run. Traces were reanalyzed after fixing the Codex shell-read parser to recognize wildcard, brace-expanded, and delimited reads. These are two behavioral observations, not a success-rate estimate.
 
 | Gate | Observed result |
 |---|---|

@@ -3,7 +3,7 @@ name: empty-state-design
 description: "Use this skill whenever a list, dashboard, library, inbox, search, or home screen has little or no content; when a first-run or new-account view is designed; when someone asks to make a sparse page 'less empty' or it feels unfinished; or when a page has been filled with illustrations, fake stats, tips, or marketing. Designs zero-item, one-item, first-run, empty-search, filtered-empty, no-permission, no-history, incomplete-setup, unavailable, archived, and skeleton-versus-empty states, and distinguishes intentional focus from dead space and useful density from filler, calibrated by page archetype."
 license: MIT
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 

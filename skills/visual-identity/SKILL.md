@@ -3,7 +3,7 @@ name: visual-identity
 description: "Use this skill whenever a product, page, or homepage looks generic, boring, template-like, or like it could belong to anyone; when someone wants more personality, fun, or brand; when identity is being added to inputs and buttons instead of the environment; or when establishing or extending a visual direction. Derives identity from the product's domain, content, and mechanics rather than from trends, logos, or decorated controls. Covers environment versus controls, product-derived motifs, color roles, typography character, surface and shape language, imagery, competitor analysis without copying, and the logo-removal recognition test."
 license: MIT
 metadata:
-  version: "0.3.0"
+  version: "0.5.0"
   collection: experience-skills
 ---
 
