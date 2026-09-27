@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Threat Board — controlled render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F2F1EE;--surface:#FFFFFF;--ink:#151515;--muted:#555350;--line:#CFCCC6;--action:#8F1D1D;--on-action:#FFFFFF;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:14px;}
+.app{display:grid;grid-template-columns:340px 1fr;height:100vh;}
+.queue{background:var(--surface);border-right:1px solid var(--line);overflow:auto;}
+.queue h2{font:600 12px "IBM Plex Sans";text-transform:uppercase;color:var(--muted);padding:12px 16px 4px;margin:0;}
+.row{display:grid;grid-template-columns:4px 1fr;height:40px;border-bottom:1px solid var(--line);align-items:center;cursor:pointer;}
+.row .edge{height:100%;}
+.row.critical .edge{background:#8F1D1D;}
+.row.high .edge{background:#B5541A;}
+.row .body{padding:0 12px;font-size:13px;display:flex;justify-content:space-between;align-items:center;}
+.row.selected{background:#FBEDED;}
+.sev-label{font:700 11px "IBM Plex Sans Condensed";text-transform:uppercase;padding:2px 6px;border-radius:0;}
+.sev-label.high{background:#B5541A;color:#fff;}
+.detail{padding:20px;overflow:auto;}
+.detail h1{font:700 20px "IBM Plex Sans Condensed";margin:0 0 4px;letter-spacing:.01em;}
+.sla{color:var(--action);font-weight:600;font-size:13px;margin-bottom:16px;}
+.summary{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin-bottom:16px;}
+.summary div{padding:8px 12px;border-bottom:1px solid var(--line);font-size:13px;}
+.summary .k{color:var(--muted);border-right:1px solid var(--line);}
+.timeline{border-left:1px solid var(--line);padding-left:14px;margin-bottom:16px;}
+.ev{margin-bottom:12px;font-size:13px;position:relative;}
+.ev::before{content:"";position:absolute;left:-18px;top:4px;width:6px;height:6px;background:var(--muted);}
+.ev .t{color:var(--muted);font:12px "IBM Plex Mono";}
+.actions{display:flex;gap:8px;}
+button{font:600 12px "IBM Plex Sans";padding:8px 14px;border:1px solid var(--line);background:var(--surface);cursor:pointer;border-radius:0;}
+button.primary{background:var(--action);color:var(--on-action);border-color:var(--action);}
+.keys{font:12px "IBM Plex Mono";color:var(--muted);margin-top:10px;}
+.newalert{transition:background .4s ease;}
+.newalert.flash{background:#FBEDED;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="queue">
+    <h2>Queue — grouped by severity</h2>
+    <div class="row high selected" id="row4471"><div class="edge"></div><div class="body"><span>#4471 — j.martins92 harassment</span><span class="sev-label high">HIGH</span></div></div>
+    <div class="row critical" id="rowNew"><div class="edge"></div><div class="body"><span>#4472 — new inbound report</span><span class="sev-label" style="background:#8F1D1D;color:#fff;">CRIT</span></div></div>
+    <div class="row high"><div class="edge"></div><div class="body"><span>#4468 — repeat offender flag</span><span class="sev-label high">HIGH</span></div></div>
+  </div>
+  <div class="detail">
+    <h1>CASE #4471</h1>
+    <div class="sla">SLA — breaches in 2h 00m</div>
+    <div class="summary">
+      <div class="k">Reported user</div><div>j.martins92</div>
+      <div class="k">Category</div><div>Harassment — targeted comment</div>
+      <div class="k">Reporter</div><div>Anonymous (verified)</div>
+      <div class="k">Prior reports</div><div>1 (dismissed, 2025-11)</div>
+    </div>
+    <div class="timeline">
+      <div class="ev"><div class="t">08:47</div>Reported comment posted, thread #2291</div>
+      <div class="ev"><div class="t">08:52</div>Screenshot evidence attached (conversation context)</div>
+      <div class="ev"><div class="t">09:12</div>Case opened, assigned to queue</div>
+    </div>
+    <div class="actions">
+      <button class="primary" id="decide">Remove content + warn</button>
+      <button>Escalate to suspension</button>
+      <button>Request more information</button>
+    </div>
+    <div class="keys">J/K move · A assign · E escalate · F false positive (reason required)</div>
+  </div>
+</div>
+<script>
+document.getElementById('decide').addEventListener('click',function(){
+  this.textContent='Decision recorded ✓';
+});
+setTimeout(function(){
+  var r=document.getElementById('rowNew');
+  r.classList.add('newalert','flash');
+  setTimeout(function(){r.classList.remove('flash');},600);
+},1200);
+</script>
+</body>
+</html>

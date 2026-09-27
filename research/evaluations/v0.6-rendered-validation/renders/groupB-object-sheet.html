@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Object Sheet — controlled render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#E9ECEF;--surface:#FFFFFF;--ink:#111418;--muted:#4F5761;--line:#C9D0D8;--action:#0B5C66;--on-action:#FFFFFF;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"Public Sans",sans-serif;font-size:13px;}
+.palette{background:var(--surface);border:1px solid var(--line);border-radius:4px;margin:12px 20px;padding:8px 14px;color:var(--muted);font-size:12px;}
+.header{background:var(--surface);margin:0 20px;border:1px solid var(--line);border-radius:4px 4px 0 0;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;}
+.header .title{font:700 22px "Public Sans";}
+.header .sub{color:var(--muted);font-size:12px;margin-top:2px;}
+button{font:600 12px "Public Sans";padding:8px 14px;border-radius:4px;border:1px solid var(--line);background:var(--surface);cursor:pointer;}
+button.primary{background:var(--action);color:var(--on-action);border-color:var(--action);}
+.body3{margin:0 20px;border:1px solid var(--line);border-top:none;background:var(--surface);display:grid;grid-template-columns:1fr 1.2fr 1fr;min-height:520px;}
+.zone{padding:16px;}
+.zone + .zone{border-left:1px solid var(--line);}
+.zone h2{font:600 12px "Public Sans";text-transform:uppercase;letter-spacing:.02em;color:var(--muted);margin:0 0 10px;}
+.field{display:grid;grid-template-columns:110px 1fr;padding:6px 0;font-size:13px;}
+.field .label{color:var(--muted);font-size:12px;}
+.field.locked .label::after{content:" 🔒";}
+.act{margin-bottom:14px;font-size:13px;position:relative;padding-left:14px;}
+.act::before{content:"";position:absolute;left:0;top:5px;width:6px;height:6px;border-radius:50%;background:var(--muted);}
+.act .t{color:var(--muted);font-size:11px;}
+.related{background:#F5F7F8;border:1px solid var(--line);border-radius:4px;padding:10px;margin-bottom:8px;font-size:12px;}
+.viewall{color:var(--action);font-size:12px;cursor:pointer;}
+.save-flash{transition:background .3s ease;}
+.save-flash.hit{background:#E4F3F0;}
+</style>
+</head>
+<body>
+<div class="palette">⌘K — open any object or action</div>
+<div class="header">
+  <div>
+    <div class="title">Case #4471 · Content policy violation</div>
+    <div class="sub">Reported user: j.martins92 · Status: Awaiting decision · Deadline in 2h 00m</div>
+  </div>
+  <button class="primary" id="next">Remove content + warn</button>
+</div>
+<div class="body3">
+  <div class="zone">
+    <h2>Fields</h2>
+    <div class="field save-flash" id="f1"><div class="label">Category</div><div>Harassment — targeted comment</div></div>
+    <div class="field"><div class="label">Reporter</div><div>Anonymous (verified)</div></div>
+    <div class="field"><div class="label">Prior reports</div><div>1 (dismissed, 2025-11)</div></div>
+    <div class="field locked"><div class="label">Owner</div><div>Trust & Safety queue</div></div>
+    <div class="field"><div class="label">Status</div><div>Awaiting decision</div></div>
+  </div>
+  <div class="zone">
+    <h2>Activity</h2>
+    <div class="act"><div class="t">08:47</div>Reported comment posted, thread #2291</div>
+    <div class="act"><div class="t">08:52</div>Screenshot evidence attached</div>
+    <div class="act"><div class="t">09:12</div>Case opened, assigned</div>
+  </div>
+  <div class="zone">
+    <h2>Related objects</h2>
+    <div class="related">User: j.martins92 — 1 prior report</div>
+    <div class="related">Thread #2291 — 14 replies</div>
+    <div class="viewall">View all (6)</div>
+  </div>
+</div>
+<script>
+document.getElementById('next').addEventListener('click',function(){
+  this.textContent='Recorded ✓';
+  var f=document.getElementById('f1');
+  f.classList.add('hit');
+  setTimeout(function(){f.classList.remove('hit');},400);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vault Ledger — native render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#16181B;--surface:#1F2226;--ink:#EAE7E0;--muted:#A39E93;--line:#33373C;--action:#C8A96A;--on-action:#16181B;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:14px;height:100vh;display:flex;flex-direction:column;}
+.top{padding:24px 24px 12px;text-align:center;}
+.total{font-size:36px;font-weight:500;}
+.usd{color:var(--muted);font-size:14px;}
+.panels{display:flex;flex-direction:column;gap:12px;padding:0 20px;flex:1;}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;}
+.asset{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);}
+.asset:last-child{border-bottom:none;}
+.actions{display:flex;gap:10px;padding:0 20px 20px;}
+button{flex:1;padding:14px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:500 14px "IBM Plex Sans";}
+button.primary{background:var(--action);color:var(--on-action);border-color:var(--action);}
+.send-modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;}
+.send-modal.show{display:flex;}
+.send-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;width:360px;}
+.addr{font-family:"IBM Plex Mono";letter-spacing:.05em;background:var(--canvas);padding:12px;border-radius:6px;margin:12px 0;}
+.confirm-count{font-size:12px;color:var(--muted);margin-top:6px;}
+</style>
+</head>
+<body>
+<div class="top"><div class="total">$18,420.55</div><div class="usd">Total value, all assets</div></div>
+<div class="panels">
+  <div class="panel">
+    <div class="asset"><span>Bitcoin</span><span>0.284 · $12,110.00</span></div>
+    <div class="asset"><span>Ethereum</span><span>2.61 · $6,310.55</span></div>
+  </div>
+  <div class="panel">
+    <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Recent activity</div>
+    <div class="asset"><span>Received</span><span id="conf">2 confirmations</span></div>
+  </div>
+</div>
+<div class="actions">
+  <button id="send">Send</button>
+  <button class="primary">Receive</button>
+</div>
+<div class="send-modal" id="modal">
+  <div class="send-card">
+    <div style="font-size:13px;color:var(--muted);">Sending to</div>
+    <div class="addr">bc1q &nbsp;xy2z &nbsp;9f4c &nbsp;a8d1</div>
+    <div style="font-size:12px;color:var(--muted);">Network: Bitcoin mainnet — verify before signing</div>
+    <button class="primary" style="margin-top:16px;width:100%;" id="close">Simulate transaction</button>
+  </div>
+</div>
+<script>
+document.getElementById('send').addEventListener('click',function(){document.getElementById('modal').classList.add('show');});
+document.getElementById('close').addEventListener('click',function(){document.getElementById('modal').classList.remove('show');});
+var c=2;
+setInterval(function(){c++;document.getElementById('conf').textContent=c+' confirmations';},2000);
+</script>
+</body>
+</html>

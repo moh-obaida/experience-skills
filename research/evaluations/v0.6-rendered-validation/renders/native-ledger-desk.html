@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ledger Desk — native render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F6F6F3;--surface:#FFFFFF;--ink:#1B1D1C;--muted:#5C605D;--line:#D6D8D3;--action:#1D4E89;--on-action:#FFFFFF;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"Instrument Sans",sans-serif;font-size:14px;}
+.app{display:grid;grid-template-columns:220px 1fr;height:100vh;}
+.sidebar{background:var(--surface);border-right:1px solid var(--line);padding:20px 0;}
+.sidebar .item{padding:8px 24px;color:var(--muted);}
+.sidebar .item.active{color:var(--ink);font-weight:500;border-left:2px solid var(--action);background:#F0F4F9;}
+.content{padding:24px 32px;}
+.scope{color:var(--muted);font-size:13px;margin-bottom:2px;}
+h1{font-size:20px;margin:0 0 20px;}
+.section{margin-bottom:32px;}
+.section h2{font-size:14px;font-weight:500;margin:0 0 4px;}
+.section .desc{color:var(--muted);font-size:13px;margin-bottom:12px;}
+table{width:100%;border-collapse:collapse;}
+th{text-align:left;font-size:12px;color:var(--muted);font-weight:500;padding:8px 4px;border-bottom:1px solid var(--line);}
+td{padding:0 4px;height:44px;border-bottom:1px solid var(--line);font-size:13px;}
+td.num{text-align:right;font-family:"IBM Plex Mono";}
+.row-actions{opacity:0;font-size:12px;color:var(--action);cursor:pointer;}
+tr:hover .row-actions{opacity:1;}
+button{font:500 13px "Instrument Sans";padding:7px 14px;border-radius:4px;border:none;background:var(--action);color:var(--on-action);cursor:pointer;}
+.saved{font-size:12px;color:var(--muted);opacity:0;transition:opacity .3s;margin-left:8px;}
+.saved.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="sidebar">
+    <div class="item active">Members</div>
+    <div class="item">Roles</div>
+    <div class="item">Billing</div>
+    <div class="item">Integrations</div>
+    <div class="item">Audit log</div>
+    <div class="item">API keys</div>
+  </div>
+  <div class="content">
+    <div class="scope">Workspace: Northwind</div>
+    <h1>Members</h1>
+    <div class="section">
+      <h2>Active members (14)</h2>
+      <div class="desc">Seats used 14 of 20. <span id="saved" class="saved">Saved</span></div>
+      <table>
+        <tr><th>Name</th><th>Role</th><th>Last active</th><th class="num">Seat cost</th><th></th></tr>
+        <tr><td>Priya Shah</td><td>Admin</td><td>Today, 09:14</td><td class="num">$29.00</td><td><span class="row-actions" id="edit1">Edit</span></td></tr>
+        <tr><td>Tomas Reyes</td><td>Member</td><td>Yesterday</td><td class="num">$12.00</td><td><span class="row-actions">Edit</span></td></tr>
+        <tr><td>Anna Kessler</td><td>Member</td><td>3 days ago</td><td class="num">$12.00</td><td><span class="row-actions">Edit</span></td></tr>
+        <tr><td>invited: d.oduya@northwind.co</td><td>Pending</td><td>—</td><td class="num">—</td><td><span class="row-actions">Revoke</span></td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h2>Danger zone</h2>
+      <div class="desc">Removing a member revokes access immediately.</div>
+      <button style="background:transparent;border:1px solid #B23A3A;color:#B23A3A;">Remove member…</button>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById('edit1').addEventListener('click',function(){
+  var s=document.getElementById('saved');
+  s.classList.add('show');
+  setTimeout(function(){s.classList.remove('show');},1500);
+});
+</script>
+</body>
+</html>

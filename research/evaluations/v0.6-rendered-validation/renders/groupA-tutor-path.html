@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tutor Path — controlled render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#FDF8EF; --surface:#FFFFFF; --ink:#26231E; --muted:#625C52; --line:#E6DCCB; --action:#1F5E6E; --on-action:#FFFFFF;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:Nunito,sans-serif;}
+.wrap{max-width:720px;margin:0 auto;padding:32px 20px;}
+.path{display:flex;gap:8px;margin-bottom:32px;}
+.node{flex:1;height:10px;border-radius:16px;background:var(--line);}
+.node.done{background:var(--action);}
+.node.active{background:var(--action);opacity:.55;position:relative;overflow:hidden;}
+.node.active .fill{position:absolute;inset:0;background:var(--action);width:40%;border-radius:16px;transition:width .3s ease;}
+.card{background:var(--surface);border-radius:16px;padding:24px;box-shadow:0 1px 0 var(--line);}
+.card h1{font-size:18px;margin:0 0 4px;}
+.card .meta{font-size:13px;color:var(--muted);margin-bottom:16px;}
+.example{background:var(--canvas);border:1px solid var(--line);border-radius:12px;padding:14px;font:14px/1.5 monospace;margin-bottom:16px;}
+.dialogue{background:#EFF6F5;border-radius:12px;padding:16px;margin-bottom:16px;}
+.dialogue .who{font-size:12px;font-weight:800;color:var(--action);text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px;}
+input[type=text]{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);font:15px Nunito;background:var(--surface);}
+.row{display:flex;gap:10px;margin-top:12px;}
+button{font:800 14px Nunito;padding:10px 18px;border-radius:24px;border:none;cursor:pointer;}
+button.primary{background:var(--action);color:var(--on-action);}
+button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line);}
+.unlock{position:fixed;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none;}
+.unlock.show{display:flex;}
+.unlock span{background:var(--action);color:#fff;padding:8px 16px;border-radius:20px;font-weight:800;animation:rise .8s ease forwards;opacity:0;}
+@keyframes rise{0%{opacity:0;transform:translateY(10px);}30%{opacity:1;transform:translateY(0);}100%{opacity:0;transform:translateY(-30px);}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="path">
+    <div class="node done"></div>
+    <div class="node active"><div class="fill"></div></div>
+    <div class="node"></div>
+    <div class="node"></div>
+  </div>
+  <div class="card">
+    <h1>Sort the matches</h1>
+    <div class="meta">Step 2 of 4 · Chain grep, sort, uniq -c</div>
+    <div class="example">$ grep "ERROR" server.log | sort</div>
+    <div class="dialogue">
+      <div class="who">Tutor</div>
+      Nice — grep found every error line. Now, if two lines say the exact same thing, are they next to each other yet, or scattered through the file?
+    </div>
+    <label style="font-size:13px;color:var(--muted);">Your answer</label>
+    <input type="text" value="Scattered — sort will group identical lines together">
+    <div class="row">
+      <button class="primary" id="submit">Answer</button>
+      <button class="ghost">I'm stuck</button>
+    </div>
+  </div>
+</div>
+<div class="unlock" id="unlock"><span>Step unlocked</span></div>
+<script>
+document.getElementById('submit').addEventListener('click',function(){
+  var u=document.getElementById('unlock');
+  u.classList.remove('show'); void u.offsetWidth; u.classList.add('show');
+  var fill=document.querySelector('.node.active .fill');
+  fill.style.width='100%';
+});
+</script>
+</body>
+</html>

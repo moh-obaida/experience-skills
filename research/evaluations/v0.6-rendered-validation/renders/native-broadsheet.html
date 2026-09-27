@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Broadsheet — native render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital@0;1&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#FFFFFF;--surface:#F7F5F0;--ink:#121212;--muted:#575757;--line:#DCDCDC;--action:#9E1B1B;--on-action:#FFFFFF;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"Newsreader",serif;}
+.topbar{display:flex;justify-content:space-between;padding:12px 32px;border-bottom:1px solid var(--line);font-family:"Public Sans";font-size:12px;color:var(--muted);}
+.masthead{text-align:center;padding:20px 0 12px;border-bottom:2px solid var(--ink);}
+.masthead h1{font-size:36px;margin:0;letter-spacing:.02em;}
+.front{max-width:1200px;margin:0 auto;padding:24px 32px;display:grid;grid-template-columns:2fr 1fr;gap:32px;}
+.lead img{width:100%;height:280px;object-fit:cover;background:linear-gradient(135deg,#999,#555);display:block;}
+.lead .tag{color:var(--action);font-family:"Public Sans";font-weight:600;font-size:11px;text-transform:uppercase;margin:12px 0 6px;}
+.lead h2{font-size:32px;margin:0 0 8px;line-height:1.15;}
+.byline{font-family:"Public Sans";font-size:12px;color:var(--muted);}
+.cols{border-left:1px solid var(--line);padding-left:24px;}
+.story{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px;}
+.story h3{font-size:18px;margin:0 0 4px;}
+.story p{font-size:14px;color:var(--muted);margin:0;}
+.live{color:var(--action);font-family:"Public Sans";font-weight:700;font-size:11px;}
+</style>
+</head>
+<body>
+<div class="topbar"><span>Thursday, 27 September 2026</span><span>Updated 09:14</span></div>
+<div class="masthead"><h1>The Northwind Herald</h1></div>
+<div class="front">
+  <div class="lead">
+    <div class="tag">Breaking</div>
+    <img src="">
+    <h2>City council approves transit expansion after months of debate</h2>
+    <div class="byline">By Elena Marsh · Updated 3 minutes ago</div>
+  </div>
+  <div class="cols">
+    <div class="story"><div class="live">● LIVE</div><h3>Storm system tracks toward coast</h3><p>Meteorologists warn of flooding by evening.</p></div>
+    <div class="story"><h3>Local schools report enrollment rise</h3><p>District cites new housing near the river.</p></div>
+    <div class="story"><h3>Correction</h3><p>An earlier version of this article misstated the vote count.</p></div>
+  </div>
+</div>
+</body>
+</html>

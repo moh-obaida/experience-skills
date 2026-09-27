@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Still Water — native render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital@0;1&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#EDEEE8;--surface:#F7F7F3;--ink:#22261F;--muted:#596054;--line:#D3D6CC;--action:#3F5A4A;--on-action:#FFFFFF;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:Figtree,sans-serif;height:100vh;display:flex;flex-direction:column;}
+.texture{flex:1;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 40%,#F3F2EA,#E6E7DE 80%);}
+.texture::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle,rgba(255,255,255,.5),transparent 60%);animation:drift 18s ease-in-out infinite;}
+@keyframes drift{0%{transform:translate(0,0);}50%{transform:translate(3%,2%);}100%{transform:translate(0,0);}}
+.content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;}
+.line{font-family:Fraunces,serif;font-style:italic;font-size:26px;max-width:420px;line-height:1.4;}
+.timer{margin-top:24px;font-size:14px;color:var(--muted);}
+.tabbar{display:flex;justify-content:center;gap:40px;padding:20px;background:var(--surface);border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+.tabbar .active{color:var(--ink);font-weight:500;}
+.play{width:16px;height:16px;border-radius:50%;background:var(--action);display:inline-block;margin-right:6px;}
+</style>
+</head>
+<body>
+<div class="texture">
+  <div class="content">
+    <div class="line" id="line">Let your breath find its own rhythm. There is nowhere else to be.</div>
+    <div class="timer"><span class="play"></span>10:00 remaining</div>
+  </div>
+</div>
+<div class="tabbar">
+  <div class="active">Today</div>
+  <div>Library</div>
+  <div>Sleep</div>
+  <div>Profile</div>
+</div>
+</body>
+</html>

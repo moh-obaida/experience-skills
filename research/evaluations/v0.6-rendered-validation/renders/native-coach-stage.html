@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coach Stage — native render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#0F0F10;--surface:#1A1A1C;--ink:#F4F4F5;--muted:#A6A6AD;--line:#2C2C30;--action:#FF5A36;--on-action:#0F0F10;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:Archivo,sans-serif;height:100vh;overflow:hidden;position:relative;}
+.video{position:absolute;inset:0;background:radial-gradient(circle at 60% 30%,#3a2a22,#0F0F10 70%);}
+.hud{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:32px;}
+.top{display:flex;justify-content:space-between;}
+.block{background:rgba(0,0,0,.7);padding:12px 18px;border-radius:0;}
+.move{font-family:"Archivo Black";font-size:34px;color:var(--action);transition:opacity .4s;}
+.time{font-size:20px;font-weight:600;}
+.next{font-size:14px;color:var(--muted);margin-top:4px;}
+.bottom{display:flex;justify-content:center;gap:20px;align-items:center;}
+.pause{width:64px;height:64px;border-radius:50%;background:var(--action);color:var(--on-action);display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;border:none;}
+.ctrl{background:rgba(0,0,0,.7);color:var(--ink);border:none;padding:10px 16px;border-radius:0;font:600 13px Archivo;cursor:pointer;}
+</style>
+</head>
+<body>
+<div class="video"></div>
+<div class="hud">
+  <div class="top">
+    <div class="block"><div class="move" id="move">Squat jump</div><div class="next" id="next">Next: Mountain climbers</div></div>
+    <div class="block"><div class="time" id="time">00:22</div></div>
+  </div>
+  <div class="bottom">
+    <button class="ctrl">Modify</button>
+    <button class="pause" id="pause">❙❙</button>
+    <button class="ctrl">Cast</button>
+  </div>
+</div>
+<script>
+var t=22;
+setInterval(function(){t=t>0?t-1:0;document.getElementById('time').textContent='00:'+(t<10?'0':'')+t;},1000);
+document.getElementById('pause').addEventListener('click',function(){
+  var m=document.getElementById('move');
+  m.style.opacity='0.3';
+  this.textContent='▶';
+  setTimeout(function(){m.style.opacity='1';},300);
+});
+</script>
+</body>
+</html>

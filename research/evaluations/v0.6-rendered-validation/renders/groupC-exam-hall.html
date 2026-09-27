@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exam Hall — controlled render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F5F5F2;--surface:#FFFFFF;--ink:#1A1A1A;--muted:#545454;--line:#CFCFC9;--action:#1F4E79;--on-action:#FFFFFF;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"Public Sans",sans-serif;font-size:18px;}
+.header{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;background:var(--surface);border-bottom:1px solid var(--line);font-size:14px;}
+.header .name{font-weight:700;}
+.header .mid{color:var(--muted);}
+.app{display:grid;grid-template-columns:1fr 260px;}
+.center{max-width:640px;margin:0 auto;padding:48px 24px;}
+.qnum{color:var(--muted);font-size:14px;margin-bottom:8px;}
+.q{font-weight:700;font-size:20px;margin-bottom:24px;}
+.opt{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:4px;height:56px;padding:0 16px;margin-bottom:12px;cursor:pointer;background:var(--surface);}
+.opt input{width:18px;height:18px;}
+.footer{display:flex;justify-content:space-between;padding:16px 24px;border-top:1px solid var(--line);background:var(--surface);}
+button{font:600 14px "Public Sans";padding:10px 18px;border-radius:4px;border:1px solid var(--line);background:var(--surface);cursor:pointer;}
+button.primary{background:var(--action);color:var(--on-action);border-color:var(--action);}
+.nav{padding:20px;border-left:1px solid var(--line);background:var(--surface);}
+.nav h2{font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin:0 0 12px;}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+.grid div{height:32px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:12px;border-radius:2px;}
+.grid .answered{background:#E7EEF4;}
+.grid .current{border-color:var(--action);color:var(--action);font-weight:700;}
+.saved{font-size:12px;color:var(--muted);margin-top:16px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="name">Eligibility Rules Certification</div>
+  <div class="mid">Question 4 of 9</div>
+  <div class="mid">Time remaining: 18:42</div>
+  <div class="mid">Save status: saved</div>
+</div>
+<div class="app">
+  <div class="center">
+    <div class="qnum">Question 4</div>
+    <div class="q">Do you have any dependants living with you?</div>
+    <label class="opt"><input type="radio" name="q4"> Yes</label>
+    <label class="opt"><input type="radio" name="q4" checked> No</label>
+    <div class="saved" id="save">Answer saved</div>
+  </div>
+  <div class="nav">
+    <h2>Question navigator</h2>
+    <div class="grid">
+      <div class="answered">1</div><div class="answered">2</div><div class="answered">3</div><div class="current">4</div><div>5</div>
+      <div>6</div><div>7</div><div>8</div><div>9</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <button>← Previous</button>
+  <div style="display:flex;gap:10px;">
+    <button>Flag for review</button>
+    <button class="primary" id="next">Next →</button>
+  </div>
+</div>
+<script>
+document.querySelectorAll('input[name=q4]').forEach(function(r){
+  r.addEventListener('change',function(){
+    var s=document.getElementById('save');
+    s.textContent='Saving…';
+    setTimeout(function(){s.textContent='Answer saved';},350);
+  });
+});
+</script>
+</body>
+</html>

@@ -53,6 +53,15 @@ decisions, not a uniform template: a system may say "none" for imagery or motion
 decision. Color rows give seven roles (`canvas`, `surface`, `ink`, `muted`, `line`, `action`,
 `on-action`) whose text pairs meet 4.5:1; validation computes them.
 
+The entry should carry a usable visual contract across its thesis and layer decisions; it does not
+need a second paragraph that repeats them. A designer should be able to derive the intended energy
+and rhythm, where color and strongest contrast enter or recede, the type and geometry attitude, the
+core instrument's prominence, and the product action or quiet response that gives the system its
+signature. Explain what the system improves and what it gives up, and make `Fails when` a real
+rejection condition. If those decisions cannot be read from the authored rows, revise the relevant
+rows instead of adding labels or adjectives. Energy may be quiet, dense, restrained, or intense;
+chroma alone does not establish it.
+
 ## Fingerprint vocabulary
 
 Every system carries a fingerprint so duplicates are caught mechanically. Use only these values
@@ -93,7 +102,7 @@ Apply before accepting an authored or derived system, and again after adapting o
 7. Does it handle mobile, dense content, and empty content without changing character?
 8. Could an engineer implement its structure and expression consistently from the entry alone?
 9. Does the core instrument retain authority, and does the working screen pass silhouette and grayscale comparison?
-10. Does its look contract specify emotional energy, color behavior, chroma hierarchy, type and geometry attitude, and a causal signature moment?
+10. Can its visual contract be derived from the thesis and layer rows: emotional and interaction energy, color/contrast hierarchy, type and geometry attitude, rhythm, instrument prominence, and a product-grounded response (or intentional stillness)?
 11. Would a different system be needed when its stated tradeoff or rejection condition applies?
 
 Any "no" (or "yes" for 1–2) → redesign or reject. Record the answer in the selected-system artifact.

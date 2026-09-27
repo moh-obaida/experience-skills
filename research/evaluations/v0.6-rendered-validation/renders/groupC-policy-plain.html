@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Policy Plain — controlled render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F5F6F7;--surface:#FFFFFF;--ink:#1A1C1E;--muted:#53585E;--line:#D2D6DA;--action:#264C73;--on-action:#FFFFFF;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"Public Sans",sans-serif;font-size:17px;}
+.wrap{max-width:640px;margin:0 auto;padding:40px 24px;}
+.summary{font-size:13px;color:var(--muted);margin-bottom:24px;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:32px;}
+.qnum{color:var(--muted);font-size:13px;margin-bottom:8px;}
+.q{font-weight:700;font-size:20px;margin-bottom:8px;}
+.help{color:var(--muted);font-size:14px;margin-bottom:20px;}
+.opt{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:8px;height:52px;padding:0 16px;margin-bottom:12px;cursor:pointer;}
+.opt input{width:18px;height:18px;}
+.diagram{display:flex;gap:12px;margin-top:20px;margin-bottom:20px;}
+.diagram .box{flex:1;border:1px solid var(--line);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);}
+.diagram .box.covered{border-color:var(--action);color:var(--action);}
+.row{display:flex;justify-content:space-between;margin-top:24px;}
+button{font:600 15px "Public Sans";padding:10px 20px;border-radius:8px;border:1px solid var(--line);background:var(--surface);cursor:pointer;}
+button.primary{background:var(--action);color:var(--on-action);border-color:var(--action);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="summary">Household coverage quote · Question 4 of 9 · answers saved as you go</div>
+  <div class="card">
+    <div class="qnum">Question 4</div>
+    <div class="q">Do you have any dependants living with you?</div>
+    <div class="help">This affects the household cover options we can offer.</div>
+    <label class="opt"><input type="radio" name="q4"> Yes</label>
+    <label class="opt"><input type="radio" name="q4" checked> No</label>
+    <div class="diagram">
+      <div class="box covered">Covered: named policyholder, spouse</div>
+      <div class="box">Not covered: dependants unless added</div>
+    </div>
+    <div class="row">
+      <button id="back">← Back</button>
+      <button class="primary" id="next">Continue →</button>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById('next').addEventListener('click',function(){
+  this.textContent='Saved — continuing…';
+});
+</script>
+</body>
+</html>

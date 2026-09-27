@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Worked Example — controlled render</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital@0;1&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#F5F2EA; --surface:#FFFDF8; --ink:#22201C; --muted:#5E594F; --line:#D8D1C2; --action:#2C5E4F; --on-action:#FFFFFF;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"Source Sans 3",sans-serif;}
+.strip{background:var(--surface);border-bottom:1px solid var(--line);padding:10px 24px;font:600 12px "Source Sans 3";color:var(--muted);display:flex;gap:16px;}
+.strip .seg{padding:2px 8px;border-bottom:2px solid var(--line);}
+.strip .seg.done{border-color:var(--action);color:var(--action);}
+.strip .seg.active{border-color:var(--action);color:var(--ink);font-weight:700;}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 24px;}
+.step{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:56px;}
+.explain{font-family:Literata,serif;font-size:18px;line-height:1.6;}
+.explain h2{font-family:"Source Sans 3";font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:0 0 8px;}
+.example{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;font:15px/1.5 "JetBrains Mono",monospace;margin-top:12px;}
+.attempt textarea{width:100%;min-height:120px;font:15px/1.5 "JetBrains Mono",monospace;border:1px solid var(--line);border-radius:6px;padding:12px;background:var(--surface);color:var(--ink);}
+.actions{display:flex;gap:10px;margin-top:10px;}
+button{font:600 13px "Source Sans 3";padding:8px 16px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;}
+button.primary{background:var(--action);color:var(--on-action);border-color:var(--action);}
+.feedback{margin-top:12px;font-size:14px;display:none;}
+.feedback.show{display:flex;gap:8px;align-items:center;animation:pop .25s ease;}
+.feedback .check{color:var(--action);font-weight:700;}
+@keyframes pop{from{transform:scale(.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+</style>
+</head>
+<body>
+<div class="strip">
+  <div class="seg done">1 · grep</div>
+  <div class="seg active">2 · sort</div>
+  <div class="seg">3 · uniq -c</div>
+  <div class="seg">4 · sort by frequency</div>
+</div>
+<div class="wrap">
+  <div class="step">
+    <div class="explain">
+      <h2>Step 2 — Sort the matches</h2>
+      <p>You listed every <code>ERROR</code> line from <code>server.log</code>. Before you can count how many times each message repeats, the identical lines need to sit next to each other — that's what <code>sort</code> does.</p>
+      <div class="example">$ grep "ERROR" server.log | sort</div>
+    </div>
+    <div class="attempt">
+      <h2 style="font-family:'Source Sans 3';font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);">Your attempt</h2>
+      <textarea>grep "ERROR" server.log | sort</textarea>
+      <div class="actions">
+        <button class="primary" id="check">Check</button>
+        <button id="hint">Hint</button>
+      </div>
+      <div class="feedback show" id="fb"><span class="check">✓</span> Correct — repeated lines are now adjacent. Next: collapse them with <code>uniq -c</code>.</div>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById('check').addEventListener('click',function(){
+  var fb=document.getElementById('fb');
+  fb.classList.remove('show'); void fb.offsetWidth; fb.classList.add('show');
+});
+</script>
+</body>
+</html>

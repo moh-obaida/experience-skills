@@ -4,8 +4,12 @@ Education products serve learners, and usually also teachers, parents, administr
 certifying bodies. The design problem is sustained attention and honest progress: what does the
 learner do next, did they actually learn, and who else needs to know? Generated defaults reach for
 gamification (XP, streaks, confetti) and candy palettes regardless of age or subject. Load a profile with `niche-atlas-index.md` only when its realities affect a decision; compare product-relevant systems with `design-system-selector.md` only when the direction is open. For technical
-lessons, start with Practice Console when repeated tool use is central; consider Worked Example in `niche-developer.md` when explanation needs more space; for AI tutors, Tutor Path in
-`niche-ai.md`; for learning games, Field Notebook in `niche-games.md`.
+lessons, Practice Console is one relevant candidate when repeated tool use and visible environment
+consequences are central. Worked Example in `niche-developer.md` is a candidate when explanation
+needs more space while practice remains usable; Tutor Path in `niche-ai.md` fits adaptive tutoring;
+Field Notebook in `niche-games.md` fits learning games built around simulated state and shared
+exploration. These are possibilities, not defaults: choose only after the product's instrument,
+loop, and explanation needs are clear.
 
 ## Product realities
 
