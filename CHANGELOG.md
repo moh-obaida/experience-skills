@@ -6,6 +6,32 @@ All notable changes to this project are documented here. The format follows
 
 ## Unreleased
 
+## [0.6.1] - 2026-09-27
+
+### Added
+- `shared/evaluation/specification-pressure.md`: a shared protocol for long, imperfect, or
+  contradictory specifications — an authoritative source model held distinct from a compact
+  working product model, authority classification (hard requirement vs. conditional, preference,
+  recommendation, example, rationale, deferred, future, non-goal), a requirement map for
+  traceability, locked-vs-open design handling, conflict and refinement detection, amendment and
+  assumption-invalidation handling, and source-drift awareness on long-running builds. Declared
+  for `use-all-skills`, `experience-architect`, and `critical-review` only; every other skill gets
+  a one-line conditional trigger via `experience-operating-contract.md` and one core-brief bullet,
+  so normal short requests carry no added ceremony.
+- The same protocol states its own symmetric opposite case: a narrow request naming one component
+  or symptom skips it entirely (observe, diagnose, recommend or repair, stop) unless correctness
+  depends on cross-source requirements the source actually states.
+- Routing and scenario fixtures for mixed-authority specifications, a locked visual direction at
+  specification scale, conflict/refinement detection, an amendment, design-open-at-scale, and the
+  short-review fast path.
+
+### Changed
+- `design-system-selector.md`: a direction stated in the current specification is now treated as
+  locked, the same as an existing brand system; prompt length is explicitly not evidence that
+  direction is open.
+- `design-vs-decoration.md`: a pattern the specification explicitly asks for is not slop merely
+  because generated interfaces often misuse the same pattern elsewhere.
+
 ## [0.6.0] - 2026-09-27
 
 ### Changed

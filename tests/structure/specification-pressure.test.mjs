@@ -63,7 +63,7 @@ test('the protocol explicitly names its own opposite case: a narrow request stay
   const text = read(SOURCE);
   assert.match(text, /## The other extreme: a narrow request stays narrow/);
   assert.match(text, /observe, diagnose, recommend or repair, stop/i);
-  assert.match(text, /do not read\s+it "just in case\."/i);
+  assert.match(text, /do not read it\s+"just in case\."/i);
 });
 
 test('the conductor and architect state the fast-path exclusion in their own checkpoints', () => {

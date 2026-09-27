@@ -38,9 +38,12 @@ page feel generic," and "this modal flow is annoying" are low-pressure by constr
 surface, one concern, evidence you can observe directly. For these, the right behavior is the
 plain one: **observe, diagnose, recommend or repair, stop.** No operating brief, no requirement
 map, no authority classification, no locked-vs-open inventory — there is nothing to classify. A
-short request that names a single component or symptom never needs this file at all; do not read
-it "just in case." Symmetry matters as much as coverage: a system that handles a 1,000-line PRD
-well but makes a two-word review slower has not succeeded.
+narrow request naming one component or symptom normally skips this file entirely; do not read it
+"just in case." The exception is narrow only in surface area: "fix this payment confirmation
+button" inside a large banking specification may still turn on permissions, an irreversible-action
+rule, or a compliance constraint from that source — in that case, get the specific rule that
+governs the button, not the whole protocol. Symmetry matters as much as coverage: a system that
+handles a 1,000-line PRD well but makes a two-word review slower has not succeeded.
 
 ## Two representations, not one
 
@@ -54,12 +57,17 @@ truth in its own right.
 
 ## Intake: classify before compressing
 
-Read the whole source once — understanding can still deepen incrementally as implementation later
-reaches an area the first pass only skimmed; front-loading every clause before anything is built is
-not the goal, and is itself a failure mode (see Stop condition below). While reading, sort
-statements — do not just summarize them. Words like "must," "required," "final,"
-"to be decided," "recommended," or "future" are useful signals, but context decides, not the word
-alone; do not build a keyword classifier out of this table. At minimum distinguish:
+Establish coverage of the whole source before making product-wide assumptions — for one pasted
+document this usually means reading it. For a very large or multi-document corpus, establish
+coverage with structure instead: headings, tables of contents, search, and an index of what each
+document covers, then read targeted sections rather than loading every clause into active context
+at once; loading everything is itself the context-cost problem this protocol exists to avoid.
+Either way, understanding still deepens incrementally as implementation later reaches an area the
+first pass only skimmed — front-loading every clause before anything is built is not the goal, and
+is itself a failure mode (see Stop condition below). While sorting statements, classify — do not
+just summarize. Words like "must," "required," "final," "to be decided," "recommended," or
+"future" are useful signals, but context decides, not the word alone; do not build a keyword
+classifier out of this table. At minimum distinguish:
 
 | Class | What it is | Rule |
 |---|---|---|

@@ -4,7 +4,7 @@ description: "Use this skill whenever a UI looks generic, overdesigned, or under
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.6.0"
+  version: "0.6.1"
   collection: experience-skills
 ---
 

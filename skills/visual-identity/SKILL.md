@@ -3,7 +3,7 @@ name: visual-identity
 description: "Use this skill whenever a product needs a visual direction or stronger personality, energy, color behavior, or identity across its working screens and states. Derive expression from the user job, core instrument, product mechanics, and emotional target. Choose a look contract with structural hierarchy, chroma and contrast behavior, typographic attitude, geometry, rhythm, and a causal signature response; preserve existing coherent identity and compare Atlas options only when useful."
 license: MIT
 metadata:
-  version: "0.6.0"
+  version: "0.6.1"
   collection: experience-skills
 ---
 

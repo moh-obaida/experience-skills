@@ -4,7 +4,7 @@ description: "Use this skill whenever an existing rendered product looks AI-gene
 license: MIT
 compatibility: "Browser rendering strongly recommended. The optional identity extractor needs Node.js 18+ and reads local source only."
 metadata:
-  version: "0.6.0"
+  version: "0.6.1"
   collection: experience-skills
 ---
 
