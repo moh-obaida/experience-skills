@@ -99,6 +99,42 @@ The brief indexes the source; it does not replace it. **Re-open the relevant sou
 before implementing a critical workflow, a state transition, an exception, or anything with an
 exact number — reasoning runs from the brief, precision comes from the source.
 
+**Global truth versus local truth.** Keep global product truth active throughout — roles,
+commission or pricing model, the permission model, brand direction, localization, security and
+trust constraints. Pull local truth (this workflow's timeout, this screen's allowed actions, this
+state's exceptions) only when work reaches that area. A specialist working on payments needs the
+global invariants plus payments' local truth, not onboarding's or messaging's local detail.
+
+For a source spanning multiple clearly separate domains (booking, payments, disputes, admin,
+notifications, and similar), the operating brief may scale in two tiers instead of one: a tiny
+**product kernel** (thesis, roles, core loop, core instrument, global invariants, scope boundary)
+that stays active throughout, plus a **domain brief** pulled in only for the domain currently being
+built, refreshed from source when work moves to a new one. This is adaptive, not mandatory — a
+normal feature brief never needs it, and forcing the split on ordinary work is itself a failure
+mode. The one hard rule regardless of shape: a very large source should never produce one
+enormous flat brief; if the brief is approaching the source's own size, the compression has failed
+and the mechanism needs rethinking, not more detail.
+
+## Targeted retrieval
+
+Re-opening the source is not "grab the first matching sentence." For an implementation decision,
+retrieve the base rule together with its exceptions, refinements, and any later amendment — a
+worker-response timeout stated once, narrowed for emergency requests, and changed again by a later
+global amendment is one governing rule, not three candidates to pick from. Do not assume an
+important qualifier sits near its first mention: huge sources bury modifiers in appendices, notes,
+later correction sections, and role-specific subsections. When the source is searchable, search
+semantically — synonyms, alternate section terminology, role-specific phrasing, a later
+correction — not just the one exact phrase first imagined, and treat a hit as a reason to read its
+surrounding context, not as the complete answer by itself.
+
+If a decision cannot be found after a reasonable targeted search, mark it open or unspecified
+rather than inventing a rule that sounds plausible. Keep the distinction between what the source
+states outright, what it implies but doesn't state, and what is the agent's own implementation
+judgment — do not present an inference as an explicit requirement. Where evidence is genuinely
+ambiguous, keep it as probable or unresolved rather than forcing a false yes/no. If retrieval
+itself fails (a file is unreadable, a document is gone), do not guess exact behavior — state the
+gap, or take the smallest reversible assumption if the task requires continuing anyway.
+
 ## Requirement map
 
 Keep one shared, compact ledger — not a giant user-facing checklist, and not a duplicate per
@@ -113,15 +149,31 @@ settlement, overdue handling, and dispute resolution — so that changing the ru
 what else to check. This is judgment, not a formal graph: track it for rules whose change would
 ripple, not for every token value.
 
+Map decisions, not prose: one normalized rule with its provenance beats five near-duplicate rows
+copied from five sections that all say the same thing. Give deeper traceability to rules touching
+money, permissions, role visibility, destructive or irreversible actions, eligibility, trust,
+safety, privacy, timing, status transitions, compliance, or identity — the same categories that
+drive verification priority below — and lighter traceability to minor presentation preferences and
+restated rationale. If the map itself starts approaching the size of the source, the compression
+has failed; that is a signal to rebuild the map at a higher level, not to keep appending rows.
+
+A source is not always one stable snapshot. Distinguish a final, settled specification from
+evolving working notes, and give an evolving document stronger amendment and drift attention. If a
+corpus contains an old and a newer version of the same material, do not silently merge them into
+one blended rule — track which one is current and let the newer, more authoritative one govern.
+
 ## Locked decisions versus open design space
 
 **Preserve intentional locked decisions. Apply Experience Skills to the open space around them.**
 
 A decision is locked when the user or the specification states it as fact: a commission rate, an
 interaction invariant ("customer and worker independently report price"), a required workflow, an
-existing brand system, a stated palette, typography, density, or interaction style. A decision is
-open when the source is silent: sidebar versus top navigation with no stated preference, an
-unspecified accent color, an unnamed composition.
+existing brand system, a stated palette, typography, density, or interaction style. A screenshot or
+design file the task says to preserve is source evidence the same way prose is — its visible
+hierarchy, palette, spacing, density, component language, and composition are locked, not
+overwritten because prose is easier to parse than an image. A decision is open when the source is
+silent: sidebar versus top navigation with no stated preference, an unspecified accent color, an
+unnamed composition.
 
 The Niche Design Atlas and the design-system selector fill open space; they do not compete with a
 locked decision. Visual Identity extends and operationalizes a stated direction; it does not
@@ -151,13 +203,26 @@ ambiguous here; never claim it was not. When later information resolves an assum
 and check what was built on top of it — do not leave a contradictory remnant standing beside the
 correction.
 
+An unresolved conflict is local to what it affects. A contradiction in the analytics rules does not
+block implementing booking; note it and keep building elsewhere. When a rule changes, its
+downstream dependents (tracked in the requirement map above) are not all equally affected — treat
+them as **confirmed still valid** (nothing about the change touches them), **potentially stale**
+(worth a check before relying on them — an example showing a final payout, a report, an overdue
+balance), or **definitely invalidated** (the commission calculation itself, when the rate changes).
+Re-check the potentially-stale and definitely-invalidated sets; do not re-verify the whole product
+because one rule moved.
+
 ## Deduplication without losing meaning
 
 The same requirement often reappears across an overview, a workflow section, implementation notes,
 and a summary table. Collapse exact repeats in the requirement map. Do not collapse a refinement:
 "workers are verified" in one section and "ID required for all workers; work photos required only
 for skilled trades" in another are the same requirement at two levels of detail — keep the more
-specific one, not neither.
+specific one, not neither. The same discipline applies to a chain of exceptions: a general rule, an
+exception to it, and an exception to that exception ("all workers need approval," "invited
+enterprise workers may start provisional work," "but not for electrical jobs") must survive as the
+full three-level meaning, not collapse back to the general rule because the exceptions were read
+first and compressed away.
 
 ## Cross-cutting requirements
 
@@ -181,15 +246,34 @@ recovery, what changes visibly, and what downstream behavior changes. Two states
 in prose (`requested → assigned → in progress → completed` versus `requested → timeout → retry
 next candidate → cancelled`) are not one generic flow.
 
+A large state space needs focus, not enumeration: model the states reachable from the current job,
+visible to the user, and relevant to the states being implemented now, plus the global invariants
+that must hold everywhere — not the full combinatorial product of every flag. The same applies to a
+large role system: keep the current actors and the permission boundaries between them active, not
+every role's full detail for every workflow; pull a distant role's truth only when it actually
+interacts with the one being built.
+
 ## Specialist handoff
 
 A conductor that has done the intake does not hand the raw source to every specialist and ask each
 to reinterpret the whole thing — that recreates the context cost this protocol exists to avoid.
-Give a specialist a compact contract instead: the relevant product/job slice, the locked
-requirements that bound its work, the open decisions it can help with, the specific source section
-if precision matters, the observed problem, and the expected output. State Design does not need
-the marketing strategy. Visual Identity does not need the database schema unless it changes the
-working product. Responsive Validation does not need every rationale paragraph.
+Give a specialist a compact contract instead: the product kernel, the relevant local job or
+workflow, the locked requirements and global invariants that bound its work, the open decisions it
+can help with, the specific source slice if precision matters, any unresolved conflict that
+actually touches its work, the observed problem, and the expected output. State Design does not
+need the marketing strategy. Visual Identity does not need the database schema unless it changes
+the working product. Responsive Validation does not need every rationale paragraph. A handoff
+built from a 40,000-token source and totaling 30,000 tokens has not compressed anything — it has
+failed at the one thing this section exists to do.
+
+If a specialist finds the handoff insufficient, it retrieves the smallest additional source slice
+that answers the specific question — it does not guess, and it does not request the whole corpus.
+If a specialist discovers a contradiction, a missing constraint, or a reason an assumption no
+longer holds, it reports that back to the shared model rather than quietly building on its own
+version of the product; there is one product truth that specialists interpret, not one truth per
+specialist. When two specialists' conclusions conflict, resolve by authoritative source, then
+observed product behavior, then the stated task goal, then other evidence — never by which
+specialist ran first or which one seems more senior.
 
 ## Scope control
 
@@ -233,6 +317,12 @@ differs. When the work happens inside an existing codebase, inspect its current 
 building the operating brief — a document's own chapter structure does not map onto the repository,
 and observed working behavior is itself evidence, not just prose waiting to be confirmed.
 
+When code and specification disagree, task intent decides which one governs — there is no single
+universal precedence rule. "Implement the new spec" lets the spec supersede the code. "Fix this
+regression without changing behavior" makes the working code authoritative over an old document.
+"Audit the implementation against the spec" makes the disagreement itself the finding, not
+something to silently resolve either way.
+
 ## Stop condition
 
 Planning under high pressure can run forever because there is always one more clause to extract.
@@ -257,6 +347,12 @@ long-running build, also watch for drift: if a source file changes on disk, or a
 read early and the implementation has since moved past what it actually said, refresh that part of
 the working model rather than trusting memory of the first pass.
 
+Re-open the exact source before, not just after, implementing anything touching money (prices,
+commissions, refunds, settlements, fees), timing (timeouts, retries, grace periods, expirations,
+SLAs), a destructive or irreversible action (deletion, suspension, cancellation), or cross-role
+visibility — these categories are worth the extra look before writing the behavior, not only during
+later verification.
+
 ## Verification under pressure
 
 Final verification combines exercising real product journeys and state transitions (success,
@@ -271,6 +367,16 @@ intentionally not applicable, deferred by the specification, unresolved by the s
 temporary implementation assumption, or incomplete. A deferred-by-spec item is not a failure; an
 unimplemented hard requirement is not complete. This classification is internal unless the user
 asks to see it.
+
+For a build spanning multiple domains, verify each domain's high-risk source truth as it finishes
+rather than waiting until everything exists — late-stage rediscovery of a forgotten rule across
+forty screens is expensive to unwind. At the end, add a short cross-domain pass for invariants that
+only show up as inconsistency between areas (commission agreeing between completion and reporting,
+suspension reflected in both matching and admin, identity state consistent between onboarding and
+eligibility), and confirm the latest amendments and locked decisions actually reached every place
+they apply. Stay honest about the difference between a source area that was indexed (known to
+exist), inspected (actually read), and verified (checked against the implementation) — do not claim
+compliance for an area that was only indexed.
 
 ## Amendments during the conversation
 

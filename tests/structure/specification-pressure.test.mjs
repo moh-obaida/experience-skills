@@ -111,3 +111,73 @@ test('routing.json protects conflict detection, refinement, and design-open-at-s
   assert.ok(inputs.some((i) => /cold-chain/.test(i)), 'missing a refinement-not-duplicate routing case');
   assert.ok(inputs.some((i) => /haven't decided on a visual direction/.test(i)), 'missing a design-open-at-scale routing case');
 });
+
+// --- Extreme-scale hardening pass (v0.6.1 hardening) ---
+
+test('global-vs-local truth and the optional kernel/domain scaling are covered', () => {
+  const text = read(SOURCE);
+  assert.match(text, /Global truth versus local truth/);
+  assert.match(text, /product kernel[\s\S]*domain brief/);
+  assert.match(text, /is adaptive, not mandatory/, 'the kernel/domain split must be explicitly optional, not required ceremony');
+});
+
+test('targeted retrieval covers base-rule-plus-modifiers, source silence, and specified/implied/inferred', () => {
+  const text = read(SOURCE);
+  assert.match(text, /## Targeted retrieval/);
+  assert.match(text, /base rule together with its exceptions, refinements, and any later amendment/);
+  assert.match(text, /mark it open or unspecified/);
+  assert.match(text, /what the source\s+states outright, what it implies but/);
+});
+
+test('the requirement map guards its own scalability and distinguishes source stability', () => {
+  const text = read(SOURCE);
+  assert.match(text, /Map decisions, not prose/);
+  assert.match(text, /the compression\s+has failed/);
+  assert.match(text, /evolving working notes/);
+});
+
+test('conflict locality and three-tier invalidation are distinguished from binary valid/invalid', () => {
+  const text = read(SOURCE);
+  assert.match(text, /is local to what it affects/);
+  assert.match(text, /confirmed still valid/);
+  assert.match(text, /potentially stale/);
+  assert.match(text, /definitely invalidated/);
+});
+
+test('specialist handoffs guard size, source requests, and single shared product truth', () => {
+  const text = read(SOURCE);
+  assert.match(text, /has not compressed anything/, 'missing the 40k-source/30k-handoff anti-pattern');
+  assert.match(text, /does not guess, and it does not request the whole corpus/);
+  assert.match(text, /one product truth that specialists interpret/);
+  assert.match(text, /never by which\s+specialist ran first/);
+});
+
+test('state and role explosion control, and nested exceptions, are covered', () => {
+  const text = read(SOURCE);
+  assert.match(text, /A large state space needs focus, not enumeration/);
+  assert.match(text, /a\s+large role system/);
+  assert.match(text, /exception to that\s+exception/);
+});
+
+test('screenshots as locked source evidence, and spec-vs-code resolution, are covered', () => {
+  const text = read(SOURCE);
+  assert.match(text, /A screenshot or\s+design file the task says to preserve/);
+  assert.match(text, /task intent decides which one governs/);
+});
+
+test('preemptive high-risk checkpoints and incremental, honest verification are covered', () => {
+  const text = read(SOURCE);
+  assert.match(text, /Re-open the exact source before, not just after/);
+  assert.match(text, /verify each domain.s high-risk source truth as it finishes/);
+  assert.match(text, /indexed \(known to\s+exist\), inspected \(actually read\), and verified/);
+});
+
+test('the extreme multi-domain fixture exists, stays small on expected skills, and covers a fresh domain', () => {
+  const routing = JSON.parse(read('tests/evals/routing.json'));
+  const entry = routing.scenarios.find((s) => s.file === 'tests/scenarios/extreme-multi-domain-spec.md');
+  assert.ok(entry, 'extreme-multi-domain-spec.md is not registered in routing.json scenarios');
+  assert.ok(entry.expected.length <= 3, 'a 6-domain spec should still route to a small specialist set');
+  const text = read(entry.file);
+  assert.match(text, /onboarding, travel booking, expense submission, approvals\/disputes, company\s*\nadmin, notifications/);
+  assert.doesNotMatch(text, /worker|marketplace/i, 'should be a distinct domain from the existing marketplace scenarios, not a reskin');
+});

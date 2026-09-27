@@ -591,6 +591,17 @@
         "visual-identity/references/_shared/design-system-selector.md"
       ],
       "anchor": "shared/design-intelligence/design-system-selector.md"
+    },
+    {
+      "file": "tests/scenarios/extreme-multi-domain-spec.md",
+      "expected": [
+        "state-design",
+        "interaction-design"
+      ],
+      "requiredReferences": [
+        "experience-architect/references/_shared/specification-pressure.md"
+      ],
+      "anchor": "shared/evaluation/specification-pressure.md"
     }
   ]
 }
