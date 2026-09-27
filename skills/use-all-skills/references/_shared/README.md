@@ -10,6 +10,7 @@ points to it.
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
+| `specification-pressure.md` | Specification Pressure | `shared/evaluation/specification-pressure.md` |
 | `design-system-grammar.md` | Design System Grammar | `shared/design-intelligence/design-system-grammar.md` |
 | `design-system-selector.md` | Design System Selector | `shared/design-intelligence/design-system-selector.md` |
 | `design-systems-index.md` | Original Design Systems: Index | `shared/design-intelligence/design-systems-index.md` |

@@ -19,3 +19,4 @@ points to it.
 | `experience-rubric.md` | Experience Rubric | `shared/evaluation/experience-rubric.md` |
 | `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
 | `experience-routing.md` | Precedent: Cross-Concern Product Surfaces | `shared/precedent/experience-routing.md` |
+| `specification-pressure.md` | Specification Pressure | `shared/evaluation/specification-pressure.md` |

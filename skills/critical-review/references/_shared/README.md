@@ -25,3 +25,4 @@ points to it.
 | `selection.md` | Design Direction Selection | `shared/design-intelligence/selection.md` |
 | `justified-trends.md` | Precedent: When "AI-Looking" Techniques Are Right | `shared/precedent/justified-trends.md` |
 | `third-party-notices.md` | Third-Party Notices | `shared/legal/third-party-notices.md` |
+| `specification-pressure.md` | Specification Pressure | `shared/evaluation/specification-pressure.md` |

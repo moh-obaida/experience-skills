@@ -12,7 +12,13 @@ A core instrument (terminal, editor, canvas, map, timeline, conversation, sheet,
 
 ## Compare only when useful
 
-If the existing direction already supports the job and invariants, preserve it. Otherwise compare two or three product-relevant directions on the *primary working screen*, not a hero. Draw from `design-systems-index.md`, a niche file, or an original concept. Vary focal strategy, density, persistent versus contextual support, information exposure, interaction framing, progression, and responsive transformation. One option may be compact, one balanced, and one spacious when those are credible alternatives. Include different visual energy levels where the emotional target is open; serious and energetic is valid.
+A direction is **locked**, not a candidate to compare, when the user or the specification states
+it as fact: brand colors, typography, a layout principle, a density, or an interaction style
+given explicitly — in an existing codebase or in the current brief. Work inside a locked direction;
+extend and operationalize it rather than proposing alternatives to it. A long or detailed
+specification does not make direction more open — it more often means it is already decided, and a
+short prompt does not make it more open either. If the existing or stated direction already
+supports the job and invariants, preserve it. Otherwise compare two or three product-relevant directions on the *primary working screen*, not a hero. Draw from `design-systems-index.md`, a niche file, or an original concept. Vary focal strategy, density, persistent versus contextual support, information exposure, interaction framing, progression, and responsive transformation. One option may be compact, one balanced, and one spacious when those are credible alternatives. Include different visual energy levels where the emotional target is open; serious and energetic is valid.
 
 For each candidate, answer briefly:
 

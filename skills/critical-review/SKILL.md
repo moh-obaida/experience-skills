@@ -20,6 +20,9 @@ reasons too.
 2. Read `references/_shared/experience-operating-contract.md`; a verdict about implemented UI
    must distinguish rendered evidence from source-only inspection.
 3. Read `references/_shared/model-instincts.md`. You will check your draft against it at the end.
+4. If the proposal or the finished work is being checked against a long or complex specification,
+   read `references/_shared/specification-pressure.md`; a verdict there must check compliance
+   against the requirement map, not re-read the whole source with equal weight on every sentence.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
 **Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
@@ -47,6 +50,9 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
   anti-slop branch must load its required reference before recommendation or edit; unrelated work
   must not load the whole library.
+- **A large specification is a bigger evidence base, not a bigger checklist.** Preserve exact
+  numbers, exceptions, and locked decisions; keep recommendations, examples, and deferred items
+  from becoming requirements; compress for reasoning, re-open the source for precision.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -79,17 +85,21 @@ If the proposal changes visual direction, load `references/_shared/selection.md`
 4. **Before any verdict:** have you checked the hidden-cost list (complexity, interaction, workflow,
    accessibility, performance, consistency, states, maintenance, migration, identity)? Unchecked
    costs are listed as unknowns. For added complexity, see `references/_shared/overengineering.md`.
-5. **For every positive statement:** does it name the decision, why it works, and the evidence? No →
+5. **Against a source specification under pressure:** prioritize hard invariants, exact numbers,
+   exceptions, cross-role behavior, critical states, explicit priorities, trust/safety rules, and
+   scope boundaries over prose style. A recommendation the source never finalized is not a defect
+   for being unbuilt; an unimplemented hard requirement is not complete for being close.
+6. **For every positive statement:** does it name the decision, why it works, and the evidence? No →
    delete it (`references/disagreement-and-praise.md`).
-6. **If the user pushes back without new evidence:** restate the tradeoff once, then help them do it
+7. **If the user pushes back without new evidence:** restate the tradeoff once, then help them do it
    well. Do not reverse your verdict to please them. If new evidence changes your view, say so
    explicitly.
-7. **Before sending:** delete every adjective; if the review still says something, keep the adjectives
+8. **Before sending:** delete every adjective; if the review still says something, keep the adjectives
    that are backed. If it says nothing, rewrite with observations.
-8. **Use `references/review-workflow.md` proportionately.** Check outcome, evidence, current state, costs, and the simplest alternative before a verdict. Keep notes focused on material findings rather than filling twelve report fields.
-9. **Check whether the right answer is not "new is better":** `references/verdict-examples.md` covers keeping the current version, simplifying, rejecting a trend, removing a feature, preserving a familiar control, and justified whitespace, cards, dramatic motion, or added complexity.
+9. **Use `references/review-workflow.md` proportionately.** Check outcome, evidence, current state, costs, and the simplest alternative before a verdict. Keep notes focused on material findings rather than filling twelve report fields.
+10. **Check whether the right answer is not "new is better":** `references/verdict-examples.md` covers keeping the current version, simplifying, rejecting a trend, removing a feature, preserving a familiar control, and justified whitespace, cards, dramatic motion, or added complexity.
 
-10. **Release judgment:** rank blocker, major, moderate, minor, and optional findings by effect on the primary journey. A broken core control, false completion, lost progress, or impossible continuation blocks release regardless of visual polish. Synthesize the 3–5 highest-value remaining findings rather than repeat every specialist; inspect recovery quality and preserve good current decisions. Zero changes is a valid verdict.
+11. **Release judgment:** rank blocker, major, moderate, minor, and optional findings by effect on the primary journey. A broken core control, false completion, lost progress, or impossible continuation blocks release regardless of visual polish. Synthesize the 3–5 highest-value remaining findings rather than repeat every specialist; inspect recovery quality and preserve good current decisions. Zero changes is a valid verdict.
 
 ## Workflow
 
@@ -159,4 +169,5 @@ The selection method adapts ideas credited in `references/_shared/third-party-no
   `experience-rubric.md`, `workflow-rubric.md`,
   `anti-slop-gate.md`, `public-service-form.md`, `product-page-purchase-path.md`,
   `join-code-page.md`, `sparse-account-surface.md`, `selection.md`, `justified-trends.md`,
-  `third-party-notices.md`
+  `third-party-notices.md`, `specification-pressure.md` — source-compliance verification against
+  a long or complex specification

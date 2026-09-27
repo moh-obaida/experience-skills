@@ -15,6 +15,9 @@ metadata:
 
 1. Read `references/_shared/experience-core.md` and `references/_shared/experience-operating-contract.md`.
 2. Read `references/phase-map.md`; inspect the repository, product, and rendered state when runnable.
+3. If the input is a long or complex specification (many roles, workflows, states, cross-cutting
+   rules, or a mix of requirements, recommendations, examples, and deferred items — not length
+   alone), read `references/_shared/specification-pressure.md` before intake and routing.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
 **Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
@@ -42,6 +45,9 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
   anti-slop branch must load its required reference before recommendation or edit; unrelated work
   must not load the whole library.
+- **A large specification is a bigger evidence base, not a bigger checklist.** Preserve exact
+  numbers, exceptions, and locked decisions; keep recommendations, examples, and deferred items
+  from becoming requirements; compress for reasoning, re-open the source for precision.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -58,12 +64,13 @@ Read that file (the full rules and evidence levels) before a full review, repair
 ## Checkpoints
 
 1. **Before routing:** identify user job, product thesis, repeated core loop, core instrument, and a small set of invariants. Inspect existing strengths before changing them (`references/phase-map.md`).
-2. **Choose mode:** Build Mode for greenfield, prototypes, and new surfaces; Audit Mode for mature interfaces, broad redesigns, known UX problems, or an explicit full review. “Full product” alone does not imply Audit Mode.
-3. **Spend a skill budget:** consider all fourteen specialists, then activate the smallest set with evidence of leverage. About 3–6 materially active specialists is a useful greenfield expectation, not a cap. Each additional activation needs a product-specific reason (`references/participation-ledger.md`).
-4. **Before another reference or handoff:** what observed concern remains, and could this material change a decision? If no, stop reading or handing off. Specialists may report no material issue, low severity, or preserve the current choice.
-5. **Before visual selection:** protect the core instrument and invariants. Use `references/_shared/design-system-selector.md` only when comparing directions would help; an existing or original coherent direction may win. Keep the implementation note short (`references/design-artifact.md`).
-6. **Before prolonged planning:** if the job, loop, instrument, invariants, main states, interaction architecture, direction, and major risks are sufficiently resolved, build now. Reserve substantial attention for implementation and verification.
-7. **Before finishing:** repeatedly exercise the primary journey, mistakes and recovery, completion and continuation, secondary-surface return, and responsive/focus behavior where relevant. Fix blockers and major defects, rerun affected journeys, then stop when no high-value issue remains.
+2. **Is specification pressure high?** A long, imperfect, real-world spec (interacting roles, workflows, states, business rules, or a mix of requirements, recommendations, examples, and deferred items) needs `references/_shared/specification-pressure.md`'s intake before routing: classify hard rules apart from recommendations and examples, keep exact numbers and exceptions, and leave deferred items deferred. A large source does not by itself imply a large skill stack — often the opposite, since more decisions are already made. A narrow request naming one surface or symptom is low pressure regardless of how it arrived; do not read that file for it.
+3. **Choose mode:** Build Mode for greenfield, prototypes, and new surfaces; Audit Mode for mature interfaces, broad redesigns, known UX problems, or an explicit full review. “Full product” alone does not imply Audit Mode.
+4. **Spend a skill budget:** consider all fourteen specialists, then activate the smallest set with evidence of leverage. About 3–6 materially active specialists is a useful greenfield expectation, not a cap. Each additional activation needs a product-specific reason (`references/participation-ledger.md`).
+5. **Before another reference or handoff:** what observed concern remains, and could this material change a decision? If no, stop reading or handing off. Specialists may report no material issue, low severity, or preserve the current choice. Under high pressure, hand off a compact contract (relevant locked requirements, relevant open decisions, the source slice, the question) — not the whole specification.
+6. **Before visual selection:** protect the core instrument and invariants. Use `references/_shared/design-system-selector.md` only when comparing directions would help; an existing or original coherent direction — including one the user just specified in the source — may win. Keep the implementation note short (`references/design-artifact.md`).
+7. **Before prolonged planning:** if the job, loop, instrument, invariants, main states, interaction architecture, direction, and major risks are sufficiently resolved, build now. Reserve substantial attention for implementation and verification. Under high pressure this is the stop condition: once locked-vs-open and unresolved conflicts are named, stop extracting requirements and build.
+8. **Before finishing:** repeatedly exercise the primary journey, mistakes and recovery, completion and continuation, secondary-surface return, and responsive/focus behavior where relevant. Fix blockers and major defects, rerun affected journeys, then stop when no high-value issue remains. Under high pressure, also revisit the requirement map for hard invariants, exact numbers, exceptions, and scope boundaries before declaring the work complete.
 
 ## Workflow
 
@@ -92,6 +99,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - `references/participation-ledger.md` — compact routing and finding record
 - `references/design-artifact.md` — optional operational implementation note
 - `references/_shared/experience-core.md`, `references/_shared/experience-operating-contract.md` — collection contract
+- `references/_shared/specification-pressure.md` — long, imperfect, or contradictory specification intake, requirement traceability, and locked-vs-open handling
 - `references/_shared/niche-atlas-index.md` — product context; load only a relevant niche file: `niche-business.md`, `niche-developer.md`, `niche-ai.md`, `niche-games.md`, `niche-education.md`, `niche-commerce.md`, `niche-finance.md`, `niche-media.md`, `niche-social.md`, `niche-health.md`, `niche-public.md`, `niche-travel.md`, `niche-physical.md`, `niche-creative.md`, `niche-personal.md`
 - `references/_shared/selection.md`, `references/_shared/design-system-selector.md`, `references/_shared/design-systems-index.md` — optional direction comparison
 - `references/_shared/design-systems-workspaces.md`, `references/_shared/design-systems-services.md`, `references/_shared/design-systems-culture.md`, `references/_shared/design-systems-learning.md`, `references/_shared/design-systems-operations.md` — load only a candidate family that may change the choice

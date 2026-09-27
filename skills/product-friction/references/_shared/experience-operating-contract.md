@@ -30,6 +30,7 @@ Use the first matching rule, then add only rules made relevant by the work:
 | Motion is added or changed | Map motion to an event, define reduced-motion behavior, and run the motion scanner when available. |
 | A treatment resembles an AI default | Run the anti-slop justification branch: job, product root, alternative, cost, and failure condition. |
 | A user-facing implementation can run in a browser | Follow the render contract below before claiming a visual result. |
+| The input is a long, imperfect, or contradictory specification — not length alone, but many roles, workflows, states, cross-cutting rules, or a mix of requirements, recommendations, examples, and deferred items | Read `specification-pressure.md` when installed; otherwise triage inline before acting: separate hard requirements from recommendations and examples, keep exact numbers and exceptions bound to their conditions, leave deferred items deferred, and do not let the document's structure become the product's structure. |
 
 If a required file is not installed, use the specialist's documented fallback and label the gap;
 never silently replace evidence with taste.

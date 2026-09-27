@@ -59,6 +59,12 @@ The difference is that you can state the job.
 - The most decorated element is the least important one (for example a fancy input on an
   otherwise empty page).
 
+A pattern the product specification explicitly asks for — a dense admin table, a dark interface,
+cards for comparable objects, a persistent sidebar — is not slop merely because a generated
+interface often misuses the same pattern elsewhere. Judge the instance against the job stated
+above, including a job the user or the specification stated directly; do not veto a locked product
+decision on category alone.
+
 ## How to apply
 
 When repairing a surface:

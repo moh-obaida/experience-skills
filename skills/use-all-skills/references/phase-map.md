@@ -4,7 +4,7 @@ This map is a decision route, not a mandatory phase sequence. Begin with a compa
 
 | Step | Decision | Route or stop gate |
 |---|---|---|
-| Understand | What are the user job, thesis, repeated loop, core instrument, protected invariants, and strongest existing decisions? | Inspect the repo and rendered product where possible. Preserve evidence-backed strengths. |
+| Understand | What are the user job, thesis, repeated loop, core instrument, protected invariants, and strongest existing decisions? | Inspect the repo and rendered product where possible. Preserve evidence-backed strengths. If the source is a long or contradictory specification (not just long), run intake per `references/_shared/specification-pressure.md` first: hard rules vs. recommendations vs. examples vs. deferred items, kept in one compact operating brief and requirement map. |
 | Choose mode | Is this a new surface or a mature product with symptoms? | Build Mode favors momentum; Audit Mode permits broad inspection. A full product can still use Build Mode. |
 | Route | What are the top observed or plausible risks? | Consider all installed specialists; activate the smallest useful set. Use the specialist routing in the conductor. |
 | Shape | Which decisions must be settled to build? | Resolve interaction, state, composition, identity, or responsive questions as needed. Compare design systems only when choice is genuinely open. |

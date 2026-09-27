@@ -20,6 +20,10 @@ build-verify-critique loop, and applies a final gate.
    recipes, render contract, evidence contract, and handoff artifact.
 3. Establish the mode: REVIEW (report only), REPAIR (change and verify), BUILD (create), or VERIFY
    (check finished work). Honor it.
+4. If the input is a long or complex specification — a PRD, business plan, or brief with many
+   roles, workflows, states, cross-cutting rules, or a mix of requirements, recommendations,
+   examples, and deferred items, not length alone — read
+   `references/_shared/specification-pressure.md` before diagnosing.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
 **Core rules in brief.** These apply even before you open `references/_shared/experience-core.md`.
@@ -47,6 +51,9 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
   anti-slop branch must load its required reference before recommendation or edit; unrelated work
   must not load the whole library.
+- **A large specification is a bigger evidence base, not a bigger checklist.** Preserve exact
+  numbers, exceptions, and locked decisions; keep recommendations, examples, and deferred items
+  from becoming requirements; compress for reasoning, re-open the source for precision.
 <!-- core-brief:end -->
 
 ## Use this when
@@ -75,22 +82,29 @@ Decision points, not advice. At each one, take the branch it names.
 1. **Before diagnosing:** have you observed the surface at the strongest evidence level available?
    If a browser, simulator, or terminal is available and you have not used it → observe first.
    If none is available → say so now and mark findings E3/E5/E6.
-2. **Before naming a problem:** can you point to an observation (a measurement, an element, a step
+2. **Is the input under specification pressure?** A long, imperfect, real-world spec needs
+   `references/_shared/specification-pressure.md`'s intake before diagnosis: separate hard
+   requirements from recommendations, examples, and deferred items; keep exact numbers and
+   exceptions; do not treat a stated brand or visual direction as open. A large source does not
+   imply a large specialist graph. "Review this UI," a single screenshot, or a named symptom on one
+   surface is the opposite case: observe, diagnose, recommend or repair, stop — that file does not
+   apply.
+3. **Before naming a problem:** can you point to an observation (a measurement, an element, a step
    count)? No → it is a hypothesis; label it and go find the evidence.
-3. **After ranking problems:** activate the smallest specialist set with material leverage (usually at most three initially); a fourth needs a product-specific reason. A no-change result is valid. When activating, use the agent's skill mechanism. The specialists are separate skills. The routing table only names them; it does
+4. **After ranking problems:** activate the smallest specialist set with material leverage (usually at most three initially); a fourth needs a product-specific reason. A no-change result is valid. When activating, use the agent's skill mechanism. The specialists are separate skills. The routing table only names them; it does
    not contain their method. If a specialist is not installed, use its fallback in
    `references/diagnosis-and-routing.md` and say so. Answering from this file alone is a routing
    failure.
-4. **If the user proposed a solution** ("add animations," "make the boxes fancier"): evaluate it
+5. **If the user proposed a solution** ("add animations," "make the boxes fancier"): evaluate it
    against the goal before implementing it (critical-review method). If it fails the goal, say so
    and propose the alternative before doing any work.
-5. **Before presenting any result:** run `references/final-gate.md`. Any FAIL you did not fix is
+6. **Before presenting any result:** run `references/final-gate.md`. Any FAIL you did not fix is
    listed; any unchecked item is NOT VERIFIED. Then reread your summary against
    `references/_shared/model-instincts.md` and delete praise you did not earn.
-6. **Before routing:** name the problem class from the table in `references/diagnosis-and-routing.md` and its observable signal. A symptom without a confirmed signal stays a hypothesis.
-7. **When two or more specialists apply:** use `references/recipes.md` only when it fits the observed concern. Pass the previous finding and unresolved uncertainty forward; no handoff is required once the concern is resolved.
+7. **Before routing:** name the problem class from the table in `references/diagnosis-and-routing.md` and its observable signal. A symptom without a confirmed signal stays a hypothesis.
+8. **When two or more specialists apply:** use `references/recipes.md` only when it fits the observed concern. Pass the previous finding and unresolved uncertainty forward; no handoff is required once the concern is resolved.
 
-8. **Before visual direction or final review:** does the core instrument have spatial authority and continuity across focus, secondary surfaces, and mobile? If not, route the confirmed failure. If the primary job and loop are clear and another reference will not change the next decision, implement and verify.
+9. **Before visual direction or final review:** does the core instrument have spatial authority and continuity across focus, secondary surfaces, and mobile? If not, route the confirmed failure. If the primary job and loop are clear and another reference will not change the next decision, implement and verify.
 
 ## Workflow
 
@@ -98,7 +112,7 @@ Decision points, not advice. At each one, take the branch it names.
 UNDERSTAND → OBSERVE → CLASSIFY → LOAD DEPTH → CHANGE/ADVISE → RENDER/VERIFY → CRITIQUE → FINALIZE
 ```
 
-1. **Understand.** Name the primary job, repeated loop, core instrument, supporting surfaces, and protected invariants before visual selection. Then inspect product, audience, devices, frequency of use; the surface and its archetype
+1. **Understand.** Name the primary job, repeated loop, core instrument, supporting surfaces, and protected invariants before visual selection. If the input is a long or contradictory specification, run `references/_shared/specification-pressure.md`'s intake first and derive these from its operating brief, not a raw re-read. Then inspect product, audience, devices, frequency of use; the surface and its archetype
    (`references/_shared/page-archetypes.md`); the goal; the mode; product maturity
    (`references/_shared/product-maturity.md`); constraints. Infer from the repository first; ask only
    what would change your approach. For games, CLIs, kiosks, live control, native apps, or public
@@ -116,7 +130,7 @@ UNDERSTAND → OBSERVE → CLASSIFY → LOAD DEPTH → CHANGE/ADVISE → RENDER/
    `references/_shared/experience-operating-contract.md`: primary size, one small and one short
    size, a sparse and a dense state, and the keyboard path. If you cannot render, write **NOT
    VERIFIED IN RENDERED OUTPUT** and list the exact reason and checks for the user.
-7. **Critique.** Checkpoint 5.
+7. **Critique.** Checkpoint 6.
 8. **Finalize.** Report changes, evidence levels, gate results, unverified items, next step.
 
 ## Output (REVIEW and VERIFY)
@@ -174,4 +188,6 @@ When the product is not a web app, `references/product-archetypes.md` explains h
 - `references/_shared/` — generated copies: `experience-core.md`, `evidence-standard.md`,
   `experience-operating-contract.md`,
   `page-archetypes.md`, `product-archetypes.md`, `product-maturity.md`, `visual-problems.md`,
-  `workflow-friction.md`, `experience-rubric.md`, `model-instincts.md`
+  `workflow-friction.md`, `experience-rubric.md`, `model-instincts.md`,
+  `specification-pressure.md` — long or contradictory specification intake, kept out of the load
+  path for a normal-sized request

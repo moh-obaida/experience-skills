@@ -278,6 +278,72 @@
         "use-all-skills"
       ],
       "notExpected": []
+    },
+    {
+      "input": "Here is our 1,800-line product spec for the invoicing tool — every role, every workflow, every business rule, our full palette and type system, and a page-by-page breakdown. Build the MVP.",
+      "expected": [
+        "use-all-skills",
+        "state-design"
+      ],
+      "notExpected": [
+        "motion-design",
+        "empty-state-design",
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "One change to the spec: commission is now 12% instead of 15%. Everything else stays the same.",
+      "expected": [
+        "state-design"
+      ],
+      "notExpected": [
+        "visual-identity",
+        "motion-design"
+      ]
+    },
+    {
+      "input": "Review this UI. What's wrong with it?",
+      "expected": [
+        "experience-architect"
+      ],
+      "notExpected": [
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "Fix this empty state.",
+      "expected": [
+        "empty-state-design"
+      ],
+      "notExpected": [
+        "use-all-skills",
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "Our spec says the invite link expires after 24 hours in the overview, but the detailed workflow section says invite links expire after 72 hours. Build the invite flow.",
+      "expected": [
+        "state-design"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "Spec says 'orders are tracked.' The detailed appendix says 'standard orders get a status timeline; perishable orders additionally require a cold-chain temperature log.' Build the order tracking screen.",
+      "expected": [
+        "state-design"
+      ],
+      "notExpected": []
+    },
+    {
+      "input": "Here is our 2,000-line spec for the clinic scheduling tool — every role, every rule, every state — but we haven't decided on a visual direction yet, it's just default styling right now.",
+      "expected": [
+        "visual-identity"
+      ],
+      "notExpected": [
+        "motion-design"
+      ]
     }
   ],
   "scenarios": [
@@ -502,6 +568,29 @@
       "mode": "edit",
       "buildRepair": true,
       "anchor": "examples/anti-slop/identity-preserving-repair.md"
+    },
+    {
+      "file": "tests/scenarios/mega-spec-mixed-authority.md",
+      "expected": [
+        "state-design",
+        "interaction-design"
+      ],
+      "requiredReferences": [
+        "experience-architect/references/_shared/specification-pressure.md"
+      ],
+      "anchor": "shared/evaluation/specification-pressure.md"
+    },
+    {
+      "file": "tests/scenarios/long-spec-locked-visual-direction.md",
+      "expected": [
+        "state-design",
+        "visual-identity"
+      ],
+      "requiredReferences": [
+        "experience-architect/references/_shared/specification-pressure.md",
+        "visual-identity/references/_shared/design-system-selector.md"
+      ],
+      "anchor": "shared/design-intelligence/design-system-selector.md"
     }
   ]
 }
