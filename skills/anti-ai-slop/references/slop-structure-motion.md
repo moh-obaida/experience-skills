@@ -1,8 +1,8 @@
 # Slop Taxonomy: Structure, Motion, and Personality
 
 Load when the sweep finds hero, dashboard, bento, empty-space, motion, or generated-personality
-slop. These are structural; replacements often change composition, so compare three alternatives
-(`references/_shared/anti-generic-alternatives.md`, `references/_shared/compositions-index.md`)
+slop. These are structural; replacements often change composition, so compare materially different alternatives when the direction is open
+(`references/_shared/anti-generic-alternatives.md`, `references/_shared/compositions-index.md`),
 and hand to composition-repair when the change spans the page.
 
 ## Hero slop

@@ -17,6 +17,8 @@ text and UI component boundaries 3:1.
 3. Status is never color alone; pair with icon, text, or shape.
 4. Define dark and light modes as role mappings, not inversions.
 5. Check every text/background pair you actually use, including secondary text and disabled states.
+6. Describe what color does during action: where chroma is strongest, where it recedes, what should never be gray, and how semantic feedback differs from brand. Choose emotional character and contrast before hex values. Test both under-quiet and over-loud results.
+7. Match density and light/dark roles to the instrument; a dark instrument on a bright field may be more useful than inverting the whole interface. Warm editorial is one family, not a safe default.
 
 ## Restrained neutral
 

@@ -41,6 +41,8 @@ Analytics (if available) are the best source: test the top sizes that cover most
 Responsive defects often appear only in certain states. For the most important surfaces,
 cross the matrix with at least: sparse data, dense data, long content, and an error state.
 
+For a core instrument, cross sizes with a **journey**, not just states: enter a task, act several times, open a secondary drawer or file view, inspect the consequence, close it, recover focus, act again with the on-screen keyboard, trigger an error, recover, and continue. Record whether any overlay captures input, navigation loses context, or the instrument shrinks below usable size. Test Arabic/RTL UI separately from LTR commands, paths, code, and numeric syntax where supported.
+
 ## Running efficiently
 
 - Automate the matrix (`scripts/layout-report.mjs`) and look at screenshots in a grid.

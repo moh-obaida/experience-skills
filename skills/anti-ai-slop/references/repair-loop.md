@@ -38,8 +38,9 @@ SEVERITY: S0–S3 · EVIDENCE: E1–E6
 2. Read the matching niche profile's generated-UI failures and realities
    (`references/_shared/niche-atlas-index.md`, then the niche file). The replacement must serve the
    niche's jobs and states.
-3. For structural replacements, write three alternatives from different families and choose by the
-   ledger (`references/_shared/anti-generic-alternatives.md`).
+3. For a structural replacement with an open choice, compare distinct product-relevant alternatives
+   from `references/_shared/anti-generic-alternatives.md`. If one repair clearly addresses the
+   observed defect without weakening identity, implement and verify it directly.
 4. Prefer strengthening an existing carrier over introducing a new one. A new carrier must trace to
    the product's domain, content, mechanic, audience, or values
    (`references/_shared/product-identity.md`).

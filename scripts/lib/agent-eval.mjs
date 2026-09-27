@@ -175,35 +175,23 @@ export function parseTranscript(jsonl) {
   return { answer, skillsInvoked, skillFilesRead, skillsLoaded, specialistsTriggered, referencesRead, designIntelligenceModulesLoaded, precedentModulesLoaded, scriptsRun, editToolsUsed, renderedEvidenceGathered, renderedToolActivity, completionCriteriaSatisfied, timeline, toolCounts, costUsd, turns, error };
 }
 
-/** Observable gates for an explicit all-skills run. A loaded skill alone is not participation. */
+/** Observable signals for a selective full-product run. These are diagnostics, not a skill quota. */
 export function fullPassSignals(transcript, changedFiles = []) {
-  const siblings = ['experience-architect','product-friction','workflow-compression','interaction-design','visual-identity','composition-repair','state-design','empty-state-design','motion-design','responsive-validation','anti-slop-ui','anti-ai-slop','interface-forensics','critical-review'];
   const events = transcript.timeline ?? [];
-  const first = (value) => events.indexOf(value);
-  const after = (value, index) => events.findIndex((event, i) => i > index && event === value);
-  const implementationAt = first('implementation');
-  const specialistAfter = (name, index) => events.findIndex((event, i) => i > index && (event === `skill:${name}` || event.startsWith(`reference:${name}/`)));
-  const deSlopAt = implementationAt >= 0 ? specialistAfter('anti-ai-slop', implementationAt) : -1;
-  const forensicAt = deSlopAt >= 0 ? specialistAfter('interface-forensics', deSlopAt) : -1;
-  const reviewAt = forensicAt >= 0 ? specialistAfter('critical-review', forensicAt) : -1;
-  const finalRenderAt = reviewAt >= 0 ? after('render', reviewAt) : -1;
-  const allLoaded = siblings.every((name) => transcript.skillsLoaded.includes(name));
+  const implementationAt = events.indexOf('implementation');
+  const renderAfter = implementationAt >= 0 && events.findIndex((event, i) => i > implementationAt && event === 'render') >= 0;
   const answer = transcript.answer ?? '';
-  const ledgerRows = siblings.filter((name) => {
-    const display = name.replace(/-/g, '[ -]');
-    return new RegExp(`(?:^\\|\\s*${name}\\s*\\|[^\\n]{20,}|^[-*]\\s+\\*\\*${display}:\\*\\*[^\\n]{20,})`, 'mi').test(answer);
-  });
+  const active = (transcript.skillsLoaded ?? []).filter((name) => name !== 'use-all-skills' && name !== 'experience-architect');
   return {
-    allSiblingsLoaded: allLoaded,
-    allSiblingLedgerRows: ledgerRows.length === siblings.length,
-    selectiveReferences: transcript.referencesRead.length > 0 && transcript.referencesRead.length <= 80,
-    designSystemSelected: /(?:selected|chosen) (?:design )?system|(?:design choice|design system)[\s\S]{0,350}\bI chose\b/i.test(answer) && transcript.referencesRead.some((r) => r.endsWith('/design-system-selector.md')),
+    conductorLoaded: (transcript.skillsLoaded ?? []).includes('use-all-skills'),
+    activeSpecialists: active.length,
+    selectiveReferences: (transcript.referencesRead ?? []).length > 0 && (transcript.referencesRead ?? []).length <= 80,
+    modeNamed: /Build Mode|Audit Mode/i.test(answer),
+    coreInstrumentNamed: /core instrument|primary work surface/i.test(answer),
     implementationChangedFiles: changedFiles.length > 0,
-    renderedAfterImplementation: implementationAt >= 0 && after('render', implementationAt) >= 0,
-    deSlopAfterImplementation: implementationAt >= 0 && deSlopAt >= 0,
-    forensicsAfterImplementation: implementationAt >= 0 && forensicAt >= 0,
-    reviewAfterForensics: forensicAt >= 0 && reviewAt >= 0,
-    finalVerificationAfterReview: reviewAt >= 0 && finalRenderAt >= 0,
+    renderedAfterImplementation: renderAfter,
+    journeyEvidence: /primary (?:journey|loop)|repeat(?:ed|edly)?.{0,30}(?:interaction|task|control)|mistake.{0,100}recover/i.test(answer),
+    reviewParticipation: active.filter((name) => ['anti-ai-slop', 'interface-forensics', 'critical-review'].includes(name)).length,
   };
 }
 
@@ -339,10 +327,10 @@ export function renderReport(runs, meta) {
   }
   const fullRuns = runs.filter((r) => r.fullPass);
   if (fullRuns.length) {
-    lines.push('', '## Full-pass behavior gates', '', '| Run | Skills | Ledger | Selective refs | System | Changed | Rendered after change | De-AI after build | Forensics after de-AI | Review after forensics | Final render |', '|---|---|---|---|---|---|---|---|---|---|---|');
+    lines.push('', '## Full-product behavior signals', '', '| Run | Conductor | Active specialists | Selective refs | Mode | Instrument | Changed | Rendered after change | Journey evidence | Review specialists |', '|---|---|---|---|---|---|---|---|---|---|');
     for (const r of fullRuns) {
       const f = r.fullPass; const flag = (v) => v ? 'yes' : 'no';
-      lines.push(`| ${r.scenarioId} · ${r.condition} | ${flag(f.allSiblingsLoaded)} | ${flag(f.allSiblingLedgerRows)} | ${flag(f.selectiveReferences)} | ${flag(f.designSystemSelected)} | ${flag(f.implementationChangedFiles)} | ${flag(f.renderedAfterImplementation)} | ${flag(f.deSlopAfterImplementation)} | ${flag(f.forensicsAfterImplementation)} | ${flag(f.reviewAfterForensics)} | ${flag(f.finalVerificationAfterReview)} |`);
+      lines.push(`| ${r.scenarioId} · ${r.condition} | ${flag(f.conductorLoaded)} | ${f.activeSpecialists} | ${flag(f.selectiveReferences)} | ${flag(f.modeNamed)} | ${flag(f.coreInstrumentNamed)} | ${flag(f.implementationChangedFiles)} | ${flag(f.renderedAfterImplementation)} | ${flag(f.journeyEvidence)} | ${f.reviewParticipation} |`);
     }
   }
   lines.push('', `Sampling: ${meta.repeat ?? 1} independent sample(s) per scenario/condition. Use ` +

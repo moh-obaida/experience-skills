@@ -3,7 +3,7 @@ name: experience-architect
 description: "Use this skill whenever the user asks to build, fix, finish, review, redesign, or improve a user-facing product surface—page, screen, dashboard, form, flow, game, app, or CLI—or says it feels boring, generic, empty, confusing, slow, broken, cramped, modern, fun, or off. Use it for substantial product-facing work when the right specialist is unclear or several concerns interact. Diagnoses the observable problem, activates the smallest ordered specialist graph, loads only required depth, enforces rendered evidence when runnable, and ends with a quality gate."
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -32,17 +32,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -67,7 +66,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Mandatory conditional loading
 
-MUST load `references/diagnosis-and-routing.md`, `references/_shared/experience-routing.md`, and the shared operating contract before routing. When two or more problem classes are confirmed, MUST select a named recipe and pass its handoff artifact forward. A specialist graph is incomplete until its final node reports evidence, open risks, and rendered verification status.
+Load `references/diagnosis-and-routing.md`, `references/_shared/experience-routing.md`, and the shared operating contract before routing. When two or more problem classes are confirmed, use a named recipe only if its dependencies match the observed concerns. Hand off an unresolved issue with evidence and uncertainty; otherwise stop the graph. Report rendered verification status for meaningful work.
 
 ## Checkpoints
 
@@ -78,9 +77,7 @@ Decision points, not advice. At each one, take the branch it names.
    If none is available → say so now and mark findings E3/E5/E6.
 2. **Before naming a problem:** can you point to an observation (a measurement, an element, a step
    count)? No → it is a hypothesis; label it and go find the evidence.
-3. **After ranking problems, before writing any recommendation:** invoke the specialist skill for
-   each top problem (at most three at first; a fourth needs a stated reason) through the agent's
-   skill mechanism. The specialists are separate skills. The routing table only names them; it does
+3. **After ranking problems:** activate the smallest specialist set with material leverage (usually at most three initially); a fourth needs a product-specific reason. A no-change result is valid. When activating, use the agent's skill mechanism. The specialists are separate skills. The routing table only names them; it does
    not contain their method. If a specialist is not installed, use its fallback in
    `references/diagnosis-and-routing.md` and say so. Answering from this file alone is a routing
    failure.
@@ -91,9 +88,9 @@ Decision points, not advice. At each one, take the branch it names.
    listed; any unchecked item is NOT VERIFIED. Then reread your summary against
    `references/_shared/model-instincts.md` and delete praise you did not earn.
 6. **Before routing:** name the problem class from the table in `references/diagnosis-and-routing.md` and its observable signal. A symptom without a confirmed signal stays a hypothesis.
-7. **When two or more specialists apply:** use the matching recipe in `references/recipes.md` (or the
-   closest recipe in `references/diagnosis-and-routing.md`), and pass each specialist's output
-   (counted flow, state matrix, chosen direction) to the next instead of re-diagnosing.
+7. **When two or more specialists apply:** use `references/recipes.md` only when it fits the observed concern. Pass the previous finding and unresolved uncertainty forward; no handoff is required once the concern is resolved.
+
+8. **Before visual direction or final review:** does the core instrument have spatial authority and continuity across focus, secondary surfaces, and mobile? If not, route the confirmed failure. If the primary job and loop are clear and another reference will not change the next decision, implement and verify.
 
 ## Workflow
 
@@ -101,7 +98,7 @@ Decision points, not advice. At each one, take the branch it names.
 UNDERSTAND → OBSERVE → CLASSIFY → LOAD DEPTH → CHANGE/ADVISE → RENDER/VERIFY → CRITIQUE → FINALIZE
 ```
 
-1. **Understand.** Product, audience, devices, frequency of use; the surface and its archetype
+1. **Understand.** Name the primary job, repeated loop, core instrument, supporting surfaces, and protected invariants before visual selection. Then inspect product, audience, devices, frequency of use; the surface and its archetype
    (`references/_shared/page-archetypes.md`); the goal; the mode; product maturity
    (`references/_shared/product-maturity.md`); constraints. Infer from the repository first; ask only
    what would change your approach. For games, CLIs, kiosks, live control, native apps, or public
@@ -112,8 +109,7 @@ UNDERSTAND → OBSERVE → CLASSIFY → LOAD DEPTH → CHANGE/ADVISE → RENDER/
    the codes in `references/_shared/visual-problems.md` and `references/_shared/workflow-friction.md`.
    Rank by user impact: blocked task > slowed frequent task > damaged trust or comprehension >
    weak identity > polish.
-4. **Load depth.** From the same reference, pick specialists and their order (structure before
-   surface; judgment last). If a specialist is not installed, use its fallback method listed there
+4. **Load depth.** From the same reference, activate specialists only when their method can change a material decision; prioritize product mechanics before aesthetics. If a specialist is not installed, use its fallback method listed there
    and tell the user the full skill exists.
 5. **Change or advise.** REVIEW: write findings. REPAIR/BUILD: follow `references/execution-loop.md`.
 6. **Render and verify.** For meaningful runnable work, follow the required loop in
@@ -164,7 +160,7 @@ When the product is not a web app, `references/product-archetypes.md` explains h
 - Changes were rendered and checked in more than one state and size, or the gap is stated.
 - Required conditional references were read and their required outputs (selection, composition,
   counts, state matrix, or anti-slop alternatives) are present, or explicitly marked not verified.
-- Each handoff carries the previous specialist's decision and open risks.
+- When a material concern remains, its handoff carries the observation, consequence, uncertainty, and previous decision; otherwise no handoff is required.
 - The final gate was run and reported honestly.
 - The user knows what changed, what is verified, and the next step.
 

@@ -6,8 +6,7 @@ Commerce design sits between desire and decision: the product must be seen clear
 must be informed, and the purchase must be fast and trustworthy. The generated default is a hero
 carousel, "Shop Now" buttons, rounded product cards with hover lift, and a newsletter pop-up; it
 fits almost nothing specific. What sells varies by category: specifications for electronics,
-photography for fashion, provenance for collectibles, speed for groceries, terms for B2B. Load with
-`niche-atlas-index.md`; compare three systems with `design-system-selector.md`.
+photography for fashion, provenance for collectibles, speed for groceries, terms for B2B. Load a profile with `niche-atlas-index.md` only when its realities affect a decision; compare product-relevant systems with `design-system-selector.md` only when the direction is open.
 
 ## Product realities
 

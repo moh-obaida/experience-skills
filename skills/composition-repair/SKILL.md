@@ -4,7 +4,7 @@ description: "Use this skill whenever a page, screen, dashboard, or view looks e
 license: MIT
 compatibility: "Measurement scripts need Node.js 18+ and Playwright (or playwright-core with an installed Chrome). All guidance works without them."
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -33,17 +33,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -94,6 +93,8 @@ If structure or whitespace changes, MUST load `references/_shared/compositions-i
 9. **Largest dead region over ~30% of the first viewport** (`scripts/measure-layout.mjs` reports it) with no environment treatment: name its job or remove it. "It looks premium" is not a job.
 10. **Before restructuring a surface:** pick a composition from `references/_shared/compositions-index.md` by archetype and P0 content, load only its family file, and name it in your plan. Do not invent a layout from habit.
 11. **Before citing another product's layout as justification:** find the matching entry in the precedent modules and state which of its "Right when" conditions your surface shares. None shared → it argues against you.
+
+9. **Functional weight:** blur the screen and ask what dominates. Mentally remove explanatory copy: is the working surface still evident? If passive prose, navigation, or empty margins outweigh the core instrument, repair spatial authority. Test both over-compression and unused width/gaps; space must aid comprehension, focus, manipulation, or state awareness. A good layout may need no change.
 
 ## Workflow
 
@@ -165,7 +166,7 @@ Adapted third-party material in the composition files is credited in `references
 - No overflow, collisions, or clipping at checked sizes (measured where possible).
 - Grouping works without boxing everything.
 - Evidence levels stated; unverified sizes and states listed.
-- A named composition from `compositions-index.md` was selected, and the handoff includes P0,
+- When restructuring materially, use a named composition from `compositions-index.md` only if it improves the observed layout; a product-derived composition is valid. Any needed handoff includes P0,
   viewport budget, dead regions, responsive behavior, and verification status.
 
 ## References

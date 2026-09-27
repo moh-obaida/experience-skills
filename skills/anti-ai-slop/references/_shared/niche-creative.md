@@ -6,8 +6,7 @@ In creative tools the user's work is the brightest, most colorful, most importan
 and the interface must not bias perception of it (color, scale, rhythm). Tools are dense and
 learned over years; shortcuts, panels, and precise numeric control matter more than onboarding
 polish. Generated defaults give creative tools gradients, glowing accents, and rounded consumer
-chrome that competes with the canvas. Load with `niche-atlas-index.md`; compare three systems with
-`design-system-selector.md`.
+chrome that competes with the canvas. Load a profile only when its realities affect a decision; compare systems only when the direction is open.
 
 ## Product realities
 

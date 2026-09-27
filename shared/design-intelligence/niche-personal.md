@@ -3,8 +3,7 @@
 Personal products live in someone's private life: their money, notes, habits, family, and home.
 They are used alone, often daily, and the relationship is intimate. The design problem is respect:
 for privacy, for attention, and for the user's own pace. Generated defaults import productivity
-dashboards, streak pressure, and gamified scores into private life. Load with
-`niche-atlas-index.md`; compare three systems with `design-system-selector.md`.
+dashboards, streak pressure, and gamified scores into private life. Load a profile with `niche-atlas-index.md` only when its realities affect a decision; compare product-relevant systems with `design-system-selector.md` only when the direction is open.
 
 ## Product realities
 

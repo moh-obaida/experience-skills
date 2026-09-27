@@ -22,11 +22,11 @@ Use the first matching rule, then add only rules made relevant by the work:
 
 | Condition | Required action before recommendation or edit |
 |---|---|
-| Visual direction, brand, personality, or “modern/fun” changes | Read `selection.md` and `directions-index.md`; compare three families, select one, then read the selected family. |
+| Visual direction, brand, personality, or “modern/fun” changes | Name the product mechanics, core instrument, and invariants; read `selection.md` or `design-system-selector.md` when comparison could change the choice. Compare structurally different directions only when uncertain. |
 | Page structure, hierarchy, whitespace, or composition changes | Read `compositions-index.md`; name one candidate and read its family. If whitespace is defended, read `whitespace-and-dead-space.md` or record equivalent measured evidence. |
 | A standard control becomes custom, animated, or novel | Read `familiar-controls.md` or the interaction-cost reference; state the user gain and test paste, keyboard, focus, touch, and assistive technology paths. |
 | A workflow gains or loses steps, questions, screens, waits, or confirmations | Run the known-context inventory and produce typed before/after counts. |
-| A state, loading, error, empty, optimistic, offline, or background job changes | Read the relevant state precedent; write a state matrix with authority, recovery, and next action. |
+| A state, loading, error, empty, optimistic, offline, or background job changes | Read the relevant state precedent; model state ownership and important transitions, including trigger, preserved/reset data, feedback, focus, and recovery. |
 | Motion is added or changed | Map motion to an event, define reduced-motion behavior, and run the motion scanner when available. |
 | A treatment resembles an AI default | Run the anti-slop justification branch: job, product root, alternative, cost, and failure condition. |
 | A user-facing implementation can run in a browser | Follow the render contract below before claiming a visual result. |
@@ -48,8 +48,10 @@ explicitly requests source-only analysis, the task is purely conceptual, or the 
 disproportionate. In those cases write **NOT VERIFIED IN RENDERED OUTPUT** and name the exact reason.
 Source inspection alone never earns “verified.”
 
-At minimum, choose the primary viewport plus one narrow or short viewport and two real states. Add
-keyboard, large text/zoom, RTL, reduced motion, or touch checks when the surface supports them.
+At minimum, repeatedly exercise the primary user journey with a mistake and recovery, then test
+completion and continuation, secondary-surface return, and the core control at a narrow or short
+viewport. Add keyboard, focus, large text/zoom, RTL, reduced motion, or touch checks when relevant.
+A rendered screenshot is evidence of appearance in one state, not journey verification. Check visible consequences of valid and wrong-but-valid actions; do not silently reset a world unless reset is intentional. For outcome-based tasks, test alternate valid methods rather than exact expected strings.
 
 ## Handoff artifact
 
@@ -68,7 +70,11 @@ verification:
 
 Specialized fields are additive: a workflow adds `before`, `after`, `known context`, and `preserved
 judgment`; a direction adds `selected direction`, `identity carriers`, `environment`, `controls`,
-and `avoid`; a state review adds `state matrix`, `authority`, `failure states`, and `recovery`.
+and `avoid`; a state review adds `state owners`, `transitions`, `authority`, and `recovery`.
+Only hand off when an unresolved observation has a consequence and the next specialist can help.
+Otherwise record “no handoff required.” Findings may be confirmed, strong, possible, optional,
+stylistic, or no material issue. Existing coherent product decisions win over generic framework
+advice absent a concrete failure or better product-specific alternative.
 
 ## Evidence contract
 

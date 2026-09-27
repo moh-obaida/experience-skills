@@ -17,6 +17,8 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | Image/icon/copy | Diagrams or character only when explaining concepts. Icons have labels. Feedback says why, not only “Great job!” |
 | Failure/anti-imitation | Confetti after every tap makes success meaningless. Do not copy a game platform's character/score vocabulary. |
 
+**Core-screen and look contract.** High but purposeful energy: large rounded answer targets and punchy stage spacing make the next attempt obvious; instructional text stays plain. Chroma arrives at the chosen answer and earned feedback, then recedes before the next prompt; misconception uses its own labeled pattern. A correct action briefly energizes the task itself. This motivates practice but sacrifices quiet reading. Reject for consequential decisions.
+
 ## Paper Circuit
 
 **Thesis.** Explanations become clearer when annotated diagrams and text share a reading rhythm. Fits technical learning; unsuitable for rapid checkout.
@@ -31,6 +33,8 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | States/motion | Running, syntax error, expected result, partial result, and no connection distinct. Diagram transitions follow user step; reduced motion swaps directly. |
 | Image/icon/copy | Schematics/hand-drawn-looking only if precise; no decorative circuitry. Copy names concepts and failure causes. |
 | Failure/anti-imitation | Decorative diagrams that cannot be read at mobile width fail the system. Do not copy a specific documentation site's code frame. |
+
+**Core-screen and look contract.** This is a reading-led split: explanation and diagram stay alongside a runnable example, with the example large enough to use. Energy is quiet until a run; then one cool signal links changed input to changed output. Reject it when practice needs uninterrupted dominance or repeated rapid attempts. It improves conceptual annotation but sacrifices instrument space; do not accidentally become a static textbook with an ornamental editor.
 
 ## Lesson Trail
 
@@ -47,6 +51,8 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | Image/icon/copy | Diagrams/tasks over mascot art; icons indicate content type. Copy states what learner can do after a lesson. |
 | Failure/anti-imitation | Candy-colored nodes and arbitrary streaks obscure actual competence. Do not mimic an existing course game's path. |
 
+**Core-screen and look contract.** Medium, forward-moving energy: strong current/next headings and a visible path rhythm outweigh decorative lesson nodes. Color is earned by demonstrated mastery and review need, not by page visits; completing a lesson advances the path and reveals the next reachable action. This clarifies progression but sacrifices free-form exploration. Reject when the course is primarily reference reading.
+
 ## Living Diagram
 
 **Thesis.** Understanding grows by manipulating a model and observing consequences. Fits science and simulation; wrong for legal records.
@@ -61,6 +67,8 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | States/motion | Running, paused, invalid parameter, comparison baseline, and reset clearly shown. Motion is the model itself; reduced motion provides step frames or static result. |
 | Image/icon/copy | Diagram is content. Icons name operations; text explains cause and effect rather than promoting novelty. |
 | Failure/anti-imitation | A flashy animation with no values or accessible alternative becomes a toy. Do not copy a simulation site's color encoding. |
+
+**Core-screen and look contract.** The model canvas dominates; parameters form a compact perimeter and results appear at the point of manipulation. Cool neutrals carry a sharp active variable color, with a brief causal response that remains legible in reduced motion. It improves cause-and-effect understanding but sacrifices long prose at once. Reject it when the model is noninteractive; do not accidentally become an infographic.
 
 ## Workshop Bench
 
@@ -77,6 +85,8 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | Image/icon/copy | User work primary; example images labeled as examples. Tool icons paired with names; feedback identifies a next revision. |
 | Failure/anti-imitation | Polished showcase thumbnails can hide the actual work surface. Do not copy a creative app's sidebar layout. |
 
+**Core-screen and look contract.** The draft canvas is the largest, highest-contrast region; the brief is a quiet collapsible rail and feedback is contextual to the object changed. Use balanced operational energy, with a vivid active tool and a short preview response; user work supplies most color. It improves iteration but sacrifices always-visible instruction. Reject it when the user needs a linear worked explanation; do not accidentally become a three-column dashboard that shrinks the instrument.
+
 ## Commons Notebook
 
 **Thesis.** Shared knowledge should feel trustworthy and revisable. Fits community learning; not luxury commerce.
@@ -91,3 +101,5 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | States/motion | Draft, reviewed, disputed, superseded, locked, and missing source explicit. Minimal motion on revision compare; reduced motion static. |
 | Image/icon/copy | Evidence diagrams and source images with credits; icons sparse. Copy names confidence and attribution. |
 | Failure/anti-imitation | Fake community avatars and counts make knowledge look fabricated. Do not imitate an encyclopedia's exact page furniture. |
+
+**Core-screen and look contract.** Quiet collaborative energy: readable explanation and crisp revision metadata form a page-plus-history rhythm. Chroma is saved for proposed edits, disputes, and source changes; contributor identity never depends on color. Accepting a revision updates the claim and its provenance together. This builds trust but sacrifices live-chat speed. Reject when knowledge has no durable source or revision model.

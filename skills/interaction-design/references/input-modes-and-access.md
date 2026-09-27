@@ -46,6 +46,8 @@ C for Correct, W for Wrong, U to undo), shown on the buttons themselves.
 Complete the main task with the keyboard only. Note every point where you had to reach for the
 mouse; each is a defect.
 
+Repeat the task after opening and closing each important secondary surface. Record focus owner on open, focus destination on close, whether a hidden control remains focused, and whether shortcuts conflict with the core instrument. Success feedback must not block the next action. A valid operation should remain valid when unrelated UI state changes.
+
 ## Touch and Reach
 
 Touch interfaces have larger, less precise pointers and no hover. Phones add reach limits.

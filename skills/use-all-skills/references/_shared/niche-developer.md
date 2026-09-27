@@ -5,7 +5,7 @@
 Products for people who read code, logs, and specifications for a living. Accuracy, speed, and
 copyability outrank atmosphere; the most damaging generated default here is "technical" costume
 (black canvas, neon green or cyan, glowing borders) standing in for actual technical quality. Load
-with `niche-atlas-index.md`; compare three systems with `design-system-selector.md`.
+with `niche-atlas-index.md`; compare product-relevant systems with `design-system-selector.md` when direction is open.
 
 ## Product realities
 
@@ -269,6 +269,8 @@ with `niche-atlas-index.md`; compare three systems with `design-system-selector.
 | Build | Evaluate answers by behavior, not string match, where possible; `--step-gap:56px`. |
 | AI mutation | XP bars, streak fires, neon terminals, mascots, confetti on every line. |
 | Fails when | Experts need reference, not lessons (use Reference Manual). |
+
+**Core-screen adaptation warning.** This paper-and-step treatment sacrifices uninterrupted instrument space for explanation. For a terminal trainer, reject or radically adapt it when the learner must type repeatedly into a persistent terminal. Keep the terminal visually dominant, output authentic, and the changed file state adjacent or immediately accessible; let instructional copy recede. Avoiding neon hacker styling must not make the terminal small or quiet. A serious, energetic alternative could use a dark instrument on a bright field, compact bold sans headings, a saturated operational accent at the active prompt, and a brief causal response from command to changed state. Do not accidentally become a static textbook. This adaptation is a product-derived option, not a new Atlas entry.
 
 ### Datasheet
 **Thesis.** A developer product's public page should read like a datasheet: specifications, limits, prices, and real output, dense and honest. Character: candid, compact. Audience: engineers evaluating a tool. **Fit:** developer-tool marketing sites, pricing and limits pages, infrastructure product pages.

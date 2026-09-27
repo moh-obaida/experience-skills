@@ -19,6 +19,8 @@ Authored candidate systems. Image rights and content quality determine whether t
 | Image/icon/copy | Object photography with honest crop and rights/alt; icons rare. Copy distinguishes fact from interpretation. |
 | Failure/anti-imitation | Faux-aged texture and museum-like typography cannot create provenance. Do not imitate a specific archive's catalog system. |
 
+**Core-screen and look contract.** Quiet, attentive energy: object scale, provenance rules, and generous image-to-caption rhythm lead; the object itself owns chroma and UI actions stay restrained. Selecting an archival detail ties the image region to its citation rather than adding museum-like animation. This deepens context but sacrifices throughput. Reject when users must act on live status.
+
 ## Object Gallery
 
 **Thesis.** Product form deserves attention, but buying remains direct. Fits considered retail; poor for bulk admin.
@@ -33,6 +35,8 @@ Authored candidate systems. Image rights and content quality determine whether t
 | States/motion | Out of stock, low stock, selected variant, cart processing, and error each clear. Motion only image change/cart result; reduced motion static. |
 | Image/icon/copy | High-quality object images, consistent scale and crop, alt describing differentiating features. Copy names material, dimensions, care. |
 | Failure/anti-imitation | Large fashion whitespace that pushes price below the fold blocks commerce. Do not copy a luxury house's type or photography treatment. |
+
+**Core-screen and look contract.** Low-medium, tactile energy: large true-to-scale imagery and precise price/variant type dominate; compact square purchase controls resist luxury whitespace. Product color stays in the object; chroma enters UI only on selected variant and available buy action. Changing a variant visibly updates image, stock, and price together. This supports considered purchase but sacrifices bulk comparison. Reject for catalog administration.
 
 ## Field Atlas
 
@@ -49,6 +53,8 @@ Authored candidate systems. Image rights and content quality determine whether t
 | Image/icon/copy | Place photography with location/date; diagrams for terrain when useful; icons labeled. Copy distinguishes estimated from confirmed. |
 | Failure/anti-imitation | Map as a decorative hero hides search. Do not copy a travel brand's destination tile styling. |
 
+**Core-screen and look contract.** Exploratory, medium energy: map and result list share authority, with crisp place headings and directional geometry. Map color describes terrain; a stronger selection color joins a chosen result to its pin and details, then clears on deselection. This gives spatial context but sacrifices speed when location is irrelevant. Reject for pure text lookup.
+
 ## Edition House
 
 **Thesis.** Editorial pacing and direct conversion can coexist. Fits publications and cultural commerce; wrong for dense dashboards.
@@ -63,6 +69,8 @@ Authored candidate systems. Image rights and content quality determine whether t
 | States/motion | Paywall, saved, unavailable issue, loading images, and article updates are honest. Motion only editorial transitions, never delayed reading. |
 | Image/icon/copy | Commissioned or licensed artwork; captions/source visible. Copy lets article content speak, avoiding generic marketing claims. |
 | Failure/anti-imitation | A giant centered serif hero on every route erases hierarchy. Do not reproduce any magazine's masthead or grid. |
+
+**Core-screen and look contract.** Expressive but paced energy: a large editorial lead, sharp typographic jumps, and long reading stretches give each edition its own rhythm. Artwork owns vivid color; purchase color appears at a real decision, not in every paragraph. Opening a story preserves its edition context with a restrained transition. This builds editorial identity but sacrifices dashboard density. Reject for operational work.
 
 ## Night Stage
 
@@ -79,6 +87,8 @@ Authored candidate systems. Image rights and content quality determine whether t
 | Image/icon/copy | Cover art and frames are primary; crop preserves subject. Icons follow one family. Copy names media and actions plainly. |
 | Failure/anti-imitation | Glows and glass over controls degrade legibility. Do not copy a streaming service's player chrome. |
 
+**Core-screen and look contract.** High sensory energy with quiet controls: media fills the dark field, titles are wide and confident, and control geometry is compact and legible. Cover/frame color owns the room; the bright action hue appears only for focus, playback, and the live timeline. Play visibly changes the media and time position, without decorative glows. This supports immersion but sacrifices dense metadata. Reject for transactional forms.
+
 ## Material Shelf
 
 **Thesis.** Physical goods need material truth, stock clarity, and comparison. Fits maker commerce and equipment; not abstract analytics.
@@ -93,3 +103,5 @@ Authored candidate systems. Image rights and content quality determine whether t
 | States/motion | In stock, made to order, unavailable, variant selected, and shipping estimate distinguished. Motion only comparison expansion/cart feedback. |
 | Image/icon/copy | Close-up material photos with scale; diagrams for size/assembly. Icons support units and care, not decoration. Copy includes exact material and limits. |
 | Failure/anti-imitation | Decorative texture that misrepresents the product destroys trust. Do not borrow a craft marketplace's tile pattern. |
+
+**Core-screen and look contract.** Grounded, medium energy: close material images and tightly aligned specifications alternate in a shelf-to-comparison rhythm; firm square-ish controls match physical goods. Product material owns warmth, while a distinct selection mark joins a variant to stock and total price. Comparison changes the actual rows, not just a badge. This supports material judgment but sacrifices abstract analytics. Reject when imagery cannot truthfully show differences.

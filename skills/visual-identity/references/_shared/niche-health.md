@@ -6,7 +6,7 @@ Health products range from clinical systems where errors harm people to wellness
 motivation is the challenge. Many users are unwell, anxious, older, or using assistive technology.
 Generated defaults bring soft pastel gradients, stock smiling doctors, and wellness blobs to
 everything, including screens that should be exact and plain. Load with `niche-atlas-index.md`;
-compare three systems with `design-system-selector.md`.
+compare product-relevant systems with `design-system-selector.md` when direction is open.
 
 ## Product realities
 

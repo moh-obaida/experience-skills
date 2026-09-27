@@ -5,7 +5,7 @@ motion, responsive behavior, and honest critique, for any digital product. They 
 experience reasoning, real-world precedent, a design-intelligence library, workflow analysis,
 browser verification, anti-slop reasoning, and critical review.
 
-Make the environment memorable. Make the interaction obvious. Make the outcome fast.
+Consider broadly. Intervene selectively. Verify deeply. Product mechanics come first; distinct visual expression makes them legible and memorable.
 
 The collection is an operating system, not a style preset: it routes ordinary product language to
 the smallest specialist graph, loads depth by decision, consults real precedent, and treats rendered
@@ -66,6 +66,9 @@ which questions to ask, when to push back, and how to verify the rendered result
 - **Motion explains events.** Not fade-and-slide on everything.
 - **Evidence before praise.** "Clean" is a conclusion, not an observation.
 - **Context is part of taste.** A tax form and a classroom game should not look alike.
+- **The core instrument stays central.** The tool where the work happens keeps spatial, interaction, and focus priority.
+- **Structure and expression both count.** Compare working-screen silhouettes and color behavior, energy, typography, and causal feedback.
+- **Journeys decide readiness.** Repeat the main task, make mistakes, recover, and continue before polishing minor visuals.
 
 Full text: [docs/philosophy.md](docs/philosophy.md). Where each principle changes what an agent does
 (checkpoints, scripts, gates): [docs/operationalization.md](docs/operationalization.md).
@@ -88,7 +91,7 @@ Full text: [docs/philosophy.md](docs/philosophy.md). Where each principle change
 | [`anti-slop-ui`](skills/anti-slop-ui/SKILL.md) | quality | Work looks AI-generated or template-made: gradients, glass, pills, cards, fake stats, generic copy. |
 | [`critical-review`](skills/critical-review/SKILL.md) | quality | Someone asks whether an idea, design, or change is good, and needs a real answer. |
 | [`interface-forensics`](skills/interface-forensics/SKILL.md) | quality | A specific page or component needs exhaustive rendered inspection, source tracing, and verified repair. |
-| [`use-all-skills`](skills/use-all-skills/SKILL.md) | router | Explicitly use every Experience Skill for a substantial frontend build or complete product experience pass. |
+| [`use-all-skills`](skills/use-all-skills/SKILL.md) | router | Orchestrate a substantial product build or audit, or respond to an explicit all-skills request by considering every specialist and activating only those with material value. |
 | [`anti-ai-slop`](skills/anti-ai-slop/SKILL.md) | quality | An existing site or app looks AI-generated or template-made and must be repaired end to end while keeping its own identity. |
 <!-- skills-table:end -->
 
@@ -99,10 +102,8 @@ the specialists it needs. Every specialist also works on its own.
 
 The [original system index](shared/design-intelligence/design-systems-index.md) offers 30 authored
 systems across five families. The [selector](shared/design-intelligence/design-system-selector.md)
-compares three different systems before a substantial greenfield build, after the
-[Niche Design Atlas](shared/design-intelligence/niche-atlas-index.md) identifies what kind of product it
-is: 15 niche groups, 90 niche profiles, and 150 niche-adapted systems with fingerprints checked
-for structural difference. The
+compares structurally different directions on the primary working screen when selection is open. It starts with the user job, repeated loop, core instrument, and product invariants. The
+[Niche Design Atlas](shared/design-intelligence/niche-atlas-index.md) supplies optional domain context: 15 niche groups, 90 niche profiles, and 151 authored candidates. Fingerprints are a duplicate signal; silhouette, grayscale, interaction, and rendered use decide whether choices are meaningfully different. The
 [57 palette themes](shared/design-intelligence/palette-themes.md) and
 [24 type strategies](shared/design-intelligence/type-strategies.md) translate the choice into
 implementation roles. A small [Signal Foundry fixture](tests/fixtures/pages/signal-foundry.html)
@@ -111,9 +112,7 @@ demonstrates one system without acting as a production template.
 ## Quick examples
 
 **"Use all Experience Skills to finish this starter product."** → `use-all-skills`
-inspects the current repo, identifies the product's niche, compares three design systems,
-implements with all fourteen specialists, then renders, de-slops, inspects, critiques, repairs, and
-verifies the result.
+inspects the current repo, chooses Build or Audit Mode, names the core instrument and invariants, considers all specialists, activates only those with material leverage, builds, and verifies repeated primary journeys and recovery. Fewer active skills can be better orchestration.
 
 **"Our site looks like every AI-generated site. Fix it, but keep what's ours."** → `anti-ai-slop`
 renders the site, writes an identity ledger (what is intentional, what is a library default),
@@ -192,7 +191,7 @@ not claimed until they are run.
   such.
 - **Design intelligence.** 45 design directions, 48 compositions, 17 palette families with computed
   contrast, typography (including Arabic/Latin), surfaces, imagery, motion languages, navigation and
-  density models, and chart selection. A selection procedure compares three directions from different
+  density models, and chart selection. A conditional selection procedure compares structurally distinct directions from different
   families, so a product category never picks a style.
 - **Anti-slop that proposes alternatives.** When a default is detected, the skill checks whether it is
   justified here; if not, it generates alternatives from different families and chooses by context.
@@ -208,7 +207,7 @@ items that still need item-specific precedent. Upstream curation decisions are r
 
 ## How it works
 
-- **A core that loads.** Every skill starts by reading the same 29 operating rules
+- **A core that loads.** Every skill starts by reading the shared operating rules
   (`experience-core.md`), each phrased as a behavior, not a slogan.
 - **Checkpoints, not advice.** Each `SKILL.md` has decision points that change what the agent does:
   "For any change to a basic control: does it make the task faster or more reliable? No → reject it
@@ -224,7 +223,7 @@ items that still need item-specific precedent. Upstream curation decisions are r
   shipped file is never referenced, or a skill points outside its folder.
 - **Evidence levels.** Findings say whether they rest on rendered behavior, measurement, source,
   screenshots, or assumption.
-- **Conditional enforcement.** Direction changes select from three families; composition changes
+- **Conditional enforcement.** Open direction choices compare materially different candidates; composition changes
   name a composition; workflow changes count before/after; custom controls justify their cost; and
   meaningful runnable UI is rendered or reported as **NOT VERIFIED IN RENDERED OUTPUT**.
 

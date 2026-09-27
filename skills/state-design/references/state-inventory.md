@@ -2,7 +2,7 @@
 
 Load first: enumerate states, then record them in a matrix.
 
-Sections: State Inventory · State Matrix Template
+Sections: State Inventory · State Matrix Template · Transition Diagnostic
 
 ## State Inventory
 
@@ -80,3 +80,15 @@ A state matrix makes state coverage explicit and reviewable.
 - One matrix per surface or flow, not one per product.
 - Include the skipped states at the bottom with reasons.
 - Link each row to the implementing component or test when working in code.
+
+## Transition Diagnostic
+
+Use this after the state inventory for a frequent, primary-path, destructive, irreversible, or hard-to-recover transition. A list of states does not prove that movement between them works.
+
+| From → to | Trigger | Owner/source of truth | Preserve | Reset | Visible consequence | Focus/next action | Failure and recovery | Severity |
+|---|---|---|---|---|---|---|---|---|
+| Example: completed → next available | Outcome verified | Progress state | Completed activity, user work | Temporary hint UI | Next item unlocks immediately | Continue points to fresh item | Reconcile stale persistence; recheck after reload | Primary |
+
+Classify domain, machine/simulation, progress, temporary UI, session, account, and remote state separately. State which owner is authoritative when they disagree. In a scenario-based product, define the starting environment (directory, resources, task state, and no accidental leftovers) before the first action. Reset must say whether it clears created/removed resources, hints, attempt counts, progress, and user work; confirm only when the loss is consequential. Completion should follow a meaningful outcome and accept alternate valid methods where the product allows them. Check that locked, available, active, in-progress, completed, mastered, and review-needed cannot contradict one another.
+
+Verify the transition in the normal journey, not as an isolated fixture: perform a successful action, make a mistake, inspect the authentic consequence, recover, complete, follow Continue, then reload and confirm the next task remains available. An untested transition is not marked verified.

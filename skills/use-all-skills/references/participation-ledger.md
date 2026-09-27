@@ -1,22 +1,18 @@
-# Participation Ledger
+# Routing Record
 
-Keep this ledger during the run, not as a retrospective list of names. One row per sibling skill, all fourteen required. A row is complete only if its inspected scope and decision can be checked against artifacts or the product.
+Keep a compact record for consequential choices, not a compulsory row for every installed skill. Consideration means the skill was checked against the diagnosis; activation means its method was actually used. A recommendation affects implementation only after it survives product-specific evidence and priority.
 
-| Skill | Inspected | Decision or justified no-change | References loaded | Changed | Verified |
-|---|---|---|---|---|---|
-| experience-architect | product and routes | product map | relevant router references | scope | rendered baseline |
-| product-friction | recurring tasks | ranked friction | relevant references | workflow | task path |
-| workflow-compression | steps and known context | before/after sequence | relevant references | flow | step count |
-| interaction-design | controls and safeguards | familiar control plan | relevant references | controls | keyboard/task |
-| visual-identity | niche and candidates | selected system | niche file, selector, and chosen system only | tokens/character | sparse+dense |
-| composition-repair | page structure | focal/viewport plan | relevant compositions | layout | sizes |
-| state-design | lifecycle | state matrix | relevant state reference | states | transitions |
-| empty-state-design | absences | useful next action | relevant reference | empty states | zero/sparse |
-| motion-design | events | motion or no motion | relevant reference | animation | reduced motion |
-| responsive-validation | size matrix | adaptations | relevant reference | breakpoints | viewports |
-| anti-slop-ui | treatments/copy | retained/removed | relevant reference | quality | rendered result |
-| anti-ai-slop | rendered product and identity | protected list, reconstructed areas | identity extraction and matching taxonomy | generated-looking areas | before/after, originality tests |
-| interface-forensics | rendered regions/source | ranked root causes | relevant reference | repairs | before/after |
-| critical-review | final vs original | verdict | relevant reference | revise/revert | final comparison |
+| Concern and evidence | Specialist considered → activated? | Finding and confidence | Decision and effect | Remaining uncertainty |
+|---|---|---|---|---|
+| Example: editor loses focus after Files closes (rendered) | interaction-design → yes; state-design → yes | confirmed primary-loop break | restore focus ownership and test repeated return | none after rerun |
 
-The cells above are field examples, not claims that work happened. Replace them with actual findings. For each phase record file/route/state and evidence level. A specialist may conclude no change is needed; include the observation that justifies it. Do not load entire reference libraries merely to fill the references column. If a skill is unavailable, record the fallback and state that the full all-skills contract was not met. The final response must summarize the fourteen entries and the order of anti-ai-slop, forensic inspection, critical challenge, repair, and final verification; do not hide all evidence in a separate notes file.
+Possible findings: confirmed issue, strong concern, possible concern, optional opportunity, stylistic preference, or no material issue. Possible decisions: change, preserve, defer low severity, or reject because it harms an invariant. Record skipped specialists only when the choice might otherwise be surprising. A handoff names the observed issue, why it matters, what remains uncertain, and why the next specialist helps. “No handoff required” is complete when nothing material remains.
+
+Before activating one more skill, check whether its question is already answered by an active specialist or a rendered observation. If so, spend the remaining attention on the next implementation or verification pass. A low-confidence style preference cannot overturn a confirmed primary-journey requirement. When a specialist recommends preservation, record the product evidence that makes the current decision worth keeping. This record is for decisions that affect the product; do not include a name solely to prove coverage.
+
+Decision meanings:
+
+- **Change:** an observed failure or strong product-specific concern justifies editing and rerunning the affected path.
+- **Preserve:** the existing behavior supports the loop and invariants; a proposed alternative has no demonstrated gain.
+- **Defer:** the issue is real but lower severity than implementation or verification work still open.
+- **Reject:** a recommendation would undermine a protected decision, introduce a regression, or add cost without task value.

@@ -63,3 +63,7 @@ These recipes express a family's thesis through geometry, density, and hierarchy
 | Tabs/menu/sidebar | Stable object hierarchy and explicit active state; command menus show scope | Live update does not steal focus or close a menu |
 | Card/list/table | Dense tables with aligned numbers, sticky headers, timestamps, and row ownership | Priority survives 200% zoom and short laptop height |
 | Modal/toast/badge/progress | Confirm irreversible commands; status includes authority and freshness; progress says queued/running/partial/final | A stale success badge is not shown as live truth |
+
+## Product-role gate
+
+Choose a card, tab, rail, drawer, inspector, sidebar, overlay, or toolbar only when its information and interaction role earns it. For each family component, define what it shows, how it behaves during the repeated loop, which states it owns, its density at sparse and busy extremes, and how it adapts without demoting the core instrument. A token change alone does not make a different component system.

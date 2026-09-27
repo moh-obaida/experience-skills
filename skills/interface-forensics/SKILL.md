@@ -4,7 +4,7 @@ description: "Use this skill whenever the user asks to audit a specific page, in
 license: MIT
 compatibility: "Browser inspection recommended; the optional evidence collector needs Node.js and Playwright or an installed Chrome."
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -28,17 +28,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -66,6 +65,8 @@ Read that file (the full rules and evidence levels) before a full review, repair
 4. **For each control:** does it help the user act, understand state, or navigate more clearly than an existing control? No → consider removal or demotion; check task context first (`references/control-and-copy.md`).
 5. **Before declaring a repair done:** was the same state rerendered at the original size and a relevant stress size? No → continue verification or say **NOT VERIFIED IN RENDERED OUTPUT**, with the blocker (`references/verification-and-report.md`).
 6. **Before adding another finding:** is it distinct and consequential? No → merge it under the root cause or leave it out. Rank blocked tasks above polish.
+
+9. **Behavior before cosmetics:** reproduce the primary-journey symptom, then trace interaction → state → implementation → root cause. Check lost focus, unmounting, stale disabled state, overlay interception, event listeners, routing, and CSS as relevant. Repair the cause and rerun the journey; report no change when no material defect is observed.
 
 ## Workflow
 

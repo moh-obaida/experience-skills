@@ -1,55 +1,32 @@
 # Design System Grammar
 
-A direction is the reason an interface has a character. A system is the implementable contract that expresses that character across routes and states. A theme changes role tokens within one system; it does not swap the system's interaction, density, or composition. The authored systems in this library are candidate starting points, not real-product precedents and not production templates. Adapt them to the product's content, audience, language, platform, and existing brand.
+A direction explains character; a system is a repeatable product decision across working screens, states, and devices. An Atlas entry is an authored candidate, not a template or an observed precedent. Product mechanics, existing evidence, and protected invariants outrank it. A theme changes role tokens without changing interaction architecture.
 
-## Minimum implementation artifact
+## Structure and expression
 
-Each system entry names a thesis, suitable and unsuitable contexts, composition, type roles, palette theme, spacing/density, shape/depth, controls/navigation, states/motion, imagery/icons/copy, and its failure mode. Resolve those choices into a small token contract before components:
+Use an entry's rows to answer two questions on the product's primary screen:
 
-```css
-:root {
-  --canvas: #f7f6f2; --surface: #ffffff; --raised: #ffffff;
-  --ink: #17201f; --ink-secondary: #45504e; --line: #b7c0bd;
-  --action: #174b46; --on-action: #ffffff; --action-hover: #103e3a;
-  --selected: #d9e9e2; --focus: #0e6154;
-  --success: #176b45; --warning: #805600; --danger: #a52631; --info: #225b99;
-  --space-1: .25rem; --space-2: .5rem; --space-3: .75rem;
-  --space-4: 1rem; --space-6: 1.5rem; --space-8: 2rem;
-  --radius-control: .375rem; --radius-surface: .5rem;
-  --line-width: 1px; --shadow-raised: none;
-}
-```
+- **Structure:** what dominates, what persists, what appears contextually, density, navigation, information exposure, feedback/progression, and mobile transformation. State the core instrument's spatial and focus treatment. Explain a mechanic → visual consequence.
+- **Expression:** emotional target and energy (quiet, balanced, energetic, intense), color behavior and chroma hierarchy, contrast strategy, typographic attitude, geometry, rhythm, motion character, and one signature response tied to the user's action. Name where energy calms down. Energetic does not imply childish; restraint does not imply quality.
 
-These are illustrative roles, not a universal palette. Use only roles the product needs. A dark theme must remap each role deliberately. Never use accent as success/error merely because the hue resembles one. Recalculate contrast on actual text and component pairs after adaptation. Use visible text or symbols alongside status color.
+The **look contract** is what a finished product must visibly exhibit: a dominant visual idea, specific contrast and color behavior, recognizable type and geometry, intentional density and energy, and a causal signature moment. Ask what should never be gray. If changing font, accent, radius, and spacing can turn it into another candidate, the system has not been expressed strongly enough. A serious technical product can be high energy through strong contrast, active color, tight rhythm, and fast causal feedback without mascots or confetti.
 
-## Component grammar: choose the family, then tune by system
+## Candidate and authoring gate
 
-| Component | Required behavior | System-specific choice |
-|---|---|---|
-| Primary button | one dominant task per region; clear action verb; visible focus and disabled reason | fill, border, geometry, type weight, motion |
-| Secondary/tertiary/text action | progressively quieter, still distinguishable; links navigate | outline or flat treatment, underline rhythm |
-| Input/select | persistent label, error association, sufficient target | field fill, border, focus ring, spacing |
-| Checkbox/radio/switch | familiar semantics; switch only for immediate settings | stroke, selected fill, label placement |
-| Menu/tabs | keyboard behavior and selected state; tabs only for sibling views | underline, rail, segmented treatment |
-| Card/list/table | group only when content needs it; align comparable data | row density, divider, surface, numeric alignment |
-| Sidebar/navigation | stable locations, current state, useful collapse | rail width, label weight, mobile replacement |
-| Modal/toast | appropriate focus and recovery; toast cannot hide the result | surface elevation, timing, dismissal |
-| Empty/progress/badge | truthful state and next step; avoid fake activity | message tone, density, icon and motion |
+A fingerprint is a useful duplicate filter, never sufficient proof of diversity. Compare core-screen silhouettes without text, color, icons, or fonts; then compare in grayscale. Systems should differ in focal hierarchy, instrument/support relationship, information timing, interaction architecture, navigation, progression, or density. Ask whether a user would see recognizably different wireframes and whether the primary work surface behaves differently. If not, merge or rewrite. Authors must say what dominates, what is subordinate, what persists, what is progressive, how mobile transforms, how expression changes during action, and how a sibling would differ in grayscale.
 
-A system's component treatment must follow its thesis. A dense operational system earns table dividers and compact rows; an editorial system earns reading measure and fewer containers. Do not replace native affordances with novelty solely to display identity. Detailed behavior still belongs to interaction-design and state-design.
+For each chosen system or product adaptation, state: what it improves; what it sacrifices; “do not choose when”; likely failure; and “do not accidentally become…”. Rejection criteria protect the product better than broad niche-fit claims. A common degeneration deserves an implementation and review check. Preserve strong existing behavior when an Atlas alternative only looks tidier.
 
-## State and motion contract
+## Implementation contract
 
-Define empty, sparse, normal, dense, loading, processing, success, warning, error, disabled, and selected states for the components actually used. Loading should preserve layout and name what is happening. Processing must not look complete. Errors need recovery. Empty states need a reason and useful next action. Motion should explain a change in ownership, position, status, or result; no ambient animation requirement. Respect reduced motion and allow interruption.
+Translate only used roles into tokens and components. Define canvas, instrument surface, supporting surface, ink, action, selected/focus, and semantic states as needed. Color must do a job: where does chroma enter on action, where does it recede, and how do progress, success, and error differ from brand? A dark mode is a role remapping, never an automatic inversion. Typography must serve scanning, reading, code, language, and personality; serif is one option, not an antidote to generic UI. Geometry and component density follow the task. Familiar control semantics stay intact.
 
-## Responsive transformation
+Define empty, sparse, normal, dense, processing, error, recovery, success, disabled, and selected states only where used. Distinguish machine/simulation, progress, session, account, remote, and temporary UI state. Motion can add energy and character when it explains causality; use a suitable speed, remain interruptible, and provide reduced-motion information. Verify actual text and component contrast rather than assuming palette roles suffice.
 
-Do not merely stack the desktop. Decide which information survives the first viewport, which navigation changes form, which data becomes a list/detail path, and which actions remain reachable with the keyboard open. Breakpoints follow content failure, not device brands. Verify narrow and short viewports, long labels, zoom, sparse/dense states, and RTL if supported. A system can preserve its type/color/shape grammar while changing composition.
+## Responsive and accessibility contract
 
-## Compatibility and style-soup rejection
+Decide which information survives the first viewport, which support becomes contextual, and how the core instrument remains usable with the keyboard open. Check focus ownership, return from secondary panels, zoom, long labels, and directional behavior. Arabic UI can be RTL while commands, paths, and code remain LTR. The core instrument needs the product-specific keyboard, announcements, semantics, contrast, and focus checks.
 
-A selected system may borrow a composition, type strategy, or palette family only if the borrowed part reinforces the thesis and works across actual routes. Explain its job and its sacrifice. Incompatible combinations to reject without a strong task reason: toy icons on a high-trust financial workflow, cinematic entrances on repetitive data entry, luxury display serif in a dense monitoring grid, terminal chrome for nontechnical customers, translucent panels obscuring data, or a decorative illustration occupying the first task viewport. If two systems require contradictory density, navigation, and type roles, choose one rather than averaging them.
+## Rendered gate
 
-## Originality gate
-
-Ask: can the system be recognized by its decisions without its name? Do type, color, geometry, composition, and motion reinforce one thesis? Does it behave in empty and dense states and on mobile? Can an engineer implement it without guessing core roles? Is it distinct from the other candidates? Is any treatment copied from one product or merely fashionable? If any answer fails, adapt or reject the candidate. The systems here are authored examples; they make no claim to being human-made or to representing observed products.
+Use the three-second task test: can a user quickly identify the goal and action place? Blur the screen: is the primary instrument or active state dominant? Mentally remove explanatory prose: does structure still communicate where work happens? Exercise the actual loop, including mistakes and recovery. If rendered behavior contradicts the artifact, change the implementation or direction. No visual system earns precedence over a broken primary journey.

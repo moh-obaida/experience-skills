@@ -6,7 +6,7 @@ Media products present other people's work: films, songs, articles, photographs.
 succeeds when the work is seen and heard well and the next thing to watch, read, or listen to is
 easy to choose. Chrome that competes with artwork, carousels that hide choice, and "premium" dark
 gradients unrelated to the content are the generated defaults. Load with `niche-atlas-index.md`;
-compare three systems with `design-system-selector.md`.
+compare product-relevant systems with `design-system-selector.md` when direction is open.
 
 ## Product realities
 

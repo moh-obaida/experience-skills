@@ -6,6 +6,17 @@ All notable changes to this project are documented here. The format follows
 
 ## Unreleased
 
+## [0.6.0] - 2026-09-27
+
+### Changed
+- The `use-all-skills` conductor now considers all specialists, routes selectively in Build or Audit Mode, and stops when primary journeys and material risks are resolved. No skill participation quota or mandatory Atlas selection remains.
+- Shared contracts and specialists now protect the core instrument and product invariants, model state ownership and transitions, and verify repeated journeys, recovery, completion, secondary-surface return, responsive interaction, and focus before cosmetic polish.
+- A Practice Console system fills the technical-learning gap with a dominant instrument, visible consequences, distinct state owners, and serious visual energy.
+- The design selector tests core-screen silhouette and grayscale differences, density, interaction architecture, and visual expression. Existing or product-derived directions may beat Atlas candidates; fingerprints remain a mechanical duplicate check, not proof of rendered quality.
+- Anti-slop guidance now detects underdesigned restraint and a repeated cream/serif/earth-tone house style as well as excess decoration. Visual energy, color behavior, typography attitude, and causal signature responses are explicit design decisions.
+- All thirty general design systems now name their core-screen expression, tradeoff, and rejection condition. Browser fixture tests fail visibly if the browser cannot launch instead of silently skipping rendered checks.
+- No external A/B benchmark was run for this release; these are contract and validation changes, not a measured performance claim.
+
 ## [0.5.0] - 2026-09-26
 
 ### Added

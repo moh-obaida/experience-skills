@@ -18,7 +18,7 @@ children's game can share a composition.
 ## The procedure
 
 ```
-UNDERSTAND → CLASSIFY → CONSTRAIN → GENERATE (3, different families) → COMPARE → SELECT/SYNTHESIZE
+UNDERSTAND JOB/LOOP/INSTRUMENT → PROTECT INVARIANTS → COMPARE WHEN USEFUL → SELECT/DERIVE
 → DERIVE (product-specific) → COMPOSE → CHECK (logo test, anti-slop gate, states, accessibility)
 ```
 
@@ -29,9 +29,7 @@ UNDERSTAND → CLASSIFY → CONSTRAIN → GENERATE (3, different families) → C
    archetype of each key surface. Archetype sets the identity budget and density range.
 3. **Constrain.** Write the non-negotiables: accessibility level, platform conventions, performance
    budget, languages/scripts (RTL?), brand elements that must stay.
-4. **Generate three candidates from different families** using `directions-index.md`. Different
-   families means genuinely different compositions and type, not three colorways. For each, write
-   two sentences: what it would feel like, and why it fits this product.
+4. **Compare only if direction is open.** Use `directions-index.md` to find two or three structurally different possibilities. Preserve an existing coherent direction when another option has no product-specific advantage. Compare the actual working screen, not just a marketing hero. Give the core instrument enough authority. Vary focal strategy, density, interaction framing, and visual energy, not just palette and type.
 5. **Compare** in a table:
 
    | Criterion | A | B | C |
@@ -58,12 +56,11 @@ UNDERSTAND → CLASSIFY → CONSTRAIN → GENERATE (3, different families) → C
 
 ## From direction to a buildable system
 
-For substantial greenfield work, a direction is only the first level. Use `design-system-selector.md` and `design-systems-index.md` to compare three authored systems with different structural theses. Load the selected family file, then `design-system-grammar.md`, `palette-themes.md`, `type-strategies.md`, and `font-pairings.md` for implementation roles. A theme varies tokens within the chosen system; it does not replace its composition or controls. If no system fits, derive a new one from the product and document the same roles before components.
+For substantial work with an open direction, use `design-system-selector.md` and `design-systems-index.md` to compare materially different systems on the core screen. Load only the candidate family and role references that could change a decision. A coherent product-native system may beat every Atlas candidate. A theme varies tokens, not interaction or composition. Reserve attention for building and verifying.
 
 ## Offering choices to a user
 
-When the user should decide, present the three candidates with the comparison table and a
-recommendation. Never present three variations of the same family as a choice.
+When the user needs to decide, present a small set of materially different options and a recommendation. Do not manufacture options if the product direction is already clear.
 
 ## Studying a reference the user admires
 
@@ -83,6 +80,6 @@ Hallmark project; see the third-party notices file):
 
 - Could the chosen direction be swapped onto a competitor unchanged? Then it is not derived yet.
 - Does every surface use the same composition? Operational and focused surfaces should differ.
-- Did the palette come from a product-type lookup? Re-derive it from roles and brand.
+- Did the palette come from a product-type lookup or a common Experience Skills cream/serif/earth-tone habit? Re-derive it from roles, mechanics, and emotional target.
 - Is the result recognizable as a named trend (glassmorphism, bento, aurora) before it is
   recognizable as the product? Then the trend is doing the identity's job.

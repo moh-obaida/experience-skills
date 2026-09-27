@@ -4,8 +4,7 @@ Money interfaces carry consequence: a wrong number, an ambiguous pending state, 
 damages trust quickly and sometimes permanently. The generated default is a gradient balance card,
 a green-up line chart, and blue "fintech" everything. The real design material is time (pending vs
 posted, settlement, due dates), certainty (what is final, what is an estimate), and control (limits,
-approvals, reversibility). Load with `niche-atlas-index.md`; compare three systems with
-`design-system-selector.md`.
+approvals, reversibility). Load a profile only when its realities affect a decision; compare systems only when the direction is open.
 
 ## Product realities
 

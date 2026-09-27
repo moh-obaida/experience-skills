@@ -6,9 +6,9 @@ Sections: Review Workflow · Comparing to the Current State · Review Report Tem
 
 ## Review Workflow
 
-### The mandatory sequence
+### Reasoning sequence
 
-Judgment comes last. Do the steps in order; write each one down, even briefly.
+Judgment comes after evidence and alternatives. Use these steps as a checklist for reasoning; write down only the material findings and unknowns.
 
 | # | Step | Output |
 |---|---|---|

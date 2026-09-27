@@ -3,7 +3,7 @@ name: workflow-compression
 description: "Use this skill whenever the user asks to make a flow faster, simpler, shorter, or 'one tap'; when a wizard, checkout, onboarding, setup, transfer, form, or CLI prompt sequence takes too many steps, screens, questions, confirmations, or waits; or when users re-enter information the software already knows. Maps the workflow step by step, classifies friction (redundant input, unnecessary choice, repeated configuration, navigation tax, confirmation tax, serial work, memory failure, waiting tax, dead ends, expert tax, interruptions, hidden status), and removes work the software could do while preserving safety and meaningful human judgment. Always counts steps before and after."
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -31,17 +31,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -89,6 +88,8 @@ If a flow changes, MUST load `references/workflow-mapping.md`, `references/known
 7. **Before finishing:** recount the redesigned flow and report before/after with preserved steps.
 8. **For every flow, run the known-context inventory** at the top of `references/known-answers.md` (user, selected object, route, language, previous choices, recents, ownership, entered data, only-valid options, inferable values) before any field or question stays.
 9. **Count hidden costs separately** (modes, interruptions, context switches, hidden status, duplicate objects; F11–F15 in `references/interruptions-modes-and-status.md`). A flow with few clicks and three overlays is not short.
+
+10. **Primary loop preservation:** after reducing steps, repeat the journey with a mistake and recovery. Preserve meaningful learning, judgment, and outcome evidence; useful friction can protect understanding, irreversible actions, or trust. A shorter flow that hides consequences is not an improvement.
 
 ## Workflow
 
@@ -154,8 +155,7 @@ Each entry is a dated observation of a real product with the conditions under wh
 - Friction is coded and weighted by frequency.
 - Preserved safeguards and judgment steps are named.
 - Inferred values are visible and changeable; the flow ends with a next action.
-- The known-context inventory and typed before/after counts are present; the handoff carries
-  preserved judgment, remaining friction, state risks, and verification status.
+- The known-context inventory and typed before/after counts are present. Hand off preserved judgment, remaining friction, state risks, and verification status only when another specialist can resolve an open concern.
 
 ## References
 

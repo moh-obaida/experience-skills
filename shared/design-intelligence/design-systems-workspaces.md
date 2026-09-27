@@ -17,6 +17,8 @@ Authored starting systems. Their component behavior follows `design-system-gramm
 | Image, icon, copy | Diagram and trace over stock imagery; 18px restrained line icons with labels. Copy states object, condition, and action. |
 | Failure and imitation | A grid of glowing panels makes status decorative. Do not copy a particular observability product's chart chrome or dark palette. |
 
+**Core-screen and look contract.** Medium-high operational energy: compact narrow headings and square, ruled panels keep the live queue sharper than its pale canvas. Chroma enters only for the selected signal and real state changes; a fresh event briefly marks its row and linked detail, then recedes. This improves rapid triage but sacrifices leisurely explanation. Reject when no live priority exists; never let neutral status look inactive.
+
 ## Quiet Ledger
 
 **Thesis and fit.** Consequential records need calm chronology and reversible actions. Fits personal finance, account history, and audit-adjacent services; poor for celebration or gaming.
@@ -31,6 +33,8 @@ Authored starting systems. Their component behavior follows `design-system-gramm
 | States and motion | Pending, posted, failed, reversed never merge. Empty ledger explains period and filter. Transaction insertion can highlight briefly; reduced motion uses static highlight. |
 | Image, icon, copy | No decorative money imagery; simple document icons only where type needs support. Copy is factual and names amounts/dates. |
 | Failure and imitation | Big fake balance cards and green profit styling turn records into spectacle. Avoid imitating any banking dashboard. |
+
+**Core-screen and look contract.** Low, deliberate energy: tabular amounts and dated rules set a steady rhythm, while the current transaction receives the strongest ink and a restrained action color. Posting or reversal briefly marks the affected ledger row; semantic loss never borrows the action hue. This improves trust and chronology but sacrifices celebratory expression. Reject when progress or play is the primary motive.
 
 ## Studio Index
 
@@ -47,6 +51,8 @@ Authored starting systems. Their component behavior follows `design-system-gramm
 | Image, icon, copy | User work is imagery. Consistent 18px line icons plus tooltip and keyboard shortcut; terse verbs, no motivational filler. |
 | Failure and imitation | A dozen unlabelled icon buttons make experts guess. Do not borrow a specific design tool's toolbar arrangement. |
 
+**Core-screen and look contract.** Balanced, responsive energy: the artifact is the high-contrast field; crisp small tools, hard selection handles, and quick panel shifts keep editing tactile. Color concentrates on the active tool and selected object, then leaves the chrome; a completed edit visibly changes the canvas before any toast. This protects creation but sacrifices always-visible properties on small screens. Reject if the artifact is merely decorative.
+
 ## Threadboard
 
 **Thesis and fit.** Collaborative work becomes a chain of decisions, owners, and next steps. Fits casework and planning; poor for static storytelling.
@@ -61,6 +67,8 @@ Authored starting systems. Their component behavior follows `design-system-gramm
 | States and motion | Assigned, blocked, waiting, resolved, reopened are first-class. New events appear in place with subtle emphasis; reduced motion uses static marker. |
 | Image, icon, copy | Attachments shown by preview/type; icons secondary to labels. Copy names who needs to do what next. |
 | Failure and imitation | Turning every comment into a floating card hides chronology. Avoid copying chat-app bubbles as the whole information model. |
+
+**Core-screen and look contract.** Measured but decisive energy: dense discussion rows and firm owner/decision headers create a stop-start rhythm, with saturated color reserved for the next accountable action. Assigning a case links the action to the new owner and trail entry with one brief highlight. This improves accountability but sacrifices chat-like immediacy. Reject when the work has no durable decision history.
 
 ## Schema Garden
 
@@ -77,6 +85,8 @@ Authored starting systems. Their component behavior follows `design-system-gramm
 | Image, icon, copy | Diagrams are explanatory, not ornament. Icons encode entity type alongside labels. Copy uses domain terms with definitions. |
 | Failure and imitation | A beautiful graph that hides exact fields fails the job. Do not copy a specific knowledge product's node aesthetic. |
 
+**Core-screen and look contract.** Curious, controlled energy: a precise index and spare relation geometry give the queried entity visual authority; one clear connection hue appears only on the inspected path. Selecting a relation illuminates its origin, destination, and exact fields together, then settles. This improves structural exploration but sacrifices speed for simple transactions. Reject when an exact table alone answers the job.
+
 ## Measured Desk
 
 **Thesis and fit.** Frequent work should be legible, compact, and easy to resume. Fits productivity and administration; wrong for immersive media.
@@ -91,3 +101,5 @@ Authored starting systems. Their component behavior follows `design-system-gramm
 | States and motion | Due, blocked, delegated, complete and empty are distinct. Completion fades only the completed row if motion is safe; reduced motion keeps a check and updated label. |
 | Image, icon, copy | User content leads; sparse 16–18px icons with text. Short verbs and concrete status labels. |
 | Failure and imitation | Four KPI tiles above the actual tasks bury work. Do not copy a task app's checklist visual signature. |
+
+**Core-screen and look contract.** Low-medium, brisk energy: compact task rows and strong type weight put the next action ahead of history; neutral chrome stays quiet while active work gets the strongest color. Completion crosses into the row itself and reveals the next task without a dashboard celebration. This speeds routine work but sacrifices expressive storytelling. Reject when the product is primarily immersive or editorial.

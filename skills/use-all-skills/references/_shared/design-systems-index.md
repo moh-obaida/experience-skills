@@ -2,7 +2,7 @@
 
 # Original Design Systems: Index
 
-These are authored systems, not observations or copies of named products. Choose three conceptually different candidates using `design-system-selector.md`; load only their family files and the selected palette/type guidance. A theme is a controlled color/token variation, not a second system.
+These are authored systems, not observations or copies of named products. When direction is open, compare materially different candidates on the primary working screen using `design-system-selector.md`; load only family and palette/type guidance that can change the decision. A theme is a controlled color/token variation, not a second system.
 
 | System | Family file | Thesis | Useful when | Avoid when |
 |---|---|---|---|---|

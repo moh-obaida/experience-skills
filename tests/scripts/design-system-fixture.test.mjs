@@ -6,9 +6,9 @@ import { launch, openPage, toUrl } from '../../shared/tools/layout-probe.mjs';
 
 const fixture = toUrl(join(ROOT, 'tests/fixtures/pages/signal-foundry.html'));
 
-test('Signal Foundry reference changes selected detail and fits narrow viewports', async (t) => {
+test('Signal Foundry reference changes selected detail and fits narrow viewports', async () => {
   const { browser, error } = await launch();
-  if (!browser) return t.skip(`no browser available: ${error.split('\n')[0]}`);
+  assert.ok(browser, `Browser tests require Chromium or Chrome: ${error}`);
   try {
     for (const width of [1366, 390, 320]) {
       const { page, context } = await openPage(browser, fixture, { width, height: 768, waitMs: 0 });

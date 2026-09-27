@@ -32,6 +32,8 @@ Findings carry their level. A repair is "verified" only at levels 1–2.
 
 ## Evaluating the skills
 
+The full-product scenario measures Build Mode and selective activation. It no longer rewards loading every available specialist or selecting an Atlas system merely to fill a ledger. Historical eval reports retain their original criteria and should not be interpreted as v0.6 results.
+
 ### Enforcement telemetry
 
 The behavioral harness records more than whether an answer mentioned a principle. Each transcript
@@ -40,9 +42,9 @@ precedent modules separated; scripts executed and rendered-evidence signals; com
 such as before/after counts, selected direction/composition, state matrix, and final-gate reporting;
 and scenario-declared required-reference compliance.
 
-The useful metrics are expected-specialist recall, irrelevant specialist rate, reference activation
+The useful metrics are material-specialist recall, unnecessary activation rate, reference activation
 rate, design-intelligence usage, precedent usage, required-reference compliance, rendered-evidence
-compliance, handoff completeness, and the condition-blind quality delta. More reads are not
+compliance, primary-journey evidence, conditional handoff quality, and the condition-blind quality delta. More reads are not
 automatically better: a correct required read with its decision artifact is the unit that matters.
 
 Build and repair runs use the same telemetry but enable file edits and record a before/after file
@@ -63,7 +65,9 @@ evidence or the explicit `NOT VERIFIED IN RENDERED OUTPUT` exception.
 - **Structure and spec:** `npm run validate` and the official reference validator (`pip install skills-ref`, then `agentskills validate skills/<name>`).
 - **Behavior of scripts:** unit tests on analyzers, and browser tests on fixture pages with known
   defects (a centered card on a blank page, a fixed-width table that overflows at phone width, an
-  absolutely positioned badge colliding with a heading).
+  absolutely positioned badge colliding with a heading). Browser launch is a release gate: these
+  tests fail if Chromium or Chrome cannot start. On a restricted macOS runner, allow browser
+  processes to register their Mach ports rather than accepting a suite with skipped tests.
 - **Routing fixtures:** `tests/evals/routing.json` pairs user phrasing with the skills that should
   be involved and the ones that would be a mistake. Tests verify the fixtures are consistent and
   that every skill is exercised. They are not a classifier.

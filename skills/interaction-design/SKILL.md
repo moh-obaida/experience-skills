@@ -3,7 +3,7 @@ name: interaction-design
 description: "Use this skill whenever controls, inputs, forms, pickers, buttons, confirmations, or keyboard and touch behavior are designed or reviewed: especially when someone proposes a custom, animated, or 'more fun' version of a standard control (segmented code boxes, bespoke dropdowns, bouncing digits), when actions are confusing, slow, error-prone, or inaccessible, when actions restate context the system already knows, or when building forms and live-control surfaces. Covers affordance, action hierarchy, primary/secondary/destructive actions, inline edit, direct manipulation, confirmation versus undo, disabled states, feedback, and power-user paths. Default stance: do not reinvent familiar interactions without user value."
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -31,17 +31,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -96,6 +95,8 @@ If a control is custom, animated, or replaces a native control, MUST load `refer
 9. **For search, pickers, multi-select, bulk actions, and command palettes:** size the solution to scale and frequency using `references/search-selection-and-bulk.md`. A palette for a dozen actions is overengineering.
 10. **When a browser is available, run `scripts/check-controls.mjs`** on the surface: unnamed controls, placeholder-only labels, missing alt, positive tabindex, small targets, contrast, and invisible focus are defects to fix or list.
 
+9. **Repeated loop:** write the type → act → inspect → recover → continue equivalent for this product. Repeat its core control several times with a mistake between successes. Protect fresh input, predictable keyboard behavior, focus recovery, valid actions independent of irrelevant UI state, and immediate continuation after feedback. A secondary panel must not silently disable the instrument.
+
 ## Workflow
 
 1. **Inventory** controls: purpose, frequency, consequence, standard vs custom.
@@ -147,8 +148,7 @@ If a control is custom, animated, or replaces a native control, MUST load `refer
 - Custom controls have a stated, measurable value and pass keyboard, screen-reader, touch, paste,
   and autofill checks, or were replaced.
 - Keyboard path and visible focus work end to end; targets are adequately sized.
-- The familiar-control or custom-control reference was loaded for the relevant branch, and the
-  handoff names action scope, safety choice, accessibility evidence, and remaining risks.
+- The familiar-control or custom-control reference was loaded for the relevant branch. Hand off action scope, safety choice, and accessibility evidence only if a material risk remains.
 
 ## References
 

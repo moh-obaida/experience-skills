@@ -6,8 +6,7 @@ Products that coordinate people and things in physical space: bookings for real 
 for real seats, parcels on real trucks, stock on real shelves, and payments at real counters. Their
 interfaces are used standing up, with gloves, in sunlight, with a queue waiting. Generated defaults
 bring SaaS dashboards and marketing heroes into places that need big targets, unambiguous states,
-and offline tolerance. Load with `niche-atlas-index.md`; compare three systems with
-`design-system-selector.md`.
+and offline tolerance. Load a profile only when its realities affect a decision; compare systems only when the direction is open.
 
 ## Product realities
 

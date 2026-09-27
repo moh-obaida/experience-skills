@@ -17,6 +17,8 @@ Authored candidates for service journeys. Component semantics and state obligati
 | Media/voice | Diagrams only for eligibility or process, simple icons paired with labels. Copy states requirements, deadlines, and consequences. |
 | Failure/anti-imitation | Decorative government seals or blue gradients cannot supply trust. Do not reproduce any agency's visual identity. |
 
+**Core-screen and look contract.** Calm, high-clarity energy: large plain question type, square bordered fields, and generous section breaks make the current decision unmistakable. Action color appears on the live step and valid focus; errors use a separate labeled signal, never a brand-colored reassurance. Continue moves the step marker and focus to the next real question. This improves accountability but sacrifices visual spectacle. Reject for nonsequential exploration.
+
 ## Warm Utility
 
 **Thesis.** A service can feel human through clear next steps and respectful tone, without ornamental reassurance. Suits healthcare access and booking; avoid dense market terminals.
@@ -31,6 +33,8 @@ Authored candidates for service journeys. Component semantics and state obligati
 | States/motion | Upcoming, waitlisted, cancelled, completed, and no availability have different copy/actions. Tiny confirmation transition only; reduced motion static. |
 | Media/voice | Real service photography only if it helps choose; line icons spare. Copy is warm through specificity, never “your journey starts here.” |
 | Failure/anti-imitation | Pastel cards cannot compensate for missing availability. Avoid copying a wellness brand's rounded illustration style. |
+
+**Core-screen and look contract.** Gentle but active energy: humanist type and rounded, breathable task rows soften the service without muting availability or the booking action. Color grows around a selected appointment, then becomes a quieter confirmed state; cancellation has its own labeled signal. This reduces anxiety but sacrifices dense comparison. Reject when experts must scan many concurrent records.
 
 ## Service Map
 
@@ -47,6 +51,8 @@ Authored candidates for service journeys. Component semantics and state obligati
 | Media/voice | Process diagram only when it reduces explanation; icons mark actor/attachment. Copy states who acts next. |
 | Failure/anti-imitation | A decorative 1–5 progress bar that ignores real dependencies is dishonest. Do not copy an insurance portal's stage naming. |
 
+**Core-screen and look contract.** Balanced process energy: the current task is a high-contrast block within a firm stage rhythm; completed stages quiet down while pending responsibility stays visually distinct. A verified stage change moves the marker and names the next actor, with no false progress animation. This clarifies long work but adds navigation overhead. Reject for one-step services.
+
 ## Open Counter
 
 **Thesis.** Routine services should feel as accessible as a clear counter interaction. Use for appointments and local services; too plain for specialist control.
@@ -61,6 +67,8 @@ Authored candidates for service journeys. Component semantics and state obligati
 | States/motion | Open/closed, available/full, submitted/pending are written. No decorative motion; result feedback is immediate and persistent. |
 | Media/voice | Map only when location affects choice; utilitarian icons plus text. Plain local language, not campaign copy. |
 | Failure/anti-imitation | Oversized welcome hero wastes the first viewport. Do not replicate a municipal site's header or seal. |
+
+**Core-screen and look contract.** Plain, direct energy: strong sans labels and generous but square targets make the action list feel open and immediate. Chroma belongs to the selected service, reachable contact route, and genuine result, never to decorative tiles; submission replaces the action with its receipt and next step. This speeds routine access but sacrifices specialist depth. Reject for complex control instruments.
 
 ## Trust Record
 
@@ -77,6 +85,8 @@ Authored candidates for service journeys. Component semantics and state obligati
 | Media/voice | Documents/diagrams as evidence, no generic trust stock photos. Copy is precise and names uncertainty. |
 | Failure/anti-imitation | A green “verified” badge without provenance is misleading. Do not borrow a regulator's visual authority. |
 
+**Core-screen and look contract.** Low energy, high contrast at evidence boundaries: crisp citations, tabular dates, and ruled source groups carry authority without decorative seals. Chroma marks verified provenance and changed evidence only; superseded facts lose emphasis but remain legible. A revision reveals what changed beside its source. This improves auditability but sacrifices quick scanning of unrelated tasks. Reject when evidence cannot be surfaced.
+
 ## Home Circuit
 
 **Thesis.** Household tasks make sense by place, person, and time. Use for family/home coordination; unsuitable for industrial safety control.
@@ -91,3 +101,5 @@ Authored candidates for service journeys. Component semantics and state obligati
 | States/motion | Due, waiting, delegated, done, overdue, and offline sync are distinct. Completion can settle a row in 160ms; reduced motion uses a static check. |
 | Media/voice | User photos/room images only when useful; simple object icons. Copy is concrete, not faux-cozy. |
 | Failure/anti-imitation | Cartoon stickers on every task conceal priority. Do not imitate a smart-home brand's device tiles. |
+
+**Core-screen and look contract.** Warm, moderately lively energy: person/place headings and compact daily rows create a domestic rhythm without cartoon furniture. Color concentrates on the active shared task and earned milestone, while overdue and sync states remain separate and labeled. Completing a task settles its row and exposes who acts next. This supports coordination but sacrifices industrial precision. Reject for safety-critical monitoring.

@@ -1,7 +1,7 @@
 # Philosophy
 
-The operational version is `shared/philosophy/experience-core.md`: 29 rules, each phrased as a
-behavior, which every skill tells the agent to read first. This page explains where the ideas come
+The operational version is `shared/philosophy/experience-core.md`: rules phrased as actions,
+which every skill tells the agent to read first. This page explains where the ideas come
 from and how they relate.
 
 ## The problem
@@ -19,13 +19,12 @@ around them:
 
 ## Three commitments
 
-**Make the environment memorable.** A product should feel like a place. Identity comes from the
+**Make the environment and behavior memorable.** A product should feel like a place and respond in a recognizable way. Identity comes from the
 product's domain, content, mechanics, and audience, expressed through composition, typography,
-color roles, motifs, imagery, and motion. It lives mostly in the environment around tasks.
+color behavior, motifs, imagery, and causal motion. A product's repeated interaction can be its strongest identity carrier.
 
 **Make the interaction obvious.** Controls should be familiar, legible, fast, and safe.
-Personality applied to a textbox costs usability; applied to the environment it costs nothing.
-Do not reinvent familiar interactions without user value.
+Novelty applied to a standard textbox can cost usability. Keep familiar controls while giving the core instrument spatial authority and feedback with character. Do not reinvent familiar interactions without user value.
 
 **Make the outcome fast.** Functionality is the baseline; time-to-outcome is part of quality.
 If the software already knows the answer, do not ask. If there is only one option, do not create
@@ -33,10 +32,13 @@ a choice. Automate mechanics, preserve judgment. Measure before and after.
 
 ## Supporting ideas
 
+- **Consider broadly, intervene selectively.** All skills may be considered; only a materially useful set should be active. No change is a legitimate expert finding.
+- **Mechanics before aesthetics.** Name the user job, repeated loop, core instrument, and product invariants before choosing an Atlas direction.
+- **Structure and expression both matter.** Distinct systems differ in working-screen anatomy and visual energy, color behavior, type, geometry, and causal response.
 - **Empty space must earn its existence.** Space frames, separates, or paces. Otherwise it is dead.
 - **Useful density is not filler.** Fix sparse pages with real state and next actions, not fake
   statistics.
-- **Real states over screenshots.** Empty, dense, loading, failing, small, zoomed, RTL.
+- **Journeys over screenshots.** Repeat the core action, make mistakes, recover, complete, continue, and return from secondary surfaces across sizes and focus modes.
 - **Transport is not product.** A failed request is not a failed operation.
 - **Motion explains events.** Arrival, transfer, resolution, change; not decoration.
 - **Rendered truth beats source.** Look at the result; say what was not verified.

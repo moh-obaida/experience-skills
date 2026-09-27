@@ -1,10 +1,10 @@
 ---
 name: anti-ai-slop
-description: "Use this skill whenever the user asks to remove the AI look from an existing site or app, says a real implementation looks AI-generated, templated, v0/shadcn/Tailwind-default, or 'like every other AI site', asks to de-AI, exterminate slop, or hunt down every generated-looking decision in a rendered product and fix it. Renders the current product, extracts and protects its existing identity, sweeps every surface for decorative, gradient, glass, card, pill, radius, shadow, typography, color, copy, hero, dashboard, bento, icon, dark-mode, depth, motion, empty-space, component-library, and fake-personality slop, traces each to source, replaces it with what this product would do instead, rerenders, and checks the result is neither generic nor merely weird. Not a style swap: keeps justified gradients, play, density, and expression."
+description: "Use this skill whenever an existing rendered product looks AI-generated, template-made, sterile, or underdesigned, or its primary interaction is buried beneath a visual system. Protect its working identity and core instrument; inspect both excessive decoration and repeated Experience Skills cream, serif, earth-tone restraint; trace material problems to source, repair them with product-specific behavior and expression, then rerender and exercise the main journey."
 license: MIT
 compatibility: "Browser rendering strongly recommended. The optional identity extractor needs Node.js 18+ and reads local source only."
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -38,17 +38,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -61,7 +60,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - An existing site or app "looks AI-generated," "looks like every v0/shadcn/Tailwind site," or
   "has no identity," and the user wants it fixed, not just reviewed.
 - A generated or template-started product must be de-slopped end to end before launch.
-- `use-all-skills` reaches its de-generate phase after implementation and anti-slop-ui.
+- A conductor's rendered review finds widespread generated patterns that need source-level repair.
 - anti-slop-ui or critical-review found widespread generated patterns across many surfaces.
 
 ## Do not use this when
@@ -82,7 +81,7 @@ dark-mode, component-library), `references/slop-type-color-copy.md` (typography,
 personality). Before replacing anything, MUST load `references/repair-loop.md`. Before removing a
 gradient, glass, card, pill, dark theme, serif, density, or animation, MUST check
 `references/_shared/justified-trends.md`. To understand what the product category actually needs,
-load `references/_shared/niche-atlas-index.md` and the one matching niche file. When the fix needs
+load `references/_shared/niche-atlas-index.md` and one matching niche file only when its realities can change the repair. When the fix needs
 another structure, load `references/_shared/compositions-index.md` and
 `references/_shared/anti-generic-alternatives.md`.
 
@@ -111,6 +110,8 @@ another structure, load `references/_shared/compositions-index.md` and
 8. **Before presenting:** every S0/S1 is fixed, justified, or explicitly open with a reason; the
    report uses the evidence format and names what was protected.
 
+9. **Symmetric slop check:** inspect both excessive styling and underdesigned restraint. Warm cream, serif display, muted earth accents, hairlines, small uppercase labels, and quiet whitespace can form an Experience Skills house style when they have no product reason. Check the three-second task test, instrument prominence, active-state energy, and whether a live product has become a text document. Preserve justified density, color, play, and interaction character.
+
 ## Workflow
 
 1. **Render** the current product: primary routes, a sparse and a dense state, desktop and phone.
@@ -125,7 +126,7 @@ another structure, load `references/_shared/compositions-index.md` and
 6. **Trace** each S0/S1 to its implementation (token, global CSS, shared component, utility
    classes, copy source). Hand exact cascade work to interface-forensics when it is non-trivial.
 7. **Propose replacements** that fit the ledger and niche (`references/repair-loop.md` replacement
-   matrix); for structural replacements compare three alternatives.
+   matrix); for structural replacements compare materially different alternatives only when the choice is open.
 8. **Repair** S0 → S1 → S2 in coherent groups at the source (tokens and shared components first).
 9. **Rerender** the same routes, sizes, and states.
 10. **Compare** before/after side by side; revert changes that weaken identity or usability.

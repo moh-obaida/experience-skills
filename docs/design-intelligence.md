@@ -9,7 +9,7 @@ into the skills that use it (mainly visual-identity, composition-repair, and ant
 
 | Module | Contents |
 |---|---|
-| `selection.md` | The procedure: understand → classify → constrain → three candidates from different families → compare → select or synthesize → derive → compose → check. Also a "study a reference" protocol. |
+| `selection.md` | The conditional procedure: understand job, loop, instrument, and invariants → compare distinct options when useful → derive → build → verify. Also a "study a reference" protocol. |
 | `directions-index.md` + 10 family files | 45 design directions (editorial, structural, quiet, institutional, technical, expressive, atmospheric, material, retro, product-led), each with suits, unsuitable, composition, type, surface, imagery, palette, motion, interaction, accessibility, failure modes, slop risk, precedent, and what not to copy. |
 | `compositions-index.md` + 7 family files | 48 compositions (focus, flows, narrative, content, discovery, workspaces, operational, mobile), each with content requirements, focal strategy, viewport and scroll behavior, responsive and RTL behavior, sparse and dense states, failure modes, the bad AI version, and precedent. |
 | `palettes.md` | 17 palette families described by role and behavior, with example tokens and **computed** contrast ratios. |
@@ -19,7 +19,7 @@ into the skills that use it (mainly visual-identity, composition-repair, and ant
 | `motion-languages.md` | Seven motion languages and transition relationships. |
 | `spatial-density-navigation.md` | Density, spatial, and navigation models. |
 | `data-visualization.md` | Chart selection by question, with "not when" conditions and accessibility risk. |
-| `niche-atlas-index.md` + 15 niche files | The Niche Design Atlas: 90 niche profiles (reality, jobs, density, surfaces, states, interaction, trust, generated-UI failures) and 150 authored niche-adapted systems, each with a thesis, fingerprint, layer contract (composition through failure conditions), and seven contrast-validated color roles. Includes the difference test and critique stage for accepting new systems. Authored with AI assistance and critiqued; not observations. |
+| `niche-atlas-index.md` + 15 niche files | The Niche Design Atlas: 90 niche profiles (reality, jobs, density, surfaces, states, interaction, trust, generated-UI failures) and 151 authored niche-adapted systems, each with a thesis, fingerprint, layer contract (composition through failure conditions), and seven contrast-validated color roles. Fingerprints and contrast do not prove rendered diversity; the selector adds silhouette, grayscale, structural, and expressive tests. Authored with AI assistance and critiqued; not observations. |
 | `anti-generic-alternatives.md` | For 17 common defaults: the job they try to do and alternatives from different families, with precedent. |
 
 Precedent modules (`shared/precedent/`, 15 files) interpret dated observations of real products
@@ -27,8 +27,7 @@ Precedent modules (`shared/precedent/`, 15 files) interpret dated observations o
 
 ## Why it is not a template engine
 
-- A product category never selects a style. The niche atlas narrows candidates by product realities; the three-way comparison chooses. The selection procedure starts from the product's goals,
-  audience, and constraints and requires three candidates from *different* families.
+- A product category never selects a style. The niche atlas supplies product realities when useful; the product's mechanics and evidence lead. When direction is open, compare materially different candidates on the working screen. A coherent original direction can win.
 - Directions and compositions are separate. Any direction can use many compositions.
 - Palettes describe roles and contrast behavior, not "the fintech palette."
 - Every entry says where it is wrong, and every precedent says when copying it would fail.
@@ -39,7 +38,7 @@ Precedent modules (`shared/precedent/`, 15 files) interpret dated observations o
 
 `anti-slop-ui` detects a default (for example a centered card on flat grey), asks what job it was
 trying to do, checks whether it is justified here (the justified-trends precedent), and if not,
-generates at least three alternatives from different families using `anti-generic-alternatives.md`,
+considers materially different alternatives using `anti-generic-alternatives.md`,
 the composition index, and the direction index. It compares them and chooses by context. Techniques
 are never rejected by category; only unjustified defaults are.
 

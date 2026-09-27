@@ -1,9 +1,9 @@
 ---
 name: visual-identity
-description: "Use this skill whenever a product, page, or homepage looks generic, boring, template-like, or like it could belong to anyone; when someone wants more personality, fun, or brand; when identity is being added to inputs and buttons instead of the environment; or when establishing or extending a visual direction. Derives identity from the product's domain, content, and mechanics rather than from trends, logos, or decorated controls. Covers environment versus controls, product-derived motifs, color roles, typography character, surface and shape language, imagery, competitor analysis without copying, and the logo-removal recognition test."
+description: "Use this skill whenever a product needs a visual direction or stronger personality, energy, color behavior, or identity across its working screens and states. Derive expression from the user job, core instrument, product mechanics, and emotional target. Choose a look contract with structural hierarchy, chroma and contrast behavior, typographic attitude, geometry, rhythm, and a causal signature response; preserve existing coherent identity and compare Atlas options only when useful."
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -33,17 +33,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -69,14 +68,14 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Mandatory conditional loading
 
-For substantial greenfield or whole-product design, MUST load `references/_shared/niche-atlas-index.md` and the product's niche file first (what kind of product is this?), then `references/_shared/design-system-selector.md` and `references/_shared/design-systems-index.md`, compare three distinct systems, then load only their relevant family files. For the chosen system, load `references/_shared/design-system-grammar.md`, `references/_shared/palette-themes.md`, `references/_shared/type-strategies.md`, and `references/_shared/font-pairings.md` before implementing. Use `references/_shared/family-components.md` for the selected family and `references/_shared/component-patterns.md` only when a recurring task needs a new pattern; use `references/_shared/system-application-examples.md` only to test how the system transfers to a route.
+For substantial identity work, first name the product job, loop, instrument, and invariants. When direction is open, use `references/_shared/design-system-selector.md` and `references/_shared/design-systems-index.md` for a core-screen comparison; load `references/_shared/niche-atlas-index.md` and a niche file only when domain realities could change the decision. Load the relevant candidate family and `references/_shared/design-system-grammar.md` to implement. Use `references/_shared/palette-themes.md`, `references/_shared/type-strategies.md`, `references/_shared/font-pairings.md`, `references/_shared/family-components.md`, `references/_shared/component-patterns.md`, and `references/_shared/system-application-examples.md` only for the role or route they can clarify.
 
-If a direction changes, MUST load `references/_shared/selection.md`, choose three families, and load the chosen family files before implementation. If the selected row is Neo-brutalist, Soft minimal, or Playful, MUST also load its matching product precedent module (`neo-brutalist-products.md`, `soft-minimal-products.md`, or `playful-products.md`) and name the product/surface conditions being transferred. If a treatment is proposed, MUST load `references/_shared/context-adaptation.md`, `references/_shared/product-interiors-and-dense-states.md`, and `references/_shared/justified-trends.md`. If the surface is runnable, identity claims MUST survive rendered sparse and dense states or be marked unverified.
+If direction is genuinely open, load `references/_shared/selection.md` and compare structurally distinct candidates on the primary working screen. Preserve an existing strong direction when no alternative improves the job. If the selected row is Neo-brutalist, Soft minimal, or Playful, MUST also load its matching product precedent module (`neo-brutalist-products.md`, `soft-minimal-products.md`, or `playful-products.md`) and name the product/surface conditions being transferred. If a treatment is proposed, MUST load `references/_shared/context-adaptation.md`, `references/_shared/product-interiors-and-dense-states.md`, and `references/_shared/justified-trends.md`. If the surface is runnable, identity claims MUST survive rendered sparse and dense states or be marked unverified.
 
 ## Checkpoints
 
-1. **Before proposing anything:** run the logo test on at least three surfaces
-   (`references/identity-audit.md`). Record which carriers exist. No audit, no direction.
+1. **Before proposing anything:** run the logo test on the working screen and representative state or supporting surfaces that exist
+   (`references/identity-audit.md`). Record which carriers exist before changing the direction.
 2. **For any change to a basic control** (input, button, select, checkbox, toggle): does it make the
    task faster or more reliable? No → reject it and move the personality into the environment
    (`references/environment-vs-controls.md`; anchor: `references/_shared/join-code-page.md`).
@@ -90,9 +89,11 @@ If a direction changes, MUST load `references/_shared/selection.md`, choose thre
    your product shares those conditions. Otherwise do not cite it.
 6. **Before finishing:** logo test again on a sparse and a dense surface; check text contrast over any
    new background; check asset weight.
-7. **Before proposing a direction:** follow `references/_shared/selection.md`: three candidates from different families in `references/_shared/directions-index.md`, compared in its table. Never choose a palette, typeface, or style from the product's industry: the niche atlas narrows candidates by product realities (jobs, density, states, trust), and the comparison chooses.
-8. **For greenfield product identity:** have three system candidates been compared and a system translated into code roles? No → use the design-system selector and implementation grammar before components.
+7. **Before proposing a direction:** start with job, loop, core instrument, and invariants. Use `references/_shared/selection.md` and `references/_shared/design-system-selector.md` to compare distinct directions only when choice is open. A niche supplies realities, not a palette or style.
+8. **For greenfield identity:** is the direction operational on the primary working screen? Define structure and expression with `references/_shared/design-system-grammar.md`: energy, color behavior, contrast, type, geometry, rhythm, and a causal signature response. Preserve a strong native concept when Atlas options add no value.
 9. **For every state surface** (empty, loading, error, success) and one dense surface: where does identity live there? Use `references/branded-states-and-density.md`; identity that exists only in the hero fails.
+
+10. **Across the product:** does identity persist through the workspace, success, error, empty, dense content, supporting screens, mobile, and translation? If it only appears on a landing page, repair it. Repeated interaction behavior may be the strongest identity carrier; use color and motion to make consequences legible without weakening the core instrument.
 
 ## Workflow
 
@@ -126,7 +127,7 @@ If a direction changes, MUST load `references/_shared/selection.md`, choose thre
 
 | When | Load |
 |---|---|
-| Choosing a direction (after the audit) | `references/_shared/selection.md`, `references/_shared/directions-index.md`, then two or three family files from `references/_shared/` (`directions-editorial.md`, `directions-structural.md`, `directions-quiet.md`, `directions-institutional.md`, `directions-technical.md`, `directions-expressive.md`, `directions-atmospheric.md`, `directions-material.md`, `directions-retro.md`, `directions-product.md`) |
+| Choosing a direction (after the audit) | `references/_shared/selection.md`, `references/_shared/directions-index.md`, then only candidate family files likely to change the choice from `references/_shared/` (`directions-editorial.md`, `directions-structural.md`, `directions-quiet.md`, `directions-institutional.md`, `directions-technical.md`, `directions-expressive.md`, `directions-atmospheric.md`, `directions-material.md`, `directions-retro.md`, `directions-product.md`) |
 | What kind of product this is (before system selection) | `references/_shared/niche-atlas-index.md`, then one niche file: `niche-business.md`, `niche-developer.md`, `niche-ai.md`, `niche-games.md`, `niche-education.md`, `niche-commerce.md`, `niche-finance.md`, `niche-media.md`, `niche-social.md`, `niche-health.md`, `niche-public.md`, `niche-travel.md`, `niche-physical.md`, `niche-creative.md`, or `niche-personal.md` |
 | Whole-product system selection | `references/_shared/design-system-selector.md`, `references/_shared/design-systems-index.md`; then selected family files (`design-systems-workspaces.md`, `design-systems-services.md`, `design-systems-culture.md`, `design-systems-learning.md`, `design-systems-operations.md`) and `references/_shared/design-system-grammar.md` |
 | Theme, type, and component grammar | `references/_shared/palette-themes.md`, `references/_shared/type-strategies.md`, `references/_shared/font-pairings.md`; conditionally `references/_shared/component-patterns.md` and `references/_shared/system-application-examples.md` |
@@ -155,11 +156,10 @@ Adapted third-party material (study protocol, font pairings, style coverage) is 
 ## Completion criteria
 
 - A brief names 2–4 product-derived carriers and where they apply.
-- The logo test passes on three representative surfaces, or plainness is a stated choice.
+- The logo test passes on the working screen and relevant available states, or plainness is a stated choice.
 - Controls remain conventional, legible, accessible.
 - Identity holds on sparse and dense pages; contrast and weight were checked or listed as unverified.
-- The selection reference and three-family comparison were used for any direction change; the
-  handoff names the selected direction, carriers, environment, controls, states, and avoid list.
+- When direction was open, a focused comparison was used. If a material concern remains, hand off the selected direction, protected carriers, states, and open risk.
 
 ## References
 

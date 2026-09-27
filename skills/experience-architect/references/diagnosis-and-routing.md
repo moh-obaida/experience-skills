@@ -30,7 +30,7 @@ specialists can act on. Many symptoms map to more than one class; confirm with o
 | "I lost my work" | MEMORY FAILURE, missing drafts, validation clearing input | Interrupt the flow; refresh; fail validation |
 | "Users keep asking support about X" | Terminology, discoverability, status ambiguity | Read the question; find where the product answers it |
 | "Is this design good?" | Needs critical review, not reassurance | Apply critical-review workflow |
-| "Use all skills" / "full Experience Skills pass" | Explicit complete-project orchestration | Run all fourteen sibling skills through ordered build and verification phases |
+| "Use all skills" / "full Experience Skills pass" | Explicit complete-project orchestration | Consider all siblings; activate only those that address material risks, then build and verify |
 | "Audit this page" / "go over every inch" / "check the CSS too" | Page-scoped surface defects requiring rendered and source evidence | Inspect every region, control, state, and trace significant findings to source |
 | "Remove the AI look from our site" / "it looks like every v0 site" | Generated decisions across an existing product; identity buried | Render, extract the identity, sweep every surface, classify and trace generated patterns |
 | "Make it pop" / "make it modern" | Vague; often identity or hierarchy | Ask what feels wrong now; observe first |
@@ -126,7 +126,7 @@ to the user that the full skill exists.
 
 | Specialist | Route here when | Fallback method if not installed |
 |---|---|---|
-| use-all-skills | Explicit all-skills request or complete substantial starter-product build | Inspect current product, invoke every sibling skill with a participation ledger, select a system from three, implement, render, forensic-audit, critically review, and verify. |
+| use-all-skills | Explicit all-skills request or complete substantial starter-product build | Inspect job, loop, instrument, and invariants; choose Build or Audit Mode; consider every specialist, activate a justified subset, implement, verify primary journeys, and review only unresolved material concerns. |
 | interface-forensics | Audit this exact page, find every meaningful issue, check CSS/source, or repair a specific rendered surface | Render and scan the full page. Record viewport/state. For each significant defect trace element → component → winning style/behavior → root cause; fix and rerender. State unverified gaps. |
 | composition-repair | Dead space, no focal point, cramped, centered-but-not-composed, overflow, collisions, sticky chrome eating the viewport, scroll confusion | Rank content (P0–P4). Give P0 the focal position and size. Relate content to viewport (not just centered). Remove container soup. Render at 3 sizes. Check overflow and overlaps. |
 | visual-identity | Generic look, fails the logo test, personality on controls instead of environment, trend copying | List the product's domain, content, mechanics, audience. Derive 2–4 identity carriers (type voice, color roles, motif, surface). Apply them to the environment, not to controls. Run the logo test. |
@@ -143,8 +143,7 @@ to the user that the full skill exists.
 
 ### Routing by product type
 
-Product type changes emphasis, not the method. For whole-product design, visual-identity (or use-all-skills) identifies the niche in the
-Niche Design Atlas before comparing systems; the niche narrows candidates, it never picks a style.
+Product type changes emphasis, not the method. For whole-product design, product mechanics and the core instrument come first. A relevant niche profile can supply constraints before an optional system comparison; it never chooses a style.
 
 | Product | Usual first specialists | Watch for |
 |---|---|---|

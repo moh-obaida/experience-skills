@@ -8,7 +8,7 @@ authority comes from consistency and plain language, not decoration. Generated d
 startup heroes, gradients, and marketing copy into services people are obliged to use. Cultural
 institutions are the exception that proves the rule: museums and universities may be expressive,
 but their collections, programs, and services must stay findable. Load with `niche-atlas-index.md`;
-compare three systems with `design-system-selector.md`.
+compare product-relevant systems with `design-system-selector.md` when direction is open.
 
 ## Product realities
 

@@ -7,12 +7,11 @@ point where the next specialist would address only low-impact polish.
 ## EXPLICIT FULL EXPERIENCE PASS
 
 ```text
-use-all-skills → all fourteen sibling skills in its phase map → final rendered verification
+use-all-skills → diagnosis and selective routing → implementation → journey verification → material repairs
 ```
 
 Use only when the user explicitly requests all skills or a substantial starter-to-finished product
-pass. The conductor records genuine participation and a selected design-system artifact; specialists
-load only relevant depth. It owns the final verification and does not recursively invoke itself.
+pass. The conductor records meaningful activations and no-change decisions; design-system comparison is conditional. Specialists load only relevant depth. It owns the final verification and does not recursively invoke itself.
 
 ## PAGE-SCOPED FORENSIC AUDIT
 
@@ -44,7 +43,7 @@ composition-repair → visual-identity → anti-slop-ui → responsive-validatio
 
 Use for a blank, generic, or unfinished dashboard, home, join page, or app surface. Composition
 names the archetype, P0, focal point, viewport budget, dead regions, and selected composition.
-Identity then selects a direction from three families and names carriers. Anti-slop checks each
+Identity compares distinct directions only when the choice is open and names carriers. Anti-slop checks each
 treatment and supplies positive alternatives. Responsive validation renders the changed structure.
 Critical review compares the result with the original and can reject it.
 

@@ -4,7 +4,7 @@ description: "Use this skill whenever animation, transitions, or micro-interacti
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -17,7 +17,7 @@ Used by default, it becomes a tax users pay on every visit.
 
 1. Read `references/_shared/experience-core.md`.
 2. Read `references/_shared/experience-operating-contract.md`; meaningful motion changes require
-   rendered or explicitly unverified evidence and a handoff artifact.
+   rendered or explicitly unverified evidence. Hand off only an unresolved material concern.
 3. Keep `references/_shared/motion-events.md` open. Every animation must map to one of its events.
 
 <!-- core-brief:start · GENERATED FROM shared/philosophy/core-brief.md by npm run sync. Do not edit here. -->
@@ -31,17 +31,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -84,6 +83,8 @@ If motion is proposed, MUST load `references/event-motion.md` and `references/_s
    `transition: all`? Yes → switch to transform/opacity or FLIP. Run `scripts/scan-motion.mjs`.
 7. **When a browser is available, run `scripts/check-motion-rendered.mjs`**: it lists the animations that actually run, with and without reduced motion. Anything still running under reduced motion is a defect unless it carries essential information another way.
 8. **Choose one motion language** from `references/_shared/motion-languages.md` derived from the product's world, and name its tokens before specifying events.
+
+9. **Character and restraint:** motion can create energy while explaining change. Match its snap, elasticity, or spatial movement to the product and action frequency; use a short causal response for a signature product moment. Do not turn “unnecessary motion” into a ban on personality. A no-motion decision is valid when feedback remains clear; reduced motion retains the information.
 
 ## Workflow
 
@@ -137,8 +138,9 @@ documentation). Motion is hard to observe in static research; treat that module 
 - Durations and easings come from tokens.
 - Reduced-motion alternatives preserve the information.
 - Motion is interruptible and did not add jank (checked, or listed as unverified).
-- The event map and motion language are handed off with reduced-motion behavior; runnable motion was
-  rendered and checked, or is explicitly marked NOT VERIFIED IN RENDERED OUTPUT.
+- The event map and motion language record reduced-motion behavior. Hand off only unresolved
+  concerns; runnable motion was rendered and checked, or is explicitly marked NOT VERIFIED IN
+  RENDERED OUTPUT.
 
 ## References
 

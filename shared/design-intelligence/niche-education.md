@@ -3,9 +3,8 @@
 Education products serve learners, and usually also teachers, parents, administrators, or
 certifying bodies. The design problem is sustained attention and honest progress: what does the
 learner do next, did they actually learn, and who else needs to know? Generated defaults reach for
-gamification (XP, streaks, confetti) and candy palettes regardless of age or subject. Load with
-`niche-atlas-index.md`; compare three systems with `design-system-selector.md`. For technical
-lessons, also consider Worked Example in `niche-developer.md`; for AI tutors, Tutor Path in
+gamification (XP, streaks, confetti) and candy palettes regardless of age or subject. Load a profile with `niche-atlas-index.md` only when its realities affect a decision; compare product-relevant systems with `design-system-selector.md` only when the direction is open. For technical
+lessons, start with Practice Console when repeated tool use is central; consider Worked Example in `niche-developer.md` when explanation needs more space; for AI tutors, Tutor Path in
 `niche-ai.md`; for learning games, Field Notebook in `niche-games.md`.
 
 ## Product realities
@@ -23,12 +22,12 @@ lessons, also consider Worked Example in `niche-developer.md`; for AI tutors, Tu
 ### Interactive and technical learning
 - **Reality:** Learning by doing: exercises, sandboxes, simulations with immediate feedback.
 - **Jobs:** Read, try, get feedback, recover from mistakes, advance.
-- **Density:** Medium.
-- **Surfaces:** Lesson with embedded exercise, sandbox, hint, solution, progress.
+- **Density:** Set by repeated practice and instrument size; medium is common, but compact operational training may need more usable working area.
+- **Surfaces:** Lesson with a dominant exercise/sandbox when practice is the job, contextual hint, solution, and progress.
 - **States:** Attempted, wrong with reason, passed, stuck, reset.
-- **Interaction:** Typing, drag and drop, manipulation.
+- **Interaction:** Repeated typing, drag and drop, or manipulation; preserve focus, visible consequences, reset semantics, and immediate continuation.
 - **Trust:** Moderate.
-- **Generated-UI failures:** Explanations separated from practice; feedback that only says "Incorrect".
+- **Generated-UI failures:** Explanations separated from practice; feedback that only says "Incorrect"; a paper-like lesson that visually demotes the practice instrument.
 
 ### Language learning
 - **Reality:** Daily short practice across listening, speaking, reading, writing; motivation over months is the hardest problem.
@@ -71,6 +70,29 @@ lessons, also consider Worked Example in `niche-developer.md`; for AI tutors, Tu
 - **Generated-UI failures:** Animated timers inducing panic, auto-advance without saving, decorative gradients in test screens.
 
 ## Systems
+
+### Practice Console
+**Thesis.** Competence grows through repeated actions against a consequential environment: act, inspect the changed world, correct, and continue. Character: focused, technical, increasingly energetic through use. Audience: learners practicing commands, queries, configuration, or other tool-based work. **Fit:** terminal training, interactive technical labs, operational simulations; reject when the main job is reading or a timed exam.
+
+**Fingerprint** `density=dense; composition=command-first; surface=layered-panels; type=condensed-display; nav=contextual; accent=high; motion=restrained-causal; imagery=none; radius=square; data=moderate; tone=focused-energetic`
+
+| Layer | Decision |
+|---|---|
+| Composition | Primary screen: the live command instrument owns most of the workspace; resulting machine state stays adjacent on desktop or one direct switch away on phone. A compact task brief sits above or beside it, while hints appear only after request or attempts. Progress follows demonstrated outcomes, not visited pages. |
+| Type | Bold condensed sans for short task and state headings, plain humanist sans for instruction, mono only inside commands, paths, output, and machine data. Test ambiguous glyphs and mixed Arabic/LTR command lines. |
+| Color | canvas #101719 · surface #1B2427 · ink #EDF3F1 · muted #B4C6C2 · line #536662 · action #F2CB36 · on-action #101719. The bright operational color belongs to the active prompt and true progression; completed work keeps a quieter trace. Errors use labelled, distinct status color and preserve raw output. The instrument must never fade into gray. |
+| Space and shape | Compact square controls and firm separators; the active line gets the strongest contrast. Avoid large paper margins. The instrument grows before explanation does. |
+| Icons and imagery | No decorative terminal chrome. File and environment changes are real labelled state, not illustration. |
+| Components | Command input with persistent focus/re-entry, history and keyboard conventions; adjacent environment view shows create, move, rename, and delete consequences. Hint and reset are secondary; reset names what it clears and preserves. |
+| States | Valid starting environment on each task; running, wrong-but-valid result, parse error, completed, review-needed, locked, and next-available are distinct. Completion checks outcome and accepts alternate valid methods where practical. Machine state and learning progress have separate owners. |
+| Responsive | Desktop instrument remains dominant with compact environment view; phone gives the instrument full width, moves brief/hints into a dismissible surface, and returns focus after Files. The keyboard must not hide the active line or Continue. RTL UI keeps commands and paths LTR. |
+| Motion | A brief causal signal connects execution to changed state and a completed objective; repeated command entry never waits for animation. Reduced motion uses an immediate static change mark. |
+| Accessibility | Keyboard and screen-reader path through command, output, changed environment, error explanation, and next action; focus returns after secondary surfaces; status is never color-only. |
+| Build | Initialize each scenario deterministically; persist progress separately from the simulated environment; test execute → mistake → inspect → recover → execute → complete → next, including reload and reset. |
+| AI mutation | Neon hacker costume, fake traffic-light window, confetti, explanatory prose dominating a tiny terminal, or progress awarded for one expected command string. |
+| Fails when | Practice does not use a real interactive instrument, mobile cannot preserve usable input, or the environment's consequences cannot be shown honestly. Do not accidentally become a dashboard of decorative panels. |
+
+**Look contract.** Serious and energetic: dark instrument against restrained supporting surfaces, saturated yellow only for active operation and earned progress, tight rhythm, crisp causal feedback, and no mascot or gamified filler. It improves action-to-consequence learning but sacrifices room for long simultaneous exposition; choose a reading-led system when explanation is the main job.
 
 ### Syllabus Spine
 **Thesis.** A course is its syllabus: an ordered spine of modules with dates and states, where "what's next" is always the first thing on the page. Character: orderly, supportive. Audience: learners in structured courses and the instructors who build them. **Fit:** LMS, course platforms, corporate training.

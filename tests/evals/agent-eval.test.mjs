@@ -91,31 +91,28 @@ test('run-agent-evals --help and --dry-run work without calling an agent', () =>
 });
 
 
-test('full pass signals require real loading, implementation, ordered review, and final render', () => {
-  const names = ['experience-architect','product-friction','workflow-compression','interaction-design','visual-identity','composition-repair','state-design','empty-state-design','motion-design','responsive-validation','anti-slop-ui','anti-ai-slop','interface-forensics','critical-review'];
+test('full pass signals reward selective build and journey verification', () => {
   const event = (item) => JSON.stringify({ type: 'item.completed', item: item.type === 'command_execution' ? { exit_code: 0, ...item } : item });
-  const lines = [event({ type: 'command_execution', command: 'cat .claude/skills/use-all-skills/SKILL.md' })];
-  for (const name of names.filter((n) => !['anti-ai-slop','interface-forensics','critical-review'].includes(n)))
-    lines.push(event({ type: 'command_execution', command: `cat .claude/skills/${name}/SKILL.md` }));
-  lines.push(event({ type: 'command_execution', command: 'cat .claude/skills/visual-identity/references/_shared/design-system-selector.md' }));
-  lines.push(event({ type: 'file_change', changes: [] }));
-  lines.push(event({ type: 'command_execution', command: 'node scripts/measure-layout.mjs service.html' }));
-  lines.push(event({ type: 'command_execution', command: 'cat .claude/skills/anti-ai-slop/SKILL.md' }));
-  lines.push(event({ type: 'command_execution', command: 'cat .claude/skills/interface-forensics/SKILL.md' }));
-  lines.push(event({ type: 'command_execution', command: 'cat .claude/skills/critical-review/SKILL.md' }));
-  lines.push(event({ type: 'command_execution', command: 'node scripts/measure-layout.mjs service.html' }));
-  const ledger = names.map((name) => `| ${name} | Inspected route and task | Kept or changed a concrete decision | verified |`).join('\n');
-  lines.push(event({ type: 'agent_message', text: `Chosen design system: Civic Grid.\n${ledger}` }));
+  const lines = [
+    event({ type: 'command_execution', command: 'cat .claude/skills/use-all-skills/SKILL.md' }),
+    event({ type: 'command_execution', command: 'cat .claude/skills/use-all-skills/references/phase-map.md' }),
+    event({ type: 'command_execution', command: 'cat .claude/skills/interaction-design/SKILL.md' }),
+    event({ type: 'command_execution', command: 'cat .claude/skills/state-design/SKILL.md' }),
+    event({ type: 'file_change', changes: [] }),
+    event({ type: 'command_execution', command: 'node scripts/measure-layout.mjs service.html' }),
+    event({ type: 'agent_message', text: 'Build Mode. The form is the core instrument. The primary journey was repeated with a mistake and recovery. The page was rendered after implementation.' }),
+  ];
   const parsed = parseTranscript(lines.join('\n'));
   const signals = fullPassSignals(parsed, ['service.html']);
-  assert.ok(Object.values(signals).every(Boolean), JSON.stringify(signals));
-  const premature = fullPassSignals({ ...parsed, timeline: ['skill:anti-ai-slop','skill:interface-forensics','skill:critical-review','implementation','render'] }, ['service.html']);
-  assert.equal(premature.deSlopAfterImplementation, false);
-  assert.equal(premature.forensicsAfterImplementation, false);
-  const skippedDeSlop = fullPassSignals({ ...parsed, timeline: ['implementation','render','skill:interface-forensics','skill:critical-review','render'] }, ['service.html']);
-  assert.equal(skippedDeSlop.deSlopAfterImplementation, false);
-  assert.equal(skippedDeSlop.forensicsAfterImplementation, false);
-  assert.equal(premature.finalVerificationAfterReview, false);
+  assert.equal(signals.conductorLoaded, true);
+  assert.equal(signals.activeSpecialists, 2);
+  assert.equal(signals.modeNamed, true);
+  assert.equal(signals.coreInstrumentNamed, true);
+  assert.equal(signals.journeyEvidence, true);
+  assert.equal(signals.renderedAfterImplementation, true);
+  assert.equal(signals.reviewParticipation, 0, 'audit specialists are not mandatory in Build Mode');
+  const premature = fullPassSignals({ ...parsed, timeline: ['render', 'implementation'] }, ['service.html']);
+  assert.equal(premature.renderedAfterImplementation, false);
 });
 
 

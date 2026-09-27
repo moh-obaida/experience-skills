@@ -1,8 +1,7 @@
 # Niche Design Atlas: Index
 
-The atlas answers **what kind of product is this?** before the selector asks **what should it look
-like?** Each niche file describes product realities (jobs, density, surfaces, states, interaction,
-trust, typical generated-UI failures) and offers ten authored design systems adapted to those
+The atlas supplies domain context after the user job, repeated loop, core instrument, and invariants are understood. Each niche file describes product realities (jobs, density, surfaces, states, interaction,
+trust, typical generated-UI failures) and offers at least ten authored design systems adapted to those
 realities. It is not an industry-to-style lookup. A niche narrows the candidate pool; the user job,
 density, state complexity, audience, and existing brand decide. A niche never selects a system by
 itself.
@@ -14,29 +13,10 @@ real content.
 
 ## Procedure
 
-```text
-IDENTIFY NICHE → UNDERSTAND USER JOB → UNDERSTAND STATE AND DENSITY → LOAD NICHE FILE
-→ SELECT 3 CANDIDATES THAT DIFFER STRUCTURALLY → COMPARE → CHOOSE → ADAPT → IMPLEMENT
-```
-
-1. **Identify the niche.** Find the product's primary niche profile in the table below. Record a
-   secondary niche only if it owns a real surface or state (a leaderboard, a checkout, a lesson).
-2. **Read the profile, not only the systems.** The realities and failure modes change what you must
-   design (reconnection in games, pending vs posted in finance, stale data in monitoring).
-3. **Nominate three.** Pick three systems whose fingerprints differ in at least four dimensions.
-   Three systems that differ only in palette or type are one candidate. You may nominate one system
-   from the general library (`design-systems-index.md`) or from another niche file when the product
-   straddles niches.
-4. **Compare and choose** with the table in `design-system-selector.md`. Record why the other two lose.
-5. **Adapt one layer at a time** (composition, type, palette, geometry) and restate the thesis. An
-   adaptation that reverses the thesis is a new system: run the critique stage on it.
-
-**Cross-niche products.** Establish one primary identity. Example: a terminal-learning product is
-technical education (primary) + developer tool + interactive learning + light gamification. Choose
-from the developer or education file by the primary job (learning to use a terminal → education's
-lesson structure with developer-grade type and output fidelity). Secondary niches contribute
-realities and at most one layer (the game niche's progression states, not its HUD). Do not make the
-result every niche at once.
+1. Start with the product's job, mechanics, core instrument, state transitions, and invariants. Load a niche profile only when its domain realities may change a decision; classification is supporting context.
+2. If a design choice remains open, compare two or three candidates on the primary working screen using `design-system-selector.md`. An original direction is valid. Secondary niches contribute constraints, not a mandatory aesthetic layer.
+3. A fingerprint difference is a necessary mechanical check for authored entries, not evidence of rendered diversity. Run the silhouette and grayscale tests and compare focal, density, information exposure, progression, instrument/support, interaction, and visual energy.
+4. Adapt only the layers with a product reason. State what must remain prominent, what the system sacrifices, its likely degeneration, and what would make you reject it. Build and verify the actual loop.
 
 ## Taxonomy
 
@@ -58,7 +38,7 @@ result every niche at once.
 | Creative software | `niche-creative.md` | design tools · video and photo editors · music software · 3D and animation · authoring tools and no-code builders |
 | Personal products | `niche-personal.md` | personal finance · journaling and notes · habits · personal organization and family tools · smart home · lifestyle |
 
-A sub-niche shares its group's ten systems when its realities overlap; each system's **Fit** line
+A sub-niche shares its group's systems when its realities overlap; each system's **Fit** line
 names the sub-niches it serves. If a product's profile is missing, use the nearest profile's
 questions (jobs, density, states, trust) and derive a system with the critique stage below.
 
@@ -95,9 +75,7 @@ Every system carries a fingerprint so duplicates are caught mechanically. Use on
 Two systems are different only if they differ structurally. Changing color, font, radius, shadow,
 or adding dark mode does not count by itself. Within one niche file, every pair of fingerprints must
 differ in at least four of the eleven dimensions; across niche files, no two systems may share more
-than nine (validation enforces both). Passing the count is necessary, not sufficient: also compare
-information organization, focal strategy, interaction character, and content presentation. If two
-systems differ mostly in color or naming, merge them.
+than nine (validation enforces both). Passing the count is necessary, not sufficient. Compare flat-block silhouettes without text, color, type, or icons; then compare in grayscale. Check information timing, focal strategy, interaction architecture, instrument/support relationship, density, and visual energy. If two systems differ mainly in token values or naming, merge or rewrite them.
 
 ## Critique stage
 
@@ -111,7 +89,10 @@ Apply before accepting an authored or derived system, and again after adapting o
 5. Is it distinct from its siblings under the difference test?
 6. Does it survive real states: empty, dense, error, long content, slow network?
 7. Does it handle mobile, dense content, and empty content without changing character?
-8. Could an engineer implement it consistently from the entry alone?
+8. Could an engineer implement its structure and expression consistently from the entry alone?
+9. Does the core instrument retain authority, and does the working screen pass silhouette and grayscale comparison?
+10. Does its look contract specify emotional energy, color behavior, chroma hierarchy, type and geometry attitude, and a causal signature moment?
+11. Would a different system be needed when its stated tradeoff or rejection condition applies?
 
 Any "no" (or "yes" for 1–2) → redesign or reject. Record the answer in the selected-system artifact.
 
@@ -124,4 +105,5 @@ Any "no" (or "yes" for 1–2) → redesign or reject. Record the answer in the s
 - Font names are open-licensed recommendations at authoring time; check license, glyph coverage
   (Arabic and other scripts), and loading cost in the project. Each Type row also names a system
   fallback stack.
-- An existing, working brand outranks every entry. Use the atlas to extend it, not replace it.
+- An existing, working brand and observed product behavior outrank every entry. Use the atlas to extend them, not replace them.
+- The 151 authored systems are a candidate library, not 151 proven visual outcomes. Their fingerprints and contrast checks do not prove structural or expressive diversity in a rendered product.

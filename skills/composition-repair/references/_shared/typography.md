@@ -15,6 +15,8 @@ and RTL typography, and responsive scaling. Precedent IDs refer to the observati
 | Body | Reading | Comfort over long text |
 | Data / code | Numbers, IDs, code | Tabular figures, unambiguous glyphs (0/O, 1/l/I) |
 
+Choose typographic attitude from the product mechanic and information behavior: humanist for instruction, compressed grotesk for energetic control, slab for sturdy tools, mono-led for operational data, geometric for precision, serif for considered reading, or one disciplined family. Education does not imply serif; developer tools do not imply mono everywhere. Ask how type affects scanning, reading, density, code coexistence, and emotional tone.
+
 Many strong systems use one characterful display face plus one highly legible UI/body face, or a
 single family used with discipline (Wikipedia's structure, GitHub's system stack).
 

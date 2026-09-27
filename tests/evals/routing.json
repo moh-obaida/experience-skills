@@ -1,5 +1,5 @@
 {
-  "$comment": "Routing fixtures: user phrasing → skills the router should reach for. Documentation and validation aids, not a classifier. 'expected' must all be relevant; 'notExpected' would be a routing mistake. Scenarios with 'anchor' are regression anchors for the agent eval harness (scripts/run-agent-evals.mjs); 'fixtures' are copied into the agent's temporary project.",
+  "$comment": "Routing fixtures: user phrasing \u2192 skills the router should reach for. Documentation and validation aids, not a classifier. 'expected' must all be relevant; 'notExpected' would be a routing mistake. Scenarios with 'anchor' are regression anchors for the agent eval harness (scripts/run-agent-evals.mjs); 'fixtures' are copied into the agent's temporary project.",
   "cases": [
     {
       "input": "this settings flow takes 12 clicks",
@@ -239,6 +239,45 @@
       "notExpected": [
         "anti-ai-slop"
       ]
+    },
+    {
+      "input": "After a learner completes a terminal task, Continue remains locked until reload",
+      "expected": [
+        "state-design",
+        "interaction-design"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "On a phone, opening Files and returning makes the command input stop accepting commands",
+      "expected": [
+        "responsive-validation",
+        "interaction-design",
+        "interface-forensics"
+      ],
+      "notExpected": [
+        "motion-design"
+      ]
+    },
+    {
+      "input": "The working app is polished but the editor is tiny, the page is mostly explanatory text, and nothing feels active",
+      "expected": [
+        "composition-repair",
+        "anti-ai-slop",
+        "visual-identity"
+      ],
+      "notExpected": [
+        "workflow-compression"
+      ]
+    },
+    {
+      "input": "Use all Experience Skills to build this new tool; spend time implementing and checking its repeated core workflow",
+      "expected": [
+        "use-all-skills"
+      ],
+      "notExpected": []
     }
   ],
   "scenarios": [
@@ -432,29 +471,17 @@
       "file": "tests/scenarios/full-starter-product.md",
       "expected": [
         "use-all-skills",
-        "experience-architect",
-        "product-friction",
-        "workflow-compression",
         "interaction-design",
-        "visual-identity",
-        "composition-repair",
         "state-design",
-        "empty-state-design",
-        "motion-design",
         "responsive-validation",
-        "anti-slop-ui",
-        "anti-ai-slop",
-        "interface-forensics",
-        "critical-review"
+        "composition-repair",
+        "visual-identity"
       ],
       "fixtures": {
         "service.html": "tests/fixtures/pages/starter-service.html"
       },
       "requiredReferences": [
-        "use-all-skills/references/phase-map.md",
-        "use-all-skills/references/participation-ledger.md",
-        "use-all-skills/references/_shared/design-system-selector.md",
-        "use-all-skills/references/_shared/design-systems-index.md"
+        "use-all-skills/references/phase-map.md"
       ],
       "mode": "edit",
       "buildRepair": true,

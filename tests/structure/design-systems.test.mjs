@@ -18,6 +18,9 @@ test('thirty indexed systems have authored contracts in their selected family', 
     assert.ok(section, `${name}: missing section`);
     for (const layer of ['Composition','Type','Color','Geometry','Components','States','Failure'])
       assert.match(section, new RegExp(`\\| ${layer}`), `${name}: missing ${layer}`);
+    assert.match(section, /\*\*Core-screen and look contract\.\*\*/, `${name}: missing authored expression`);
+    assert.match(section, /\breject\b/i, `${name}: missing rejection condition`);
+    assert.match(section, /\b(but|sacrifices?)\b/i, `${name}: missing tradeoff`);
     assert.match(section, /\| (Image|Media)/, `${name}: missing media/icon/copy rule`);
     const theme = section.match(/\| Color \| ([^:|,]+?)(?: theme)?[:,]/)?.[1]?.trim();
     assert.ok(theme && palette.toLowerCase().includes(`| ${theme.toLowerCase()} |`), `${name}: unknown palette theme ${theme}`);
@@ -54,13 +57,17 @@ test('twenty-four typography strategies are named', () => {
   assert.equal(rows.length,24);
 });
 
-test('full-project conductor names every sibling and orders forensic, review, verification', () => {
+test('full-project conductor considers every sibling but routes conditionally', () => {
   const skill=read('skills/use-all-skills/SKILL.md');
   const ledger=read('skills/use-all-skills/references/participation-ledger.md');
   const siblings=['experience-architect','product-friction','workflow-compression','interaction-design','visual-identity','composition-repair','state-design','empty-state-design','motion-design','responsive-validation','anti-slop-ui','anti-ai-slop','interface-forensics','critical-review'];
-  for (const name of siblings) assert.ok(skill.includes(name) && ledger.includes(name), `${name}: absent`);
+  for (const name of siblings) assert.ok(skill.includes(name), `${name}: absent`);
   const phase=read('skills/use-all-skills/references/phase-map.md');
-  const order = ['| 8 responsive','| 9 anti-slop','| 10 de-generate','| 11 forensic','| 12 challenge','| 13 repair','| 14 verify'].map((row) => phase.indexOf(row));
-  assert.ok(order.every((at, i) => at >= 0 && (i === 0 || at > order[i - 1])), `phase order: ${order}`);
-  assert.match(phase, /\| 10 de-generate \| anti-ai-slop \|/);
+  for (const step of ['Understand', 'Choose mode', 'Route', 'Shape', 'Build', 'Verify', 'Review', 'Repair', 'Stop'])
+    assert.ok(phase.includes(`| ${step} |`), `missing ${step}`);
+  assert.match(skill, /smallest set with evidence of leverage/);
+  assert.match(skill, /Build Mode/);
+  assert.match(skill, /Audit Mode/);
+  assert.match(ledger, /no material issue/);
+  assert.doesNotMatch(skill, /invoke every sibling|all fourteen have ledger entries|three system candidates, chosen system/);
 });

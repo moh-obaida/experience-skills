@@ -3,8 +3,7 @@
 Social products are made of people and what they say to each other. Design decides who is heard,
 how conflict is handled, and whether the product respects attention. Generated defaults add
 gradient avatars, engagement counters everywhere, and infinite feeds regardless of the community's
-purpose. The real material is identity, context (who can see this), pace, and moderation. Load with
-`niche-atlas-index.md`; compare three systems with `design-system-selector.md`. For workplace chat,
+purpose. The real material is identity, context (who can see this), pace, and moderation. Load a profile with `niche-atlas-index.md` only when its realities affect a decision; compare product-relevant systems with `design-system-selector.md` only when the direction is open. For workplace chat,
 see Relay Thread in `niche-business.md`.
 
 ## Product realities

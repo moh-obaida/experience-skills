@@ -5,8 +5,7 @@
 Game interfaces serve play, identity, and social ritual. They are not SaaS dashboards with a neon
 gradient. The world is allowed to be expressive; the controls that get players into matches,
 configure loadouts, and recover from disconnects must be fast and unambiguous under pressure and
-from a couch, a phone, or a controller. Load with `niche-atlas-index.md`; compare three systems
-with `design-system-selector.md`.
+from a couch, a phone, or a controller. Load a profile through `niche-atlas-index.md` only when its realities matter; compare systems with `design-system-selector.md` only when direction is open.
 
 ## Product realities
 

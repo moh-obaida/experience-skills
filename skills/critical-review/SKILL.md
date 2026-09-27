@@ -1,9 +1,9 @@
 ---
 name: critical-review
-description: "Use this skill before giving any opinion on an idea, interface, mockup, redesign, PR, feature proposal, or plan: whenever the user asks 'is this good?', 'what do you think?', 'should we do this?', or 'review this', arrives enthusiastic about an approach (including 'make it more fun, modern, or like product X'), or before endorsing the agent's own output. Forms the verdict before any praise: separates understanding from agreement, checks the proposal against the actual goal, lists hidden costs, compares against the current state, and reaches an evidence-backed verdict that may be 'worse than current', 'unnecessary', or 'excellent for this context'."
+description: "Use this skill whenever the user asks for judgment on a product, proposal, redesign, or finished interface, or when an agent is about to endorse its own work. Compare observed behavior with the intended job and current product, rank blocker and major issues ahead of cosmetic preferences, inspect recovery and primary-journey continuity, and synthesize the few most important remaining problems. A justified no-change verdict is valid."
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -32,17 +32,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -65,7 +64,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Mandatory conditional loading
 
-If the proposal changes visual direction, MUST load `references/_shared/selection.md` and compare three families. If it rejects a familiar trend, MUST load `references/_shared/justified-trends.md`. If implemented UI is runnable, MUST render or state **NOT VERIFIED IN RENDERED OUTPUT** with the exact blocker before issuing a final verdict. If the review covers a specific rendered screen (not just a proposal in the abstract), MUST load `references/_shared/control-necessity.md` and interrogate each visible control, card, and label against its eight core questions before writing hidden costs — see the worked account-page critique in `references/_shared/sparse-account-surface.md` for the level of specificity expected. If any interface copy is part of the review, MUST load `references/_shared/product-copy.md` before judging whether it reads as natural or generated.
+If the proposal changes visual direction, load `references/_shared/selection.md` and compare materially different directions only when selection is open. If it rejects a familiar trend, MUST load `references/_shared/justified-trends.md`. If implemented UI is runnable, MUST render or state **NOT VERIFIED IN RENDERED OUTPUT** with the exact blocker before issuing a final verdict. If the review covers a specific rendered screen (not just a proposal in the abstract), MUST load `references/_shared/control-necessity.md` and interrogate each visible control, card, and label against its eight core questions before writing hidden costs — see the worked account-page critique in `references/_shared/sparse-account-surface.md` for the level of specificity expected. If any interface copy is part of the review, MUST load `references/_shared/product-copy.md` before judging whether it reads as natural or generated.
 
 ## Checkpoints
 
@@ -87,8 +86,10 @@ If the proposal changes visual direction, MUST load `references/_shared/selectio
    explicitly.
 7. **Before sending:** delete every adjective; if the review still says something, keep the adjectives
    that are backed. If it says nothing, rewrite with observations.
-8. **Follow the 12-step sequence in `references/review-workflow.md` in order.** Any verdict formed before step 11 (alternatives) is written as a hypothesis, not a conclusion.
+8. **Use `references/review-workflow.md` proportionately.** Check outcome, evidence, current state, costs, and the simplest alternative before a verdict. Keep notes focused on material findings rather than filling twelve report fields.
 9. **Check whether the right answer is not "new is better":** `references/verdict-examples.md` covers keeping the current version, simplifying, rejecting a trend, removing a feature, preserving a familiar control, and justified whitespace, cards, dramatic motion, or added complexity.
+
+10. **Release judgment:** rank blocker, major, moderate, minor, and optional findings by effect on the primary journey. A broken core control, false completion, lost progress, or impossible continuation blocks release regardless of visual polish. Synthesize the 3–5 highest-value remaining findings rather than repeat every specialist; inspect recovery quality and preserve good current decisions. Zero changes is a valid verdict.
 
 ## Workflow
 
@@ -128,7 +129,7 @@ the purchase), `references/_shared/join-code-page.md` (a proposal to decorate th
 
 | When | Load |
 |---|---|
-| The proposal is a visual direction change | `references/_shared/selection.md` (compare three candidates on the same criteria) |
+| The proposal is a visual direction change | `references/_shared/selection.md` (compare structurally distinct candidates only when selection is open) |
 | The proposal removes a technique because it "looks AI" | `references/_shared/justified-trends.md` |
 
 The selection method adapts ideas credited in `references/_shared/third-party-notices.md`.
@@ -144,8 +145,7 @@ The selection method adapts ideas credited in `references/_shared/third-party-no
 - The verdict uses the vocabulary and is backed by specific, evidence-labeled observations.
 - Hidden costs and the comparison with the current state are addressed.
 - A clear recommendation and next step; no unearned praise.
-- Implemented UI was rendered when runnable, or the verdict says NOT VERIFIED IN RENDERED OUTPUT
-  with the reason; the handoff carries the verdict, evidence, and open risks.
+- Implemented UI was rendered when runnable, or the verdict says NOT VERIFIED IN RENDERED OUTPUT with the reason. Hand off the verdict, evidence, and open risk only when another specialist can act on it.
 
 ## References
 

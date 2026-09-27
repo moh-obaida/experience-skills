@@ -5,8 +5,9 @@
 Every skill in this collection loads this file before starting. Each rule changes what the agent
 does. None is a slogan to repeat to the user.
 
-The stance in three lines: make the environment memorable, make the interaction obvious, make the
-outcome fast.
+The stance in three lines: consider broadly, intervene selectively, verify deeply. Product
+mechanics and the core instrument precede aesthetic systems. Skills are expert lenses, not a
+bureaucracy.
 
 ## Before judging anything
 
@@ -30,7 +31,7 @@ outcome fast.
    the space is a problem.
 7. **Never fix sparseness with filler.** Do not add stats, tips, promotional panels, decorative
    cards, or illustrations to fill space. Use real state, real next actions, or composition.
-8. **Personality goes into the environment, not the controls.** Before making a basic control
+8. **Personality may live in the environment and in causal product behavior.** Before making a basic control
    (input, button, select, toggle) more unusual, ask whether it makes the task faster or more
    reliable. If not, reject the change and put the personality in the page around it.
 9. **Every visual treatment needs a job.** For each gradient, shadow, blur, radius, pill, card, or
@@ -56,11 +57,12 @@ outcome fast.
 16. **Check real states, not the showcase.** At minimum: empty or sparse, dense or long content,
     loading, error, the smallest supported size, and keyboard use.
 17. **Transport failure is not product failure.** Never display "failed" when the outcome is
-    unknown; reconcile with the source of truth first.
+    unknown; reconcile with the source of truth first. In simulations, keep authentic system output visible where useful and add concise interpretation; do not replace every real error with generic prose.
 18. **Motion must explain an event** (arrival, transfer, change, resolution, attention). Remove
     motion from non-events. Every meaningful motion needs a reduced-motion alternative.
 19. **Accessibility is in scope for every change:** contrast, focus, keyboard, semantics, target
-    size, zoom, reduced motion.
+    size, zoom, reduced motion. For a core instrument, test these at the instrument itself; preserve
+    LTR command/code/path semantics inside an RTL interface when appropriate.
 
 ## When changing things
 
@@ -88,6 +90,30 @@ outcome fast.
     to the next specialist. Stop when the next specialist would address only low-impact polish.
 29. **Use the evidence contract.** For meaningful work distinguish Observed, Measured, Changed,
     Verified, and Not verified. A reference read without the required action is not compliance.
+
+## Product-first decisions
+
+30. **Name the primary job, repeated loop, core instrument, and a few invariants before visual
+    selection.** The core instrument needs spatial authority, focus continuity, and responsive
+    protection. Avoiding a visual cliché must not demote it.
+31. **Use the smallest useful specialist set.** Consider the installed lenses, activate only those
+    with material leverage, and allow an explicit no-change result. Hand off only an observed or
+    credible unresolved concern with its consequence and uncertainty.
+32. **Preserve coherent native reasoning.** A generic framework or Atlas candidate must identify a
+    concrete failure, missed requirement, or better product-specific alternative before replacing
+    an existing strong decision. Observed product behavior outranks the design artifact.
+33. **Distinguish confidence from severity.** Confirmed issue, strong concern, possible concern,
+    optional opportunity, and stylistic preference are not interchangeable. Fix primary-journey
+    blockers before cosmetic preferences.
+34. **Verify scenarios and transitions, not showcase screens alone.** Repeat the core loop, insert
+    mistakes, recover, complete and continue, leave for secondary surfaces and return. Check state
+    ownership and focus through those transitions, including at narrow sizes.
+35. **Watch for a house style.** Restrained editorial cream/serif/earth-tone interfaces are one
+    option, not the default escape from generated UI. Test both excessive styling and underdesigned
+    restraint against the user's actual task.
+36. **Stop when another reference or review cannot change a material decision.** Reserve attention
+    for implementation and verification. A working primary journey with coherent state, usable
+    responsive behavior, and no high-severity issue is a legitimate stopping point.
 
 ## Evidence levels
 

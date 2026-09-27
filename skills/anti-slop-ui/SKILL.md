@@ -1,10 +1,10 @@
 ---
 name: anti-slop-ui
-description: "Use this skill whenever a UI looks template-made or AI-generated, before presenting any UI the agent generated, when a design is described as clean, modern, sleek, or premium, when someone proposes or questions a trend (gradients, glass, bento, dark mode, big rounded cards), or when asked whether a pattern is slop or to de-genericize or sharpen a design or component. Detects and repairs centered-card syndrome, fake-premium whitespace, card and pill overuse, gradient and glass abuse, meaningless stat cards, hero clichés, overdesigned inputs, generic copy, and motion slop, and keeps a trend when it does a real job (no reverse dogma). Includes a static signal scanner and a final slop gate."
+description: "Use this skill whenever a UI looks generic, overdesigned, or underdesigned; before presenting generated UI; or when a trend, empty restraint, or component pattern may be replacing the product task. Test the job of each treatment, core-instrument prominence, active-state energy, visual hierarchy, and the repeated cream, serif, earth-tone house style. Preserve justified decisions and compare alternatives only for material open choices."
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -37,17 +37,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -97,8 +96,10 @@ If generated UI is about to be presented, MUST load `references/final-slop-gate.
    reads as generated (truncated names, unearned possessives).
 6. **Before presenting:** run `references/final-slop-gate.md`. Your summary contains no "clean,"
    "modern," "sleek," or "premium" unless followed by the evidence.
-7. **Never delete a flagged pattern without running `references/alternatives-engine.md`:** at least three alternatives from different families, compared, then chosen by context.
+7. **Before replacing a material flagged pattern:** use `references/alternatives-engine.md` to consider distinct product-relevant alternatives; keep the current pattern if it serves the job. Do not manufacture a three-option exercise for a clear local defect.
 8. **Reverse-dogma check:** before removing a gradient, glass, card, pill, centered layout, dark theme, serif, density, or animation, look for its justification in `references/_shared/justified-trends.md`. Justified → keep and strengthen.
+
+9. **Underdesign gate:** look for the repeated cream/serif/earth-tone editorial family, unused wide space, weak core-instrument contrast, documentation-like working screens, and inactive states. Use a three-second task test and blurred hierarchy: can users see where work happens? Restraint is a design choice, not proof of originality. A strong existing pattern may deserve no change.
 
 ## Workflow
 
@@ -165,7 +166,7 @@ credited in `references/_shared/third-party-notices.md`.
 - The gate was run and reported, with unverified items listed.
 - The anti-slop branch records the job, product root, alternative, cost, and failure condition for
   every treatment kept; a runnable surface was rendered or marked NOT VERIFIED IN RENDERED OUTPUT.
-- The handoff artifact carries the chosen alternative and open risks to the next specialist.
+- When a material concern remains, the handoff carries the observed issue, chosen alternative, and open risk; otherwise no handoff is needed.
 
 ## References
 
@@ -174,7 +175,7 @@ credited in `references/_shared/third-party-notices.md`.
 - `references/content-slop.md`
 - `references/personality-slop.md`
 - `references/final-slop-gate.md` — the gate before presenting
-- `references/alternatives-engine.md` — detect, test justification, generate three alternatives, choose
+- `references/alternatives-engine.md` — detect, test justification, compare meaningful alternatives, choose
 - `scripts/inventory-styles.mjs` — rendered inventory of radii, shadows, gradients, blur, type, nesting, repeated cards
 - `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
   `model-instincts.md`,

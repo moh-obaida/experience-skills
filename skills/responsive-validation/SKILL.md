@@ -1,10 +1,10 @@
 ---
 name: responsive-validation
-description: "Use this skill whenever a layout, component, or page changes and must hold on real devices and real content; before shipping a UI; when something only looks good at one size or with demo data; when names, translations, long text, RTL, zoom, large text, or a specific device break it; or when reviewing CSS for fragility (fixed heights, nowrap, single-line assumptions). Verifies desktop, laptop, tablet, phone, very small phones, short and ultra-wide viewports, landscape, touch versus pointer versus keyboard, safe areas, on-screen keyboards, sticky controls, and navigation collapse. Includes a viewport matrix report and a content stress script."
+description: "Use this skill whenever a user-facing workflow must survive a change in screen size, zoom, input mode, language, or device; before shipping a changed interface; or when mobile screenshots look fine but the task fails. Exercise the core instrument repeatedly at narrow and short sizes, including keyboard and focus, secondary panels, return, errors, and completion. Inspect content stress and real RTL behavior where supported."
 license: MIT
 compatibility: "The layout-report script needs Node.js 18+ and Playwright (or playwright-core with an installed Chrome). The checklist works without it."
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -31,17 +31,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -84,6 +83,8 @@ If a meaningful layout change can run, MUST load `references/validation-matrix.m
 6. **Before reporting:** did you look at each size, not only read numbers? Scripts miss awkward wraps,
    lost hierarchy, and focus order.
 7. **Before trusting any layout with ideal content, run `scripts/stress-content.mjs`** (long text, unbroken strings, RTL) at the narrowest and primary sizes; report only failures the stress introduced.
+
+8. **Workflow continuity:** on a narrow/short screen, repeatedly use the core instrument, open a secondary surface, return, recover focus, and continue with the on-screen keyboard visible. Check that the instrument remains usable and that conditional controls are still reachable. Preserve true RTL UI while commands, paths, code, and numeric syntax stay LTR where appropriate. A screenshot alone does not verify this.
 
 ## Workflow
 

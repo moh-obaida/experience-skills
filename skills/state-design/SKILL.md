@@ -1,9 +1,9 @@
 ---
 name: state-design
-description: "Use this skill whenever a feature loads, saves, uploads, pays, syncs, generates, or runs work that can be slow, fail, or finish in the background; when only the happy path exists; when errors say 'Something went wrong'; when a screen or dashboard can be stale, partial, empty, offline, or unknown; or when auditing a feature for missing states. Designs first-use, loading, processing, partial, success, failure, offline, reconnecting, sparse, dense, permission-denied, paused, stale, long-running, optimistic, and authoritative states, and separates transport state from product state so the UI never lies."
+description: "Use this skill whenever a product has important state changes, progression, reset, completion, loading, saving, syncing, errors, or a primary journey that breaks between tasks. Model state ownership and transitions, including initialization, preserved and reset data, feedback, focus, recovery, and completion to continuation. Separate machine or simulation state from progress, UI, account, session, and remote state; verify the repeated path rather than listing states alone."
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -31,17 +31,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -90,6 +89,8 @@ If asynchronous, empty, failure, or collaborative state is in scope, MUST load `
    fixtures, reload mid-job, double click). Record which were verified at which level.
 9. **Include lifecycle and collaboration states** from the taxonomy (untouched, degraded, restored, synchronized, locally pending, collaborative, disconnected integration) when the product has sync, sharing, or integrations.
 
+10. **Transitions and ownership:** for primary, frequent, destructive, or hard-to-recover transitions, record trigger, prior/next state, preserved/reset data, visible feedback, focus destination, and failure path. Separate domain, progress, machine/simulation, session, account, remote, and temporary UI state. Check valid initialization; reset semantics; outcome-based completion with alternate valid methods; locked/available/active/completed/mastered/review-needed consistency; and immediate completion → next unlock across rerender and reload.
+
 ## Workflow
 
 1. **Inventory** states and skips (`references/state-inventory.md`).
@@ -106,7 +107,7 @@ If asynchronous, empty, failure, or collaborative state is in scope, MUST load `
    | Forms, uploads, payments, AI generation, games, search, auth, sync | `references/domain-states.md` |
 
 5. **Design or repair** each row: the smallest honest UI (state header, inline status, specific
-   message, clear action). For empty states, hand off to empty-state-design if installed.
+   message, clear action). For unresolved consequential empty states, hand off to empty-state-design when its method would change the decision.
 6. **Verify** (checkpoint 8).
 
 ## Execution rules
@@ -136,7 +137,7 @@ If asynchronous, empty, failure, or collaborative state is in scope, MUST load `
 - Every error explains and offers recovery; input is preserved.
 - Long work is backgrounded or honestly explained.
 - Key states were triggered and observed, or listed with how to trigger them.
-- The handoff contains the state matrix, authority, recovery, next action, and unresolved risks for
+- When a material issue remains, the handoff contains state ownership, transition, recovery, next action, and unresolved risks for
   the interaction and motion specialists; skipped states are explicit.
 
 ## References

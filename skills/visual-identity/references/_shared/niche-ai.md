@@ -6,8 +6,7 @@ Products whose core behavior is produced by a model: assistants, agents, generat
 and writing. The generated default for this niche is itself generated: violet-to-blue gradients, a
 glowing orb, glass cards, sparkle icons, and "Unlock the power of AI." Reject the assumption that
 an AI product must look like that. The real design problems are provenance, uncertainty, control,
-long-running work, reversibility, and cost. Load with `niche-atlas-index.md`; compare three systems
-with `design-system-selector.md`.
+long-running work, reversibility, and cost. Load a profile through `niche-atlas-index.md` only when its realities matter; compare systems with `design-system-selector.md` only when direction is open.
 
 ## Product realities
 

@@ -3,7 +3,7 @@ name: empty-state-design
 description: "Use this skill whenever a list, dashboard, library, inbox, search, or home screen has little or no content; when a first-run or new-account view is designed; when someone asks to make a sparse page 'less empty' or it feels unfinished; or when a page has been filled with illustrations, fake stats, tips, or marketing. Designs zero-item, one-item, first-run, empty-search, filtered-empty, no-permission, no-history, incomplete-setup, unavailable, archived, and skeleton-versus-empty states, and distinguishes intentional focus from dead space and useful density from filler, calibrated by page archetype."
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -31,17 +31,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -86,6 +85,8 @@ If a surface has zero or few items, MUST load `references/empty-state-types.md` 
    states? Check it.
 7. **Set density from the product archetype** (`references/_shared/product-archetypes.md`): a focused task may be spare; an operational surface needs real state; an experiential one keeps its world.
 
+8. **Continuity:** keep a route back to the core task and make the next real action obvious. Inspect a first-run state, a genuine zero state, and a filtered-empty state separately. If the sparse result serves the task, preserve it; do not fill or restyle it only to make the specialist contribute.
+
 ## Workflow
 
 1. **Classify** the empty type and the archetype. For operational homes that feel empty, see anchor
@@ -128,8 +129,7 @@ Real empty, loading, and error states (Spotify, Grafana, GOV.UK, and first-paint
 - Real context is surfaced where it exists; nothing is fabricated.
 - One-item and few-item states were considered.
 - The filler test was applied.
-- The sparse-state handoff names cause, authority, next action, and checked or unverified states;
-  no visual claim is marked verified without rendered evidence.
+- A sparse-state handoff, when needed, names cause, authority, next action, and checked or unverified states. No visual claim is marked verified without rendered evidence.
 
 ## References
 

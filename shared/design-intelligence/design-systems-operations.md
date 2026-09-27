@@ -17,6 +17,8 @@ Authored candidates for work where status, risk, and throughput matter. Do not u
 | Image/icon/copy | Real maps/plots only; 16px icon with text. Copy specifies object, condition, and consequence. |
 | Failure/anti-imitation | Glowing gauges and five gray levels hide urgency. Do not copy a specific command-center dashboard. |
 
+**Core-screen and look contract.** High operational energy: compressed rows, narrow headings, hard grid lines, and dark-light contrast make the alert lane impossible to miss. A high-chroma signal appears only on a new priority event, while acknowledged items quickly recede; selecting one binds queue, map, and detail with a brief pulse. This increases scan speed but sacrifices calm reading. Reject when no real-time priority exists.
+
 ## Precision Field
 
 **Thesis.** Field work begins with location, measurement, and evidence capture. Fits inspections and outdoor service; not brand campaigns.
@@ -31,6 +33,8 @@ Authored candidates for work where status, risk, and throughput matter. Do not u
 | States/motion | Offline, unsynced, submitted, rejected, revised, and location uncertain distinct. Save confirmation immediate; no ambient motion. |
 | Image/icon/copy | Evidence photos retain capture metadata; icons recognizable with labels. Copy names what evidence is required. |
 | Failure/anti-imitation | A map that covers the form on mobile slows collection. Do not borrow industrial equipment branding. |
+
+**Core-screen and look contract.** Brisk, durable energy: large measurement controls, tabular units, and heavy sunlight-safe borders outrank the map. Active capture uses a strong distinct color; unsynced evidence stays visible with a separate marker, and saving marks the captured item in place. This supports outdoor entry but sacrifices gallery-like presentation. Reject when location and evidence do not drive the work.
 
 ## Transit Manual
 
@@ -47,6 +51,8 @@ Authored candidates for work where status, risk, and throughput matter. Do not u
 | Image/icon/copy | Map is functional with list alternative; 18px directional icons plus labels. Copy names next stop and actor. |
 | Failure/anti-imitation | A cinematic map hides exception work. Do not mimic a ride service's tracking animation. |
 
+**Core-screen and look contract.** Fast directional energy: condensed next-stop type, firm timeline rules, and tight rows put route changes ahead of scenery. Chroma enters at the current stop and true exception; arrival moves the route marker and updates the next actor without cinematic map motion. This improves handoff speed but sacrifices exploratory browsing. Reject when there is no ordered route.
+
 ## Soft Instrument
 
 **Thesis.** Health measurements should be readable without dramatizing normal variation. Fits health monitoring; wrong for games.
@@ -61,6 +67,8 @@ Authored candidates for work where status, risk, and throughput matter. Do not u
 | States/motion | Normal, outside personal range, missing data, sensor error, stale, and urgent care guidance distinct. No pulsing red; reduced motion static. |
 | Image/icon/copy | Human diagrams only when explanatory; clear icon labels. Copy distinguishes observation from medical inference. |
 | Failure/anti-imitation | Green/red-only charts imply diagnosis without context. Do not copy a wearable app's ring visual. |
+
+**Core-screen and look contract.** Calm, clinically precise energy: large tabular readings and soft but definite range boundaries outweigh the surrounding cards. Chroma marks a measured deviation only with a label, while normal variation stays neutral; a new reading updates value, context, and trend together without alarm motion. This reduces false urgency but sacrifices excitement. Reject when no personal range or context is available.
 
 ## Console Ledger
 
@@ -77,6 +85,8 @@ Authored candidates for work where status, risk, and throughput matter. Do not u
 | Image/icon/copy | No decorative terminal wallpaper; 16px icons with labels. Copy uses exact resource names and consequences. |
 | Failure/anti-imitation | Terminal styling without command semantics is costume. Do not clone a cloud console's shell. |
 
+**Core-screen and look contract.** High technical energy: dense mono data, square separators, and a dark command field give active execution the strongest contrast. A bright operational accent appears at the current command and exact changed resource, then the event ledger retains a quieter trace; danger has a separate hue. This supports accountable expert action but sacrifices novice friendliness. Reject without real commands and an auditable result.
+
 ## Market Frame
 
 **Thesis.** Availability, comparison, and transaction terms should drive a marketplace. Fits procurement and comparison shopping; not one-object luxury storytelling.
@@ -91,3 +101,5 @@ Authored candidates for work where status, risk, and throughput matter. Do not u
 | States/motion | Available, limited, backordered, expired, selected, and quote pending distinct. Sort/filter updates preserve scroll and announce result count. |
 | Image/icon/copy | Product images when they help comparison; spec diagrams otherwise. Icons secondary; copy names total cost and conditions. |
 | Failure/anti-imitation | Giant product cards hide comparable numbers. Do not copy a retail marketplace's badge vocabulary. |
+
+**Core-screen and look contract.** Medium-high decision energy: aligned numbers, compact comparison rows, and strong offer headings dominate over product imagery. Chroma identifies the selected offer and real availability, then moves to the transaction result; price movement uses a separate labeled state. This improves comparable choice but sacrifices luxury presentation. Reject when one artifact deserves unhurried storytelling.

@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ROOT, reporter } from '../../scripts/lib/repo.mjs';
-import { loadAtlas, checkNicheAtlas, parseNicheFile, diffCount, contrast, DIMENSIONS, MIN_SYSTEMS, MIN_SIBLING_DIFF } from '../../scripts/lib/niche-atlas.mjs';
+import { loadAtlas, checkNicheAtlas, parseNicheFile, diffCount, contrast, DIMENSIONS, STRUCTURAL_DIMENSIONS, MIN_SYSTEMS, MIN_SIBLING_DIFF } from '../../scripts/lib/niche-atlas.mjs';
 
 const atlas = loadAtlas();
 
@@ -34,6 +34,7 @@ test('siblings differ structurally and no system name repeats', () => {
     }
     for (let i = 0; i < n.systems.length; i++) for (let j = i + 1; j < n.systems.length; j++) {
       assert.ok(diffCount(n.systems[i].fingerprint, n.systems[j].fingerprint) >= MIN_SIBLING_DIFF, `${n.systems[i].name} ~ ${n.systems[j].name}`);
+      assert.ok(STRUCTURAL_DIMENSIONS.some((dimension) => n.systems[i].fingerprint[dimension] !== n.systems[j].fingerprint[dimension]), `${n.systems[i].name} ~ ${n.systems[j].name}: same structural silhouette`);
     }
   }
 });
@@ -57,11 +58,16 @@ test('the checker rejects a near-duplicate, an unknown value, and an illegible a
   assert.ok(contrast(action, onAction) < 4.5, 'an illegible action pair must be caught');
 });
 
-test('the selector and index route niche-first and forbid industry lookups', () => {
+test('the selector starts from product mechanics and tests visible diversity', () => {
   const selector = readFileSync(join(ROOT, 'shared', 'design-intelligence', 'design-system-selector.md'), 'utf8');
   const index = readFileSync(join(ROOT, 'shared', 'design-intelligence', 'niche-atlas-index.md'), 'utf8');
   assert.match(selector, /niche-atlas-index\.md/);
-  assert.ok(selector.indexOf('## Niche first') < selector.indexOf('## Three candidates'));
+  assert.ok(selector.indexOf('## Start with product mechanics') < selector.indexOf('## Compare only when useful'));
+  assert.match(selector, /silhouette test/);
+  assert.match(selector, /grayscale test/);
+  assert.match(selector, /None of the Atlas systems/);
+  assert.match(selector, /core instrument/);
+  assert.match(selector, /visual energy/i);
   assert.match(index, /never selects a system by\s+itself/);
   assert.match(index, /## Critique stage/);
 });

@@ -19,14 +19,15 @@ better.
    and `scripts/inventory-styles.mjs` counts as prompts).
 2. **Name the job** it was trying to do (look up the row in `references/_shared/anti-generic-alternatives.md`).
 3. **Test justification** (rule zero). Justified → keep and strengthen. Not justified → continue.
-4. **Generate at least three alternatives from different families**: a composition alternative
-   (`references/_shared/compositions-index.md`), a direction or identity alternative
-   (`references/_shared/directions-index.md`), and a content alternative (real product, real state,
-   specific copy; see `references/_shared/product-first-presentation.md`).
-5. **Write one sentence per alternative** describing it for *this* product, with its cost.
-6. **Compare** on: serves the job, fits the archetype, uses real content, slop distance, accessibility,
-   cost. Use the comparison table in `references/_shared/selection.md` when the choice is visual.
-7. **Choose, derive, and verify:** replace generic parts with product-specific content and motifs;
+4. **When the replacement is uncertain, compare distinct product-relevant alternatives** from
+   composition (`references/_shared/compositions-index.md`), direction or identity
+   (`references/_shared/directions-index.md`), and real content or state
+   (`references/_shared/product-first-presentation.md`) as relevant. A clear local repair needs no
+   option count.
+5. **Name the cost of each plausible alternative**, then compare how it serves the job, fits the
+   archetype, uses real content, protects accessibility, and avoids a new generic pattern. Use
+   `references/_shared/selection.md` when a material visual choice is open.
+6. **Choose, derive, and verify:** replace generic parts with product-specific content and motifs;
    render; run the final gate.
 
 ## Output shape

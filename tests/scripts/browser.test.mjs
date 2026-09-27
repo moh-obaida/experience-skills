@@ -1,5 +1,5 @@
 // End-to-end tests of the layout scripts against fixture pages in a real browser.
-// Skipped automatically when no browser can be launched (Playwright and a Chromium/Chrome needed).
+// Browser launch is a release gate. A missing or blocked browser must fail visibly.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
@@ -12,8 +12,8 @@ const COMPOSITION = join(ROOT, 'skills', 'composition-repair', 'scripts');
 const RESPONSIVE = join(ROOT, 'skills', 'responsive-validation', 'scripts');
 
 const { browser, error } = await launch();
-const skip = browser ? false : `no browser available: ${error?.split('\n')[0]}`;
-if (browser) await browser.close();
+assert.ok(browser, `Browser tests require Chromium or Chrome: ${error}`);
+await browser.close();
 
 function run(script, args) {
   const r = spawnSync(process.execPath, [script, ...args, '--json'], { cwd: ROOT, encoding: 'utf8', timeout: 120000 });
@@ -22,7 +22,7 @@ function run(script, args) {
   return { status: r.status, json, stderr: r.stderr };
 }
 
-test('measure-layout flags the centered card on a blank page', { skip }, () => {
+test('measure-layout flags the centered card on a blank page', () => {
   const r = run(join(COMPOSITION, 'measure-layout.mjs'), [join(PAGES, 'centered-card.html'), '--size', '1440x900']);
   assert.equal(r.status, 1, r.stderr);
   assert.ok(r.json.viewport.contentCoverage < 0.15, `coverage ${r.json.viewport.contentCoverage}`);
@@ -30,13 +30,13 @@ test('measure-layout flags the centered card on a blank page', { skip }, () => {
   assert.ok(r.json.flags.some((f) => f.includes('dead space')));
 });
 
-test('measure-layout does not flag the composed page', { skip }, () => {
+test('measure-layout does not flag the composed page', () => {
   const r = run(join(COMPOSITION, 'measure-layout.mjs'), [join(PAGES, 'composed.html'), '--size', '1440x900']);
   assert.equal(r.status, 0, JSON.stringify(r.json?.flags));
   assert.equal(r.json.viewport.environmentTreatment, true);
 });
 
-test('detect-overflow finds the fixed-width table at phone width only', { skip }, () => {
+test('detect-overflow finds the fixed-width table at phone width only', () => {
   const r = run(join(COMPOSITION, 'detect-overflow.mjs'), [join(PAGES, 'overflow.html'), '--sizes', '1440x900,390x844']);
   assert.equal(r.status, 1);
   const [desktop, phone] = r.json.results;
@@ -46,14 +46,14 @@ test('detect-overflow finds the fixed-width table at phone width only', { skip }
   assert.ok(!phone.overflow.culprits.some((c) => c.path.includes('contained')), 'scroll-contained content must not be reported');
 });
 
-test('detect-collisions finds the absolutely positioned promo over the heading', { skip }, () => {
+test('detect-collisions finds the absolutely positioned promo over the heading', () => {
   const r = run(join(COMPOSITION, 'detect-collisions.mjs'), [join(PAGES, 'collision.html'), '--size', '390x844']);
   assert.equal(r.status, 1);
   const pair = r.json.collisions[0];
   assert.deepEqual([pair.a.text, pair.b.text].sort(), ['New: export to PDF', 'Quarterly results overview']);
 });
 
-test('layout-report runs a matrix with zoom and RTL and reports small targets', { skip }, () => {
+test('layout-report runs a matrix with zoom and RTL and reports small targets', () => {
   const r = run(join(RESPONSIVE, 'layout-report.mjs'), [join(PAGES, 'collision.html'), '--sizes', '1280x800,390x844', '--zoom', '1,2', '--rtl']);
   assert.equal(r.status, 1);
   assert.equal(r.json.runs.length, 8);
@@ -71,7 +71,7 @@ const ANTI_SLOP = join(ROOT, 'skills', 'anti-slop-ui', 'scripts');
 const INTERACTION = join(ROOT, 'skills', 'interaction-design', 'scripts');
 const MOTION = join(ROOT, 'skills', 'motion-design', 'scripts');
 
-test('inventory-styles counts treatments and repeated cards on the template fixture', { skip }, () => {
+test('inventory-styles counts treatments and repeated cards on the template fixture', () => {
   const r = run(join(ANTI_SLOP, 'inventory-styles.mjs'), [join(PAGES, 'slop-page.html')]);
   assert.equal(r.status, 1);
   assert.ok(r.json.inventory.gradients >= 4);
@@ -80,12 +80,12 @@ test('inventory-styles counts treatments and repeated cards on the template fixt
   assert.ok(r.json.inventory.cardGroups.some((g) => g.count === 3));
 });
 
-test('inventory-styles raises no signals on the composed fixture', { skip }, () => {
+test('inventory-styles raises no signals on the composed fixture', () => {
   const r = run(join(ANTI_SLOP, 'inventory-styles.mjs'), [join(PAGES, 'composed.html')]);
   assert.equal(r.status, 0, JSON.stringify(r.json?.signals));
 });
 
-test('stress-content finds failures that appear only under stress, at phone width', { skip }, () => {
+test('stress-content finds failures that appear only under stress, at phone width', () => {
   const r = run(join(RESPONSIVE, 'stress-content.mjs'), [join(PAGES, 'controls-and-stress.html'), '--sizes', '1280x800,390x844']);
   assert.equal(r.status, 1);
   const [desktop, phone] = r.json.results;
@@ -93,7 +93,7 @@ test('stress-content finds failures that appear only under stress, at phone widt
   assert.ok(phone.newPageOverflowPx > 0 || phone.newOverflow.length > 0);
 });
 
-test('check-controls finds unnamed, unlabeled, alt, tabindex, contrast, and focus issues', { skip }, () => {
+test('check-controls finds unnamed, unlabeled, alt, tabindex, contrast, and focus issues', () => {
   const r = run(join(INTERACTION, 'check-controls.mjs'), [join(PAGES, 'controls-and-stress.html')]);
   assert.equal(r.status, 1);
   assert.deepEqual(r.json.unnamed, ['button.icon']);
@@ -104,7 +104,7 @@ test('check-controls finds unnamed, unlabeled, alt, tabindex, contrast, and focu
   assert.ok(r.json.noVisibleFocus.some((f) => f.text === 'Assign'));
 });
 
-test('check-motion-rendered flags motion that ignores reduced motion and animates layout', { skip }, () => {
+test('check-motion-rendered flags motion that ignores reduced motion and animates layout', () => {
   const bad = run(join(MOTION, 'check-motion-rendered.mjs'), [join(PAGES, 'motion-page.html')]);
   assert.equal(bad.status, 1);
   assert.ok(bad.json.signals.some((s) => s.includes('reduced-motion')));
@@ -113,7 +113,7 @@ test('check-motion-rendered flags motion that ignores reduced motion and animate
   assert.equal(good.status, 0, JSON.stringify(good.json?.signals));
 });
 
-test('measure-layout reports the largest dead region', { skip }, () => {
+test('measure-layout reports the largest dead region', () => {
   const r = run(join(COMPOSITION, 'measure-layout.mjs'), [join(PAGES, 'centered-card.html'), '--size', '1440x900']);
   assert.ok(r.json.viewport.largestEmptyRect.shareOfViewport > 0.3);
 });

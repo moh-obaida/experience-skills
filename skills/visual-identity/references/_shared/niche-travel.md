@@ -5,8 +5,7 @@
 Travel products span inspiration, comparison, booking, and the stressful day of travel itself.
 The same traveler who browses photos at leisure at home needs a gate number in one glance at an
 airport. Generated defaults put a sunset hero and "Discover your next adventure" in front of every
-travel task, hide fees until checkout, and turn timetables into cards. Load with
-`niche-atlas-index.md`; compare three systems with `design-system-selector.md`.
+travel task, hide fees until checkout, and turn timetables into cards. Load a profile with `niche-atlas-index.md` only when its realities affect a decision; compare product-relevant systems with `design-system-selector.md` only when the direction is open.
 
 ## Product realities
 

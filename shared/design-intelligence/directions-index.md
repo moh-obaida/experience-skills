@@ -1,6 +1,6 @@
 # Design Directions: Index
 
-Load this index, choose two or three candidates from **different families**, then load only
+Load this index when direction is open; consider materially different candidates from different families, then load only
 those family files. A direction is a vocabulary of tendencies, never a template (see `selection.md`).
 
 Surface treatments such as glassmorphism, neumorphism, claymorphism, aurora gradients, and

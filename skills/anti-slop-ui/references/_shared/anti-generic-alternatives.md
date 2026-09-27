@@ -4,9 +4,9 @@
 
 When a default pattern is detected, removing it is half the job. This map gives genuinely different
 alternatives for each common default, drawn from the composition and direction libraries and from
-observed precedent. The anti-slop procedure picks **at least three alternatives from different
-families**, compares them, and chooses by context. Keeping the original is allowed when it has a
-stated job (see the justified-trends precedent).
+observed precedent. The anti-slop procedure compares distinct alternatives when a material choice
+is open, then chooses by context. A clear local repair needs no option count. Keeping the original
+is allowed when it has a stated job (see the justified-trends precedent).
 
 | Default detected | Its usual (missing) job | Alternatives from different families | Precedent |
 |---|---|---|---|
@@ -33,8 +33,9 @@ stated job (see the justified-trends precedent).
 1. **Name the default** and the job it was (probably) trying to do.
 2. **Check justification:** does it have a stated job here (see justified trends)? If yes, keep it and
    make it serve that job better.
-3. **Generate three alternatives** from different rows or families above (composition, direction,
-   content). Write one sentence each on how it would look for *this* product.
-4. **Compare** against the product's archetype, content available, and constraints.
+3. **If the replacement is uncertain, compare distinct alternatives** from relevant composition,
+   direction, or content families above. Describe their effect and cost for *this* product.
+4. **Choose** against the product's archetype, content available, and constraints; proceed directly
+   when one repair already answers the observed defect.
 5. **Choose and derive:** replace generic parts with product-specific content and motifs.
 6. **Verify:** logo test, anti-slop gate, render at real sizes and states.

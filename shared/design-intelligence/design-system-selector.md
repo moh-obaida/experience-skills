@@ -1,54 +1,29 @@
 # Design System Selector
 
-Use this after the product map and before implementation. It is an agent reasoning procedure, not a questionnaire for the user. The authored systems are candidates. Existing brand and working product behavior take precedence over a library entry.
+Use this when visual direction is genuinely open. It is a compact agent decision, not a questionnaire or a mandatory ceremony. A coherent existing or native product direction may be the best choice. Compare before implementation, not after choosing a favorite. Observed user/product evidence outranks the Atlas.
 
-## Inputs
+## Start with product mechanics
 
-Record product archetype, primary user job, audience, task frequency, content density, emotional target, trust/stakes, interaction complexity, device mix, language/scripts, brand maturity, and constraints. Separate observed facts from inferred preferences. A category alone never chooses a system.
+Name the user job, product thesis, repeated loop, core instrument, three or fewer invariants, state transitions, interaction architecture, content density, device/keyboard needs, languages, and emotional target. Mark observed facts versus assumptions. The niche profile in `niche-atlas-index.md` is optional context for domain expectations and failure modes; it never prescribes a look. Open one niche file only if it is likely to change a decision.
 
-## Niche first
+A core instrument (terminal, editor, canvas, map, timeline, conversation, sheet, board, viewport) must retain spatial authority, interaction priority, focus continuity, and a usable mobile equivalent. Avoiding a cliché cannot demote it. Write the mechanic → visual consequence: because the user does X repeatedly, Y stays prominent and Z appears when needed.
 
-Before choosing how it looks, name what kind of product it is. Open `niche-atlas-index.md`, find the
-primary niche profile (and a secondary one only if it owns a real surface), and load that niche
-file. Record from its profile the jobs, density, surfaces, states, interaction, trust level, and the
-generated-UI failures to avoid. Those realities are inputs to every candidate below; they do not
-select a style.
+## Compare only when useful
 
-```text
-IDENTIFY NICHE → USER JOB → STATE AND DENSITY → NICHE FILE → 3 CANDIDATES → COMPARE → CHOOSE → ADAPT → IMPLEMENT
-```
+If the existing direction already supports the job and invariants, preserve it. Otherwise compare two or three product-relevant directions on the *primary working screen*, not a hero. Draw from `design-systems-index.md`, a niche file, or an original concept. Vary focal strategy, density, persistent versus contextual support, information exposure, interaction framing, progression, and responsive transformation. One option may be compact, one balanced, and one spacious when those are credible alternatives. Include different visual energy levels where the emotional target is open; serious and energetic is valid.
 
-For a product that spans niches (for example technical education + developer tool + light
-gamification), set one primary identity and let the secondary niches contribute states and at most
-one layer.
+For each candidate, answer briefly:
 
-## Three candidates
+- What dominates on the core screen, and how does the core instrument behave?
+- What stays visible; what appears only in context; how do feedback and progress enter?
+- Which invariant does it protect or threaten? What improves, and what becomes harder?
+- What is its structure **and** expression: energy, color behavior, chroma hierarchy, contrast, type attitude, geometry, rhythm, causal motion, and signature product response?
+- How does it transform on a narrow screen? What failure or degeneration is likely?
 
-Nominate three systems with different structural theses, not three accent colors. Draw them from the
-niche file first; one may come from the general library (`design-systems-index.md`) or another niche
-file when the product straddles niches. Their fingerprints must differ in at least four dimensions
-(the atlas difference test). For each, use the relevant file and compare:
+Run a **silhouette test**: flatten the primary screen into blocks with no text, color, font, icon, or brand. Can the options still be distinguished by structure and focal hierarchy? Run a **grayscale test**: remove hue. Do hierarchy, geometry, density, navigation, progression, and instrument treatment still differ? If a token swap makes one option become another, they are not materially different. A fingerprint count is only an initial duplicate signal.
 
-| Criterion | Candidate A | Candidate B | Candidate C |
-|---|---|---|---|
-| Why it fits the user job | | | |
-| Density and composition | | | |
-| Trust and emotional tone | | | |
-| Type/language/accessibility | | | |
-| Device transformation | | | |
-| What it emphasizes | | | |
-| What it sacrifices | | | |
-| Build/maintenance cost | | | |
-| Slop or imitation risk | | | |
+Choose the direction that best supports the job and invariants, state in one sentence why the other plausible options lose, then build. “None of the Atlas systems” is a valid choice; derive the direction from product mechanics without adding a permanent entry. A hybrid is valid only when each borrowed layer solves a named product need and the result remains coherent. Do not create a long comparison when one direction is already clear.
 
-Add one row for the niche realities: which candidate handles the profile's hardest state (reconnect, pending vs posted, stale data, empty first run) without changing character.
+## Adapt and verify
 
-Choose the candidate whose sacrifices the product can accept. Do not always select the first listed system. Record why the two rejected candidates lose. If all three fail, derive a new system from the product's mechanics, document it at the same depth, and run the atlas critique stage on it; do not randomly blend the three.
-
-## Controlled adaptation
-
-A composition can be borrowed from another system when the task needs it; type and palette can shift for language or brand; a theme can shift visual roles without altering behavior. Change one layer at a time and restate the thesis. An adaptation that reverses the thesis is a new system. Use `design-system-grammar.md` to translate the choice into tokens, components, states, and responsive rules.
-
-## Output
-
-Produce a selected-system artifact: name and thesis, selected theme, type roles, semantic color tokens, spacing/shape/depth, component/navigation grammar, per-route composition, state/motion behavior, image/icon/copy rules, responsive behavior, accessibility risks, anti-imitation constraint, and verification plan. Then implement it. A design choice that does not materially affect the product's code is not a choice.
+Record a short operational contract: core screen and prominence, navigation and density, states, responsive transformation, look contract, what should never be gray or visually quiet, rejection condition, and primary scenarios. Choose palette tokens after behavior and contrast strategy, not as the system's main distinction. Adapt to brand, user expertise, frequency, language, and real content. In the rendered product, use the three-second task test, blur test, and repeated core loop. If the working product is weak, revise the artifact rather than defending it.

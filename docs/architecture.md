@@ -34,7 +34,7 @@ tests/                     tests, fixtures, scenarios, routing evals
 
 ## Decision 1: flat sibling skills with a thin router
 
-The collection is fourteen specialist/router skills plus `use-all-skills`, a thin conductor,
+The collection is fourteen specialist/router skills plus `use-all-skills`, a selective conductor,
 rather than one large skill. Agents route on skill descriptions; distinct descriptions for distinct problems route better than one description that
 tries to cover everything. Users can install one specialist without the rest.
 
@@ -143,18 +143,14 @@ precedent reads, rendered-evidence signals, completion signals, and required-ref
 
 ## Decision 9: full-product orchestration stays thin
 
-`use-all-skills` invokes the other fourteen skills in a dependency order (after responsive
-validation: anti-slop-ui → anti-ai-slop → interface-forensics → critical-review → repair → verify). It records each
-specialist's inspected scope, decision, references, changed work, and verification. The authored
-design-system library separates direction, implementation system, and theme; the conductor reads
-only selected systems and references. It cannot claim a complete pass by merely naming skills.
+`use-all-skills` considers all fourteen siblings and activates only those with material leverage. Build Mode prioritizes a working core loop; Audit Mode permits broader investigation of mature products. The conductor protects the core instrument and product invariants, reserves time for implementation, and verifies repeated primary journeys, state transitions, recovery, responsive interaction, and focus before visual polish. A compact routing record captures consequential decisions and no-change findings; a roll call of specialists is not required.
 
 ## Decision 10: evidence, interpretation, and vocabulary are separate layers
 
 - **Evidence** (`research/observations/`): what was seen, when, and how. Not vendored.
 - **Interpretation** (`shared/precedent/`): concept modules that cite evidence IDs and state transfer
   conditions. Vendored into the skills that decide with them.
-- **Vocabulary** (`shared/design-intelligence/`): the Niche Design Atlas (15 niche groups, 150 niche-adapted
+- **Vocabulary** (`shared/design-intelligence/`): the Niche Design Atlas (15 niche groups, 151 niche-adapted
   systems), directions, 30 general authored systems, 57 palette themes,
   24 type strategies, compositions, surfaces, motion languages, and the selection procedure. Index files let an agent load one family
   instead of the whole library.
@@ -184,21 +180,18 @@ preference, motion appetite, brand principles, forbidden patterns, and workflow 
 would read it when present and behave exactly as today when absent. It is intentionally not part
 of v0.1: the public skills must be useful without any profile.
 
-## Decision 11: niche before look, and a separate repair specialist
+## Decision 11: product mechanics before niche context, and a separate repair specialist
 
-The design-system selector first asks what kind of product it is. The Niche Design Atlas
+The design-system selector first asks what users repeatedly do, what instrument carries that work, and what must remain true. The Niche Design Atlas
 (`shared/design-intelligence/niche-atlas-index.md` and fifteen `niche-*.md` files) records product
 realities per niche (jobs, density, surfaces, states, interaction, trust, generated-UI failures) and
-ten or more authored systems per niche group. The atlas narrows candidates; it never picks a style,
-so the existing "no industry-to-style lookups" rule still holds. Size is deliberate but loading is
-not: an agent reads the index and one niche file. Each system carries a machine-readable
+ten or more authored systems per niche group. The atlas supplies domain constraints, not a prescribed style. Load a niche file only when its realities can change a decision. Each system carries a machine-readable
 fingerprint; `scripts/lib/niche-atlas.mjs` (run by `npm run validate`) enforces the index contract,
 computes color-role contrast, and fails sibling systems that differ in fewer than four of eleven
-dimensions, so synonyms cannot inflate the library.
+dimensions, so synonyms cannot inflate the library. That mechanical check cannot prove rendered distinctness; selection uses core-screen silhouette, grayscale, interaction architecture, density, and visual energy. The library was not increased merely to claim diversity.
 
 Two anti-slop skills exist on purpose. `anti-slop-ui` is the knowledge, prevention, and gate
 specialist: is this pattern justified, and what are the alternatives? `anti-ai-slop` is the
 remediation specialist for an existing rendered product: it extracts and protects the product's
 identity, sweeps every surface, traces generated decisions to source, replaces them with what that
 product would do, and rerenders. Keeping them separate keeps each description routable.
-

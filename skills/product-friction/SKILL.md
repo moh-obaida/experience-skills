@@ -3,7 +3,7 @@ name: product-friction
 description: "Use this skill whenever a product or area feels hard to use overall, users get lost or keep asking the same support questions, terminology or duplicate concepts confuse people, features pile up without getting easier, an admin, settings, or setup area is being redesigned, or a whole product or area needs an audit rather than one flow. Finds and ranks product-level friction: terminology, cognitive load, discoverability, lost context, information architecture, dead ends, status ambiguity, unnecessary modes, inconsistent behavior, trust and transparency, first-use burden, and expert burden, in a prioritized friction ledger."
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   collection: experience-skills
 ---
 
@@ -33,17 +33,16 @@ Read that file (the full rules and evidence levels) before a full review, repair
   claiming. Otherwise, name the checks you did not run.
 - **Composition is not alignment.** Empty space needs a stated job, and sparseness is never fixed
   with filler (stats, tips, promos, decoration).
-- **Personality belongs in the environment, not in standard controls.** A control changes only if
-  the change makes the task faster or more reliable.
+- **Personality can come from the environment and causal product behavior.** A standard control
+  changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
   screen, the keyboard path.
-- **Hand off when another experience skill fits better.** If part of the problem belongs to one
-  (composition, identity, workflow, interaction, states, motion, friction, responsiveness, empty
-  states, slop, critical review) and it is installed, invoke it rather than improvising its method.
+- **Route selectively.** Consider the relevant experience skills; activate another only when it
+  can resolve a material concern. No change and no handoff are valid outcomes.
 - **Render meaningful work when a runnable surface exists.** Inspect before and after, stress real
   states, and say **NOT VERIFIED IN RENDERED OUTPUT** with the reason when rendering is skipped.
 - **Load depth conditionally.** A direction, composition, workflow, control, state, motion, or
@@ -84,6 +83,8 @@ If the audit covers a product area, MUST load `references/friction-ledger.md`, `
    (`references/_shared/continue-where-left-off.md`).
 6. **Before recommending:** group issues into themes and fix causes, not symptoms.
 7. **When users distrust what the product shows or does** ("I thought it saved", "why did it change?"): use the trust lens in `references/trust-and-transparency.md` and record what users believed vs what was true.
+
+8. **Useful versus harmful friction:** distinguish deliberate practice, review, and consequential confirmation from repeated data entry, context loss, and waiting tax. Rank by effect on the repeated core loop; a brief pause with a clear purpose may be worth preserving.
 
 ## Workflow
 
@@ -130,8 +131,9 @@ If the audit covers a product area, MUST load `references/friction-ledger.md`, `
 - A ledger of located issues with frequency, severity, costs, risk, and repair.
 - Issues ranked and grouped into themes; top themes have repairs with tradeoffs and migration cost.
 - Evidence sources and gaps stated.
-- The friction ledger is handed off with the selected next specialist, preserved constraints, and
-  open risks; the next specialist does not repeat the audit.
+- When another specialist can resolve an open concern, hand off the relevant ledger finding,
+  preserved constraints, and uncertainty so the next specialist does not repeat the audit. If no
+  material issue remains, report no change and stop.
 
 ## References
 

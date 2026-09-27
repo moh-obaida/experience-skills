@@ -10,6 +10,8 @@ import { ROOT } from './repo.mjs';
 const DI = join(ROOT, 'shared', 'design-intelligence');
 export const INDEX = join(DI, 'niche-atlas-index.md');
 export const DIMENSIONS = ['density', 'composition', 'surface', 'type', 'nav', 'accent', 'motion', 'imagery', 'radius', 'data', 'tone'];
+// Token/style differences cannot rescue two systems with the same working-screen anatomy.
+export const STRUCTURAL_DIMENSIONS = ['density', 'composition', 'surface', 'nav'];
 export const LAYERS = ['Composition', 'Type', 'Color', 'Space and shape', 'Icons and imagery', 'Components', 'States', 'Responsive', 'Motion', 'Accessibility', 'Build', 'AI mutation', 'Fails when'];
 export const PROFILE_FIELDS = ['Reality', 'Jobs', 'Density', 'Surfaces', 'States', 'Interaction', 'Trust', 'Generated-UI failures'];
 export const ROLES = ['canvas', 'surface', 'ink', 'muted', 'line', 'action', 'on-action'];
@@ -143,6 +145,8 @@ export function checkNicheAtlas(r) {
       if (!a.fingerprint || !b.fingerprint) continue;
       const diff = diffCount(a.fingerprint, b.fingerprint);
       if (diff < MIN_SIBLING_DIFF) r.error(`${where}: "${a.name}" and "${b.name}" differ in ${diff} fingerprint dimensions (siblings need ${MIN_SIBLING_DIFF}); merge or redesign`);
+      if (STRUCTURAL_DIMENSIONS.every((dimension) => a.fingerprint[dimension] === b.fingerprint[dimension]))
+        r.error(`${where}: "${a.name}" and "${b.name}" share the same density, composition, surface, and navigation; token differences do not establish structural diversity`);
     }
   }
   for (let i = 0; i < all.length; i++) for (let j = i + 1; j < all.length; j++) {

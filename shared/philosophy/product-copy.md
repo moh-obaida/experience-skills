@@ -1,5 +1,9 @@
 # Natural Product Copy
 
+Prefer visible consequence, exact changed state, the next action, and concise interpretation over
+prose that narrates obvious UI. Preserve authentic machine or system feedback when it helps the
+user understand; explain it rather than replacing it with generic success or error copy.
+
 Interface text is a design material with the same standard as layout and color: every string
 should earn its place and sound like a person on the product team wrote it for this exact moment,
 not like a model completing the statistically likely next phrase for "app copy." This module

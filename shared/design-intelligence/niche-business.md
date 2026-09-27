@@ -2,8 +2,7 @@
 
 Products people open for work, often daily, often for hours. Their design problem is repetition:
 the hundredth visit matters more than the first, yet the first (empty workspace, unclear setup)
-decides whether there is a hundredth. Load with `niche-atlas-index.md`; compare three systems with
-`design-system-selector.md`.
+decides whether there is a hundredth. Load a profile only when its realities affect a decision; compare systems only when the direction is open.
 
 ## Product realities
 
