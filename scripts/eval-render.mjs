@@ -49,7 +49,17 @@ try {
         const bytes = await readFile(path);
         if (bytes.length < 128 || !bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])))
           throw new Error(`Screenshot for "${view}" at ${size.name} is not a valid PNG.`);
-        manifests.push({ view, viewport: size.name, width: size.width, height: size.height, path: path.split(sep).join('/'), bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') });
+        manifests.push({
+          view,
+          viewport: size.name,
+          width: bytes.readUInt32BE(16),
+          height: bytes.readUInt32BE(20),
+          viewportWidth: size.width,
+          viewportHeight: size.height,
+          path: path.split(sep).join('/'),
+          bytes: bytes.length,
+          sha256: createHash('sha256').update(bytes).digest('hex'),
+        });
       } finally {
         await page.close();
       }
