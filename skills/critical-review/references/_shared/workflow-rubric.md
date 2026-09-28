@@ -24,16 +24,24 @@ Confirmations:  n (of which reversible actions: n)
 Blocking waits: n (total ~s)
 ```
 
-## Step 3 — Classify friction
+## Step 3 — Test whether friction earns its place
 
-Tag each wasteful step with the workflow friction taxonomy (F1–F10 and secondary types).
+For every meaningful added step, gate, or wait, record its reason before classifying it as waste:
+explicit source requirement, existing product truth, technical necessity, user judgment, or the
+consequence it protects against. If no reason is evidenced, mark it as an open policy decision and
+compare the reversible, lower-friction option. Keep legitimate friction; fewer clicks is not the
+goal by itself. Use `workflow-friction.md` for the detailed taxonomy and severity guidance.
 
-## Step 4 — Protect what must stay
+## Step 4 — Classify avoidable friction
+
+Tag each avoidable step with the workflow friction taxonomy (F1–F15 and secondary types).
+
+## Step 5 — Protect what must stay
 
 Mark steps that buy safety, judgment, comprehension, or compliance. They stay (or get better,
 not shorter).
 
-## Step 5 — Redesign and recount
+## Step 6 — Redesign and recount
 
 Produce the same table and counts for the proposed flow. Report both:
 

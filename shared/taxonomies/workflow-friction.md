@@ -44,6 +44,20 @@ Severity is frequency × cost × risk:
 
 A small cost on a high-frequency path often outranks a large cost on a rare path.
 
+## When a step earns its place
+
+Do not label a step wasteful from its count alone. First identify what it protects or enables and
+what evidence requires it. Extra input, account or identity gates, permission requests, waits,
+screens, and confirmations may be justified by explicit product requirements, observed product
+truth, technical necessity, privacy, safety, legal duty, financial or public consequence, or a
+meaningful user decision. Keep the smallest step that adequately serves that reason.
+
+When a new policy or gate is proposed but the source is silent, call it an open product decision,
+not a requirement. Prefer a reversible, lower-friction path when it is technically and
+product-appropriate; identity or synchronization can be offered later when useful. Preserve explicit
+requirements even when they add friction, and design the required step clearly. A dramatic visual
+transition, a profile screen, or a convenient implementation pattern is not by itself a reason.
+
 ## Not friction
 
 Do not flag as friction:

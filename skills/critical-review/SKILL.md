@@ -99,7 +99,7 @@ If the proposal changes visual direction, load `references/_shared/selection.md`
 9. **Use `references/review-workflow.md` proportionately.** Check outcome, evidence, current state, costs, and the simplest alternative before a verdict. Keep notes focused on material findings rather than filling twelve report fields.
 10. **Check whether the right answer is not "new is better":** `references/verdict-examples.md` covers keeping the current version, simplifying, rejecting a trend, removing a feature, preserving a familiar control, and justified whitespace, cards, dramatic motion, or added complexity.
 
-11. **Release judgment:** rank blocker, major, moderate, minor, and optional findings by effect on the primary journey. A broken core control, false completion, lost progress, or impossible continuation blocks release regardless of visual polish. Synthesize the 3–5 highest-value remaining findings rather than repeat every specialist; inspect recovery quality and preserve good current decisions. Zero changes is a valid verdict.
+11. **Release judgment:** rank release blockers, major journey damage, state/trust failures, recovery failures, responsive job failures, accessibility blockers, and polish by effect on the primary journey. A broken core control, false completion, lost progress, or impossible continuation blocks release regardless of visual polish. Keep visual hierarchy, composition, typography, color, identity, and expression in the review; strong expression is not itself a UX defect. Synthesize the 3–5 highest-value remaining findings rather than repeat every specialist; inspect recovery quality and preserve good current decisions. Zero changes is a valid verdict.
 
 ## Workflow
 

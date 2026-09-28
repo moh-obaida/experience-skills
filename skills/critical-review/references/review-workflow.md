@@ -43,6 +43,11 @@ If you notice yourself forming a verdict before step 11, write it down as a hypo
 | Identity | More or less recognizable? More generic? |
 | Opportunity | What else could this effort have improved? |
 
+Rank findings by their effect on the user's job: release blocker, major journey damage,
+state/trust failure, recovery failure, responsive job failure, accessibility blocker, then polish.
+These are prioritization cues, not a new scorecard. Keep material visual-expression findings in the
+review alongside behavior; a strong identity is not evidence of a broken journey.
+
 ### Recommendation types
 
 - **Ship** · **Ship with changes** (list must-fix) · **Rethink** (goal right, approach wrong) ·

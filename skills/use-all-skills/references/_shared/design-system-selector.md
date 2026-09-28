@@ -12,6 +12,13 @@ A core instrument (terminal, editor, canvas, map, timeline, conversation, sheet,
 
 ## Compare only when useful
 
+For substantial greenfield work, if meaningful design freedom remains and the first composition is
+an obvious category default, make one lightweight structural challenge: sketch one materially
+different but still usable interpretation against the default. Compare product and journey fit,
+core-instrument authority, clarity, state handling, and responsive transformation. Keep the default
+if it serves these better. This is not a three-concept exercise, does not apply to narrow tasks or
+locked structures, and does not justify novelty by itself.
+
 A direction is **locked**, not a candidate to compare, when the user or the specification states
 it as fact: brand colors, typography, a layout principle, a density, or an interaction style
 given explicitly — in an existing codebase or in the current brief. Work inside a locked direction;

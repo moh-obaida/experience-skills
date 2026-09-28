@@ -2,6 +2,81 @@
   "$comment": "Routing fixtures: user phrasing \u2192 skills the router should reach for. Documentation and validation aids, not a classifier. 'expected' must all be relevant; 'notExpected' would be a routing mistake. Scenarios with 'anchor' are regression anchors for the agent eval harness (scripts/run-agent-evals.mjs); 'fixtures' are copied into the agent's temporary project.",
   "cases": [
     {
+      "input": "Review this save journey: anonymous browsing works, but the redesign adds a required email before the first low-stakes bookmark even though the source is silent about identity.",
+      "expected": [
+        "critical-review",
+        "product-friction",
+        "interaction-design"
+      ],
+      "notExpected": [
+        "use-all-skills",
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "Our transfer specification explicitly requires a final confirmation showing recipient, amount, and fee before sending. Review the confirmation wording.",
+      "expected": [
+        "interaction-design"
+      ],
+      "notExpected": [
+        "workflow-compression",
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "Make this one Save button easier to notice in the current screen.",
+      "expected": [
+        "composition-repair"
+      ],
+      "notExpected": [
+        "use-all-skills",
+        "state-design",
+        "responsive-validation"
+      ]
+    },
+    {
+      "input": "On a narrow phone, stacking every panel leaves the primary editor only 90 pixels tall and users cannot complete their edit.",
+      "expected": [
+        "responsive-validation"
+      ],
+      "notExpected": [
+        "visual-identity",
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "The button reads Saved but clicking it removes the item; the detail view updates but the persistent navigation count stays stale.",
+      "expected": [
+        "interaction-design",
+        "state-design"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "A 900-page product specification fully defines that users must verify identity before saving. Build the save screen without reopening the identity policy.",
+      "expected": [
+        "interaction-design",
+        "state-design"
+      ],
+      "notExpected": [
+        "product-friction",
+        "workflow-compression"
+      ]
+    },
+    {
+      "input": "We're designing a new field-research product with an open layout. The first concept is the familiar business dashboard: sidebar, KPI cards, and a table. Check whether the repeated field-to-review job calls for a different working-screen structure.",
+      "expected": [
+        "visual-identity",
+        "composition-repair"
+      ],
+      "notExpected": [
+        "anti-slop-ui",
+        "workflow-compression"
+      ]
+    },
+    {
       "input": "this settings flow takes 12 clicks",
       "expected": [
         "workflow-compression",
@@ -602,6 +677,35 @@
         "experience-architect/references/_shared/specification-pressure.md"
       ],
       "anchor": "shared/evaluation/specification-pressure.md"
+    },
+    {
+      "file": "tests/scenarios/anonymous-reading-save-journey.md",
+      "expected": [
+        "critical-review",
+        "product-friction",
+        "interaction-design",
+        "state-design",
+        "responsive-validation"
+      ],
+      "requiredReferences": [
+        "critical-review/references/_shared/experience-operating-contract.md",
+        "state-design/references/state-inventory.md",
+        "interaction-design/references/actions-and-safety.md",
+        "responsive-validation/references/validation-matrix.md"
+      ],
+      "anchor": "shared/evaluation/experience-operating-contract.md"
+    },
+    {
+      "file": "tests/scenarios/category-default-structure.md",
+      "expected": [
+        "visual-identity",
+        "composition-repair"
+      ],
+      "requiredReferences": [
+        "visual-identity/references/_shared/design-system-selector.md",
+        "visual-identity/references/_shared/design-system-grammar.md"
+      ],
+      "anchor": "shared/design-intelligence/design-system-selector.md"
     }
   ]
 }

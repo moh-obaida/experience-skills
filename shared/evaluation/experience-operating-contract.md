@@ -20,11 +20,12 @@ Use the first matching rule, then add only rules made relevant by the work:
 
 | Condition | Required action before recommendation or edit |
 |---|---|
+| Meaningful experience work | Establish the smallest useful journey context before shaping the surface: user/job, start, critical action, success, immediate result or next step, likely consequential failure and recovery, continuation, and state that must persist. For a local change, this can stay in reasoning; do not create a journey document by default. Derive only the invariants that affect the decision from explicit source truth, observed behavior, product mechanics, and user goals. Keep inferred assumptions distinct from locked requirements. |
 | Visual direction, brand, personality, or “modern/fun” changes | Name the product mechanics, core instrument, and invariants; read `selection.md` or `design-system-selector.md` when comparison could change the choice. Compare structurally different directions only when uncertain. |
 | Page structure, hierarchy, whitespace, or composition changes | Read `compositions-index.md`; name one candidate and read its family. If whitespace is defended, read `whitespace-and-dead-space.md` or record equivalent measured evidence. |
 | A standard control becomes custom, animated, or novel | Read `familiar-controls.md` or the interaction-cost reference; state the user gain and test paste, keyboard, focus, touch, and assistive technology paths. |
-| A workflow gains or loses steps, questions, screens, waits, or confirmations | Run the known-context inventory and produce typed before/after counts. |
-| A state, loading, error, empty, optimistic, offline, or background job changes | Read the relevant state precedent; model state ownership and important transitions, including trigger, preserved/reset data, feedback, focus, and recovery. |
+| A workflow gains or loses steps, questions, screens, waits, confirmations, identity, or permissions | Run the known-context inventory and produce typed before/after counts. For each meaningful new step or gate, name the source requirement, observed truth, technical necessity, or consequence that earns it. Do not invent product policy to make a UI pattern convenient. When source and product truth are silent, prefer a reversible, lower-friction interpretation unless risk or evidence argues otherwise. |
+| A state, loading, error, empty, optimistic, offline, or background job changes | Read the relevant state precedent; model state ownership and important transitions, including trigger, preserved/reset data, feedback, focus, and recovery. For user-important objects, check where the change must remain visible on return or related surfaces; use one product truth, honest action labels, and visible outcomes. |
 | Motion is added or changed | Map motion to an event, define reduced-motion behavior, and run the motion scanner when available. |
 | A treatment resembles an AI default | Run the anti-slop justification branch: job, product root, alternative, cost, and failure condition. |
 | A user-facing implementation can run in a browser | Follow the render contract below before claiming a visual result. |
@@ -47,10 +48,17 @@ explicitly requests source-only analysis, the task is purely conceptual, or the 
 disproportionate. In those cases write **NOT VERIFIED IN RENDERED OUTPUT** and name the exact reason.
 Source inspection alone never earns “verified.”
 
-At minimum, repeatedly exercise the primary user journey with a mistake and recovery, then test
-completion and continuation, secondary-surface return, and the core control at a narrow or short
-viewport. Add keyboard, focus, large text/zoom, RTL, reduced motion, or touch checks when relevant.
-A rendered screenshot is evidence of appearance in one state, not journey verification. Check visible consequences of valid and wrong-but-valid actions; do not silently reset a world unless reset is intentional. For outcome-based tasks, test alternate valid methods rather than exact expected strings.
+At minimum, repeatedly exercise the relevant primary journey: enter, understand, act, receive
+feedback, and continue. For material work, include a realistic mistake and recovery, completion,
+return to a related or persistent surface, and the core job at a narrow or short viewport. On
+responsive work, verify that the job and working surface remain usable; stacking components alone
+does not establish continuity. Add keyboard, focus, large text/zoom, RTL, reduced motion, or touch
+checks when relevant. A rendered screenshot is evidence of appearance in one state, not journey
+verification. Check that visible controls describe their outcome and that valid and wrong-but-valid
+actions produce truthful, consistent state. Do not silently reset a world unless reset is
+intentional. For outcome-based tasks, test alternate valid methods rather than exact expected
+strings. Scale sequence depth to consequence and scope; a narrow local review does not require a
+full journey audit.
 
 ## Handoff artifact
 
@@ -67,9 +75,12 @@ open risks:
 verification:
 ```
 
-Specialized fields are additive: a workflow adds `before`, `after`, `known context`, and `preserved
-judgment`; a direction adds `selected direction`, `identity carriers`, `environment`, `controls`,
-and `avoid`; a state review adds `state owners`, `transitions`, `authority`, and `recovery`.
+Specialized fields are additive only when they resolve the handoff question: a workflow may add
+`job / journey slice`, `before`, `after`, `known context`, and `why friction stays`; a direction may
+add `selected direction`, `identity carriers`, `environment`, `controls`, and `avoid`; a state
+review may add `state owners`, `transitions`, `cross-surface truth`, `authority`, and `recovery`.
+Include locked requirements, open decisions, and a relevant source slice when they bound the next
+decision. Do not duplicate the whole product model or make every handoff fill every field.
 Only hand off when an unresolved observation has a consequence and the next specialist can help.
 Otherwise record “no handoff required.” Findings may be confirmed, strong, possible, optional,
 stylistic, or no material issue. Existing coherent product decisions win over generic framework

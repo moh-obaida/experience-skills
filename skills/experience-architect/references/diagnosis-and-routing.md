@@ -69,6 +69,7 @@ Each class names its observable signal, so a symptom can be confirmed before rou
 | Full product pass | User explicitly requests all skills or complete starter-to-finish experience work | use-all-skills |
 | Page-scoped forensic audit | User asks for detailed inspection of one route or component, including CSS and micro-UX | interface-forensics |
 | Visually generic | Fails the logo test; template structure; trend treatments | anti-slop-ui, visual-identity |
+| Structurally convergent | The primary screen has a category-default silhouette that could serve unrelated products despite open design space | visual-identity; composition-repair only if hierarchy or instrument dominance is unresolved |
 | Generated look across an existing product | Many surfaces use library defaults, generated heroes, glow, glass, card grids, generic copy; the user wants it repaired end to end | anti-ai-slop (with interface-forensics for traces) |
 | Visually chaotic | Many accents, competing emphases, no focal point in a squint test | composition-repair, anti-slop-ui |
 | Visually empty | Low first-viewport coverage without an environment | composition-repair, empty-state-design, visual-identity |
@@ -170,23 +171,30 @@ Stop adding specialists when:
 
 ## Cross-Skill Composition
 
-When more than one specialist applies, order matters. Structure before surface, and
-evaluation at the end.
+This is a dependency guide, not a mandatory phase sequence. Establish product mechanics and the
+relevant job first; settle a downstream decision only when it depends on an unresolved upstream
+one. A short task can resolve one local decision and stop. Visual expression can be developed
+alongside structure and behavior when its product basis is clear, and verification can feed back
+into any earlier choice.
 
 ### General order
 
-1. **Understanding and friction** (product-friction, workflow-compression): decide what the
-   surface should even contain and which steps exist.
-2. **Structure** (composition-repair, empty-state-design, state-design): arrange content and
-   states.
-3. **Interaction** (interaction-design): make controls obvious and safe within that structure.
-4. **Identity** (visual-identity): express the product through the environment.
-5. **Motion** (motion-design): explain events in the final structure.
-6. **Verification** (responsive-validation): check real sizes and conditions.
-7. **Judgment** (anti-slop-ui, anti-ai-slop, critical-review): gate the result; anti-ai-slop reconstructs what still looks generated.
+1. **Product truth and job** (experience-architect; product-friction or workflow-compression when
+   unresolved): establish what the user is doing and which steps are required.
+2. **State, structure, and interaction** (state-design, composition-repair, empty-state-design,
+   interaction-design as needed): resolve the dependencies that affect the core job.
+3. **Visual expression and motion** (visual-identity, motion-design as needed): make behavior,
+   hierarchy, and product character reinforce the same job; do not wait for a separate visual phase
+   when the relevant mechanics are already clear.
+4. **Responsive and journey verification** (responsive-validation and relevant specialists): check
+   the working job, state continuity, and real conditions; return findings to whichever decision
+   caused the failure.
+5. **Judgment** (anti-slop-ui, anti-ai-slop, critical-review): gate only material unresolved
+   concerns; anti-ai-slop reconstructs what still looks generated.
 
-Skipping ahead causes rework: animating a layout that later changes, or branding a flow that
-later loses two screens.
+Resolve a dependency before committing to choices it would invalidate, such as animating a screen
+whose workflow is still open. Do not serialize independent visual, state, or interaction work just
+to follow this list.
 
 ### Common compositions
 
