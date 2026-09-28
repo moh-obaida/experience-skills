@@ -70,6 +70,7 @@ Each class names its observable signal, so a symptom can be confirmed before rou
 | Page-scoped forensic audit | User asks for detailed inspection of one route or component, including CSS and micro-UX | interface-forensics |
 | Visually generic | Fails the logo test; template structure; trend treatments | anti-slop-ui, visual-identity |
 | Structurally convergent | The primary screen has a category-default silhouette that could serve unrelated products despite open design space | visual-identity; composition-repair only if hierarchy or instrument dominance is unresolved |
+| Clear quality upside in open design space | The product works, but observed hierarchy, expression, route composition, interaction feedback, or mobile workflow materially under-serves its job; relevant decisions remain open | Route only the specialist(s) that own the demonstrated gap, such as visual-identity, composition-repair, interaction-design, state-design, or responsive-validation |
 | Generated look across an existing product | Many surfaces use library defaults, generated heroes, glow, glass, card grids, generic copy; the user wants it repaired end to end | anti-ai-slop (with interface-forensics for traces) |
 | Visually chaotic | Many accents, competing emphases, no focal point in a squint test | composition-repair, anti-slop-ui |
 | Visually empty | Low first-viewport coverage without an environment | composition-repair, empty-state-design, visual-identity |
@@ -166,8 +167,13 @@ Product type changes emphasis, not the method. For whole-product design, product
 Stop adding specialists when:
 
 - The top-ranked problems are all covered.
+- For BUILD or quality-focused REPAIR, no credible high-value quality opportunity remains in the open decisions. A working product can still have such an opportunity; a strong, resolved area is evidence against another specialist.
 - The next specialist would address only low-impact issues.
 - The user asked for a narrow change.
+
+For REVIEW and VERIFY, keep the task defensive even when a possible creative opportunity is visible;
+report it only when relevant to the requested judgment. Do not expand verification into feature
+design.
 
 ## Cross-Skill Composition
 

@@ -77,6 +77,57 @@
       ]
     },
     {
+      "input": "The app works and has no obvious defect, but its visual language and route hierarchy are generic. The product direction is open; improve the experience materially.",
+      "expected": [
+        "visual-identity",
+        "composition-repair"
+      ],
+      "notExpected": [
+        "critical-review",
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "The workflow technically works, but staff repeatedly leave the queue to open each record just to take the next action; no requirement needs that detour.",
+      "expected": [
+        "interaction-design",
+        "workflow-compression"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "A save is correctly persisted, but the interface gives only a brief 'Done' toast and leaves users unsure what changed or what they can do next.",
+      "expected": [
+        "state-design"
+      ],
+      "notExpected": [
+        "visual-identity"
+      ]
+    },
+    {
+      "input": "The mobile page has no overflow and every control is reachable, but completing the main edit requires scrolling back and forth between a compressed canvas and its desktop side panel.",
+      "expected": [
+        "responsive-validation",
+        "composition-repair"
+      ],
+      "notExpected": [
+        "critical-review"
+      ]
+    },
+    {
+      "input": "Critically review this restrained interface before release. The visual direction and workflow are settled; report material risks without proposing a broad redesign.",
+      "expected": [
+        "critical-review"
+      ],
+      "notExpected": [
+        "visual-identity",
+        "composition-repair",
+        "use-all-skills"
+      ]
+    },
+    {
       "input": "this settings flow takes 12 clicks",
       "expected": [
         "workflow-compression",
@@ -645,13 +696,59 @@
       "anchor": "examples/anti-slop/identity-preserving-repair.md"
     },
     {
+      "file": "tests/scenarios/systemic-pattern-repair.md",
+      "expected": [
+        "anti-ai-slop"
+      ],
+      "fixtures": {
+        "studio.html": "tests/fixtures/pages/systemic-studio.html"
+      },
+      "requiredReferences": [
+        "anti-ai-slop/references/identity-extraction.md",
+        "anti-ai-slop/references/repair-loop.md"
+      ],
+      "mode": "edit",
+      "buildRepair": true,
+      "anchor": "tests/scenarios/de-ai-existing-site.md"
+    },
+    {
+      "file": "tests/scenarios/quality-upside-open.md",
+      "expected": [
+        "visual-identity",
+        "composition-repair"
+      ],
+      "fixtures": {
+        "field-notes.html": "tests/fixtures/pages/field-notes.html"
+      },
+      "requiredReferences": [
+        "visual-identity/references/_shared/experience-operating-contract.md",
+        "visual-identity/references/_shared/selection.md",
+        "composition-repair/references/_shared/experience-operating-contract.md",
+        "composition-repair/references/_shared/compositions-index.md"
+      ],
+      "mode": "edit",
+      "buildRepair": true,
+      "anchor": "tests/scenarios/category-default-structure.md"
+    },
+    {
+      "file": "tests/scenarios/restrained-product-review.md",
+      "expected": [
+        "critical-review"
+      ],
+      "fixtures": {
+        "signal-foundry.html": "tests/fixtures/pages/signal-foundry.html"
+      },
+      "requiredReferences": [
+        "critical-review/references/review-workflow.md"
+      ],
+      "mode": "review",
+      "anchor": "tests/scenarios/systemic-pattern-repair.md"
+    },
+    {
       "file": "tests/scenarios/mega-spec-mixed-authority.md",
       "expected": [
         "state-design",
         "interaction-design"
-      ],
-      "requiredReferences": [
-        "experience-architect/references/_shared/specification-pressure.md"
       ],
       "anchor": "shared/evaluation/specification-pressure.md"
     },
@@ -662,7 +759,6 @@
         "visual-identity"
       ],
       "requiredReferences": [
-        "experience-architect/references/_shared/specification-pressure.md",
         "visual-identity/references/_shared/design-system-selector.md"
       ],
       "anchor": "shared/design-intelligence/design-system-selector.md"
@@ -672,9 +768,6 @@
       "expected": [
         "state-design",
         "interaction-design"
-      ],
-      "requiredReferences": [
-        "experience-architect/references/_shared/specification-pressure.md"
       ],
       "anchor": "shared/evaluation/specification-pressure.md"
     },

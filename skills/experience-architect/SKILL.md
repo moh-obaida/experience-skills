@@ -3,7 +3,7 @@ name: experience-architect
 description: "Use this skill whenever the user asks to build, fix, finish, review, redesign, or improve a user-facing product surface—page, screen, dashboard, form, flow, game, app, or CLI—or says it feels boring, generic, empty, confusing, slow, broken, cramped, modern, fun, or off. Use it for substantial product-facing work when the right specialist is unclear or several concerns interact. Diagnoses the observable problem, activates the smallest ordered specialist graph, loads only required depth, enforces rendered evidence when runnable, and ends with a quality gate."
 license: MIT
 metadata:
-  version: "0.6.1"
+  version: "0.7.0"
   collection: experience-skills
 ---
 
@@ -91,7 +91,7 @@ Decision points, not advice. At each one, take the branch it names.
    apply.
 3. **Before naming a problem:** can you point to an observation (a measurement, an element, a step
    count)? No → it is a hypothesis; label it and go find the evidence.
-4. **After ranking problems:** activate the smallest specialist set with material leverage (usually at most three initially); a fourth needs a product-specific reason. A no-change result is valid. When activating, use the agent's skill mechanism. The specialists are separate skills. The routing table only names them; it does
+4. **After ranking problems and, for BUILD or quality-focused REPAIR, clear upside:** activate the smallest specialist set with material leverage (usually at most three initially); a fourth needs a product-specific reason. A technically working but materially generic or underdeveloped area can justify creation work when direction is open. A strong, resolved area argues against activation. A no-change result is valid after this assessment. In REVIEW or VERIFY, report or verify rather than redesign. When activating, use the agent's skill mechanism. The specialists are separate skills. The routing table only names them; it does
    not contain their method. If a specialist is not installed, use its fallback in
    `references/diagnosis-and-routing.md` and say so. Answering from this file alone is a routing
    failure.

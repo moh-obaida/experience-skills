@@ -4,7 +4,7 @@ description: "Use this skill whenever a page, screen, dashboard, or view looks e
 license: MIT
 compatibility: "Measurement scripts need Node.js 18+ and Playwright (or playwright-core with an installed Chrome). All guidance works without them."
 metadata:
-  version: "0.6.1"
+  version: "0.7.0"
   collection: experience-skills
 ---
 
@@ -94,7 +94,7 @@ If structure or whitespace changes, MUST load `references/_shared/compositions-i
 8. **Before saying "fixed":** re-render at the primary size, one phone width, and one short height;
    re-run `scripts/detect-overflow.mjs` and `scripts/detect-collisions.mjs` if you used them before.
 9. **Largest dead region over ~30% of the first viewport** (`scripts/measure-layout.mjs` reports it) with no environment treatment: name its job or remove it. "It looks premium" is not a job.
-10. **Before restructuring a surface:** pick a composition from `references/_shared/compositions-index.md` by archetype and P0 content, load only its family file, and name it in your plan. Do not invent a layout from habit.
+10. **Before restructuring a surface:** pick a composition from `references/_shared/compositions-index.md` by archetype and P0 content, load only its family file, and name it in your plan. If the existing skeleton materially weakens hierarchy, instrument priority, or route fit and the structure is open, recompose grouping, dominance, or page silhouette; do not stop at spacing tweaks. A named pattern is a candidate, not a reason to preserve a weak layout.
 11. **Before citing another product's layout as justification:** find the matching entry in the precedent modules and state which of its "Right when" conditions your surface shares. None shared → it argues against you.
 
 9. **Functional weight:** blur the screen and ask what dominates. Mentally remove explanatory copy: is the working surface still evident? If passive prose, navigation, or empty margins outweigh the core instrument, repair spatial authority. Test both over-compression and unused width/gaps; space must aid comprehension, focus, manipulation, or state awareness. A good layout may need no change.

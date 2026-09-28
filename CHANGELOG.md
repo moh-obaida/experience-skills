@@ -6,6 +6,23 @@ All notable changes to this project are documented here. The format follows
 
 ## Unreleased
 
+## [0.7.0] - 2026-09-28
+
+### Added
+- Journey and friction guidance that derives task-specific invariants, preserves justified policy,
+  checks state continuity, feedback, recovery, continuation, and responsive job completion.
+- A conditional structural challenge for substantial greenfield work when an open design starts
+  from a conventional category layout; one product-grounded alternative is compared, and the
+  conventional option can still win.
+- Regression scenarios for identity friction, action and state semantics, responsive workflow, and
+  category-default convergence.
+
+### Changed
+- Cross-skill sequencing is described as decision dependency rather than a mandatory linear phase
+  pipeline, with specialist handoffs grounded in shared product and journey truth.
+- Critical review prioritizes material journey and trust failures while retaining visual quality
+  as a first-class review dimension.
+
 ## [0.6.1] - 2026-09-27
 
 ### Added

@@ -15,12 +15,18 @@ originality tests, and the report.
 
 Fix S0 then S1 first. Do not spend the budget on S3 while S0 remains.
 
+Judge both the instance and its cumulative effect. Repetition alone does not raise severity: first
+check whether the treatment serves the same job on each route. When a shared pattern makes several
+important routes feel interchangeable or hides the product's character, classify that systemic harm
+at its actual severity instead of leaving every instance as an isolated S2.
+
 ## Evidence format
 
 Record every S0–S2 finding in this shape (S3 can be a list):
 
 ```text
 ELEMENT: where (route, region, component)
+PATTERN SCOPE: shared cause and affected route jobs; say "local" when contained
 CURRENT TREATMENT: what it looks like and its values
 WHY IT LOOKS GENERATED: the class from the taxonomy and the specific signal
 PRODUCT CONTEXT: niche and user job (niche atlas profile)
@@ -65,14 +71,23 @@ The matrix proposes; the ledger decides. If the product already uses one of thes
 1. **Trace** each S0/S1 to the highest shared source: token, theme config, shared component, layout
    template, content file. For complex cascades, hand to interface-forensics with the element and
    hypothesis; take back its source trace.
-2. **Group** repairs by source (all radius at the token; all card defaults at the component) so one
-   change fixes many surfaces.
-3. **Repair** in severity order. Keep accessible primitives; change tokens, composition, content.
-4. **Rerender** the same routes, sizes, and states as the baseline. Compare side by side.
-5. **Stress** a sparse state, a dense state, long text, and a phone size.
-6. **Check for new slop:** did the fix introduce a new default (swapping purple for teal gradient,
+2. **Group** findings by shared cause and affected route jobs. This exposes local symptoms of one
+   system decision while keeping route-specific needs visible.
+3. **Choose intervention scope from the cause.** A contained issue gets a contained fix. A shared
+   token, component, or composition convention gets repaired across the affected routes. If all
+   interior routes inherit the same generic composition, changing card shadows alone does not close
+   the finding; give each route a composition suited to its content and user job while retaining
+   justified identity carriers and working mechanics.
+4. **Repair** in severity order. Keep accessible primitives; change tokens, composition, content.
+5. **Rerender** the same routes, sizes, and states as the baseline. Compare side by side and record
+   what visibly changed in hierarchy, composition, and product specificity.
+6. **Stress** a sparse state, a dense state, long text, and a phone size.
+7. **Check for new slop:** did the fix introduce a new default (swapping purple for teal gradient,
    cards for identical bordered boxes, fade-up for slide-in)? If so, treat it as a finding.
-7. **Revert** any change that weakens a protected characteristic or usability.
+8. **Check resolution at the diagnosed scope.** If the shared pattern still dominates any affected
+   route, return to its source and continue. If it no longer harms the product, a small patch is
+   complete; do not change mechanics or add novelty just to make the diff larger.
+9. **Revert** any change that weakens a protected characteristic or usability.
 
 ## Originality tests
 

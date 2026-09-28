@@ -3,7 +3,7 @@ name: visual-identity
 description: "Use this skill whenever a product needs a visual direction or stronger personality, energy, color behavior, or identity across its working screens and states. Derive expression from the user job, core instrument, product mechanics, and emotional target. Choose a look contract with structural hierarchy, chroma and contrast behavior, typographic attitude, geometry, rhythm, and a causal signature response; preserve existing coherent identity and compare Atlas options only when useful."
 license: MIT
 metadata:
-  version: "0.6.1"
+  version: "0.7.0"
   collection: experience-skills
 ---
 
@@ -93,7 +93,7 @@ If direction is genuinely open, load `references/_shared/selection.md` and compa
 6. **Before finishing:** logo test again on a sparse and a dense surface; check text contrast over any
    new background; check asset weight.
 7. **Before proposing a direction:** start with job, loop, core instrument, and invariants. Use `references/_shared/selection.md` and `references/_shared/design-system-selector.md` to compare distinct directions only when choice is open. A niche supplies realities, not a palette or style.
-8. **For greenfield identity:** is the direction operational on the primary working screen? Define structure and expression with `references/_shared/design-system-grammar.md`: energy, color behavior, contrast, type, geometry, rhythm, and a causal signature response. When substantial design freedom remains and the first composition is an obvious category default, use the selector's one-challenger comparison; keep the default if it better serves the product. Preserve a strong native concept when Atlas options add no value.
+8. **When identity direction is open:** check whether the current expression actually conveys this product's thesis and mechanics, not only whether it is coherent or legible. If it is materially generic or underexpressive, derive and compare a stronger product-rooted direction; do not stop at accepting the existing palette. For greenfield work, define operational structure and expression with `references/_shared/design-system-grammar.md`; when the first composition is an obvious category default, use the selector's one-challenger comparison. A strong native concept can still win.
 9. **For every state surface** (empty, loading, error, success) and one dense surface: where does identity live there? Use `references/branded-states-and-density.md`; identity that exists only in the hero fails.
 
 10. **Across the product:** does identity persist through the workspace, success, error, empty, dense content, supporting screens, mobile, and translation? If it only appears on a landing page, repair it. Repeated interaction behavior may be the strongest identity carrier; use color and motion to make consequences legible without weakening the core instrument.

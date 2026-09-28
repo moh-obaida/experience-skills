@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os';
 import { join, basename } from 'node:path';
 import { createHash } from 'node:crypto';
 import { ROOT, readJson } from './lib/repo.mjs';
-import { parseScenario, parseTranscript, fullPassSignals, answerSignals, judgePrompt, parseJudge, routingScore, renderReport } from './lib/agent-eval.mjs';
+import { parseScenario, parseTranscript, validateRenderEvidence, fullPassSignals, answerSignals, judgePrompt, parseJudge, routingScore, renderReport } from './lib/agent-eval.mjs';
 
 const HELP = `run-agent-evals — with/without-skills behavioral evaluation on tests/scenarios
 
@@ -108,7 +108,7 @@ function snapshotProject(root) {
   const files = {};
   const visit = (dir) => {
     for (const entry of readdirSync(dir)) {
-      if (entry === '.claude' || entry === '.git' || entry === 'node_modules') continue;
+      if (entry === '.claude' || entry === '.benchmark' || entry === '.git' || entry === 'node_modules') continue;
       const path = join(dir, entry);
       const rel = path.slice(root.length + 1);
       if (statSync(path).isDirectory()) visit(path);
@@ -123,6 +123,8 @@ function prepareProject(entry, condition) {
   const dir = mkdtempSync(join(tmpdir(), `xs-eval-${basename(entry.file, '.md')}-${condition}-`));
   for (const [dest, src] of Object.entries(entry.fixtures ?? {})) cpSync(join(ROOT, src), join(dir, dest));
   writeFileSync(join(dir, 'README.md'), '# Product under review\n\nFiles in this folder belong to the product described in the request.\n');
+  mkdirSync(join(dir, '.benchmark'), { recursive: true });
+  cpSync(join(ROOT, 'scripts', 'eval-render.mjs'), join(dir, '.benchmark', 'render.mjs'));
   if (condition === 'with') {
     mkdirSync(join(dir, '.claude', 'skills'), { recursive: true });
     cpSync(join(ROOT, 'skills'), join(dir, '.claude', 'skills'), { recursive: true });
@@ -139,6 +141,7 @@ async function runOne(entry, scenario, condition, opts, outDir, sample = 1) {
   const record = { scenarioId, sourceScenarioId: id, sample, condition, mode, anchor: entry.anchor ?? null, project };
   const beforeFiles = snapshotProject(project);
   record.beforeFiles = Object.keys(beforeFiles).length;
+  record.renderHelperHash = createHash('sha256').update(readFileSync(join(project, '.benchmark', 'render.mjs'))).digest('hex');
   const env = { ...process.env, PLAYWRIGHT_MODULE: join(ROOT, 'node_modules', 'playwright-core', 'index.mjs') };
   const args = agentArgs(scenario.prompt, runOpts);
   if (opts.dryRun) {
@@ -156,6 +159,13 @@ async function runOne(entry, scenario, condition, opts, outDir, sample = 1) {
   record.afterFiles = Object.keys(afterFiles).length;
   record.changedFiles = [...new Set([...Object.keys(beforeFiles), ...Object.keys(afterFiles)])]
     .filter((file) => beforeFiles[file] !== afterFiles[file]);
+  record.renderEvidence = validateRenderEvidence(project, record.transcript, record.renderHelperHash);
+  record.transcript.renderedEvidenceGathered = record.renderEvidence.passed;
+  record.transcript.completionCriteriaSatisfied.beforeAfter = record.renderEvidence.passed;
+  if (!record.renderEvidence.passed) record.transcript.timeline = record.transcript.timeline.filter((event) => !event.startsWith('render-'));
+  record.transcript.imageFilesRead = record.transcript.imageFilesRead.map((file) => basename(file));
+  record.transcript.imageReadEvents = record.transcript.imageReadEvents.map((item) => ({ ...item, path: basename(item.path) }));
+  record.transcript.renderAttempts = record.transcript.renderAttempts.map(({ phase, eventIndex, screenshots }) => ({ phase, eventIndex, screenshotCount: screenshots.length }));
   if (res.code !== 0 || record.transcript.error || !record.transcript.answer) {
     record.error = record.transcript.error ?? (res.stderr.trim().split('\n').pop() || `exit ${res.code}`);
   }
@@ -184,6 +194,7 @@ async function runOne(entry, scenario, condition, opts, outDir, sample = 1) {
   if (!opts.keep) rmSync(project, { recursive: true, force: true });
   delete record.transcript.answer;
   delete record.project; // machine-specific temp path; not part of the public record
+  delete record.renderHelperHash;
   return record;
 }
 

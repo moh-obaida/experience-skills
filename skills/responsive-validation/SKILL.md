@@ -4,7 +4,7 @@ description: "Use this skill whenever a user-facing workflow must survive a chan
 license: MIT
 compatibility: "The layout-report script needs Node.js 18+ and Playwright (or playwright-core with an installed Chrome). The checklist works without it."
 metadata:
-  version: "0.6.1"
+  version: "0.7.0"
   collection: experience-skills
 ---
 
@@ -117,7 +117,10 @@ If a meaningful layout change can run, MUST load `references/validation-matrix.m
 4. **Report** with `references/reporting.md`: matrix summary, ranked defects with codes from
    `references/_shared/visual-problems.md`, evidence levels, untested conditions.
 5. **Repair and re-run** the same matrix (composition-repair for layout, interaction-design for
-   targets and reach).
+   targets and reach). When a narrow layout technically works but still behaves like compressed
+   desktop, inspect the task sequence and working-surface priority; route to recompose or adapt the
+   workflow instead of treating “no overflow” as a sufficient result. Pure verification stays a
+   report, not a redesign.
 
 ## Execution rules
 

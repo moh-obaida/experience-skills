@@ -3,7 +3,7 @@ name: workflow-compression
 description: "Use this skill whenever the user asks to make a flow faster, simpler, shorter, or 'one tap'; when a wizard, checkout, onboarding, setup, transfer, form, or CLI prompt sequence takes too many steps, screens, questions, confirmations, or waits; or when users re-enter information the software already knows. Maps the workflow step by step, classifies friction (redundant input, unnecessary choice, repeated configuration, navigation tax, confirmation tax, serial work, memory failure, waiting tax, dead ends, expert tax, interruptions, hidden status), and removes work the software could do while preserving safety and meaningful human judgment. Always counts steps before and after."
 license: MIT
 metadata:
-  version: "0.6.1"
+  version: "0.7.0"
   collection: experience-skills
 ---
 
@@ -114,7 +114,9 @@ If a flow changes, MUST load `references/workflow-mapping.md`, `references/known
    | F8 waiting tax (including background architecture), F9 dead end | `references/waiting-and-endings.md` |
    | F10 expert tax | `references/expert-shortcuts.md` |
 5. **Mark preserved steps** (checkpoint 5).
-6. **Redesign** with the smallest set of changes that removes the most frequency-weighted friction.
+6. **Redesign** to remove the most frequency-weighted friction with the strongest justified
+   change. Keep a local cause local; change a shared task model when that model creates recurring
+   friction. Preserve consequence, safety, and useful learning rather than minimizing clicks alone.
    In REPAIR/BUILD mode, implement and walk the flow again. Anchor examples:
    `references/_shared/inline-rename.md`, `references/_shared/cli-project-init.md`.
 7. **Recount and report** in the format of `references/_shared/workflow-rubric.md`:

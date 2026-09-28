@@ -3,8 +3,9 @@
 # Experience Operating Contract
 
 This contract makes the collection active during product work. It is deliberately short enough
-to load in every installed specialist. Apply the smallest branch that fits; do not activate every
-specialist for a text-only or backend-only change.
+to load in every installed specialist. Apply the smallest reasoning and routing branch that fits;
+that does not mean choosing the smallest product change. Do not activate every specialist for a
+text-only or backend-only change.
 
 ## Significance gate
 
@@ -16,6 +17,19 @@ redesign, improve, modernize, make memorable, make easier, or finish a surface.
 Do not run the full contract for copy-only, token-renaming, test-only, or isolated implementation
 changes unless the user asks for experience review. A narrow task may still load one specialist.
 
+## Protection and creation
+
+First follow the requested job: REVIEW and VERIFY protect product truth and report material risk;
+BUILD and quality-focused REPAIR also look for justified improvement. For creation work, separate
+locked requirements and proven strengths from open design decisions. Assess the current quality in
+those open areas: when an observed weakness or a clear, product-grounded upside exists, choose the
+strongest justified improvement. Solve local causes locally and systemic causes systemically. A
+working, acceptable interface is not automatically high quality; a strong interface is not a blank
+canvas. No change is valid after that assessment when no material weakness or high-value, credible
+improvement remains, or further change would be speculative or harmful. Do not turn this distinction
+into a mode or a requirement to redesign. “Smallest useful” governs context and routing, not the
+ambition needed to solve the diagnosed problem.
+
 ## Conditional depth rules
 
 Use the first matching rule, then add only rules made relevant by the work:
@@ -23,6 +37,7 @@ Use the first matching rule, then add only rules made relevant by the work:
 | Condition | Required action before recommendation or edit |
 |---|---|
 | Meaningful experience work | Establish the smallest useful journey context before shaping the surface: user/job, start, critical action, success, immediate result or next step, likely consequential failure and recovery, continuation, and state that must persist. For a local change, this can stay in reasoning; do not create a journey document by default. Derive only the invariants that affect the decision from explicit source truth, observed behavior, product mechanics, and user goals. Keep inferred assumptions distinct from locked requirements. |
+| A creation request or quality-focused repair | After separating locked and open decisions, ask what material product-specific quality is currently missing. If a meaningful weakness is systemic, address its shared cause; do not stop at cosmetic changes. Preserve high-quality areas. A no-change decision follows an actual assessment and remains valid when no credible upside justifies intervention. |
 | Visual direction, brand, personality, or “modern/fun” changes | Name the product mechanics, core instrument, and invariants; read `selection.md` or `design-system-selector.md` when comparison could change the choice. Compare structurally different directions only when uncertain. |
 | Page structure, hierarchy, whitespace, or composition changes | Read `compositions-index.md`; name one candidate and read its family. If whitespace is defended, read `whitespace-and-dead-space.md` or record equivalent measured evidence. |
 | A standard control becomes custom, animated, or novel | Read `familiar-controls.md` or the interaction-cost reference; state the user gain and test paste, keyboard, focus, touch, and assistive technology paths. |
@@ -77,10 +92,12 @@ open risks:
 verification:
 ```
 
-Specialized fields are additive only when they resolve the handoff question: a workflow may add
-`job / journey slice`, `before`, `after`, `known context`, and `why friction stays`; a direction may
-add `selected direction`, `identity carriers`, `environment`, `controls`, and `avoid`; a state
-review may add `state owners`, `transitions`, `cross-surface truth`, `authority`, and `recovery`.
+Specialized fields are additive only when they resolve the handoff question: a creative change may
+add `locked / open`, `quality gap or upside`, `strengths to preserve`, and `decision question`; a
+workflow may add `job / journey slice`, `before`, `after`, `known context`, and `why friction stays`;
+a direction may add `selected direction`, `identity carriers`, `environment`, `controls`, and
+`avoid`; a state review may add `state owners`, `transitions`, `cross-surface truth`, `authority`,
+and `recovery`.
 Include locked requirements, open decisions, and a relevant source slice when they bound the next
 decision. Do not duplicate the whole product model or make every handoff fill every field.
 Only hand off when an unresolved observation has a consequence and the next specialist can help.

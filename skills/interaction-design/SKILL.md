@@ -3,7 +3,7 @@ name: interaction-design
 description: "Use this skill whenever controls, inputs, forms, pickers, buttons, confirmations, or keyboard and touch behavior are designed or reviewed: especially when someone proposes a custom, animated, or 'more fun' version of a standard control (segmented code boxes, bespoke dropdowns, bouncing digits), when actions are confusing, slow, error-prone, or inaccessible, when actions restate context the system already knows, or when building forms and live-control surfaces. Covers affordance, action hierarchy, primary/secondary/destructive actions, inline edit, direct manipulation, confirmation versus undo, disabled states, feedback, and power-user paths. Default stance: do not reinvent familiar interactions without user value."
 license: MIT
 metadata:
-  version: "0.6.1"
+  version: "0.7.0"
   collection: experience-skills
 ---
 
@@ -98,7 +98,8 @@ If a control is custom, animated, or replaces a native control, MUST load `refer
 9. **For search, pickers, multi-select, bulk actions, and command palettes:** size the solution to scale and frequency using `references/search-selection-and-bulk.md`. A palette for a dozen actions is overengineering.
 10. **When a browser is available, run `scripts/check-controls.mjs`** on the surface: unnamed controls, placeholder-only labels, missing alt, positive tabindex, small targets, contrast, and invisible focus are defects to fix or list.
 
-9. **Repeated loop:** write the type → act → inspect → recover → continue equivalent for this product. Repeat its core control several times with a mistake between successes. Protect fresh input, predictable keyboard behavior, focus recovery, valid actions independent of irrelevant UI state, and immediate continuation after feedback. A secondary panel must not silently disable the instrument.
+11. **Repeated loop:** write the type → act → inspect → recover → continue equivalent for this product. Repeat its core control several times with a mistake between successes. Protect fresh input, predictable keyboard behavior, focus recovery, valid actions independent of irrelevant UI state, and immediate continuation after feedback. A secondary panel must not silently disable the instrument.
+12. **Interaction quality:** even familiar, individually clear controls can form a weak task loop. When the user asks for improvement or observed repetition/context switching makes the job materially harder, redesign the sequence or placement around the task (for example, colocated context or direct manipulation), then recount and exercise the loop. Preserve required judgment and consequence.
 
 ## Workflow
 
@@ -116,7 +117,9 @@ If a control is custom, animated, or replaces a native control, MUST load `refer
    | Feedback timing, disabled states, error messages, modes | `references/feedback-and-errors.md` |
 
 4. **Redesign** in this order: remove the control if the system can decide → make it standard →
-   scope it to context → put it where the value is → add power paths for frequent users.
+   scope it to context → put it where the value is → add power paths for frequent users. If the
+   task model itself causes unnecessary back-and-forth, change the model instead of polishing
+   controls in place.
 5. **Verify** (checkpoint 8).
 
 ## Execution rules

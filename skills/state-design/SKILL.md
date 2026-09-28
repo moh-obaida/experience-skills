@@ -3,7 +3,7 @@ name: state-design
 description: "Use this skill whenever a product has important state changes, progression, reset, completion, loading, saving, syncing, errors, or a primary journey that breaks between tasks. Model state ownership and transitions, including initialization, preserved and reset data, feedback, focus, recovery, and completion to continuation. Separate machine or simulation state from progress, UI, account, session, and remote state; verify the repeated path rather than listing states alone."
 license: MIT
 metadata:
-  version: "0.6.1"
+  version: "0.7.0"
   collection: experience-skills
 ---
 
@@ -86,8 +86,10 @@ If asynchronous, empty, failure, or collaborative state is in scope, MUST load `
 6. **For every operation over ~10 seconds:** can the user leave and return? If the architecture
    allows → background job (`references/loading-and-long-work.md`; anchor
    `references/_shared/long-running-generation.md`). If not → say honestly that the page must stay open.
-7. **For live or multi-step surfaces:** is the current state the most prominent thing on screen?
-   No → add a state header (`references/_shared/state-header.md`).
+7. **For live or multi-step surfaces:** is the current state the most prominent thing on screen,
+   and does feedback make the result and next step clear? No → improve state communication (a
+   state header is one option: `references/_shared/state-header.md`). Correct underlying state with
+   weak feedback still needs design work; do not invent or alter domain truth.
 8. **Before finishing:** trigger the states (offline, throttled, 500, timeout, empty and large
    fixtures, reload mid-job, double click). Record which were verified at which level.
 9. **Include lifecycle and collaboration states** from the taxonomy (untouched, degraded, restored, synchronized, locally pending, collaborative, disconnected integration) when the product has sync, sharing, or integrations.
@@ -109,8 +111,9 @@ If asynchronous, empty, failure, or collaborative state is in scope, MUST load `
    | Sockets, presence, reconnection, games, collaboration | `references/realtime-and-reconnection.md` |
    | Forms, uploads, payments, AI generation, games, search, auth, sync | `references/domain-states.md` |
 
-5. **Design or repair** each row: the smallest honest UI (state header, inline status, specific
-   message, clear action). For unresolved consequential empty states, hand off to empty-state-design when its method would change the decision.
+5. **Design or repair** each row: the clearest useful honest communication for its consequence
+   (state header, inline status, specific message, recovery, or continuation). For unresolved
+   consequential empty states, hand off to empty-state-design when its method would change the decision.
 6. **Verify** (checkpoint 8).
 
 ## Execution rules

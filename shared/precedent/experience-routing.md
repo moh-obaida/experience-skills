@@ -64,3 +64,10 @@ Use the smallest graph whose nodes own distinct decisions. A precedent can justi
 when the target product shares its task, audience, frequency, and state conditions. After each node,
 pass a compact artifact: what was decided, what evidence supports it, what remains risky, and what
 the next node must not re-diagnose.
+
+Routing can start from a confirmed problem or, during BUILD and quality-focused REPAIR, a concrete
+high-value improvement opportunity. Examples include a functioning but generic visual system while
+direction is open, a valid workflow with unnecessary context switching, or a correct mobile layout
+whose workflow is still compressed desktop. Route only when evidence makes the upside plausible and
+the specialist can materially shape it. A strong, resolved area is evidence against routing; REVIEW
+and VERIFY remain protective and do not expand into speculative creation.

@@ -4,7 +4,7 @@ description: "Use this skill whenever an existing rendered product looks AI-gene
 license: MIT
 compatibility: "Browser rendering strongly recommended. The optional identity extractor needs Node.js 18+ and reads local source only."
 metadata:
-  version: "0.6.1"
+  version: "0.7.0"
   collection: experience-skills
 ---
 
@@ -101,19 +101,26 @@ another structure, load `references/_shared/compositions-index.md` and
 4. **Before replacing:** does the replacement answer "what would THIS product do instead?" using
    carriers from the ledger or the niche's realities? If it answers "what does this repository usually
    prefer?" → choose again.
-5. **For every S0/S1 finding:** is the source traced (file, selector or component, token or class)?
+5. **After the sweep:** have repeated treatments been grouped by shared cause and by the route jobs
+   they affect? Repetition alone is not proof of intent or slop. Judge whether the same treatment
+   earns its place on each route; raise the severity when its cumulative effect makes the product
+   generic, even if each instance looks locally mild.
+6. **For every S0/S1 finding:** is the source traced (file, selector or component, token or class)?
    No → trace it, or hand the trace to interface-forensics; never patch a symptom at a leaf when a
-   token or shared component produced it.
-6. **After each repair group:** rerendered at the same sizes and states, compared before/after, and
+   token, shared component, or layout convention produced it.
+7. **After each repair group:** rerendered at the same sizes and states, compared before/after, and
    checked for new slop introduced by the repair (a replacement can itself be generic)? No → do it
    before the next group.
-7. **Before finishing:** passes both originality tests: (a) without logo and name, could this belong
-   to twenty unrelated generated sites? (b) is it distinctive only because it is weird? Either yes →
-   continue.
-8. **Before presenting:** every S0/S1 is fixed, justified, or explicitly open with a reason; the
-   report uses the evidence format and names what was protected.
-
-9. **Symmetric slop check:** inspect both excessive styling and underdesigned restraint. Warm cream, serif display, muted earth accents, hairlines, small uppercase labels, and quiet whitespace can form an Experience Skills house style when they have no product reason. Check the three-second task test, instrument prominence, active-state energy, and whether a live product has become a text document. Preserve justified density, color, play, and interaction character.
+8. **Before finishing:** passes both originality tests: (a) without logo and name, could this belong
+  to twenty unrelated generated sites? (b) is it distinctive only because it is weird? Either yes →
+  continue.
+9. **Before presenting:** every systemic S0/S1 is visibly resolved across the affected routes, or
+   explicitly open with a reason. A local polish pass does not close a finding whose shared pattern
+   still dominates the rendered product. If the baseline is already strong, or the systemic cause
+   is no longer visible, a small change is enough; do not manufacture a larger redesign. Report every
+   S0/S1 as fixed, justified, or open with a reason, using the evidence format and naming what was
+   protected.
+10. **Symmetric slop check:** inspect both excessive styling and underdesigned restraint. Warm cream, serif display, muted earth accents, hairlines, small uppercase labels, and quiet whitespace can form an Experience Skills house style when they have no product reason. Check the three-second task test, instrument prominence, active-state energy, and whether a live product has become a text document. Preserve justified density, color, play, and interaction character.
 
 ## Workflow
 
@@ -123,16 +130,22 @@ another structure, load `references/_shared/compositions-index.md` and
    for a token census, library-default matches, and slop class stacks (prompts, not verdicts).
 3. **Protect** the intentional character: list what stays and why.
 4. **Scan every surface:** shell, hero, sections, cards, forms, dashboards, empty/error states,
-   footer, motion on load/scroll/hover. Use `references/_shared/design-cliches.md` as a checklist,
-   not a verdict.
+   footer, motion on load/scroll/hover. Group repeated patterns by their shared source and affected
+   route jobs; note when distinct jobs inherit the same composition without a product reason. Use
+   `references/_shared/design-cliches.md` as a checklist, not a verdict.
 5. **Classify** each finding with the taxonomy files and severity S0–S3.
 6. **Trace** each S0/S1 to its implementation (token, global CSS, shared component, utility
    classes, copy source). Hand exact cascade work to interface-forensics when it is non-trivial.
 7. **Propose replacements** that fit the ledger and niche (`references/repair-loop.md` replacement
    matrix); for structural replacements compare materially different alternatives only when the choice is open.
 8. **Repair** S0 → S1 → S2 in coherent groups at the source (tokens and shared components first).
+   Match repair scope to cause: local cause, local fix; shared token, component, or layout cause,
+   repair that system across affected routes. Change page composition when the common structure is
+   the problem, preserving route mechanics, content, and the identity ledger's protected carriers.
 9. **Rerender** the same routes, sizes, and states.
-10. **Compare** before/after side by side; revert changes that weaken identity or usability.
+10. **Compare** before/after side by side; confirm the diagnosed systemic pattern has materially
+    receded across affected routes. Revisit its source if it still governs hierarchy, composition,
+    or product specificity. Revert changes that weaken identity or usability.
 11. **Check for new slop** introduced by the repair.
 12. **Verify** with the originality tests, contrast, responsive checks, and the report.
 

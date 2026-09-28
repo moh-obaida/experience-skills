@@ -4,8 +4,11 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { ROOT } from '../../scripts/lib/repo.mjs';
-import { parseScenario, parseTranscript, shellSkillReads, fullPassSignals, answerSignals, parseJudge, routingScore, renderReport, judgePrompt } from '../../scripts/lib/agent-eval.mjs';
+import { parseScenario, parseTranscript, validateRenderEvidence, shellSkillReads, fullPassSignals, answerSignals, parseJudge, routingScore, renderReport, judgePrompt } from '../../scripts/lib/agent-eval.mjs';
 
 test('every scenario parses with a prompt, expected skills, principles, and unacceptable items', () => {
   const fixtures = JSON.parse(readFileSync(join(ROOT, 'tests', 'evals', 'routing.json'), 'utf8'));
@@ -16,6 +19,14 @@ test('every scenario parses with a prompt, expected skills, principles, and unac
     assert.deepEqual([...specialists].sort(), [...entry.expected].sort(), `${entry.file} expected skills match routing.json`);
     assert.ok(s.principles.length >= 3, `${entry.file} principles`);
     assert.ok(s.unacceptable.length >= 2, `${entry.file} unacceptable`);
+    for (const reference of entry.requiredReferences ?? []) {
+      const [skill, ...segments] = reference.split('/');
+      const localPath = join(ROOT, 'skills', skill, ...segments);
+      const skillPath = join(ROOT, 'skills', skill, 'SKILL.md');
+      assert.ok(entry.expected.includes(skill), `${reference} belongs to a selected skill in ${entry.file}`);
+      assert.ok(readFileSync(localPath, 'utf8').length > 0, `${reference} exists`);
+      assert.ok(readFileSync(skillPath, 'utf8').includes(segments.at(-1)), `${reference} is named by its skill`);
+    }
   }
 });
 
@@ -23,8 +34,10 @@ test('parseTranscript finds skills, references, scripts, and the answer', () => 
   const lines = [
     { type: 'system', subtype: 'init' },
     { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Skill', input: { skill: 'experience-architect' } }] } },
-    { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Read', input: { file_path: '/tmp/p/.claude/skills/composition-repair/SKILL.md' } }] } },
-    { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Read', input: { file_path: '/tmp/p/.claude/skills/composition-repair/references/_shared/join-code-page.md' } }] } },
+    { type: 'assistant', message: { content: [{ type: 'tool_use', id: 'skill-read', name: 'Read', input: { file_path: '/tmp/p/.claude/skills/composition-repair/SKILL.md' } }] } },
+    { type: 'user', message: { content: [{ type: 'tool_result', tool_use_id: 'skill-read', content: 'Composition Repair skill instructions.', is_error: false }] } },
+    { type: 'assistant', message: { content: [{ type: 'tool_use', id: 'reference-read', name: 'Read', input: { file_path: '/tmp/p/.claude/skills/composition-repair/references/_shared/join-code-page.md' } }] } },
+    { type: 'user', message: { content: [{ type: 'tool_result', tool_use_id: 'reference-read', content: 'Reference module.', is_error: false }] } },
     { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Bash', input: { command: 'node .claude/skills/composition-repair/scripts/measure-layout.mjs join.html; node .claude/skills/responsive-validation/scripts/stress-content.mjs join.html' } }] } },
     { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Edit', input: { file_path: '/tmp/p/join.html' } }] } },
     { type: 'result', result: 'Verdict: worse than current.', total_cost_usd: 0.42, num_turns: 7, is_error: false },
@@ -37,7 +50,7 @@ test('parseTranscript finds skills, references, scripts, and the answer', () => 
   assert.deepEqual(t.precedentModulesLoaded, []);
   assert.deepEqual(t.scriptsRun, ['composition-repair/scripts/measure-layout.mjs', 'responsive-validation/scripts/stress-content.mjs']);
   assert.equal(t.specialistsTriggered.includes('composition-repair'), true);
-  assert.equal(t.renderedEvidenceGathered, true);
+  assert.equal(t.renderedEvidenceGathered, false, 'a measurement script command is not proof of before/after rendered review');
   assert.deepEqual(t.editToolsUsed, ['Edit']);
   assert.equal(t.completionCriteriaSatisfied.handoffArtifact, false);
   assert.equal(t.costUsd, 0.42);
@@ -70,6 +83,9 @@ test('routing score and report render', () => {
   const md = renderReport([{ ...base, scenarioId: 'x', condition: 'with' }, { ...base, scenarioId: 'x', condition: 'without' }], { date: '2026-01-01', agent: 'a', judge: 'j' });
   assert.match(md, /\| x \| 3\/4 → 3\/4 \|/);
   assert.match(md, /with skills \| 1 \| 3\/4/);
+  assert.ok(md.indexOf('## Outcome quality') < md.indexOf('## Process compliance'));
+  assert.match(md, /## Process compliance[\s\S]*Required refs/);
+  assert.doesNotMatch(md.slice(md.indexOf('## Outcome quality'), md.indexOf('## Process compliance')), /reference|render|skill routing/i);
 });
 
 test('judge prompt is condition-blind', () => {
@@ -103,6 +119,7 @@ test('full pass signals reward selective build and journey verification', () => 
     event({ type: 'agent_message', text: 'Build Mode. The form is the core instrument. The primary journey was repeated with a mistake and recovery. The page was rendered after implementation.' }),
   ];
   const parsed = parseTranscript(lines.join('\n'));
+  parsed.timeline = ['skill:use-all-skills', 'render-before', 'implementation', 'render-after'];
   const signals = fullPassSignals(parsed, ['service.html']);
   assert.equal(signals.conductorLoaded, true);
   assert.equal(signals.activeSpecialists, 2);
@@ -133,4 +150,72 @@ test('a denied browser preview is not rendered evidence', () => {
   const parsed = parseTranscript(lines.map((line) => JSON.stringify(line)).join('\n'));
   assert.equal(parsed.renderedEvidenceGathered, false);
   assert.deepEqual(parsed.timeline.filter((item) => item === 'render'), []);
+});
+
+test('Claude shell reads count only after successful tool results', () => {
+  const reference = '.claude/skills/anti-ai-slop/references/repair-loop.md';
+  const lines = [
+    { type: 'assistant', message: { content: [{ type: 'tool_use', id: 'ok', name: 'Bash', input: { command: `cat ${reference}` } }] } },
+    { type: 'user', message: { content: [{ type: 'tool_result', tool_use_id: 'ok', content: '1\t# Repair Loop', is_error: false }] } },
+    { type: 'assistant', message: { content: [{ type: 'tool_use', id: 'denied', name: 'Bash', input: { command: `cat ${reference}` } }] } },
+    { type: 'user', message: { content: [{ type: 'tool_result', tool_use_id: 'denied', content: 'This command requires approval', is_error: true }] } },
+  ];
+  const parsed = parseTranscript(lines.map((line) => JSON.stringify(line)).join('\n'));
+  assert.deepEqual(parsed.referencesRead, ['anti-ai-slop/references/repair-loop.md']);
+});
+
+test('render evidence requires valid before and after PNGs, inspection, ordering, and comparison', () => {
+  const project = mkdtempSync(join(tmpdir(), 'xs-render-evidence-'));
+  try {
+    const screenshot = (phase) => {
+      const path = `.benchmark/renders/${phase}/home-desktop.png`;
+      const target = join(project, path);
+      mkdirSync(join(target, '..'), { recursive: true });
+      const bytes = Buffer.alloc(128);
+      Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]).copy(bytes, 0);
+      bytes.writeUInt32BE(1440, 16); bytes.writeUInt32BE(900, 20);
+      writeFileSync(target, bytes);
+      return { view: 'home', viewport: 'desktop', width: 1440, height: 900, path, bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') };
+    };
+    const beforeShot = screenshot('before'); const afterShot = screenshot('after');
+    const writeManifest = (phase, shot) => {
+      const manifest = `.benchmark/renders/${phase}/manifest.json`;
+      writeFileSync(join(project, manifest), JSON.stringify({ phase, screenshots: [shot] }));
+      return manifest;
+    };
+    const beforeManifest = writeManifest('before', beforeShot); const afterManifest = writeManifest('after', afterShot);
+    const transcript = {
+      answer: '## Before/after comparison\nCompared the baseline before render with the edited after render at the same route and viewport; the layout improved.',
+      renderAttempts: [
+        { phase: 'before', eventIndex: 1, manifest: beforeManifest, screenshots: [beforeShot] },
+        { phase: 'after', eventIndex: 4, manifest: afterManifest, screenshots: [afterShot] },
+      ],
+      imageFilesRead: [beforeShot.path, afterShot.path],
+      imageReadEvents: [{ path: beforeShot.path, eventIndex: 2 }, { path: afterShot.path, eventIndex: 5 }],
+      implementationEventIndices: [3],
+      timeline: ['render-before', 'image-read', 'implementation', 'render-after', 'image-read'],
+    };
+    assert.deepEqual(validateRenderEvidence(project, transcript), {
+      passed: true, helperIntact: true, explicitComparison: true, beforeRender: true, afterRender: true,
+      pairedScreenshots: 1, inspectedPairs: 1, beforeScreenshots: 1, afterScreenshots: 1,
+    });
+    writeFileSync(join(project, beforeShot.path), 'not a PNG');
+    assert.equal(validateRenderEvidence(project, transcript).passed, false, 'a missing or invalid before screenshot fails the evidence check');
+  } finally {
+    rmSync(project, { recursive: true, force: true });
+  }
+});
+
+test('render commands count only when a successful manifest is returned', () => {
+  const marker = JSON.stringify({ type: 'experience-skills-render', phase: 'before', manifest: '.benchmark/renders/before/manifest.json', screenshots: [{ path: '.benchmark/renders/before/home-desktop.png' }] });
+  const lines = [
+    { type: 'assistant', message: { content: [{ type: 'tool_use', id: 'blocked', name: 'Bash', input: { command: 'node .benchmark/render.mjs before page.html --views home' } }] } },
+    { type: 'user', message: { content: [{ type: 'tool_result', tool_use_id: 'blocked', is_error: true, content: 'This command requires approval' }] } },
+    { type: 'assistant', message: { content: [{ type: 'tool_use', id: 'complete', name: 'Bash', input: { command: 'node .benchmark/render.mjs before page.html --views home' } }] } },
+    { type: 'user', message: { content: [{ type: 'tool_result', tool_use_id: 'complete', is_error: false, content: marker }] } },
+  ];
+  const parsed = parseTranscript(lines.map((line) => JSON.stringify(line)).join('\n'));
+  assert.equal(parsed.renderAttempts.length, 1);
+  assert.equal(parsed.renderAttempts[0].phase, 'before');
+  assert.equal(parsed.renderedEvidenceGathered, false, 'one render is not a before/after comparison');
 });

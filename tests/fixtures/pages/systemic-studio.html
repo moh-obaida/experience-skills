@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Northside Clay — classes and studio</title>
+<!-- Invented evaluation fixture. The booking flow and warm kiln palette work; the shared page template is generic. -->
+<style>
+:root{--ink:#302720;--clay:#a94f32;--sand:#f4eee4;--line:#d9cbbb;--radius:20px}
+*{box-sizing:border-box}body{margin:0;background:#fffdf9;color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;border-bottom:1px solid var(--line)}
+.mark{font:700 21px Georgia,serif;color:var(--clay)}nav{display:flex;gap:20px}a{color:inherit}nav a{font-size:14px;text-decoration:none}
+main{max-width:1120px;margin:auto;padding:28px 5vw 80px}.view{min-height:700px;padding:32px 0 64px;border-bottom:2px dashed var(--line);scroll-margin:16px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#746356}h1{font:600 clamp(34px,5vw,60px)/1.05 Georgia,serif;margin:12px 0;max-width:760px}
+.intro{max-width:620px;color:#665b51}.actions{display:flex;gap:12px;margin:22px 0}.button{display:inline-block;background:var(--clay);color:white;padding:11px 17px;border-radius:8px;text-decoration:none}.quiet{padding:11px 17px}
+.filters{display:flex;gap:10px;align-items:center;margin:24px 0}.filters input,.filters select{font:inherit;padding:10px;border:1px solid var(--line);border-radius:6px;background:white}.card[hidden]{display:none!important}
+.rail{display:flex;gap:18px;overflow:auto;padding:8px 2px 22px}.card{flex:0 0 260px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:white;transition:all .28s ease;box-shadow:0 8px 24px #30272012}.card:hover{transform:translateY(-5px);box-shadow:0 16px 32px #30272026}
+.art{height:150px;background:radial-gradient(ellipse at 30% 70%,#c47b54 0 18%,transparent 19%),radial-gradient(ellipse at 65% 30%,#e2c39d 0 26%,transparent 27%),linear-gradient(135deg,#e8d9c5,#f7f2e8)}
+.card-body{padding:16px}.card h3{margin:0 0 6px;font:600 21px Georgia,serif}.meta{color:#74685d;font-size:14px}.card a{display:inline-block;margin-top:14px;color:var(--clay);font-weight:600}
+.panel{border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin:18px 0;background:var(--sand)}.split{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}.list{padding-left:20px}.list li{padding:8px 0}.detail-art{height:280px;border-radius:var(--radius);background:radial-gradient(ellipse at 45% 60%,#ae5738 0 22%,transparent 23%),radial-gradient(ellipse at 60% 38%,#e7cba7 0 31%,transparent 32%),linear-gradient(120deg,#f1e8d9,#d9c6ad)}
+@media(max-width:650px){header{align-items:flex-start;gap:12px;flex-direction:column}nav{flex-wrap:wrap}.split{grid-template-columns:1fr}.card{flex-basis:82vw}.filters{align-items:stretch;flex-direction:column}}
+</style></head><body>
+<header><a class="mark" href="#home">Northside Clay</a><nav><a href="#home">Home</a><a href="#sessions">Sessions</a><a href="#wheel">Wheel throwing</a></nav></header>
+<main>
+<section id="home" class="view"><p class="eyebrow">Leith · clay, wheels, and good company</p><h1>Make something that stays with you.</h1><p class="intro">Small classes in our former print works studio. Clay, glazes, and two firings are included.</p><div class="actions"><a class="button" href="#sessions">Find a session</a><a class="quiet" href="#wheel">How wheel throwing works</a></div><h2>Coming up this week</h2><div class="rail">
+<article class="card"><div class="art"></div><div class="card-body"><h3>Wheel throwing</h3><div class="meta">Tue 30 Sep · 6:00 pm · 2 places</div><a href="#wheel">View class · £48</a></div></article>
+<article class="card"><div class="art"></div><div class="card-body"><h3>Glazing day</h3><div class="meta">Thu 2 Oct · 10:00 am · 4 places</div><a href="#sessions">View session · £32</a></div></article>
+<article class="card"><div class="art"></div><div class="card-body"><h3>Hand building</h3><div class="meta">Sat 4 Oct · 11:00 am · 1 place</div><a href="#sessions">View session · £40</a></div></article>
+</div></section>
+<section id="sessions" class="view"><p class="eyebrow">The studio calendar</p><h1>Choose a time at the wheel.</h1><p class="intro">Sessions run Tuesday through Saturday; groups are kept to eight so everyone gets time with the clay.</p><div class="filters"><input aria-label="Search classes" placeholder="Search classes"><select aria-label="Choose a day"><option value="">All days</option><option>Tuesday</option><option>Saturday</option></select><span id="session-count" aria-live="polite">3 sessions · this week</span></div><h2>Tuesday 30 September</h2><div class="rail">
+<article class="card" data-day="Tuesday"><div class="art"></div><div class="card-body"><h3>Wheel throwing</h3><div class="meta">6:00–8:00 pm · 2 places · £48</div><a href="#wheel">See class details</a></div></article>
+<article class="card" data-day="Tuesday"><div class="art"></div><div class="card-body"><h3>Beginner hand building</h3><div class="meta">6:30–8:30 pm · 5 places · £40</div><a href="#wheel">See class details</a></div></article>
+</div><h2>Saturday 4 October</h2><div class="rail"><article class="card" data-day="Saturday"><div class="art"></div><div class="card-body"><h3>Hand building</h3><div class="meta">11:00 am · 1 place · £40</div><a href="#wheel">See class details</a></div></article></div><div class="panel"><strong>Need another date?</strong> Check back each Monday when the following week's sessions open.</div></section>
+<section id="wheel" class="view"><p class="eyebrow">Small group · two hours · all materials included</p><h1>Wheel throwing, from first centering to first firing.</h1><div class="split"><div><div class="detail-art" role="img" aria-label="Abstract placeholder illustration"></div><p class="intro">Get to know the wheel, pull a small bowl, then leave it with us for trimming and two firings.</p><h2>You'll make</h2><ul class="list"><li>A bowl or cup to take through the firing process</li><li>Your choice of glaze at the next studio visit</li><li>Room to try again; no experience needed</li></ul></div><aside class="panel"><h2>Next session</h2><p>Tuesday 30 September<br>6:00–8:00 pm</p><p>2 of 8 places left · £48</p><a class="button" href="#wheel">Reserve a place</a><p class="meta">Clay, glazes, and two firings included.</p></aside></div></section>
+</main>
+<script>
+const classSearch=document.querySelector('[aria-label="Search classes"]');
+const classDay=document.querySelector('[aria-label="Choose a day"]');
+const sessionCards=[...document.querySelectorAll('#sessions .card')];
+const sessionCount=document.querySelector('#session-count');
+function filterClasses(){const term=classSearch.value.trim().toLowerCase();const day=classDay.value;let shown=0;for(const card of sessionCards){const matches=card.textContent.toLowerCase().includes(term)&&(!day||card.dataset.day===day);card.hidden=!matches;if(matches)shown++;}sessionCount.textContent=`${shown} of ${sessionCards.length} sessions · this week`;}
+classSearch.addEventListener('input',filterClasses);classDay.addEventListener('change',filterClasses);
+</script></body></html>
