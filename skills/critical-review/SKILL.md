@@ -3,7 +3,7 @@ name: critical-review
 description: "Use this skill whenever the user asks for judgment on a product, proposal, redesign, or finished interface, or when an agent is about to endorse its own work. Compare observed behavior with the intended job and current product, rank blocker and major issues ahead of cosmetic preferences, inspect recovery and primary-journey continuity, and synthesize the few most important remaining problems. A justified no-change verdict is valid."
 license: MIT
 metadata:
-  version: "0.7.0"
+  version: "0.7.1"
   collection: experience-skills
 ---
 

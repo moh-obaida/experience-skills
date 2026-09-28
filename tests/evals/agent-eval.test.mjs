@@ -56,6 +56,55 @@ test('parseTranscript finds skills, references, scripts, and the answer', () => 
   assert.equal(t.costUsd, 0.42);
 });
 
+test('execution trace is retained for compliance and stripped before user-facing judging', () => {
+  const reference = 'composition-repair/references/_shared/compositions-index.md';
+  const trace = {
+    skills: [{
+      skill: 'composition-repair',
+      activatedBecause: 'Observed that the booking action is buried below supporting content.',
+      requiredReferences: [reference],
+      loadedReferences: [reference],
+      handoff: { status: 'not-required', reason: 'The composition resolves the only material concern.' },
+      changed: ['studio.html: brought the booking action into the primary region'],
+      verification: 'Compared before and after screenshots at desktop and phone sizes; the intended hierarchy change is visible.',
+      stopReason: 'The target improvement is visible and no material regression remains.',
+    }],
+  };
+  const events = [
+    { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Skill', input: { skill: 'composition-repair' } }] } },
+    { type: 'assistant', message: { content: [{ type: 'tool_use', id: 'ref', name: 'Read', input: { file_path: `/tmp/p/.claude/skills/${reference}` } }] } },
+    { type: 'user', message: { content: [{ type: 'tool_result', tool_use_id: 'ref', content: 'Composition method.', is_error: false }] } },
+    { type: 'result', result: `Changed the booking layout.\n\n<!-- experience-skills-trace\n${JSON.stringify(trace)}\n-->`, is_error: false },
+  ];
+  const parsed = parseTranscript(events.map((event) => JSON.stringify(event)).join('\n'));
+  assert.equal(parsed.executionTrace.complete, true);
+  assert.equal(parsed.executionTrace.entries.length, 1);
+  assert.equal(parsed.completionCriteriaSatisfied.executionTrace, true);
+  assert.equal(parsed.completionCriteriaSatisfied.handoffArtifact, true);
+  assert.equal(parsed.answer, 'Changed the booking layout.');
+  assert.doesNotMatch(parsed.answer, /experience-skills-trace/);
+});
+
+test('execution trace rejects unobserved reference claims and incomplete handoffs', () => {
+  const trace = {
+    skills: [{
+      skill: 'composition-repair', activatedBecause: 'Observed hierarchy issue.',
+      requiredReferences: ['composition-repair/references/missing.md'], loadedReferences: [],
+      handoff: { status: 'sent', to: 'responsive-validation', artifact: { job: 'Keep the booking task usable.' } },
+      changed: ['no change'], verification: 'not verified: no browser', stopReason: 'resolved despite no browser',
+    }],
+  };
+  const events = [
+    { type: 'assistant', message: { content: [{ type: 'tool_use', name: 'Skill', input: { skill: 'composition-repair' } }] } },
+    { type: 'result', result: `Not verified.\n\n<!-- experience-skills-trace\n${JSON.stringify(trace)}\n-->`, is_error: false },
+  ];
+  const parsed = parseTranscript(events.map((event) => JSON.stringify(event)).join('\n'));
+  assert.equal(parsed.executionTrace.complete, false);
+  assert.ok(parsed.executionTrace.issues.some((issue) => issue.includes('required reference not loaded')));
+  assert.ok(parsed.executionTrace.issues.some((issue) => issue.includes('handoff missing lockedTruth')));
+  assert.ok(parsed.executionTrace.issues.some((issue) => issue.includes('unverified work has resolved stop reason')));
+});
+
 test('answerSignals detects praise openings, hype, evidence labels, and counts', () => {
   const praise = answerSignals('**Great idea!** The wizard will feel modern and clean.');
   assert.equal(praise.openingPraise, true);

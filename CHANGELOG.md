@@ -6,6 +6,20 @@ All notable changes to this project are documented here. The format follows
 
 ## Unreleased
 
+## [0.7.1] - 2026-09-28
+
+### Added
+- Conditional reference loading is now a completion gate, specialist routing checks coverage for
+  every confirmed material concern, and cross-skill escalation follows observed dependencies.
+- Specialist transfers now carry a compact contract for job, locked truth, open space, weakness or
+  upside, relevant source and references, expected output, verification, and stop condition.
+- Meaningful creation and repair work now has an executable rendered before/after gate, a visible
+  quality-delta stop condition, and a compact execution trace retained by evaluation tooling.
+
+### Fixed
+- Full-page render manifests now report the PNG's actual pixel dimensions, so valid captures can
+  pass rendered-evidence validation.
+
 ## [0.7.0] - 2026-09-28
 
 ### Added

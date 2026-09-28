@@ -96,18 +96,24 @@ OUTPUT** with the exact exception.
 
 ## Transfer artifact
 
-Every specialist handoff carries this minimum:
+When a concern remains for another specialist, create this artifact immediately before its
+activation and include it in the activation request where supported (otherwise keep it as the
+preceding task note). The receiver uses it as the starting point, loads its own required references,
+and does not repeat resolved diagnosis. Every field is required; use `none` or `not verified` where
+appropriate:
 
 ```text
-mode:
-surface / archetype:
-evidence:
-decision:
-changed or proposed:
-constraints preserved:
-open risks:
-verification:
+job:
+locked truth:
+open space:
+current weakness or grounded upside:
+relevant source and required references:
+decision so far:
+expected output:
+verification so far:
+stop condition:
 ```
 
-Add the domain fields from the sending skill. A missing field is an incomplete handoff, not an
-invitation for the next skill to silently guess.
+Keep it to the source slice and facts that can change the next decision. A missing field makes the
+handoff incomplete; do not ask the receiver to infer it from earlier conversation. If no unresolved
+material concern remains, record `no handoff required` with the reason and stop the graph.

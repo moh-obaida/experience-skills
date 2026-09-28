@@ -32,7 +32,12 @@ ambition needed to solve the diagnosed problem.
 
 ## Conditional depth rules
 
-Use the first matching rule, then add only rules made relevant by the work:
+Apply every matching rule, then add only rules made relevant by the work. A rule marked required is
+a gate: load its named reference before advice or edits. Invoking a skill does not load its references.
+Keep a short required-reference list for each active skill; check it against references actually read
+before proceeding. If a required reference is absent or unreadable, pause that branch and use only an
+explicit fallback in the skill, recording the gap. Do not silently substitute memory or a neighboring
+reference.
 
 | Condition | Required action before recommendation or edit |
 |---|---|
@@ -53,17 +58,26 @@ never silently replace evidence with taste.
 
 ## Render contract
 
-For meaningful BUILD or REPAIR work, use this loop when a runnable browser or app is available:
+For meaningful BUILD or REPAIR work with a runnable browser or app, this sequence is a completion
+gate, not advice:
 
 ```text
-INSPECT → RENDER CURRENT → MEASURE → CHANGE → RENDER CHANGED
-→ STRESS REAL STATES → COMPARE → CRITIQUE → KEEP / REVISE
+INSPECT → CAPTURE BEFORE → MEASURE → CHANGE → CAPTURE AFTER
+→ INSPECT BOTH → COMPARE THE SAME ROUTES / STATES / SIZES
+→ REPAIR AGAIN IF THE TARGET DELTA IS ABSENT → STOP
 ```
 
-Rendering may be skipped only when no browser is available, the project cannot run safely, the user
-explicitly requests source-only analysis, the task is purely conceptual, or the cost is wildly
-disproportionate. In those cases write **NOT VERIFIED IN RENDERED OUTPUT** and name the exact reason.
-Source inspection alone never earns “verified.”
+Capture the relevant current route and state before the first edit. After changes, use the same route,
+state, and viewport so the comparison is meaningful. Open and inspect the actual captures; a browser
+command, screenshot filename, or successful exit code alone is not evidence that the intended change
+worked. State what visibly changed and whether the intended quality delta appeared. If it did not,
+repair the cause and repeat the after capture and comparison before stopping.
+
+Skip rendering only when no browser is available, the project cannot run safely, the user explicitly
+requests source-only analysis, the task is purely conceptual, or the cost is wildly disproportionate.
+In that case stop the render branch and write **NOT VERIFIED IN RENDERED OUTPUT** with the exact
+reason and remaining check. Source inspection alone never earns “verified.” Do not claim the visual
+completion criterion passed when the render branch is unavailable.
 
 At minimum, repeatedly exercise the relevant primary journey: enter, understand, act, receive
 feedback, and continue. For material work, include a realistic mistake and recovery, completion,
@@ -79,31 +93,72 @@ full journey audit.
 
 ## Handoff artifact
 
-When another specialist follows, leave a compact artifact rather than making it re-diagnose:
+When another specialist follows, create this compact artifact immediately before activating it, then
+include it in the activation request when the mechanism accepts context (otherwise leave it as the
+immediately preceding task note). Do not expect the receiver to recover the prior reasoning. Every field is required;
+write `none` or `not verified` where appropriate rather than omitting it:
 
 ```text
-mode:
-surface / archetype:
-evidence:
-decision:
-changed or proposed:
-constraints preserved:
-open risks:
-verification:
+job:
+locked truth:
+open space:
+current weakness or grounded upside:
+relevant source and required references:
+decision so far:
+expected output from next specialist:
+verification so far:
+stop condition:
 ```
 
-Specialized fields are additive only when they resolve the handoff question: a creative change may
-add `locked / open`, `quality gap or upside`, `strengths to preserve`, and `decision question`; a
-workflow may add `job / journey slice`, `before`, `after`, `known context`, and `why friction stays`;
-a direction may add `selected direction`, `identity carriers`, `environment`, `controls`, and
-`avoid`; a state review may add `state owners`, `transitions`, `cross-surface truth`, `authority`,
-and `recovery`.
-Include locked requirements, open decisions, and a relevant source slice when they bound the next
-decision. Do not duplicate the whole product model or make every handoff fill every field.
-Only hand off when an unresolved observation has a consequence and the next specialist can help.
-Otherwise record “no handoff required.” Findings may be confirmed, strong, possible, optional,
-stylistic, or no material issue. Existing coherent product decisions win over generic framework
-advice absent a concrete failure or better product-specific alternative.
+Add domain detail only when it changes the next decision; do not copy the whole product model. Only
+hand off when an unresolved observation has a consequence and the next specialist can address it.
+Otherwise record `no handoff required` and why. The receiver continues from the artifact, loads its
+own required references, and returns the requested output or an explicit blocker.
+
+## Conditional skill chaining
+
+After the first specialist, re-check the observed concern graph. Activate a dependent skill only
+when its trigger is present; do not turn these edges into a fixed pipeline:
+
+| Observed result or change | Escalate when | Next skill |
+|---|---|---|
+| anti-ai-slop traces repeated styling to a shared hierarchy, density, or page-structure cause | Repair requires changing focal order, grouping, spatial authority, or route silhouette | composition-repair |
+| visual-identity finds the working screen generic because its structure buries the instrument or route job | The structural weakness is independently material and direction alone cannot resolve it | composition-repair |
+| interaction-design changes asynchronous feedback, persistence, recovery, or cross-surface state | The action changes state ownership, transitions, or what users see on return | state-design |
+| composition-repair changes responsive hierarchy or the working surface's mobile distribution | The core task, instrument, or supporting panel changes at narrow/short sizes | responsive-validation |
+
+The sender states the trigger and consequence in the handoff. The router checks that every confirmed,
+material concern has an owner; it may stop after one specialist only when no unresolved dependency
+or independent concern remains.
+
+## Completion and execution trace
+
+For creation or repair, stop only when the intended, product-grounded quality delta is visible in the
+verified result and no material regression remains, or when verification is explicitly unavailable
+and marked as such. A source edit alone is not a completion signal. Each active skill's required
+references, handoffs, requested outputs, render gate, and stop condition must be satisfied or marked
+blocked/unverified before completion.
+
+Keep a compact internal trace for meaningful work; do not create a product file just for the trace.
+Record one entry per skill with: `activated / observed trigger`, `required and loaded references`,
+`handoff sent or not required`, `changed surface or no change`, `verification and quality delta`, and
+`stop reason`. Preserve the structured trace in evaluation/debug records; show it to the user only
+when requested or when needed to explain an incomplete result. For a formal evaluation/debug run,
+append this machine-readable block at the end of the response; the harness stores it separately and
+removes it before judging the user-facing answer:
+
+Example (invented):
+
+```html
+<!-- experience-skills-trace
+{"skills":[{"skill":"composition-repair","activatedBecause":"Observed route hierarchy hides the primary instrument.","requiredReferences":["composition-repair/references/_shared/compositions-index.md"],"loadedReferences":["composition-repair/references/_shared/compositions-index.md"],"handoff":{"status":"not-required","reason":"No unresolved structure or responsive concern remains."},"changed":["studio.html: moved the booking action into the primary instrument"],"verification":"Before/after captures inspected at 1440x900 and 390x844; the action is now dominant at both sizes.","stopReason":"The target delta is visible and no material regression remains."}]}
+-->
+```
+
+Use one object per activated skill. `handoff.status` is `sent` with a complete transfer artifact, or
+`not-required` with a reason. Required and loaded references are separate lists; do not claim a load
+that did not occur. An unavailable verification names the exact blocker and sets the stop reason to
+`unverified` or `blocked`, not `resolved`.
 
 ## Evidence contract
 

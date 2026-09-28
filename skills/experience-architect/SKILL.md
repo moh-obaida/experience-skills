@@ -3,7 +3,7 @@ name: experience-architect
 description: "Use this skill whenever the user asks to build, fix, finish, review, redesign, or improve a user-facing product surface—page, screen, dashboard, form, flow, game, app, or CLI—or says it feels boring, generic, empty, confusing, slow, broken, cramped, modern, fun, or off. Use it for substantial product-facing work when the right specialist is unclear or several concerns interact. Diagnoses the observable problem, activates the smallest ordered specialist graph, loads only required depth, enforces rendered evidence when runnable, and ends with a quality gate."
 license: MIT
 metadata:
-  version: "0.7.0"
+  version: "0.7.1"
   collection: experience-skills
 ---
 
@@ -73,7 +73,9 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Mandatory conditional loading
 
-Load `references/diagnosis-and-routing.md`, `references/_shared/experience-routing.md`, and the shared operating contract before routing. When two or more problem classes are confirmed, use a named recipe only if its dependencies match the observed concerns. Hand off an unresolved issue with evidence and uncertainty; otherwise stop the graph. Report rendered verification status for meaningful work.
+Before routing, load `references/diagnosis-and-routing.md`, `references/_shared/experience-routing.md`, and the shared operating contract. For each activated skill, read every reference its `Mandatory conditional loading` section requires before advice or edits; invoking the skill alone does not load those files. If a required file is unavailable, stop that branch, use only its documented fallback, and record the gap.
+
+When two or more material problem classes are confirmed, map each class to an owner and cover every independent concern; selective routing does not mean stopping at the first plausible specialist. Use a recipe only when its dependencies match. Re-evaluate conditional dependencies after each material finding or change, and pass the completed handoff contract in the next specialist invocation. Stop the graph when all concerns are resolved or the next skill would address only low-impact polish. Keep the compact execution trace required by the shared contract.
 
 ## Checkpoints
 
@@ -91,7 +93,7 @@ Decision points, not advice. At each one, take the branch it names.
    apply.
 3. **Before naming a problem:** can you point to an observation (a measurement, an element, a step
    count)? No → it is a hypothesis; label it and go find the evidence.
-4. **After ranking problems and, for BUILD or quality-focused REPAIR, clear upside:** activate the smallest specialist set with material leverage (usually at most three initially); a fourth needs a product-specific reason. A technically working but materially generic or underdeveloped area can justify creation work when direction is open. A strong, resolved area argues against activation. A no-change result is valid after this assessment. In REVIEW or VERIFY, report or verify rather than redesign. When activating, use the agent's skill mechanism. The specialists are separate skills. The routing table only names them; it does
+4. **After ranking problems and, for BUILD or quality-focused REPAIR, clear upside:** activate the smallest specialist set that covers every confirmed material concern (usually at most three initially); a fourth needs a product-specific reason. Do not collapse independent identity and composition concerns into one specialist merely because either could make a visible change. A technically working but materially generic or underdeveloped area can justify creation work when direction is open. A strong, resolved area argues against activation. A no-change result is valid after this assessment. In REVIEW or VERIFY, report or verify rather than redesign. When activating, use the agent's skill mechanism. The specialists are separate skills. The routing table only names them; it does
    not contain their method. If a specialist is not installed, use its fallback in
    `references/diagnosis-and-routing.md` and say so. Answering from this file alone is a routing
    failure.
@@ -102,7 +104,7 @@ Decision points, not advice. At each one, take the branch it names.
    listed; any unchecked item is NOT VERIFIED. Then reread your summary against
    `references/_shared/model-instincts.md` and delete praise you did not earn.
 7. **Before routing:** name the problem class from the table in `references/diagnosis-and-routing.md` and its observable signal. A symptom without a confirmed signal stays a hypothesis.
-8. **When two or more specialists apply:** use `references/recipes.md` only when it fits the observed concern. Pass the previous finding and unresolved uncertainty forward; no handoff is required once the concern is resolved.
+8. **When two or more specialists apply:** check each concern against the conditional edges in `references/diagnosis-and-routing.md`; use `references/recipes.md` only when its dependencies fit. Write the filled handoff immediately before activation and include it in the request when supported, otherwise as the preceding task note. No handoff is needed once the concern is resolved; record why the graph stops.
 
 9. **Before visual direction or final review:** does the core instrument have spatial authority and continuity across focus, secondary surfaces, and mobile? If not, route the confirmed failure. If the primary job and loop are clear and another reference will not change the next decision, implement and verify.
 

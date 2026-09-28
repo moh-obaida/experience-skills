@@ -202,6 +202,29 @@ Resolve a dependency before committing to choices it would invalidate, such as a
 whose workflow is still open. Do not serialize independent visual, state, or interaction work just
 to follow this list.
 
+### Conditional escalation edges
+
+After a specialist reports a finding or makes a material change, check these edges. Follow an edge
+only when its trigger is observed and the next skill owns a still-open decision. Record the trigger
+and consequence in the handoff; an edge is not a standing pipeline.
+
+| Current skill or finding | Trigger for another owner | Activate |
+|---|---|---|
+| anti-ai-slop traces repeated treatment to shared hierarchy, density, or page structure | Repair needs a change to focal order, grouping, spatial authority, or route silhouette | composition-repair |
+| visual-identity finds the working screen generic because its structure buries the instrument or route job | Direction alone cannot resolve the independently material structure weakness | composition-repair |
+| interaction-design changes async feedback, persistence, recovery, or cross-surface state | State ownership or a consequential transition also changes | state-design |
+| state-design changes a transition's available action or its task feedback | A control, safety choice, input path, or action label needs redesign | interaction-design |
+| composition-repair changes responsive hierarchy or mobile working-surface distribution | The core task, instrument, or supporting panel changes at narrow or short sizes | responsive-validation |
+| responsive-validation finds no overflow but the task is still fragmented across compressed regions | Recomposition, not breakpoint patching, can restore task continuity | composition-repair |
+
+### Concern coverage check
+
+Before implementation, list each confirmed material concern and its owner. Activate every owner needed
+to resolve an independent concern; one specialist may cover two concerns only when its method and
+output actually address both. After each handoff, re-check the list and the conditional edges above.
+Stop when every material concern is resolved, intentionally preserved with evidence, or explicitly
+blocked/unverified. The smallest useful graph is selective; it is not automatically one skill.
+
 ### Common compositions
 
 #### A visually blank dashboard

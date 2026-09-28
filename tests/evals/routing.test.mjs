@@ -41,3 +41,15 @@ test('the router routing reference covers every specialist', () => {
   const routing = readFileSync(join(ROOT, 'skills', 'experience-architect', 'references', 'diagnosis-and-routing.md'), 'utf8');
   for (const s of skills.filter((n) => n !== 'experience-architect')) assert.ok(routing.includes(s), `diagnosis-and-routing.md does not mention ${s}`);
 });
+
+test('execution contract keeps reference, handoff, rendering, routing, and trace gates explicit', () => {
+  const contract = readFileSync(join(ROOT, 'shared', 'evaluation', 'experience-operating-contract.md'), 'utf8');
+  const router = readFileSync(join(ROOT, 'skills', 'experience-architect', 'references', 'diagnosis-and-routing.md'), 'utf8');
+  const recipes = readFileSync(join(ROOT, 'skills', 'experience-architect', 'references', 'recipes.md'), 'utf8');
+  for (const phrase of ['gate: load its named reference', 'CAPTURE BEFORE', 'CAPTURE AFTER', 'quality delta is visible', 'activatedBecause', 'loadedReferences', 'stopReason'])
+    assert.ok(contract.includes(phrase), `operating contract must include ${phrase}`);
+  for (const skill of ['anti-ai-slop', 'visual-identity', 'interaction-design', 'state-design', 'composition-repair', 'responsive-validation'])
+    assert.ok(router.includes(skill), `conditional edges must include ${skill}`);
+  for (const field of ['job:', 'locked truth:', 'open space:', 'current weakness or grounded upside:', 'relevant source and required references:', 'expected output:', 'stop condition:'])
+    assert.ok(recipes.includes(field), `handoff artifact must include ${field}`);
+});

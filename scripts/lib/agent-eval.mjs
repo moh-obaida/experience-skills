@@ -67,6 +67,52 @@ export function shellSkillReads(command, output = '') {
   return { skills: [...skills], references: [...references] };
 }
 
+function parseExecutionTrace(answer, observedSkills, observedReferences) {
+  const match = answer.match(/<!--\s*experience-skills-trace\s*([\s\S]*?)\s*-->/i);
+  if (!match) return { present: false, complete: false, entries: [], issues: ['trace missing'] };
+  let value;
+  try { value = JSON.parse(match[1]); }
+  catch { return { present: true, complete: false, entries: [], issues: ['trace JSON invalid'] }; }
+  const entries = Array.isArray(value?.skills) ? value.skills : [];
+  const issues = [];
+  const actualSkills = new Set(observedSkills);
+  const actualReferences = new Set(observedReferences);
+  const names = entries.map((entry) => entry?.skill).filter((name) => typeof name === 'string');
+  if (new Set(names).size !== names.length) issues.push('duplicate skill entries');
+  for (const skill of observedSkills) if (!names.includes(skill)) issues.push(`missing skill entry: ${skill}`);
+  for (const entry of entries) {
+    const name = entry?.skill;
+    if (!actualSkills.has(name)) issues.push(`unobserved skill: ${name ?? '(unnamed)'}`);
+    if (typeof entry?.activatedBecause !== 'string' || !entry.activatedBecause.trim()) issues.push(`missing activation reason: ${name}`);
+    if (!Array.isArray(entry?.requiredReferences) || !Array.isArray(entry?.loadedReferences)) issues.push(`reference lists missing: ${name}`);
+    else {
+      for (const reference of entry.loadedReferences) {
+        if (!actualReferences.has(reference)) issues.push(`reference not observed: ${reference}`);
+      }
+      for (const reference of entry.requiredReferences) {
+        if (!entry.loadedReferences.includes(reference)) issues.push(`required reference not loaded: ${reference}`);
+      }
+    }
+    const handoff = entry?.handoff;
+    if (handoff?.status === 'sent') {
+      const fields = ['job', 'lockedTruth', 'openSpace', 'currentWeaknessOrGroundedUpside', 'relevantSourceAndRequiredReferences', 'expectedOutput', 'stopCondition'];
+      for (const field of fields) if (typeof handoff.artifact?.[field] !== 'string' || !handoff.artifact[field].trim()) issues.push(`handoff missing ${field}: ${name}`);
+    } else if (handoff?.status !== 'not-required' || typeof handoff.reason !== 'string' || !handoff.reason.trim()) {
+      issues.push(`handoff status or reason missing: ${name}`);
+    }
+    if (!Array.isArray(entry?.changed) || entry.changed.length === 0) issues.push(`changed/no-change record missing: ${name}`);
+    if (typeof entry?.verification !== 'string' || !entry.verification.trim()) issues.push(`verification missing: ${name}`);
+    if (typeof entry?.stopReason !== 'string' || !entry.stopReason.trim()) issues.push(`stop reason missing: ${name}`);
+    if (/not verified/i.test(entry?.verification ?? '') && !/unverified|blocked/i.test(entry?.stopReason ?? '')) issues.push(`unverified work has resolved stop reason: ${name}`);
+  }
+  for (const reference of observedReferences) {
+    const owner = reference.split('/')[0];
+    const entry = entries.find((item) => item?.skill === owner);
+    if (!entry?.loadedReferences?.includes(reference)) issues.push(`observed reference omitted from trace: ${reference}`);
+  }
+  return { present: true, complete: issues.length === 0, entries, issues };
+}
+
 /** Parse a stream-json transcript and record activation, depth, evidence, and completion signals. */
 export function parseTranscript(jsonl) {
   const events = [];
@@ -202,6 +248,8 @@ export function parseTranscript(jsonl) {
   const skillsLoaded = [...new Set([...skillsInvoked, ...skillFilesRead])];
   const specialistsTriggered = skillsLoaded.filter((skill) => skill !== 'experience-architect');
   const renderedEvidenceGathered = false; // Set only after the runner verifies before/after PNG artifacts, order, inspection, and comparison.
+  const executionTrace = parseExecutionTrace(answer, skillsLoaded, referencesRead);
+  if (executionTrace.present) answer = answer.replace(/<!--\s*experience-skills-trace\s*[\s\S]*?\s*-->/i, '').trim();
   const completionCriteriaSatisfied = {
     evidenceContract: /\bObserved:\b[\s\S]*\bMeasured:\b[\s\S]*\bChanged:\b[\s\S]*\bVerified:\b[\s\S]*\bNot verified:\b/i.test(answer),
     finalGate: /final gate|PASS\s*[·|]|NOT VERIFIED IN RENDERED OUTPUT/i.test(answer),
@@ -209,10 +257,11 @@ export function parseTranscript(jsonl) {
     stateMatrix: /state matrix/i.test(answer),
     selectedDirection: /selected direction|direction selected/i.test(answer),
     selectedComposition: /selected composition|composition selected/i.test(answer),
-    handoffArtifact: /\bmode:\b[\s\S]*\bsurface\b[\s\S]*\bevidence:\b[\s\S]*\bdecision:\b[\s\S]*\bverification:\b/i.test(answer),
+    handoffArtifact: executionTrace.complete,
+    executionTrace: executionTrace.complete,
     renderedExceptionNamed: /NOT VERIFIED IN RENDERED OUTPUT[\s\S]{0,240}(?:because|reason|unavailable|cannot|not available)/i.test(answer),
   };
-  return { answer, skillsInvoked, skillFilesRead, skillsLoaded, specialistsTriggered, referencesRead, designIntelligenceModulesLoaded, precedentModulesLoaded, scriptsRun, editToolsUsed, renderedEvidenceGathered, renderedToolActivity, imageFilesRead, imageReadEvents, implementationEventIndices, renderAttempts, completionCriteriaSatisfied, timeline, toolCounts, costUsd, turns, error };
+  return { answer, skillsInvoked, skillFilesRead, skillsLoaded, specialistsTriggered, referencesRead, designIntelligenceModulesLoaded, precedentModulesLoaded, scriptsRun, editToolsUsed, renderedEvidenceGathered, renderedToolActivity, imageFilesRead, imageReadEvents, implementationEventIndices, renderAttempts, executionTrace, completionCriteriaSatisfied, timeline, toolCounts, costUsd, turns, error };
 }
 
 /** Verify real PNG output, before/after ordering, image inspection, and an explicit comparison. */
@@ -440,15 +489,15 @@ export function renderReport(runs, meta) {
     `| without skills | ${a.n} | ${a.met}/${a.tot} | ${a.viol} | ${a.praise} | ${a.challenged} |`,
     `| with skills | ${b.n} | ${b.met}/${b.tot} | ${b.viol} | ${b.praise} | ${b.challenged} |`,
     '', '## Process compliance', '',
-    '| Scenario | Skill routing | References read / DI / precedent | Required refs | Before/after renders | Paired screenshots inspected | Changed files |',
-    '|---|---|---|---|---|---|---|');
+    '| Scenario | Skill routing | References read / DI / precedent | Required refs | Execution trace | Before/after renders | Paired screenshots inspected | Changed files |',
+    '|---|---|---|---|---|---|---|---|');
   for (const [id, c] of Object.entries(by)) {
     const r = c.with;
-    lines.push(`| ${id} | ${cell(r, (v) => `${v.routing.hit.length}/${v.routing.expected.length}${v.routing.missed.length ? ` (missed: ${v.routing.missed.join(', ')})` : ''}`)} | ${cell(r, (v) => `${(v.transcript.referencesRead ?? []).length} / ${(v.transcript.designIntelligenceModulesLoaded ?? []).length} / ${(v.transcript.precedentModulesLoaded ?? []).length}`)} | ${cell(r, (v) => v.requiredReferenceCompliance ? `${v.requiredReferenceCompliance.loaded.length}/${v.requiredReferenceCompliance.required.length}` : 'n/a')} | ${cell(r, (v) => v.renderEvidence?.passed ? `${v.renderEvidence.beforeScreenshots}+${v.renderEvidence.afterScreenshots}` : 'not verified')} | ${cell(r, (v) => `${v.renderEvidence?.inspectedPairs ?? 0}/${v.renderEvidence?.pairedScreenshots ?? 0}`)} | ${cell(r, (v) => v.mode === 'edit' ? `${v.changedFiles?.length ?? 0}` : '–')} |`);
+    lines.push(`| ${id} | ${cell(r, (v) => `${v.routing.hit.length}/${v.routing.expected.length}${v.routing.missed.length ? ` (missed: ${v.routing.missed.join(', ')})` : ''}`)} | ${cell(r, (v) => `${(v.transcript.referencesRead ?? []).length} / ${(v.transcript.designIntelligenceModulesLoaded ?? []).length} / ${(v.transcript.precedentModulesLoaded ?? []).length}`)} | ${cell(r, (v) => v.requiredReferenceCompliance ? `${v.requiredReferenceCompliance.loaded.length}/${v.requiredReferenceCompliance.required.length}` : 'n/a')} | ${cell(r, (v) => !v.transcript.skillsLoaded.length ? 'n/a' : v.transcript.executionTrace?.complete ? `${v.transcript.executionTrace.entries.length}/${v.transcript.skillsLoaded.length}` : `incomplete (${v.transcript.executionTrace?.issues?.length ?? 0})`)} | ${cell(r, (v) => v.renderEvidence?.passed ? `${v.renderEvidence.beforeScreenshots}+${v.renderEvidence.afterScreenshots}` : 'not verified')} | ${cell(r, (v) => `${v.renderEvidence?.inspectedPairs ?? 0}/${v.renderEvidence?.pairedScreenshots ?? 0}`)} | ${cell(r, (v) => v.mode === 'edit' ? `${v.changedFiles?.length ?? 0}` : '–')} |`);
   }
   lines.push('', '## Process totals', '',
-    `| Condition | Runs with any required refs | Required refs loaded | Before/after render proof | Required screenshot pairs inspected |`,
-    `|---|---|---|---|---|`);
+    `| Condition | Runs with any required refs | Required refs loaded | Complete execution traces | Before/after render proof | Required screenshot pairs inspected |`,
+    `|---|---|---|---|---|---|`);
   for (const cond of ['without', 'with']) {
     const rs = runs.filter((r) => r.condition === cond);
     const required = cond === 'with' ? rs.filter((r) => r.requiredReferenceCompliance?.required?.length) : [];
@@ -457,7 +506,9 @@ export function renderReport(runs, meta) {
     const rendered = rs.filter((r) => r.renderEvidence?.passed).length;
     const inspectedPairs = rs.reduce((n, r) => n + (r.renderEvidence?.inspectedPairs ?? 0), 0);
     const paired = rs.reduce((n, r) => n + (r.renderEvidence?.pairedScreenshots ?? 0), 0);
-    lines.push(`| ${cond} | ${required.length} | ${refTotal ? `${refLoaded}/${refTotal}` : 'n/a'} | ${rendered}/${rs.length} | ${inspectedPairs}/${paired} |`);
+    const traceRuns = rs.filter((r) => (r.transcript?.skillsLoaded?.length ?? 0) > 0);
+    const completeTraces = traceRuns.filter((r) => r.transcript?.executionTrace?.complete).length;
+    lines.push(`| ${cond} | ${required.length} | ${refTotal ? `${refLoaded}/${refTotal}` : 'n/a'} | ${traceRuns.length ? `${completeTraces}/${traceRuns.length}` : 'n/a'} | ${rendered}/${rs.length} | ${inspectedPairs}/${paired} |`);
   }
   lines.push('', '## Per-run notes', '');
   for (const r of runs) {
