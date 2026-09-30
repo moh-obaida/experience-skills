@@ -6,7 +6,30 @@ All notable changes to this project are documented here. The format follows
 
 ## Unreleased
 
-## [0.8.0] - 2026-09-30
+## [1.0.0] - 2026-09-30
+
+First stable public release. The public interface it commits to is described in
+[docs/architecture.md](docs/architecture.md#stability-and-compatibility); the repository version
+moves from 0.7.1 directly to 1.0.0 (an internal 0.8.0 step was never tagged or released).
+
+### Added
+- **Scope gate and experience context.** Requests are classified COMPONENT, SURFACE, PAGE, FLOW, or
+  PRODUCT before routing; smaller scope wins when ambiguous. For surface scope or larger, one
+  compact experience context is built once and referenced by handoffs instead of rebuilt per
+  specialist.
+- **Blocking visual gate.** A material visual failure in the inspected rendered result fails the
+  final gate regardless of checklist pass count, while deliberate drama, negative space, and expert
+  density are protected.
+- **Ranked structural choice.** Composition selection ranks two or three candidates, each with a
+  post-render failure check, only when page structure is relevant and genuinely open; settled
+  structure is preserved.
+- Fourteen invented anti-slop enforcement scenarios covering cosmetic false completion, systemic
+  grammar, local repairs, justified designs, missing evidence, and selective behavioral escalation.
+- Anti-slop operational claim audit checks required reads and rendered evidence, flags scope
+  mismatch without diff-size heuristics, and excludes trace blocks from outcome judging.
+- Eight invented rendered regression scenarios spanning sparse, dense, transactional, editorial,
+  educational, and creative surfaces, with selective routing and before/after repair coverage.
+- A stability and compatibility section defining which public surfaces are stable in 1.x.
 
 ### Changed
 - Anti-ai-slop diagnosis records cause and repair level; outcome review rejects local cosmetic
@@ -17,25 +40,20 @@ All notable changes to this project are documented here. The format follows
   balance, negative-space purpose, action roles, and section rhythm; repairs verify the relationship.
 - Critical review groups related visual symptoms by root cause and prioritizes material findings
   by impact, journey relevance, confidence, and repair leverage without scores or aesthetic bans.
-
-- The operating contract adds a scope gate (COMPONENT, SURFACE, PAGE, FLOW, PRODUCT) and a
-  once-built experience context that handoffs reference; composition choice returns a ranked two or
-  three candidates only when macrostructure is genuinely open; a material visual failure in the rendered result fails the final gate regardless
-  of checklist results.
-
-### Added
-- Fourteen invented anti-slop enforcement scenarios covering cosmetic false completion, systemic
-  grammar, local repairs, justified designs, missing evidence, and selective behavioral escalation.
-- Anti-slop operational claim audit checks required reads and rendered evidence, flags scope
-  mismatch without diff-size heuristics, and excludes trace blocks from outcome judging.
-- Eight invented rendered regression scenarios spanning sparse, dense, transactional, editorial,
-  educational, and creative surfaces, with selective routing and before/after repair coverage.
+- README, architecture, design-intelligence docs, and roadmap updated to the current system:
+  routing flow, verified counts, evidence status (repository validation versus agent behavior), and
+  the v1 stability contract. Stale `routing.md` references now point to `diagnosis-and-routing.md`.
 
 ### Fixed
 - Render evidence accepts canonical filesystem aliases and prose/table comparisons while retaining
   capture integrity, inspection, and ordering gates; symlink escapes are rejected.
 - Reference telemetry recognizes successful reads from observed skill directories; external
   verification scripts no longer count as product edits after a render.
+
+### Validation note
+Repository validation (shared-source sync, skill and repository validation, links, catalog, unit and
+browser tests, CLI discovery) is deterministic. The behavioral impact of the latest hardening has
+not been re-evaluated with model-consuming agent benchmarks.
 
 ## [0.7.1] - 2026-09-28
 

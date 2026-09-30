@@ -26,6 +26,10 @@ const IMAGE_EXT = new Set(['.png', '.jpg', '.jpeg', '.gif', '.webp', '.avif', '.
 
 // Generic private-path patterns. Owner-specific terms can be added locally in a gitignored
 // `.private-terms` file (one term per line) and are checked when present.
+// The repository's own public GitHub path is the one place the owner's handle is intentional (install
+// and clone commands); it is removed from a line before the local `.private-terms` check.
+const PUBLIC_REPO_PATH = 'moh-obaida/experience-skills';
+
 const PRIVATE_PATTERNS = [
   { re: /\/Users\/[A-Za-z0-9._-]+\//, label: 'macOS home path' },
   { re: /\/home\/(?!runner\/)[A-Za-z0-9._-]+\//, label: 'Linux home path' },
@@ -180,7 +184,8 @@ export function validateRepo({ quiet = false } = {}) {
     lines.forEach((line, i) => {
       for (const p of PRIVATE_PATTERNS) if (p.re.test(line)) r.error(`${rel}:${i + 1}: ${p.label} (private path)`);
       for (const p of SECRET_PATTERNS) if (p.re.test(line)) r.error(`${rel}:${i + 1}: possible ${p.label}`);
-      for (const re of termRes) if (re.test(line)) r.error(`${rel}:${i + 1}: private term from .private-terms`);
+      const scrubbed = line.replaceAll(PUBLIC_REPO_PATH, '');
+      for (const re of termRes) if (re.test(scrubbed)) r.error(`${rel}:${i + 1}: private term from .private-terms`);
     });
   }
 

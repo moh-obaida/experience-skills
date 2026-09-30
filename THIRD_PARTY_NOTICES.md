@@ -14,8 +14,8 @@ portions. Experience Skills itself is also MIT-licensed.
 - Commit reviewed: 13ac0ec7e148655948100b6396439e481361d690 (2026-09-25)
 - License: MIT (root LICENSE; no nested licenses found)
 - What was adapted, in rewritten form:
-  - The idea of choosing a named page shape ("macrostructure") from an index and loading only that
-    description; several page-shape concepts (long document, stat-led, workbench, split narrative,
+  - The idea of choosing a named page shape ("macrostructure") from an index, loading only that
+    description, and choosing the whole structure before styling it; several page-shape concepts (long document, stat-led, workbench, split narrative,
     sticky feature stack, map/diagram, index-first, catalog, ecosystem index, component playground)
     rewritten as compositions with content requirements, states, responsive and RTL behavior, and
     failure conditions (`compositions-index.md`, `compositions-narrative.md`, and related files).

@@ -1,20 +1,28 @@
 # Roadmap
 
-## v0.1 (this release)
+## v1.0 (this release)
 
-Twelve skills, shared source with vendoring, worked examples, measurement and scanning scripts,
-validation, tests, and CI. See [CHANGELOG.md](CHANGELOG.md).
+Fifteen skills with selective routing, a scope gate, a shared experience context, conditional
+reference loading, a rendered final gate, a design-intelligence library (directions, compositions,
+Niche Design Atlas, palettes, typography), dated precedent observations, deterministic measurement
+scripts, validation, tests, and CI. The stable public interface is defined in
+[docs/architecture.md](docs/architecture.md#stability-and-compatibility). See
+[CHANGELOG.md](CHANGELOG.md).
 
-## Next (v0.2 candidates)
+## Next (post-1.0 candidates)
 
-- **Visual eval harness.** Run skills against fixture products and compare before/after renders
-  with human-reviewed rubrics.
+These are improvements, not commitments, and none of them requires a breaking change:
+
+- **Fresh behavioral evidence.** Re-run the multi-agent eval harness against the current version;
+  the committed runs predate the latest hardening.
+- **Item-level precedent depth.** The [coverage report](research/coverage-report.md) lists
+  directions, palettes, typography, and motion entries that still need item-specific observations.
 - **Screenshot diff tooling** for `responsive-validation` (compare runs between commits).
 - **More fixtures** for the browser tests: dense tables, sticky chrome, RTL content.
 - **Project profile (`EXPERIENCE.md`).** An optional file in a user's project that tells skills
   about density preferences, motion appetite, brand principles, forbidden patterns, and workflow
-  priorities. Skills would read it when present and work without it. Not required, and not built
-  yet; see [docs/architecture.md](docs/architecture.md#future-project-profiles).
+  priorities. Skills would read it when present and work without it. Not built; see
+  [docs/architecture.md](docs/architecture.md#future-project-profiles).
 
 ## Possible future skills
 

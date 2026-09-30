@@ -1,42 +1,47 @@
 # Experience Skills
 
 Portable agent skills for product experience: composition, identity, workflow speed, states,
-motion, responsive behavior, and honest critique, for any digital product. They combine
-experience reasoning, real-world precedent, a design-intelligence library, workflow analysis,
-browser verification, anti-slop reasoning, and critical review.
+interaction, motion, responsive behavior, accessibility, and honest critique, for any digital
+product. They give a coding agent experience reasoning, real-world precedent, a design-intelligence
+library, workflow analysis, browser verification, anti-slop reasoning, and critical review.
 
 Consider broadly. Intervene selectively. Verify deeply. Product mechanics come first; distinct visual expression makes them legible and memorable.
 
-The collection is an operating system, not a style preset: it routes ordinary product language to
-the smallest specialist graph, loads depth by decision, consults real precedent, and treats rendered
-output as the source of truth when a runnable surface exists. See
-[repository integration](docs/repository-integration.md) for the optional host-repository contract.
+**What it is:** a collection of specialist skills plus a router that picks the smallest useful
+set for the request, loads depth only for the decision at hand, and treats the rendered result as
+the source of truth when a runnable surface exists. It works on a one-line fix and on an
+1,800-line specification.
 
-## Install in 10 seconds
+**What it is not:** a mandatory workflow, a checklist to run end to end, a house style or aesthetic
+preset, a requirement to invoke every skill, or a replacement for the agent's judgment. A result of
+"no change" is valid. See [repository integration](docs/repository-integration.md) for the optional
+host-repository contract.
+
+## Install
 
 ```bash
-npx skills add <owner>/experience-skills
+npx skills add moh-obaida/experience-skills
 ```
 
-Replace `<owner>` with the GitHub account or organization that hosts this repository. The
+The
 [`skills` CLI](https://github.com/vercel-labs/skills) finds the skills in `skills/` and asks
 which ones to install and for which agents.
 
 ```bash
 # See what's in the collection
-npx skills add <owner>/experience-skills --list
+npx skills add moh-obaida/experience-skills --list
 
 # Install only the router (recommended starting point)
-npx skills add <owner>/experience-skills --skill experience-architect
+npx skills add moh-obaida/experience-skills --skill experience-architect
 
 # Install one specialist
-npx skills add <owner>/experience-skills --skill anti-slop-ui
+npx skills add moh-obaida/experience-skills --skill anti-slop-ui
 
 # Install for your user rather than the current project
-npx skills add <owner>/experience-skills --skill experience-architect -g
+npx skills add moh-obaida/experience-skills --skill experience-architect -g
 
 # Non-interactive, one agent
-npx skills add <owner>/experience-skills --skill experience-architect -a claude-code -y
+npx skills add moh-obaida/experience-skills --skill experience-architect -a claude-code -y
 ```
 
 More options, including `--all` and manual installation: [docs/installation.md](docs/installation.md).
@@ -97,6 +102,28 @@ Full text: [docs/philosophy.md](docs/philosophy.md). Where each principle change
 
 Start with `experience-architect` if you are unsure. It diagnoses the problem and pulls in only
 the specialists it needs. Every specialist also works on its own.
+
+## How routing works
+
+```
+REQUEST → SCOPE → EXPERIENCE CONTEXT → MATERIAL CONCERNS → SELECTIVE SPECIALISTS
+        → TARGETED REFERENCES → IMPLEMENT → RENDER → FINAL GATE
+```
+
+- **Scope.** The request is classified as COMPONENT, SURFACE, PAGE, FLOW, or PRODUCT. A narrow
+  request stays narrow; when scope is ambiguous the smaller one wins, and widening needs evidence.
+- **Experience context.** For a surface or larger, the agent builds one compact context (product
+  job, design system, strengths to keep, structure, locked requirements, open freedom, state model)
+  and reuses it instead of re-deriving it in every specialist.
+- **Selective specialists.** Only skills that can resolve a confirmed, material concern are
+  activated, in dependency order. `use-all-skills` means all are *considered*, not all are run.
+- **Targeted references.** A specialist loads the reference for the decision it is making, not the
+  library. When page structure is relevant and genuinely open, it ranks two or three candidate
+  compositions with a failure check for each; when structure is settled, it keeps it.
+- **Final gate.** Rendered work is inspected before and after. A material visual failure in the
+  final render fails the gate regardless of how many checklist items passed. Intentional drama,
+  negative space, and expert density are not failures; the test is whether the result serves the
+  product and task.
 
 ## Design-system library
 
@@ -176,20 +203,26 @@ a folder with a `SKILL.md` (YAML frontmatter plus instructions) and optional `re
 `scripts/`, and `assets/`. They are written for any agent that loads Agent Skills, and the
 instructions are vendor-neutral.
 
-Tested for this release: discovery and installation with `skills` CLI 1.7.0 (installing for Claude
-Code in a temporary project); validation of every skill with the reference validator (`skills-ref`
-0.1.1, `agentskills validate`); and the committed historical Claude Code behavioral runs on 13
-scenarios (summary in `tests/evals/results/README.md`). The eval harness now has explicit Claude and
-Codex adapters plus edit-mode build/repair scenarios, but fresh multi-agent behavior samples are
-not claimed until they are run.
+What has been verified, and what has not:
+
+- **Repository consistency (deterministic):** `npm run check` covers shared-source sync, skill and
+  repository validation, links, catalog, unit and browser tests, and discovery/installation with the
+  `skills` CLI (1.7.0, installing for Claude Code in a temporary project). Every skill also
+  validates with the reference validator (`skills-ref` 0.1.1, `agentskills validate`).
+- **Agent behavior (historical):** committed Claude Code runs on 13 scenarios from earlier versions
+  (`tests/evals/results/README.md`). They are exploratory, not a scientific benchmark, and they
+  predate the latest hardening.
+- **Not claimed:** that agents using v1.0 produce better products than without it. The eval harness
+  (Claude and Codex adapters, edit-mode build/repair scenarios) exists, but fresh multi-agent
+  behavior samples for the current version have not been run.
 
 ## Precedent and design intelligence
 
-- **Real-world precedent.** 167 dated observations of 64 public product surfaces (GOV.UK, Wise,
-  GitHub, Kahoot, Stripe, Wikipedia, Airbnb, MDN, and others), interpreted in 19 concept modules. Every
+- **Real-world precedent.** 271 dated observations across 107 public product surfaces (GOV.UK, Wise,
+  GitHub, Kahoot, Stripe, Wikipedia, Airbnb, MDN, and others), interpreted in 24 precedent modules. Every
   entry says when the lesson applies and when copying it would fail. Invented examples are labeled as
   such.
-- **Design intelligence.** 45 design directions, 48 compositions, 17 palette families with computed
+- **Design intelligence.** 45 design directions, 49 compositions, 17 palette families with computed
   contrast, typography (including Arabic/Latin), surfaces, imagery, motion languages, navigation and
   density models, and chart selection. A conditional selection procedure compares structurally distinct directions from different
   families, so a product category never picks a style.
@@ -212,7 +245,7 @@ items that still need item-specific precedent. Upstream curation decisions are r
 - **Checkpoints, not advice.** Each `SKILL.md` has decision points that change what the agent does:
   "For any change to a basic control: does it make the task faster or more reliable? No → reject it
   and move the personality into the environment."
-- **Progressive disclosure.** Each `SKILL.md` is short (about 100–125 lines): when to use it, when
+- **Progressive disclosure.** Each `SKILL.md` is short (under 200 lines): when to use it, when
   not to, checkpoints, the workflow, which reference to load for which decision, and what "done"
   means. Each reference answers one decision.
 - **A thin router.** `experience-architect` diagnoses and routes; it does not duplicate the specialists.
@@ -259,6 +292,32 @@ npm run eval:agents  # with vs without skills on real scenarios (uses a logged-i
 
 `npm run check` includes a discovery test that fetches the `skills` CLI with `npx`. Set
 `SKIP_DISCOVERY=1` to skip it when offline.
+
+## Stability in v1
+
+v1.0 means the public interface below will not change incompatibly within 1.x. It does not mean the
+content is frozen: references, routing, design intelligence, scripts, and verification will keep
+improving.
+
+**Stable in 1.x:**
+
+- Skill names (the 15 folders under `skills/`); `experience-architect` remains the entry skill.
+- Each skill is a valid, self-contained Agent Skill that installs on its own with the `skills` CLI
+  or by copying its folder, with `name` and `description` frontmatter and `metadata.version`.
+- Shared material reaches a skill only as generated copies in `references/_shared/` and
+  `scripts/_shared/`; a skill never depends on files outside its folder.
+- The selective-routing contract: scope classification, one shared experience context, activation
+  only for material concerns, required reference loading, and the rendered final gate.
+- Command-line scripts keep their `--help` flag and exit codes (0 clean, 1 findings, 2 usage or
+  environment error).
+
+**Not stable (may change in any release):** the wording of a description or reference, the contents
+of a design-intelligence list, individual checkpoint phrasing, script output layout, test and eval
+internals, and anything under `research/`.
+
+**Adding** skills, references, compositions, or checks is backward compatible. **Renaming or
+removing** a skill, changing the exit-code contract, or making a skill depend on files outside its
+folder is breaking and waits for a major version. Details: [docs/architecture.md](docs/architecture.md#stability-and-compatibility).
 
 ## Contributing
 

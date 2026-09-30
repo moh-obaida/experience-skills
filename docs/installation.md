@@ -2,30 +2,30 @@
 
 ## With the `skills` CLI (recommended)
 
-Verified with `skills` CLI 1.7.0. Replace `<owner>` with the GitHub account hosting this repository.
+Verified with `skills` CLI 1.7.0. Commands use this repository's GitHub path, `moh-obaida/experience-skills`.
 
 ```bash
 # Interactive: choose skills and agents
-npx skills add <owner>/experience-skills
+npx skills add moh-obaida/experience-skills
 
 # List skills without installing
-npx skills add <owner>/experience-skills --list
+npx skills add moh-obaida/experience-skills --list
 
 # One skill
-npx skills add <owner>/experience-skills --skill experience-architect
-npx skills add <owner>/experience-skills --skill composition-repair
+npx skills add moh-obaida/experience-skills --skill experience-architect
+npx skills add moh-obaida/experience-skills --skill composition-repair
 
 # User-level (global) instead of project-level
-npx skills add <owner>/experience-skills --skill experience-architect -g
+npx skills add moh-obaida/experience-skills --skill experience-architect -g
 
 # Non-interactive for one agent
-npx skills add <owner>/experience-skills --skill experience-architect -a claude-code -y
+npx skills add moh-obaida/experience-skills --skill experience-architect -a claude-code -y
 
 # Copy files instead of symlinking
-npx skills add <owner>/experience-skills --skill anti-slop-ui --copy
+npx skills add moh-obaida/experience-skills --skill anti-slop-ui --copy
 
 # Everything, for every agent the CLI supports, without prompts
-npx skills add <owner>/experience-skills --all
+npx skills add moh-obaida/experience-skills --all
 ```
 
 Notes:

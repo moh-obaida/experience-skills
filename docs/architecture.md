@@ -8,10 +8,12 @@
 4. The structure is verifiable by scripts, not by trust.
 5. No custom infrastructure: folders, markdown, a few scripts, tests.
 
-The 0.3 operating contract adds enforcement without changing those goals: conditional depth rules
-live in a vendored shared reference, while recurring multi-skill graphs and handoff artifacts live
-in the router. Meaningful runnable UI follows a render contract with explicit exceptions; simple or
-backend-only work remains below the significance threshold.
+The operating contract adds enforcement without changing those goals: scope classification, the
+shared experience context, conditional depth rules, the render contract, and the final visual gate
+live in a vendored shared reference (`experience-operating-contract.md`), while recurring
+multi-skill graphs and handoff artifacts live in the router. Meaningful runnable UI follows the
+render contract with explicit exceptions; simple or backend-only work remains below the
+significance threshold.
 
 ## Layout
 
@@ -34,13 +36,14 @@ tests/                     tests, fixtures, scenarios, routing evals
 
 ## Decision 1: flat sibling skills with a thin router
 
-The collection is fourteen specialist/router skills plus `use-all-skills`, a selective conductor,
+The collection is fourteen specialist/router skills plus `use-all-skills`, a selective router,
 rather than one large skill. Agents route on skill descriptions; distinct descriptions for distinct problems route better than one description that
 tries to cover everything. Users can install one specialist without the rest.
 
 `experience-architect` is a router, not an encyclopedia. It diagnoses, maps symptoms to problem
-classes, chooses two or three specialists, runs the execution loop, and applies the final gate.
-If a specialist is not installed, `references/routing.md` has a compressed fallback method for it.
+classes, chooses the smallest specialist set that covers every confirmed material concern (usually
+at most three at first), runs the execution loop, and applies the final gate. If a specialist is
+not installed, `references/diagnosis-and-routing.md` has a compressed fallback method for it.
 
 ## Decision 2: progressive disclosure
 
@@ -49,7 +52,7 @@ The Agent Skills model has three levels: metadata (name, description) is always 
 instructions call for them. This repository uses that deliberately:
 
 - `SKILL.md` stays under ~200 lines and contains a table mapping diagnoses to references.
-- References are sized by decision: one file per decision the workflow routes to (67 skill-specific
+- References are sized by decision: one file per decision the workflow routes to (81 skill-specific
   references across the
   collection), so an agent reads one file to act, not a chain of fragments.
 - References are loaded directly from `SKILL.md` (no reference that exists only to point to
@@ -145,6 +148,23 @@ precedent reads, rendered-evidence signals, completion signals, and required-ref
 
 `use-all-skills` considers all fourteen siblings and activates only those with material leverage. Build Mode prioritizes a working core loop; Audit Mode permits broader investigation of mature products. The conductor protects the core instrument and product invariants, reserves time for implementation, and verifies repeated primary journeys, state transitions, recovery, responsive interaction, and focus before visual polish. A compact routing record captures consequential decisions and no-change findings; a roll call of specialists is not required.
 
+## Decision 10a: scope, shared context, and a blocking visual gate
+
+Three rules in the shared operating contract keep narrow work narrow and finished work honest:
+
+- **Scope gate.** Requests are classified COMPONENT, SURFACE, PAGE, FLOW, or PRODUCT before routing.
+  Scope sets how much context and depth to use; it is not a mode. Ambiguity resolves to the smaller
+  scope, and re-scoping is explicit and evidence-backed.
+- **Experience context.** For SURFACE scope or larger, one compact context (product job, design
+  system, strengths to preserve, current structure, locked requirements, open freedom, state model) is
+  built once and referenced by handoffs, so specialists do not each rebuild it.
+- **Final gate.** After the render contract, a material visual failure in the inspected result fails
+  the gate regardless of checklist results. Deliberate drama, negative space, and expert density
+  are not failures; the question is whether the relationship serves the product and task.
+
+Ranked composition candidates are required only when page structure is both relevant and genuinely
+open; settled structure is preserved.
+
 ## Decision 10: evidence, interpretation, and vocabulary are separate layers
 
 - **Evidence** (`research/observations/`): what was seen, when, and how. Not vendored.
@@ -173,12 +193,33 @@ the v0.2.0 upgrade notes.
 | Distribution | `test-skill-discovery.mjs` | The real CLI lists all skills; installs arrive complete and working |
 | Agent behavior | `run-agent-evals.mjs` (manual, spends usage) | With vs without skills on real scenarios: skills and references actually loaded, principles applied, unacceptable recommendations avoided |
 
+## Stability and compatibility
+
+From v1.0.0 the project follows semantic versioning for the public surface below.
+
+| Stable within 1.x | Free to change in any release |
+|---|---|
+| Skill names and the `skills/<name>/` folder layout; `experience-architect` as the entry skill | Wording of descriptions, references, and checkpoints |
+| Each skill is self-contained, installable alone, with valid frontmatter and `metadata.version` | Contents and size of design-intelligence libraries (directions, compositions, atlas, palettes) |
+| Shared content reaches skills only as generated `_shared/` copies; no path outside a skill folder | Internal headings of reference files and generated-file headers |
+| The routing contract: scope classification, shared experience context, material-concern activation, required reference loading, rendered final gate | Routing tables, recipes, and specialist ordering heuristics |
+| Script `--help` and exit codes 0 / 1 / 2 | Script output layout, scanner heuristics, parser internals |
+| | `catalog/skills.json` fields, tests, evals, and everything under `research/` |
+
+Backward-compatible: adding a skill, reference, composition, palette, precedent, or check;
+sharpening advice; fixing a script. Breaking (major version): renaming or removing a skill, changing
+the exit-code contract, dropping self-containment, or removing a stable routing rule. Behavioral
+improvements to advice are not breaking even when an agent's output changes.
+
+Validation proves repository consistency, not that agents produce better products; behavior is
+measured separately with the manual eval harness.
+
 ## Future: project profiles
 
 A later version may let a project include an optional `EXPERIENCE.md` describing its density
 preference, motion appetite, brand principles, forbidden patterns, and workflow priorities. Skills
 would read it when present and behave exactly as today when absent. It is intentionally not part
-of v0.1: the public skills must be useful without any profile.
+of v1.0: the public skills must be useful without any profile.
 
 ## Decision 11: product mechanics before niche context, and a separate repair specialist
 

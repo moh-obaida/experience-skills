@@ -3,7 +3,7 @@ name: use-all-skills
 description: "Use this skill whenever the user asks to use all Experience Skills, requests a full Experience Skills pass, or wants a substantial product built or audited end to end. Consider every installed specialist, diagnose product risks, activate only those with a material contribution, implement, and verify primary journeys. Use Build Mode for new work and Audit Mode for mature or troubled products."
 license: MIT
 metadata:
-  version: "0.8.0"
+  version: "1.0.0"
   collection: experience-skills
 ---
 
@@ -63,7 +63,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Checkpoints
 
-1. **Before routing:** identify the user/job, product thesis, repeated core loop, core instrument, and only the journey invariants that affect the decision. Derive them from source truth, observed behavior, mechanics, and user goals; keep inference distinct from locked requirements. For a narrow change, retain this context locally rather than creating a journey artifact. Inspect existing strengths before changing them (`references/phase-map.md`).
+1. **Before routing:** treat this as PRODUCT or FLOW scope and build the contract's experience context once (specialists reference it; they do not rebuild it). Identify the user/job, product thesis, repeated core loop, core instrument, and only the journey invariants that affect the decision. Derive them from source truth, observed behavior, mechanics, and user goals; keep inference distinct from locked requirements. For a narrow change, retain this context locally rather than creating a journey artifact. Inspect existing strengths before changing them (`references/phase-map.md`).
 2. **Is specification pressure high?** A long, imperfect, real-world spec (interacting roles, workflows, states, business rules, or a mix of requirements, recommendations, examples, and deferred items) needs `references/_shared/specification-pressure.md`'s intake before routing: classify hard rules apart from recommendations and examples, keep exact numbers and exceptions, and leave deferred items deferred. A large source does not by itself imply a large skill stack — often the opposite, since more decisions are already made. A narrow request naming one surface or symptom is low pressure regardless of how it arrived; do not read that file for it.
 3. **Choose mode:** Build Mode for greenfield, prototypes, and new surfaces; Audit Mode for mature interfaces, broad redesigns, known UX problems, or an explicit full review. “Full product” alone does not imply Audit Mode.
 4. **Route for problems and upside:** in BUILD and quality-focused REPAIR, consider both observed risks and concrete, high-value quality opportunities in open decisions; in REVIEW and VERIFY, stay protective. Activate the smallest set with evidence of leverage. A strong, resolved area argues against activation; do not route on hypothetical upside. About 3–6 materially active specialists is a useful greenfield expectation, not a cap. Each additional activation needs a product-specific reason (`references/participation-ledger.md`).

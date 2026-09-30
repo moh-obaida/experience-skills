@@ -14,7 +14,7 @@ New skills are welcome when they cover a real gap; see
 ## Setup
 
 ```bash
-git clone https://github.com/<owner>/experience-skills
+git clone https://github.com/moh-obaida/experience-skills
 cd experience-skills
 npm install
 npm run check
@@ -42,7 +42,7 @@ generated and CI rejects hand edits.
 - New or changed advice includes the tradeoff: when it applies and when it does not.
 - No private data, secrets, screenshots, or copied proprietary text.
 - Writing follows the style below.
-- Add a line to `CHANGELOG.md` under an "Unreleased" heading.
+- Add a line to `CHANGELOG.md` under the "Unreleased" heading.
 
 ## Contributing design intelligence or precedent
 

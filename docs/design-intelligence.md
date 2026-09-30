@@ -11,7 +11,7 @@ into the skills that use it (mainly visual-identity, composition-repair, and ant
 |---|---|
 | `selection.md` | The conditional procedure: understand job, loop, instrument, and invariants → compare distinct options when useful → derive → build → verify. Also a "study a reference" protocol. |
 | `directions-index.md` + 10 family files | 45 design directions (editorial, structural, quiet, institutional, technical, expressive, atmospheric, material, retro, product-led), each with suits, unsuitable, composition, type, surface, imagery, palette, motion, interaction, accessibility, failure modes, slop risk, precedent, and what not to copy. |
-| `compositions-index.md` + 7 family files | 48 compositions (focus, flows, narrative, content, discovery, workspaces, operational, mobile), each with content requirements, focal strategy, viewport and scroll behavior, responsive and RTL behavior, sparse and dense states, failure modes, the bad AI version, and precedent. |
+| `compositions-index.md` + 7 family files | 49 compositions (focus, flows, narrative, content, discovery, workspaces, operational, mobile), each with content requirements, focal strategy, viewport and scroll behavior, responsive and RTL behavior, sparse and dense states, failure modes, the bad AI version, and precedent. |
 | `palettes.md` | 17 palette families described by role and behavior, with example tokens and **computed** contrast ratios. |
 | `typography.md` | Roles, type as geometry, hierarchy, editorial and dense typography, code, multilingual and Arabic/Latin, variable fonts, scaling, long content, example pairings by character. |
 | `surfaces-and-shape.md` | Surface logics, named treatments (glass, neumorphism, gradients…) with honest and default uses, elevation, shape language, texture. |
@@ -22,8 +22,8 @@ into the skills that use it (mainly visual-identity, composition-repair, and ant
 | `niche-atlas-index.md` + 15 niche files | The Niche Design Atlas: 90 niche profiles (reality, jobs, density, surfaces, states, interaction, trust, generated-UI failures) and 151 authored niche-adapted systems, each with a thesis, fingerprint, layer contract (composition through failure conditions), and seven contrast-validated color roles. Fingerprints and contrast do not prove rendered diversity; the selector adds silhouette, grayscale, structural, and expressive tests. Authored with AI assistance and critiqued; not observations. |
 | `anti-generic-alternatives.md` | For 17 common defaults: the job they try to do and alternatives from different families, with precedent. |
 
-Precedent modules (`shared/precedent/`, 15 files) interpret dated observations of real products
-(`research/observations/`, 167 observations of 64 surfaces, 2026-09-24).
+Precedent modules (`shared/precedent/`, 24 files) interpret dated observations of real products
+(`research/observations/`, 271 observations across 107 surfaces).
 
 ## Why it is not a template engine
 

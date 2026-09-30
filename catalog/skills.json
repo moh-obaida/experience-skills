@@ -25,7 +25,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks to build, fix, finish, review, redesign, or improve a user-facing product surface—page, screen, dashboard, form, flow, game, app, or CLI—or says it feels boring, generic, empty, confusing, slow, broken, cramped, modern, fun, or off. Use it for substantial product-facing work when the right specialist is unclear or several concerns interact. Diagnoses the observable problem, activates the smallest ordered specialist graph, loads only required depth, enforces rendered evidence when runnable, and ends with a quality gate.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/diagnosis-and-routing.md",
         "references/execution-loop.md",
@@ -96,7 +96,7 @@
         "shared/tools/layout-probe.mjs"
       ],
       "description": "Use this skill whenever a page, screen, dashboard, or view looks empty, cramped, unbalanced, boring, centered in a void, or broken at some size; when a homepage, dashboard, or layout is being reviewed or restructured; when whitespace is being called premium without evidence; or after a layout change that must be verified in the rendered result. Repairs focal point, hierarchy, viewport budget, dead space versus useful density, alignment versus composition, grid and flex proportions, typography as geometry, sticky chrome, scroll ownership, overflow, collisions, short viewports, content extremes, and RTL. Includes optional browser measurement scripts.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/browser-measurement.md",
         "references/content-stress-and-rtl.md",
@@ -175,7 +175,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks to make a flow faster, simpler, shorter, or 'one tap'; when a wizard, checkout, onboarding, setup, transfer, form, or CLI prompt sequence takes too many steps, screens, questions, confirmations, or waits; or when users re-enter information the software already knows. Maps the workflow step by step, classifies friction (redundant input, unnecessary choice, repeated configuration, navigation tax, confirmation tax, serial work, memory failure, waiting tax, dead ends, expert tax, interruptions, hidden status), and removes work the software could do while preserving safety and meaningful human judgment. Always counts steps before and after.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/expert-shortcuts.md",
         "references/interruptions-modes-and-status.md",
@@ -285,7 +285,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a product needs a visual direction or stronger personality, energy, color behavior, or identity across its working screens and states. Derive expression from the user job, core instrument, product mechanics, and emotional target. Choose a look contract with structural hierarchy, chroma and contrast behavior, typographic attitude, geometry, rhythm, and a causal signature response; preserve existing coherent identity and compare Atlas options only when useful.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/branded-states-and-density.md",
         "references/deriving-identity.md",
@@ -395,7 +395,7 @@
         "shared/tools/layout-probe.mjs"
       ],
       "description": "Use this skill whenever controls, inputs, forms, pickers, buttons, confirmations, or keyboard and touch behavior are designed or reviewed: especially when someone proposes a custom, animated, or 'more fun' version of a standard control (segmented code boxes, bespoke dropdowns, bouncing digits), when actions are confusing, slow, error-prone, or inaccessible, when actions restate context the system already knows, or when building forms and live-control surfaces. Covers affordance, action hierarchy, primary/secondary/destructive actions, inline edit, direct manipulation, confirmation versus undo, disabled states, feedback, and power-user paths. Default stance: do not reinvent familiar interactions without user value.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/actions-and-safety.md",
         "references/direct-and-contextual.md",
@@ -450,7 +450,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a product has important state changes, progression, reset, completion, loading, saving, syncing, errors, or a primary journey that breaks between tasks. Model state ownership and transitions, including initialization, preserved and reset data, feedback, focus, recovery, and completion to continuation. Separate machine or simulation state from progress, UI, account, session, and remote state; verify the repeated path rather than listing states alone.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/domain-states.md",
         "references/errors-and-recovery.md",
@@ -497,7 +497,7 @@
         "shared/tools/layout-probe.mjs"
       ],
       "description": "Use this skill whenever animation, transitions, or micro-interactions are proposed or reviewed (including 'make it more fun or alive with animation'), when every element gets the same fade, slide, or scale, when state changes go unnoticed, when a live or interactive product feels flat, when motion is slow, janky, or ignores reduced-motion, or when defining motion tokens. Designs event-driven motion for arrival, removal, change, transfer, state transitions, feedback, progress, attention, celebration, and ambient motion, with sequencing, interruptibility, reduced-motion alternatives, and performance. Includes static and rendered motion checks.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/anti-patterns.md",
         "references/event-motion.md",
@@ -547,7 +547,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a product or area feels hard to use overall, users get lost or keep asking the same support questions, terminology or duplicate concepts confuse people, features pile up without getting easier, an admin, settings, or setup area is being redesigned, or a whole product or area needs an audit rather than one flow. Finds and ranks product-level friction: terminology, cognitive load, discoverability, lost context, information architecture, dead ends, status ambiguity, unnecessary modes, inconsistent behavior, trust and transparency, first-use burden, and expert burden, in a prioritized friction ledger.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/consistency-and-concepts.md",
         "references/finding-and-continuing.md",
@@ -597,7 +597,7 @@
         "shared/tools/layout-probe.mjs"
       ],
       "description": "Use this skill whenever a user-facing workflow must survive a change in screen size, zoom, input mode, language, or device; before shipping a changed interface; or when mobile screenshots look fine but the task fails. Exercise the core instrument repeatedly at narrow and short sizes, including keyboard and focus, secondary panels, return, errors, and completion. Inspect content stress and real RTL behavior where supported.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/mobile-and-native.md",
         "references/reporting.md",
@@ -647,7 +647,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a list, dashboard, library, inbox, search, or home screen has little or no content; when a first-run or new-account view is designed; when someone asks to make a sparse page 'less empty' or it feels unfinished; or when a page has been filled with illustrations, fake stats, tips, or marketing. Designs zero-item, one-item, first-run, empty-search, filtered-empty, no-permission, no-history, incomplete-setup, unavailable, archived, and skeleton-versus-empty states, and distinguishes intentional focus from dead space and useful density from filler, calibrated by page archetype.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/density-and-filler.md",
         "references/empty-state-copy.md",
@@ -709,7 +709,7 @@
         "shared/tools/layout-probe.mjs"
       ],
       "description": "Use this skill whenever a UI needs an anti-slop review or completion verdict; before presenting generated UI; or when a trend, empty restraint, or component pattern may be replacing the product task. Test the job of each treatment, core-instrument prominence, active-state energy, visual hierarchy, and the repeated cream, serif, earth-tone house style. Preserve justified decisions and compare alternatives only for material open choices.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/alternatives-engine.md",
         "references/content-slop.md",
@@ -774,7 +774,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks for judgment on a product, proposal, redesign, or finished interface, or when an agent is about to endorse its own work. Compare observed behavior with the intended job and current product, rank blocker and major issues ahead of cosmetic preferences, inspect recovery and primary-journey continuity, and synthesize the few most important remaining problems. A justified no-change verdict is valid.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "references": [
         "references/disagreement-and-praise.md",
         "references/evidence-and-claims.md",
@@ -807,7 +807,7 @@
       "shared": [],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks to audit a specific page, inspect every inch of a screen, find everything wrong with a UI, check its CSS, fix small visual and interaction issues, or explain why one rendered surface feels off. Investigates the actual route and states from rendered symptom through DOM, computed style, CSS cascade, component source, root cause, repair, and rerendered verification. Covers controls, copy, accessibility, responsive behavior, and annoying details without turning a page audit into a product redesign.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "activationExamples": [
         "\"Audit this page,\" \"go over every inch,\" \"check the CSS too,\" \"find all the small issues,\" or \"why does this screen feel annoying?\"",
         "A particular route or component needs detailed rendered, DOM, CSS, interaction, content, and state inspection.",
@@ -884,7 +884,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks to use all Experience Skills, requests a full Experience Skills pass, or wants a substantial product built or audited end to end. Consider every installed specialist, diagnose product risks, activate only those with a material contribution, implement, and verify primary journeys. Use Build Mode for new work and Audit Mode for mature or troubled products.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "activationExamples": [
         "The user explicitly requests all Experience Skills or a full experience pass.",
         "A substantial new product or major surface needs product design, implementation, and verification.",
@@ -989,7 +989,7 @@
         "shared/tools/source-scan.mjs"
       ],
       "description": "Use this skill whenever source-level repair is requested for an existing rendered product that looks AI-generated, template-made, sterile, or underdesigned, or whose primary interaction is buried beneath a visual system. Use anti-slop-ui for a review-only verdict. Protect its working identity and core instrument; inspect both excessive decoration and repeated Experience Skills cream, serif, earth-tone restraint; trace material problems to source, repair them with product-specific behavior and expression, then rerender and exercise the main journey.",
-      "version": "0.8.0",
+      "version": "1.0.0",
       "activationExamples": [
         "An existing site or app \"looks AI-generated,\" \"looks like every v0/shadcn/Tailwind site,\" or",
         "A generated or template-started product must be de-slopped end to end before launch.",

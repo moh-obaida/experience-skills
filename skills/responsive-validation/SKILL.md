@@ -4,7 +4,7 @@ description: "Use this skill whenever a user-facing workflow must survive a chan
 license: MIT
 compatibility: "The layout-report script needs Node.js 18+ and Playwright (or playwright-core with an installed Chrome). The checklist works without it."
 metadata:
-  version: "0.8.0"
+  version: "1.0.0"
   collection: experience-skills
 ---
 

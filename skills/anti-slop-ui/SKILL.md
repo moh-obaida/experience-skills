@@ -4,7 +4,7 @@ description: "Use this skill whenever a UI needs an anti-slop review or completi
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.8.0"
+  version: "1.0.0"
   collection: experience-skills
 ---
 

@@ -83,4 +83,4 @@ Before finishing any change: `npm run check` must pass.
 Follow `docs/contributing-a-skill.md`. In short: create `skills/<name>/SKILL.md` with valid
 frontmatter, add references, add the skill to `catalog/skills.json` with `category`, `useWhen`,
 and `shared`, run `npm run sync && npm run catalog`, add routing cases to `tests/evals/routing.json`,
-mention it in `skills/experience-architect/references/routing.md`, and run `npm run check`.
+mention it in `skills/experience-architect/references/diagnosis-and-routing.md`, and run `npm run check`.

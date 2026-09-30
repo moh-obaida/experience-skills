@@ -7,8 +7,9 @@ page explains what was used and how; `THIRD_PARTY_NOTICES.md` carries the licens
 ## Hallmark (Nutlope/hallmark, commit 13ac0ec, MIT)
 
 **Inspired, then rewritten:**
-- Choosing a named page shape from an index and loading only that description. Experience Skills
-  applies the same "index → select → load one" pattern to compositions and directions.
+- Choosing a named page shape from an index, loading only that description, and choosing the whole
+  structure before styling it. Experience Skills applies the same "index → select → load one"
+  pattern to compositions and directions.
 - Page-shape concepts such as long document, stat-led, workbench, split narrative, sticky feature
   stack, map/diagram, index-first, catalog, ecosystem index, and component playground. They were
   rewritten as compositions with content requirements, states, responsive and RTL behavior, failure
