@@ -3,7 +3,7 @@
 Load when the sweep finds hero, dashboard, bento, empty-space, motion, or generated-personality
 slop. These are structural; replacements often change composition, so compare materially different alternatives when the direction is open
 (`references/_shared/anti-generic-alternatives.md`, `references/_shared/compositions-index.md`),
-and hand to composition-repair when the change spans the page.
+and hand to composition-repair only when the unresolved structural decision exceeds this branch.
 
 ## Hero slop
 
@@ -22,6 +22,10 @@ and hand to composition-repair when the change spans the page.
   now, no hero) · immersive (world or scene) · dense factual (datasheet) · poster-like (event or
   cause).
 
+A hero-left / decorative-right split can also be generic when the large secondary region has little
+useful value and no framing job. Judge mass relative to value and neighboring priority; adding
+specific copy inside an oversized surface does not resolve that allocation cause.
+
 ## Dashboard slop
 
 - **Detect:** four KPI cards + a chart + recent activity + quick actions, when the product context
@@ -34,6 +38,14 @@ and hand to composition-repair when the change spans the page.
 - **Replace with:** the user's actual jobs first (what needs action, what changed, continue work) ·
   exceptions list with owners (operational) · the primary object list (records, projects) · a
   real empty state with the next action · one chart that answers a named question.
+
+## Shared composition grammar
+
+Check repeated equal cards, three-column sections, symmetric stacks, alternating surface strips,
+metric blocks, and identical route shells against their jobs. Comparison may justify identical
+panels; a setup route, exception queue, and object detail may need different hierarchy. Preserve
+shared identity while changing a shared convention that hides those differences. Polished,
+domain-specific copy alone does not make a transferable skeleton product-specific.
 
 ## Bento slop
 

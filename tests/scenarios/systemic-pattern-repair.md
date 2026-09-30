@@ -18,7 +18,9 @@ Before editing, render all views at desktop and phone sizes with
 `node .benchmark/render.mjs before studio.html --views home,sessions,wheel`, then inspect the six
 PNG files listed by the command. After editing, run the same command with `after` and inspect all six
 resulting PNGs. Finish with a `## Before/after comparison` section that compares the same routes and
-sizes and names any remaining issue.
+sizes and names any remaining issue. Keep renderer JSON intact. For this formal evaluation, append
+the contract's machine-readable operational metadata for skill activation, reference reads,
+changes, checks and outcome; do not include private reasoning in the record.
 
 ## Current problem
 The repeated defaults make distinct route jobs feel interchangeable and make named classes less

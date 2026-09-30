@@ -3,7 +3,7 @@ name: critical-review
 description: "Use this skill whenever the user asks for judgment on a product, proposal, redesign, or finished interface, or when an agent is about to endorse its own work. Compare observed behavior with the intended job and current product, rank blocker and major issues ahead of cosmetic preferences, inspect recovery and primary-journey continuity, and synthesize the few most important remaining problems. A justified no-change verdict is valid."
 license: MIT
 metadata:
-  version: "0.7.1"
+  version: "0.8.0"
   collection: experience-skills
 ---
 
@@ -99,14 +99,14 @@ If the proposal changes visual direction, load `references/_shared/selection.md`
 9. **Use `references/review-workflow.md` proportionately.** Check outcome, evidence, current state, costs, and the simplest alternative before a verdict. Keep notes focused on material findings rather than filling twelve report fields.
 10. **Check whether the right answer is not "new is better":** `references/verdict-examples.md` covers keeping the current version, simplifying, rejecting a trend, removing a feature, preserving a familiar control, and justified whitespace, cards, dramatic motion, or added complexity.
 
-11. **Release judgment:** rank release blockers, major journey damage, state/trust failures, recovery failures, responsive job failures, accessibility blockers, and polish by effect on the primary journey. A broken core control, false completion, lost progress, or impossible continuation blocks release regardless of visual polish. Keep visual hierarchy, composition, typography, color, identity, and expression in the review; strong expression is not itself a UX defect. Synthesize the 3–5 highest-value remaining findings rather than repeat every specialist; inspect recovery quality and preserve good current decisions. Zero changes is a valid verdict.
+11. **Release judgment:** rank release blockers, major journey damage, state/trust failures, recovery failures, responsive job failures, accessibility blockers, and polish by effect on the primary journey. A broken core control, false completion, lost progress, or impossible continuation blocks release regardless of visual polish. Keep visual hierarchy, composition, typography, color, identity, and expression in the review; strong expression is not itself a UX defect. Group related symptoms by root cause and synthesize only the highest-value remaining findings (one may be enough) rather than repeat every specialist; inspect recovery quality and preserve good current decisions. Zero changes is a valid verdict.
 
 ## Workflow
 
 1. **Frame:** goal, proposal (precisely what changes), constraints (audience, platform, brand,
    maturity, time, technical limits). Protect the user's value-producing decisions
    (`references/_shared/human-judgment.md`).
-2. **Evaluate against the goal** for the main user and edge users (new, expert, mobile, keyboard,
+2. **Evaluate against the goal**: for rendered visual work, take the operating contract's first-impression pass and prioritize root causes using `references/review-workflow.md`. Check the main user and edge users (new, expert, mobile, keyboard,
    screen reader, other languages) and real states.
 3. **Hidden costs** (checkpoint 4) and **comparison** (checkpoint 3), using the relevant rubric:
    `references/_shared/experience-rubric.md` for surfaces, `references/_shared/workflow-rubric.md`

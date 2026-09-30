@@ -48,6 +48,40 @@ state/trust failure, recovery failure, responsive job failure, accessibility blo
 These are prioritization cues, not a new scorecard. Keep material visual-expression findings in the
 review alongside behavior; a strong identity is not evidence of a broken journey.
 
+### Prioritizing rendered visual findings
+
+Capture the first impression before detailed inspection, using the operating contract. Compare
+likely attention flow with the user's job. Does the dominant surface earn its weight relative to
+information, interaction, semantic importance, and its neighbors? Geometric symmetry, coherent
+styling, or valid CSS does not answer that question.
+
+Prioritize the small number of causes with the greatest effect on comprehension, hierarchy,
+optical balance, task focus, perceived quality, trust, or interaction. Higher visual impact, higher
+user/journey relevance, stronger evidence, and reasonable repair leverage argue for higher
+priority; use judgment, not a calculated score. A major visual relationship can matter even when
+nothing is broken. Keep actual release blockers ahead of cosmetic preferences.
+
+Collapse linked symptoms into the likely root cause. Invented example: an oversized help surface
+pulls attention away from checkout, its one link feels stranded, and the next section starts too
+late. Report disproportionate allocation once, with the supporting observations, instead of
+three equally weighted fixes. Recommend the highest-leverage correction first; separate a symptom
+only when it has an independent cause or consequence. State uncertainty when the cause is inferred.
+
+One dominant finding is enough when it explains most of the weakness. Preserve good current
+identity, purposeful whitespace, valid dark surfaces, and necessary expert density. A familiar card
+or repeated action is not defective by category: distinguish invitation from execution and check
+whether each occurrence serves a different moment. Recommend likely composition consequences to
+compare after a repair, without editing or speculatively redesigning in a review-only request.
+
+A finished screen may need critical-review alone. Escalate to composition-repair only when a
+structural repair is requested or an unresolved composition decision needs its depth; identity or
+anti-slop skills require their own observed concern. Do not activate a bundle for every visual issue.
+
+For an anti-slop repair claim, recover the original dominant diagnosis and review the final
+rendered product at that level. A changed component or more specific copy is not proof that the
+original composition/system cause improved. Keep major unresolved harm explicit and prefer the
+highest-leverage correction; do not expand a review-only request into a redesign.
+
 ### Recommendation types
 
 - **Ship** · **Ship with changes** (list must-fix) · **Rethink** (goal right, approach wrong) ·

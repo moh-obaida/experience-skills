@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os';
 import { join, basename } from 'node:path';
 import { createHash } from 'node:crypto';
 import { ROOT, readJson } from './lib/repo.mjs';
-import { parseScenario, parseTranscript, validateRenderEvidence, fullPassSignals, answerSignals, judgePrompt, parseJudge, routingScore, renderReport } from './lib/agent-eval.mjs';
+import { parseScenario, parseTranscript, validateRenderEvidence, antiSlopEnforcement, fullPassSignals, answerSignals, judgePrompt, parseJudge, routingScore, renderReport } from './lib/agent-eval.mjs';
 
 const HELP = `run-agent-evals — with/without-skills behavioral evaluation on tests/scenarios
 
@@ -160,9 +160,11 @@ async function runOne(entry, scenario, condition, opts, outDir, sample = 1) {
   record.changedFiles = [...new Set([...Object.keys(beforeFiles), ...Object.keys(afterFiles)])]
     .filter((file) => beforeFiles[file] !== afterFiles[file]);
   record.renderEvidence = validateRenderEvidence(project, record.transcript, record.renderHelperHash);
+  record.antiSlopEnforcement = antiSlopEnforcement(record.transcript, record.renderEvidence, record.changedFiles, condition === 'with' ? entry.requiredReferences ?? [] : []);
   record.transcript.renderedEvidenceGathered = record.renderEvidence.passed;
   record.transcript.completionCriteriaSatisfied.beforeAfter = record.renderEvidence.passed;
   if (!record.renderEvidence.passed) record.transcript.timeline = record.transcript.timeline.filter((event) => !event.startsWith('render-'));
+  record.transcript.implementationFileEvents = record.transcript.implementationFileEvents.map(item => ({ ...item, path: basename(item.path) }));
   record.transcript.imageFilesRead = record.transcript.imageFilesRead.map((file) => basename(file));
   record.transcript.imageReadEvents = record.transcript.imageReadEvents.map((item) => ({ ...item, path: basename(item.path) }));
   record.transcript.renderAttempts = record.transcript.renderAttempts.map(({ phase, eventIndex, screenshots }) => ({ phase, eventIndex, screenshotCount: screenshots.length }));
@@ -251,7 +253,7 @@ async function main() {
   writeFileSync(join(outDir, 'report.md'), renderReport(runs, meta));
   const cost = runs.reduce((s, r) => s + (r.transcript?.costUsd ?? 0) + (r.judgeCostUsd ?? 0), 0);
   process.stdout.write(`\nReport: ${join(outDir, 'report.md')}\nReported cost: $${cost.toFixed(2)}\n`);
-  return runs.some((r) => r.error || r.judgeError) ? 1 : 0;
+  return runs.some((r) => r.error || r.judgeError || (r.antiSlopEnforcement?.relevant && !r.antiSlopEnforcement.complete)) ? 1 : 0;
 }
 
 main().then((code) => { process.exitCode = code; }, (e) => { process.stderr.write(`Error: ${e.message}\n`); process.exitCode = 2; });

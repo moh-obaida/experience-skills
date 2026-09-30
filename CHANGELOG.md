@@ -6,6 +6,37 @@ All notable changes to this project are documented here. The format follows
 
 ## Unreleased
 
+## [0.8.0] - 2026-09-30
+
+### Changed
+- Anti-ai-slop diagnosis records cause and repair level; outcome review rejects local cosmetic
+  completion of unresolved composition/system harm and keeps escalation conditional.
+- Anti-slop review prioritizes the original root cause and preserves justified design; replacement
+  choices follow the product job rather than an identity-to-style matrix.
+- Rendered composition judgment compares surface dominance with information/action value, optical
+  balance, negative-space purpose, action roles, and section rhythm; repairs verify the relationship.
+- Critical review groups related visual symptoms by root cause and prioritizes material findings
+  by impact, journey relevance, confidence, and repair leverage without scores or aesthetic bans.
+
+- The operating contract adds a scope gate (COMPONENT, SURFACE, PAGE, FLOW, PRODUCT) and a
+  once-built experience context that handoffs reference; composition choice returns a ranked two or
+  three candidates only when macrostructure is genuinely open; a material visual failure in the rendered result fails the final gate regardless
+  of checklist results.
+
+### Added
+- Fourteen invented anti-slop enforcement scenarios covering cosmetic false completion, systemic
+  grammar, local repairs, justified designs, missing evidence, and selective behavioral escalation.
+- Anti-slop operational claim audit checks required reads and rendered evidence, flags scope
+  mismatch without diff-size heuristics, and excludes trace blocks from outcome judging.
+- Eight invented rendered regression scenarios spanning sparse, dense, transactional, editorial,
+  educational, and creative surfaces, with selective routing and before/after repair coverage.
+
+### Fixed
+- Render evidence accepts canonical filesystem aliases and prose/table comparisons while retaining
+  capture integrity, inspection, and ordering gates; symlink escapes are rejected.
+- Reference telemetry recognizes successful reads from observed skill directories; external
+  verification scripts no longer count as product edits after a render.
+
 ## [0.7.1] - 2026-09-28
 
 ### Added

@@ -3,6 +3,16 @@
 Run before presenting work in any mode. Report each line honestly: PASS, FAIL (with what
 remains), or NOT VERIFIED (with why).
 
+## Rendered result first
+
+Before the checklist, open the final captures (or the running surface) and answer one question: does
+the rendered result still contain a material visual failure for this user's task? Examples: a large
+empty or dark region with no job, a dominant surface carrying little useful content, clipped or
+colliding content, a primary action that is hard to find. If yes, the gate is FAIL and no count of
+passing lines changes that; repair it or list it as unresolved. A specialist having run, or a clean
+checklist, does not answer this question. If nothing can be rendered, write **NOT VERIFIED IN
+RENDERED OUTPUT** here instead of passing it.
+
 ## Purpose and hierarchy
 - [ ] A first-time user can tell what this surface is for and what to do next.
 - [ ] One P0 per surface; visual weight matches importance.
@@ -48,7 +58,7 @@ remains), or NOT VERIFIED (with why).
 ## Reporting the gate
 
 ```
-Final gate: 14 PASS · 1 FAIL · 2 NOT VERIFIED
+Final gate: rendered result PASS · 14 PASS · 1 FAIL · 2 NOT VERIFIED
 FAIL: Error state for expired code still says "Something went wrong" (out of scope; noted).
 NOT VERIFIED: RTL (no RTL locale configured); reduced motion (no browser emulation available).
 ```

@@ -9,13 +9,13 @@ Canonical names for composition and visual-quality problems. Use them in finding
 | Code | Problem | What it looks like |
 |---|---|---|
 | V1 | NO FOCAL POINT | Several elements of similar weight; the eye has nowhere to land |
-| V2 | WRONG FOCAL POINT | The most prominent element is not the most important one |
-| V3 | DEAD SPACE | Large areas with no purpose, usually around a small centered cluster |
+| V2 | WRONG FOCAL POINT | Supporting content dominates the main job, or important content is visually buried |
+| V3 | DEAD SPACE | Space does no framing, grouping, or pacing work; an oversized low-value container can create it |
 | V4 | CRAMPED | Elements packed without grouping; no breathing room where scanning matters |
 | V5 | FLAT HIERARCHY | Headings, body, and metadata too similar in size, weight, or color |
 | V6 | ALIGNED NOT COMPOSED | Everything centered or on one axis; order without intent |
-| V7 | UNBALANCED | Visual weight piled on one side or corner without purpose |
-| V8 | BROKEN RHYTHM | Inconsistent spacing between siblings; arbitrary gaps |
+| V7 | UNBALANCED | Disproportionate optical weight relative to neighboring content and value, even with equal dimensions |
+| V8 | BROKEN RHYTHM | Accidental section handoffs, colliding regions, or density/structure repetition that harms comprehension or expression |
 | V9 | CONTAINER SOUP | Cards inside cards inside panels; borders doing all the grouping |
 | V10 | VIEWPORT MISUSE | First viewport shows chrome and a hero but not the task; key action below the fold |
 
@@ -50,6 +50,12 @@ Canonical names for composition and visual-quality problems. Use them in finding
 | C1 | FILLER | Fake stats, decorative cards, unrequested tips added to fill space |
 | C2 | GENERIC COPY | "Unlock your potential," "Seamlessly manage," "Get started today" |
 | C3 | MISSING STATE | Only the perfect-data state was designed |
+
+Codes identify symptoms, not the full diagnosis. Explain the relationship and likely cause: a
+surface may be internally coherent yet receive more attention than its information or action earns.
+Group related symptoms under one cause rather than recommending a separate cosmetic fix for each.
+These are diagnostic possibilities, not a checklist; purposeful asymmetry, sparsity, and repetition
+may need no repair.
 
 Findings should cite the code, the evidence, and the location:
 

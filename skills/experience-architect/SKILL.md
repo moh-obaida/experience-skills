@@ -3,7 +3,7 @@ name: experience-architect
 description: "Use this skill whenever the user asks to build, fix, finish, review, redesign, or improve a user-facing product surface—page, screen, dashboard, form, flow, game, app, or CLI—or says it feels boring, generic, empty, confusing, slow, broken, cramped, modern, fun, or off. Use it for substantial product-facing work when the right specialist is unclear or several concerns interact. Diagnoses the observable problem, activates the smallest ordered specialist graph, loads only required depth, enforces rendered evidence when runnable, and ends with a quality gate."
 license: MIT
 metadata:
-  version: "0.7.1"
+  version: "0.8.0"
   collection: experience-skills
 ---
 
@@ -19,7 +19,9 @@ build-verify-critique loop, and applies a final gate.
 2. Read `references/_shared/experience-operating-contract.md`; use its significance gate, named
    recipes, render contract, evidence contract, and handoff artifact.
 3. Establish the mode: REVIEW (report only), REPAIR (change and verify), BUILD (create), or VERIFY
-   (check finished work). Honor it.
+   (check finished work). Honor it. Then classify the scope (COMPONENT, SURFACE, PAGE, FLOW, PRODUCT)
+   with the contract's scope gate before routing, and for SURFACE or larger build its experience
+   context once.
 4. If the input is a long or complex specification — a PRD, business plan, or brief with many
    roles, workflows, states, cross-cutting rules, or a mix of requirements, recommendations,
    examples, and deferred items, not length alone — read
@@ -100,7 +102,8 @@ Decision points, not advice. At each one, take the branch it names.
 5. **If the user proposed a solution** ("add animations," "make the boxes fancier"): evaluate it
    against the goal before implementing it (critical-review method). If it fails the goal, say so
    and propose the alternative before doing any work.
-6. **Before presenting any result:** run `references/final-gate.md`. Any FAIL you did not fix is
+6. **Before presenting any result:** run `references/final-gate.md`, starting with the rendered
+   result: a material visual failure still present is a FAIL whatever else passed. Any FAIL you did not fix is
    listed; any unchecked item is NOT VERIFIED. Then reread your summary against
    `references/_shared/model-instincts.md` and delete praise you did not earn.
 7. **Before routing:** name the problem class from the table in `references/diagnosis-and-routing.md` and its observable signal. A symptom without a confirmed signal stays a hypothesis.

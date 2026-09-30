@@ -98,6 +98,19 @@ For every large empty region: *what is this space doing?*
   and restraint, not from quantity of nothing.
 - "There was nothing to put there." → dead space.
 
+### Content-to-container ratio
+
+Compare the useful content and action with the space and emphasis allocated to it. A tall module
+whose information ends near the top, a huge card with one small action, or a sidebar heavier than
+the main task may inflate a low-value surface. Internal whitespace in a high-contrast container
+can increase its dominance even when overall content coverage looks acceptable.
+
+Ask whether empty space is doing compositional work: isolating a consequential idea, creating
+calm or rhythm, establishing hierarchy, or supporting dramatic framing. Preserve it when that job
+is visible. Reduce or redistribute allocation when it implies importance absent from the content,
+slows scanning, or disconnects related information. Do not fill it with invented content. A large
+sparse surface can be correct; a small dense surface can be under-allocated for its importance.
+
 ### Proportion over quantity
 
 Space works through relationships:

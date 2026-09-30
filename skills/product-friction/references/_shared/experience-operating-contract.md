@@ -17,6 +17,44 @@ redesign, improve, modernize, make memorable, make easier, or finish a surface.
 Do not run the full contract for copy-only, token-renaming, test-only, or isolated implementation
 changes unless the user asks for experience review. A narrow task may still load one specialist.
 
+## Scope gate
+
+Before routing, classify the request's scope from what the user asked to change, not from how much
+code exists. Scope sets how much context to build and which references can be skipped; it is not a
+mode and does not replace REVIEW, REPAIR, BUILD, or VERIFY.
+
+| Scope | Signal | Context and depth |
+|---|---|---|
+| COMPONENT | One control, card, row, or widget inside an existing surface | Observe the surface it sits in; one specialist at most; no page structure or direction work |
+| SURFACE | One screen, panel, dialog, or state of a screen | Experience context below; composition only if the allocation is the problem |
+| PAGE | A whole route, including first-viewport and section structure | Experience context; structural decision before styling |
+| FLOW | Several steps or routes that complete one job | Experience context plus the journey; state and interaction owners checked |
+| PRODUCT | Several routes with shared navigation, identity, or state | Experience context per core route; product archetype and direction |
+
+REVIEW of any scope reports against that scope only. When the scope is ambiguous, take the smaller
+one and name what was left out. A COMPONENT request that turns out to hide a systemic cause is
+re-scoped explicitly, with the evidence, not silently widened.
+
+## Experience context
+
+For SURFACE scope or larger, build one compact context before choosing a direction or a specialist,
+and reuse it instead of re-deriving it. Derive it from the repository, running product, and stated
+requirements; leave a field `unknown` rather than guessing. It lives in your reasoning; do not write a
+file unless the user asks.
+
+```text
+product job and repeated loop:
+existing design system or tokens, framework:
+strengths to preserve:
+current structure (routes or regions and what each is for):
+locked requirements (from source):
+open design freedom:
+known interaction and state model:
+```
+
+The handoff artifact below points to this context and adds only what changed. When a fact in it is
+contradicted by an observation, update the context and say so.
+
 ## Protection and creation
 
 First follow the requested job: REVIEW and VERIFY protect product truth and report material risk;
@@ -44,7 +82,7 @@ reference.
 | Meaningful experience work | Establish the smallest useful journey context before shaping the surface: user/job, start, critical action, success, immediate result or next step, likely consequential failure and recovery, continuation, and state that must persist. For a local change, this can stay in reasoning; do not create a journey document by default. Derive only the invariants that affect the decision from explicit source truth, observed behavior, product mechanics, and user goals. Keep inferred assumptions distinct from locked requirements. |
 | A creation request or quality-focused repair | After separating locked and open decisions, ask what material product-specific quality is currently missing. If a meaningful weakness is systemic, address its shared cause; do not stop at cosmetic changes. Preserve high-quality areas. A no-change decision follows an actual assessment and remains valid when no credible upside justifies intervention. |
 | Visual direction, brand, personality, or “modern/fun” changes | Name the product mechanics, core instrument, and invariants; read `selection.md` or `design-system-selector.md` when comparison could change the choice. Compare structurally different directions only when uncertain. |
-| Page structure, hierarchy, whitespace, or composition changes | Read `compositions-index.md`; name one candidate and read its family. If whitespace is defended, read `whitespace-and-dead-space.md` or record equivalent measured evidence. |
+| Page structure, hierarchy, whitespace, or composition changes | Read `compositions-index.md`; when macrostructure is both relevant and genuinely open (a PAGE or PRODUCT build, or a structural failure that makes the current shape the problem), choose the whole structure before styling it: rank the two or three best candidates for this product and surface with one reason each, read the top candidate's family, and state what would make you switch. Do not list every pattern that could fit. When the surrounding structure is settled (a SURFACE repair, a COMPONENT fix), preserve it, name the composition in use, and work locally; ranking candidates there is over-orchestration. If whitespace is defended, read `whitespace-and-dead-space.md` or record equivalent measured evidence. |
 | A standard control becomes custom, animated, or novel | Read `familiar-controls.md` or the interaction-cost reference; state the user gain and test paste, keyboard, focus, touch, and assistive technology paths. |
 | A workflow gains or loses steps, questions, screens, waits, confirmations, identity, or permissions | Run the known-context inventory and produce typed before/after counts. For each meaningful new step or gate, name the source requirement, observed truth, technical necessity, or consequence that earns it. Do not invent product policy to make a UI pattern convenient. When source and product truth are silent, prefer a reversible, lower-friction interpretation unless risk or evidence argues otherwise. |
 | A state, loading, error, empty, optimistic, offline, or background job changes | Read the relevant state precedent; model state ownership and important transitions, including trigger, preserved/reset data, feedback, focus, and recovery. For user-important objects, check where the change must remain visible on return or related surfaces; use one product truth, honest action labels, and visible outcomes. |
@@ -55,6 +93,23 @@ reference.
 
 If a required file is not installed, use the specialist's documented fallback and label the gap;
 never silently replace evidence with taste.
+
+## Rendered composition judgment
+
+For substantial visual work, take a 3–5 second first-impression pass before detailed inspection:
+what dominates, what is the product or task, and where does attention go next? Compare that likely
+sequence with this user's priority; there is no universal reading order. When useful, ignore copy
+and inspect the silhouette: major shapes, light/dark masses, column occupation, and vertical rhythm.
+No image processing is required.
+
+Ask whether the dominant surface earns its attention relative to useful meaning, decision support,
+interaction, and product value. Area, contrast, isolation, and movement can make a sparse supporting
+surface outweigh the main job; quiet content can carry the highest value. Equal dimensions do not
+establish optical balance. Preserve justified drama, negative space, dark surfaces, and expert
+density. Diagnose the relationship, not the aesthetic category. For a composition repair, name the
+root cause and expected attention or allocation change before editing; afterward compare that
+relationship, neighboring weight, section handoff, and the narrow-screen job. A successful render
+alone does not verify the diagnosis improved.
 
 ## Render contract
 
@@ -72,6 +127,13 @@ state, and viewport so the comparison is meaningful. Open and inspect the actual
 command, screenshot filename, or successful exit code alone is not evidence that the intended change
 worked. State what visibly changed and whether the intended quality delta appeared. If it did not,
 repair the cause and repeat the after capture and comparison before stopping.
+
+Inspecting the captures is also a completion gate on the result itself: if the rendered output still
+shows a material visual failure (an oversized empty or dark region, a collision or clipped content, a
+dominant surface with little useful content, an unreadable control), the work is not complete, whatever
+the checklists say. A specialist having run is not a pass. Fix it, or report it as an unresolved
+failure. Preserve deliberate drama, negative space, and expert density; name the failure by its
+relationship to the user's task, not by its aesthetic category.
 
 Skip rendering only when no browser is available, the project cannot run safely, the user explicitly
 requests source-only analysis, the task is purely conceptual, or the cost is wildly disproportionate.
@@ -110,7 +172,7 @@ verification so far:
 stop condition:
 ```
 
-Add domain detail only when it changes the next decision; do not copy the whole product model. Only
+Reference the experience context rather than restating it. Add domain detail only when it changes the next decision; do not copy the whole product model. Only
 hand off when an unresolved observation has a consequence and the next specialist can address it.
 Otherwise record `no handoff required` and why. The receiver continues from the artifact, loads its
 own required references, and returns the requested output or an explicit blocker.
@@ -122,7 +184,9 @@ when its trigger is present; do not turn these edges into a fixed pipeline:
 
 | Observed result or change | Escalate when | Next skill |
 |---|---|---|
-| anti-ai-slop traces repeated styling to a shared hierarchy, density, or page-structure cause | Repair requires changing focal order, grouping, spatial authority, or route silhouette | composition-repair |
+| anti-ai-slop identifies an unresolved hierarchy, mass, density, rhythm, or structure cause | The structural decision cannot reasonably be resolved within its direct repair branch | composition-repair |
+| anti-ai-slop finds interchangeability after composition is sound | Remaining identity work exceeds the protected-ledger repair | visual-identity |
+| anti-ai-slop finds generic modal, action, feedback, or persistence behavior | Unresolved product semantics require interaction or state depth | interaction-design or state-design |
 | visual-identity finds the working screen generic because its structure buries the instrument or route job | The structural weakness is independently material and direction alone cannot resolve it | composition-repair |
 | interaction-design changes asynchronous feedback, persistence, recovery, or cross-surface state | The action changes state ownership, transitions, or what users see on return | state-design |
 | composition-repair changes responsive hierarchy or the working surface's mobile distribution | The core task, instrument, or supporting panel changes at narrow/short sizes | responsive-validation |
@@ -140,6 +204,9 @@ references, handoffs, requested outputs, render gate, and stop condition must be
 blocked/unverified before completion.
 
 Keep a compact internal trace for meaningful work; do not create a product file just for the trace.
+For visual work, use the existing trigger, change, and verification fields to record the relational
+cause, repair, and observed attention or allocation delta. Anti-slop branches add only their compact
+operational scope/result metadata as defined in their loaded repair or final-gate reference.
 Record one entry per skill with: `activated / observed trigger`, `required and loaded references`,
 `handoff sent or not required`, `changed surface or no change`, `verification and quality delta`, and
 `stop reason`. Preserve the structured trace in evaluation/debug records; show it to the user only
@@ -157,7 +224,9 @@ Example (invented):
 
 Use one object per activated skill. `handoff.status` is `sent` with a complete transfer artifact, or
 `not-required` with a reason. Required and loaded references are separate lists; do not claim a load
-that did not occur. An unavailable verification names the exact blocker and sets the stop reason to
+that did not occur. Reference lists contain exact paths; put section annotations in activation or
+verification text, not inside paths. Use `skill-name/references/...` identifiers in formal records;
+record `changed: ["no change: reason"]` for review-only work. An unavailable verification names the exact blocker and sets the stop reason to
 `unverified` or `blocked`, not `resolved`.
 
 ## Evidence contract

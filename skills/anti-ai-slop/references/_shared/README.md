@@ -10,6 +10,7 @@ points to it.
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
+| `anti-slop-gate.md` | Anti-Slop Gate | `shared/evaluation/anti-slop-gate.md` |
 | `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
 | `design-cliches.md` | Design Clichés | `shared/anti-patterns/design-cliches.md` |
 | `design-vs-decoration.md` | Design vs Decoration | `shared/philosophy/design-vs-decoration.md` |

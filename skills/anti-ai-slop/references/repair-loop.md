@@ -20,30 +20,52 @@ check whether the treatment serves the same job on each route. When a shared pat
 important routes feel interchangeable or hides the product's character, classify that systemic harm
 at its actual severity instead of leaving every instance as an isolated S2.
 
+## Diagnosis level and repair scope
+
+Before meaningful repair, name the dominant weakness, likely root cause, affected route jobs, and
+expected rendered delta. Use one or more internal levels: **surface** (a styling default),
+**component** (a contained pattern), **composition** (mass, hierarchy, density, allocation, rhythm),
+**system** (shared grammar across important regions/routes), **identity** (interchangeability despite
+sound structure), or **interaction** (behavior ignores product semantics). Level describes the
+cause and required effect, not the number of edited files. Severity describes its impact.
+
+A local issue can need one local edit. A composition issue needs a changed visual relationship;
+a systemic issue needs the shared cause reduced across affected jobs. One shared CSS rule can
+achieve that; hundreds of cosmetic edits may not. More specific copy or a better component does
+not close a structural finding if the original arrangement still dominates. Group symptoms under
+their cause, rank the dominant cause first, note secondary contributors, and protect strengths.
+
+Inspect whole-screen structure and likely attention flow, not just component quality. Ask whether
+surfaces earn their attention relative to information/interaction value. A pale illustration,
+saturated help region, sidebar, or persistent chrome can outweigh the job; darkness is not the
+criterion. Equal-card grammar, alternating strips, centered stacks, CTA clusters, or identical
+route skeletons are candidates only when they fail the actual jobs. Conventional parts may be
+harmless alone yet harmful as the dominant combined grammar. Sparse, unusual, fashionable, or
+understated design may be justified. Novelty and library-default counts do not establish quality.
+
 ## Evidence format
 
 Record every S0–S2 finding in this shape (S3 can be a list):
 
 ```text
 ELEMENT: where (route, region, component)
-PATTERN SCOPE: shared cause and affected route jobs; say "local" when contained
+ROOT CAUSE / LEVEL: observed weakness, cause, level(s), affected route jobs, expected visual delta
 CURRENT TREATMENT: what it looks like and its values
 WHY IT LOOKS GENERATED: the class from the taxonomy and the specific signal
-PRODUCT CONTEXT: niche and user job (niche atlas profile)
+PRODUCT CONTEXT: actual user job, information, workflow, state; niche profile only if needed
 CURRENT IDENTITY: the ledger carriers this element should express
 SOURCE / CSS: file, component, token or classes (E3), or "not traced" with reason
 REPLACEMENT: the specific change
 WHY REPLACEMENT FITS: which carrier or niche reality it serves
-VERIFICATION: rendered before/after at sizes and states (E1/E2), or NOT VERIFIED IN RENDERED OUTPUT
+VERIFICATION / RESULT: same-view before/after effect on the root cause; improved, unresolved, or escalated; UNVERIFIED if unavailable
 SEVERITY: S0–S3 · EVIDENCE: E1–E6
 ```
 
 ## Choosing a replacement: "What would THIS product do instead?"
 
 1. Start from the identity statement and protected list (`references/identity-extraction.md`).
-2. Read the matching niche profile's generated-UI failures and realities
-   (`references/_shared/niche-atlas-index.md`, then the niche file). The replacement must serve the
-   niche's jobs and states.
+2. Use actual product information, workflow, state, and user priority. Read a niche profile only
+   when its realities could change this decision; a niche never chooses a style.
 3. For a structural replacement with an open choice, compare distinct product-relevant alternatives
    from `references/_shared/anti-generic-alternatives.md`. If one repair clearly addresses the
    observed defect without weakening identity, implement and verify it directly.
@@ -53,18 +75,13 @@ SEVERITY: S0–S3 · EVIDENCE: E1–E6
 5. Check `references/_shared/design-vs-decoration.md`: the replacement must do a job, not decorate
    differently.
 
-### Replacement matrix by identity
+### Reassign the job, not a style
 
-| Generated decision | Operational | Editorial | Playful | Material | Technical | Immersive | Institutional | Object |
-|---|---|---|---|---|---|---|---|---|
-| Purple glow / blobs | remove; show state | remove; type carries | product motif from the world | material texture, photography | real output or diagram | keep if it is the world's light | remove; clarity | object photography |
-| Gradient CTA | solid action role | solid, underline links | brand's saturated solid with outline | brand's earthy solid | solid; mono label | world-colored solid | solid, high contrast | black/brand solid |
-| Card grid | table or list | sections with rules | chunky objects if actionable | catalog with real photos | spec table | art tiles | plain list with descriptions | one object large |
-| Default hero | tool-first | headline as design | stage with the play | image-led maker story | datasheet or real output | immersive scene | task start page | object-first |
-| Fade-up everywhere | none; state changes only | none | event celebration on real wins | none | none | choreographed world transitions | none | slow crossfade on images |
-| Inter default | keep if scaled; tabular numbers | reading serif + sans | rounded or brand display for titles | slab or serif from brand | technical sans + mono for code | condensed or world display | high-legibility sans | refined serif or brand face |
-
-The matrix proposes; the ledger decides. If the product already uses one of these, strengthen it.
+When removing a default, ask what should occupy its hierarchy instead: the core instrument, real
+product evidence, consequential state, primary action, or necessary context. Sometimes nothing is
+needed; purposeful negative space can remain. Do not leave a hole where useful grouping or feedback
+was lost. Strengthen a product-derived relationship rather than mapping an identity label to a
+font, color, card count, or layout. Check structure, behavior, hierarchy, and expression together.
 
 ## Trace, repair, rerender
 
@@ -79,8 +96,11 @@ The matrix proposes; the ledger decides. If the product already uses one of thes
    the finding; give each route a composition suited to its content and user job while retaining
    justified identity carriers and working mechanics.
 4. **Repair** in severity order. Keep accessible primitives; change tokens, composition, content.
-5. **Rerender** the same routes, sizes, and states as the baseline. Compare side by side and record
-   what visibly changed in hierarchy, composition, and product specificity.
+5. **Rerender and directly compare** the same routes, sizes, and states. Return to the original
+   dominant weakness: was it materially reduced at that level? Did a new dominant weakness appear?
+   Does the whole result feel more intentional and product-specific, with important functionality
+   intact? Check a narrow viewport where structure or hierarchy could change. Write only material
+   findings, not a separate answer to every question.
 6. **Stress** a sparse state, a dense state, long text, and a phone size.
 7. **Check for new slop:** did the fix introduce a new default (swapping purple for teal gradient,
    cards for identical bordered boxes, fade-up for slide-in)? If so, treat it as a finding.
@@ -92,12 +112,36 @@ The matrix proposes; the ledger decides. If the product already uses one of thes
 ## Originality tests
 
 1. **Twenty-sites test:** hide the logo and product name. Could the surface belong to twenty
-   unrelated generated sites? Yes → continue working on the highest-severity surface.
+   unrelated generated sites? If this interchangeability materially harms the product, continue on
+   that cause; a familiar, job-specific professional tool does not need novelty for its own sake.
 2. **Weirdness test:** is the interface distinctive only because something is strange (odd cursor,
    random font, unexplained shape)? Yes → continue; distinctiveness must come from decisions that
    belong together.
 3. **Coherence check:** name the 2–4 carriers and show each on a sparse surface, a dense surface, and
    an error or empty state (anchor: `references/_shared/logo-removal-test.md`).
+
+## Completion and operational records
+
+Load the shared anti-slop gate for the final decision. PASS means no material anti-slop intervention
+remains justified; REPAIR means the root cause is known and this branch can address it; ESCALATE
+means another specialist owns the unresolved repair. These are internal results, not new modes.
+Do not close a composition/system diagnosis with content polish inside the same weak arrangement.
+Continue if feasible, or explicitly leave it unresolved. If rendering is unavailable, say
+**UNVERIFIED — NOT VERIFIED IN RENDERED OUTPUT** with the blocker; do not say the slop was resolved.
+
+Use the existing handoff contract only for unresolved structural, identity, interaction, or state
+work needing specialist depth. Include job, locked truth, open space, root weakness, sources and
+required references, expected output, and a visible stop condition. A missing required reference
+blocks that branch. Do not send the entire context or activate an automatic specialist bundle.
+
+In formal debug records, extend the existing trace entry with operational metadata:
+`diagnosis: {levels, rootCause, targetDelta}`, `repairLevel`, and `result` (improved, unresolved,
+escalated, pass, or unverified). Use existing required/loaded references, changed files, verification,
+and stop reason fields for sources and before/after evidence. Level names express scope of effect;
+a shared-rule repair can be systemic. References stay exact paths, without annotations. Keep this
+metadata out of ordinary answers and the judge's input. Render/inspection and reference claims are
+checked against tool activity; a diagnosis/repair-level mismatch needs review, never a diff-size
+heuristic. The judge assesses outcome from the public answer and scenario, not private trace data.
 
 ## Report
 

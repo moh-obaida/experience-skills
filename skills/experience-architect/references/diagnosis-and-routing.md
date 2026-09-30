@@ -16,6 +16,7 @@ specialists can act on. Many symptoms map to more than one class; confirm with o
 | "It looks empty" / "too much whitespace" | DEAD SPACE, FAKE MINIMALISM, missing environment, sparse state | Measure first-viewport content coverage; check if the state is sparse data |
 | "It looks clean" (said as praise, by an agent) | Possibly ALIGNED NOT COMPOSED, FAKE PREMIUM | Grayscale test; logo test; coverage |
 | "It looks generic" / "AI-made" | GENERIC, TREND COPY, design clichés, generic copy | Run anti-slop gate; logo test |
+| "It feels heavy / unbalanced" | Disproportionate allocation, supporting surface dominant, optical imbalance | Compare rendered mass with useful content/action, neighboring weight, and user priority |
 | "It feels cheap" | Weak typography, inconsistent spacing, noise, low-quality imagery | Inspect type scale, spacing rhythm, asset quality |
 | "It's cluttered" / "busy" | NOISE, CRAMPED, FLAT HIERARCHY, too many P0s | Count competing emphases; rank information |
 | "I can't find X" | Discoverability, IA, WRONG FOCAL POINT | Path from landing to X; label clarity |
@@ -34,6 +35,12 @@ specialists can act on. Many symptoms map to more than one class; confirm with o
 | "Audit this page" / "go over every inch" / "check the CSS too" | Page-scoped surface defects requiring rendered and source evidence | Inspect every region, control, state, and trace significant findings to source |
 | "Remove the AI look from our site" / "it looks like every v0 site" | Generated decisions across an existing product; identity buried | Render, extract the identity, sweep every surface, classify and trace generated patterns |
 | "Make it pop" / "make it modern" | Vague; often identity or hierarchy | Ask what feels wrong now; observe first |
+
+When visual symptoms share an allocation or hierarchy cause, route that cause once. A dominant
+low-value surface may need composition-repair alone; a balanced but generic page may need
+visual-identity; repeated generated shells may need anti-ai-slop; a finished product needing
+prioritization may need only critical-review. Add another skill only for an independently observed
+concern or unresolved dependency, not because the page is visual.
 
 ### Problem classes by specialist
 
@@ -72,9 +79,9 @@ Each class names its observable signal, so a symptom can be confirmed before rou
 | Structurally convergent | The primary screen has a category-default silhouette that could serve unrelated products despite open design space | visual-identity; composition-repair only if hierarchy or instrument dominance is unresolved |
 | Clear quality upside in open design space | The product works, but observed hierarchy, expression, route composition, interaction feedback, or mobile workflow materially under-serves its job; relevant decisions remain open | Route only the specialist(s) that own the demonstrated gap, such as visual-identity, composition-repair, interaction-design, state-design, or responsive-validation |
 | Generated look across an existing product | Many surfaces use library defaults, generated heroes, glow, glass, card grids, generic copy; the user wants it repaired end to end | anti-ai-slop (with interface-forensics for traces) |
-| Visually chaotic | Many accents, competing emphases, no focal point in a squint test | composition-repair, anti-slop-ui |
-| Visually empty | Low first-viewport coverage without an environment | composition-repair, empty-state-design, visual-identity |
-| Hierarchy failure | Wrong or missing focal point; flat type scale | composition-repair |
+| Visually chaotic | Many accents, competing emphases, no focal point in a squint test | composition-repair; anti-slop-ui only for independently harmful generic patterns |
+| Visually empty | Sparse allocation without a framing job, missing next action, or missing expression | composition-repair for allocation; empty-state-design for missing next action; visual-identity for unresolved expression |
+| Hierarchy failure | Wrong or missing focal point; supporting content outweighs the job; important content buried; optical imbalance despite geometric symmetry | composition-repair |
 | Workflow too long | Step, decision, and navigation counts high for frequency | workflow-compression |
 | Repeated configuration | Same setup each session | workflow-compression |
 | Confusing controls | Mis-clicks, hesitation, restated scope, unclear affordance | interaction-design |
@@ -116,6 +123,15 @@ state matrix, the chosen direction); do not let the next specialist re-diagnose 
 
 How to pick specialist skills from a diagnosis. Specialists are sibling skills in this
 collection. Any of them may or may not be installed.
+
+### Scope narrows the graph
+
+Classify scope first (the operating contract's scope gate). COMPONENT scope does not activate
+page-structure or direction work: route to the one specialist that owns the defect, inside the
+existing surface. Structure-level specialists (composition-repair, visual-identity) need a
+confirmed SURFACE-or-larger concern, such as a dominant region, a buried instrument, or an
+interchangeable identity. A component symptom with a systemic cause is re-scoped out loud, with
+the observation that shows it.
 
 ### Checking what is installed
 
@@ -210,7 +226,9 @@ and consequence in the handoff; an edge is not a standing pipeline.
 
 | Current skill or finding | Trigger for another owner | Activate |
 |---|---|---|
-| anti-ai-slop traces repeated treatment to shared hierarchy, density, or page structure | Repair needs a change to focal order, grouping, spatial authority, or route silhouette | composition-repair |
+| anti-ai-slop identifies unresolved hierarchy, mass, density, rhythm, or structure | Structural decision exceeds what its direct repair branch can reasonably resolve | composition-repair |
+| anti-ai-slop finds interchangeability with sound composition | Identity resolution exceeds the protected-ledger repair | visual-identity |
+| anti-ai-slop finds boilerplate actions, feedback, or persistence | Product semantics need specialist depth | interaction-design or state-design |
 | visual-identity finds the working screen generic because its structure buries the instrument or route job | Direction alone cannot resolve the independently material structure weakness | composition-repair |
 | interaction-design changes async feedback, persistence, recovery, or cross-surface state | State ownership or a consequential transition also changes | state-design |
 | state-design changes a transition's available action or its task feedback | A control, safety choice, input path, or action label needs redesign | interaction-design |

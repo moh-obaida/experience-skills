@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invented visual relationship fixtures</title>
+<style>
+* { box-sizing: border-box; } body { margin: 0; color: #172334; background: #f6f8fb; font: 16px/1.5 system-ui, sans-serif; }
+[hidden] { display: none !important; } main { max-width: 1220px; margin: auto; padding: 32px; }
+h1 { font-size: clamp(36px, 5vw, 68px); line-height: 1.05; margin: 20px 0; } h2 { font-size: 30px; line-height: 1.2; } h3 { margin: 0 0 12px; }
+p { max-width: 62ch; } a { color: #164da1; } button, select, input { font: inherit; }
+button, .cta { display: inline-block; padding: 12px 20px; background: #184d89; color: white; border: 0; border-radius: 4px; text-decoration: none; cursor: pointer; }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #bf6600; outline-offset: 4px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid #ccd4df; padding-bottom: 20px; }
+section { margin-top: 32px; } .split { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; }
+.dark { background: #162638; color: #fff; } .dark a { color: #b8d7ff; } .secondary { min-height: 570px; padding: 32px; }
+.products, .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+article { border-top: 1px solid #bcc8d9; padding: 20px 0; } .art { height: 100px; background: #71919c; }
+.quiet { color: #566272; font-size: 15px; } .showcase { padding: 56px; min-height: 390px; background: #233d75; color: white; }
+.status { border-top: 1px solid #ccd4df; margin-top: 42px; padding: 16px; color: #566272; background: #f1f3f5; font-size: 15px; }
+.equal { grid-template-columns: 1fr 1fr; } .mosaic { min-height: 580px; background: repeating-linear-gradient(25deg,#233642 0 42px,#487168 42px 84px,#162b32 84px 125px); }
+.sticky { position: sticky; top: 0; background: #f6f8fb; z-index: 1; padding-top: 12px; }
+.booking { scroll-margin-top: 110px; padding: 32px; min-height: 390px; background: #dae6f8; } .booking label { display: block; margin: 16px 0; } input, select { padding: 8px; max-width: 100%; }
+.luxury { background: #f2efea; color: #302b26; min-height: 100vh; max-width: none; padding: 6vh 9vw; }
+.luxury .stage { min-height: 650px; display: flex; align-items: center; gap: 12vw; } .luxury h1 { font-family: Georgia,serif; font-weight: normal; max-width: 7ch; font-size: clamp(60px, 8vw, 112px); }
+.object { width: 260px; height: 330px; border-radius: 45% 45% 18% 18%; background: #6b5542; box-shadow: inset -28px 0 #534031; flex-shrink: 0; }
+.console { max-width: none; padding: 20px; background: #142232; color: #e4edf6; min-height: 100vh; font-size: 14px; }
+.console h1 { font-size: 28px; } .console a { color: #b8d7ff; } .toolbar { display:flex; flex-wrap:wrap; gap: 12px; align-items:center; margin: 16px 0; }
+.console table { width: 100%; border-collapse: collapse; } .console th, .console td { padding: 12px 8px; border-bottom: 1px solid #42566d; text-align: left; }
+.console .table-wrap { overflow-x:auto; } .rhythm section { padding: 38px 0; border-bottom: 1px solid #ccd4df; } .rhythm article { border: 1px solid #ccd4df; padding: 24px; background: white; }
+.help { min-height: 430px; padding: 36px; background: #1b6c71; color: white; display:flex; flex-direction: column; justify-content: space-between; }
+.help a { color: white; } .row { display:flex; justify-content: space-between; gap: 16px; }
+@media (max-width: 700px) { main { padding: 24px; } header { flex-wrap:wrap; } .split, .products, .cards { grid-template-columns: 1fr; } .luxury .stage { flex-direction:column; align-items:flex-start; justify-content:center; gap:50px; } .object { width:180px; height:230px; } .showcase { padding:30px; } .console { padding:12px; } }
+</style>
+</head>
+<body>
+<!-- All products, data, and scenes in this file are invented regression fixtures. -->
+<main data-view="mass">
+<header><strong>Edition House</strong><a href="#collection">Browse prints</a></header>
+<section class="split"><div><p>Small-run prints from independent makers</p><h1>Find a piece worth living with.</h1><p>Browse dimensions, paper, and available editions before choosing a print for your room.</p><a class="cta" href="#collection">Explore the collection</a></div><aside class="dark secondary"><h2>Give a print</h2><p>A gift voucher lets them choose.</p><a href="#gift">View gift vouchers</a></aside></section>
+<section id="collection"><h2>Available editions</h2><div class="products"><article><div class="art"></div><h3>Coastal study</h3><p>30 × 40 cm · 24 available</p></article><article><div class="art"></div><h3>City intervals</h3><p>50 × 70 cm · 12 available</p></article><article><div class="art"></div><h3>Evening garden</h3><p>40 × 50 cm · 18 available</p></article></div></section><section id="gift"><h2>Gift vouchers</h2><p>Choose an amount at checkout; the recipient selects their edition.</p></section>
+</main>
+<main data-view="buried" hidden><header><strong>Northbank</strong><a href="#accounts">Accounts</a></header><h1>Transfer submitted</h1><section class="showcase"><h2>Plan your next chapter</h2><p>Explore stories about travel, homes, and saving.</p><a class="cta" href="#stories">Explore stories</a></section><section class="status"><h2 style="font-size:18px">Your transfer needs attention</h2><p>The recipient bank needs a reference before this transfer can proceed. Funds have not been sent.</p><a href="#reference">Add the payment reference</a></section><section id="reference"><h2>Payment reference</h2><label>Reference <input id="payment-reference"></label><button data-result="Reference saved for this demo">Save reference</button><p role="status"></p></section><section id="stories"><h2>Planning stories</h2><p>Read about building a savings plan.</p></section><section id="accounts"><h2>Accounts</h2><p>Everyday account · available balance shown in your account view.</p></section></main>
+<main data-view="optical" hidden><header><strong>Frame Lab</strong><a href="#workspace">Open workspace</a></header><section class="split equal"><div><h1>Proof your layout before export.</h1><p>Check trim, bleed, and reading order for your next publication.</p><a class="cta" href="#workspace">Open the proofing workspace</a></div><div class="mosaic" role="img" aria-label="Decorative pattern sample"></div></section><section id="workspace"><h2>Proofing workspace</h2><p>Select a publication to inspect its trim and bleed.</p><label>Publication <select><option>Spring issue</option><option>Field guide</option></select></label></section></main>
+<main data-view="duplicate" hidden><header class="sticky"><strong>Harbor Studios</strong><a class="cta" href="#dates">Book a studio</a></header><section class="split"><div><h1>A room for your next recording.</h1><p>Two quiet studios, hourly sessions, equipment included.</p><a class="cta" href="#dates">Book a studio</a></div><form class="booking" id="dates"><h2>Book a studio</h2><label>Studio <select><option>Room A · voice</option><option>Room B · ensemble</option></select></label><label>Session date <input type="date" required></label><button type="submit">Check availability</button><p role="status"></p></form></section><section><h2>Included equipment</h2><p>Microphones, headphones, and an engineer for setup.</p></section></main>
+<main data-view="space" class="luxury" hidden><header><strong>Still Objects</strong><a href="#piece">View the vessel</a></header><section class="stage"><div><p>One object, made slowly</p><h1>Space to notice.</h1><a href="#piece">Materials and dimensions</a></div><div class="object" role="img" aria-label="Hand-shaped ceramic vessel"></div></section><section id="piece"><h2>The vessel</h2><p>Hand-shaped clay · 28 cm tall · each form varies slightly.</p></section></main>
+<main data-view="dense" class="console" hidden><header><strong>Fleet Desk · Dispatch</strong><span>Live shift · 18 routes</span></header><h1>Route exceptions</h1><p>Resolve delays without losing sight of the active fleet.</p><div class="toolbar"><label>Region <select><option>All regions</option><option>North</option></select></label><label>State <select><option>All states</option><option>Delayed</option></select></label><label>Search <input type="search" id="route-search" placeholder="Route or driver"></label><button data-result="Dispatch snapshot exported for this demo">Export snapshot</button><p role="status"></p></div><div class="table-wrap"><table><thead><tr><th>Route</th><th>Driver</th><th>State</th><th>ETA</th><th>Stops</th><th>Load</th><th>Radio</th><th>Assignment</th></tr></thead><tbody id="routes"></tbody></table></div></main>
+<main data-view="rhythm" class="rhythm" hidden><header><strong>Field School</strong><a href="#enroll">Enrollment</a></header><h1>From curiosity to field practice.</h1><p>Learn observation, practice outdoors, and submit a field record for feedback.</p><section><h2>Learn the method</h2><div class="cards"><article><h3>Notice</h3><p>Identify a question.</p></article><article><h3>Record</h3><p>Keep a consistent log.</p></article><article><h3>Compare</h3><p>Find a useful pattern.</p></article></div></section><section><h2>Practice outdoors</h2><div class="cards"><article><h3>Choose a site</h3><p>Find a safe location.</p></article><article><h3>Visit twice</h3><p>Observe a change.</p></article><article><h3>Discuss</h3><p>Compare with a peer.</p></article></div></section><section><h2>Submit your record</h2><div class="cards"><article><h3>Upload</h3><p>Send your log.</p></article><article><h3>Review</h3><p>Receive feedback.</p></article><article><h3>Revise</h3><p>Make the next observation.</p></article></div></section><section id="enroll"><h2>Next cohort</h2><p>Enrollment opens next month.</p></section></main>
+<main data-view="root" hidden><header><strong>Course Desk</strong><a href="#lesson">Continue lesson</a></header><h1>Your next step: finish the field log.</h1><p>Lesson 4 of 6 · your draft is saved.</p><a class="cta" href="#lesson">Continue your field log</a><section class="help"><div><h2>Study support</h2><p>One short guide if you need help.</p><a href="#guide">Read the guide</a></div><div class="row"><span>Guide updated this term</span><span>2 min read</span></div></section><section id="lesson"><h2>Your saved field log</h2><p>Record the conditions you observed at the site.</p><label>Notes <textarea rows="4" style="border-radius:3px"></textarea></label></section><section id="guide"><h2>Field log guide</h2><p>Note location, time, conditions, and what changed.</p></section></main>
+<script>
+const views = [...document.querySelectorAll('[data-view]')];
+function showView() {
+ const hash = location.hash.slice(1);
+ const directView = views.find(view => view.dataset.view === hash);
+ const target = document.getElementById(hash);
+ const activeView = directView || target?.closest('main[data-view]');
+ if (activeView) {
+  views.forEach(view => view.hidden = view !== activeView);
+  if (directView) window.scrollTo(0,0);
+  else target.scrollIntoView();
+ }
+}
+showView(); window.addEventListener('hashchange',showView);
+document.querySelectorAll('button[data-result]').forEach(button => button.addEventListener('click',()=>button.parentElement.querySelector('[role=status]').textContent=button.dataset.result));
+document.querySelector('form').addEventListener('submit',event=>{event.preventDefault();event.currentTarget.querySelector('[role=status]').textContent='Demo availability: morning and afternoon sessions available.';});
+const routes = document.querySelector('#routes');
+for(let i=1;i<=18;i++) { const row=document.createElement('tr'); row.innerHTML=`<td>R${String(i).padStart(2,'0')}</td><td>Driver ${i}</td><td>${i<4?'Delayed':'On schedule'}</td><td>${i<4?'+12 min':'On time'}</td><td>${7+i%5}</td><td>${40+i*2}%</td><td>Channel ${i%3+1}</td><td><button data-route="${i}">Assign</button></td>`; routes.append(row); }
+routes.addEventListener('click',event=>{if(event.target.dataset.route)event.target.textContent='Assigned';});
+function filterRoutes() { const search=document.querySelector('#route-search').value.toLowerCase(); const selects=document.querySelectorAll('.console select'); [...routes.rows].forEach((row,i)=>row.hidden=(!row.textContent.toLowerCase().includes(search))||(selects[0].value==='North'&&i>=9)||(selects[1].value==='Delayed'&&i>=3)); }
+document.querySelector('#route-search').addEventListener('input',filterRoutes); document.querySelectorAll('.console select').forEach(select=>select.addEventListener('change',filterRoutes));
+</script>
+</body></html>

@@ -1,6 +1,7 @@
 // Pure helpers for the agent evaluation harness (scripts/run-agent-evals.mjs).
 import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { readFileSync, realpathSync } from 'node:fs';
+import { sep, basename, dirname, resolve } from 'node:path';
 
 // Kept deterministic and locally testable without running an agent.
 
@@ -50,8 +51,9 @@ const PRECEDENT = new Set([
 ]);
 
 /** Resolve literal/brace-expanded skill reads from a completed shell command. */
-export function shellSkillReads(command, output = '') {
-  if (!/\b(?:cat|sed|head|tail|less|awk|rg)\b/.test(command)) return { skills: [], references: [] };
+export function shellSkillReads(command, output = '', referenceBase = '') {
+  if (!/\b(?:cat|sed|head|tail|less|awk|rg|grep)\b/.test(command)) return { skills: [], references: [] };
+  if (referenceBase) command = command.replace(/(?<![\w/.-])((?:_shared\/)?[a-z0-9-]+\.md)\b/gi, (_, file) => `${referenceBase}${file}`);
   const skills = new Set(); const references = new Set();
   const expand = (value) => {
     const match = value.match(/\{([^{}]+)\}/);
@@ -67,13 +69,35 @@ export function shellSkillReads(command, output = '') {
   return { skills: [...skills], references: [...references] };
 }
 
+// Track only an observed literal absolute cd; unknown/relative directory changes clear context.
+function shellReferenceBase(command, previous = '') {
+  const changes = [...command.matchAll(/\bcd\s+(?:["']([^"']+)["']|([^\s;&|]+))/g)];
+  if (!changes.length) return previous;
+  const path = changes.at(-1)[1] ?? changes.at(-1)[2];
+  const match = path.startsWith('/') && !/[$`]/.test(path) && path.match(/\/skills\/([a-z0-9-]+)\/(references(?:\/_shared)?)\/?$/);
+  return match ? `${match[1]}/${match[2]}/` : '';
+}
+
+function referenceId(path) {
+  if (typeof path !== 'string') return path;
+  return path.trim().match(/^(?:.*\/skills\/)?([a-z0-9-]+\/references\/(?:_shared\/)?[a-z0-9-]+\.md)$/)?.[1] ?? path;
+}
+
+const SLOP_LEVELS = new Set(['surface', 'component', 'composition', 'system', 'identity', 'interaction']);
+function publicAnswer(answer) {
+  return answer.replace(/<!--\s*experience-skills-trace\s*[\s\S]*?(?:-->|$)/gi, '').trim();
+}
+
 function parseExecutionTrace(answer, observedSkills, observedReferences) {
   const match = answer.match(/<!--\s*experience-skills-trace\s*([\s\S]*?)\s*-->/i);
   if (!match) return { present: false, complete: false, entries: [], issues: ['trace missing'] };
   let value;
   try { value = JSON.parse(match[1]); }
   catch { return { present: true, complete: false, entries: [], issues: ['trace JSON invalid'] }; }
-  const entries = Array.isArray(value?.skills) ? value.skills : [];
+  const entries = Array.isArray(value?.skills) ? value.skills.map(entry => ({ ...entry,
+    requiredReferences: Array.isArray(entry?.requiredReferences) ? entry.requiredReferences.map(referenceId) : entry?.requiredReferences,
+    loadedReferences: Array.isArray(entry?.loadedReferences) ? entry.loadedReferences.map(referenceId) : entry?.loadedReferences,
+  })) : [];
   const issues = [];
   const actualSkills = new Set(observedSkills);
   const actualReferences = new Set(observedReferences);
@@ -93,6 +117,13 @@ function parseExecutionTrace(answer, observedSkills, observedReferences) {
         if (!entry.loadedReferences.includes(reference)) issues.push(`required reference not loaded: ${reference}`);
       }
     }
+    if (name === 'anti-ai-slop') {
+      const diagnosis = entry.diagnosis;
+      if (!Array.isArray(diagnosis?.levels) || !diagnosis.levels.length || diagnosis.levels.some(level => !SLOP_LEVELS.has(level))) issues.push(`diagnosis levels missing or invalid: ${name}`);
+      for (const field of ['rootCause', 'targetDelta']) if (typeof diagnosis?.[field] !== 'string' || !diagnosis[field].trim()) issues.push(`diagnosis ${field} missing: ${name}`);
+      if (!SLOP_LEVELS.has(entry.repairLevel)) issues.push(`repair level missing or invalid: ${name}`);
+    }
+    if (['anti-ai-slop', 'anti-slop-ui'].includes(name) && !['improved', 'unresolved', 'escalated', 'pass', 'unverified'].includes(entry.result)) issues.push(`anti-slop result missing or invalid: ${name}`);
     const handoff = entry?.handoff;
     if (handoff?.status === 'sent') {
       const fields = ['job', 'lockedTruth', 'openSpace', 'currentWeaknessOrGroundedUpside', 'relevantSourceAndRequiredReferences', 'expectedOutput', 'stopCondition'];
@@ -108,7 +139,7 @@ function parseExecutionTrace(answer, observedSkills, observedReferences) {
   for (const reference of observedReferences) {
     const owner = reference.split('/')[0];
     const entry = entries.find((item) => item?.skill === owner);
-    if (!entry?.loadedReferences?.includes(reference)) issues.push(`observed reference omitted from trace: ${reference}`);
+    if (!Array.isArray(entry?.loadedReferences) || !entry.loadedReferences.includes(reference)) issues.push(`observed reference omitted from trace: ${reference}`);
   }
   return { present: true, complete: issues.length === 0, entries, issues };
 }
@@ -135,6 +166,8 @@ export function parseTranscript(jsonl) {
   const imageFilesRead = [];
   const imageReadEvents = [];
   const implementationEventIndices = [];
+  const implementationFileEvents = [];
+  let referenceBase = '';
   const renderAttempts = [];
   const toolCounts = {};
   const timeline = [];
@@ -150,7 +183,7 @@ export function parseTranscript(jsonl) {
       for (const block of ev.message.content) {
         if (block.type !== 'tool_use') continue;
         toolCounts[block.name] = (toolCounts[block.name] ?? 0) + 1;
-        if (block.name === 'Edit' || block.name === 'Write') { note(editToolsUsed, block.name); implementationEventIndices.push(eventIndex); timeline.push('implementation'); }
+        if (block.name === 'Edit' || block.name === 'Write') { note(editToolsUsed, block.name); implementationEventIndices.push(eventIndex); implementationFileEvents.push({ eventIndex, path: String(block.input?.file_path ?? block.input?.path ?? '') }); timeline.push('implementation'); }
         const input = block.input ?? {};
         const commandText = String(input.command ?? '');
         const path = String(input.file_path ?? input.path ?? '');
@@ -175,7 +208,8 @@ export function parseTranscript(jsonl) {
             timeline.push(`render-${marker.phase}`);
           }
           if (resultOk) {
-            const reads = shellSkillReads(commandText, resultText);
+            referenceBase = shellReferenceBase(commandText, referenceBase);
+            const reads = shellSkillReads(commandText, resultText, referenceBase);
             for (const name of reads.skills) { note(skillFilesRead, name); timeline.push(`skill:${name}`); }
             for (const reference of reads.references) {
               note(referencesRead, reference); timeline.push(`reference:${reference}`);
@@ -225,7 +259,7 @@ export function parseTranscript(jsonl) {
           renderAttempts.push({ phase: marker.phase, eventIndex, manifest: marker.manifest, screenshots: marker.screenshots ?? [] });
           note(renderedToolActivity, `render:${marker.phase}`); timeline.push(`render-${marker.phase}`);
         }
-        if (ev.type === 'item.completed') {
+        if (ev.type === 'item.completed' && item.exit_code === 0) {
           const reads = shellSkillReads(command, commandOutput);
           for (const name of reads.skills) { note(skillFilesRead, name); timeline.push(`skill:${name}`); }
           for (const reference of reads.references) {
@@ -237,7 +271,7 @@ export function parseTranscript(jsonl) {
         }
         for (const script of command.matchAll(/skills\/([a-z0-9-]+)\/(scripts\/[a-z0-9-]+\.mjs)/g)) note(scriptsRun, `${script[1]}/${script[2]}`);
       }
-      if (item.type === 'file_change') { toolCounts.Edit = (toolCounts.Edit ?? 0) + 1; if (ev.type === 'item.completed') { implementationEventIndices.push(eventIndex); timeline.push('implementation'); } }
+      if (item.type === 'file_change') { toolCounts.Edit = (toolCounts.Edit ?? 0) + 1; if (ev.type === 'item.completed') { implementationEventIndices.push(eventIndex); for (const change of item.changes ?? []) implementationFileEvents.push({ eventIndex, path: change.path ?? change.file_path ?? '' }); timeline.push('implementation'); } }
     }
     if (ev.type === 'turn.completed') {
       costUsd = ev.usage?.cost_usd ?? costUsd;
@@ -249,7 +283,7 @@ export function parseTranscript(jsonl) {
   const specialistsTriggered = skillsLoaded.filter((skill) => skill !== 'experience-architect');
   const renderedEvidenceGathered = false; // Set only after the runner verifies before/after PNG artifacts, order, inspection, and comparison.
   const executionTrace = parseExecutionTrace(answer, skillsLoaded, referencesRead);
-  if (executionTrace.present) answer = answer.replace(/<!--\s*experience-skills-trace\s*[\s\S]*?\s*-->/i, '').trim();
+  answer = publicAnswer(answer);
   const completionCriteriaSatisfied = {
     evidenceContract: /\bObserved:\b[\s\S]*\bMeasured:\b[\s\S]*\bChanged:\b[\s\S]*\bVerified:\b[\s\S]*\bNot verified:\b/i.test(answer),
     finalGate: /final gate|PASS\s*[·|]|NOT VERIFIED IN RENDERED OUTPUT/i.test(answer),
@@ -261,7 +295,7 @@ export function parseTranscript(jsonl) {
     executionTrace: executionTrace.complete,
     renderedExceptionNamed: /NOT VERIFIED IN RENDERED OUTPUT[\s\S]{0,240}(?:because|reason|unavailable|cannot|not available)/i.test(answer),
   };
-  return { answer, skillsInvoked, skillFilesRead, skillsLoaded, specialistsTriggered, referencesRead, designIntelligenceModulesLoaded, precedentModulesLoaded, scriptsRun, editToolsUsed, renderedEvidenceGathered, renderedToolActivity, imageFilesRead, imageReadEvents, implementationEventIndices, renderAttempts, executionTrace, completionCriteriaSatisfied, timeline, toolCounts, costUsd, turns, error };
+  return { answer, skillsInvoked, skillFilesRead, skillsLoaded, specialistsTriggered, referencesRead, designIntelligenceModulesLoaded, precedentModulesLoaded, scriptsRun, editToolsUsed, renderedEvidenceGathered, renderedToolActivity, imageFilesRead, imageReadEvents, implementationEventIndices, implementationFileEvents, renderAttempts, executionTrace, completionCriteriaSatisfied, timeline, toolCounts, costUsd, turns, error };
 }
 
 /** Verify real PNG output, before/after ordering, image inspection, and an explicit comparison. */
@@ -270,7 +304,18 @@ export function validateRenderEvidence(project, transcript, expectedHelperHash =
   const before = attempts.filter((attempt) => attempt.phase === 'before').at(-1);
   const after = attempts.filter((attempt) => attempt.phase === 'after').at(-1);
   const timeline = transcript.timeline ?? [];
-  const implementationEvents = transcript.implementationEventIndices ?? [];
+  const canonicalProject = realpathSync(project);
+  const fileEvents = transcript.implementationFileEvents ?? [];
+  const implementationEvents = (transcript.implementationEventIndices ?? []).filter(index => {
+    const files = fileEvents.filter(event => event.eventIndex === index && event.path);
+    if (!files.length) return true; // Unknown edit paths cannot be dismissed.
+    return files.some(event => {
+      let target = resolve(project, event.path);
+      try { target = realpathSync(target); }
+      catch { try { target = resolve(realpathSync(dirname(target)), basename(target)); } catch { /* retain literal path */ } }
+      return target.startsWith(`${canonicalProject}${sep}`) && !target.startsWith(`${canonicalProject}${sep}.benchmark${sep}`);
+    });
+  });
   const firstEdit = implementationEvents.length ? Math.min(...implementationEvents) : -1;
   const lastEdit = implementationEvents.length ? Math.max(...implementationEvents) : -1;
   const path = (value) => value.startsWith('/') ? value : `${project}/${value}`;
@@ -284,8 +329,9 @@ export function validateRenderEvidence(project, transcript, expectedHelperHash =
         const emitted = stdoutByPath.get(shot.path);
         if (!emitted || emitted.sha256 !== shot.sha256 || emitted.bytes !== shot.bytes) return false;
         try {
-          const resolved = path(shot.path);
-          if (!resolved.startsWith(`${project}/`)) return false;
+          // Accept filesystem aliases, but reject a symlink to evidence outside this project.
+          const resolved = realpathSync(path(shot.path));
+          if (!resolved.startsWith(`${canonicalProject}${sep}`)) return false;
           const bytes = readFileSync(resolved);
           return bytes.length === shot.bytes
             && bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
@@ -306,18 +352,17 @@ export function validateRenderEvidence(project, transcript, expectedHelperHash =
     const sameFile = item.path.endsWith(shot.path);
     return sameFile && item.eventIndex > afterIndex && (beforeIndex === null || item.eventIndex < beforeIndex);
   });
-  const beforeInspected = before ? beforeShots.filter((shot) => imageWasRead(shot, before.eventIndex, firstEdit)) : [];
+  const beforeInspected = before ? beforeShots.filter((shot) => imageWasRead(shot, before.eventIndex, firstEdit < 0 ? null : firstEdit)) : [];
   const afterInspected = after ? afterShots.filter((shot) => imageWasRead(shot, after.eventIndex, null)) : [];
-  const section = /^##\s+Before\/after comparison\s*$/im.test(transcript.answer ?? '');
-  const answer = transcript.answer ?? '';
-  const sectionStart = answer.match(/^##\s+Before\/after comparison\s*$/im);
-  const comparisonSection = sectionStart
-    ? answer.slice(sectionStart.index + sectionStart[0].length).split(/\n##\s/)[0]
-    : '';
-  const explicitComparison = /\bcompared\b/i.test(comparisonSection)
-    && /\b(?:before|baseline)\b/i.test(comparisonSection)
-    && /\b(?:after|edited|result)\b/i.test(comparisonSection)
-    && /\b(?:changed|improved|remains|still|reduced|stronger|weaker|difference|whereas|while)\b/i.test(comparisonSection);
+  // Evidence of a comparison may be prose, a table, or operational verification metadata.
+  // This is an observable signal, not an aesthetic grade; the scenario judge assesses the delta.
+  const comparisonText = [transcript.answer ?? '',
+    ...(transcript.executionTrace?.entries ?? []).map((entry) => entry.verification ?? ''),
+  ].join('\n');
+  const explicitComparison = /\b(?:compared|comparison|before[\s\S]{0,80}after|baseline[\s\S]{0,80}(?:edited|result))\b/i.test(comparisonText)
+    && /\b(?:before|baseline)\b/i.test(comparisonText)
+    && /\b(?:after|edited|result)\b/i.test(comparisonText)
+    && /\b(?:changed|improved|remains|still|reduced|stronger|weaker|difference|whereas|while|now|instead)\b/i.test(comparisonText);
   const beforeOrdered = before && firstEdit >= 0 && before.eventIndex < firstEdit;
   const afterOrdered = after && lastEdit >= 0 && after.eventIndex > lastEdit;
   const inspectedPair = matched.filter((item) => {
@@ -342,7 +387,32 @@ export function validateRenderEvidence(project, transcript, expectedHelperHash =
     inspectedPairs: inspectedPair.length,
     beforeScreenshots: beforeShots.length,
     afterScreenshots: afterShots.length,
+    reviewedScreenshots: beforeInspected.length + afterInspected.length,
+    inspectedAfterScreenshots: afterInspected.length,
   };
+}
+
+/** Operational anti-slop claims; scope mismatches need judgment, never a diff-size heuristic. */
+export function antiSlopEnforcement(transcript, renderEvidence, changedFiles = [], requiredReferences = []) {
+  const entries = (transcript.executionTrace?.entries ?? []).filter(entry => ['anti-ai-slop', 'anti-slop-ui'].includes(entry.skill));
+  const relevant = transcript.skillsLoaded?.some(skill => ['anti-ai-slop', 'anti-slop-ui'].includes(skill)) ?? false;
+  const issues = [];
+  const reviewFlags = [];
+  if (!relevant) return { relevant: false, complete: true, issues, reviewFlags };
+  if (!transcript.executionTrace?.complete) issues.push('operational trace incomplete');
+  for (const reference of requiredReferences) if (!transcript.referencesRead?.includes(reference)) issues.push(`scenario-required reference not observed: ${reference}`);
+  for (const entry of entries) {
+    const resolved = ['improved', 'pass'].includes(entry.result);
+    if (resolved && changedFiles.length && !renderEvidence.passed) issues.push(`${entry.skill}: resolved repair lacks inspected before/after comparison`);
+    if (resolved && !changedFiles.length && !renderEvidence.reviewedScreenshots) issues.push(`${entry.skill}: PASS lacks inspected rendered evidence`);
+    if (/(?:verified|inspected|compared)[^.\n]{0,100}after[ -]?(?:render|capture|screenshot)|after[ -]?(?:render|capture|screenshot)[^.\n]{0,100}(?:verified|inspected|compared)/i.test(entry.verification ?? '') && !/no after|after[ -]?(?:render|capture|screenshot)\s+(?:was\s+)?(?:not|unavailable)|not verified|not inspected/i.test(entry.verification ?? '') && !renderEvidence.inspectedAfterScreenshots)
+      issues.push(`${entry.skill}: after-render verification claim not supported`);
+    if (entry.result === 'escalated' && entry.handoff?.status !== 'sent') issues.push(`${entry.skill}: escalation has no complete handoff`);
+    if (Array.isArray(entry.diagnosis?.levels) && entry.diagnosis.levels.some(level => ['composition', 'system', 'identity', 'interaction'].includes(level))
+        && ['surface', 'component'].includes(entry.repairLevel) && resolved)
+      reviewFlags.push(`${entry.skill}: claimed resolution uses a lower repair level than the diagnosis; review the rendered effect`);
+  }
+  return { relevant, complete: issues.length === 0 && reviewFlags.length === 0, issues, reviewFlags };
 }
 
 /** Observable signals for a selective full-product run. These are diagnostics, not a skill quota. */
@@ -411,7 +481,7 @@ ${list(scenario.unacceptable)}
 
 ## The assistant's answer
 <answer>
-${answer}
+${publicAnswer(answer)}
 </answer>
 
 Grade each principle as met only if the answer clearly applies it (not merely mentions a related word).
@@ -509,6 +579,14 @@ export function renderReport(runs, meta) {
     const traceRuns = rs.filter((r) => (r.transcript?.skillsLoaded?.length ?? 0) > 0);
     const completeTraces = traceRuns.filter((r) => r.transcript?.executionTrace?.complete).length;
     lines.push(`| ${cond} | ${required.length} | ${refTotal ? `${refLoaded}/${refTotal}` : 'n/a'} | ${traceRuns.length ? `${completeTraces}/${traceRuns.length}` : 'n/a'} | ${rendered}/${rs.length} | ${inspectedPairs}/${paired} |`);
+  }
+  const slopRuns = runs.filter(r => r.antiSlopEnforcement?.relevant);
+  if (slopRuns.length) {
+    lines.push('', '## Anti-slop claim audit', '', 'Operational claims are separate from outcome grades. Scope flags require rendered judgment; file or line counts do not prove scope.');
+    for (const r of slopRuns) {
+      const audit = r.antiSlopEnforcement;
+      lines.push(`- ${r.scenarioId} · ${r.condition}: ${audit.complete ? 'supported' : 'incomplete'}${audit.issues.length ? `; ${audit.issues.join('; ')}` : ''}${audit.reviewFlags.length ? `; review: ${audit.reviewFlags.join('; ')}` : ''}.`);
+    }
   }
   lines.push('', '## Per-run notes', '');
   for (const r of runs) {

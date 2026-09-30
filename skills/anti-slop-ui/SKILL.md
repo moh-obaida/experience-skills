@@ -1,10 +1,10 @@
 ---
 name: anti-slop-ui
-description: "Use this skill whenever a UI looks generic, overdesigned, or underdesigned; before presenting generated UI; or when a trend, empty restraint, or component pattern may be replacing the product task. Test the job of each treatment, core-instrument prominence, active-state energy, visual hierarchy, and the repeated cream, serif, earth-tone house style. Preserve justified decisions and compare alternatives only for material open choices."
+description: "Use this skill whenever a UI needs an anti-slop review or completion verdict; before presenting generated UI; or when a trend, empty restraint, or component pattern may be replacing the product task. Test the job of each treatment, core-instrument prominence, active-state energy, visual hierarchy, and the repeated cream, serif, earth-tone house style. Preserve justified decisions and compare alternatives only for material open choices."
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "0.7.1"
+  version: "0.8.0"
   collection: experience-skills
 ---
 
@@ -66,7 +66,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Do not use this when
 
-- The structure or workflow is the main problem; route through experience-architect.
+- A confirmed structural or behavioral repair exceeds this review; hand off only the relevant concern.
 - An existing product must be swept end to end, its identity extracted and protected, and every
   generated-looking area reconstructed and rerendered: use anti-ai-slop (this skill supplies the
   pattern knowledge and the final gate).
@@ -75,7 +75,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Mandatory conditional loading
 
-If generated UI is about to be presented, MUST load `references/final-slop-gate.md`. If a pattern is flagged, MUST load `references/alternatives-engine.md`, `references/_shared/context-adaptation.md`, `references/_shared/product-interiors-and-dense-states.md`, and `references/_shared/justified-trends.md` before removing it. If the surface can run, MUST collect rendered or scanner evidence before the final recommendation. Before judging any individual control, card, badge, or label, MUST load `references/_shared/control-necessity.md` and run its eight core questions; before judging any string, MUST load `references/_shared/product-copy.md`.
+For material anti-slop review or before presenting generated UI, MUST load `references/final-slop-gate.md` and `references/_shared/anti-slop-gate.md`. Before proposing a replacement, load `references/alternatives-engine.md`; load `references/_shared/context-adaptation.md` and `references/_shared/product-interiors-and-dense-states.md` only when context or density could change it. Before rejecting a familiar technique, load `references/_shared/justified-trends.md`. A runnable substantial UI MUST be rendered at the primary and relevant narrow viewport, or marked UNVERIFIED with the exact blocker; scanner counts are supplementary. Before judging any individual control, card, badge, or label, MUST load `references/_shared/control-necessity.md` and run its eight core questions; before judging any string, MUST load `references/_shared/product-copy.md`.
 
 ## Checkpoints
 
@@ -97,8 +97,9 @@ If generated UI is about to be presented, MUST load `references/final-slop-gate.
    specific, checkable claim. A synonym swap is not a rewrite. Check it against the generic-phrase
    list and copy-type table in `references/_shared/product-copy.md`, including personalization that
    reads as generated (truncated names, unearned possessives).
-6. **Before presenting:** run `references/final-slop-gate.md`. Your summary contains no "clean,"
-   "modern," "sleek," or "premium" unless followed by the evidence.
+6. **Before presenting:** run `references/final-slop-gate.md`. If judging a repair, compare the
+   original diagnosis with the final render at that scope. Edits and fewer markers are not proof;
+   unresolved dominant harm means REPAIR or ESCALATE, not PASS. Keep speculative redesign out of review.
 7. **Before replacing a material flagged pattern:** use `references/alternatives-engine.md` to consider distinct product-relevant alternatives; keep the current pattern if it serves the job. Do not manufacture a three-option exercise for a clear local defect.
 8. **Reverse-dogma check:** before removing a gradient, glass, card, pill, centered layout, dark theme, serif, density, or animation, look for its justification in `references/_shared/justified-trends.md`. Justified → keep and strengthen.
 
@@ -123,10 +124,10 @@ If generated UI is about to be presented, MUST load `references/final-slop-gate.
    | Clever inputs, typography, motion, borrowed cuteness | `references/personality-slop.md` |
 
 3. **Apply checkpoints 1–5** to each finding.
-4. **Replace with decisions:** hierarchy and composition (composition-repair), product-derived
-   identity (visual-identity; anchor `references/_shared/logo-removal-test.md`), real content and
-   next actions (empty-state-design), specific copy.
-5. **Gate** (checkpoint 6), reporting justified / fixed / accepted / open / not verified.
+4. **Replace with job-grounded decisions:** hierarchy, identity carriers (anchor
+   `references/_shared/logo-removal-test.md`), real content, next actions, or specific copy.
+   Use a specialist only for unresolved depth beyond this branch.
+5. **Gate** (checkpoint 6): prioritize root cause, secondary contributors, and strengths to preserve; record PASS / REPAIR / ESCALATE internally and distinguish unresolved from unverified.
 
 Anchors: `references/_shared/premium-slop.md`, `references/_shared/kpi-card-dashboard.md`,
 `references/_shared/editorial-not-cards.md`.
@@ -163,10 +164,12 @@ credited in `references/_shared/third-party-notices.md`.
 
 ## Completion criteria
 
-- Each flagged treatment was justified (job stated) or removed/replaced.
+- Material patterns were judged at their actual scope; the original dominant weakness is reduced
+  in rendered evidence, or clearly unresolved/unverified. Changes made alone do not earn PASS.
 - No fabricated content remains; copy is specific.
 - Removed slop was replaced by structure, identity, or real content.
-- The gate was run and reported, with unverified items listed.
+- The gate was run; PASS means no material generated pattern harms specificity, hierarchy, usability,
+  visual quality, interaction character, or route fit. A justified no-change verdict is valid.
 - The anti-slop branch records the job, product root, alternative, cost, and failure condition for
   every treatment kept; a runnable surface was rendered or marked NOT VERIFIED IN RENDERED OUTPUT.
 - When a material concern remains, the handoff carries the observed issue, chosen alternative, and open risk; otherwise no handoff is needed.

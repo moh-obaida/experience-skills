@@ -120,6 +120,27 @@ results are explicitly marked as historical in `tests/evals/results/README.md`.
 Results of recorded runs, including where the skills made no difference or were not invoked, are in
 `tests/evals/results/` (`README.md` there interprets them).
 
+### Rendered relational judgment regressions
+
+The eight `visual-*` scenarios use invented views in `visual-relationships.html`, spanning commerce,
+banking, creative tools, booking, editorial objects, dispatch, and education. They test allocation,
+optical balance, action roles, purposeful negative space, useful density, section rhythm, and
+root-cause prioritization. Principles are judged semantically; no answer must say “visual mass.”
+Fixture browser tests establish scene geometry and working controls, not composition quality.
+
+```bash
+npm run eval:agents -- --scenarios visual-mass-allocation,visual-important-buried,visual-optical-balance,visual-action-roles,visual-intentional-space,visual-useful-density,visual-section-rhythm,visual-root-cause
+```
+
+The allocation scenario edits one view and requires inspected before/after desktop and phone
+captures. Others diagnose or review without edits. The existing trace fields retain cause, change,
+and relationship verification without adding a mode or schema. A single sample is a smoke test;
+use repeated runs and independent rendered products to establish reliability. Judge grades and
+capture validity alone do not establish optical improvement; inspect the repair artifacts too.
+The render gate accepts equivalent prose, table, or verification-field comparisons. It checks
+canonical capture containment, PNG integrity, edit/capture ordering, actual image inspection, and
+helper integrity; aliases are accepted, while external symlink evidence is rejected.
+
 ### Manual (recommended before releases)
 
 Run an agent with the skills installed against each scenario and check:
@@ -131,3 +152,30 @@ Run an agent with the skills installed against each scenario and check:
 5. Did it avoid unearned praise?
 
 Record results in the pull request. A future visual eval harness is on the roadmap.
+
+### Anti-slop cause enforcement
+
+The `anti-slop-cause-enforcement` anchors add fourteen invented scenarios: allocation, token-only
+repair, local badges, systemic card grammar, justified monitoring panels, copy versus structure in
+both directions, deliberate sparse space, route sameness, absent verification, content-only failure,
+behavior-specific escalation, unusual expression, and an understated useful tool. They complement
+`systemic-pattern-repair`; judgments test causes and consequences rather than required phrases.
+
+Formal anti-slop traces retain diagnosis scope, root cause, target delta, repair scope and outcome.
+The harness checks observed reference loads and inspected renders; it flags scope mismatches for
+review without inferring success from diff size. A one-rule shared repair can be systemic. Missing
+required reads or unsupported completion claims make the claim audit incomplete and the evaluation
+command exit nonzero. Honest unresolved or unverified work can have a complete operational record;
+that is not a successful visual repair. The public answer is graded separately, with all trace
+blocks removed, including malformed or unterminated blocks.
+
+These checks establish evidence and catch false completion; they cannot prove that the original
+visual cause improved. That needs rendered judgment, repeated real-agent samples and retained
+strengths/functionality. Do not interpret a green repository gate as model-level behavioral proof.
+
+Reference telemetry follows successful literal shell directory changes into a skill's references;
+failed retrievals do not count. Render ordering considers observed product-file edits, excluding
+external verification scripts and renderer bookkeeping. Unknown edit paths remain conservative,
+and capture integrity/helper hashes still apply. Retained raw transcripts can be replayed through
+the current parser when a telemetry bug is corrected; disclose replayed audits separately from
+new agent samples.

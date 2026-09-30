@@ -1,5 +1,5 @@
 {
-  "$comment": "Routing fixtures: user phrasing \u2192 skills the router should reach for. Documentation and validation aids, not a classifier. 'expected' must all be relevant; 'notExpected' would be a routing mistake. Scenarios with 'anchor' are regression anchors for the agent eval harness (scripts/run-agent-evals.mjs); 'fixtures' are copied into the agent's temporary project.",
+  "$comment": "Routing fixtures: user phrasing → skills the router should reach for. Documentation and validation aids, not a classifier. 'expected' must all be relevant; 'notExpected' would be a routing mistake. Scenarios with 'anchor' are regression anchors for the agent eval harness (scripts/run-agent-evals.mjs); 'fixtures' are copied into the agent's temporary project.",
   "cases": [
     {
       "input": "Review this save journey: anonymous browsing works, but the redesign adds a required email before the first low-stakes bookmark even though the source is silent about identity.",
@@ -470,6 +470,49 @@
       "notExpected": [
         "motion-design"
       ]
+    },
+    {
+      "input": "The secondary panel looks intentional but visually outweighs its tiny amount of useful content. Repair the allocation.",
+      "expected": [
+        "composition-repair"
+      ],
+      "notExpected": [
+        "visual-identity",
+        "anti-ai-slop",
+        "critical-review"
+      ]
+    },
+    {
+      "input": "Review this finished screen and prioritize its largest visual cause; do not redesign it.",
+      "expected": [
+        "critical-review"
+      ],
+      "notExpected": [
+        "visual-identity",
+        "anti-ai-slop",
+        "composition-repair"
+      ]
+    },
+    {
+      "input": "Finish the landing page: it renders, but a huge empty black block still fills the first viewport and every other section repeats the same heading, three cards, and button.",
+      "expected": [
+        "composition-repair"
+      ],
+      "notExpected": [
+        "use-all-skills",
+        "motion-design"
+      ]
+    },
+    {
+      "input": "Status chips, row actions, and column headers in this operations table are all misaligned with each other, and the eye has no clear entry point on the screen.",
+      "expected": [
+        "composition-repair"
+      ],
+      "notExpected": [
+        "visual-identity",
+        "use-all-skills",
+        "state-design"
+      ]
     }
   ],
   "scenarios": [
@@ -705,7 +748,8 @@
       },
       "requiredReferences": [
         "anti-ai-slop/references/identity-extraction.md",
-        "anti-ai-slop/references/repair-loop.md"
+        "anti-ai-slop/references/repair-loop.md",
+        "anti-ai-slop/references/_shared/anti-slop-gate.md"
       ],
       "mode": "edit",
       "buildRepair": true,
@@ -799,6 +843,332 @@
         "visual-identity/references/_shared/design-system-grammar.md"
       ],
       "anchor": "shared/design-intelligence/design-system-selector.md"
+    },
+    {
+      "file": "tests/scenarios/visual-mass-allocation.md",
+      "expected": [
+        "composition-repair"
+      ],
+      "fixtures": {
+        "relationships.html": "tests/fixtures/pages/visual-relationships.html"
+      },
+      "requiredReferences": [
+        "composition-repair/references/hierarchy-and-alignment.md"
+      ],
+      "mode": "edit",
+      "anchor": "rendered-relational-judgment",
+      "buildRepair": true
+    },
+    {
+      "file": "tests/scenarios/visual-important-buried.md",
+      "expected": [
+        "critical-review"
+      ],
+      "fixtures": {
+        "relationships.html": "tests/fixtures/pages/visual-relationships.html"
+      },
+      "requiredReferences": [
+        "critical-review/references/review-workflow.md"
+      ],
+      "mode": "review",
+      "anchor": "rendered-relational-judgment"
+    },
+    {
+      "file": "tests/scenarios/visual-optical-balance.md",
+      "expected": [
+        "composition-repair"
+      ],
+      "fixtures": {
+        "relationships.html": "tests/fixtures/pages/visual-relationships.html"
+      },
+      "requiredReferences": [
+        "composition-repair/references/hierarchy-and-alignment.md"
+      ],
+      "mode": "review",
+      "anchor": "rendered-relational-judgment"
+    },
+    {
+      "file": "tests/scenarios/visual-action-roles.md",
+      "expected": [
+        "critical-review"
+      ],
+      "fixtures": {
+        "relationships.html": "tests/fixtures/pages/visual-relationships.html"
+      },
+      "requiredReferences": [
+        "critical-review/references/review-workflow.md"
+      ],
+      "mode": "review",
+      "anchor": "rendered-relational-judgment"
+    },
+    {
+      "file": "tests/scenarios/visual-intentional-space.md",
+      "expected": [
+        "critical-review"
+      ],
+      "fixtures": {
+        "relationships.html": "tests/fixtures/pages/visual-relationships.html"
+      },
+      "requiredReferences": [
+        "critical-review/references/review-workflow.md"
+      ],
+      "mode": "review",
+      "anchor": "rendered-relational-judgment"
+    },
+    {
+      "file": "tests/scenarios/visual-useful-density.md",
+      "expected": [
+        "critical-review"
+      ],
+      "fixtures": {
+        "relationships.html": "tests/fixtures/pages/visual-relationships.html"
+      },
+      "requiredReferences": [
+        "critical-review/references/review-workflow.md"
+      ],
+      "mode": "review",
+      "anchor": "rendered-relational-judgment"
+    },
+    {
+      "file": "tests/scenarios/visual-section-rhythm.md",
+      "expected": [
+        "composition-repair"
+      ],
+      "fixtures": {
+        "relationships.html": "tests/fixtures/pages/visual-relationships.html"
+      },
+      "requiredReferences": [
+        "composition-repair/references/hierarchy-and-alignment.md"
+      ],
+      "mode": "review",
+      "anchor": "rendered-relational-judgment"
+    },
+    {
+      "file": "tests/scenarios/visual-root-cause.md",
+      "expected": [
+        "critical-review"
+      ],
+      "fixtures": {
+        "relationships.html": "tests/fixtures/pages/visual-relationships.html"
+      },
+      "requiredReferences": [
+        "critical-review/references/review-workflow.md"
+      ],
+      "mode": "review",
+      "anchor": "rendered-relational-judgment"
+    },
+    {
+      "file": "tests/scenarios/slop-heavy-empty.md",
+      "expected": [
+        "anti-ai-slop"
+      ],
+      "fixtures": {
+        "relationships.html": "tests/fixtures/pages/visual-relationships.html"
+      },
+      "requiredReferences": [
+        "anti-ai-slop/references/identity-extraction.md",
+        "anti-ai-slop/references/repair-loop.md",
+        "anti-ai-slop/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "edit",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-token-cosmetic.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-local-only.md",
+      "expected": [
+        "anti-ai-slop"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-ai-slop/references/identity-extraction.md",
+        "anti-ai-slop/references/repair-loop.md",
+        "anti-ai-slop/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "edit",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-card-grammar.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-intentional-panels.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-copy-strong-structure.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-domain-copy-generic-structure.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-intentional-sparse.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "relationships.html": "tests/fixtures/pages/visual-relationships.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-route-sameness.md",
+      "expected": [
+        "anti-ai-slop"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-ai-slop/references/identity-extraction.md",
+        "anti-ai-slop/references/repair-loop.md",
+        "anti-ai-slop/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-no-verification.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-content-only-failure.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-selective-escalation.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-unusual-intentional.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
+    },
+    {
+      "file": "tests/scenarios/slop-understated-valid.md",
+      "expected": [
+        "anti-slop-ui"
+      ],
+      "fixtures": {
+        "slop.html": "tests/fixtures/pages/slop-enforcement.html"
+      },
+      "requiredReferences": [
+        "anti-slop-ui/references/final-slop-gate.md",
+        "anti-slop-ui/references/_shared/anti-slop-gate.md"
+      ],
+      "mode": "review",
+      "anchor": "anti-slop-cause-enforcement"
     }
   ]
 }

@@ -4,15 +4,14 @@ description: "Use this skill whenever a page, screen, dashboard, or view looks e
 license: MIT
 compatibility: "Measurement scripts need Node.js 18+ and Playwright (or playwright-core with an installed Chrome). All guidance works without them."
 metadata:
-  version: "0.7.1"
+  version: "0.8.0"
   collection: experience-skills
 ---
 
 # Composition Repair
 
-Composition is how a surface uses its space to make one thing matter most, group what belongs
-together, and lead the eye to the next action. It is not alignment, and valid CSS does not
-guarantee it.
+Composition makes one thing matter most, groups what belongs together, and leads the eye to the
+next action. Alignment and valid CSS do not guarantee it.
 
 ## Start here
 
@@ -55,8 +54,8 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Use this when
 
-- A screen looks empty, blank, or "clean" in a way that feels unfinished.
-- A screen looks cramped or noisy, or has no clear focal point.
+- A screen looks empty, cramped, noisy, unfinished, or has no clear focal point.
+- A supporting surface outweighs its useful content or action.
 - Content sits in a centered column with large dead areas around it.
 - Content overflows, collides, clips, or wraps badly at some size.
 - Sticky headers, footers, or toolbars eat a short viewport.
@@ -75,10 +74,12 @@ If structure or whitespace changes, MUST load `references/_shared/compositions-i
 
 ## Checkpoints
 
-1. **Before judging:** render it. With a browser, run `scripts/measure-layout.mjs` at the audience's
-   primary size. Without one, mark every finding E3 and list the sizes to check.
-2. **Coverage below ~15% with no environment treatment** (script flag or your eye): treat it as dead
-   space (V3) or aligned-not-composed (V6). Do not describe it as minimal or premium.
+1. **Before judging:** render it and take the operating contract's first-impression pass. With a
+   browser, run `scripts/measure-layout.mjs` at the audience's primary size. Measurements support
+   judgment; they do not establish optical balance. Without a render, label the available evidence
+   (E3 source or E5 screenshot) and list the sizes to check.
+2. **Coverage below ~15% with no environment treatment:** investigate the space's framing, grouping,
+   or pacing job. No observed job → V3/V6; low coverage alone does not prove a defect.
 3. **Before adding any element to a sparse surface:** is it real state, a real next action, or a
    real piece of content? If it is a stat, tip, promo, decorative card, or illustration added to fill
    space → do not add it (`references/_shared/fake-density.md`).
@@ -97,7 +98,11 @@ If structure or whitespace changes, MUST load `references/_shared/compositions-i
 10. **Before restructuring a surface:** pick a composition from `references/_shared/compositions-index.md` by archetype and P0 content, load only its family file, and name it in your plan. If the existing skeleton materially weakens hierarchy, instrument priority, or route fit and the structure is open, recompose grouping, dominance, or page silhouette; do not stop at spacing tweaks. A named pattern is a candidate, not a reason to preserve a weak layout.
 11. **Before citing another product's layout as justification:** find the matching entry in the precedent modules and state which of its "Right when" conditions your surface shares. None shared → it argues against you.
 
-9. **Functional weight:** blur the screen and ask what dominates. Mentally remove explanatory copy: is the working surface still evident? If passive prose, navigation, or empty margins outweigh the core instrument, repair spatial authority. Test both over-compression and unused width/gaps; space must aid comprehension, focus, manipulation, or state awareness. A good layout may need no change.
+12. **Dominant surface:** does it earn attention relative to its information, interaction, and
+    semantic importance? If allocation or optical weight is wrong, load
+    `references/hierarchy-and-alignment.md`; for content-to-container ratio or negative space, load
+    `references/viewport-and-space.md`. Preserve justified sparse or dense composition. A good
+    layout may need no change.
 
 ## Workflow
 
@@ -110,7 +115,9 @@ If structure or whitespace changes, MUST load `references/_shared/compositions-i
    ```
    Scripts report facts. `references/browser-measurement.md` explains outputs, requirements, limits.
 3. **Rank content** P0–P4 (`references/_shared/information-priority.md`).
-4. **Diagnose** with codes from `references/_shared/visual-problems.md`; rank by user impact.
+4. **Diagnose** with codes from `references/_shared/visual-problems.md`; explain the relational
+   cause, group its symptoms, and prioritize by visual impact, journey relevance, confidence, and
+   repair leverage without scores.
 5. **Load the reference for the diagnosis:**
 
    | Diagnosis | Load |
@@ -125,7 +132,9 @@ If structure or whitespace changes, MUST load `references/_shared/compositions-i
    proportions → environment role (coordinate with visual-identity) → rendering defects.
    If the result feels emptier after removing filler, check `references/_shared/fake-minimalism.md`
    before adding anything back.
-7. **Verify** (checkpoint 8) including a sparse and a dense data state and RTL if supported.
+7. **Verify** (checkpoint 8): compare the intended visual relationship before/after, including
+   neighboring weight, section continuation, sparse/dense states, and RTL if supported. If the
+   original imbalance persists or a new one appears, repair again.
 8. **Critique:** composed or merely re-aligned? Anything added to fill space? Would it hold with
    messy real content?
 
@@ -164,7 +173,8 @@ Adapted third-party material in the composition files is credited in `references
 
 ## Completion criteria
 
-- One clear focal point matching P0.
+- Visual attention and surface allocation match P0 and supporting roles; the diagnosed relationship
+  improved in the before/after renders, or that delta is explicitly unverified.
 - The first viewport shows what the user needs first; remaining space has a stated job.
 - No overflow, collisions, or clipping at checked sizes (measured where possible).
 - Grouping works without boxing everything.
@@ -174,13 +184,6 @@ Adapted third-party material in the composition files is credited in `references
 
 ## References
 
-- `references/viewport-and-space.md` — viewport budget, whitespace, density
-- `references/hierarchy-and-alignment.md` — focal point, emphasis, alignment vs composition, type geometry
-- `references/layout-mechanics.md` — grid/flex proportions, scroll ownership, fixed and sticky chrome
-- `references/content-stress-and-rtl.md` — extreme content, RTL mirroring
-- `references/browser-measurement.md` — the scripts and their limits
-- `references/failure-patterns.md` — field guide to broken compositions
-- `references/device-and-viewport-edges.md` — phones, tablets, landscape, keyboard-open, huge displays, zoom
 - `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
   `page-archetypes.md`,
   `information-priority.md`, `visual-problems.md`, `design-vs-decoration.md`, `fake-density.md`,

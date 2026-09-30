@@ -2,7 +2,7 @@
 
 Load when there is no focal point, the wrong focal point, flat hierarchy, or a centered-but-not-composed layout.
 
-Sections: Hierarchy · Alignment vs Composition · Typography as Geometry
+Sections: Hierarchy · Relational Diagnosis · Alignment vs Composition · Typography as Geometry
 
 ## Hierarchy
 
@@ -11,7 +11,7 @@ of importance.
 
 ### The emphasis budget
 
-Every surface has a limited amount of emphasis to spend. Tools, from strongest to weakest:
+Every surface has a limited amount of emphasis to spend. Tools whose strength depends on the rendered context:
 
 1. **Size** (especially type size)
 2. **Position** (top-left in LTR, top-right in RTL, center of a composed region, first in reading order)
@@ -59,6 +59,79 @@ primary actions stable through a flow.
 - Visual hierarchy should match heading structure (h1 → h2 → h3) and DOM order.
 - Do not use size alone for interactive state; pair with other cues.
 - Ensure contrast for secondary text still meets requirements (de-emphasis is not invisibility).
+
+## Relational Diagnosis
+
+### Attention earned by value
+
+Identify the most visually dominant surface, then ask: should the user look there first? Does it
+carry the key information or action, support the product thesis, or establish necessary atmosphere?
+Compare it with neighboring surfaces and the whole page rather than judging its styling alone.
+
+**Visual mass** is attention commanded by area, contrast, darkness, saturation, edges, type scale,
+line length, isolation, imagery, or movement. **Information value** is useful meaning, interaction,
+decision support, or product value. Visual density and information density differ: many badges and
+borders can carry little meaning; a quiet transaction status can carry much. A single consequential
+action or dramatic product image can earn substantial mass without many words.
+
+High mass with high value is often justified. High mass with low value may distract; low mass with
+high value may bury the job. Low mass with low value may be fine unless it adds clutter. These are
+qualitative prompts, not scores or a rigid matrix.
+
+Inspect allocation of width, height, contrast, whitespace, chroma, type scale, borders, isolation,
+animation, and persistence. A tiny content island in a tall module, secondary navigation heavier
+than the workspace, or metadata stronger than the proposition can signal disproportionate
+allocation. Name the specific relationship and its consequence before choosing a repair.
+
+### Optical balance
+
+Equal-width columns establish geometry, not equal perceived weight. A smaller dark or saturated
+region can outweigh a larger pale one; a large headline may counterbalance a dense control cluster.
+Compare area, contrast, edge/content density, imagery, type shapes, and whitespace together. Look
+at major masses with copy temporarily ignored: would the composition still make sense if text were
+gray bars? Do this mentally unless image tools would materially help; no weight formula is needed.
+
+Asymmetry is valid when it directs attention appropriately. Repair accidental dominance rather
+than forcing symmetry, shrinking every card, removing dark surfaces, or reducing expert density.
+
+### Action roles and hierarchy compression
+
+A CTA invites a next step; an action surface performs it (for example a reservation invitation
+versus a date picker and booking control). Repetition across a header, introduction, and workspace
+may serve different moments. Identify each occurrence's role, visibility over the journey, and
+relationship before demoting or removing it. Two simultaneous primary invitations can compete;
+a useful execution surface may absorb the weaker invitation. Preserve reachable actions and
+continuation when changing emphasis.
+
+When too many elements have similar priority, ask what could become quieter: borders, chroma,
+labels, repeated headings, duplicated CTAs, or container size. Reduce competing emphasis or promote
+buried value according to the job; minimalism is not the objective. Metadata, decorative media,
+sidebars, and recovery illustrations must not accidentally become primary.
+
+### Section handoff and rhythm
+
+Does the previous section feel finished before the next starts? Inspect closure and variation in
+density, width, alignment, typography, contrast, section height, and tempo. Repeated structure may
+help comparison; diagnose monotony only when it obscures different jobs or weakens expression.
+Constant novelty can destroy continuity too.
+
+A collision or abrupt handoff may need a shorter preceding section, stronger next heading, a rule,
+density change, surface treatment, alignment, or column change. More whitespace is one option,
+not the default. Judge the transition in the full scroll sequence.
+
+### Repair cause and compare consequences
+
+Group symptoms that plausibly share a cause. Invented example: a promotional sidebar feels heavy,
+its badges look isolated, and the task seems weak; one oversized secondary container may explain
+all three. Prefer one structural correction when it can resolve the cause. Rank it above a minor
+radius discrepancy when visual impact, user relevance, confidence, and repair leverage support it.
+
+Before editing, state the relationship expected to improve. Afterward inspect both renders: did
+attention move toward the right information or action? Did the neighboring headline become too
+strong, did the surface lose needed authority, did the next section move into a better rhythm, and
+does mobile preserve the job? Compare the same states and sizes. Successful CSS and fewer pixels
+alone do not prove improvement. Stop when the relationship improves without a material regression;
+otherwise revise the cause or repair.
 
 ## Alignment vs Composition
 

@@ -64,3 +64,10 @@ states, and responsive behavior (see the third-party notices file).
 
 Choosing: start from the archetype and the P0 content, not from what looks modern. When two fit, pick
 the one that puts the user's next action closest to where their attention already is.
+
+When the structure is genuinely open (a new page or product, or a failure that makes the current shape
+the problem), output a ranking, not the table: the two or three best-fitting compositions for this
+product and surface, each with one reason tied to its content or job, and the one failure condition you
+will check after rendering. Choose the whole structure (focal object, scroll behavior, responsive
+transformation) before styling; do not assemble it from independent properties. When the structure is
+already settled, keep it and do not rank alternatives.

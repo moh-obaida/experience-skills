@@ -1,10 +1,10 @@
 ---
 name: anti-ai-slop
-description: "Use this skill whenever an existing rendered product looks AI-generated, template-made, sterile, or underdesigned, or its primary interaction is buried beneath a visual system. Protect its working identity and core instrument; inspect both excessive decoration and repeated Experience Skills cream, serif, earth-tone restraint; trace material problems to source, repair them with product-specific behavior and expression, then rerender and exercise the main journey."
+description: "Use this skill whenever source-level repair is requested for an existing rendered product that looks AI-generated, template-made, sterile, or underdesigned, or whose primary interaction is buried beneath a visual system. Use anti-slop-ui for a review-only verdict. Protect its working identity and core instrument; inspect both excessive decoration and repeated Experience Skills cream, serif, earth-tone restraint; trace material problems to source, repair them with product-specific behavior and expression, then rerender and exercise the main journey."
 license: MIT
 compatibility: "Browser rendering strongly recommended. The optional identity extractor needs Node.js 18+ and reads local source only."
 metadata:
-  version: "0.7.1"
+  version: "0.8.0"
   collection: experience-skills
 ---
 
@@ -72,7 +72,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
   → anti-slop-ui.
 - The product has no identity yet and needs a direction or system → visual-identity (then return).
 - One page needs exhaustive DOM/CSS inspection for all defects → interface-forensics.
-- The structure is broken (overflow, no focal point) → composition-repair first.
+- A confirmed structural concern exceeds this repair branch → composition-repair; local fixes need no handoff.
 - There is no implementation to render or read.
 
 ## Mandatory conditional loading
@@ -81,7 +81,7 @@ Before classifying findings, MUST load the taxonomy file for each class found:
 `references/slop-surfaces.md` (decorative, gradient, glass, card, pill, radius, shadow, depth,
 dark-mode, component-library), `references/slop-type-color-copy.md` (typography, color, copy, icon),
 `references/slop-structure-motion.md` (hero, dashboard, bento, empty space, motion, generated
-personality). Before replacing anything, MUST load `references/repair-loop.md`. Before removing a
+personality). For systemic diagnosis or repair planning, MUST load `references/repair-loop.md`; it sets the diagnosis and repair level. For final outcome review, MUST load `references/_shared/anti-slop-gate.md`. Before removing a
 gradient, glass, card, pill, dark theme, serif, density, or animation, MUST check
 `references/_shared/justified-trends.md`. To understand what the product category actually needs,
 load `references/_shared/niche-atlas-index.md` and one matching niche file only when its realities can change the repair. When the fix needs
@@ -90,8 +90,8 @@ another structure, load `references/_shared/compositions-index.md` and
 
 ## Checkpoints
 
-1. **Before any finding:** has the current product been rendered at a desktop and a phone size and
-   an identity ledger written (`references/identity-extraction.md`)? No → render and extract first.
+1. **Before any finding:** review-only → diagnose/recommend without edits; anti-slop-ui owns the
+   final review. For repair, has the product been rendered at desktop/phone and an identity ledger written (`references/identity-extraction.md`)? No → render and extract first.
    Not runnable → mark every finding E3/E5 and say **NOT VERIFIED IN RENDERED OUTPUT**.
 2. **For every candidate finding:** is it on the protected list (intentional, distinctive,
    working)? Yes → keep it, or strengthen it; do not "fix" identity into neutrality.
@@ -101,16 +101,16 @@ another structure, load `references/_shared/compositions-index.md` and
 4. **Before replacing:** does the replacement answer "what would THIS product do instead?" using
    carriers from the ledger or the niche's realities? If it answers "what does this repository usually
    prefer?" → choose again.
-5. **After the sweep:** have repeated treatments been grouped by shared cause and by the route jobs
-   they affect? Repetition alone is not proof of intent or slop. Judge whether the same treatment
-   earns its place on each route; raise the severity when its cumulative effect makes the product
-   generic, even if each instance looks locally mild.
+5. **After the sweep:** identify the dominant root cause and its level (surface, component,
+   composition, system, identity, interaction) using `references/repair-loop.md`. Group cumulative
+   symptoms by cause and affected jobs; preserve justified repetition. Repair at that level, not by
+   counting changed markers or rewriting copy inside an unchanged structural problem.
 6. **For every S0/S1 finding:** is the source traced (file, selector or component, token or class)?
    No → trace it, or hand the trace to interface-forensics; never patch a symptom at a leaf when a
    token, shared component, or layout convention produced it.
-7. **After each repair group:** rerendered at the same sizes and states, compared before/after, and
-   checked for new slop introduced by the repair (a replacement can itself be generic)? No → do it
-   before the next group.
+7. **After each repair group:** compare the same rendered routes, states, and sizes: is the original
+   dominant weakness materially reduced, without a new dominant weakness or lost functionality?
+   No → continue repair or record unresolved; captures and edits alone never mean success.
 8. **Before finishing:** passes both originality tests: (a) without logo and name, could this belong
   to twenty unrelated generated sites? (b) is it distinctive only because it is weird? Either yes →
   continue.
@@ -163,8 +163,10 @@ a product can intentionally use a default.
 - **interface-forensics:** exact DOM/cascade tracing before repair, and detail verification after.
   Sequence for large jobs: anti-ai-slop (conceptual findings) → interface-forensics (trace) →
   anti-ai-slop (identity-compatible replacements) → implement → interface-forensics (verify).
-- **visual-identity:** when the ledger shows no identity to protect, get a direction first.
-- **composition-repair:** when a replacement changes page structure beyond one section.
+- **visual-identity:** when composition is sound but product interchangeability remains beyond this branch.
+- **composition-repair:** when an unresolved structural cause cannot reasonably be solved here.
+- **interaction-design / state-design:** when boilerplate behavior or feedback needs specialist depth.
+  Send the operating contract's compact handoff; an unresolved dependency prevents completion.
 - **critical-review:** when unsure the repaired version beats the original.
 
 ## Completion criteria
@@ -172,19 +174,18 @@ a product can intentionally use a default.
 - An identity ledger and protected list exist, and protected characteristics survived the repair.
 - Every surface in scope was swept; each finding uses the evidence format with severity.
 - S0/S1 findings are fixed at source, justified, or open with a reason; S2/S3 are listed.
-- Before/after renders at the same sizes and states exist, or the gap is stated.
-- Both originality tests were answered with evidence; no new slop was introduced.
+- Inspected before/after renders show the dominant cause reduced at its diagnosed level across the
+  affected jobs, or explicitly say UNVERIFIED / unresolved; do not claim slop resolved from edits.
+- The outcome gate is PASS, REPAIR, or ESCALATE internally; no material dependency is unowned.
+- Both originality tests were answered with evidence; no new dominant weakness or slop was introduced.
 - The report says what was kept and why, not only what was removed.
 
 ## References
 
 - `references/identity-extraction.md` — identity ledger, intent signals, library-default values, protected list
-- `references/slop-surfaces.md` — decorative, gradient, glass, card, pill, radius, shadow, depth, dark-mode, component-library slop
-- `references/slop-type-color-copy.md` — typography, color, copy, and icon slop
-- `references/slop-structure-motion.md` — hero, dashboard, bento, empty-space, motion, generated-personality slop
-- `references/repair-loop.md` — severity, evidence format, replacement matrix, trace and verify loop, originality tests, report
+- `references/repair-loop.md` — severity, evidence format, job-grounded replacement, trace and verify loop, originality tests, report
 - `references/_shared/` — generated copies: `experience-core.md`, `experience-operating-contract.md`,
-  `model-instincts.md`, `design-cliches.md`, `design-vs-decoration.md`, `product-identity.md`,
+  `anti-slop-gate.md`, `model-instincts.md`, `design-cliches.md`, `design-vs-decoration.md`, `product-identity.md`,
   `product-copy.md`, `justified-trends.md`, `anti-generic-alternatives.md`, `compositions-index.md`,
   `logo-removal-test.md`, `identity-preserving-repair.md`, `niche-atlas-index.md`,
   `niche-business.md`, `niche-developer.md`, `niche-ai.md`, `niche-games.md`, `niche-education.md`,
