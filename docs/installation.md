@@ -21,6 +21,9 @@ npx skills add moh-obaida/experience-skills --skill experience-architect -g
 # Non-interactive for one agent
 npx skills add moh-obaida/experience-skills --skill experience-architect -a claude-code -y
 
+# Pin to the verified v1.0.1 release
+npx skills add https://github.com/moh-obaida/experience-skills/tree/v1.0.1 --skill experience-architect
+
 # Copy files instead of symlinking
 npx skills add moh-obaida/experience-skills --skill anti-slop-ui --copy
 

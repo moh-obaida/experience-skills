@@ -42,6 +42,9 @@ npx skills add moh-obaida/experience-skills --skill experience-architect -g
 
 # Non-interactive, one agent
 npx skills add moh-obaida/experience-skills --skill experience-architect -a claude-code -y
+
+# Pin to the verified v1.0.1 release
+npx skills add https://github.com/moh-obaida/experience-skills/tree/v1.0.1 --skill experience-architect
 ```
 
 More options, including `--all` and manual installation: [docs/installation.md](docs/installation.md).
@@ -55,6 +58,9 @@ intelligence behind one selective router. Build the free MIT-licensed ZIP locall
 `dist/marketplace/Experience-Skills.zip`. Its listing copy is in
 [docs/marketplace/listing.md](docs/marketplace/listing.md). This does not change the standalone
 `skills/<name>/` distribution above.
+
+Download the published [Experience-Skills.zip](https://github.com/moh-obaida/experience-skills/releases/download/v1.0.1/Experience-Skills.zip)
+from the v1.0.1 GitHub Release, or build it locally to produce a fresh validation report.
 
 ## Why this exists
 
