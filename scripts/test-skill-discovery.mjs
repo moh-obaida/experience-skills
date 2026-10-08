@@ -63,6 +63,10 @@ function run(args) {
   return { status: result.status, output, error: result.error };
 }
 
+function runNode(args, cwd = project) {
+  return spawnSync(process.execPath, args, { cwd, env, encoding: 'utf8', timeout: 180000 });
+}
+
 try {
   process.stdout.write(`test-skill-discovery (${CLI}, temp dir)\n`);
   const catalog = loadCatalog();
@@ -117,6 +121,45 @@ try {
       const r = spawnSync(process.execPath, [join(installed, script), '--help'], { cwd: project, encoding: 'utf8' });
       if (r.status !== 0) fail(`${name}: installed ${script} --help exited ${r.status}: ${r.stderr.slice(0, 200)}`);
       else pass(`${name}: installed ${script} runs (--help)`);
+    }
+  }
+
+  // The marketplace archive is one distributable skill, even though it contains all methods.
+  const build = runNode([join(ROOT, 'scripts', 'build-marketplace-bundle.mjs')]);
+  const zip = join(ROOT, 'dist', 'marketplace', 'Experience-Skills.zip');
+  if (build.status !== 0 || !existsSync(zip)) {
+    fail(`marketplace bundle build failed (status ${build.status}): ${(build.stderr ?? '').slice(-400)}`);
+  } else {
+    const extracted = join(temp, 'marketplace-source');
+    mkdirSync(extracted);
+    const unzip = spawnSync('unzip', ['-q', zip, '-d', extracted], { encoding: 'utf8' });
+    const source = join(extracted, 'experience-skills');
+    if (unzip.status !== 0 || !existsSync(join(source, 'SKILL.md'))) {
+      fail(`marketplace ZIP extraction failed: ${unzip.stderr ?? unzip.status}`);
+    } else {
+      const listed = run(['add', source, '--list']);
+      if (listed.status !== 0 || !/^\s*[│|]?\s*experience-skills\s*$/m.test(listed.output) || names.some((name) => new RegExp(`^[│|\\s]*${name}\\s*$`, 'm').test(listed.output))) {
+        fail(`CLI did not detect exactly one marketplace skill (status ${listed.status}): ${listed.output.slice(-500)}`);
+      } else pass('CLI detects exactly one marketplace skill: experience-skills');
+
+      const installed = run(['add', source, '--skill', 'experience-skills', '-a', 'claude-code', '-y', '--copy']);
+      const installedRoot = join(project, '.claude', 'skills', 'experience-skills');
+      if (installed.status !== 0 || !existsSync(join(installedRoot, 'SKILL.md'))) {
+        fail(`marketplace skill install failed (status ${installed.status}): ${installed.output.slice(-500)}`);
+      } else {
+        const packageManifest = JSON.parse(readFileSync(join(installedRoot, 'manifest.json'), 'utf8'));
+        const missingMethods = packageManifest.specialists.filter((name) => !existsSync(join(installedRoot, 'modules', name, 'METHOD.md')));
+        const missingRefs = packageManifest.files.filter((file) => file.path.endsWith('.md') && !existsSync(join(installedRoot, file.path.replace(/^experience-skills\//, ''))));
+        if (missingMethods.length || missingRefs.length) fail(`installed marketplace bundle is incomplete (methods: ${missingMethods.join(', ') || 'none'}; refs: ${missingRefs.length})`);
+        else pass(`installed marketplace bundle retains all ${packageManifest.specialistCount} methods and ${packageManifest.files.filter((file) => file.path.endsWith('.md')).length} Markdown resources`);
+
+        const scripts = packageManifest.files.filter((file) => /\/scripts\/(?!_shared\/)[^/]+\.mjs$/.test(file.path));
+        for (const script of scripts) {
+          const r = spawnSync(process.execPath, [join(installedRoot, script.path.replace('experience-skills/', '')), '--help'], { cwd: project, env, encoding: 'utf8', timeout: 30000 });
+          if (r.status !== 0) fail(`${script.path}: installed --help failed (status ${r.status}): ${(r.stderr ?? '').slice(0, 200)}`);
+        }
+        if (scripts.length) pass(`installed bundle helper scripts run (--help): ${scripts.length}`);
+      }
     }
   }
 

@@ -46,6 +46,16 @@ npx skills add moh-obaida/experience-skills --skill experience-architect -a clau
 
 More options, including `--all` and manual installation: [docs/installation.md](docs/installation.md).
 
+### Unified marketplace bundle
+
+The same collection is available as one marketplace skill named **Experience Skills**. It contains
+the complete specialist methods, their references, scripts, assets, and vendored design
+intelligence behind one selective router. Build the free MIT-licensed ZIP locally with
+`npm run marketplace:bundle`; the generated archive is
+`dist/marketplace/Experience-Skills.zip`. Its listing copy is in
+[docs/marketplace/listing.md](docs/marketplace/listing.md). This does not change the standalone
+`skills/<name>/` distribution above.
+
 ## Why this exists
 
 Coding agents can build working interfaces quickly. What they often lack is judgment about the

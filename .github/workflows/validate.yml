@@ -26,6 +26,8 @@ jobs:
         run: npm run links
       - name: Catalog and README table are current
         run: npm run check:catalog
+      - name: Unified marketplace bundle is complete and reproducible
+        run: npm run marketplace:bundle:check
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

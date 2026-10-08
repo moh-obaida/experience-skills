@@ -3,7 +3,7 @@ name: state-design
 description: "Use this skill whenever a product has important state changes, progression, reset, completion, loading, saving, syncing, errors, or a primary journey that breaks between tasks. Model state ownership and transitions, including initialization, preserved and reset data, feedback, focus, recovery, and completion to continuation. Separate machine or simulation state from progress, UI, account, session, and remote state; verify the repeated path rather than listing states alone."
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   collection: experience-skills
 ---
 

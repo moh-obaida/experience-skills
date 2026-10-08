@@ -1,0 +1,64 @@
+{
+  "experience-architect": {
+    "kind": "general-router",
+    "examples": ["Something about this product feels wrong", "Redesign this dashboard", "Make my website better"],
+    "routeWhen": "The concern is broad, undiagnosed, or spans interacting experience areas."
+  },
+  "use-all-skills": {
+    "kind": "full-collection-conductor",
+    "examples": ["Use all Experience Skills", "Build this entire product", "Perform a complete product experience audit"],
+    "routeWhen": "The user explicitly requests the full collection, or asks for substantial end-to-end product work."
+  },
+  "composition-repair": {
+    "examples": ["Fix excessive whitespace", "The page feels cramped or unbalanced"],
+    "routeWhen": "Composition, hierarchy, density, alignment, or overflow is the diagnosed concern."
+  },
+  "workflow-compression": {
+    "examples": ["Reduce setup steps", "Users repeat information the product already knows"],
+    "routeWhen": "A specific workflow has unnecessary steps, decisions, waits, or repeated input."
+  },
+  "visual-identity": {
+    "examples": ["Make this product feel distinctive", "Improve its visual personality"],
+    "routeWhen": "The product's identity or visual direction is weak, generic, or incoherent."
+  },
+  "interaction-design": {
+    "examples": ["Fix confusing controls", "Make this interaction safer and easier to operate"],
+    "routeWhen": "Control behavior, affordance, input, feedback, or interaction accessibility is the focus."
+  },
+  "state-design": {
+    "examples": ["Improve loading and failure states", "Design the offline state"],
+    "routeWhen": "Loading, empty, error, offline, progress, or recovery behavior is the focus."
+  },
+  "motion-design": {
+    "examples": ["Improve transitions", "Make animation explain what changed"],
+    "routeWhen": "Motion, timing, transition, or motion accessibility is the focus."
+  },
+  "product-friction": {
+    "examples": ["Reduce overall product friction", "Users keep getting lost across the product"],
+    "routeWhen": "Systemic friction crosses screens, concepts, navigation, or journeys."
+  },
+  "responsive-validation": {
+    "examples": ["Check mobile and RTL layouts", "Validate the screen at narrow widths and zoom"],
+    "routeWhen": "Responsive behavior, viewport coverage, input modes, zoom, content extremes, or RTL need validation."
+  },
+  "empty-state-design": {
+    "examples": ["Improve this empty screen", "Make the first-use state useful"],
+    "routeWhen": "A genuinely empty or not-yet-populated surface needs useful first-use behavior."
+  },
+  "anti-slop-ui": {
+    "examples": ["Review this AI-generated UI", "Tell me whether this template look is a problem"],
+    "routeWhen": "The user wants an evaluation or quality gate for generic-looking UI, without requesting end-to-end repair."
+  },
+  "critical-review": {
+    "examples": ["Critically evaluate this redesign", "Is this proposal actually better?"],
+    "routeWhen": "The user requests a reasoned judgment on an idea, proposal, redesign, or finished interface."
+  },
+  "interface-forensics": {
+    "examples": ["Diagnose this rendered page thoroughly", "Trace the visual defect from the browser to its CSS source"],
+    "routeWhen": "One rendered route or component needs exhaustive inspection, source tracing, and verified repair."
+  },
+  "anti-ai-slop": {
+    "examples": ["Repair the AI-generated look end to end", "Make this template-made app distinctive while preserving its identity"],
+    "routeWhen": "An existing implementation needs source-level repair for generic or template-made design."
+  }
+}

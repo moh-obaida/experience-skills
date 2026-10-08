@@ -4,7 +4,7 @@ description: "Use this skill whenever source-level repair is requested for an ex
 license: MIT
 compatibility: "Browser rendering strongly recommended. The optional identity extractor needs Node.js 18+ and reads local source only."
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   collection: experience-skills
 ---
 

@@ -3,7 +3,7 @@ name: use-all-skills
 description: "Use this skill whenever the user asks to use all Experience Skills, requests a full Experience Skills pass, or wants a substantial product built or audited end to end. Consider every installed specialist, diagnose product risks, activate only those with a material contribution, implement, and verify primary journeys. Use Build Mode for new work and Audit Mode for mature or troubled products."
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   collection: experience-skills
 ---
 

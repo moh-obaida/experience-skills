@@ -39,6 +39,26 @@ Notes:
 
 Run `npx skills --help` for the CLI's current options.
 
+## Unified marketplace ZIP
+
+The generated `Experience-Skills.zip` contains one installable skill, `experience-skills`, with
+all canonical specialists stored as methods under `modules/`. Unzip it and submit the
+`experience-skills/` folder to the marketplace scanner. The archive is built and validated with:
+
+```bash
+npm run marketplace:bundle
+npm run marketplace:bundle:check
+```
+
+The ZIP is written to `dist/marketplace/Experience-Skills.zip`; a machine-readable validation
+report is written beside it. The master skill routes to a selected method, whose references,
+scripts, assets, and generated shared resources remain local to that method. The bundle does not
+load its full design-intelligence library by default.
+
+The marketplace bundle and the `skills` CLI source distribution are separate entry points. The
+existing `npx skills add moh-obaida/experience-skills` and `--skill <name>` commands continue to
+install the standalone canonical skills.
+
 ## Manually
 
 Copy any `skills/<name>/` folder into your agent's skills directory. Each folder is complete.

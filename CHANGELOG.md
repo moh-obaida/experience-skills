@@ -4,7 +4,18 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org/). All skills share the repository version.
 
-## Unreleased
+## [1.0.1] - 2026-10-08
+
+### Added
+- Unified, free MIT-licensed marketplace ZIP with the complete catalog-derived collection behind
+  one `experience-skills` master router and all specialist resources preserved as local methods.
+- Deterministic bundle builder, generated catalog and routing guide, checksums, extraction and
+  resource integrity validation, route coverage tests, and extracted Skills CLI installation test.
+- Marketplace listing copy and v1.0.1 release notes.
+
+### Changed
+- Updated skill metadata versions to 1.0.1 for the repository patch release; specialist
+  instructions and resources are unchanged.
 
 ## [1.0.0] - 2026-09-30
 

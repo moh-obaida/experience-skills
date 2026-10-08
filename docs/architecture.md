@@ -236,3 +236,19 @@ specialist: is this pattern justified, and what are the alternatives? `anti-ai-s
 remediation specialist for an existing rendered product: it extracts and protects the product's
 identity, sweeps every surface, traces generated decisions to source, replaces them with what that
 product would do, and rerenders. Keeping them separate keeps each description routable.
+
+## Decision 12: unified marketplace packaging is generated from the canonical catalog
+
+The marketplace bundle is a second distribution format, not a second skill source. Its authored
+master entry point and route metadata live in `marketplace/bundle/`; the build reads
+`catalog/skills.json`, checks vendored synchronization, and copies each canonical skill's complete
+resource tree. Only inside the ZIP, each specialist `SKILL.md` becomes `METHOD.md`, leaving exactly
+one discoverable `SKILL.md` at the collection root. Routes must cover the catalog exactly, so a new
+public skill cannot silently ship without routing metadata.
+
+The builder creates a stable ZIP and checksum manifest, extracts and validates it, and checks
+module-relative references and script imports. `npm run marketplace:bundle:check` performs these
+checks without writing release artifacts. The marketplace identity is `experience-skills`; the
+standalone GitHub Skills CLI layout remains unchanged. Distribution copies all validated
+references, scripts, assets, and vendored `_shared` files so conditional loading and individual
+method behavior remain intact.
