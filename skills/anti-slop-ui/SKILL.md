@@ -4,7 +4,7 @@ description: "Use this skill whenever a UI needs an anti-slop review or completi
 license: MIT
 compatibility: "The optional scanner needs Node.js 18+. No other dependencies."
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -41,6 +41,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -98,12 +102,12 @@ For material anti-slop review or before presenting generated UI, MUST load `refe
    list and copy-type table in `references/_shared/product-copy.md`, including personalization that
    reads as generated (truncated names, unearned possessives).
 6. **Before presenting:** run `references/final-slop-gate.md`. If judging a repair, compare the
-   original diagnosis with the final render at that scope. Edits and fewer markers are not proof;
-   unresolved dominant harm means REPAIR or ESCALATE, not PASS. Keep speculative redesign out of review.
+   original diagnosis with the final render at that scope. Edits and fewer markers are not proof; unresolved dominant harm means REPAIR or ESCALATE, not PASS. Keep speculative redesign out of review.
 7. **Before replacing a material flagged pattern:** use `references/alternatives-engine.md` to consider distinct product-relevant alternatives; keep the current pattern if it serves the job. Do not manufacture a three-option exercise for a clear local defect.
 8. **Reverse-dogma check:** before removing a gradient, glass, card, pill, centered layout, dark theme, serif, density, or animation, look for its justification in `references/_shared/justified-trends.md`. Justified → keep and strengthen.
 
 9. **Underdesign gate:** look for the repeated cream/serif/earth-tone editorial family, unused wide space, weak core-instrument contrast, documentation-like working screens, and inactive states. Use a three-second task test and blurred hierarchy: can users see where work happens? Restraint is a design choice, not proof of originality. A strong existing pattern may deserve no change.
+10. **Overdesign gate:** before "fixing" generic UI with more color, motion, larger type, gradients, illustration, or containers, state the job each addition does and what it costs (space, contrast, time to the primary action). Do not turn a restrained product childish or flashy, or a deliberately loud product corporate. Excess decoration is slop too; apply the remove-it test in `references/_shared/anti-slop-gate.md`.
 
 ## Workflow
 

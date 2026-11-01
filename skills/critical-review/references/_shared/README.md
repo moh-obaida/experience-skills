@@ -26,3 +26,4 @@ points to it.
 | `justified-trends.md` | Precedent: When "AI-Looking" Techniques Are Right | `shared/precedent/justified-trends.md` |
 | `third-party-notices.md` | Third-Party Notices | `shared/legal/third-party-notices.md` |
 | `specification-pressure.md` | Specification Pressure | `shared/evaluation/specification-pressure.md` |
+| `quality-findings.md` | Quality Findings: Shared Record, Vocabularies, and Ownership | `shared/evaluation/quality-findings.md` |

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Necessity review (invented fixture)</title>
+<style>
+  *{box-sizing:border-box}body{margin:0;background:#f5f4ef;color:#20251f;font:16px/1.45 system-ui,sans-serif;padding:24px;max-width:900px}header,section{margin:0 0 20px}nav{display:flex;gap:16px;align-items:center}main{background:#fff;padding:24px;border:1px solid #d2d6cf;border-radius:6px}.pill,.badge,.card{background:#e9eee9;border-radius:999px;padding:4px 10px;display:inline-block}.card{border-radius:6px;padding:16px;margin:12px 0}hr{border:0;border-top:1px solid #cbd0c9;margin:20px -24px}.row{display:flex;gap:12px;align-items:center;margin:12px 0}.safe{border-left:4px solid #a66312;padding:12px;background:#fff7e9}.lost{color:#8c251c}
+</style></head><body>
+<header><nav aria-label="Primary"><a href="#">Lobby</a><a href="#">Teams</a><span class="pill" data-case="redundant-connection-pill" data-benchmark="NEC-02">Live connection</span></nav></header>
+<main>
+  <h1 data-case="duplicate-navigation-heading" data-benchmark="NEC-03">Lobby</h1>
+  <p data-case="redundant-team-count" data-benchmark="NEC-01">Two teams</p>
+  <div class="row"><strong>Blue team</strong><span>Players</span></div><div class="row"><strong>Gold team</strong><span>Players</span></div>
+  <section class="card" data-case="unnecessary-instruction-card" data-benchmark="NEC-04"><strong>How to play</strong><p>Share the room code. Players join from their phones, then the host starts the game.</p></section>
+  <hr data-case="decorative-separator" data-benchmark="NEC-05">
+  <section><h2>Game format</h2><label><input type="radio" checked disabled> Standard mode</label><span class="badge" data-case="unnecessary-user-choice" data-benchmark="NEC-06">Mode: Standard</span></section>
+  <section class="safe" data-case="necessary-safety-confirmation" data-benchmark="POS-03"><strong>End this live game?</strong><p>Ending now removes the current round for all players.</p><button>End game</button><button>Keep playing</button></section>
+  <p class="lost" role="status" data-case="meaningful-persistent-status" data-benchmark="POS-04">Connection lost. Reconnecting…</p>
+</main>
+</body></html>

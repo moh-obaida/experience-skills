@@ -36,7 +36,7 @@ tests/                     tests, fixtures, scenarios, routing evals
 
 ## Decision 1: flat sibling skills with a thin router
 
-The collection is fourteen specialist/router skills plus `use-all-skills`, a selective router,
+The collection is twenty-one specialist skills plus `use-all-skills`, a selective router,
 rather than one large skill. Agents route on skill descriptions; distinct descriptions for distinct problems route better than one description that
 tries to cover everything. Users can install one specialist without the rest.
 
@@ -146,7 +146,7 @@ precedent reads, rendered-evidence signals, completion signals, and required-ref
 
 ## Decision 9: full-product orchestration stays thin
 
-`use-all-skills` considers all fourteen siblings and activates only those with material leverage. Build Mode prioritizes a working core loop; Audit Mode permits broader investigation of mature products. The conductor protects the core instrument and product invariants, reserves time for implementation, and verifies repeated primary journeys, state transitions, recovery, responsive interaction, and focus before visual polish. A compact routing record captures consequential decisions and no-change findings; a roll call of specialists is not required.
+`use-all-skills` considers all twenty-one siblings and activates only those with material leverage. The v1.1 quality specialists cover visual coherence, element necessity, composition, microcopy, state-by-state behavior, cross-route consistency, and rendered acceptance. Build Mode prioritizes a working core loop; Audit Mode permits broader investigation of mature products. The conductor protects the core instrument and product invariants, reserves time for implementation, and verifies repeated primary journeys, state transitions, recovery, responsive interaction, and focus before visual polish. A compact routing record captures consequential decisions and no-change findings; a roll call of specialists is not required.
 
 ## Decision 10a: scope, shared context, and a blocking visual gate
 
@@ -190,6 +190,7 @@ the v0.2.0 upgrade notes.
 | Catalog | `generate-catalog.mjs --check` | Stale catalog or README table |
 | Official validator | `agentskills validate` from the `skills-ref` package (CI) | Spec conformance per the reference implementation |
 | Behavior | `npm test` | Analyzer logic, scripts against fixture pages in a real browser, scanners, workflow ledger, routing fixtures |
+| Authored system decisions | `npm run audit:system-quality` | Substantive, non-duplicated stroke/lift, visibility, copy, and acceptance clauses across 30 general and 151 niche systems; prose signals are structural cues, not proof of quality |
 | Distribution | `test-skill-discovery.mjs` | The real CLI lists all skills; installs arrive complete and working |
 | Agent behavior | `run-agent-evals.mjs` (manual, spends usage) | With vs without skills on real scenarios: skills and references actually loaded, principles applied, unacceptable recommendations avoided |
 

@@ -4,7 +4,7 @@ description: "Use this skill whenever the user asks to audit a specific page, in
 license: MIT
 compatibility: "Browser inspection recommended; the optional evidence collector needs Node.js and Playwright or an installed Chrome."
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -32,6 +32,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -53,6 +57,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - "Audit this page," "go over every inch," "check the CSS too," "find all the small issues," or "why does this screen feel annoying?"
 - A particular route or component needs detailed rendered, DOM, CSS, interaction, content, and state inspection.
 - Another experience skill finds a surface defect that needs implementation-level tracing.
+- A border, outline, indicator, divider, or focus ring looks wrong and its cause must be found in the cascade (BORDLINE).
 
 ## Do not use this when
 
@@ -70,6 +75,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 6. **Before adding another finding:** is it distinct and consequential? No → merge it under the root cause or leave it out. Rank blocked tasks above polish.
 
 9. **Behavior before cosmetics:** reproduce the primary-journey symptom, then trace interaction → state → implementation → root cause. Check lost focus, unmounting, stale disabled state, overlay interception, event listeners, routing, and CSS as relevant. Repair the cause and rerun the journey; report no change when no material defect is observed.
+10. **For border, outline, indicator, clipping, or separator symptoms:** inventory the rendered states first (rest, hover, focus, selected, error, disabled, narrow width, 200% zoom, RTL if supported), then trace with the BORDLINE protocol in `references/_shared/bordline.md`: the element, its wrapper and child, pseudo-elements, and every clipping ancestor (`scripts/collect-evidence.mjs` reports borders, outline, pseudo-elements, and clipping ancestors with the measured cut). If the same defect repeats on other instances or routes, trace it to the shared owner and say so; do not patch pages one by one.
 
 ## Workflow
 
@@ -78,11 +84,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 3. **Measure and trace.** Record viewport and element boxes, computed values, DOM semantics, and winning rules. Use browser DevTools or `scripts/collect-evidence.mjs` for a selected element; the script gathers facts but cannot determine a winning source rule. Use `references/source-tracing.md` for layout, cascade, typography, color, overflow, stacking, assets, and component causes.
 4. **Inspect decisions.** Load `references/control-and-copy.md` for necessity, action rank, hitboxes, icons, copy, and feedback. Load `references/stress-and-accessibility.md` for responsive composition, zoom, long/empty content, state, RTL where supported, keyboard, semantics, motion, and accessibility.
 5. **Rank and act.** Use P0 broken, P1 significant, P2 quality, P3 polish. AUDIT: report evidence and recommended changes. REPAIR: fix root causes in coherent groups, rerender between groups, compare before/after, and stress relevant states (`references/verification-and-report.md`).
-6. **Hand off narrowly.** If the root issue needs workflow-compression, visual-identity, interaction-design, state-design, motion-design, responsive-validation, anti-slop-ui, or critical-review, use that specialist for its decision. Keep ownership of this surface's source trace and verification.
+6. **Hand off narrowly.** If the root issue needs workflow-compression, visual-identity, interaction-design, state-design, motion-design, responsive-validation, anti-slop-ui, or critical-review, use that specialist for its decision. A stroke or component-consistency family across many components goes to visual-coherence-audit, drift across routes to cross-route-consistency, wording to microcopy-quality, state timing to state-by-state-review, elements that may not belong to ui-necessity-audit. Keep ownership of this surface's source trace and verification.
 
 ## Evidence collector
 
-`node scripts/collect-evidence.mjs <url-or-html> --selector '.target' --size 1366x768 --json` collects geometry, computed styles, nearby targets, overflow, and matching CSS rule candidates. Use `--help` for options. It accepts only the target supplied; page resources may still load. Exit codes: 0 collected, 1 selector absent/ambiguous, 2 usage or browser error. Browser pseudo-states, framework source mapping, and actual cascade winner still require DevTools inspection. Existing layout, overflow, and collision tools can supplement it when available.
+`node scripts/collect-evidence.mjs <url-or-html> --selector '.target' --size 1366x768 --json` collects geometry, computed styles, per-side borders, outline, `::before`/`::after` styles, clipping ancestors with the measured cut, nearby targets, overflow, and matching CSS rule candidates. Use `--help` for options. It accepts only the target supplied; page resources may still load. Exit codes: 0 collected, 1 selector absent/ambiguous, 2 usage or browser error. Browser pseudo-states, framework source mapping, and actual cascade winner still require DevTools inspection. Existing layout, overflow, and collision tools can supplement it when available.
 
 ## Completion criteria
 
@@ -100,4 +106,5 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - `references/control-and-copy.md` — necessity, actions, icons, hitboxes, labels
 - `references/stress-and-accessibility.md` — responsive, states, content, keyboard, motion, accessibility
 - `references/verification-and-report.md` — repair loop and finding/report format
+- `references/_shared/bordline.md` — BORDLINE codes and the stroke, outline, pseudo-element, and clipping investigation protocol
 - `references/_shared/experience-core.md`, `references/_shared/experience-operating-contract.md` — collection rules

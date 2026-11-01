@@ -1,9 +1,9 @@
 ---
 name: use-all-skills
-description: "Use this skill whenever the user asks to use all Experience Skills, requests a full Experience Skills pass, or wants a substantial product built or audited end to end. Consider every installed specialist, diagnose product risks, activate only those with a material contribution, implement, and verify primary journeys. Use Build Mode for new work and Audit Mode for mature or troubled products."
+description: "Use this skill whenever the user asks for all Experience Skills or a full experience pass, a substantial end-to-end product build, or a mature product audit across multiple routes or quality areas, including report-only reviews. Consider every specialist, activate only those with a material contribution, implement when requested, and verify primary journeys. Use Build Mode for new work and Audit Mode for mature products."
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -34,6 +34,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -54,6 +58,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 - The user explicitly requests all Experience Skills or a full experience pass.
 - A substantial new product or major surface needs product design, implementation, and verification.
+- A mature product audit spans multiple routes or quality areas, even when the user wants findings only; coordinate the relevant specialists and keep activation selective.
 - A mature product needs a broad, symptom-driven audit.
 
 ## Do not use this when
@@ -84,7 +89,11 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 ## Specialist routing
 
-`experience-architect` clarifies structure; `product-friction` investigates recurring product confusion; `workflow-compression` removes unnecessary steps; `interaction-design` protects repeated controls; `state-design` models ownership and transitions; `visual-identity` derives expression; `composition-repair` aligns visual and functional weight; `responsive-validation` tests workflow across space; `empty-state-design` handles absence; `motion-design` explains and energizes events; `anti-slop-ui` and `anti-ai-slop` test generic or underdesigned patterns; `interface-forensics` traces observed defects; `critical-review` synthesizes severity. Consider all; invoke only where the diagnosis warrants it.
+`experience-architect` clarifies structure; `product-friction` investigates recurring product confusion; `workflow-compression` removes unnecessary steps; `interaction-design` protects repeated controls; `state-design` models ownership and transitions; `visual-identity` derives expression; `composition-repair` aligns visual and functional weight; `responsive-validation` tests workflow across space; `empty-state-design` handles absence; `motion-design` explains and energizes events; `anti-slop-ui` and `anti-ai-slop` test generic, underdesigned, or overdesigned patterns; `interface-forensics` traces observed defects; `critical-review` synthesizes severity.
+
+Quality specialists for a built product, each activated only for an observed concern: `composition-review` (screen-level arrangement verdict before any restructure), `ui-necessity-audit` (redundant or mistimed elements), `visual-coherence-audit` (borders, indicators, clipping, repeated-component drift), `cross-route-consistency` (shared patterns that differ across routes), `microcopy-quality` (wording accuracy and naturalness), `state-by-state-review` (rendered states and transitions), `screenshot-acceptance` (rendered evidence for visual claims). Audit Mode may use several in one sweep, in that structural-first order, sharing one finding record (`references/_shared/quality-findings.md`) so each root cause is resolved once. An all-skills request never requires every specialist to run or a report from each; a clean, composed screen is a valid no-change result.
+
+Consider all; invoke only where the diagnosis warrants it.
 
 ## Completion criteria
 
@@ -98,6 +107,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - `references/phase-map.md` — conditional routes and stop gates
 - `references/participation-ledger.md` — compact routing and finding record
 - `references/design-artifact.md` — optional operational implementation note
+- `references/_shared/quality-findings.md` — shared finding record and one-owner rule for the quality specialists
 - `references/_shared/experience-core.md`, `references/_shared/experience-operating-contract.md` — collection contract
 - `references/_shared/specification-pressure.md` — long, imperfect, or contradictory specification intake, requirement traceability, and locked-vs-open handling
 - `references/_shared/niche-atlas-index.md` — product context; load only a relevant niche file: `niche-business.md`, `niche-developer.md`, `niche-ai.md`, `niche-games.md`, `niche-education.md`, `niche-commerce.md`, `niche-finance.md`, `niche-media.md`, `niche-social.md`, `niche-health.md`, `niche-public.md`, `niche-travel.md`, `niche-physical.md`, `niche-creative.md`, `niche-personal.md`

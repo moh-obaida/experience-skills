@@ -13,6 +13,18 @@ passing lines changes that; repair it or list it as unresolved. A specialist hav
 checklist, does not answer this question. If nothing can be rendered, write **NOT VERIFIED IN
 RENDERED OUTPUT** here instead of passing it.
 
+## Rendered quality checks
+
+Apply only the lines the change touched, in the rendered states, not from source.
+
+- [ ] Strokes read as continuous: no partial, uneven, doubled, or clipped borders, rings, or dividers.
+- [ ] Repeated components that share a role match; any difference has a functional reason.
+- [ ] Every visible element has a job; safeguards, disclosures, and recovery are intact.
+- [ ] Wording is accurate for the real behavior; no internal identifiers in ordinary errors.
+- [ ] Errors, success, and status appear only in the states that justify them and clear after.
+- [ ] Shared patterns agree across the routes checked.
+- [ ] Visual claims rest on captures that were viewed, not on tests or source.
+
 ## Purpose and hierarchy
 - [ ] A first-time user can tell what this surface is for and what to do next.
 - [ ] One P0 per surface; visual weight matches importance.

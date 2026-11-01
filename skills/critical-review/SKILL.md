@@ -3,7 +3,7 @@ name: critical-review
 description: "Use this skill whenever the user asks for judgment on a product, proposal, redesign, or finished interface, or when an agent is about to endorse its own work. Compare observed behavior with the intended job and current product, rank blocker and major issues ahead of cosmetic preferences, inspect recovery and primary-journey continuity, and synthesize the few most important remaining problems. A justified no-change verdict is valid."
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -39,6 +39,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -100,6 +104,7 @@ If the proposal changes visual direction, load `references/_shared/selection.md`
 10. **Check whether the right answer is not "new is better":** `references/verdict-examples.md` covers keeping the current version, simplifying, rejecting a trend, removing a feature, preserving a familiar control, and justified whitespace, cards, dramatic motion, or added complexity.
 
 11. **Release judgment:** rank release blockers, major journey damage, state/trust failures, recovery failures, responsive job failures, accessibility blockers, and polish by effect on the primary journey. A broken core control, false completion, lost progress, or impossible continuation blocks release regardless of visual polish. Keep visual hierarchy, composition, typography, color, identity, and expression in the review; strong expression is not itself a UX defect. Group related symptoms by root cause and synthesize only the highest-value remaining findings (one may be enough) rather than repeat every specialist; inspect recovery quality and preserve good current decisions. Zero changes is a valid verdict.
+12. **Does the redesign actually improve the experience?** Before any positive verdict on a redesign or a polished-looking result, compare before and after in the rendered states: did task visibility, speed to the primary action, contrast, consistency, and state clarity improve, or only decoration? A result that looks richer but buries the instrument or lowers usability is a negative verdict. Praise requires named evidence (`references/_shared/quality-findings.md` for the finding shape; screenshot-acceptance for the capture protocol); passing tests are not evidence of how it looks.
 
 ## Workflow
 

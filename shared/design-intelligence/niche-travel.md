@@ -59,14 +59,14 @@ travel task, hide fees until checkout, and turn timetables into cards. Load a pr
 | Composition | Trip tab shows the next flight as a board row: flight, scheduled and estimated time, gate, terminal, status; then connections; disruption banner with rebooking action on top when relevant. |
 | Type | Condensed display for times, gates, and flight numbers (Barlow Condensed 600 or Oswald), sans for text (Barlow 16px). Arabic: Cairo. |
 | Color | canvas #10161C · surface #18212A · ink #F3F5F7 · muted #A5B0BB · line #2A3642 · action #F5C542 · on-action #10161C. Status roles: on time neutral text, delayed amber, cancelled red, boarding green, each labelled. |
-| Space and shape | Board rows 56px; tonal bands per flight; 4px radius. |
+| Space and shape | Board rows 56px; tonal bands per flight; 4px radius. Stroke and lift: Use one 1px rule between flights, one accent for a changed gate or delay, and no boxed row; focus stays separate from status. |
 | Icons and imagery | None; airline logos small. |
-| Components | Rebook options with times and fare differences; boarding pass quick access; notifications toggles. |
+| Components | Rebook options with times and fare differences; boarding pass quick access; notifications toggles. Shown when: Show rebooking only during a disruption, boarding-pass access for a booked traveler, and no healthy connection pill. Copy: Use actual carrier status and local time; distinguish scheduled, estimated, boarding, and departed without unexplained codes. |
 | States | Gate change highlighted with previous gate struck; delay with new estimate and reason; offline shows last updated time. |
 | Responsive | Phone first; watch glance; airport kiosk large format. |
 | Motion | Changed values flip with a 200ms highlight. Reduced motion: highlight only. |
 | Accessibility | Times read with time zone; status not color-only. |
-| Build | Live updates with timestamps; local caching for offline. |
+| Build | Live updates with timestamps; local caching for offline. Accept: Capture normal, gate-changed, delayed, and offline boards at desktop and phone widths, including RTL labels and update time. |
 | AI mutation | Hero sunsets, rounded marketing cards, status hidden in details. |
 | Fails when | Inspiration and browsing. |
 
@@ -80,14 +80,14 @@ travel task, hide fees until checkout, and turn timetables into cards. Load a pr
 | Composition | Search form compact at top; date-price matrix; result rows with times, duration, stops, total price; fare comparison table (bag, change, refund) before selection; steps: flights, seats, extras, pay. |
 | Type | Grotesk (Hanken Grotesk 15px), tabular times and prices. Arabic: IBM Plex Sans Arabic; times per locale. |
 | Color | canvas #F5F6F7 · surface #FFFFFF · ink #14171A · muted #51575E · line #D2D7DC · action #0F4C81 · on-action #FFFFFF. Cheapest date marked with text label, not only green. |
-| Space and shape | 4px radius; bordered rows 72px. |
+| Space and shape | 4px radius; bordered rows 72px. Stroke and lift: Use one consistent boundary for every fare and a single selected-offer outline; separate mandatory fees with rules, not stacked cards. |
 | Icons and imagery | None. |
-| Components | Flexible dates matrix, filters (stops, times, airlines), fare rules table, price breakdown always visible. |
+| Components | Flexible dates matrix, filters (stops, times, airlines), fare rules table, price breakdown always visible. Shown when: Show total price before selection, reveal restrictions beside each fare, and offer date flexibility only when alternatives exist. Copy: Name total currency, mandatory fees, duration, stops, and change rules; explain a price change before commitment. |
 | States | Price changed on selection explained; sold out; fare expired. |
 | Responsive | Phone: matrix as scrollable week strip; result rows stack; fare comparison swipeable. |
 | Motion | None. |
 | Accessibility | Matrix as table with headers. |
-| Build | Total price includes mandatory fees everywhere. |
+| Build | Total price includes mandatory fees everywhere. Accept: Capture date matrix, selected fare, changed price, and expired fare at desktop and phone widths with mixed-script currency. |
 | AI mutation | Hero before search, fees added at checkout, urgency banners. |
 | Fails when | Leisure inspiration. |
 
@@ -101,14 +101,14 @@ travel task, hide fees until checkout, and turn timetables into cards. Load a pr
 | Composition | Property page: photo mosaic, name and location, total price for dates with breakdown, cancellation policy in one line, amenities, map, reviews; booking panel sticky. |
 | Type | Serif display for names (Fraunces or Young Serif), sans body (Figtree 16px). Arabic: Noto Naskh Arabic names. |
 | Color | canvas #FBF8F3 · surface #FFFFFF · ink #201D19 · muted #5C574F · line #E5DED2 · action #1F5B5B · on-action #FFFFFF. |
-| Space and shape | 10px radius photos; paper surface. |
+| Space and shape | 10px radius photos; paper surface. Stroke and lift: Leave photos unframed, use one surface for booking facts, and reserve radius and shadow for the booking panel. |
 | Icons and imagery | Real property photos with room labels; neighborhood photos. |
-| Components | Date picker with price per night overlay; guest count; message host; save. |
+| Components | Date picker with price per night overlay; guest count; message host; save. Shown when: Show total stay price and cancellation terms beside dates; show host messaging after selection and remove unavailable actions. Copy: State total price, taxes, cancellation deadline, and request status without implying a reservation is confirmed. |
 | States | Unavailable dates; request-to-book pending; policy change notice. |
 | Responsive | Phone: photos swipe, facts, sticky price bar. |
 | Motion | Photo gallery transitions 200ms. Reduced motion: cut. |
 | Accessibility | Photo alt text by room; map with address text. |
-| Build | Total price calculation shared between search and page. |
+| Build | Total price calculation shared between search and page. Accept: Capture available dates, unavailable dates, pending request, and policy change at desktop and phone widths; keep price and cancellation terms together. |
 | AI mutation | Nightly price without fees, fake scarcity, glass overlays. |
 | Fails when | Business travel with policy constraints (needs Fare Matrix-like comparison). |
 
@@ -122,14 +122,14 @@ travel task, hide fees until checkout, and turn timetables into cards. Load a pr
 | Composition | Full map with search; bottom sheet list synced with map; place page with hours, photos, directions, save. |
 | Type | Humanist sans (Source Sans 3 or Figtree 15px). Arabic: Noto Sans Arabic; place names in local script plus transliteration. |
 | Color | canvas #F2F4F1 · surface #FFFFFF · ink #1B201C · muted #525A54 · line #CFD6D0 · action #20615A · on-action #FFFFFF. Category pins with glyphs and names. |
-| Space and shape | 16px radius sheets; pins 32px. |
+| Space and shape | 16px radius sheets; pins 32px. Stroke and lift: Keep map geometry unboxed, synchronize one selected-pin treatment with the list row, and keep sheet corners clear of focus clipping. |
 | Icons and imagery | Custom map style with muted base; photos of places. |
-| Components | Save to list, directions, open now filter, offline download. |
+| Components | Save to list, directions, open now filter, offline download. Shown when: Ask for location only after a location-dependent action; keep the list usable without map access and show offline limits when relevant. Copy: Use local place names first, transliterate only when useful, and source or date distance, hours, and route conditions. |
 | States | Closed now; offline mode; location permission denied offers search. |
 | Responsive | Phone first; desktop split list-map. |
 | Motion | Sheet drags physically; map pans to selection. Reduced motion: jump. |
 | Accessibility | List view complete; pins announced. |
-| Build | Vector tiles; offline packs. |
+| Build | Vector tiles; offline packs. Accept: Capture selected place, denied location, closed place, and offline list at desktop and phone widths; verify focused rows are not clipped. |
 | AI mutation | Glass cards over maps, neon pins. |
 | Fails when | Booking flows. |
 
@@ -143,14 +143,14 @@ travel task, hide fees until checkout, and turn timetables into cards. Load a pr
 | Composition | Tabs for days; each day a timeline with items (time, place, booking reference) and travel time between; small map per day. |
 | Type | Slab serif for day headings (Zilla Slab), sans for items (Source Sans 3). Arabic: Noto Kufi Arabic headings. |
 | Color | canvas #F4F1EA · surface #FFFDF8 · ink #22201B · muted #5C574D · line #D9D1C1 · action #3C5A7A · on-action #FFFFFF. |
-| Space and shape | 4px radius; paper sheets per day. |
+| Space and shape | 4px radius; paper sheets per day. Stroke and lift: Use one timeline connector aligned to item centers and mark conflicts with a single edge instead of multiple badges. |
 | Icons and imagery | Day maps. |
-| Components | Add item, import confirmation emails, share with group, export PDF. |
+| Components | Add item, import confirmation emails, share with group, export PDF. Shown when: Show travel warnings only for actual overlaps, booking details on demand, and offline status when the itinerary is unsynced. Copy: Name local departure and arrival times with time zones when they differ; distinguish imported booking facts from user-added plans. |
 | States | Travel time conflict flagged; booking changed; offline available. |
 | Responsive | Phone first; print styles. |
 | Motion | None. |
 | Accessibility | Times in text; printable. |
-| Build | Offline storage; time zone per item. |
+| Build | Offline storage; time zone per item. Accept: Capture normal itinerary, time conflict, changed booking, and offline day; check connectors align through wrapped items. |
 | AI mutation | Inspirational card collage, AI "hidden gems" copy. |
 | Fails when | Single bookings. |
 
@@ -164,14 +164,14 @@ travel task, hide fees until checkout, and turn timetables into cards. Load a pr
 | Composition | Full-bleed photo of the room or dishes beside a booking panel (party size, date, available times); menu as text below; hours, address, policies. |
 | Type | Display face matching the restaurant's identity (e.g., DM Serif Display or Gloock), body sans (Karla 16px). Arabic: Aref Ruqaa display with care, Noto Naskh Arabic body. |
 | Color | canvas #FAF7F2 · surface #FFFFFF · ink #1D1A16 · muted #5B554C · line #E3DCD0 · action #7A2A1E · on-action #FFFFFF. |
-| Space and shape | Square; photo full height on desktop. |
+| Space and shape | Square; photo full height on desktop. Stroke and lift: Keep the venue image unframed, use one boundary for active reservation controls, and avoid duplicate selected-slot outlines. |
 | Icons and imagery | Real photography of the restaurant. |
-| Components | Time slots as buttons; special requests; deposit when required stated before. |
+| Components | Time slots as buttons; special requests; deposit when required stated before. Shown when: Explain a deposit before it is required, show waitlist only when full, and place policies beside the relevant choice. Copy: State party size, local time, deposit, and cancellation terms precisely; distinguish a request from a confirmed reservation. |
 | States | Fully booked offers waitlist and nearby dates; modification and cancellation policy. |
 | Responsive | Phone: photo band, booking panel, menu. |
 | Motion | Slot selection confirms (150ms). Reduced motion: none. |
 | Accessibility | Menu as HTML text, not images. |
-| Build | Availability from reservation system. |
+| Build | Availability from reservation system. Accept: Capture available slots, fully booked waitlist, and deposit-required booking at desktop and phone widths; keep the primary action visible. |
 | AI mutation | Menu as image carousel, "Experience culinary excellence". |
 | Fails when | Operator tools. |
 
@@ -185,14 +185,14 @@ travel task, hide fees until checkout, and turn timetables into cards. Load a pr
 | Composition | Floor plan center with tables as shapes; rail for sections; right panel with upcoming reservations and waitlist with quoted times. |
 | Type | Technical sans (IBM Plex Sans 14px), timers tabular. |
 | Color | canvas #F1F2F0 · surface #FFFFFF · ink #161816 · muted #4F554F · line #C9CEC8 · action #1F5E4A · on-action #FFFFFF. Table states: available, seated, ordered, dessert, check dropped, dirty, each with label and pattern. |
-| Space and shape | Tables round or square as in reality (radius encodes table shape); 44px targets. |
+| Space and shape | Tables round or square as in reality (radius encodes table shape); 44px targets. Stroke and lift: Use floor-plan shapes as the boundary language, one selected-table marker, and timeline rules instead of reservation cards. |
 | Icons and imagery | Floor plan diagram. |
-| Components | Drag party to table, combine tables, text guest when ready. |
+| Components | Drag party to table, combine tables, text guest when ready. Shown when: Show quoted waits when seating is delayed; expose table-combine and move actions only for valid assignments. Copy: Use the reserved guest name and quoted wait; report a table ready without claiming contact succeeded before delivery. |
 | States | Late reservation; no-show; table turning estimate. |
 | Responsive | Tablet landscape first; phone list mode. |
 | Motion | Drag physics; state change highlight. Reduced motion: none. |
 | Accessibility | List mode equivalent. |
-| Build | Real-time sync across devices. |
+| Build | Real-time sync across devices. Accept: Capture seating assignment, late reservation, no-show, and table-turn estimate at desktop and tablet widths; verify plan geometry stays distinct. |
 | AI mutation | Consumer app styling, KPI cards of covers. |
 | Fails when | Diners. |
 
@@ -206,14 +206,14 @@ travel task, hide fees until checkout, and turn timetables into cards. Load a pr
 | Composition | Long guide pages with sections (when to go, getting around, neighborhoods, where to eat) and practical boxes; in-page contents. |
 | Type | Editorial serif (Newsreader 18px), sans for practical info (Source Sans 3). Arabic: Amiri. |
 | Color | canvas #F6F2EA · surface #FFFFFF · ink #1E1C18 · muted #5A554C · line #DDD5C6 · action #22546B · on-action #FFFFFF. |
-| Space and shape | Square; ruled practical boxes. |
+| Space and shape | Square; ruled practical boxes. Stroke and lift: Use ruled boxes only for practical facts, keep article sections open, and give in-page navigation one active marker. |
 | Icons and imagery | Captioned photography. |
-| Components | Save places to map, print, updated date. |
+| Components | Save places to map, print, updated date. Shown when: Show seasonal closures with last-verified dates, reveal print and save near the guide, and omit empty practical boxes. Copy: Separate local advice from verified logistics; date seasonal details and use local place names without promotional certainty. |
 | States | Seasonal closures; last verified date. |
 | Responsive | Single column. |
 | Motion | None. |
 | Accessibility | Captions; headings. |
-| Build | Places linked to structured data. |
+| Build | Places linked to structured data. Accept: Capture a long guide, seasonal closure, and empty practical section at desktop and phone widths; inspect reading measure and navigation. |
 | AI mutation | "Hidden gems" listicles with stock imagery. |
 | Fails when | Transactional booking. |
 
@@ -227,14 +227,14 @@ travel task, hide fees until checkout, and turn timetables into cards. Load a pr
 | Composition | One pass per screen, swipe between: code large, name, seat, gate/platform, time; details below. |
 | Type | Grotesk (Manrope 700 for facts 28px). Arabic: IBM Plex Sans Arabic. |
 | Color | canvas #EEF1F4 · surface #FFFFFF · ink #111418 · muted #50565E · line #D0D6DD · action #0B5A8A · on-action #FFFFFF. Carrier color as a band at the top of the pass. |
-| Space and shape | 20px radius passes with shadow (object metaphor). |
+| Space and shape | 20px radius passes with shadow (object metaphor). Stroke and lift: Use one pass outline and object shadow, keep internal ticket rules aligned, and show scan focus without a second code border. |
 | Icons and imagery | None. |
-| Components | Add to wallet, brightness boost for scanning, share. |
+| Components | Add to wallet, brightness boost for scanning, share. Shown when: Show brightness boost while a scannable pass is open, offline availability when disconnected, and recovery instead of expired actions. Copy: Keep traveler name, route, seat, gate, and time exact; label changed gates and do not suggest an expired code will scan. |
 | States | Offline available; updated gate; expired pass. |
 | Responsive | Phone only. |
 | Motion | Swipe between passes. Reduced motion: fade. |
 | Accessibility | Code readable at max brightness; text facts large. |
-| Build | Cache passes offline. |
+| Build | Cache passes offline. Accept: Capture active, updated-gate, offline, and expired passes at desktop and phone widths; verify QR space, focus, and text are unobstructed. |
 | AI mutation | Gradient passes reducing code contrast. |
 | Fails when | Planning. |
 
@@ -248,14 +248,14 @@ travel task, hide fees until checkout, and turn timetables into cards. Load a pr
 | Composition | Sidebar: Front desk, Reservations, Rates, Housekeeping; tape chart of rooms (rows) by dates (columns), stays as bars with guest names; detail drawer. |
 | Type | Technical sans (IBM Plex Sans 13px). |
 | Color | canvas #F4F5F4 · surface #FFFFFF · ink #141615 · muted #4F5551 · line #CDD2CE · action #245A45 · on-action #FFFFFF. Stay states (confirmed, checked in, checked out, blocked) with patterns and labels. |
-| Space and shape | 32px rows; square bars. |
+| Space and shape | 32px rows; square bars. Stroke and lift: Use consistent room and date grid rules, let booking bars own their boundaries, and mark overlaps with one conflict edge. |
 | Icons and imagery | None. |
-| Components | Drag stays to move rooms, extend; rate calendar; housekeeping status toggles. |
+| Components | Drag stays to move rooms, extend; rate calendar; housekeeping status toggles. Shown when: Show housekeeping status on the affected row, expose conflict resolution on overlap, and keep guest details in the drawer. Copy: Use the property’s room and rate terms; state sync conflicts and affected dates without exposing channel API codes. |
 | States | Overbooking conflict; channel sync error; room out of order. |
 | Responsive | Desktop; tablet for housekeeping lists. |
 | Motion | Bars follow pointer. Reduced motion: none. |
 | Accessibility | Grid navigable; list alternative. |
-| Build | Channel sync with conflict detection. |
+| Build | Channel sync with conflict detection. Accept: Capture ordinary occupancy, overbooking, sync failure, and out-of-order room at desktop and tablet widths; check grid alignment. |
 | AI mutation | Consumer booking UI for staff, KPI cards. |
 | Fails when | Guests. |
 

@@ -11,11 +11,11 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | Composition | Prompt, response, feedback, next step in one stage. Desktop has context rail; tablet/mobile keep one task per viewport and progress visible. |
 | Type | Rounded humanist sans for prompts, neutral sans for answers, tabular score/time; 32/22/17/14px. Test early-reader and Arabic letterforms. |
 | Color | Classroom Ink: `#F7F7F1` canvas, `#FFFFFF` surface, `#202B31` ink, `#4E5B61` secondary, `#B6C3C5` line, `#265A80` action. Answer colors always have symbols/text. |
-| Geometry | 4px unit; 12px answer internals, 24px question rhythm, 40px stage changes; 10px controls, 12px panels, visible borders. |
-| Components/nav | Large answer buttons, one clear submit/next action, familiar progress. Navigation distinguishes lesson map from current exercise. |
+| Geometry | 4px unit; 12px answer internals, 24px question rhythm, 40px stage changes; 10px controls, 12px panels, visible borders. Stroke and lift: Give the active answer group one outline and feedback one tonal treatment; do not add a second border to a selected response. |
+| Components/nav | Large answer buttons, one clear submit/next action, familiar progress. Navigation distinguishes lesson map from current exercise. Shown when: Show progress only when it reflects completed learning; reveal correctness after submission and keep the next prompt hidden until feedback is read. |
 | States/motion | Correct, misconception, retry, hint, paused, complete, and offline explicit. Short result motion tied to answer; reduced motion shows static feedback immediately. |
-| Image/icon/copy | Diagrams or character only when explaining concepts. Icons have labels. Feedback says why, not only “Great job!” |
-| Failure/anti-imitation | Confetti after every tap makes success meaningless. Do not copy a game platform's character/score vocabulary. |
+| Image/icon/copy | Diagrams or character only when explaining concepts. Icons have labels. Feedback says why, not only “Great job!”; Copy: Use age-appropriate task verbs and explain what the learner should try next; never label a response wrong before submission. |
+| Failure/anti-imitation | Confetti after every tap makes success meaningless. Do not copy a game platform's character/score vocabulary. Accept: Capture untouched, correct, incorrect, and waiting states at desktop and phone widths, including an Arabic learning prompt. |
 
 **Core-screen and look contract.** High but purposeful energy: large rounded answer targets and punchy stage spacing make the next attempt obvious; instructional text stays plain. Chroma arrives at the chosen answer and earned feedback, then recedes before the next prompt; misconception uses its own labeled pattern. A correct action briefly energizes the task itself. This motivates practice but sacrifices quiet reading. Reject for consequential decisions.
 
@@ -28,11 +28,11 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | Composition | Concept text beside diagram and runnable example. Desktop two-column, tablet stacked with sticky concept heading, mobile text → diagram → exercise. |
 | Type | System serif for explanation, technical sans for UI, mono code/data; 32/22/17/13px, 65–75 character measure. Mixed scripts need code isolation. |
 | Color | Paper/Graphite: `#FAF8F2` canvas, `#FFFFFF` surface, `#242824` ink, `#596158` secondary, `#C4C9BF` line, `#275465` action. Diagram colors semantic and labeled. |
-| Geometry | 4px unit; 12px annotation gaps, 24px concept blocks, 48px chapters; 4px controls, plain paper-like regions, almost no shadow. |
-| Components/nav | Expandable annotation, standard code editor with run/reset, linked table of contents. Keep example output and source visually distinct. |
+| Geometry | 4px unit; 12px annotation gaps, 24px concept blocks, 48px chapters; 4px controls, plain paper-like regions, almost no shadow. Stroke and lift: Use thin rules to connect explanation and diagram; code panels own their boundary and annotations use leaders, not stacked boxes. |
+| Components/nav | Expandable annotation, standard code editor with run/reset, linked table of contents. Keep example output and source visually distinct. Shown when: Show a runnable example beside the concept it tests; reveal annotations on focus or selection and omit diagrams that repeat text. |
 | States/motion | Running, syntax error, expected result, partial result, and no connection distinct. Diagram transitions follow user step; reduced motion swaps directly. |
-| Image/icon/copy | Schematics/hand-drawn-looking only if precise; no decorative circuitry. Copy names concepts and failure causes. |
-| Failure/anti-imitation | Decorative diagrams that cannot be read at mobile width fail the system. Do not copy a specific documentation site's code frame. |
+| Image/icon/copy | Schematics/hand-drawn-looking only if precise; no decorative circuitry. Copy names concepts and failure causes. Copy: Define technical terms at first use, keep code identifiers exact, and give each exercise a concrete action and expected result. |
+| Failure/anti-imitation | Decorative diagrams that cannot be read at mobile width fail the system. Do not copy a specific documentation site's code frame. Accept: Capture long explanation, annotated diagram, and runnable-example error at desktop and phone widths; verify code and RTL text do not collide. |
 
 **Core-screen and look contract.** This is a reading-led split: explanation and diagram stay alongside a runnable example, with the example large enough to use. Energy is quiet until a run; then one cool signal links changed input to changed output. Reject it when practice needs uninterrupted dominance or repeated rapid attempts. It improves conceptual annotation but sacrifices instrument space; do not accidentally become a static textbook with an ornamental editor.
 
@@ -45,11 +45,11 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | Composition | Current lesson and nearby prerequisites first; desktop path + lesson detail, tablet/mobile path condensed to current/next with full map accessible. |
 | Type | Humanist sans headings/body, mono only for course codes; 30/21/16/13px with generous instructional line-height. |
 | Color | Olive/Cream: `#F7F5EB` canvas, `#FFFFFF` surface, `#273028` ink, `#59645A` secondary, `#C2CBBF` line, `#3E5C3F` action. Progress uses text and shape. |
-| Geometry | 4px unit, 12px lesson rows, 24px unit groups, 44px module transitions; 7px controls, 8px panels, subtle borders. |
-| Components/nav | Continue is primary; prerequisites are explicit, lessons accessible from map/list. Progress indicator never blocks navigation without a learning reason. |
+| Geometry | 4px unit, 12px lesson rows, 24px unit groups, 44px module transitions; 7px controls, 8px panels, subtle borders. Stroke and lift: Use one connector for lesson sequence and one active-stage marker; completed lessons use a quiet fill rather than a second outline. |
+| Components/nav | Continue is primary; prerequisites are explicit, lessons accessible from map/list. Progress indicator never blocks navigation without a learning reason. Shown when: Show prerequisites when they affect access, collapse distant lessons on mobile, and reveal retry guidance only after an actual failure. |
 | States/motion | Not started, in progress, mastered, review due, skipped, and unavailable distinct. Milestone transition brief; reduced motion static. |
-| Image/icon/copy | Diagrams/tasks over mascot art; icons indicate content type. Copy states what learner can do after a lesson. |
-| Failure/anti-imitation | Candy-colored nodes and arbitrary streaks obscure actual competence. Do not mimic an existing course game's path. |
+| Image/icon/copy | Diagrams/tasks over mascot art; icons indicate content type. Copy states what learner can do after a lesson. Copy: Describe objectives as things the learner can do; distinguish locked prerequisites from optional recommendations. |
+| Failure/anti-imitation | Candy-colored nodes and arbitrary streaks obscure actual competence. Do not mimic an existing course game's path. Accept: Capture current, locked, completed, and failed lessons at desktop and phone widths; verify connectors align and the next action stays clear. |
 
 **Core-screen and look contract.** Medium, forward-moving energy: strong current/next headings and a visible path rhythm outweigh decorative lesson nodes. Color is earned by demonstrated mastery and review need, not by page visits; completing a lesson advances the path and reveals the next reachable action. This clarifies progression but sacrifices free-form exploration. Reject when the course is primarily reference reading.
 
@@ -62,11 +62,11 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | Composition | Model canvas, parameter controls, explanation/result. Desktop canvas + controls, tablet controls below, mobile one parameter group at a time with result always visible. |
 | Type | Technical sans UI, humanist sans explanation, tabular mono values; 28/20/16/13px. Numbers/units must remain legible under zoom. |
 | Color | Cool Ink: `#F3F7F7` canvas, `#FFFFFF` surface, `#1E2D2F` ink, `#53656A` secondary, `#BDCBCD` line, `#1E5B68` action. Simulation variables use redundant labels/patterns. |
-| Geometry | 4px unit; 8px parameter interiors, 20px control groups, 36px stages; 5px controls, 6px panels, no decorative depth. |
-| Components/nav | Familiar sliders only for continuous values, fields for precision, reset/compare controls, accessible table equivalent to graph. |
+| Geometry | 4px unit; 8px parameter interiors, 20px control groups, 36px stages; 5px controls, 6px panels, no decorative depth. Stroke and lift: Keep the model canvas free of panel shadows; controls use consistent field borders and the changed parameter owns one selected cue. |
+| Components/nav | Familiar sliders only for continuous values, fields for precision, reset/compare controls, accessible table equivalent to graph. Shown when: Show a result after a parameter change produces one; mark pending calculation only during work and expose invalid ranges beside the control. |
 | States/motion | Running, paused, invalid parameter, comparison baseline, and reset clearly shown. Motion is the model itself; reduced motion provides step frames or static result. |
-| Image/icon/copy | Diagram is content. Icons name operations; text explains cause and effect rather than promoting novelty. |
-| Failure/anti-imitation | A flashy animation with no values or accessible alternative becomes a toy. Do not copy a simulation site's color encoding. |
+| Image/icon/copy | Diagram is content. Icons name operations; text explains cause and effect rather than promoting novelty. Copy: Name parameters, units, and observed effects directly; distinguish a simulated result from a measured or real-world outcome. |
+| Failure/anti-imitation | A flashy animation with no values or accessible alternative becomes a toy. Do not copy a simulation site's color encoding. Accept: Capture default, changed, invalid-range, and calculating states at desktop and phone widths; verify the result remains beside its controls. |
 
 **Core-screen and look contract.** The model canvas dominates; parameters form a compact perimeter and results appear at the point of manipulation. Cool neutrals carry a sharp active variable color, with a brief causal response that remains legible in reduced motion. It improves cause-and-effect understanding but sacrifices long prose at once. Reject it when the model is noninteractive; do not accidentally become an infographic.
 
@@ -79,11 +79,11 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | Composition | Task brief, workspace, feedback/checklist. Desktop work canvas with compact brief rail; tablet collapsible brief; mobile step-focused editor. |
 | Type | Humanist sans body, technical sans controls, mono for measurements/code; 30/21/16/13px. Instructions remain readable beside canvas. |
 | Color | Clay/Graphite: `#F7F3EC` canvas, `#FFFFFF` surface, `#272B27` ink, `#5A645A` secondary, `#C3CBBF` line, `#5A4C32` action. Feedback statuses separate. |
-| Geometry | 4px unit, 12px tool groups, 24px task blocks, 40px module transitions; 5px controls, 8px panes, raised surface only for movable tools. |
-| Components/nav | Save/preview/submit hierarchy, visible version history, undo, inline tips tied to the current object. Navigation preserves draft and return position. |
+| Geometry | 4px unit, 12px tool groups, 24px task blocks, 40px module transitions; 5px controls, 8px panes, raised surface only for movable tools. Stroke and lift: Keep the work canvas flat, bound only movable tools, and give the active tool one selection marker with an independent focus ring. |
+| Components/nav | Save/preview/submit hierarchy, visible version history, undo, inline tips tied to the current object. Navigation preserves draft and return position. Shown when: Show the brief beside the current task, surface feedback after the learner acts, and collapse inactive tool groups around the canvas. |
 | States/motion | Draft, saved, evaluating, needs revision, complete, and lost connection explicit. Short preview transitions, no animation on every keystroke. |
-| Image/icon/copy | User work primary; example images labeled as examples. Tool icons paired with names; feedback identifies a next revision. |
-| Failure/anti-imitation | Polished showcase thumbnails can hide the actual work surface. Do not copy a creative app's sidebar layout. |
+| Image/icon/copy | User work primary; example images labeled as examples. Tool icons paired with names; feedback identifies a next revision. Copy: Use concrete making verbs and name the material or tool; feedback identifies one next adjustment without judging unsubmitted work. |
+| Failure/anti-imitation | Polished showcase thumbnails can hide the actual work surface. Do not copy a creative app's sidebar layout. Accept: Capture the brief, active workspace, failed check, and completed artifact at desktop and phone widths; verify feedback does not obscure the work. |
 
 **Core-screen and look contract.** The draft canvas is the largest, highest-contrast region; the brief is a quiet collapsible rail and feedback is contextual to the object changed. Use balanced operational energy, with a vivid active tool and a short preview response; user work supplies most color. It improves iteration but sacrifices always-visible instruction. Reject it when the user needs a linear worked explanation; do not accidentally become a three-column dashboard that shrinks the instrument.
 
@@ -96,10 +96,10 @@ Authored starting systems. They differ in how learners progress, not merely in c
 | Composition | Topic, answer/source, discussion, revision history. Desktop reading column plus context rail; mobile content first with sources and discussion clearly reachable. |
 | Type | Readable serif for long explanation, humanist sans UI, mono for version IDs; 31/21/17/13px, 65–75 character measure. |
 | Color | Ivory/Forest: `#FAF8F1` canvas, `#FFFFFF` surface, `#232B25` ink, `#58645B` secondary, `#C3CABE` line, `#285943` action. Contributor roles not color-only. |
-| Geometry | 4px unit; 12px note internals, 24px topic groups, 44px section breaks; 4px controls, rules over cards. |
-| Components/nav | Search, citations, edit proposal, history comparison, and moderator actions are distinct. Discussion rows preserve chronology and author context. |
+| Geometry | 4px unit; 12px note internals, 24px topic groups, 44px section breaks; 4px controls, rules over cards. Stroke and lift: Use editorial rules between topic, source, and discussion; keep version history unboxed and reserve an outline for the active revision. |
+| Components/nav | Search, citations, edit proposal, history comparison, and moderator actions are distinct. Discussion rows preserve chronology and author context. Shown when: Show sources beside claims, reveal revision history when a change matters, and keep discussion secondary until the user is replying or reviewing. |
 | States/motion | Draft, reviewed, disputed, superseded, locked, and missing source explicit. Minimal motion on revision compare; reduced motion static. |
-| Image/icon/copy | Evidence diagrams and source images with credits; icons sparse. Copy names confidence and attribution. |
-| Failure/anti-imitation | Fake community avatars and counts make knowledge look fabricated. Do not imitate an encyclopedia's exact page furniture. |
+| Image/icon/copy | Evidence diagrams and source images with credits; icons sparse. Copy names confidence and attribution. Copy: Separate community claims from cited sources; name edits and unresolved disagreement without implying consensus. |
+| Failure/anti-imitation | Fake community avatars and counts make knowledge look fabricated. Do not imitate an encyclopedia's exact page furniture. Accept: Capture a sourced article, unresolved revision, and empty discussion at desktop and phone widths; check long citations remain readable and actionable. |
 
 **Core-screen and look contract.** Quiet collaborative energy: readable explanation and crisp revision metadata form a page-plus-history rhythm. Chroma is saved for proposed edits, disputes, and source changes; contributor identity never depends on color. Accepting a revision updates the claim and its provenance together. This builds trust but sacrifices live-chat speed. Reject when knowledge has no durable source or revision model.

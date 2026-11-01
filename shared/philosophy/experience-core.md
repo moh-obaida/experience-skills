@@ -113,6 +113,41 @@ bureaucracy.
     for implementation and verification. A working primary journey with coherent state, usable
     responsive behavior, and no high-severity issue is a legitimate stopping point.
 
+## Experience quality beyond function
+
+37. **A technically correct interface can still be experientially poor.** Passing tests, type
+    checks, lint, and accessibility scans are not evidence of visual or experiential quality. Look
+    at the rendered result in the states that matter before saying it is good. Visual defects the
+    checks cannot see (a cut-off border, two selected indicators, a clipped focus ring) are named
+    and traced, not assumed away.
+38. **Every visible element needs a justified responsibility.** For each label, badge, pill, card,
+    separator, notice, instruction, and option, ask what it tells or lets the user do that is not
+    already visible. Give a doubtful element one verdict (keep, remove, merge, relocate, rewrite,
+    conditional display, needs product decision) with proof. Never remove security information,
+    required disclosures, accessibility affordances, critical status, safeguards, or recovery paths
+    because they look redundant.
+39. **Evaluate composition at screen level before component level.** A collection of acceptable
+    components is not a good screen. Judge the focal point, allocation, and relation between the
+    core instrument and its support first; adjust components after. A satisfactory screen is
+    preserved even when another layout is possible.
+40. **Shared components behave consistently, and consistency is not uniformity.** One pattern, one
+    contract: fix a shared defect at the component or token that owns it, not page by page. Keep
+    legitimate differences between public pages, dashboards, editors, and immersive screens.
+41. **States decide when information is useful.** An element appears because the current state
+    makes it useful, not because the component always renders. An error follows the attempt, clears
+    when its cause is fixed, and releases its space; a transition clears what the old state owned.
+42. **User-facing language reflects real product behavior.** Accuracy comes before voice. Errors
+    state the problem and the correction in the user's terms; internal identifiers stay in
+    diagnostics. A rewrite preserves facts, constraints, localization intent, and legal and
+    financial precision.
+43. **Visual quality is shown in rendered output, and a screenshot is evidence of appearance, not
+    of interaction.** A green test suite is not proof of visual or experiential quality. When
+    rendering is unavailable, write NOT VERIFIED IN RENDERED OUTPUT and list the checks.
+44. **Strong design is product-specific, not universally minimalist.** More color, motion, or
+    decoration is not an improvement by itself, and stripping an expressive product to flat
+    restraint is not either. Judge each treatment against the product's mechanics and audience;
+    overdesign is a defect as real as genericness.
+
 ## Evidence levels
 
 | Level | Label | Meaning |

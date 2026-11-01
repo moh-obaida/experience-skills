@@ -72,14 +72,14 @@ chrome that competes with the canvas. Load a profile only when its realities aff
 | Composition | Canvas center; layers left; properties right organized by object (position, size, layout, fill, stroke, effects); toolbar top; contextual menus. |
 | Type | Grotesk at compact sizes (Public Sans or Hanken Grotesk 11–12px), tabular numbers in fields. Arabic UI: IBM Plex Sans Arabic. |
 | Color | canvas #F0F0F0 · surface #FFFFFF · ink #1A1A1A · muted #585858 · line #D6D6D6 · action #1A5FB4 · on-action #FFFFFF. Blue only for selection and primary; a dark theme is mid-grey (#2C2C2C) not black. |
-| Space and shape | 28px property rows; 2–4px radius; hairline dividers. |
+| Space and shape | 28px property rows; 2–4px radius; hairline dividers. Stroke and lift: hairline dividers separate panels and nothing is boxed; selection is the only colored stroke, one per selected object, drawn on the canvas, with no matching ring on its layer row; shadows only on menus. |
 | Icons and imagery | 16px monochrome tool icons with tooltips and shortcuts. |
-| Components | Scrubbable numeric fields, math in fields, eyedropper, component instances with override indicators. |
+| Components | Scrubbable numeric fields, math in fields, eyedropper, component instances with override indicators. Shown when: override indicators appear only on instances that differ from their component, effect rows only when an effect exists, and multiplayer cursors only while someone is editing; no tips panel. Copy: properties use the file's own layer and token names, and an error names the object it could not change. |
 | States | Detached components marked; multiplayer cursors named; offline with sync queue. |
 | Responsive | Desktop only for editing; tablet for review and comment. |
 | Motion | None in chrome; canvas pan/zoom follows input exactly. |
 | Accessibility | Keyboard for everything; high-contrast mode; screen reader for layers. |
-| Build | Canvas rendered separately from UI; property panel generated from object schema. |
+| Build | Canvas rendered separately from UI; property panel generated from object schema. Accept: capture a dense properties panel, an overridden instance, a multi-selection, and a sync-queued offline file at 1440 and a laptop width, checking hairlines stay one pixel and selection handles are never clipped by the panel edge. |
 | AI mutation | Colorful gradient chrome, floating rounded panels with big shadows, hidden numbers. |
 | Fails when | Casual users making one graphic (use Block Builder). |
 
@@ -93,14 +93,14 @@ chrome that competes with the canvas. Load a profile only when its realities aff
 | Composition | Workspace tabs (Media, Edit, Color, Audio, Deliver); edit workspace: browser, viewer(s), timeline full width; inspector right. |
 | Type | Technical sans (IBM Plex Sans 11–12px), timecode in mono. |
 | Color | canvas #1E1E1E · surface #282828 · ink #E6E6E6 · muted #A3A3A3 · line #3A3A3A · action #D9D9D9 · on-action #1E1E1E. Neutral grey to avoid biasing color; clip types use muted role colors user-configurable. |
-| Space and shape | Square panels; 24px tracks. |
+| Space and shape | Square panels; 24px tracks. Stroke and lift: square panels are separated by one 1px dark line; the active clip and the selected track mark themselves with one outline each in different colors; no shadows or glow around the viewer. |
 | Icons and imagery | User media; scopes as data graphics. |
-| Components | J/K/L playback, blade, ripple, trim modes; color wheels with numeric values; scopes. |
-| States | Rendering progress per segment; offline media red with relink; dropped frames indicator. |
+| Components | J/K/L playback, blade, ripple, trim modes; color wheels with numeric values; scopes. Shown when: scopes show only on the Color workspace, offline-media red only on clips missing their source, and the dropped-frames indicator only during playback problems; no decorative badges on clips. Copy: errors name the clip and the file path to relink. |
+| States | Rendering progress per segment; offline media red with relink; dropped frames indicator. A render failure names the segment and offers retry from that segment; an empty project shows the media browser first. |
 | Responsive | Desktop and large displays; dual monitor layouts. |
 | Motion | Playhead follows time exactly; no UI animation. |
 | Accessibility | Keyboard remapping; UI scaling. |
-| Build | Timeline virtualization; GPU viewer. |
+| Build | Timeline virtualization; GPU viewer. Accept: capture the Edit and Color workspaces with an offline clip and a failed segment render at 2560 and a 1440 laptop, checking panel lines are unbroken and the viewer has a clean edge. |
 | AI mutation | Tinted purple UI, rounded cards, playful animation. |
 | Fails when | Quick social edits (simpler templated tools). |
 
@@ -114,14 +114,14 @@ chrome that competes with the canvas. Load a profile only when its realities aff
 | Composition | Arrangement timeline with track headers; bottom panel toggles device rack, mixer, piano roll; rail with browser. |
 | Type | Condensed sans for labels on devices (Barlow Semi Condensed 11px), values tabular. |
 | Color | canvas #1A1B1D · surface #242629 · ink #ECEBE6 · muted #A5A39B · line #36393D · action #E0A43B · on-action #1A1B1D. Track colors user-assigned; meters green-amber-red with numeric peak. |
-| Space and shape | Knobs round, buttons small-radius, panels square: radius encodes control type. Subtle brushed texture on device faces only. |
+| Space and shape | Knobs round, buttons small-radius, panels square: radius encodes control type. Subtle brushed texture on device faces only. Stroke and lift: panels are square with one dark 1px edge; the brushed texture stays on device faces only, and an armed track owns one red outline, never an outline plus a glow; no shadows. |
 | Icons and imagery | Device diagrams (signal flow) where helpful. |
-| Components | Knobs with drag, fine-drag modifier, double-click reset, numeric entry; automation lanes. |
-| States | Recording armed; clipping; CPU overload with which device; missing plugin placeholder. |
+| Components | Knobs with drag, fine-drag modifier, double-click reset, numeric entry; automation lanes. Shown when: values show on every knob because they are the instrument, but the CPU meter shows only on request or overload, and the missing-plugin placeholder only for missing plugins; no mascot or decorative LEDs. Copy: overload says which device, and parameter units are always shown. |
+| States | Recording armed; clipping; CPU overload with which device; missing plugin placeholder. An empty project shows an empty arrangement with the browser open; an audio device lost mid-session says so and keeps the project state. |
 | Responsive | Desktop; tablet control surfaces. |
 | Motion | Meters real-time; knob follows drag. Reduced motion: meters still (they are data). |
 | Accessibility | Values accessible; keyboard knob control. |
-| Build | Audio thread isolated from UI; UI updates throttled. |
+| Build | Audio thread isolated from UI; UI updates throttled. Accept: capture arrangement, rack, mixer, an armed track, a clipping meter, and a missing plugin at 1440 and 1080p, checking knob values stay readable and panel edges meet without gaps. |
 | AI mutation | Glowing neon waveforms, knobs without values. |
 | Fails when | Podcasts or simple audio edits. |
 
@@ -135,14 +135,14 @@ chrome that competes with the canvas. Load a profile only when its realities aff
 | Composition | Full canvas; floating brush palette and color puck at edges, hideable with a gesture; layers in a sheet. |
 | Type | Humanist sans (Figtree 13px) used sparingly. |
 | Color | canvas #E9E7E2 · surface #F7F6F3 · ink #1D1C1A · muted #595752 · line #CFCBC3 · action #2D2C29 · on-action #F7F6F3. Floating palettes at 85% opacity with blur so artwork stays visible. |
-| Space and shape | 16px radius floating palettes; 44px tool targets. |
+| Space and shape | 16px radius floating palettes; 44px tool targets. Stroke and lift: floating palettes carry one 1px stroke and the only soft shadow, so they read as lifted above the canvas; the active brush marks itself by a fill, never a second ring; the canvas has no border. |
 | Icons and imagery | Brush previews; the artwork. |
-| Components | Brush size and opacity sliders along the edge, color picker with history, undo by two-finger tap. |
-| States | Autosave; large canvas performance warning; export progress. |
+| Components | Brush size and opacity sliders along the edge, color picker with history, undo by two-finger tap. Shown when: palettes hide on a gesture and return on touch at an edge, the performance warning only for canvases past a stated size, and export progress only during export; no onboarding tips after the first session. Copy: tool names are the brush names the artist sees on paper ("Pencil", "Ink"). |
+| States | Autosave; large canvas performance warning; export progress. A failed autosave says so and keeps the work on the device; a new canvas is blank with the palette visible. |
 | Responsive | Tablet first; desktop with pen tablet. |
 | Motion | Tools slide in and out (150ms). Reduced motion: fade. |
 | Accessibility | Gesture alternatives in menus. |
-| Build | Pen pressure and latency first. |
+| Build | Pen pressure and latency first. Accept: capture the canvas with palettes shown and hidden, a layers sheet, and an export at tablet landscape and portrait, checking palette edges clear the screen corners and hand rejection. |
 | AI mutation | Colorful gradient UI, rounded cards for tools. |
 | Fails when | Precise vector layout. |
 
@@ -156,14 +156,14 @@ chrome that competes with the canvas. Load a profile only when its realities aff
 | Composition | Viewport and node editor split; properties panel for selected node; outliner and timeline as tabs. |
 | Type | Technical sans (IBM Plex Sans 12px), values tabular. |
 | Color | canvas #202326 · surface #2A2E32 · ink #E8EAEC · muted #A2A8AE · line #3A3F45 · action #7CB7E8 · on-action #202326. Socket types color-coded (geometry, float, vector, color) with shapes. |
-| Space and shape | Nodes 6px radius; wires 2px bezier; panels layered. |
+| Space and shape | Nodes 6px radius; wires 2px bezier; panels layered. Stroke and lift: nodes share one 1px border and 6px radius, wires one 2px stroke; a selected node changes its outline color once, and an error node adds a red header instead of another ring; panels are layered by tone, not shadow. |
 | Icons and imagery | Node graph diagram; viewport renders. |
-| Components | Search to add node, frame groups, reroute, parameter drag with modifiers. |
-| States | Cache invalid; computing with progress; error node red with message. |
+| Components | Search to add node, frame groups, reroute, parameter drag with modifiers. Shown when: the error message appears on the failing node and in the properties panel only, progress only while computing, and the cache-invalid mark only on stale nodes; no minimap by default. Copy: node and socket names match the data they carry, and errors quote the parameter. |
+| States | Cache invalid; computing with progress; error node red with message. An empty graph shows the search-to-add prompt; a failed evaluation keeps the last good result visible with the error node marked. |
 | Responsive | Desktop. |
 | Motion | Wire drag follows cursor; recompute progress. Reduced motion: none decorative. |
 | Accessibility | Keyboard node add; zoom UI scale. |
-| Build | Graph as data; evaluation separate from UI. |
+| Build | Graph as data; evaluation separate from UI. Accept: capture a large graph, a failing node, a stale cache chain, and a frame group at 1440 and a tablet width, checking wires end exactly at socket centers and no node border is clipped by the viewport. |
 | AI mutation | Glowing particles on wires, rounded consumer panels. |
 | Fails when | Beginners doing simple tasks. |
 
@@ -177,14 +177,14 @@ chrome that competes with the canvas. Load a profile only when its realities aff
 | Composition | Left sidebar: pages, blocks, site styles; live page canvas; contextual toolbar on selected block; device preview toggle. |
 | Type | Humanist sans for UI (Figtree 13–14px); the user's site uses its own fonts. |
 | Color | canvas #EDEEF0 · surface #FFFFFF · ink #17191C · muted #535862 · line #D2D5DA · action #1C5D99 · on-action #FFFFFF. |
-| Space and shape | Block library items as elevated cards (they are draggable objects); 8px radius. |
+| Space and shape | Block library items as elevated cards (they are draggable objects); 8px radius. Stroke and lift: library items are elevated cards because they are draggable objects, and placed blocks on the canvas are flat; the selected block has one outline, and the override marker is a dot, not a second border. |
 | Icons and imagery | Block thumbnails; user media. |
-| Components | Drag blocks, inline text edit, global styles (type, colors, spacing) rather than per-block styling. |
-| States | Unpublished changes count; responsive override indicators; publish failed with reason; version restore. |
+| Components | Drag blocks, inline text edit, global styles (type, colors, spacing) rather than per-block styling. Shown when: the toolbar appears only on a selected block, override indicators only where a block differs from site styles, and the unpublished count only when changes exist; no promotional upgrade banners in the editor. Copy: publish failures name the cause and the fix, and block names are the ones owners already say ("Contact form"). |
+| States | Unpublished changes count; responsive override indicators; publish failed with reason; version restore. A new site opens with a starter page, not a blank grid; a failed publish keeps the draft and says what to change. |
 | Responsive | Desktop editing; phone for content edits. |
 | Motion | Blocks show drop position while dragging. Reduced motion: static indicator. |
 | Accessibility | Builder output accessible by default (alt text prompts, heading order checks). |
-| Build | Style tokens site-wide; per-block overrides limited. |
+| Build | Style tokens site-wide; per-block overrides limited. Accept: capture the editor with a selected block, a device preview at 390, an override indicator, and a failed publish, checking the selected outline is uncut where blocks meet the canvas edge. |
 | AI mutation | Every template the same gradient hero; gradient publish button. |
 | Fails when | Professional designers (use Neutral Canvas). |
 
@@ -198,14 +198,14 @@ chrome that competes with the canvas. Load a profile only when its realities aff
 | Composition | Board of panels in sequence rows by scene; each panel with sketch, dialogue, action, duration; play as animatic. |
 | Type | Hand-lettered display for scene titles (Caveat or Patrick Hand), sans for notes (Source Sans 3). |
 | Color | canvas #F1EEE7 · surface #FFFFFF · ink #1E1D1A · muted #5A5751 · line #D6D0C4 · action #2F4C6E · on-action #FFFFFF. |
-| Space and shape | Square panels with paper look; 16px gaps. |
+| Space and shape | Square panels with paper look; 16px gaps. Stroke and lift: panels share one 1px paper-edge stroke and 16px gaps; a changed panel marks itself with one corner tag, and a selected panel adds an outline, so those are never the same mark; no shadows beyond the paper tone. |
 | Icons and imagery | Sketches. |
-| Components | Reorder panels, duration handles, export PDF, animatic playback. |
-| States | Changed panels marked since last review. |
+| Components | Reorder panels, duration handles, export PDF, animatic playback. Shown when: duration handles appear on a selected panel, the changed-since-review tag only after a review exists, and the animatic controls only when panels have durations; no scene-level stat badges. Copy: dialogue and action keep the writer's text, and durations show seconds and frames. |
+| States | Changed panels marked since last review. An empty scene offers a first blank panel; a failed PDF export names the panel it could not render. |
 | Responsive | Desktop and tablet (drawing). |
 | Motion | Animatic playback choreographed; UI otherwise static. |
 | Accessibility | Panel notes as text. |
-| Build | Panel order as data. |
+| Build | Panel order as data. Accept: capture a scene row, a changed-panel review, animatic playback, and a narrow wrapped board, checking panel edges stay even and a sketch is never cut by its frame. |
 | AI mutation | Glossy cards, gradients. |
 | Fails when | Final editing (Grading Suite). |
 
@@ -219,14 +219,14 @@ chrome that competes with the canvas. Load a profile only when its realities aff
 | Composition | Outline sidebar (parts, chapters, sections) with drag reorder; editor center; metadata and status panel right. |
 | Type | Serif for manuscript (Literata 18px), sans for UI (Source Sans 3). Arabic: Amiri manuscript. |
 | Color | canvas #F7F6F2 · surface #FFFFFF · ink #1D1C19 · muted #58564F · line #DAD7CE · action #3A4F6E · on-action #FFFFFF. |
-| Space and shape | Ruled sections; 4px radius. |
+| Space and shape | Ruled sections; 4px radius. Stroke and lift: sections are ruled by one 1px line and not boxed; the active outline entry changes fill, and the section status is text beside the title, never a colored border; no shadows. |
 | Icons and imagery | None. |
-| Components | Status per section (draft, review, final), word targets, export formats. |
-| States | Broken cross-references; unsaved; review comments open. |
+| Components | Status per section (draft, review, final), word targets, export formats. Shown when: broken-reference warnings appear only on affected sections, review comments only on sections under review, and word targets only when set; no gamified progress rings. Copy: statuses use the authors' words ("Draft", "In review", "Final"), and a broken reference names the target. |
+| States | Broken cross-references; unsaved; review comments open. A new book shows an empty outline with the first chapter prompt; a failed export names the section and the format that failed. |
 | Responsive | Desktop; tablet writing. |
 | Motion | None. |
 | Accessibility | Heading structure enforced. |
-| Build | Structured document model. |
+| Build | Structured document model. Accept: capture a long outline, a broken cross-reference, an open review thread, and export failure at desktop and a narrow stacked editor, checking the outline remains reachable and rules are continuous. |
 | AI mutation | Card-based chapters, gradient headers. |
 | Fails when | Visual design work. |
 
@@ -240,14 +240,14 @@ chrome that competes with the canvas. Load a profile only when its realities aff
 | Composition | Sidebar: collections, projects, saved searches; grid of assets with type, size, rights status; detail panel with metadata, versions, usage rights. |
 | Type | Humanist sans (Source Sans 3 13–14px). |
 | Color | canvas #EEEEEC · surface #FFFFFF · ink #181816 · muted #545450 · line #D1D1CC · action #245B7A · on-action #FFFFFF. Rights status labels (cleared, restricted, expired). |
-| Space and shape | Tonal grouping; 4px radius thumbnails. |
+| Space and shape | Tonal grouping; 4px radius thumbnails. Stroke and lift: thumbnails have a 1px border only when they are white-on-white, and the selected asset gets one 2px outline outside the thumbnail; groups differ by tone; no shadows. |
 | Icons and imagery | Asset previews. |
-| Components | Bulk tag, share link with expiry, download formats, version compare. |
-| States | Rights expired; processing previews; duplicate detected. |
+| Components | Bulk tag, share link with expiry, download formats, version compare. Shown when: the rights-expired label appears only on expired assets and blocks download, the duplicate notice only after detection, and the processing placeholder only while generating; an asset in good standing carries no badge at all. Copy: rights read as dates and scope ("Licensed to Mar 2027, web only"). |
+| States | Rights expired; processing previews; duplicate detected. An empty collection explains how assets arrive; a failed preview shows the file type and size with a retry. |
 | Responsive | Desktop; phone share and preview. |
 | Motion | None. |
 | Accessibility | Alt text fields; keyboard grid. |
-| Build | Metadata schema; rights enforcement. |
+| Build | Metadata schema; rights enforcement. Accept: capture a dense grid, an expired-rights asset, a duplicate, and a version compare at 1440 and a tablet width, checking selection outlines are not clipped at grid edges and thumbnails keep their aspect. |
 | AI mutation | Masonry with hover zoom and gradients. |
 | Fails when | Creating assets. |
 
@@ -261,14 +261,14 @@ chrome that competes with the canvas. Load a profile only when its realities aff
 | Composition | Asset large on stage; comment list right tied to pins or timecodes; version switcher top; decision buttons. |
 | Type | Grotesk (Hanken Grotesk 14px). |
 | Color | canvas #2A2B2D · surface #333538 · ink #EDEDEE · muted #A8A9AD · line #45474B · action #F0F0F0 · on-action #2A2B2D. Reviewer colors for pins with names. |
-| Space and shape | 8px radius panels; pins 24px. |
+| Space and shape | 8px radius panels; pins 24px. Stroke and lift: panels have one 1px line; a comment pin and its list entry share one highlight color when selected, so the selection has one color on both; the decision bar owns the only raised surface. |
 | Icons and imagery | The work under review. |
-| Components | Pin comment, draw annotation, compare versions side by side, approve or request changes. |
-| States | Resolved comments; new version uploaded; approval recorded with name and time. |
+| Components | Pin comment, draw annotation, compare versions side by side, approve or request changes. Shown when: resolved comments collapse by default, the new-version notice only after an upload, and approval details only after a decision; no reaction emoji on formal approvals. Copy: decisions say who and when ("Approved by Dana, 14:02"), and requests for changes require a reason. |
+| States | Resolved comments; new version uploaded; approval recorded with name and time. An asset with no comments shows how to add the first pin; a failed upload keeps the previous version active and says so. |
 | Responsive | Desktop; tablet review; phone comment reading. |
 | Motion | Jump to timecode. Reduced motion: none. |
 | Accessibility | Comments list navigable; pins linked. |
-| Build | Comments anchored to version and position. |
+| Build | Comments anchored to version and position. Accept: capture a frame with pins, a timecode thread, a side-by-side compare, and an approval at desktop and 390, checking pins are not clipped at the image edge. |
 | AI mutation | Colorful chrome, emoji reactions replacing decisions. |
 | Fails when | Creation. |
 

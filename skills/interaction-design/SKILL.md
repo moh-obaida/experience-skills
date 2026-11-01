@@ -3,7 +3,7 @@ name: interaction-design
 description: "Use this skill whenever controls, inputs, forms, pickers, buttons, confirmations, or keyboard and touch behavior are designed or reviewed: especially when someone proposes a custom, animated, or 'more fun' version of a standard control (segmented code boxes, bespoke dropdowns, bouncing digits), when actions are confusing, slow, error-prone, or inaccessible, when actions restate context the system already knows, or when building forms and live-control surfaces. Covers affordance, action hierarchy, primary/secondary/destructive actions, inline edit, direct manipulation, confirmation versus undo, disabled states, feedback, and power-user paths. Default stance: do not reinvent familiar interactions without user value."
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -35,6 +35,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -61,12 +65,14 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - Forms are long, error-prone, or lose input.
 - Keyboard, touch, or screen-reader use is broken or slow.
 - A live-control surface (hosting, broadcasting, operating) needs fast, mistake-resistant actions.
+- A control or option stays visible after it stopped being relevant, or a setup choice has one sensible answer.
 
 ## Do not use this when
 
 - The issue is flow length across screens → workflow-compression (they pair often).
 - The issue is behavior over time (loading, errors, sync) → state-design.
 - The issue is identity → visual-identity. Never solve identity by decorating controls.
+- The question is whether an element should exist at all, across a whole screen → ui-necessity-audit (this skill applies the check to the controls it designs).
 
 ## Mandatory conditional loading
 
@@ -100,6 +106,7 @@ If a control is custom, animated, or replaces a native control, MUST load `refer
 
 11. **Repeated loop:** write the type → act → inspect → recover → continue equivalent for this product. Repeat its core control several times with a mistake between successes. Protect fresh input, predictable keyboard behavior, focus recovery, valid actions independent of irrelevant UI state, and immediate continuation after feedback. A secondary panel must not silently disable the instrument.
 12. **Interaction quality:** even familiar, individually clear controls can form a weak task loop. When the user asks for improvement or observed repetition/context switching makes the job materially harder, redesign the sequence or placement around the task (for example, colocated context or direct manipulation), then recount and exercise the loop. Preserve required judgment and consequence.
+13. **For every control, option, and label in the interaction:** does it enable an action the user needs *now*, in this state? Controls that stay visible after they become irrelevant, duplicate a reachable global control, or ask for a choice with one sensible answer → remove, demote, default, or show them only in the state that makes them useful (`references/_shared/control-necessity.md`: verdicts and appearance timing). Never remove a safeguard or recovery path to look cleaner.
 
 ## Workflow
 

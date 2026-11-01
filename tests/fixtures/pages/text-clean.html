@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Join (invented clean text fixture)</title>
+<style>body{margin:0;padding:24px;font:15px/1.4 system-ui,sans-serif;background:#f6f5f1;color:#1d2320;width:640px}
+.error{color:#8a2b1f;margin:6px 0}</style></head><body>
+<h1>Join a game</h1>
+<form id="f" onsubmit="return false">
+  <label for="code">Room code</label>
+  <input id="code" placeholder="4 letters, for example KQRT">
+  <button id="go" type="button">Join game</button>
+  <div id="msg" class="error" role="alert" hidden></div>
+</form>
+<p dir="rtl" lang="ar">انضم إلى اللعبة باستخدام رمز الغرفة</p>
+<script>
+  const code = document.getElementById('code'), msg = document.getElementById('msg');
+  document.getElementById('go').addEventListener('click', () => {
+    if (!/^[A-Za-z]{4}$/.test(code.value)) { msg.hidden = false; msg.textContent = 'Room codes are 4 letters. Check the code on the host screen.'; code.setAttribute('aria-invalid', 'true'); }
+  });
+  code.addEventListener('input', () => { if (/^[A-Za-z]{4}$/.test(code.value)) { msg.hidden = true; msg.textContent = ''; code.removeAttribute('aria-invalid'); } });
+</script></body></html>

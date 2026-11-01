@@ -100,14 +100,14 @@ long-running work, reversibility, and cost. Load a profile through `niche-atlas-
 | Composition | Narrow rail of conversations; transcript at 72ch; user turns right-aligned in a quiet tinted block, answers full-measure on the page with no bubble. Composer anchored bottom with attachments and model/mode in text. |
 | Type | Answers in a reading serif (Source Serif 4, 17px/1.6) so long answers read as documents; user text and UI in a humanist sans (Source Sans 3). Code in IBM Plex Mono. Arabic: Noto Naskh Arabic answers, Noto Sans Arabic UI; direction per message. |
 | Color | canvas #F4F1EA · surface #FBF9F4 · ink #24211C · muted #5F5A51 · line #DAD3C6 · action #8C3D1F · on-action #FFFFFF. No gradients; clay accent on send and links only. |
-| Space and shape | 8px base; turns 32px apart; composer 12px radius; user blocks 10px radius. |
+| Space and shape | 8px base; turns 32px apart; composer 12px radius; user blocks 10px radius. Stroke and lift: no strokes on turns, spacing and tint do the separating; the composer owns the only border and its focus ring; no shadows. |
 | Icons and imagery | None. The empty state is the composer with a single line about what the assistant can access. |
-| Components | Stop button replaces send while streaming; copy, retry, edit-and-branch per turn; tool calls rendered as collapsible rows with name, inputs, result. |
+| Components | Stop button replaces send while streaming; copy, retry, edit-and-branch per turn; tool calls rendered as collapsible rows with name, inputs, result. Shown when: per-turn actions (copy, retry, branch) appear on hover or focus and always on touch; tool-call rows stay collapsed until the user opens them; no model badge on each answer. Copy: refusals and limits say what the assistant cannot do and what to try, never "I'm sorry, but". |
 | States | Streaming shows text as it arrives, not a spinner; stopped answers labelled; refusal states say what can be done instead; tool approval inline with exact action and scope. |
 | Responsive | Desktop rail + transcript; tablet rail hidden behind a button; phone full-width with composer above keyboard and rail as a sheet. |
 | Motion | Text streams; caret marks the live end. Nothing pulses. Reduced motion: stream by paragraph. |
 | Accessibility | Each turn is an article with author label; live region announces completion, not every token. |
-| Build | `--measure:72ch; --turn-gap:32px`. Render markdown with the same type tokens as documents; test 5,000-word answers and tables. |
+| Build | `--measure:72ch; --turn-gap:32px`. Render markdown with the same type tokens as documents; test 5,000-word answers and tables. Accept: capture a streaming answer, a stopped one, a tool approval, a refusal, and a 5,000-word answer at desktop and 390px, checking the composer border and focus ring are uncut. |
 | AI mutation | Glowing orb empty state, violet gradients, glass composer, sparkle icons, generic prompt chips. |
 | Fails when | The product is primarily a tool UI with occasional AI help (put AI into the tool, don't make it a chat). |
 
@@ -121,14 +121,14 @@ long-running work, reversibility, and cost. Load a profile through `niche-atlas-
 | Composition | Left: the report with numbered claims; right: sources pane showing the quoted passage for the selected claim, with title, publisher, date, link. Top bar: question, scope, run status. |
 | Type | Editorial serif for report (Newsreader 17px), serif small caps avoided; sans (Public Sans) for UI and source metadata. Arabic: Amiri or Noto Naskh Arabic for report. |
 | Color | canvas #FFFFFF · surface #F5F4EF · ink #1A1A17 · muted #57564F · line #DDDBD2 · action #1E4D6B · on-action #FFFFFF. Claim support states: supported (ink underline), weak (dotted), contradicted (red text label). |
-| Space and shape | 8px base; ruled sections; square panes; quote passages set as indented blocks with source bar. |
+| Space and shape | 8px base; ruled sections; square panes; quote passages set as indented blocks with source bar. Stroke and lift: ruled sections use one 1px rule; the selected claim is marked by the source bar beside its passage, not also by a box around the claim; no shadows. |
 | Icons and imagery | Publisher favicons only in source list. |
-| Components | Clicking a claim scrolls the source pane; "Open source" is a real link; export to document with citations. Rerun with changed scope. |
+| Components | Clicking a claim scrolls the source pane; "Open source" is a real link; export to document with citations. Rerun with changed scope. Shown when: the step log shows only while a run is active and collapses to a summary after; unreachable and conflicting sources appear only when they exist; no confidence badges without a stated basis. Copy: every claim states what the source actually says, and a gap reads "No source found for this" instead of an unsupported sentence. |
 | States | Long research shows a step log (queries run, pages read) with elapsed time and cancel; unreachable sources listed; conflicting sources presented together. |
 | Responsive | Desktop split; tablet sources as a drawer; phone claims with expandable source quotes inline. |
 | Motion | None; progress by text updates. |
 | Accessibility | Citation links have descriptive names; source pane announced on change. |
-| Build | Keep claim-to-passage mapping as data; never render a citation without a resolvable URL. |
+| Build | Keep claim-to-passage mapping as data; never render a citation without a resolvable URL. Accept: capture a finished report, a running log, a conflicting-source case, and an unreachable source at desktop and a narrow stacked layout, confirming a claim and its passage stay visibly paired. |
 | AI mutation | Summary card with gradient border, citations as unlabeled superscripts, "AI-powered insights" header. |
 | Fails when | Casual quick answers (use Plain Transcript) or creative tasks. |
 
@@ -142,14 +142,14 @@ long-running work, reversibility, and cost. Load a profile through `niche-atlas-
 | Composition | Sidebar of agents and approval inbox; main area a run timeline: step rows (thought summary, tool, target, result, duration, cost) with expandable inputs/outputs; header with scope, permissions, budget. |
 | Type | Technical sans (IBM Plex Sans 14px), mono for payloads. Fallback system stacks. |
 | Color | canvas #F1F3F2 · surface #FFFFFF · ink #161A19 · muted #4F5654 · line #C8CFCC · action #1C5B4A · on-action #FFFFFF. Roles: read-only step neutral, write step amber outline, external send blue outline, failed red. |
-| Space and shape | Rows 44px; 4px radius; 1px borders; left edge color per step kind. |
+| Space and shape | Rows 44px; 4px radius; 1px borders; left edge color per step kind. Stroke and lift: each row has a 1px border and a left edge in its step color; an awaiting-approval row changes its fill rather than adding another edge; no shadows. |
 | Icons and imagery | Tool logos; no avatars or personas. |
-| Components | Approve/deny with the exact change previewed; Pause and Stop always visible; Undo per reversible step. |
+| Components | Approve/deny with the exact change previewed; Pause and Stop always visible; Undo per reversible step. Shown when: the approval inbox count appears only when something waits, budget warnings only near the limit, and revoked-access marks only on affected agents; Pause and Stop are always visible because they are safeguards. Copy: every step names the tool, target, and result in plain words ("Edited billing.ts, 12 lines"). |
 | States | Awaiting approval blocks with reason and timeout; budget exceeded pauses with summary; revoked access marks affected agents. Empty inbox: "No approvals waiting". |
 | Responsive | Desktop full; phone approvals inbox with previews and approve/deny, run logs readable. |
 | Motion | New step rows append with a 120ms fade; auto-scroll only if the user is at the end. Reduced motion: none. |
 | Accessibility | Steps as a list with status text; approvals keyboard-operable. |
-| Build | Log is append-only data; UI renders from it. Costs and durations tabular. |
+| Build | Log is append-only data; UI renders from it. Costs and durations tabular. Accept: capture a long run, an approval with a previewed change, a budget pause, and an empty inbox, and verify the left step-edge color is continuous down a scrolling log. |
 | AI mutation | Agent avatars with emotions, "thinking" orbs, progress percentages invented by the UI. |
 | Fails when | Single-turn assistance; users who never supervise. |
 
@@ -163,14 +163,14 @@ long-running work, reversibility, and cost. Load a profile through `niche-atlas-
 | Composition | Left: task and plan with file list; right: diff for selected file; bottom: command and test output. Header: branch, status, tests summary. |
 | Type | Mono throughout the work areas (JetBrains Mono 13px), sans for prose summaries (IBM Plex Sans). |
 | Color | canvas #FAFAF7 · surface #FFFFFF · ink #161616 · muted #555550 · line #D5D5CE · action #24513A · on-action #FFFFFF. Diff roles: additions green tint with +, deletions red tint with −, agent-authored vs human-edited marked by a text badge. |
-| Space and shape | 20px diff lines; square panes; 1px separators. |
+| Space and shape | 20px diff lines; square panes; 1px separators. Stroke and lift: panes are separated by one 1px rule; the selected file marks itself in the list only, not also in the header; added and removed lines use fill, not borders; no shadows. |
 | Icons and imagery | None. |
-| Components | Accept file, reject file, comment on line (becomes an instruction), rerun tests; keyboard: n/p next/previous hunk. Primary action: "Apply changes" only after review state. |
+| Components | Accept file, reject file, comment on line (becomes an instruction), rerun tests; keyboard: n/p next/previous hunk. Primary action: "Apply changes" only after review state. Shown when: Apply changes appears only after every file is reviewed, the test summary pins above the diff only when tests fail, and command approval shows the exact command and directory; no summary prose repeating the diff. Copy: comments become instructions, so their placeholder says "Tell the agent what to change". |
 | States | Failed tests pinned above diff; commands awaiting approval show the exact command and working directory; interrupted runs resumable. |
 | Responsive | Desktop only for review; phone shows status and test summary with approve-later. |
 | Motion | None. |
 | Accessibility | Diff readable by screen readers with added/removed announced; keyboard hunk navigation. |
-| Build | Reuse the platform's diff engine; never re-render code through markdown. |
+| Build | Reuse the platform's diff engine; never re-render code through markdown. Accept: capture a clean diff, a failed-test state, a pending command approval, and a resumed run at desktop and a narrow width, confirming the file list rows are not clipped by long paths. |
 | AI mutation | Chat bubbles containing diffs, sparkle badges, gradient "Magic apply" buttons. |
 | Fails when | Non-developers; tasks without code artifacts. |
 
@@ -184,14 +184,14 @@ long-running work, reversibility, and cost. Load a profile through `niche-atlas-
 | Composition | Prompt and parameters docked at the bottom or left; generations as a dense grid grouped by run with the prompt shown per group; detail view fills the screen with lineage (parent, variations). |
 | Type | Neutral grotesk (Hanken Grotesk or Geist 13–14px), prompts in mono when showing exact seeds. |
 | Color | canvas #141414 · surface #1E1E1E · ink #EDEDED · muted #A3A3A3 · line #2E2E2E · action #EDEDED · on-action #141414. No accent hue: color belongs to outputs; selection uses a white 2px outline. |
-| Space and shape | 4px gutters between outputs; 2px radius thumbnails; panels flat. |
+| Space and shape | 4px gutters between outputs; 2px radius thumbnails; panels flat. Stroke and lift: outputs have no border; the selected output gets a single 2px outline drawn outside the thumbnail so it never overlaps the next one; panels are flat with no shadow. |
 | Icons and imagery | The outputs; interface icons monochrome 16px. |
-| Components | Keyboard culling (1–5 rating, X reject), compare two side by side, collections by drag. Metadata panel: prompt, seed, model, parameters, rights. |
+| Components | Keyboard culling (1–5 rating, X reject), compare two side by side, collections by drag. Metadata panel: prompt, seed, model, parameters, rights. Shown when: the metadata panel opens only for the selected output, credit warnings appear before submit and not after, and rating overlays show only in cull mode; no decorative sparkle badges on generations. Copy: policy blocks quote the part of the prompt at fault, and progress says a fraction, not "Magic happening". |
 | States | Generating tiles show progress fraction in text over a neutral placeholder of the right aspect ratio; policy blocks explain which part of the prompt; low credits before submit, not after. |
 | Responsive | Desktop grid; tablet grid with parameter sheet; phone single column feed of runs with prompt editing. |
 | Motion | Thumbnails open to detail with a 200ms zoom from their grid position. Reduced motion: crossfade. |
 | Accessibility | Outputs have generated alt text marked as generated; keyboard rating announced. |
-| Build | Store and display lineage as data; aspect-ratio boxes prevent layout shift. |
+| Build | Store and display lineage as data; aspect-ratio boxes prevent layout shift. Accept: capture a mixed-aspect grid, a generating tile, a policy block, and compare view at desktop and a tablet width, checking selected outlines are not cut at grid edges. |
 | AI mutation | Neon gradients in chrome, glowing generate button, glass panels over the art. |
 | Fails when | Text-first products; users who need guided templates rather than open generation. |
 
@@ -205,14 +205,14 @@ long-running work, reversibility, and cost. Load a profile through `niche-atlas-
 | Composition | Centered manuscript at 66ch; right margin holds suggestions aligned to their passages; a slim top bar with document title, word count, and history. |
 | Type | Editorial serif for manuscript (Literata or Spectral 19px/1.65); margin notes in sans (Source Sans 3, 14px). Arabic: Amiri or Noto Naskh Arabic. |
 | Color | canvas #EFECE5 · surface #FFFEFA · ink #1F1D1A · muted #5C5850 · line #D8D2C6 · action #3B4F7A · on-action #FFFFFF. Suggestions use an ink-blue underline; no purple AI highlight. |
-| Space and shape | Generous margins (96px desktop); square sheet; suggestion notes 1px left rule. |
+| Space and shape | Generous margins (96px desktop); square sheet; suggestion notes 1px left rule. Stroke and lift: only suggestion notes carry a 1px left rule, always the same one; the sheet has no border or shadow; an accepted suggestion loses its rule instead of gaining a second mark. |
 | Icons and imagery | None. |
-| Components | Select text → actions (tighten, clarify, check facts) as a small text menu; suggestions show before/after with Accept, Reject, and "Explain". Accept all only per category. |
+| Components | Select text → actions (tighten, clarify, check facts) as a small text menu; suggestions show before/after with Accept, Reject, and "Explain". Accept all only per category. Shown when: the selection menu appears only on selected text, suggestions only beside their passages, and the history list only when opened; no assistant avatar or prompt chips on an empty page. Copy: suggestion labels name the edit ("Tighten", "Fact-check"), and Explain says why in one sentence. |
 | States | Stale suggestions (text changed since) marked and dismissible; history shows AI-accepted edits distinctly. Empty document is a blank page with a cursor, not prompts. |
 | Responsive | Desktop margin notes; tablet notes as footnote markers; phone notes in a bottom sheet. |
 | Motion | Accepted change highlights for 600ms then fades. Reduced motion: no fade. |
 | Accessibility | Suggestions announced with context; keyboard accept/reject. |
-| Build | Suggestions anchored to text ranges that survive edits (use a CRDT or robust anchors). |
+| Build | Suggestions anchored to text ranges that survive edits (use a CRDT or robust anchors). Accept: capture an empty page, a page with five margin notes, a stale suggestion, and a narrow width where notes collapse, checking each left rule stays aligned with its passage. |
 | AI mutation | Sparkle buttons in the toolbar, rewrite popovers covering text, purple AI highlighting. |
 | Fails when | Structured documents or data; users who want generation from scratch (Plain Transcript). |
 
@@ -226,14 +226,14 @@ long-running work, reversibility, and cost. Load a profile through `niche-atlas-
 | Composition | Sidebar of workspaces and sources; canvas or long notebook of blocks (doc, table, chart, agent run); each block shows its inputs and when it last ran. |
 | Type | Humanist sans (Figtree 15px) with mono for formulas and prompts. Arabic: Noto Sans Arabic. |
 | Color | canvas #EEF1EC · surface #FFFFFF · ink #1D221E · muted #525B54 · line #C9D1CA · action #2B5F4B · on-action #FFFFFF. Block types tinted subtly (doc paper, data cool, agent warm) with labels. |
-| Space and shape | 8px base; blocks 8px radius on tonal backgrounds; 16px block gaps. |
+| Space and shape | 8px base; blocks 8px radius on tonal backgrounds; 16px block gaps. Stroke and lift: blocks differ by tone with one 1px outline; a stale block changes only its outline color and label, and a focused block shows one ring; no shadows except the block being dragged. |
 | Icons and imagery | User content, charts from data. |
-| Components | Rerun block, see dependencies, pin a result, share view. Presence cursors for collaborators. |
+| Components | Rerun block, see dependencies, pin a result, share view. Presence cursors for collaborators. Shown when: the dependency lines show only for the selected block, the last-run time on each block only when it is stale or failed, and presence cursors only while collaborators are present; no per-block usage counters. Copy: stale and failed labels name the input that changed or the error cause. |
 | States | Stale dependent blocks marked when an input changes; failed runs keep last good output with warning; empty workspace offers importing a source. |
 | Responsive | Desktop canvas; tablet notebook mode; phone reading and commenting. |
 | Motion | Dragged blocks follow pointer; dependency lines draw briefly on hover. Reduced motion: static lines. |
 | Accessibility | Notebook order is the accessible order; canvas positions are secondary. |
-| Build | Blocks as data with explicit dependencies; recompute staleness deterministically. |
+| Build | Blocks as data with explicit dependencies; recompute staleness deterministically. Accept: capture a clean workspace, one stale chain, a failed run with last good output, and an empty import state, verifying block outlines stay continuous when blocks overlap during a drag. |
 | AI mutation | Glass blocks, glowing dependency lines, an AI orb floating in the corner. |
 | Fails when | Single-purpose tasks; solo quick questions. |
 
@@ -247,14 +247,14 @@ long-running work, reversibility, and cost. Load a profile through `niche-atlas-
 | Composition | A path of concepts across the top; the current step shows a short explanation, a diagram or problem, and the tutor dialogue beneath with answer input. |
 | Type | Rounded humanist (Nunito or Lexend 17px) for readability; math via proper rendering. Arabic: Tajawal or Noto Sans Arabic. |
 | Color | canvas #FDF8EF · surface #FFFFFF · ink #26231E · muted #625C52 · line #E6DCCB · action #1F5E6E · on-action #FFFFFF. Feedback: correct teal with check, misconception amber with explanation. |
-| Space and shape | 8px base; 16px radius blocks; generous 24px padding; controls 44px. |
+| Space and shape | 8px base; 16px radius blocks; generous 24px padding; controls 44px. Stroke and lift: the current step has one 2px action stroke and completed steps a quiet fill, never both on the same step; blocks have no shadow; the answer field owns its focus ring. |
 | Icons and imagery | Concept diagrams; a small tutor identity mark at most, no animated orb. |
-| Components | Answer input first, "I'm stuck" second; tutor asks questions back; step unlocks on demonstrated understanding. |
+| Components | Answer input first, "I'm stuck" second; tutor asks questions back; step unlocks on demonstrated understanding. Shown when: "I'm stuck" appears after the answer field is touched, the worked example only after repeated failure, and the redirect only when the learner goes off topic; no streak or point counters in the path. Copy: the tutor asks one question at a time in the learner's words and names the misconception it saw. |
 | States | Misconception detected → targeted explanation; repeated failure → worked example; off-topic → gentle redirect. |
 | Responsive | Same single column; tablet supports handwriting input for math. |
 | Motion | Step completion: path segment fills (300ms). Reduced motion: static. |
 | Accessibility | Math accessible (MathML), dialogue as a log, adjustable text size. |
-| Build | Tutor responses constrained by lesson objectives stored as data. |
+| Build | Tutor responses constrained by lesson objectives stored as data. Accept: capture a fresh step, a misconception reply, a worked example, and a locked step on a phone and a laptop, checking the answer input stays visible above the keyboard. |
 | AI mutation | A chat box as the whole product, mascot orb, streak flames. |
 | Fails when | Reference lookup; expert users. |
 
@@ -268,14 +268,14 @@ long-running work, reversibility, and cost. Load a profile through `niche-atlas-
 | Composition | A 640px overlay near the top third: input, a short answer, then actions (insert, copy, open full). Results for files and commands mixed with the answer. |
 | Type | Grotesk (Geist or Hanken Grotesk 15px), mono for commands. |
 | Color | canvas #F7F7F5 · surface #FFFFFF · ink #161616 · muted #56565A · line #D9D9DB · action #20456B · on-action #FFFFFF. The overlay surface is white at 92% with a 20px backdrop blur and a 1px line; text always sits on ≥ 92% opacity. |
-| Space and shape | 12px radius overlay, 8px radius result rows; 48px input. |
+| Space and shape | 12px radius overlay, 8px radius result rows; 48px input. Stroke and lift: the overlay has one 1px stroke and the only shadow in the product; result rows use fill for the active row, no border; the input owns the focus ring. |
 | Icons and imagery | Result type glyphs only. |
-| Components | Enter to accept, Tab to cycle actions, Esc to close; "Open in full view" hands off to Plain Transcript. |
+| Components | Enter to accept, Tab to cycle actions, Esc to close; "Open in full view" hands off to Plain Transcript. Shown when: action chips (insert, copy) appear only when there is an answer, the no-context line only when nothing readable exists, and Open in full view only when the answer outgrows the overlay; no history list on open. Copy: actions are verbs ("Insert", "Copy") with their keys, and errors keep the input and say what failed. |
 | States | Streaming answer inline; no-context state tells what it can read; error keeps the input. |
 | Responsive | Desktop overlay; phone full-screen sheet with the same order. |
 | Motion | Overlay appears 120ms scale 0.98→1; no glow. Reduced motion: opacity only. |
 | Accessibility | Dialog role with focus trap; results listbox; blur fallback to solid surface when `prefers-reduced-transparency`. |
-| Build | `backdrop-filter` only on this overlay; justified because context preservation is the job. |
+| Build | `backdrop-filter` only on this overlay; justified because context preservation is the job. Accept: capture the overlay over a busy window, streaming, no-context, and error states, and confirm the overlay edge is not clipped by a small window or screen edge. |
 | AI mutation | Glass everywhere else too, glowing edges, rainbow borders while "thinking". |
 | Fails when | Long answers or multi-step work (hand off to a full view). |
 
@@ -289,14 +289,14 @@ long-running work, reversibility, and cost. Load a profile through `niche-atlas-
 | Composition | Top bar with topics; a single column of briefs, each a headline answer, 3–5 dated points, and a sources row with publisher names and thumbnails. |
 | Type | High-contrast display serif for headlines (Fraunces or DM Serif Display 28px), body sans (Public Sans 16px). Arabic: Noto Naskh Arabic headlines with Noto Sans Arabic body. |
 | Color | canvas #FFFFFF · surface #F6F4F0 · ink #151412 · muted #595650 · line #E0DCD4 · action #9B2C1F · on-action #FFFFFF. |
-| Space and shape | Ruled briefs 40px apart; square images from sources with credit. |
+| Space and shape | Ruled briefs 40px apart; square images from sources with credit. Stroke and lift: briefs are divided by one 1px rule of the same width everywhere; source images have no border; the followed topic marks itself by weight and a single underline; no shadows. |
 | Icons and imagery | Source photography with attribution; no generated illustrations. |
-| Components | Follow topic, ask follow-up inline, open source. |
+| Components | Follow topic, ask follow-up inline, open source. Shown when: the "Developing" label appears only while the story is changing, corrections only when one was made, and thumbnails only when the source has an image; no source-count badges repeating the sources row. Copy: headlines state the answer, and every date is the source's date. |
 | States | "Developing" label with timestamp; corrections noted in the brief. |
 | Responsive | Single column everywhere; images scale. |
 | Motion | None. |
 | Accessibility | Headlines as headings; dates machine-readable. |
-| Build | Every point links to a source; timestamps from sources, not generation time. |
+| Build | Every point links to a source; timestamps from sources, not generation time. Accept: capture a normal brief, a developing brief with a correction, and a missing-image source at a desktop column and 390px, checking the rules stay unbroken between briefs. |
 | AI mutation | Cards with gradient borders, generated hero images, "AI insights" sparkles. |
 | Fails when | Deep research needing evidence panes (Evidence Desk). |
 

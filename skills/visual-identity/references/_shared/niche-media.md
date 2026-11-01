@@ -82,14 +82,14 @@ compare product-relevant systems with `design-system-selector.md` when direction
 | Composition | Continue watching first; rows of artwork by meaningful groupings; title detail with backdrop, synopsis, episodes, and Play; player chrome minimal. |
 | Type | Grotesk (Manrope or Hanken Grotesk) 20–28px on TV, 15px on phone. Arabic: IBM Plex Sans Arabic; subtitles in Noto Sans Arabic. |
 | Color | canvas #0B0B0C · surface #161618 · ink #F1F1F2 · muted #A7A7AD · line #2A2A2E · action #F1F1F2 · on-action #0B0B0C. No accent hue; focus is a white 3px frame plus scale. |
-| Space and shape | 4px radius posters; 24px row gaps; TV safe area 5%. |
+| Space and shape | 4px radius posters; 24px row gaps; TV safe area 5%. Stroke and lift: posters have no border and the focused poster shows one 3px frame the grid never clips, with a slight scale; the scrim sits only behind text; no shadows on the dark ground. |
 | Icons and imagery | Official key art, stills; backdrop with gradient scrim only where text sits. |
-| Components | Profile picker; Play/Resume with progress; episode list with watched state; download toggle. |
-| States | Buffering with honest spinner and quality note; region-unavailable explained; next-episode countdown cancellable. |
+| Components | Profile picker; Play/Resume with progress; episode list with watched state; download toggle. Shown when: the countdown appears only at the end of an episode and is cancellable, the unavailable-region note only on affected titles, and the download toggle only where downloads are allowed; no auto-playing trailers over navigation. Copy: resume states the time left ("Resume, 24 min left"). |
+| States | Buffering with honest spinner and quality note; region-unavailable explained; next-episode countdown cancellable. A playback error offers retry and the same position; a new profile shows a start page with no continue row. |
 | Responsive | TV 10-foot focus grid; tablet and phone rows scroll horizontally; web keyboard arrows. |
 | Motion | Focus scale 1.06 (150ms); detail backdrop crossfade 300ms. Reduced motion: no scale, frame only; no autoplay trailers. |
 | Accessibility | Subtitles and audio description prominent; focus visible at 3 meters. |
-| Build | Focus engine for TV; artwork aspect boxes to prevent shift. |
+| Build | Focus engine for TV; artwork aspect boxes to prevent shift. Accept: capture home with continue watching, a title page, the player with buffering, and a region-unavailable title at 1080p TV and a phone, checking the focus frame is unclipped at row and screen edges. |
 | AI mutation | Glass panels over artwork, neon accents, autoplay with sound. |
 | Fails when | Text-first media; daytime reading. |
 
@@ -103,14 +103,14 @@ compare product-relevant systems with `design-system-selector.md` when direction
 | Composition | Tabs: Home, Search, Library. Album/playlist: artwork and title block, then track index with durations and credits; episode pages show notes with timestamps; mini-player persistent. |
 | Type | Serif for titles (Fraunces or Young Serif), sans for lists (Figtree 15px). Arabic: Noto Naskh Arabic titles. |
 | Color | canvas #F4EFE8 · surface #FFFFFF · ink #1F1B17 · muted #5E574F · line #DDD3C6 · action #7A2C2C · on-action #FFFFFF. Album pages tint the tonal block from artwork (computed, contrast-checked). |
-| Space and shape | 56px track rows; 8px radius artwork; tonal header blocks. |
+| Space and shape | 56px track rows; 8px radius artwork; tonal header blocks. Stroke and lift: track rows have one 1px rule and no cell borders; the playing row changes fill and shows a single marker; the header block is tonal, and the mini-player carries the only shadow. |
 | Icons and imagery | Album art, podcast art; no waveform decoration. |
-| Components | Queue editable with drag and keyboard; timestamps clickable; download toggle; speed control for podcasts. |
-| States | Offline shows downloaded only; played episodes marked; unavailable track greyed with reason. |
+| Components | Queue editable with drag and keyboard; timestamps clickable; download toggle; speed control for podcasts. Shown when: the played mark appears only on finished episodes, the unavailable reason only on greyed tracks, and the speed control only for podcasts; no waveform decoration or equalizer animations beyond the playing marker. Copy: credits name the role ("Producer") and timestamps are clickable text. |
+| States | Offline shows downloaded only; played episodes marked; unavailable track greyed with reason. A failed playback keeps the queue and says why; an empty library offers search and imports. |
 | Responsive | Phone first; desktop sidebar library with three-pane; car and lock screen via platform. |
 | Motion | Now-playing expands from mini-player (250ms). Reduced motion: crossfade. |
 | Accessibility | Player controls labelled; transcripts for podcasts. |
-| Build | Artwork-derived tint with contrast guard. |
+| Build | Artwork-derived tint with contrast guard. Accept: capture an album, an episode with timestamps, the queue, offline mode, and an unavailable track at 390 and a laptop, checking the tint keeps text contrast and rows stay evenly ruled. |
 | AI mutation | Glowing waveforms, giant gradients, hidden queue. |
 | Fails when | Video-first or social audio. |
 
@@ -124,14 +124,14 @@ compare product-relevant systems with `design-system-selector.md` when direction
 | Composition | Homepage as a front: lead story large with image, secondary stories in columns separated by rules, sections below; article pages single column with byline, dateline, updated time. |
 | Type | Editorial serif headlines (Newsreader or Source Serif 4 Display, 48/28/20px), serif body 18px, sans for metadata (Public Sans). Arabic: Amiri or Noto Naskh Arabic headlines. |
 | Color | canvas #FFFFFF · surface #F7F5F0 · ink #121212 · muted #575757 · line #DCDCDC · action #9E1B1B · on-action #FFFFFF. Red reserved for Breaking and Live labels. |
-| Space and shape | Ruled columns; square images; no cards or shadows. |
+| Space and shape | Ruled columns; square images; no cards or shadows. Stroke and lift: columns are separated by one hairline rule and section heads by a heavier one; images have no border; no cards or shadows anywhere. |
 | Icons and imagery | Photojournalism with credits and captions. |
-| Components | Live blog with timestamped entries; correction notes; newsletter signup inline at article end. |
-| States | Breaking label; updated timestamp; correction appended; paywall after the lede, not before. |
+| Components | Live blog with timestamped entries; correction notes; newsletter signup inline at article end. Shown when: the breaking label appears only on a live story, the updated time only after an update, and corrections appended on the article they correct; the newsletter signup sits only after the article. Copy: bylines, datelines, and update times are exact, and a headline states what happened. |
+| States | Breaking label; updated timestamp; correction appended; paywall after the lede, not before. A failed live-blog refresh keeps the entries and says when it last updated; a paywalled article shows the lede and the plain offer. |
 | Responsive | Desktop multi-column; tablet two; phone single with lead image. |
 | Motion | None. |
 | Accessibility | Captions, alt text, semantic headlines. |
-| Build | Importance field drives headline size; not editors' manual CSS. |
+| Build | Importance field drives headline size; not editors' manual CSS. Accept: capture the front, an article, a live blog, a corrected article, and a paywall at 1440 and 390, checking rule lines are unbroken between columns and headlines wrap without orphaning. |
 | AI mutation | Uniform cards with shadows, same headline size for all, modal paywall on load. |
 | Fails when | Entertainment browsing; single-story products. |
 
@@ -145,14 +145,14 @@ compare product-relevant systems with `design-system-selector.md` when direction
 | Composition | Opening spread with full-bleed image and large headline; body in a 12-column grid with pull quotes, image breaks, and sidenotes. |
 | Type | High-contrast display chosen per feature (Bodoni Moda, Gloock, or a licensed face), body serif (Literata 19px). Arabic: Aref Ruqaa for display with care, Amiri body. |
 | Color | canvas #F7F4EE · surface #FFFFFF · ink #1A1815 · muted #5A554D · line #DDD6C9 · action #22435E · on-action #FFFFFF. Each feature sets one accent from its photography. |
-| Space and shape | Wide margins, full-bleed breaks; square. |
+| Space and shape | Wide margins, full-bleed breaks; square. Stroke and lift: no boxes and no borders; pull quotes and sidenotes are set apart by space and a hairline, the same one throughout a feature; images bleed or sit square, with no shadows. |
 | Icons and imagery | Commissioned photography and illustration. |
-| Components | Reading progress, share, save; related features at end. |
-| States | Offline save; paywall at a natural break. |
+| Components | Reading progress, share, save; related features at end. Shown when: reading progress appears only while scrolling, related features only at the end, and the paywall only at a natural break; no popups over the story. Copy: headlines, decks, and captions use the story's voice, and the save confirmation is plain. |
+| States | Offline save; paywall at a natural break. A failed offline save says so and keeps the page open; a feature that fails to load a hero image shows its headline on the fallback tone. |
 | Responsive | Phone single column with image breaks full width; art direction for crops. |
 | Motion | Scroll-linked image reveals only where they serve the story; nothing else. Reduced motion: static. |
 | Accessibility | Reading order linear; captions. |
-| Build | Feature templates with per-story tokens. |
+| Build | Feature templates with per-story tokens. Accept: capture the opening spread, a pull-quote break, a sidenote, and the paywall at 1440 and 390, checking full-bleed images are not clipped at the grid edge and sidenotes keep their alignment. |
 | AI mutation | Same template for every story; fade-up everything; parallax on all images. |
 | Fails when | Daily news volume. |
 
@@ -166,14 +166,14 @@ compare product-relevant systems with `design-system-selector.md` when direction
 | Composition | Creator header (name, one-line, join), then a stream of posts with members-only markers; tiers explained in text with what you get. |
 | Type | Humanist sans (Figtree) with creator-chosen display font from a curated list. Arabic: Noto Sans Arabic. |
 | Color | canvas #FAF9F7 · surface #FFFFFF · ink #1C1B1A · muted #5A5856 · line #E0DDD8 · action #8A3B12 · on-action #FFFFFF. Creator picks the accent; validated for contrast. |
-| Space and shape | 8px radius; bordered posts. |
+| Space and shape | 8px radius; bordered posts. Stroke and lift: posts share one 1px border and the same 8px radius; a members-only post adds a lock label inside the border and no second frame; creator theme tokens cannot remove the focus ring. |
 | Icons and imagery | Creator media. |
-| Components | Join tier, comment, post editor with schedule. |
-| States | Members-only preview; payment failed with grace; scheduled post indicator. |
+| Components | Join tier, comment, post editor with schedule. Shown when: the members-only preview shows only to non-members, the payment-failed grace note only to the affected member, and the scheduled indicator only to the creator; no platform banners above the creator's header. Copy: tiers say what you get in plain text, and the creator's voice leads. |
+| States | Members-only preview; payment failed with grace; scheduled post indicator. A failed payment gives a grace period and a fix link; an empty page shows the creator's header and a first-post prompt to the creator only. |
 | Responsive | Phone single column; desktop max 720px. |
 | Motion | Minimal. |
 | Accessibility | Creator accent contrast enforced. |
-| Build | Theme tokens per creator with guardrails. |
+| Build | Theme tokens per creator with guardrails. Accept: capture the header, a members-only post, a tier explanation, and a payment-failed state at 390 and a laptop with two creator themes, checking borders and contrast hold under each theme. |
 | AI mutation | Gradient tier cards, template hero hiding creator. |
 | Fails when | Institutional publishers. |
 
@@ -187,14 +187,14 @@ compare product-relevant systems with `design-system-selector.md` when direction
 | Composition | Index of series as a text list or restrained thumbnails; series view shows one image at a time with caption and arrows. |
 | Type | Small neutral grotesk (Karla or Hanken Grotesk 13–14px) for captions and nav. Arabic: IBM Plex Sans Arabic. |
 | Color | canvas #FAFAF8 · surface #FFFFFF · ink #161616 · muted #595959 · line #E3E3E0 · action #161616 · on-action #FFFFFF. Optional dark wall variant for night photography. |
-| Space and shape | Images fit viewport with 5% margin; square; no borders. |
+| Space and shape | Images fit viewport with 5% margin; square; no borders. Stroke and lift: images have no borders, shadows, or frames; only a thin text rule separates caption from index; the focus ring stays visible against the white. |
 | Icons and imagery | The work only. |
-| Components | Keyboard arrows, swipe, full-screen; inquiry link. |
-| States | Loading progressive; sold edition marked in caption. |
+| Components | Keyboard arrows, swipe, full-screen; inquiry link. Shown when: arrows appear on hover or focus and always on touch, the sold mark only in the caption of sold editions, and the inquiry link at the series end; no social sharing icons over images. Copy: captions follow museum labels, naming title, year, and medium. |
+| States | Loading progressive; sold edition marked in caption. A failed image load shows the caption and a retry; an empty series shows the title and no filler. |
 | Responsive | Phone full-width images; captions below. |
 | Motion | Crossfade 200ms between images. Reduced motion: cut. |
 | Accessibility | Alt text written by the artist; keyboard navigation. |
-| Build | Responsive image sets; preload next. |
+| Build | Responsive image sets; preload next. Accept: capture an index, a series image in portrait and landscape, and a full-screen view at 1440 and 390, checking the 5% margin holds and an image is never cropped or upscaled past its resolution. |
 | AI mutation | Rounded grid with hover zoom, text over images, gradients. |
 | Fails when | Content that needs explanation or commerce at scale. |
 
@@ -208,14 +208,14 @@ compare product-relevant systems with `design-system-selector.md` when direction
 | Composition | Title page: poster, facts table (year, runtime, genre, rating), where to watch, cast and crew tables, related titles; search always available via shortcut. |
 | Type | Technical sans (IBM Plex Sans 14px), tabular dates. Arabic: IBM Plex Sans Arabic; original titles in their scripts. |
 | Color | canvas #F6F6F4 · surface #FFFFFF · ink #161616 · muted #545454 · line #D6D6D2 · action #7A4B00 · on-action #FFFFFF. |
-| Space and shape | Ruled tables; 4px radius posters. |
+| Space and shape | Ruled tables; 4px radius posters. Stroke and lift: tables use one 1px row rule and no cell borders; posters have the same 4px radius and no shadow; the sorted column marks itself in its header only. |
 | Icons and imagery | Posters and headshots as identifiers. |
-| Components | Add to list, rate, filmography sorting, edit suggestions. |
-| States | Unreleased; disputed data marked; pending edits. |
+| Components | Add to list, rate, filmography sorting, edit suggestions. Shown when: the unreleased label appears only on unreleased titles, the disputed marker only on contested data with its source, and pending edits only to editors; no recommendation carousels above the facts. Copy: facts have dates and citations, and disputed data reads "Disputed" with the claim and source. |
+| States | Unreleased; disputed data marked; pending edits. A title with no cast data says credits are missing and offers an edit suggestion; a failed search keeps the query. |
 | Responsive | Phone: facts first, tables stack. |
 | Motion | None. |
 | Accessibility | Tables with headers. |
-| Build | Structured data with citations. |
+| Build | Structured data with citations. Accept: capture a title page, a long filmography, an unreleased title, and a disputed fact at 1440 and 390, checking ruled tables stay continuous and long names wrap inside cells. |
 | AI mutation | Dark glossy cards, hidden credits. |
 | Fails when | Browsing for entertainment. |
 
@@ -229,14 +229,14 @@ compare product-relevant systems with `design-system-selector.md` when direction
 | Composition | Room: speakers at top with speaking rings, listeners below, controls bottom (raise hand, leave, react); lobby of live rooms. |
 | Type | Rounded sans (Nunito Sans). Arabic: Tajawal. |
 | Color | canvas #F2F4F3 · surface #FFFFFF · ink #1A1F1E · muted #525B59 · line #D6DDDB · action #1F4E5F · on-action #FFFFFF. Speaker roles (host, speaker, listener) labelled, not only colored. |
-| Space and shape | Circular avatars, 20px radius blocks. |
+| Space and shape | Circular avatars, 20px radius blocks. Stroke and lift: avatars are circles with no border; the speaking ring is the only ring and it belongs to the speaker, while a raised hand uses a separate small marker; blocks are flat. |
 | Icons and imagery | Participant avatars. |
-| Components | Raise hand, mute, invite to speak, report. |
-| States | Live, ended with replay, connection weak, removed. |
+| Components | Raise hand, mute, invite to speak, report. Shown when: the ended state offers replay only if replays exist, the weak-connection mark only on the affected speaker, and invite-to-speak only to hosts; no reaction animations covering speakers. Copy: states name people ("Mira raised a hand"), and a removal says why. |
+| States | Live, ended with replay, connection weak, removed. An empty lobby says no rooms are live and offers scheduling; a dropped connection keeps the user in the room and says it is reconnecting. |
 | Responsive | Phone first. |
 | Motion | Speaking ring pulses with voice level. Reduced motion: static ring. |
 | Accessibility | Live captions, speaker announced. |
-| Build | Low-latency audio SDK; captions pipeline. |
+| Build | Low-latency audio SDK; captions pipeline. Accept: capture a live room, a raised hand, a weak connection, an ended room, and the lobby at 390, checking speaking rings are not clipped by avatar rows and captions stay legible. |
 | AI mutation | Neon gradients, waveform decorations. |
 | Fails when | On-demand listening (use Liner Notes). |
 
@@ -250,14 +250,14 @@ compare product-relevant systems with `design-system-selector.md` when direction
 | Composition | Top bar with gallery name, selection count/limit, submit; grid of frames with select marks; compare view side by side. |
 | Type | Humanist sans (Source Sans 3 14px). |
 | Color | canvas #EEEEEC · surface #FFFFFF · ink #1A1A1A · muted #555555 · line #D0D0CC · action #0E5A5A · on-action #FFFFFF. Selected frames outlined 3px action with check. |
-| Space and shape | 4px gutters; square frames. |
+| Space and shape | 4px gutters; square frames. Stroke and lift: frames have no border; the selected frame shows one inset 3px outline and a number, so the stroke never overlaps its neighbor; the 4px gutter is constant and shadows are none. |
 | Icons and imagery | Client photos. |
-| Components | Select, favorite, comment, compare, download approved. |
-| States | Selection limit reached; submitted locked; expired gallery. |
+| Components | Select, favorite, comment, compare, download approved. Shown when: the limit warning appears only at the selection limit, the submitted lock only after submit, and the expiry date only within a stated window; no decorative filters on client photos. Copy: counts read "12 of 20 selected", and submit says it is final. |
+| States | Selection limit reached; submitted locked; expired gallery. An expired gallery says so and offers a request for extension; a gallery that is still uploading shows what has arrived. |
 | Responsive | Phone 2-column grid. |
 | Motion | Select check pops (120ms). Reduced motion: none. |
 | Accessibility | Keyboard selection; counts announced. |
-| Build | Watermarked previews; originals on approval. |
+| Build | Watermarked previews; originals on approval. Accept: capture the grid with selections, a compare view, the limit reached, and a submitted gallery at 1440 and 390, checking selection outlines are inset and uncut at the grid edge. |
 | AI mutation | Masonry with hover zoom and glass overlays. |
 | Fails when | Public portfolios (use White Wall). |
 
@@ -271,14 +271,14 @@ compare product-relevant systems with `design-system-selector.md` when direction
 | Composition | Day selector; grid of channels or venues by time; picks highlighted with critics' one-liners; detail drawer. |
 | Type | Condensed display for times and titles (Oswald or Barlow Condensed), body sans (Barlow). Arabic: Cairo. |
 | Color | canvas #FBF8F2 · surface #FFFFFF · ink #1C1A17 · muted #5A554C · line #E2DBCD · action #8C2F1B · on-action #FFFFFF. Genres as tonal roles with labels. |
-| Space and shape | 4px radius cells; compact 40px rows. |
+| Space and shape | 4px radius cells; compact 40px rows. Stroke and lift: cells share one 1px grid line and no borders; the now-playing column has one marker, and a pick has a fill, never both on the same cell; the detail drawer has the only shadow. |
 | Icons and imagery | Posters in detail only. |
-| Components | Remind me, add to calendar, filter by genre. |
-| States | Now playing marker; sold out; cancelled. |
+| Components | Remind me, add to calendar, filter by genre. Shown when: the now marker appears only on today's grid, sold-out and cancelled labels only on those events, and critics' one-liners only on picks; no sponsored cells mixed with picks. Copy: times include the zone and cancelled entries say so on the cell. |
+| States | Now playing marker; sold out; cancelled. A day with no listings says so and shows the nearest day with listings; a failed refresh keeps the last grid with its age. |
 | Responsive | Phone: list by time; desktop grid. |
 | Motion | None. |
 | Accessibility | Grid navigable; times in text. |
-| Build | Time zone aware. |
+| Build | Time zone aware. Accept: capture a busy evening grid, a cancelled event, a sold-out event, and the detail drawer at 1440 and 390, checking the time header stays aligned over scrolling columns. |
 | AI mutation | Poster carousels without times. |
 | Fails when | On-demand catalogs. |
 

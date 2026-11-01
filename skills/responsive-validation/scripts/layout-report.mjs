@@ -9,6 +9,7 @@ import {
   parseArgs, parseSizes, toUrl, launch, openPage, snapshotPage, runCli, UsageError,
   analyzeOverflow, analyzeCollisions, analyzeTargets, analyzeChrome, analyzeViewportUse, analyzeContrast, truncate,
 } from './_shared/layout-probe.mjs';
+import { styleSnapshot, auditStyles } from './_shared/style-probe.mjs';
 
 export const DEFAULT_SIZES = '1920x1080,1536x864,1440x900,1366x768,1280x800,1024x768,768x1024,430x932,390x844,375x812,360x800';
 
@@ -26,6 +27,11 @@ Options:
   --channel NAME      Use an installed browser channel (e.g. chrome)
   --wait MS           Extra wait after load (default 300)
   --min-target N      Minimum interactive target size in px (default 24)
+  --coherence         Also run the stroke and component checks at every size: partial, uneven, or
+                      clipped borders, duplicate selected indicators, separator overreach, connector
+                      misalignment, repeated components that disagree. Medium-or-higher findings set
+                      exit 1. Candidates only; confirm in the render (hover and focus passes need
+                      the visual-coherence-audit inspector)
   --json              Print JSON
   --help              Show this help
 
@@ -73,13 +79,14 @@ function toText(url, runs) {
   for (const r of runs) {
     out.push(`${label(r).padEnd(22)}${(r.overflowPx ? `+${r.overflowPx}px` : r.overflowCulprits.length ? 'escape' : '–').padEnd(10)}${String(r.collisionCount || '–').padEnd(9)}${String(r.smallTargetCount || '–').padEnd(7)}${String(r.contrastFailures || '–').padEnd(10)}${pct(r.chromeShare).padEnd(8)}${pct(r.coverage)}`);
   }
-  const defective = runs.filter(hasDefects);
+  const defective = runs.filter((r) => hasDefects(r) || r.coherenceCount > 0);
   if (defective.length) {
     out.push('', 'Details');
     for (const r of defective) {
       out.push(`  ${label(r)}`);
       for (const c of r.overflowCulprits.slice(0, 5)) out.push(`    overflow +${c.overBy}px  ${truncate(c.path, 60)}`);
       for (const c of r.collisions.slice(0, 5)) out.push(`    collision ${Math.round(c.ratio * 100)}%  ${truncate(c.a.path, 34)} × ${truncate(c.b.path, 34)}`);
+      for (const c of r.coherence ?? []) out.push(`    ${c.code} [${c.confidence}] ${truncate(c.path, 40)}: ${truncate(c.message, 80)}`);
       for (const t of r.smallTargets.slice(0, 5)) out.push(`    target ${t.width}×${t.height}  ${truncate(t.path, 50)}${t.text ? ` “${truncate(t.text, 20)}”` : ''}`);
     }
   }
@@ -93,7 +100,7 @@ function toText(url, runs) {
 async function main() {
   const { flags, positionals } = parseArgs(process.argv.slice(2), {
     sizes: 'string', zoom: 'string', rtl: 'boolean', screenshots: 'string', channel: 'string',
-    wait: 'string', 'min-target': 'string', json: 'boolean', help: 'boolean',
+    wait: 'string', 'min-target': 'string', coherence: 'boolean', json: 'boolean', help: 'boolean',
   });
   if (flags.help) { process.stdout.write(`${HELP}\n`); return 0; }
   const url = toUrl(positionals[0]);
@@ -112,6 +119,11 @@ async function main() {
         for (const rtl of directions) {
           const { page, context } = await openPage(browser, url, { ...size, zoom, rtl, waitMs: Number(flags.wait ?? 300) });
           const run = { size, zoom, rtl, ...summarize(await snapshotPage(page), { minTarget: Number(flags['min-target'] ?? 24) }) };
+          if (flags.coherence) {
+            const found = auditStyles(await styleSnapshot(page)).filter((f) => f.confidence !== 'low');
+            run.coherence = found.slice(0, 12).map((f) => ({ code: f.code, path: f.path, message: f.message, confidence: f.confidence }));
+            run.coherenceCount = found.length;
+          }
           if (flags.screenshots) {
             const file = join(flags.screenshots, `${size.width}x${size.height}${zoom !== 1 ? `@${zoom}x` : ''}${rtl ? '-rtl' : ''}.png`);
             await page.screenshot({ path: file, fullPage: false });
@@ -127,7 +139,7 @@ async function main() {
   }
   if (flags.json) process.stdout.write(`${JSON.stringify({ url, runs }, null, 2)}\n`);
   else process.stdout.write(toText(url, runs));
-  return runs.some(hasDefects) ? 1 : 0;
+  return runs.some((r) => hasDefects(r) || r.coherenceCount > 0) ? 1 : 0;
 }
 
 if (process.argv[1]?.endsWith('layout-report.mjs')) runCli(main);

@@ -21,11 +21,12 @@
         "shared/evaluation/experience-rubric.md",
         "shared/anti-patterns/model-instincts.md",
         "shared/precedent/experience-routing.md",
-        "shared/evaluation/specification-pressure.md"
+        "shared/evaluation/specification-pressure.md",
+        "shared/evaluation/quality-findings.md"
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks to build, fix, finish, review, redesign, or improve a user-facing product surface—page, screen, dashboard, form, flow, game, app, or CLI—or says it feels boring, generic, empty, confusing, slow, broken, cramped, modern, fun, or off. Use it for substantial product-facing work when the right specialist is unclear or several concerns interact. Diagnoses the observable problem, activates the smallest ordered specialist graph, loads only required depth, enforces rendered evidence when runnable, and ends with a quality gate.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/diagnosis-and-routing.md",
         "references/execution-loop.md",
@@ -48,7 +49,14 @@
       ],
       "relatedSkills": [
         "critical-review",
-        "use-all-skills"
+        "use-all-skills",
+        "visual-coherence-audit",
+        "ui-necessity-audit",
+        "composition-review",
+        "microcopy-quality",
+        "state-by-state-review",
+        "cross-route-consistency",
+        "screenshot-acceptance"
       ],
       "precedentModules": [
         "shared/precedent/experience-routing.md"
@@ -96,7 +104,7 @@
         "shared/tools/layout-probe.mjs"
       ],
       "description": "Use this skill whenever a page, screen, dashboard, or view looks empty, cramped, unbalanced, boring, centered in a void, or broken at some size; when a homepage, dashboard, or layout is being reviewed or restructured; when whitespace is being called premium without evidence; or after a layout change that must be verified in the rendered result. Repairs focal point, hierarchy, viewport budget, dead space versus useful density, alignment versus composition, grid and flex proportions, typography as geometry, sticky chrome, scroll ownership, overflow, collisions, short viewports, content extremes, and RTL. Includes optional browser measurement scripts.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/browser-measurement.md",
         "references/content-stress-and-rtl.md",
@@ -120,13 +128,15 @@
       "antiTriggers": [
         "The structure is sound and the problem is identity (\"generic\") → visual-identity.",
         "The data is genuinely empty → empty-state-design first.",
-        "The task is a regression sweep across many sizes → responsive-validation."
+        "The task is a regression sweep across many sizes → responsive-validation.",
+        "Whether the screen needs restructuring at all is unclear → composition-review diagnoses first; this skill repairs."
       ],
       "relatedSkills": [
         "visual-identity",
         "state-design",
         "responsive-validation",
-        "empty-state-design"
+        "empty-state-design",
+        "composition-review"
       ],
       "precedentModules": [
         "shared/precedent/whitespace-and-dead-space.md",
@@ -175,7 +185,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks to make a flow faster, simpler, shorter, or 'one tap'; when a wizard, checkout, onboarding, setup, transfer, form, or CLI prompt sequence takes too many steps, screens, questions, confirmations, or waits; or when users re-enter information the software already knows. Maps the workflow step by step, classifies friction (redundant input, unnecessary choice, repeated configuration, navigation tax, confirmation tax, serial work, memory failure, waiting tax, dead ends, expert tax, interruptions, hidden status), and removes work the software could do while preserving safety and meaningful human judgment. Always counts steps before and after.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/expert-shortcuts.md",
         "references/interruptions-modes-and-status.md",
@@ -285,7 +295,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a product needs a visual direction or stronger personality, energy, color behavior, or identity across its working screens and states. Derive expression from the user job, core instrument, product mechanics, and emotional target. Choose a look contract with structural hierarchy, chroma and contrast behavior, typographic attitude, geometry, rhythm, and a causal signature response; preserve existing coherent identity and compare Atlas options only when useful.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/branded-states-and-density.md",
         "references/deriving-identity.md",
@@ -389,13 +399,14 @@
         "shared/precedent/interruptions-and-consent.md",
         "shared/precedent/mobile-navigation.md",
         "shared/design-intelligence/spatial-density-navigation.md",
-        "shared/design-intelligence/context-adaptation.md"
+        "shared/design-intelligence/context-adaptation.md",
+        "shared/anti-patterns/control-necessity.md"
       ],
       "sharedScripts": [
         "shared/tools/layout-probe.mjs"
       ],
       "description": "Use this skill whenever controls, inputs, forms, pickers, buttons, confirmations, or keyboard and touch behavior are designed or reviewed: especially when someone proposes a custom, animated, or 'more fun' version of a standard control (segmented code boxes, bespoke dropdowns, bouncing digits), when actions are confusing, slow, error-prone, or inaccessible, when actions restate context the system already knows, or when building forms and live-control surfaces. Covers affordance, action hierarchy, primary/secondary/destructive actions, inline edit, direct manipulation, confirmation versus undo, disabled states, feedback, and power-user paths. Default stance: do not reinvent familiar interactions without user value.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/actions-and-safety.md",
         "references/direct-and-contextual.md",
@@ -417,12 +428,14 @@
       "antiTriggers": [
         "The issue is flow length across screens → workflow-compression (they pair often).",
         "The issue is behavior over time (loading, errors, sync) → state-design.",
-        "The issue is identity → visual-identity. Never solve identity by decorating controls."
+        "The issue is identity → visual-identity. Never solve identity by decorating controls.",
+        "The question is whether an element should exist at all, across a whole screen → ui-necessity-audit (this skill applies the check to the controls it designs)."
       ],
       "relatedSkills": [
         "workflow-compression",
         "visual-identity",
-        "state-design"
+        "state-design",
+        "ui-necessity-audit"
       ],
       "precedentModules": [
         "shared/precedent/progressive-disclosure-and-expert-speed.md",
@@ -450,7 +463,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a product has important state changes, progression, reset, completion, loading, saving, syncing, errors, or a primary journey that breaks between tasks. Model state ownership and transitions, including initialization, preserved and reset data, feedback, focus, recovery, and completion to continuation. Separate machine or simulation state from progress, UI, account, session, and remote state; verify the repeated path rather than listing states alone.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/domain-states.md",
         "references/errors-and-recovery.md",
@@ -468,11 +481,13 @@
       ],
       "antiTriggers": [
         "The problem is layout at one state → composition-repair.",
-        "The problem is specifically how an empty surface looks → empty-state-design."
+        "The problem is specifically how an empty surface looks → empty-state-design.",
+        "A built feature's states and transitions need an audit (premature, stale, or lingering errors; irrelevant controls) → state-by-state-review; this skill designs the model and contracts."
       ],
       "relatedSkills": [
         "composition-repair",
-        "empty-state-design"
+        "empty-state-design",
+        "state-by-state-review"
       ],
       "precedentModules": [
         "shared/precedent/states-loading-empty-error.md",
@@ -497,7 +512,7 @@
         "shared/tools/layout-probe.mjs"
       ],
       "description": "Use this skill whenever animation, transitions, or micro-interactions are proposed or reviewed (including 'make it more fun or alive with animation'), when every element gets the same fade, slide, or scale, when state changes go unnoticed, when a live or interactive product feels flat, when motion is slow, janky, or ignores reduced-motion, or when defining motion tokens. Designs event-driven motion for arrival, removal, change, transfer, state transitions, feedback, progress, attention, celebration, and ambient motion, with sequencing, interruptibility, reduced-motion alternatives, and performance. Includes static and rendered motion checks.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/anti-patterns.md",
         "references/event-motion.md",
@@ -543,11 +558,12 @@
         "shared/patterns/continue-where-left-off.md",
         "shared/precedent/interruptions-and-consent.md",
         "shared/precedent/known-context-and-defaults.md",
-        "shared/precedent/controls-and-inputs.md"
+        "shared/precedent/controls-and-inputs.md",
+        "shared/anti-patterns/control-necessity.md"
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a product or area feels hard to use overall, users get lost or keep asking the same support questions, terminology or duplicate concepts confuse people, features pile up without getting easier, an admin, settings, or setup area is being redesigned, or a whole product or area needs an audit rather than one flow. Finds and ranks product-level friction: terminology, cognitive load, discoverability, lost context, information architecture, dead ends, status ambiguity, unnecessary modes, inconsistent behavior, trust and transparency, first-use burden, and expert burden, in a prioritized friction ledger.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/consistency-and-concepts.md",
         "references/finding-and-continuing.md",
@@ -572,7 +588,8 @@
         "workflow-compression",
         "visual-identity",
         "interaction-design",
-        "state-design"
+        "state-design",
+        "ui-necessity-audit"
       ],
       "precedentModules": [
         "shared/precedent/interruptions-and-consent.md",
@@ -591,13 +608,15 @@
         "shared/precedent/mobile-navigation.md",
         "shared/precedent/controls-and-inputs.md",
         "shared/design-intelligence/compositions-mobile.md",
-        "shared/design-intelligence/context-adaptation.md"
+        "shared/design-intelligence/context-adaptation.md",
+        "shared/taxonomies/bordline.md"
       ],
       "sharedScripts": [
-        "shared/tools/layout-probe.mjs"
+        "shared/tools/layout-probe.mjs",
+        "shared/tools/style-probe.mjs"
       ],
       "description": "Use this skill whenever a user-facing workflow must survive a change in screen size, zoom, input mode, language, or device; before shipping a changed interface; or when mobile screenshots look fine but the task fails. Exercise the core instrument repeatedly at narrow and short sizes, including keyboard and focus, secondary panels, return, errors, and completion. Inspect content stress and real RTL behavior where supported.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/mobile-and-native.md",
         "references/reporting.md",
@@ -647,7 +666,7 @@
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever a list, dashboard, library, inbox, search, or home screen has little or no content; when a first-run or new-account view is designed; when someone asks to make a sparse page 'less empty' or it feels unfinished; or when a page has been filled with illustrations, fake stats, tips, or marketing. Designs zero-item, one-item, first-run, empty-search, filtered-empty, no-permission, no-history, incomplete-setup, unavailable, archived, and skeleton-versus-empty states, and distinguishes intentional focus from dead space and useful density from filler, calibrated by page archetype.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/density-and-filler.md",
         "references/empty-state-copy.md",
@@ -667,7 +686,8 @@
       ],
       "relatedSkills": [
         "composition-repair",
-        "state-design"
+        "state-design",
+        "state-by-state-review"
       ],
       "precedentModules": [
         "shared/precedent/states-loading-empty-error.md",
@@ -709,7 +729,7 @@
         "shared/tools/layout-probe.mjs"
       ],
       "description": "Use this skill whenever a UI needs an anti-slop review or completion verdict; before presenting generated UI; or when a trend, empty restraint, or component pattern may be replacing the product task. Test the job of each treatment, core-instrument prominence, active-state energy, visual hierarchy, and the repeated cream, serif, earth-tone house style. Preserve justified decisions and compare alternatives only for material open choices.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/alternatives-engine.md",
         "references/content-slop.md",
@@ -770,11 +790,12 @@
         "shared/design-intelligence/selection.md",
         "shared/precedent/justified-trends.md",
         "shared/legal/third-party-notices.md",
-        "shared/evaluation/specification-pressure.md"
+        "shared/evaluation/specification-pressure.md",
+        "shared/evaluation/quality-findings.md"
       ],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks for judgment on a product, proposal, redesign, or finished interface, or when an agent is about to endorse its own work. Compare observed behavior with the intended job and current product, rank blocker and major issues ahead of cosmetic preferences, inspect recovery and primary-journey continuity, and synthesize the few most important remaining problems. A justified no-change verdict is valid.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "references": [
         "references/disagreement-and-praise.md",
         "references/evidence-and-claims.md",
@@ -792,7 +813,9 @@
         "The user asked for a clear, low-stakes change and no opinion. Do it; mention a serious concern",
         "The question has a factual, verifiable answer."
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "screenshot-acceptance"
+      ],
       "precedentModules": [
         "shared/precedent/justified-trends.md"
       ],
@@ -804,14 +827,17 @@
       "name": "interface-forensics",
       "category": "quality",
       "useWhen": "A specific page or component needs exhaustive rendered inspection, source tracing, and verified repair.",
-      "shared": [],
+      "shared": [
+        "shared/taxonomies/bordline.md"
+      ],
       "sharedScripts": [],
       "description": "Use this skill whenever the user asks to audit a specific page, inspect every inch of a screen, find everything wrong with a UI, check its CSS, fix small visual and interaction issues, or explain why one rendered surface feels off. Investigates the actual route and states from rendered symptom through DOM, computed style, CSS cascade, component source, root cause, repair, and rerendered verification. Covers controls, copy, accessibility, responsive behavior, and annoying details without turning a page audit into a product redesign.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "activationExamples": [
         "\"Audit this page,\" \"go over every inch,\" \"check the CSS too,\" \"find all the small issues,\" or \"why does this screen feel annoying?\"",
         "A particular route or component needs detailed rendered, DOM, CSS, interaction, content, and state inspection.",
-        "Another experience skill finds a surface defect that needs implementation-level tracing."
+        "Another experience skill finds a surface defect that needs implementation-level tracing.",
+        "A border, outline, indicator, divider, or focus ring looks wrong and its cause must be found in the cascade (BORDLINE)."
       ],
       "antiTriggers": [
         "The question is whether a proposed design decision is good: use critical-review.",
@@ -827,7 +853,12 @@
         "motion-design",
         "responsive-validation",
         "anti-slop-ui",
-        "critical-review"
+        "critical-review",
+        "visual-coherence-audit",
+        "ui-necessity-audit",
+        "microcopy-quality",
+        "state-by-state-review",
+        "cross-route-consistency"
       ],
       "precedentModules": [],
       "designIntelligenceModules": [],
@@ -880,14 +911,16 @@
         "shared/design-intelligence/niche-travel.md",
         "shared/design-intelligence/niche-physical.md",
         "shared/design-intelligence/niche-creative.md",
-        "shared/design-intelligence/niche-personal.md"
+        "shared/design-intelligence/niche-personal.md",
+        "shared/evaluation/quality-findings.md"
       ],
       "sharedScripts": [],
-      "description": "Use this skill whenever the user asks to use all Experience Skills, requests a full Experience Skills pass, or wants a substantial product built or audited end to end. Consider every installed specialist, diagnose product risks, activate only those with a material contribution, implement, and verify primary journeys. Use Build Mode for new work and Audit Mode for mature or troubled products.",
-      "version": "1.0.1",
+      "description": "Use this skill whenever the user asks for all Experience Skills or a full experience pass, a substantial end-to-end product build, or a mature product audit across multiple routes or quality areas, including report-only reviews. Consider every specialist, activate only those with a material contribution, implement when requested, and verify primary journeys. Use Build Mode for new work and Audit Mode for mature products.",
+      "version": "1.1.0",
       "activationExamples": [
         "The user explicitly requests all Experience Skills or a full experience pass.",
         "A substantial new product or major surface needs product design, implementation, and verification.",
+        "A mature product audit spans multiple routes or quality areas, even when the user wants findings only; coordinate the relevant specialists and keep activation selective.",
         "A mature product needs a broad, symptom-driven audit."
       ],
       "antiTriggers": [
@@ -908,7 +941,14 @@
         "anti-slop-ui",
         "critical-review",
         "interface-forensics",
-        "anti-ai-slop"
+        "anti-ai-slop",
+        "visual-coherence-audit",
+        "ui-necessity-audit",
+        "composition-review",
+        "microcopy-quality",
+        "state-by-state-review",
+        "cross-route-consistency",
+        "screenshot-acceptance"
       ],
       "precedentModules": [],
       "designIntelligenceModules": [
@@ -989,7 +1029,7 @@
         "shared/tools/source-scan.mjs"
       ],
       "description": "Use this skill whenever source-level repair is requested for an existing rendered product that looks AI-generated, template-made, sterile, or underdesigned, or whose primary interaction is buried beneath a visual system. Use anti-slop-ui for a review-only verdict. Protect its working identity and core instrument; inspect both excessive decoration and repeated Experience Skills cream, serif, earth-tone restraint; trace material problems to source, repair them with product-specific behavior and expression, then rerender and exercise the main journey.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "activationExamples": [
         "An existing site or app \"looks AI-generated,\" \"looks like every v0/shadcn/Tailwind site,\" or",
         "A generated or template-started product must be de-slopped end to end before launch.",
@@ -1044,6 +1084,321 @@
       ],
       "scripts": [
         "scripts/extract-identity.mjs"
+      ]
+    },
+    {
+      "name": "visual-coherence-audit",
+      "category": "visual",
+      "useWhen": "A rendered UI works but looks off: cut-off or uneven borders, doubled indicators, clipped focus rings, or repeated components that differ.",
+      "shared": [
+        "shared/taxonomies/bordline.md",
+        "shared/evaluation/quality-findings.md"
+      ],
+      "sharedScripts": [
+        "shared/tools/layout-probe.mjs",
+        "shared/tools/style-probe.mjs"
+      ],
+      "description": "Use this skill whenever a rendered interface works but looks visually off: a border looks cut off, uneven, or missing a side; a tab or card shows two selected or hover indicators; a divider pokes out of its panel; a focus ring is clipped; a stepper connector sits low; repeated cards, buttons, or inputs differ in padding, height, radius, shadow, or icon size; edges do not line up. Detects and classifies stroke, clipping, and component-consistency defects (the BORDLINE category), traces each from screenshot through computed style, pseudo-elements, and clipping ancestors to the shared component or token, repairs or recommends, then rerenders and compares. Preserves deliberate asymmetry. Not for whole-screen layout, wording, or multi-route drift.",
+      "version": "1.1.0",
+      "activationExamples": [
+        "\"The border looks cut off,\" \"this card has a line missing,\" \"two underlines on hover,\" \"the focus outline is clipped,\" \"the divider sticks out,\" \"the stepper line is crooked.\"",
+        "Repeated cards, tabs, buttons, fields, or panels look slightly different from each other on one screen.",
+        "A screenshot review turns up uneven stroke weight, inconsistent radius or shadow, mismatched icons, or content edges off by a few pixels.",
+        "Everything passes automated checks, but the surface looks unfinished at the stroke level."
+      ],
+      "antiTriggers": [
+        "The whole screen is badly arranged (focal point, allocation, balance): use composition-review.",
+        "Elements exist that should not: use ui-necessity-audit.",
+        "The same pattern differs across pages (language selector, tabs, buttons): use cross-route-consistency, which routes a shared-component fix back here.",
+        "One page needs a full forensic pass including behavior: use interface-forensics.",
+        "A layout breaks at a viewport size: use responsive-validation."
+      ],
+      "relatedSkills": [
+        "responsive-validation",
+        "interface-forensics",
+        "ui-necessity-audit",
+        "composition-review",
+        "cross-route-consistency"
+      ],
+      "precedentModules": [],
+      "designIntelligenceModules": [],
+      "references": [
+        "references/coherence-workflow.md",
+        "references/component-variance.md"
+      ],
+      "scripts": [
+        "scripts/inspect-borders.mjs"
+      ]
+    },
+    {
+      "name": "ui-necessity-audit",
+      "category": "quality",
+      "useWhen": "A screen carries redundant labels, badges, cards, separators, notices, or options that may not earn their place.",
+      "shared": [
+        "shared/anti-patterns/control-necessity.md",
+        "shared/evaluation/quality-findings.md",
+        "shared/philosophy/design-vs-decoration.md",
+        "shared/anti-patterns/fake-minimalism.md"
+      ],
+      "sharedScripts": [
+        "shared/tools/layout-probe.mjs",
+        "shared/tools/style-probe.mjs",
+        "shared/tools/rendered-text.mjs"
+      ],
+      "description": "Use this skill whenever a screen feels cluttered with elements that do not earn their place: redundant labels, badges, pills, status indicators, or headings; a card or notice that repeats what is already visible; a decorative separator; an instruction panel nobody needs; a setup option with no real choice; a permanent warning for something that only matters later. Interrogates every questionable element for purpose, then gives each one verdict: KEEP, REMOVE, MERGE, RELOCATE, REWRITE, CONDITIONAL DISPLAY, or NEEDS PRODUCT DECISION. Protects security information, required disclosures, accessibility affordances, critical status, and safeguards. Not for wording quality, layout, or workflow step counts.",
+      "version": "1.1.0",
+      "activationExamples": [
+        "\"There are too many labels,\" \"why is there a badge here,\" \"this card just repeats the heading,\" \"do we need this pill,\" \"the page explains itself too much.\"",
+        "A screen shows the same fact in two adjacent places, a decorative line with no function, or a control with a single sensible answer.",
+        "A notice, status, or warning occupies permanent space for something that matters only in some states.",
+        "A rendered review lists many small \"is this needed?\" doubts and a verdict on each would settle them."
+      ],
+      "antiTriggers": [
+        "The doubt is about wording, tone, or accuracy of text that will stay: use microcopy-quality.",
+        "The problem is the whole screen's allocation or hierarchy: use composition-review.",
+        "A multi-step task has too many steps, repeated inputs, or choice screens: use workflow-compression.",
+        "A control is awkward to operate, not unnecessary: use interaction-design.",
+        "The doubt is whether the product's concepts and navigation are confusing: use product-friction."
+      ],
+      "relatedSkills": [
+        "workflow-compression",
+        "interaction-design",
+        "product-friction",
+        "composition-review",
+        "microcopy-quality"
+      ],
+      "precedentModules": [],
+      "designIntelligenceModules": [],
+      "references": [
+        "references/conditional-display.md",
+        "references/element-interrogation.md"
+      ],
+      "scripts": []
+    },
+    {
+      "name": "composition-review",
+      "category": "visual",
+      "useWhen": "A whole screen needs a structured composition diagnosis: focal point, allocation, balance, nesting, stepper and form relation, desktop to mobile.",
+      "shared": [
+        "shared/taxonomies/page-archetypes.md",
+        "shared/taxonomies/information-priority.md",
+        "shared/taxonomies/visual-problems.md",
+        "shared/precedent/whitespace-and-dead-space.md",
+        "shared/anti-patterns/fake-density.md",
+        "shared/anti-patterns/fake-minimalism.md",
+        "shared/philosophy/design-vs-decoration.md",
+        "shared/evaluation/quality-findings.md"
+      ],
+      "sharedScripts": [],
+      "description": "Use this skill whenever a whole screen needs a structured composition diagnosis rather than a component fix: the page looks badly arranged, over-centered, lopsided, or fragmented; secondary status cards dominate the real task; a game, editor, or dashboard buries its core instrument; a multi-step form, stepper, or import flow has disconnected regions; a join page carries unnecessary supporting sections; teams or panels are disproportionate; it composes on desktop but not on mobile. Inspects focal point, hierarchy, allocation, first viewport, rhythm, balance, density, empty space, nesting, and action dominance at screen level, then returns PRESERVE, LOCAL REPAIR, RESTRUCTURE, STATE-APPROPRIATE, or PREFERENCE. Diagnoses; composition-repair makes structural repairs.",
+      "version": "1.1.0",
+      "activationExamples": [
+        "\"This page looks badly arranged,\" \"everything is centered but it feels off,\" \"the cards take over the screen,\" \"the setup looks lopsided,\" \"the import page has random disconnected blocks,\" \"mobile feels different and broken.\"",
+        "The question is whether a screen's overall structure serves its job, before any component is adjusted.",
+        "A product team wants a structured verdict on a screen: keep it, fix two things, or restructure.",
+        "composition-repair would be the next step, and the diagnosis should be confirmed first."
+      ],
+      "antiTriggers": [
+        "A single border, divider, or card style looks wrong: use visual-coherence-audit.",
+        "An element should probably not exist: use ui-necessity-audit.",
+        "The structure is already confirmed broken and needs repair: use composition-repair, passing this skill's finding.",
+        "A viewport-specific breakage (overflow, collisions, clipped targets) needs a size matrix: use responsive-validation.",
+        "A deep forensic pass on one page's CSS and behavior: use interface-forensics."
+      ],
+      "relatedSkills": [
+        "composition-repair",
+        "responsive-validation",
+        "interface-forensics",
+        "visual-coherence-audit",
+        "ui-necessity-audit",
+        "microcopy-quality"
+      ],
+      "precedentModules": [
+        "shared/precedent/whitespace-and-dead-space.md"
+      ],
+      "designIntelligenceModules": [],
+      "references": [
+        "references/screen-diagnosis.md",
+        "references/verdicts-and-handoff.md"
+      ],
+      "scripts": []
+    },
+    {
+      "name": "microcopy-quality",
+      "category": "quality",
+      "useWhen": "Interface wording is robotic, misleading, vague, repetitive, shows internal codes, or reads as a literal translation.",
+      "shared": [
+        "shared/philosophy/product-copy.md",
+        "shared/evaluation/quality-findings.md"
+      ],
+      "sharedScripts": [
+        "shared/tools/layout-probe.mjs",
+        "shared/tools/style-probe.mjs",
+        "shared/tools/rendered-text.mjs"
+      ],
+      "description": "Use this skill whenever interface wording sounds robotic, awkward, misleading, or AI-generated, or when user-facing text needs a quality pass: headings, form labels, buttons, setup instructions, validation errors, empty states, tooltips, status text, success messages, onboarding, help, pricing, billing, and subscription communication, or Arabic and English translations. Finds and rewrites incorrect assumptions, ambiguous labels, internal terms or error codes shown to users, errors with no recovery, vague calls to action, repetition, and contradictions, while preserving real product behavior, constraints, localization intent, accessibility, tone, and legal or financial precision. Not for deciding whether an element should exist or when it appears.",
+      "version": "1.1.0",
+      "activationExamples": [
+        "\"The wording sounds AI-generated,\" \"this label is confusing,\" \"the error shows a code,\" \"the instructions are too long,\" \"what does FIRST IN mean?\"",
+        "A review lists awkward grammar, vague buttons, repeated text, contradictory statements, or untranslated or unnatural Arabic or English strings.",
+        "Pricing, billing, subscription, permission, or deletion text needs to be clear and correct.",
+        "A product ships in two or more languages, including right-to-left, and the translations read as literal."
+      ],
+      "antiTriggers": [
+        "The question is whether an element should exist or appear at all: use ui-necessity-audit; this skill acts only on text that stays.",
+        "An error appears too early, stays too long, or the state logic is wrong: use state-by-state-review (when) or state-design (how); this skill rewrites the message.",
+        "An empty state's structure and next action need design: use empty-state-design.",
+        "The task is a pure name or one-word rename: just do it.",
+        "Legal text needs legal review: flag it, do not rewrite its substance."
+      ],
+      "relatedSkills": [
+        "state-design",
+        "empty-state-design",
+        "ui-necessity-audit",
+        "state-by-state-review"
+      ],
+      "precedentModules": [],
+      "designIntelligenceModules": [],
+      "references": [
+        "references/copy-diagnosis.md",
+        "references/locale-and-precision.md"
+      ],
+      "scripts": []
+    },
+    {
+      "name": "state-by-state-review",
+      "category": "states",
+      "useWhen": "A built interface must be audited across its real states and transitions: premature or stale errors, lingering success, irrelevant controls, lost focus.",
+      "shared": [
+        "shared/taxonomies/state-types.md",
+        "shared/precedent/states-loading-empty-error.md",
+        "shared/evaluation/quality-findings.md"
+      ],
+      "sharedScripts": [
+        "shared/tools/layout-probe.mjs",
+        "shared/tools/style-probe.mjs",
+        "shared/tools/rendered-text.mjs"
+      ],
+      "description": "Use this skill whenever a built interface must be checked across its real operating states: the error appears before the user does anything, a success banner is still showing or showed before the save finished, an error stays after the fix, a loading message lies, a disabled control gives no reason, controls remain visible after they stop being relevant, labels go stale after a change, focus jumps or vanishes, or the active state is misaligned. Builds a state inventory from the product's real mechanics (initial, empty, populated, loading, success, error, disabled, hover, focus, selected, active, waiting, paused, disconnected, reconnecting, completed, permission denied, partial), then audits what triggers each, what the user knows, can do, sees, and how it transitions. Audits the rendered states; state-design owns designing them.",
+      "version": "1.1.0",
+      "activationExamples": [
+        "\"The error shows before I do anything,\" \"it still says saved,\" \"the message stays after I fixed it,\" \"the success shows too early,\" \"the button is disabled and I don't know why,\" \"the old label is still there.\"",
+        "A finished or nearly finished feature needs a sweep of its real states, transitions, and recovery paths.",
+        "Live or multi-actor products (lobbies, rooms, connections, syncing) behave inconsistently when state changes, pauses, or drops.",
+        "A reviewer asks \"have we checked every state?\" and the answer needs evidence from the rendered product."
+      ],
+      "antiTriggers": [
+        "Designing the state model, ownership, authority, or recovery contract from scratch: use state-design.",
+        "The empty state's own content and next action need design: use empty-state-design.",
+        "An element's value, not its timing, is in doubt: use ui-necessity-audit.",
+        "Only the wording of an error is wrong: use microcopy-quality.",
+        "A single stroke or border looks wrong in a state: use visual-coherence-audit."
+      ],
+      "relatedSkills": [
+        "state-design",
+        "empty-state-design",
+        "visual-coherence-audit",
+        "ui-necessity-audit",
+        "microcopy-quality"
+      ],
+      "precedentModules": [
+        "shared/precedent/states-loading-empty-error.md"
+      ],
+      "designIntelligenceModules": [],
+      "references": [
+        "references/state-inventory.md",
+        "references/transition-relevance.md"
+      ],
+      "scripts": []
+    },
+    {
+      "name": "cross-route-consistency",
+      "category": "quality",
+      "useWhen": "The same pattern looks or behaves differently from route to route: language selectors, tabs, buttons, validation, shared defects patched per page.",
+      "shared": [
+        "shared/taxonomies/page-archetypes.md",
+        "shared/taxonomies/visual-problems.md",
+        "shared/taxonomies/bordline.md",
+        "shared/evaluation/quality-findings.md"
+      ],
+      "sharedScripts": [
+        "shared/tools/layout-probe.mjs",
+        "shared/tools/style-probe.mjs"
+      ],
+      "description": "Use this skill whenever the same thing looks or behaves differently from page to page: the language selector is a different widget on every route, selected tabs use unrelated conventions, buttons conflict, the same validation problem shows three different error treatments, headers or account controls drift, a shared border or spacing defect has been patched separately on many pages, or the product looks like several products. Builds a compact inventory of genuinely shared patterns across routes, classifies each difference as intentional, contextual, accidental drift, duplicate implementation, conflicting contract, or local-override regression, and repairs the authoritative component instead of each page. Preserves legitimate distinctions between public pages, dashboards, editors, and immersive screens.",
+      "version": "1.1.0",
+      "activationExamples": [
+        "\"The interface looks different on every page,\" \"the language selector looks like another product here,\" \"the selected tab is styled three ways,\" \"validation errors look different on adjacent pages.\"",
+        "A defect (border, spacing, focus ring, error style) appears on many routes and was previously patched page by page.",
+        "A redesign touched some routes and left others on the old pattern, or local overrides have crept in.",
+        "A review needs a compact inventory of shared patterns across the product and where they disagree."
+      ],
+      "antiTriggers": [
+        "One route has a defect and its siblings are fine: use visual-coherence-audit or interface-forensics on that route.",
+        "The whole product's identity is generic or incoherent in direction: use visual-identity.",
+        "The question is whether one screen is well composed: use composition-review.",
+        "The issue is a feature's wording, state timing, or necessity: use microcopy-quality, state-by-state-review, or ui-necessity-audit."
+      ],
+      "relatedSkills": [
+        "visual-identity",
+        "interface-forensics",
+        "visual-coherence-audit",
+        "ui-necessity-audit",
+        "composition-review",
+        "microcopy-quality",
+        "state-by-state-review"
+      ],
+      "precedentModules": [],
+      "designIntelligenceModules": [],
+      "references": [
+        "references/authoritative-repair.md",
+        "references/pattern-inventory.md"
+      ],
+      "scripts": [
+        "scripts/compare-routes.mjs"
+      ]
+    },
+    {
+      "name": "screenshot-acceptance",
+      "category": "verification",
+      "useWhen": "A meaningful UI change needs rendered, evidence-based acceptance: review a screenshot, compare before and after, or capture a live page.",
+      "shared": [
+        "shared/evaluation/evidence-standard.md",
+        "shared/taxonomies/bordline.md",
+        "shared/evaluation/quality-findings.md"
+      ],
+      "sharedScripts": [
+        "shared/tools/layout-probe.mjs"
+      ],
+      "description": "Use this skill whenever a meaningful UI change needs evidence-based visual acceptance, or someone claims a UI is verified, fixed, or 'looks good' without rendered proof: reviewing a screenshot, comparing before and after screenshots, or inspecting a live page and capturing verification evidence. Plans the routes, states, viewports, input modes, language directions, themes, and stress conditions that matter, states the visual invariants, reviews appearance and task usability (hierarchy, clipping, alignment, border continuity, sizing, wrapping, scrolling, composition, state presentation, responsiveness), and distinguishes regressions from intentional changes, dynamic content, browser differences, and noise. Never claims visual verification from passing tests; reports NOT VERIFIED IN RENDERED OUTPUT when rendering is unavailable.",
+      "version": "1.1.0",
+      "activationExamples": [
+        "\"Is this fixed?\", \"does it look right now?\", \"compare these two screenshots,\" \"verify the redesign,\" \"check the UI before we merge.\"",
+        "A change claims a visual result and the only evidence is a diff, a unit test, or a build.",
+        "A final gate needs captured evidence across states, sizes, directions, and themes.",
+        "A supplied screenshot needs an expert read for clipping, alignment, borders, hierarchy, and usability."
+      ],
+      "antiTriggers": [
+        "The task is to find and fix a stroke or consistency defect: use visual-coherence-audit (this skill then verifies the fix).",
+        "The task is to diagnose composition: use composition-review.",
+        "The goal is a responsive size matrix of measurable layout failures: use responsive-validation.",
+        "A deep source-level audit of one page is needed: use interface-forensics.",
+        "No UI changed."
+      ],
+      "relatedSkills": [
+        "responsive-validation",
+        "interface-forensics",
+        "visual-coherence-audit",
+        "composition-review"
+      ],
+      "precedentModules": [],
+      "designIntelligenceModules": [],
+      "references": [
+        "references/acceptance-plan.md",
+        "references/comparison-and-verdicts.md"
+      ],
+      "scripts": [
+        "scripts/capture-matrix.mjs"
       ]
     }
   ]

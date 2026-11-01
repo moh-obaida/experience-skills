@@ -92,14 +92,14 @@ photography for fashion, provenance for collectibles, speed for groceries, terms
 | Composition | Product page: gallery left, right column with name, key specs (5 lines), price, stock and delivery date, variant, Add to cart; below, full spec table, compatibility checker, reviews with filters. Listing pages show key specs on each row. |
 | Type | Grotesk (Hanken Grotesk or Archivo 15px), tabular figures for prices and specs. Arabic: IBM Plex Sans Arabic; units and model numbers isolated LTR. |
 | Color | canvas #F7F8F9 · surface #FFFFFF · ink #111316 · muted #515761 · line #D6DAE0 · action #0B57A4 · on-action #FFFFFF. Stock green text, backorder amber text; sale price as ink with a struck original, no red flood. |
-| Space and shape | 8px base; 4px radius; spec tables ruled; 48px Add to cart. |
+| Space and shape | 8px base; 4px radius; spec tables ruled; 48px Add to cart. Stroke and lift: spec tables use one 1px row rule and no cell borders; the selected variant owns one 2px outline and nothing else marks it; no shadows except the sticky cart bar on scroll. |
 | Icons and imagery | Product photography on neutral ground with scale references; spec icons only with labels. |
-| Components | Compare up to 4 with differences highlighted; compatibility checker ("Works with your model?"); delivery estimate by postcode. |
+| Components | Compare up to 4 with differences highlighted; compatibility checker ("Works with your model?"); delivery estimate by postcode. Shown when: the stock and delivery line shows only for the chosen variant and postcode, the compatibility result only after a model is entered, and price-change notes only when the price moved; no promotional badges next to the price. Copy: specs use the manufacturer's units and names, and disabled variants say why ("Out of stock, notify me"). |
 | States | Variant unavailable disables with reason and notify; price changed in cart explained; return window shown on order. |
 | Responsive | Phone: gallery, key facts, Add to cart sticky, specs collapsible by group; compare becomes swipeable columns with pinned labels. |
 | Motion | Add to cart confirms with count update and short slide of the cart badge; no hover lifts. Reduced motion: count only. |
 | Accessibility | Spec tables as real tables; gallery keyboard operable; alt text describes angle and detail. |
-| Build | Specs as structured data powering filters, compare, and page; `--radius:4px`. |
+| Build | Specs as structured data powering filters, compare, and page; `--radius:4px`. Accept: capture a product page, a compare of four items, an unavailable variant, and the cart price-change note at desktop and 390, checking spec rules run edge to edge and the gallery border is complete. |
 | AI mutation | Hero carousel, rounded lifted cards with no specs, fake countdowns, gradient "Shop Now". |
 | Fails when | Fashion or lifestyle products sold on feeling; luxury. |
 
@@ -113,14 +113,14 @@ photography for fashion, provenance for collectibles, speed for groceries, terms
 | Composition | Full-bleed campaign images with shoppable hotspots; collection grid of tall 4:5 images with name and price below; product page image stack scrolling beside a sticky purchase column. |
 | Type | High-contrast display serif or a strong grotesk used large (Fraunces, Bodoni Moda, or the brand face), body in a quiet sans (Manrope or Karla 15px). Arabic: Reem Kufi or Noto Kufi Arabic display. |
 | Color | canvas #FFFFFF · surface #F3F2EF · ink #0F0F0F · muted #5A5A5A · line #E2E0DC · action #111111 · on-action #FFFFFF. Color comes from photographs; UI stays black and white. |
-| Space and shape | No gutters on campaign; 2px gutters in grids; square corners; 52px black buttons. |
+| Space and shape | No gutters on campaign; 2px gutters in grids; square corners; 52px black buttons. Stroke and lift: images have no border or radius; the selected size shows one 1px black outline and a filled state, never both a border and a ring; no shadows anywhere. |
 | Icons and imagery | Model photography with diverse bodies, detail close-ups, short video; fabric swatches as real photos. |
-| Components | Size selector with fit guidance and model measurements; "Complete the look"; wishlist. |
+| Components | Size selector with fit guidance and model measurements; "Complete the look"; wishlist. Shown when: shoppable hotspots reveal on hover or tap, low-stock text appears only below a stated threshold, and final-sale notes only on those items; no discount or new badges laid over photographs. Copy: names and prices are set small, and fit guidance states a measurement, not an adjective. |
 | States | Size sold out shows notify; low stock stated plainly; final sale noted before cart. |
 | Responsive | Phone: full-width images in sequence, sticky size/add bar; desktop split. |
 | Motion | Image transitions and campaign sequencing choreographed (fades, 400ms); controls immediate. Reduced motion: no autoplay video. |
 | Accessibility | Alt text describes garment, fit, and model; captions on video; no text on images without contrast. |
-| Build | Responsive images with art direction; lazy-load below fold. |
+| Build | Responsive images with art direction; lazy-load below fold. Accept: capture a full-bleed campaign, a 4:5 grid, a product page with a sticky purchase column, and a sold-out size at desktop and phone, checking the 2px gutters stay even and no image is cropped at a viewport edge. |
 | AI mutation | Beige "premium" gradients, rounded cards, discount banners, emoji. |
 | Fails when | Technical products or dense catalogs of basics. |
 
@@ -134,14 +134,14 @@ photography for fashion, provenance for collectibles, speed for groceries, terms
 | Composition | Product page: object image sticky on one side, text column on the other with name, material, craftsmanship notes, price, "Reserve" or "Book an appointment". Navigation minimal, revealed on scroll up. |
 | Type | Refined serif (Cormorant Garamond for display, EB Garamond or Libre Caslon for text), sans for labels (Karla). Arabic: Amiri display. |
 | Color | canvas #F3EFE8 · surface #FAF8F4 · ink #1E1B17 · muted #625C53 · line #D9D1C4 · action #1E1B17 · on-action #FAF8F4. |
-| Space and shape | Very generous margins (the object needs space; the space is the job), square edges, hairline rules. |
+| Space and shape | Very generous margins (the object needs space; the space is the job), square edges, hairline rules. Stroke and lift: hairline rules only, one weight, used between facts and never boxing them; the active control underlines once; no shadows, no fills behind the object. |
 | Icons and imagery | Studio product photography with material macro shots; no lifestyle clutter. |
-| Components | Appointment booking, concierge chat with a named person, engraving options. |
+| Components | Appointment booking, concierge chat with a named person, engraving options. Shown when: navigation reveals on scroll up, the concierge opens only on request, and lead-time notes sit beside Reserve for made-to-order pieces; no promotional banners, no stock countdowns. Copy: plain and unhurried, naming material and maker, never urgency words. |
 | States | Made to order with lead time; boutique availability. |
 | Responsive | Phone: image first, then text; appointment CTA sticky. |
 | Motion | Slow image crossfades (600ms); nothing bounces. Reduced motion: no crossfade. |
 | Accessibility | Contrast maintained despite light palette; zoom on images. |
-| Build | Few pages, high image quality with modern formats. |
+| Build | Few pages, high image quality with modern formats. Accept: capture a product page, a made-to-order state, and appointment booking at desktop and 390, confirming the object stays unclipped and the hairlines remain visible at 200% zoom. |
 | AI mutation | Discount banners, gold gradients, glassmorphism, countdowns. |
 | Fails when | Value retail, groceries, anything bought on speed. |
 
@@ -155,14 +155,14 @@ photography for fashion, provenance for collectibles, speed for groceries, terms
 | Composition | Search top; filters sidebar; grid of listings with photo, price, condition, location, seller rating; listing detail shows seller panel and protection terms beside photos. |
 | Type | Humanist sans (Source Sans 3 or Noto Sans 14–15px). Arabic: Noto Sans Arabic; prices formatted per locale. |
 | Color | canvas #F5F6F4 · surface #FFFFFF · ink #1A1C1B · muted #545957 · line #D5D9D6 · action #0F6B4F · on-action #FFFFFF. Condition labels as text chips; verified seller a small labelled mark. |
-| Space and shape | 8px radius photos, 12px gaps; 1px bordered listing tiles. |
+| Space and shape | 8px radius photos, 12px gaps; 1px bordered listing tiles. Stroke and lift: listing tiles have one 1px border and the same 8px photo radius everywhere; a saved or selected tile changes the heart or outline, not both; shadows only on the open filter drawer. |
 | Icons and imagery | Seller photos (with guidance for good photos in listing flow). |
-| Components | Make offer, message seller, save search with alerts; listing creation with photo checklist. |
+| Components | Make offer, message seller, save search with alerts; listing creation with photo checklist. Shown when: the protection terms appear on listing detail and checkout only, the offer-pending state only on affected listings, and the dispute steps only after a dispute opens; no seller-rating stars repeated beside a text rating. Copy: condition uses the enum words, and a Sold listing says the sold price. |
 | States | Sold listings stay visible marked Sold for price history; offer pending; dispute steps. |
 | Responsive | Phone: 2-column grid, filters as sheet, sticky Message/Buy bar on detail. |
 | Motion | None beyond native. |
 | Accessibility | Alt text prompts in listing creation; filters keyboard operable. |
-| Build | Listing schema with condition enum; image processing pipeline for consistent crops. |
+| Build | Listing schema with condition enum; image processing pipeline for consistent crops. Accept: capture a results grid, a listing detail, a sold listing, a pending offer, and listing creation at desktop and 390, checking tile borders and photo corners are complete in the grid edges. |
 | AI mutation | Uniform glossy cards hiding condition, trust badges without meaning. |
 | Fails when | Single-brand stores; luxury. |
 
@@ -176,14 +176,14 @@ photography for fashion, provenance for collectibles, speed for groceries, terms
 | Composition | Tabs: Shop, Search, Orders, Account. Shop starts with "Buy again" then aisles; each item row: photo, name, size, unit price, price, stepper. Basket bar pinned with total and slot. |
 | Type | Rounded sans (Nunito Sans or Rubik 15px), prices bold tabular. Arabic: Rubik supports Arabic; or Tajawal. |
 | Color | canvas #F4F7EF · surface #FFFFFF · ink #1C2418 · muted #50604A · line #D2DCC8 · action #2F6B1F · on-action #FFFFFF. Aisle colors as tonal section backgrounds; deals in a single amber role with text. |
-| Space and shape | 12px radius tonal sections; 64px item rows; steppers 36px. |
+| Space and shape | 12px radius tonal sections; 64px item rows; steppers 36px. Stroke and lift: sections differ by tone with no borders; steppers carry one 1px outline; the pinned basket bar owns the only shadow and its top edge is one line. |
 | Icons and imagery | Packshots on white; produce photos real. |
-| Components | Stepper inline; substitution preference per item; slot picker as a day/time grid with availability. |
+| Components | Stepper inline; substitution preference per item; slot picker as a day/time grid with availability. Shown when: the minimum-order progress shows in the basket bar only below the minimum, substitutions only for out-of-stock items, and "Buy again" only for returning shoppers; no sale badges on every row. Copy: unit prices are always per the same unit, and slots say "Full" or the time. |
 | States | Out of stock suggests substitutes; slot full; minimum order progress in basket bar; substitution made shown on delivery. |
 | Responsive | Phone first; desktop multi-column aisles with basket sidebar. |
 | Motion | Item flies a small thumbnail to basket (250ms) on first add only; stepper updates instantly. Reduced motion: count change only. |
 | Accessibility | Steppers with labels ("Increase bananas quantity"); prices read with units. |
-| Build | Optimistic basket updates with reconciliation; unit price computed consistently. |
+| Build | Optimistic basket updates with reconciliation; unit price computed consistently. Accept: capture the shop list, an out-of-stock substitution, a full slot grid, and the basket bar with the keyboard open at 390, checking the pinned bar never covers the last row. |
 | AI mutation | Hero banners, big cards with tiny prices, quantity only on detail page. |
 | Fails when | Considered or luxury purchases. |
 
@@ -197,14 +197,14 @@ photography for fashion, provenance for collectibles, speed for groceries, terms
 | Composition | Home: a stream of recent pieces and process notes in one column; product page: photos including in-progress shots, materials, dimensions, care, lead time; maker page. |
 | Type | Slab serif for headings (Zilla Slab or Bitter), humanist body (Source Sans 3 16px). Arabic: Noto Naskh Arabic. |
 | Color | canvas #EFE7DA · surface #F8F3EA · ink #2B231A · muted #62574A · line #CDBFA8 · action #6E3B1E · on-action #FFFFFF. |
-| Space and shape | Subtle paper grain on canvas only (≤ 4% opacity); 3px radius; photos square-cornered. |
+| Space and shape | Subtle paper grain on canvas only (≤ 4% opacity); 3px radius; photos square-cornered. Stroke and lift: photos are square-cornered with no border; the grain sits on the canvas only; forms use one 1px stroke and the focused field gets a 2px one; no shadows. |
 | Icons and imagery | The maker's own photography of materials, hands, and pieces; no stock textures. |
-| Components | Commission request form; "Only one" labels for unique items; ask the maker. |
+| Components | Commission request form; "Only one" labels for unique items; ask the maker. Shown when: "Only one" appears only on unique pieces, lead time before the buy button on made-to-order pieces, and "Commission similar" only on sold pieces; no review stars on unreviewed pieces. Copy: the maker's first-person voice for process, and exact dimensions for the buyer. |
 | States | Sold unique pieces remain as portfolio with "Commission similar"; made-to-order lead time before purchase. |
 | Responsive | Phone single column; desktop two-column product page. |
 | Motion | None. |
 | Accessibility | Texture never under body text contrast < 7:1; alt text describes material and scale. |
-| Build | Texture as a tiny tiling image or CSS noise; product dimensions structured. |
+| Build | Texture as a tiny tiling image or CSS noise; product dimensions structured. Accept: capture the stream, a unique piece, a made-to-order piece, and a sold piece with commission at desktop and 390, confirming grain stays under 4% and does not reduce text contrast. |
 | AI mutation | Startup landing template, gradient CTA, three icon feature cards ("Handmade", "Quality", "Shipping"). |
 | Fails when | Large catalogs; commodity goods. |
 
@@ -218,14 +218,14 @@ photography for fashion, provenance for collectibles, speed for groceries, terms
 | Composition | Lot page: zoomable images, catalog entry (title, date, maker, dimensions, provenance, condition report), estimate, bidding panel with history; sale sidebar with lots list. |
 | Type | Serif for catalog titles (Libre Caslon or Cormorant), sans for data (IBM Plex Sans with tabular figures). |
 | Color | canvas #EDEBE6 · surface #FFFFFF · ink #1B1A18 · muted #58554F · line #D0CCC3 · action #1F3B57 · on-action #FFFFFF. Outbid state amber, winning green text, both labelled. |
-| Space and shape | Layered panels by tone; 3px radius; bid panel prominent but not flashy. |
+| Space and shape | Layered panels by tone; 3px radius; bid panel prominent but not flashy. Stroke and lift: panels differ by tone with one 1px line; the bid panel is the single raised surface and uses a stronger stroke, not a shadow plus a glow; the leading bid row changes fill only. |
 | Icons and imagery | High-resolution object photography with condition close-ups and scale. |
-| Components | Bid with increment preview and confirmation; max bid (proxy); watch lot; condition report download. |
+| Components | Bid with increment preview and confirmation; max bid (proxy); watch lot; condition report download. Shown when: the ending-soon time appears in the final hour, outbid notices only to the outbid bidder, and the reserve note only while it is unmet; no flashing timers. Copy: every time carries a zone and every price its currency and premium. |
 | States | Ending soon shows exact time with time zone; outbid notification; reserve not met; sold price after close. |
 | Responsive | Phone: images, estimate, bid panel sticky; catalog entry collapsible sections. |
 | Motion | New bid updates price with a 300ms highlight; no ticking animations. Reduced motion: highlight only. |
 | Accessibility | Time remaining in text; bid confirmation announced. |
-| Build | Server time authoritative; bid increments as data. |
+| Build | Server time authoritative; bid increments as data. Accept: capture a lot page, a bid confirmation, an outbid state, a reserve-not-met lot, and a closed lot at desktop and 390, checking the bid panel stays visible and the image zoom border is intact. |
 | AI mutation | Flashing countdowns, confetti on winning, glossy cards without provenance. |
 | Fails when | Commodity retail. |
 
@@ -239,14 +239,14 @@ photography for fashion, provenance for collectibles, speed for groceries, terms
 | Composition | Home: next delivery block (date, cutoff, contents, total) with Skip and Edit; then a timeline of the next 4 deliveries; plan and billing tabs. |
 | Type | Humanist sans (Figtree or Source Sans 3 16px). Arabic: Noto Sans Arabic. |
 | Color | canvas #FBF6F1 · surface #FFFFFF · ink #27221E · muted #625A53 · line #E6DCD2 · action #7A2E4A · on-action #FFFFFF. |
-| Space and shape | 10px radius tonal blocks per delivery; 8px base. |
+| Space and shape | 10px radius tonal blocks per delivery; 8px base. Stroke and lift: each delivery block has the same 10px radius and tonal fill with no border; the next delivery adds one outline, and a skipped delivery loses fill instead of gaining a badge. |
 | Icons and imagery | Photos of the actual items in the box. |
-| Components | Skip, swap items, pause for N weeks, change frequency, cancel with the end date and what happens next. |
+| Components | Skip, swap items, pause for N weeks, change frequency, cancel with the end date and what happens next. Shown when: the cutoff lock appears only after the cutoff, the payment-fix prompt only when payment failed, and the resume date only while paused; Cancel always shows the end date and consequence. Copy: Skip, Swap, and Pause say what changes and when, and cancel never hides behind a retention loop. |
 | States | Cutoff passed locks edits with explanation; payment failed before cutoff with fix; paused shows resume date. |
 | Responsive | Phone first; desktop timeline horizontal. |
 | Motion | Skipped delivery collapses in the timeline (200ms). Reduced motion: instant. |
 | Accessibility | Dates and cutoffs in full text. |
-| Build | Cutoff logic server-side; timeline generated from schedule. |
+| Build | Cutoff logic server-side; timeline generated from schedule. Accept: capture the home with a next delivery, a locked cutoff, a failed payment, a paused plan, and the cancel flow at desktop and 390, checking block tints reach their rounded corners without a cut border. |
 | AI mutation | Three glowing pricing cards, hidden cancel, guilt copy. |
 | Fails when | One-off purchases. |
 
@@ -260,14 +260,14 @@ photography for fashion, provenance for collectibles, speed for groceries, terms
 | Composition | Sidebar: Quick order, Catalog, Quotes, Orders, Invoices, Users. Quick order is a table: SKU input, description, account price, stock by location, quantity, line total; paste or CSV upload. |
 | Type | Technical sans (IBM Plex Sans 13–14px), mono for SKUs. |
 | Color | canvas #F2F3F5 · surface #FFFFFF · ink #121417 · muted #4F5561 · line #CDD1D8 · action #0A4D8C · on-action #FFFFFF. |
-| Space and shape | 36px rows; square corners; ruled tables. |
+| Space and shape | 36px rows; square corners; ruled tables. Stroke and lift: tables use one 1px row rule, square corners, and no cell borders; the active row changes fill; inline SKU errors recolor the field's border and add no second marker. |
 | Icons and imagery | None in ordering; small product thumbnails optional in catalog. |
-| Components | Request quote, submit for approval, reorder from history, save lists. |
+| Components | Request quote, submit for approval, reorder from history, save lists. Shown when: the credit warning appears before submit only when a limit is near, the approver name only on pending orders, and backorder splits only on affected lines; no consumer-style promotions in ordering. Copy: lines use SKU and account terms, and errors name the SKU and the problem. |
 | States | Pending approval with approver name; credit limit warnings before submit; backorder lines split with dates. |
 | Responsive | Desktop first; phone for reorder and order status. |
 | Motion | None. |
 | Accessibility | Keyboard entry across SKU fields; tables with headers. |
-| Build | Account-specific pricing from ERP; SKU validation inline. |
+| Build | Account-specific pricing from ERP; SKU validation inline. Accept: capture quick order with a pasted list, a backorder split, a pending approval, and an over-limit warning at 1440 and a tablet width, checking column rules and totals stay aligned across rows. |
 | AI mutation | Consumer hero banners, image-heavy cards, hidden account pricing. |
 | Fails when | Consumer shoppers. |
 
@@ -281,14 +281,14 @@ photography for fashion, provenance for collectibles, speed for groceries, terms
 | Composition | One long page: today's availability and pickup times first, then sections of products with prices and add buttons, then location, hours, contact. Anchor links for sections. |
 | Type | Grotesk with character (Bricolage Grotesque or Work Sans), 32/20/16px. Arabic: Readex Pro or Noto Kufi Arabic headings. |
 | Color | canvas #FFFDF7 · surface #FFFFFF · ink #1F1C17 · muted #5D574C · line #E4DDCC · action #B8321F · on-action #FFFFFF. The accent is the shop's own color, used generously on headings and buttons. |
-| Space and shape | 8px radius; paper-white page; generous section spacing. |
+| Space and shape | 8px radius; paper-white page; generous section spacing. Stroke and lift: products share one 1px line and 8px radius; a sold-out product dims instead of gaining a banner; the selected pickup slot owns one outline; no shadows. |
 | Icons and imagery | Photos taken in the shop of real products and the storefront. |
-| Components | Add to order, pickup time slot, pay or pay at pickup. |
+| Components | Add to order, pickup time slot, pay or pay at pickup. Shown when: today's availability leads the page, the sold-out note shows tomorrow's date, and the closed notice shows the next opening only when closed; no carousel and no cookie banner beyond what the law requires. Copy: written in the shop's voice, naming the item and the time ("Ready at 4:30"). |
 | States | Sold out today with tomorrow's availability; closed with next opening; order ready notification. |
 | Responsive | Phone first; single column on all sizes, max width 720px. |
 | Motion | None. |
 | Accessibility | Hours as text, map with address text. |
-| Build | Static page with simple ordering backend; availability editable by the owner from a phone. |
+| Build | Static page with simple ordering backend; availability editable by the owner from a phone. Accept: capture the page open, sold out, and closed, plus the order slip, at 390 on a slow connection, confirming the owner's phone edit updates availability and photos are not cut at the edges. |
 | AI mutation | Startup hero with gradient, stock photos, "Experience the taste of tradition". |
 | Fails when | Large catalogs or national shipping. |
 

@@ -3,7 +3,7 @@ name: experience-architect
 description: "Use this skill whenever the user asks to build, fix, finish, review, redesign, or improve a user-facing product surface—page, screen, dashboard, form, flow, game, app, or CLI—or says it feels boring, generic, empty, confusing, slow, broken, cramped, modern, fun, or off. Use it for substantial product-facing work when the right specialist is unclear or several concerns interact. Diagnoses the observable problem, activates the smallest ordered specialist graph, loads only required depth, enforces rendered evidence when runnable, and ends with a quality gate."
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -42,6 +42,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -65,6 +69,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - A task touches several experience concerns (a redesign, a new feature, a whole-screen review).
 - You are about to build or substantially change a user-facing surface.
 - The user asks for an experience audit of a product or area.
+- Everything passes but it looks wrong: "the border looks cut off," "badly arranged," "too many labels," "sounds AI-generated," "different on every page," "the error shows before I act."
 
 ## Do not use this when
 
@@ -108,8 +113,8 @@ Decision points, not advice. At each one, take the branch it names.
    `references/_shared/model-instincts.md` and delete praise you did not earn.
 7. **Before routing:** name the problem class from the table in `references/diagnosis-and-routing.md` and its observable signal. A symptom without a confirmed signal stays a hypothesis.
 8. **When two or more specialists apply:** check each concern against the conditional edges in `references/diagnosis-and-routing.md`; use `references/recipes.md` only when its dependencies fit. Write the filled handoff immediately before activation and include it in the request when supported, otherwise as the preceding task note. No handoff is needed once the concern is resolved; record why the graph stops.
-
 9. **Before visual direction or final review:** does the core instrument have spatial authority and continuity across focus, secondary surfaces, and mobile? If not, route the confirmed failure. If the primary job and loop are clear and another reference will not change the next decision, implement and verify.
+10. **For a rendered-quality complaint that passes every check** (stroke, clutter, arrangement, wording, state timing, route drift): name the single owning specialist from the symptom table (visual-coherence-audit, ui-necessity-audit, composition-review, microcopy-quality, state-by-state-review, cross-route-consistency) and activate it first; add another only for a separately observed concern. One cut-off border is one specialist. Verify with screenshot-acceptance or the render contract, and keep one shared finding record (`references/_shared/quality-findings.md`).
 
 ## Workflow
 
@@ -159,17 +164,13 @@ For overall scoring, use verdict words from `references/_shared/experience-rubri
 
 ## Product archetype and evidence
 
-Classify the whole product with `references/_shared/product-archetypes.md` (it sets density, identity
-intensity, motion, and empty-state defaults) and each surface with `references/_shared/page-archetypes.md`.
-When the product is not a web app, `references/product-archetypes.md` explains how the advice changes.
+Classify the product with `references/_shared/product-archetypes.md` (density, identity intensity, motion, empty-state defaults) and each surface with `references/_shared/page-archetypes.md`; for non-web products see `references/product-archetypes.md`.
 
 ## Failure modes
 
-- Loading many references and producing a generic essay.
-- Treating a symptom as a diagnosis ("it needs more color").
+- Loading many references and producing a generic essay; treating a symptom ("needs more color") as a diagnosis.
 - Recommending a trend (glass, bento, dark mode) instead of fixing the named problem.
-- Solving emptiness with filler, or clutter with emptiness.
-- Declaring success from source code alone.
+- Solving emptiness with filler, or clutter with emptiness; declaring success from source alone.
 - Implementing the user's proposed fix without checking it serves their goal.
 
 ## Completion criteria
@@ -194,5 +195,4 @@ When the product is not a web app, `references/product-archetypes.md` explains h
   `experience-operating-contract.md`,
   `page-archetypes.md`, `product-archetypes.md`, `product-maturity.md`, `visual-problems.md`,
   `workflow-friction.md`, `experience-rubric.md`, `model-instincts.md`,
-  `specification-pressure.md` — long or contradictory specification intake, kept out of the load
-  path for a normal-sized request
+  `quality-findings.md` — shared finding format and one-owner routing; `specification-pressure.md` — long or contradictory intake, for exceptions only

@@ -24,3 +24,4 @@ points to it.
 | `mobile-navigation.md` | Precedent: Mobile Navigation and Thumb-First Layouts | `shared/precedent/mobile-navigation.md` |
 | `spatial-density-navigation.md` | Spatial, Density, and Navigation Models | `shared/design-intelligence/spatial-density-navigation.md` |
 | `context-adaptation.md` | Design Intelligence: Context Adaptation Contract | `shared/design-intelligence/context-adaptation.md` |
+| `control-necessity.md` | Control and Content Necessity | `shared/anti-patterns/control-necessity.md` |

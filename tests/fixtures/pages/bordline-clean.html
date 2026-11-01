@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>BORDLINE positive control (invented fixture)</title>
+<style>
+  /* Invented fixture. Asymmetric and decorated on purpose, yet every treatment has one owner and a job. */
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; font: 15px/1.4 system-ui, sans-serif; background: #f6f5f1; color: #1d2320; width: 760px; }
+  section { margin-bottom: 28px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; margin: 0 0 8px; color: #55605b; }
+  /* Deliberate accent edge: a callout, one side only, no radius. */
+  .callout { width: 320px; padding: 12px 14px; background: #fff; border-left: 4px solid #1e5143; }
+  /* Consistent cards, full four-side stroke. */
+  .card { display: inline-block; vertical-align: top; width: 200px; padding: 12px; border: 1px solid #b7beb4; border-radius: 8px; background: #fff; margin-right: 10px; }
+  .card[aria-current="true"] { border-color: #1e5143; box-shadow: 0 0 0 1px #1e5143; }
+  /* Tabs: one owner for the selected indicator (the link), same on hover. */
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid #d3d8d0; width: 420px; }
+  .tabs a { padding: 10px 14px; text-decoration: none; color: #1d2320; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .tabs a[aria-selected="true"] { border-bottom-color: #1e5143; font-weight: 600; }
+  .tabs a:hover { background: #ecefe9; }
+  /* Full-bleed divider that ends exactly at the card edge. */
+  .list { width: 300px; background: #fff; border: 1px solid #d3d8d0; padding: 12px 0; }
+  .list p { margin: 0; padding: 0 12px; }
+  .list hr { border: 0; height: 1px; background: #c8cec5; margin: 10px 0; }
+  /* Focus ring has room: padding on the clipping toolbar. */
+  .toolbar { width: 300px; overflow: hidden; background: #fff; border: 1px solid #d3d8d0; padding: 6px; display: flex; gap: 6px; }
+  .toolbar button { flex: 1; height: 34px; border: 1px solid #b7beb4; background: #fff; font: inherit; border-radius: 4px; }
+  .toolbar button:focus-visible { outline: 3px solid #2b6fd6; outline-offset: 0; }
+  /* Aligned stepper. */
+  .stepper { display: flex; align-items: center; width: 300px; }
+  .stepper .dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #1e5143; background: #fff; flex: none; }
+  .stepper .link { flex: 1; height: 2px; background: #1e5143; }
+</style></head><body>
+<section><h2>Deliberate one-sided accent</h2><div class="callout" data-benchmark="POS-05">Hosts can start once two teams have joined.</div></section>
+<section><h2>Consistent cards</h2>
+  <div class="card" aria-current="true">Blue team</div><div class="card">Red team</div></section>
+<section><h2>One indicator owner</h2>
+  <nav class="tabs" role="tablist"><a href="#" role="tab" aria-selected="true">Lobby</a><a href="#" role="tab" aria-selected="false">Board</a><a href="#" role="tab" aria-selected="false">Results</a></nav></section>
+<section><h2>Divider meets the card edge</h2><div class="list"><p>First row</p><hr><p>Second row</p><hr><p>Third row</p></div></section>
+<section><h2>Focus ring has room</h2><div class="toolbar"><button>Mute</button><button>Skip</button><button>End</button></div></section>
+<section><h2>Aligned stepper</h2><div class="stepper"><span class="dot"></span><span class="link"></span><span class="dot"></span></div></section>
+</body></html>

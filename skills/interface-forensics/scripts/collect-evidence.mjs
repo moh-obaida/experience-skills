@@ -71,13 +71,35 @@ export function inspectElement(selector) {
     };
     walk(rules);
   }
+  // BORDLINE evidence: per-side borders, outline, pseudo-elements, and clipping ancestors with the cut
+  // measured against the element's border box. Facts only; the cascade winner still needs DevTools.
+  const px = (v) => parseFloat(v) || 0;
+  const sides = ['Top', 'Right', 'Bottom', 'Left'];
+  const borders = Object.fromEntries(sides.map((s) => [s.toLowerCase(), { width: px(st[`border${s}Width`]), style: st[`border${s}Style`], color: st[`border${s}Color`] }]));
+  const outline = { width: px(st.outlineWidth), style: st.outlineStyle, offset: px(st.outlineOffset), color: st.outlineColor };
+  const pseudo = {};
+  for (const which of ['::before', '::after']) {
+    const ps = getComputedStyle(el, which);
+    if (ps.content !== 'none' && ps.content !== 'normal' && ps.display !== 'none') {
+      pseudo[which] = { content: ps.content, position: ps.position, width: ps.width, height: ps.height, left: ps.left, right: ps.right, top: ps.top, bottom: ps.bottom, backgroundColor: ps.backgroundColor, borderBottomWidth: ps.borderBottomWidth, transform: ps.transform };
+    }
+  }
+  const clippingAncestors = [];
+  for (let node = el.parentElement; node && node !== document.documentElement; node = node.parentElement) {
+    const cs = getComputedStyle(node);
+    if (!['hidden', 'clip', 'auto', 'scroll'].some((v) => cs.overflowX === v || cs.overflowY === v)) continue;
+    const nr = node.getBoundingClientRect();
+    const padding = { left: nr.left + px(cs.borderLeftWidth), right: nr.right - px(cs.borderRightWidth), top: nr.top + px(cs.borderTopWidth), bottom: nr.bottom - px(cs.borderBottomWidth) };
+    const cut = { left: +(padding.left - rect.left).toFixed(2), right: +(rect.right - padding.right).toFixed(2), top: +(padding.top - rect.top).toFixed(2), bottom: +(rect.bottom - padding.bottom).toFixed(2) };
+    clippingAncestors.push({ tag: node.tagName.toLowerCase(), id: node.id, classes: [...node.classList], overflowX: cs.overflowX, overflowY: cs.overflowY, paddingBox: box({ x: padding.left, y: padding.top, width: padding.right - padding.left, height: padding.bottom - padding.top }), pxBeyondEdge: cut, clipsElementBox: Object.values(cut).some((v) => v > 0.5) });
+  }
   return {
     count: 1, selector, url: location.href,
     viewport: { width: innerWidth, height: innerHeight },
     document: { scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth },
     element: { tag: el.tagName.toLowerCase(), id: el.id, classes: [...el.classList], role: el.getAttribute('role'), accessibleLabel: el.getAttribute('aria-label'), text: (el.textContent || '').trim().slice(0,120), box: box(rect), clientWidth: el.clientWidth, scrollWidth: el.scrollWidth, clientHeight: el.clientHeight, scrollHeight: el.scrollHeight },
     parent: parent ? { tag: parent.tagName.toLowerCase(), id: parent.id, classes: [...parent.classList], box: box(parent.getBoundingClientRect()), display: parentStyle.display, overflowX: parentStyle.overflowX, overflowY: parentStyle.overflowY } : null,
-    computed, nearbyTargets, ruleCandidates: ruleCandidates.slice(-80),
+    computed, borders, outline, pseudo, clippingAncestors, nearbyTargets, ruleCandidates: ruleCandidates.slice(-80),
     caveat: 'Rule candidates are not the resolved cascade winner; confirm in browser DevTools. Cross-origin stylesheets and shadow DOM are excluded.'
   };
 }

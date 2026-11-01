@@ -16,3 +16,4 @@ points to it.
 | `controls-and-inputs.md` | Precedent: Controls and Inputs | `shared/precedent/controls-and-inputs.md` |
 | `compositions-mobile.md` | Compositions: Mobile and Tablet Family | `shared/design-intelligence/compositions-mobile.md` |
 | `context-adaptation.md` | Design Intelligence: Context Adaptation Contract | `shared/design-intelligence/context-adaptation.md` |
+| `bordline.md` | BORDLINE: Border, Outline, Pseudo-Element, and Clipping Defects | `shared/taxonomies/bordline.md` |

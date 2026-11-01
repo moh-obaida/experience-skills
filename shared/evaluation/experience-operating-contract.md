@@ -87,6 +87,13 @@ reference.
 | Motion is added or changed | Map motion to an event, define reduced-motion behavior, and run the motion scanner when available. |
 | A treatment resembles an AI default | Run the anti-slop justification branch: job, product root, alternative, cost, and failure condition. |
 | A user-facing implementation can run in a browser | Follow the render contract below before claiming a visual result. |
+| A rendered surface looks off in a way checks did not catch (a cut or uneven border, doubled indicator, clipped ring, inconsistent repeated components) | Classify with the BORDLINE and coherence codes and trace to the owning component or token before editing; a defect shared across instances or routes is one finding at its owner. Rerender the same state, size, and zoom afterward. |
+| A screen carries labels, badges, notices, or options that may not earn their place | Give each doubtful element one necessity verdict with proof (keep, remove, merge, relocate, rewrite, conditional display, needs product decision). Safeguards, disclosures, accessibility affordances, critical status, and recovery paths are never removed for looking redundant. |
+| Whole-screen composition is in doubt | Take the first-impression pass and judge allocation and the instrument-to-support relation at screen level; issue one verdict (preserve, local repair, restructure, state-appropriate, preference) before any component edit. Restructure needs a named failing relationship, evidence, user cost, and a reason local repair cannot fix it. |
+| User-facing text is changed or judged | Verify the real product behavior behind each string; keep facts, constraints, localization intent, and legal or financial precision; write each language natively; show the rewrite in its rendered state. |
+| A built feature has several operating states | Choose states from the product's mechanics, reach them, and test transitions: errors follow the attempt and clear on correction, status is not stale, disabled controls say why, focus lands where the user works. |
+| A pattern repeats across routes | Inventory the genuinely shared patterns, classify each difference (intentional, contextual, drift, duplicate implementation, conflicting contract, override regression), and fix the owning component rather than each route. |
+| A visual result is claimed | Rendered captures of the claimed states are viewed and the verdict states coverage. Passing tests, type checks, lint, or a build never establish a visual claim; unrendered claims are NOT VERIFIED IN RENDERED OUTPUT. |
 | The input is a long, imperfect, or contradictory specification — not length alone, but many roles, workflows, states, cross-cutting rules, or a mix of requirements, recommendations, examples, and deferred items | Read `specification-pressure.md` when installed; otherwise triage inline before acting: separate hard requirements from recommendations and examples, keep exact numbers and exceptions bound to their conditions, leave deferred items deferred, and do not let the document's structure become the product's structure. |
 
 If a required file is not installed, use the specialist's documented fallback and label the gap;
@@ -187,6 +194,11 @@ when its trigger is present; do not turn these edges into a fixed pipeline:
 | anti-ai-slop finds generic modal, action, feedback, or persistence behavior | Unresolved product semantics require interaction or state depth | interaction-design or state-design |
 | visual-identity finds the working screen generic because its structure buries the instrument or route job | The structural weakness is independently material and direction alone cannot resolve it | composition-repair |
 | interaction-design changes asynchronous feedback, persistence, recovery, or cross-surface state | The action changes state ownership, transitions, or what users see on return | state-design |
+| composition-review returns RESTRUCTURE | The verdict names a failing relationship with evidence and user cost, and local repair cannot fix it | composition-repair |
+| visual-coherence-audit finds the defect is shared by one component or token across routes | The owner serves several routes | cross-route-consistency (verify every route that inherits the fix) |
+| ui-necessity-audit returns REWRITE or a wording problem in a surviving element | The element stays and its words mislead or repeat | microcopy-quality |
+| state-by-state-review finds a missing or contradictory state model, not only rendering | Ownership, authority, or transitions are undefined | state-design |
+| Any specialist makes a visual change | The change is meaningful and a runnable surface exists | screenshot-acceptance (or the render contract inline) |
 | composition-repair changes responsive hierarchy or the working surface's mobile distribution | The core task, instrument, or supporting panel changes at narrow/short sizes | responsive-validation |
 
 The sender states the trigger and consequence in the handoff. The router checks that every confirmed,

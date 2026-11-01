@@ -43,6 +43,9 @@ a choice. Automate mechanics, preserve judgment. Measure before and after.
 - **Motion explains events.** Arrival, transfer, resolution, change; not decoration.
 - **Rendered truth beats source.** Look at the result; say what was not verified.
 - **Evidence before praise.** Critical is not rude; positive verdicts need reasons too.
+- **One screenshot has a narrow claim.** It shows appearance for that state and size; interaction
+  correctness needs exercised transitions, and green automated tests do not establish experience
+  quality.
 
 ## Context is part of taste
 

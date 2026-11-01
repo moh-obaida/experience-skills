@@ -1,0 +1,115 @@
+<!-- GENERATED FROM shared/taxonomies/state-types.md. DO NOT EDIT DIRECTLY. Edit the source and run `npm run sync`. -->
+
+# State Types
+
+A product is a set of states, not a single screenshot. Use this inventory to find the states
+a surface must handle.
+
+## Data states
+
+| State | Definition | Common failure |
+|---|---|---|
+| EMPTY | Zero items, and none have ever existed | Blank page or filler |
+| FIRST-USE | New user; nothing configured | Tutorial overload or no orientation |
+| SPARSE | One to a few items | Layout designed for many looks broken |
+| NORMAL | Typical volume | Usually the only state designed |
+| DENSE | Many items; long lists | No virtualization, no scanning aids |
+| EXTREME CONTENT | Very long names, huge numbers, missing images, emoji, RTL | Overflow and broken wrapping |
+| FILTERED-EMPTY | Items exist but the filter hides all | Looks like EMPTY; confuses users |
+| SEARCH-EMPTY | Query returns nothing | Dead end without suggestions |
+| STALE | Displayed data may be out of date | Shown as current |
+| ARCHIVED / DELETED | Items removed or hidden | Vanish without trace or undo |
+
+## Activity states
+
+| State | Definition | Common failure |
+|---|---|---|
+| IDLE / READY | Waiting for user action | Unclear what to do next |
+| LOADING | Fetching initial data | Spinner with layout jump |
+| PROCESSING | User-initiated operation in progress | Double submission; no feedback |
+| LONG-RUNNING | Work that takes minutes or more | User forced to wait on the screen |
+| BACKGROUND | Work continues while the user does other things | No indication it is happening |
+| PAUSED | Suspended by user or system | Indistinguishable from failed |
+| PARTIAL | Some items succeeded, some failed | Reported as full success or full failure |
+| SUCCESS | Operation complete | Dead end |
+| COMPLETED | A whole process is over (game ended, course finished) | No next action |
+
+## Failure states
+
+| State | Definition | Common failure |
+|---|---|---|
+| USER-FIXABLE ERROR | Invalid input, missing permission the user can request | Generic message; input lost |
+| TRANSIENT ERROR | Network blip, timeout, rate limit | Shown as permanent failure |
+| RETRYING | System retrying automatically | User not told; retries manually and duplicates |
+| TERMINAL ERROR | Cannot succeed without intervention | "Try again" loop that never works |
+| OFFLINE | No connectivity | Actions silently dropped |
+| RECONNECTING | Connection being restored | Stale data shown as live |
+| PERMISSION DENIED | Access not allowed | Feature appears broken instead of restricted |
+| UNAVAILABLE | Feature or item not available (region, plan, time) | Hidden with no explanation |
+
+## Authority states
+
+| State | Definition |
+|---|---|
+| OPTIMISTIC | UI shows the expected result before the authoritative source confirms |
+| PENDING CONFIRMATION | Sent; awaiting authoritative response |
+| AUTHORITATIVE | Confirmed by the source of truth |
+| CONFLICTED | Local and authoritative state disagree |
+| SAVED-NOT-COMPLETE | Progress persisted but the process is not finished (draft, partial application) |
+
+## Lifecycle and collaboration states
+
+| State | Definition | Common failure |
+|---|---|---|
+| UNTOUCHED | Exists but never edited (a new document, a default configuration) | Treated like user content; or indistinguishable from empty |
+| DEGRADED | Works with reduced capability (a data source down, slow mode) | Presented as fully working |
+| RESTORED | Brought back from archive or trash | Returns without its relationships or with no confirmation |
+| SYNCHRONIZED | Local and authoritative copies agree | Never confirmed, so users keep checking |
+| LOCALLY PENDING | Changed on this device, not yet synced | Looks saved everywhere |
+| COLLABORATIVE | Others are viewing or editing | Silent overwrites; no presence |
+| DISCONNECTED INTEGRATION | A connected service lost access | Features vanish without explanation |
+
+## Presence and context states
+
+- FIRST VISIT vs RETURNING
+- SIGNED OUT vs SIGNED IN
+- ONE PARTICIPANT vs MANY
+- OWNER vs VIEWER vs EDITOR
+- DISABLED (with a reason) vs HIDDEN
+
+## Environment states
+
+- Small, large, short, and wide viewports
+- Touch vs pointer vs keyboard-only vs screen reader
+- Zoom and large text
+- Reduced motion
+- RTL and long translations
+- Slow network, low-end device
+
+## Transport vs product state
+
+Keep two layers separate:
+
+- **Transport state:** did a request succeed? (timeout, 500, offline)
+- **Product state:** what is actually true? (job still running, order placed, answer accepted)
+
+A failed status poll does not mean the job failed. A timeout on submit does not mean the
+payment did not happen. Designs must never collapse these into one message.
+
+## Visibility follows state
+
+A state's information and controls should appear because the state makes them useful, not because
+the component always renders them. For each element on a surface, name the state that makes it
+relevant. Elements that fail the test:
+
+- **Premature:** visible before the state that justifies it (an error before an attempt, a success
+  marker before the mutation finishes, a "no results" message before a search ran).
+- **Lingering:** still visible after the state ended (an error after correction, a spinner after
+  completion, a "saving" label after saving, a retry button after success).
+- **Irrelevant:** present in states where it cannot be used (filters on an empty list, a "Start"
+  control while the minimum has not been met and no reason is given).
+- **Contradictory:** two elements describing different states at once (a "Saved" banner beside an
+  enabled "Save" button with unsaved changes).
+
+The fix is usually at the state boundary: render the element from the state, release its space when
+the state ends, and make sure a transition clears everything the old state owned.

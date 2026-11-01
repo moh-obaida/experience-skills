@@ -91,14 +91,14 @@ with `niche-atlas-index.md`; compare product-relevant systems with `design-syste
 | Composition | Editor fills the center; activity rail and file tree left (collapsible), panels bottom, status bar 22px. Everything else lives in the command palette. |
 | Type | Monospace for code (JetBrains Mono or IBM Plex Mono, 13–14px/1.5); UI in a compact sans (IBM Plex Sans 12–13px). Fallback `ui-monospace, SFMono-Regular, Consolas, monospace`. Arabic in comments: IBM Plex Sans Arabic via fallback. |
 | Color | canvas #1B1D1A · surface #232621 · ink #E4E2D9 · muted #A09E93 · line #34372F · action #D9B45A · on-action #1B1D1A. Warm graphite dark theme; a light theme remaps roles, never inverts syntax colors blindly. |
-| Space and shape | 22px list rows, 4px icon padding; square panels separated by 1px lines; tabs 32px with no radius. |
+| Space and shape | 22px list rows, 4px icon padding; square panels separated by 1px lines; tabs 32px with no radius. Stroke and lift: panes are separated by one 1px line and tabs have no border; the active tab marks itself by fill and a single top line, never both a border and an underline; shadows only on the palette and menus. |
 | Icons and imagery | 16px file-type and codicon-style glyphs; no imagery. |
-| Components | Tabs with dirty dot and close; palette with fuzzy match and shortcut hints; diff with inline and side-by-side modes. Primary actions are commands, not buttons. |
+| Components | Tabs with dirty dot and close; palette with fuzzy match and shortcut hints; diff with inline and side-by-side modes. Primary actions are commands, not buttons. Shown when: the dirty dot shows only on unsaved tabs, indexing progress only while it runs, and the reconnect prompt only on remote disconnect; no welcome tab, tips, or promo panels after first run. Copy: commands read as verbs with their shortcut, and conflicts name the file and the other side. |
 | States | Unsaved and conflicted shown in tab and tree; remote disconnect in status bar with reconnect; indexing progress quietly in status bar. |
 | Responsive | Desktop only for editing; narrow widths collapse panels; tablets get read and review modes. |
 | Motion | None except caret and scroll. |
 | Accessibility | Full keyboard, screen-reader mode for editor, high-contrast theme maintained as a first-class theme. |
-| Build | `--row-h:22px; --tab-h:32px; --status-h:22px; --radius:0`. Theme as role tokens mapped to syntax scopes; test with real 3,000-line files. |
+| Build | `--row-h:22px; --tab-h:32px; --status-h:22px; --radius:0`. Theme as role tokens mapped to syntax scopes; test with real 3,000-line files. Accept: capture a 3,000-line file with an open palette, a conflicted tab, a disconnected remote, and a narrow split at 1440 and a 13-inch laptop, checking tab bar lines are continuous and the focus ring is never clipped by a pane edge. |
 | AI mutation | Rounded glassy panels, neon purple accents, generous padding, animated sidebars. |
 | Fails when | Users are not writing code; marketing pages copying editor chrome as decoration. |
 
@@ -112,14 +112,14 @@ with `niche-atlas-index.md`; compare product-relevant systems with `design-syste
 | Composition | First viewport: one-line description, the install command in a copy block, and the first real output. Then a sequence of command → output pairs that teach the workflow. Reference pages are long single documents with anchored flags. |
 | Type | Monospace for commands and output (JetBrains Mono or Martian Mono); prose in a plain grotesk (Public Sans). 32/16/14/12px. Fallback system mono and `system-ui`. |
 | Color | canvas #FBFBF8 · surface #F1F1EC · ink #141414 · muted #56564F · line #D8D8D0 · action #0E5A46 · on-action #FFFFFF. Output blocks use the real ANSI palette of the tool, adjusted for contrast; no neon. |
-| Space and shape | 8px base; command blocks full-width, square, 1px ruled; 48px between command/output pairs. |
+| Space and shape | 8px base; command blocks full-width, square, 1px ruled; 48px between command/output pairs. Stroke and lift: command blocks have one 1px rule on every side and square corners; the active OS tab changes its underline once; no shadows and no terminal chrome dots. |
 | Icons and imagery | None; output is the imagery. |
-| Components | Copy button inside every command block with "Copied" feedback; OS tabs for install commands remember the choice. Primary action: copy install. |
+| Components | Copy button inside every command block with "Copied" feedback; OS tabs for install commands remember the choice. Primary action: copy install. Shown when: "Copied" feedback appears for two seconds after a copy, the error example sits beside the success example only on pages where failure is common, and the version selector only on reference pages; no decorative terminal frames. Copy: output samples come from the real CLI, and prose states what a command does before showing it. |
 | States | Error examples shown next to success examples with the fix. Offline docs note. Version selector for reference. |
 | Responsive | Command blocks scroll horizontally on phones rather than wrapping commands; prose reflows. |
 | Motion | Copy feedback 150ms; no typing animations (they delay reading). |
 | Accessibility | Code blocks labelled with language; copy buttons have accessible names including the command's purpose. |
-| Build | `--block-pad:16px; --pair-gap:48px`. Generate output samples from the real CLI in CI so they never drift. |
+| Build | `--block-pad:16px; --pair-gap:48px`. Generate output samples from the real CLI in CI so they never drift. Accept: capture the first viewport, a command and output pair, an error and fix pair, and a long flag reference at 1440 and 390, checking blocks scroll horizontally instead of clipping long commands. |
 | AI mutation | Fake macOS terminal window with traffic lights, typewriter animation, green-on-black glow, gradient "Get started" button. |
 | Fails when | The product's users are not command-line users; GUI-first products. |
 
@@ -133,14 +133,14 @@ with `niche-atlas-index.md`; compare product-relevant systems with `design-syste
 | Composition | Top: time range and environment. Grid of service rows (not cards) with status, error rate, latency sparkline, last deploy; firing alerts pinned above. Incident page is a timeline plus linked charts. |
 | Type | Technical sans (IBM Plex Sans) with tabular numerals, mono for identifiers. 20/14/12/11px. Fallback `system-ui`. |
 | Color | canvas #0F1214 · surface #171B1E · ink #E6E9EA · muted #9AA3A8 · line #2A3136 · action #7FC8B5 · on-action #0F1214. Healthy is neutral grey, not green; warning amber, critical red, each with icon and text. |
-| Space and shape | 4px base; rows 36px; charts 2px radius frames; no shadows; 1px lines on dark. |
+| Space and shape | 4px base; rows 36px; charts 2px radius frames; no shadows; 1px lines on dark. Stroke and lift: rows are separated by one 1px line and charts framed by one 2px-radius 1px frame; a firing alert changes the row's fill and label, not a second border; no shadows or glow. |
 | Icons and imagery | Charts are the imagery: line charts with units, time zone, and gaps for missing data. |
-| Components | Alert rows with Acknowledge; time range picker with presets and relative ranges; deploy markers on charts. Primary action in incident: "Roll back" with confirmation that names the version. |
+| Components | Alert rows with Acknowledge; time range picker with presets and relative ranges; deploy markers on charts. Primary action in incident: "Roll back" with confirmation that names the version. Shown when: healthy services show muted values with no badge, the stale age appears only when data is old, and the confirm on Roll back always names the version because it is a safeguard; no celebratory all-clear graphics. Copy: states say what and how long ("No data for 4m"), never a bare "Error". |
 | States | Stale data shows age and greys the value; missing data is a gap, never zero; flapping alerts grouped. All-clear state is a quiet line, not a green trophy. |
 | Responsive | Desktop grid; tablet rows with sparkline; phone: firing alerts list and incident timeline with acknowledge, no dense charts. |
 | Motion | New firing alert slides into the pinned area (150ms) once; values update without animation. Reduced motion: no slide. |
 | Accessibility | Status uses icon + text + color; charts have table alternatives; dark theme text at ≥ 7:1 for primary values. |
-| Build | `--row-h:36px; --status-healthy:var(--muted)`. Refresh with visible last-updated time; never animate numbers. |
+| Build | `--row-h:36px; --status-healthy:var(--muted)`. Refresh with visible last-updated time; never animate numbers. Accept: capture all-clear, one firing alert, a stale service, a gap in data, and the incident page at 1440 and a phone, checking bright color appears only on abnormal rows and chart frames are unclipped. |
 | AI mutation | Glowing gauges, green orbs, neon cyan charts, KPI cards for uptime vanity. |
 | Fails when | Daytime business analytics where storytelling matters; non-technical audiences. |
 
@@ -154,14 +154,14 @@ with `niche-atlas-index.md`; compare product-relevant systems with `design-syste
 | Composition | Left navigation tree by task; center prose at 70ch; right column code samples that stick beside the related paragraph (reference pages) or an on-page outline (guides). Search is prominent. |
 | Type | Grotesk (Schibsted Grotesk or Public Sans) for prose at 16px/1.6; mono for code (IBM Plex Mono 14px). 32/22/16/13px. Arabic docs: IBM Plex Sans Arabic with code kept LTR. |
 | Color | canvas #FFFFFF · surface #F6F5F1 · ink #1A1A18 · muted #5A5A55 · line #DEDDD6 · action #0B4F8A · on-action #FFFFFF. Callouts use left bars (note, warning, danger) with labels. |
-| Space and shape | 8px base; sections 40px; code blocks 4px radius, surface tint; tables ruled. |
+| Space and shape | 8px base; sections 40px; code blocks 4px radius, surface tint; tables ruled. Stroke and lift: code blocks use a tint with one 1px edge and the same 4px radius everywhere; tables use ruled rows; the current nav entry marks itself by weight and a single bar, with no shadows. |
 | Icons and imagery | Diagrams of architecture and request flow, drawn in the doc palette; no stock or abstract art. |
-| Components | Language switcher that syncs all samples; copy on code blocks; parameter tables with type, required, default. Primary action: "Try it" only where a real sandbox exists. |
+| Components | Language switcher that syncs all samples; copy on code blocks; parameter tables with type, required, default. Primary action: "Try it" only where a real sandbox exists. Shown when: the Try it button appears only where a sandbox exists, the deprecation notice only on deprecated items, and the helpful prompt after the content; no sign-up modals over documentation. Copy: parameters state type, required, and default, and examples use real values instead of foo. |
 | States | Deprecated endpoints marked in nav and page; version switcher; "Was this helpful" optional, never a modal. Search empty state suggests related terms. |
 | Responsive | Desktop three columns; tablet samples below paragraphs; phone single column with code scrolling horizontally and nav as a sheet. |
 | Motion | None. |
 | Accessibility | Headings form the outline; code blocks focusable for scrolling; skip to content. |
-| Build | Generate reference from the API schema; `--measure:70ch`. Anchors on every heading and parameter. |
+| Build | Generate reference from the API schema; `--measure:70ch`. Anchors on every heading and parameter. Accept: capture a reference page with synced samples, a deprecated endpoint, a guide with the outline, and search with no results at 1440 and 390, checking code blocks never clip and the sticky sample stays beside its paragraph. |
 | AI mutation | Marketing hero on docs home, cards for every guide, gradient callouts, emoji headings. |
 | Fails when | The audience is non-technical; tutorials need interactivity (use Worked Example). |
 
@@ -175,14 +175,14 @@ with `niche-atlas-index.md`; compare product-relevant systems with `design-syste
 | Composition | Rail of connections/collections; editor pane above results grid (resizable); schema or history drawer. Environment badge fixed in the header with its own color role. |
 | Type | Technical sans for UI (IBM Plex Sans 13px), mono for editor and cells (IBM Plex Mono 13px). Fallback system stacks. |
 | Color | canvas #EEF0F2 · surface #FFFFFF · ink #15191D · muted #50585F · line #CBD1D6 · action #1B5E8C · on-action #FFFFFF. Production environment band #8A1C1C with white text across the header; staging amber; local neutral. |
-| Space and shape | 4px base; grid rows 28px; panes separated by draggable 1px lines; 3px radius controls. |
+| Space and shape | 4px base; grid rows 28px; panes separated by draggable 1px lines; 3px radius controls. Stroke and lift: panes share one draggable 1px line; the environment band is the only strongly colored stroke and cannot be themed away; an error line marks itself in the editor gutter and in the message once. |
 | Icons and imagery | None beyond object glyphs (table, view, function). |
-| Components | Run (Cmd/Ctrl+Enter) with cancel; results grid with column resize, copy as CSV/JSON/INSERT; saved queries. Primary action: Run. |
+| Components | Run (Cmd/Ctrl+Enter) with cancel; results grid with column resize, copy as CSV/JSON/INSERT; saved queries. Primary action: Run. Shown when: the write confirm appears only on production, the truncation note only when a limit cut the result, and the cancel button only while running; no onboarding hints in the editor. Copy: errors quote the line and column and the engine's message, and counts include duration. |
 | States | Error shows line and column with the message; empty result shows row count 0 and query duration; truncated result states limit. Running against production requires the band to be visible and optionally a confirm for writes. |
 | Responsive | Desktop only for authoring; tablet read results; phone view saved queries and results as cards per row (read-only). |
 | Motion | None. |
 | Accessibility | Grid uses proper grid role with keyboard cell navigation; environment conveyed in text. |
-| Build | Virtualized grid; `--cell-h:28px`. Environment color tokens are mandatory and not themeable away. |
+| Build | Virtualized grid; `--cell-h:28px`. Environment color tokens are mandatory and not themeable away. Accept: capture a result grid, an error with position, a zero-row result, a truncated result, and a production connection at 1440 and a short laptop height, checking the environment band is visible in every state. |
 | AI mutation | Results in cards, pastel schema bento, identical colors for prod and dev. |
 | Fails when | Non-technical users exploring data (use a report or dashboard system). |
 
@@ -196,14 +196,14 @@ with `niche-atlas-index.md`; compare product-relevant systems with `design-syste
 | Composition | Queue on the left grouped by severity band; case detail right with entity summary, evidence timeline, and actions. Pivot links on every entity. |
 | Type | Condensed sans for severity labels and case titles (Barlow Semi Condensed or IBM Plex Sans Condensed 600); body in IBM Plex Sans 14px; mono for IPs and hashes. Fallback `system-ui`. |
 | Color | canvas #F2F1EE · surface #FFFFFF · ink #151515 · muted #555350 · line #CFCCC6 · action #8F1D1D · on-action #FFFFFF. Severity bands as tonal blocks: critical deep red, high burnt orange, medium ochre, low slate, each with text label. |
-| Space and shape | 4px base; rows 40px; square corners throughout; severity band 4px left edge plus label. |
+| Space and shape | 4px base; rows 40px; square corners throughout; severity band 4px left edge plus label. Stroke and lift: rows are square with one 4px severity edge and one 1px separator; the selected case changes fill and keeps its severity edge unchanged; no shadows or glows. |
 | Icons and imagery | Evidence charts (event counts over time) and relationship mini-graphs; no shields, padlocks, or world maps. |
-| Components | Keyboard triage (J/K move, A assign, E escalate, F false positive with reason). Bulk close requires reason. Primary action per case is the next response step. |
+| Components | Keyboard triage (J/K move, A assign, E escalate, F false positive with reason). Bulk close requires reason. Primary action per case is the next response step. Shown when: suppressed and duplicate alerts collapse with counts, the SLA text appears only when a timer runs, and the bulk reason field only when closing many; no decorative shields or threat-level gauges. Copy: SLAs read in time ("Breaches in 12m"), and false-positive requires a stated reason. |
 | States | SLA timer in text ("Breaches in 12m"); suppressed and duplicate alerts collapsed with counts; contained entities marked across all views. |
 | Responsive | Desktop split; tablet queue as a drawer; phone: on-call view of critical cases with acknowledge and escalate only. |
 | Motion | New critical alert inserts with a brief highlight (400ms fade). Reduced motion: static highlight. |
 | Accessibility | Severity in text; keyboard shortcuts listed and remappable; high-contrast mode tested. |
-| Build | `--severity-edge:4px; --row-h:40px; --radius:0`. Audit log writes on every state change. |
+| Build | `--severity-edge:4px; --row-h:40px; --radius:0`. Audit log writes on every state change. Accept: capture a mixed-severity queue, a case with evidence, a bulk close, and an SLA breach at 1440 and a tablet, checking the severity edge is 4px and unbroken on every row including the selected one. |
 | AI mutation | Black + neon green hacker palette, radar sweeps, glowing world attack maps, shield icons. |
 | Fails when | Consumer security products (use a reassuring consumer system); low-volume audiences. |
 
@@ -217,14 +217,14 @@ with `niche-atlas-index.md`; compare product-relevant systems with `design-syste
 | Composition | Full-canvas graph with a search box and layer toggles; selection opens a detail panel; a list view mirrors the graph for accessibility and scale. |
 | Type | Technical sans (IBM Plex Sans) at 12–13px on nodes, 15px in panels; mono for addresses. |
 | Color | canvas #F7F8F6 · surface #FFFFFF · ink #1C2320 · muted #52605A · line #C4CEC9 · action #0F5E57 · on-action #FFFFFF. Edge colors encode protocol or health with legends; unhealthy nodes get a thick outline plus icon. |
-| Space and shape | Nodes 6px radius rectangles sized by label; edges 1.5px; groups (VPC, cluster) as dashed containers. |
+| Space and shape | Nodes 6px radius rectangles sized by label; edges 1.5px; groups (VPC, cluster) as dashed containers. Stroke and lift: nodes share one 1px stroke and 6px radius, edges one 1.5px line; group containers use one dashed 1px line; the selected node has one outline, and the focused-neighbors mode dims the rest instead of adding marks. |
 | Icons and imagery | The graph is the diagram; small type glyphs on nodes. |
-| Components | Pan/zoom with keyboard equivalents; "focus on node" reduces to neighbors; path finder between two nodes. |
+| Components | Pan/zoom with keyboard equivalents; "focus on node" reduces to neighbors; path finder between two nodes. Shown when: layer toggles list only layers that exist, the pending-change overlay only when a change is staged, and path highlights only between two chosen nodes; no legend panel open by default. Copy: nodes show their real names and types, and unreachable states say since when. |
 | States | Stale topology timestamp; unreachable nodes; pending change overlay (diff of topology). Empty map explains discovery status. |
 | Responsive | Desktop canvas; tablet canvas with panel as sheet; phone switches to list with neighbors. |
 | Motion | Layout changes animate 250ms so moved nodes can be tracked. Reduced motion: instant with highlight of moved nodes. |
 | Accessibility | List view is complete; graph nodes focusable in logical order. |
-| Build | Deterministic layout seeded per environment so maps are stable between visits. |
+| Build | Deterministic layout seeded per environment so maps are stable between visits. Accept: capture the full map, a focused neighborhood, a path, a pending-change diff, and the mirrored list view at 1440 and 390, checking edges meet node edges and group lines do not cross labels. |
 | AI mutation | Glowing particles along edges, 3D globe, dark neon canvas. |
 | Fails when | Relationships are simple or hierarchical (a tree or table is faster). |
 
@@ -238,14 +238,14 @@ with `niche-atlas-index.md`; compare product-relevant systems with `design-syste
 | Composition | Top bar with project and environment switch; vertical timeline of deploys/builds, each row with commit message, author, duration, status; detail expands inline with step logs. |
 | Type | Grotesk (Hanken Grotesk) 14px rows, mono for SHAs and logs. 24/15/13/12px. |
 | Color | canvas #FAFAF8 · surface #FFFFFF · ink #1B1B19 · muted #5B5B55 · line #DAD9D2 · action #264F2E · on-action #FFFFFF. Status roles: running blue, passed dark green text, failed red, cancelled grey, each with icon. |
-| Space and shape | Rows 52px; timeline spine 2px; 4px radius on status chips only. |
+| Space and shape | Rows 52px; timeline spine 2px; 4px radius on status chips only. Stroke and lift: the 2px spine is the only continuous line, rows have no borders, and status chips are the only rounded elements; the running row adds a fill and the failing row an edge color, not a second chip. |
 | Icons and imagery | Status icons; none else. |
-| Components | Rerun, cancel, promote, roll back as explicit buttons on the row; log viewer with search and jump to first error. |
+| Components | Rerun, cancel, promote, roll back as explicit buttons on the row; log viewer with search and jump to first error. Shown when: Cancel appears only on running rows, Roll back only on completed deploys, and the first-error jump only when logs have errors; no summary charts above the list. Copy: rows state what happened ("Deployed a3f9c2 to production in 3m 12s"), and rollbacks name what they replaced. |
 | States | Queued vs running distinguished; flaky test annotation; rollback rows reference what they replaced. Empty: shows setup command. |
 | Responsive | Desktop full rows; phone condensed rows with status and message; logs full-screen. |
 | Motion | Running status uses a static spinner glyph that rotates slowly; completion replaces it. Reduced motion: static "Running". |
 | Accessibility | Status in text; log viewer keyboard searchable. |
-| Build | Stream logs; `--row-h:52px`. Durations tabular. |
+| Build | Stream logs; `--row-h:52px`. Durations tabular. Accept: capture a mixed history, a running build, a failed build with the first error, and an empty project, checking the spine stays unbroken through expanded rows at 1440 and 390. |
 | AI mutation | Pipeline drawn as glowing nodes, confetti on green builds, gradient progress bars. |
 | Fails when | Teams need to plan work (use Plan Grid) or watch runtime health (Night Watch). |
 
@@ -259,14 +259,14 @@ with `niche-atlas-index.md`; compare product-relevant systems with `design-syste
 | Composition | Each step: short explanation (serif), a worked example (mono), then the learner's attempt area (editor or real terminal) with a Check button; progress path in a slim top strip. |
 | Type | Reading serif for explanation (Literata 18px/1.6), sans for UI (Source Sans 3), mono for code (JetBrains Mono 15px). Arabic explanation: Noto Naskh Arabic with code kept LTR. |
 | Color | canvas #F5F2EA · surface #FFFDF8 · ink #22201C · muted #5E594F · line #D8D1C2 · action #2C5E4F · on-action #FFFFFF. Feedback: correct green text with check, wrong amber with explanation (never red shame). |
-| Space and shape | 8px base; steps separated by 56px; editor 6px radius; paper sheet on warm canvas. |
+| Space and shape | 8px base; steps separated by 56px; editor 6px radius; paper sheet on warm canvas. Stroke and lift: the editor has one 1px stroke and 6px radius, and the paper sheet separates by tone with no shadow; Check owns the only filled button, and a failed check marks the exact line once. |
 | Icons and imagery | Diagrams of concepts (file trees, pipes, memory) drawn simply; no mascot. |
-| Components | Check gives specific feedback ("You listed files but not hidden ones; add -a"). Hint ladder: nudge, partial, solution. Primary action: Check; secondary: Hint. |
+| Components | Check gives specific feedback ("You listed files but not hidden ones; add -a"). Hint ladder: nudge, partial, solution. Primary action: Check; secondary: Hint. Shown when: the hint ladder shows one rung at a time, the worked solution only after three attempts, and the reset notice only after a reset; no points or badges. Copy: feedback names the specific miss ("You listed files but not hidden ones; add -a"), and never says "Wrong". |
 | States | Stuck after 3 attempts offers the worked solution with explanation; sandbox reset clearly labelled; resumed lesson returns to the exact step. |
 | Responsive | Desktop explanation left, practice right; tablet stacked; phone: read-only lessons plus quizzes when a real terminal is not practical, stated honestly. |
 | Motion | Correct answer: brief check draw and step unlock (250ms). Reduced motion: static. |
 | Accessibility | Feedback announced; editor accessible; diagrams have text descriptions. |
-| Build | Evaluate answers by behavior, not string match, where possible; `--step-gap:56px`. |
+| Build | Evaluate answers by behavior, not string match, where possible; `--step-gap:56px`. Accept: capture a step with the attempt area, a failing check, the hint ladder, a stuck solution, and a resumed lesson at 1440 and 390, checking the editor border is complete and the terminal keeps its width. |
 | AI mutation | XP bars, streak fires, neon terminals, mascots, confetti on every line. |
 | Fails when | Experts need reference, not lessons (use Reference Manual). |
 
@@ -282,14 +282,14 @@ with `niche-atlas-index.md`; compare product-relevant systems with `design-syste
 | Composition | First viewport: what it is in one sentence, a real code or output sample, and key numbers with units. Then ruled sections: capabilities, limits, pricing table, compatibility matrix, changelog excerpt. |
 | Type | Mono for headings and numbers (IBM Plex Mono 600), sans for body (IBM Plex Sans 16px). 40/20/16/13px. |
 | Color | canvas #FFFFFF · surface #F4F4F0 · ink #111111 · muted #555555 · line #D6D6D0 · action #A33A00 · on-action #FFFFFF. One accent for primary action and links. |
-| Space and shape | 8px base; ruled sections 64px apart; tables with 1px rules; square everything. |
+| Space and shape | 8px base; ruled sections 64px apart; tables with 1px rules; square everything. Stroke and lift: tables use 1px rules with square corners and no shadows; sections are separated by whitespace and one rule, not boxes; links underline, with no border treatment. |
 | Icons and imagery | Real product output, screenshots at 1:1, architecture diagram; no abstract art. |
-| Components | Pricing table with exact limits; "Copy install" and "Read docs" as the two actions, labelled by outcome. |
+| Components | Pricing table with exact limits; "Copy install" and "Read docs" as the two actions, labelled by outcome. Shown when: the status link is always visible, the deprecated mark only on deprecated features, and the changelog excerpt only when there is a recent change; no testimonial strips or logo walls above the numbers. Copy: numbers carry units and limits carry their conditions. |
 | States | Status link visible; deprecated features marked. |
 | Responsive | Tables become stacked definitions on phones; code samples scroll. |
 | Motion | None. |
 | Accessibility | Real tables; numbers with units in text. |
-| Build | Pull limits and prices from the same source as the product to avoid drift. |
+| Build | Pull limits and prices from the same source as the product to avoid drift. Accept: capture the first viewport, a long pricing table, and a compatibility matrix at 1440 and 390, checking tables scroll without clipping their rules and that limits match the product's own source. |
 | AI mutation | Centered gradient hero, floating dashboard mockup, logo strip, three icon feature cards, "Supercharge your workflow". |
 | Fails when | Non-technical buyers; emotional or brand-led launches. |
 

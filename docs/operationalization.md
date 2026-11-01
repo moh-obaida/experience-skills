@@ -25,6 +25,7 @@ principle to the places where it forces a different branch, measurement, or comp
 | Meaningful runnable UI must earn rendered claims | shared operating contract; architect and responsive completion criteria; explicit exception branch | rendered-evidence telemetry plus `NOT VERIFIED IN RENDERED OUTPUT` requirement |
 | Specialist handoff follows unresolved evidence | architect recipes and every specialist's transfer artifact | `recipes.md`; specialist output fields and completion checks |
 | Reference reads must cause a decision | shared operating contract conditional-loading table; direction/composition/workflow/state branches | required-reference telemetry and completion-signal fields |
+| Judge quality beyond component polish | visual-coherence-audit, ui-necessity-audit, composition-review, microcopy-quality, state-by-state-review, cross-route-consistency, and screenshot-acceptance activate only when their evidence can change the verdict | BORDLINE and text probes gather candidates; inspect the actual route, state, viewport, and interaction before claiming a result |
 
 ## Honest gaps
 

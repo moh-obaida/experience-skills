@@ -3,7 +3,7 @@ name: state-design
 description: "Use this skill whenever a product has important state changes, progression, reset, completion, loading, saving, syncing, errors, or a primary journey that breaks between tasks. Model state ownership and transitions, including initialization, preserved and reset data, feedback, focus, recovery, and completion to continuation. Separate machine or simulation state from progress, UI, account, session, and remote state; verify the repeated path rather than listing states alone."
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -35,6 +35,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -65,6 +69,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 
 - The problem is layout at one state → composition-repair.
 - The problem is specifically how an empty surface looks → empty-state-design.
+- A built feature's states and transitions need an audit (premature, stale, or lingering errors; irrelevant controls) → state-by-state-review; this skill designs the model and contracts.
 
 ## Mandatory conditional loading
 
@@ -95,6 +100,7 @@ If asynchronous, empty, failure, or collaborative state is in scope, MUST load `
 9. **Include lifecycle and collaboration states** from the taxonomy (untouched, degraded, restored, synchronized, locally pending, collaborative, disconnected integration) when the product has sync, sharing, or integrations.
 
 10. **Transitions and ownership:** for primary, frequent, destructive, or hard-to-recover transitions, record trigger, prior/next state, preserved/reset data, visible feedback, focus destination, and failure path. Separate domain, progress, machine/simulation, session, account, remote, and temporary UI state. Check valid initialization; reset semantics; outcome-based completion with alternate valid methods; locked/available/active/completed/mastered/review-needed consistency; and immediate completion → next unlock across rerender and reload.
+11. **Visibility follows state:** for every element, message, and control in each state, can you name the state that makes it useful? No → it is premature, lingering, or irrelevant: render it from the state, clear it on exit, and release its space (`references/_shared/state-types.md`). Specify when each error appears (after the attempt that can cause it), when it clears, and where focus goes. After building, hand the rendered audit to state-by-state-review when the surface has several states.
 
 ## Workflow
 

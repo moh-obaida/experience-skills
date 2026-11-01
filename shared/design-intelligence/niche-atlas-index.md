@@ -51,6 +51,8 @@ decisions, not a uniform template: a system may say "none" for imagery or motion
 decision. Color rows give seven roles (`canvas`, `surface`, `ink`, `muted`, `line`, `action`,
 `on-action`) whose text pairs meet 4.5:1; validation computes them.
 
+Four quality decisions live inside the existing rows as labeled clauses, so an entry cannot quietly allow the defects that checks miss. `Stroke and lift:` (Space and shape) states the stroke rule per component role, which single element owns the selected and hover indicator, and the elevation policy. `Shown when:` (Components) names what appears only in the state that makes it useful and what the system refuses to show. `Copy:` (Components or States) says how this product names objects, actions, and errors. `Accept:` (Build) names the rendered captures, states, sizes, and directions that show the signature trait holds. They are product decisions, never a template: a clause that could be pasted into another entry unchanged is wrong. States rows cover a failure and a waiting or empty case, and say when each appears and clears.
+
 The entry should carry a usable visual contract across its thesis and layer decisions; it does not
 need a second paragraph that repeats them. A designer should be able to derive the intended energy
 and rhythm, where color and strongest contrast enter or recede, the type and geometry attitude, the
@@ -102,6 +104,9 @@ Apply before accepting an authored or derived system, and again after adapting o
 9. Does the core instrument retain authority, and does the working screen pass silhouette and grayscale comparison?
 10. Can its visual contract be derived from the thesis and layer rows: emotional and interaction energy, color/contrast hierarchy, type and geometry attitude, rhythm, instrument prominence, and a product-grounded response (or intentional stillness)?
 11. Would a different system be needed when its stated tradeoff or rejection condition applies?
+12. Does Space and shape state a stroke rule and an elevation policy, with one owner for the selected and hover indicator and no second layer on the same edge?
+13. Does Components say what appears only in a given state and what the system will not show, without trading away a safeguard, disclosure, accessibility affordance, or recovery path? Do States cover a failure and a waiting or empty case, with when each appears and clears?
+14. Do Copy and Accept name wording that reflects real behavior and the rendered captures (narrow, error, and right-to-left where supported) that would show the system failing?
 
 Any "no" (or "yes" for 1–2) → redesign or reject. Record the answer in the selected-system artifact.
 

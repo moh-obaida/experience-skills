@@ -72,14 +72,14 @@ and offline tolerance. Load a profile only when its realities affect a decision;
 | Composition | Timetable list grouped by week: session name, date, time, length, price, seats left, Book; session page with what you'll make, what's included, photos from past sessions, location. |
 | Type | Slab serif headings (Roboto Slab or Zilla Slab), humanist body (Source Sans 3 17px). Arabic: Noto Kufi Arabic headings, Noto Sans Arabic body. |
 | Color | canvas #F4EFE6 · surface #FFFDF9 · ink #26211B · muted #5E574D · line #D9CFBF · action #8A3B1B · on-action #FFFFFF. Studio's own color can replace the accent after contrast check. |
-| Space and shape | 4px radius; rows 64px; paper surface. |
+| Space and shape | 4px radius; rows 64px; paper surface. Stroke and lift: rows are ruled by one 1px line on a paper surface; a full session dims and gains a label, not a border; the Book button owns the only filled stroke; no shadows. |
 | Icons and imagery | Photography from the studio: hands, materials, finished pieces. |
-| Components | Seat count selector, deposit or full payment, add to calendar, gift a session. |
-| States | Few seats left stated as number; full with waitlist; cancelled with refund info. |
+| Components | Seat count selector, deposit or full payment, add to calendar, gift a session. Shown when: the seat count shows as a number only when few remain, the waitlist only on full sessions, and refund terms on cancelled ones; the deposit rule sits beside the price at all times because it is a payment term. Copy: sessions say what you will make, and prices state what is included. |
+| States | Few seats left stated as number; full with waitlist; cancelled with refund info. A failed payment keeps the seats held for a stated time; a studio with no sessions says when the next ones are published. |
 | Responsive | Phone first; single column. |
 | Motion | None. |
 | Accessibility | Dates and times in full text; accessibility info for venue. |
-| Build | Owner edits sessions from phone; capacity enforced server-side. |
+| Build | Owner edits sessions from phone; capacity enforced server-side. Accept: capture the timetable, a full session, a cancelled session, and a gift flow at 390 and a laptop, checking row rules are even and the photo has a complete edge. |
 | AI mutation | Purple glow SaaS hero, stock textures, icon feature cards. |
 | Fails when | Large venues with seat maps (use Seat Plan). |
 
@@ -93,14 +93,14 @@ and offline tolerance. Load a profile only when its realities affect a decision;
 | Composition | Map center with technician positions and job pins; left list of unassigned jobs with windows; bottom timeline per technician; detail drawer. |
 | Type | Technical sans (IBM Plex Sans 13–14px). Arabic: IBM Plex Sans Arabic. |
 | Color | canvas #F1F3F2 · surface #FFFFFF · ink #151918 · muted #4E5653 · line #C9D0CD · action #1C5A70 · on-action #FFFFFF. Job states: unassigned, scheduled, en route, on site, done, late, each with glyph and label. |
-| Space and shape | 4px radius; 40px rows. |
+| Space and shape | 4px radius; 40px rows. Stroke and lift: panels share one 1px line; the selected job highlights on the map pin and in the list by one shared color, so it has one mark per surface; the muted base map carries no borders; shadows only on the drawer. |
 | Icons and imagery | Map with muted base. |
-| Components | Drag job to technician timeline; notify customer; reassign. |
-| States | Late technician flagged with ETA; job overrun; technician offline. |
+| Components | Drag job to technician timeline; notify customer; reassign. Shown when: the late flag appears only past a stated threshold, the offline mark only for unreachable technicians, and the customer-notify action only after a time change; no decorative traffic overlays. Copy: flags state the job and the cause ("Running 25 min late, previous job overran"). |
+| States | Late technician flagged with ETA; job overrun; technician offline. An unassigned queue of zero says all jobs are assigned; a failed reassign keeps the job in place and says why. |
 | Responsive | Desktop; technician app separate (phone). |
 | Motion | Technician markers move smoothly with updates. Reduced motion: position jumps. |
 | Accessibility | List and timeline complete without map. |
-| Build | Time windows per job; routing API. |
+| Build | Time windows per job; routing API. Accept: capture the map with a late technician, an overrun, an offline technician, and a drag in progress at 1440 and a tablet, checking pins and timeline bars are not clipped at the panel edges. |
 | AI mutation | Animated trucks, neon routes, KPI cards. |
 | Fails when | Customer-facing tracking (use Parcel Track). |
 
@@ -114,14 +114,14 @@ and offline tolerance. Load a profile only when its realities affect a decision;
 | Composition | Poster header with event name, date, venue, from-price including fees; ticket tiers list; performers and practical info below; venue accessibility. |
 | Type | Condensed display (Big Shoulders Display or Oswald), body sans (Barlow 16px). Arabic: Lalezar or Cairo display. |
 | Color | canvas #FFFFFF · surface #F4F2EE · ink #121212 · muted #575757 · line #DDDAD4 · action #B5121B · on-action #FFFFFF. Event artwork supplies color; UI stays neutral around it. |
-| Space and shape | Square; full-bleed poster. |
+| Space and shape | Square; full-bleed poster. Stroke and lift: the poster is full-bleed with no frame; tiers are separated by one 1px rule, and the selected tier changes fill and shows one check; nothing has a shadow except the sticky total bar. |
 | Icons and imagery | Performer and event photography. |
-| Components | Tier selection with total price; queue with position; tickets to wallet; transfer. |
-| States | On sale soon with time; queue; sold out with resale; postponed. |
+| Components | Tier selection with total price; queue with position; tickets to wallet; transfer. Shown when: the queue position appears only during a queue, resale only on sold-out events, and the postponed notice with the new date or refund rights; the price always includes fees. Copy: prices show the total including fees, and dates carry time zone and doors time. |
+| States | On sale soon with time; queue; sold out with resale; postponed. A failed payment keeps the tickets held for the stated time; an event not yet on sale shows the sale date and a reminder. |
 | Responsive | Phone first. |
 | Motion | Queue position updates. Reduced motion: text only. |
 | Accessibility | Accessible seating info; captioned videos. |
-| Build | Fees included in displayed prices. |
+| Build | Fees included in displayed prices. Accept: capture the poster header, tier selection, a queue, a sold-out event, and a postponed event at 390 and a laptop, checking the from-price matches the checkout total and the poster crop keeps the name. |
 | AI mutation | Fake countdowns, hidden fees, glass cards. |
 | Fails when | Organizer tools. |
 
@@ -135,14 +135,14 @@ and offline tolerance. Load a profile only when its realities affect a decision;
 | Composition | Venue plan with sections; zoom to seats; legend of price levels; selection summary panel with total; step: seats, tickets, pay. |
 | Type | Grotesk (Hanken Grotesk 14px). |
 | Color | canvas #F6F6F4 · surface #FFFFFF · ink #161615 · muted #555552 · line #D4D4CF · action #1F4F7A · on-action #FFFFFF. Price levels as four hues with pattern and legend; unavailable seats hatched. |
-| Space and shape | Seats as rounded squares 16px; 8px radius panels. |
+| Space and shape | Seats as rounded squares 16px; 8px radius panels. Stroke and lift: seats are rounded squares with no border; the selected seat shows one outline and a number, the taken seat a muted fill and an X, so the two states do not share a mark; panels carry one 1px line. |
 | Icons and imagery | The seat plan. |
-| Components | Best available, choose seats, accessible seats filter, view from seat. |
-| States | Seat taken during selection; hold timer in text; companion seats. |
+| Components | Best available, choose seats, accessible seats filter, view from seat. Shown when: the hold timer shows after the first seat is chosen, the view-from-seat only on request, and the companion-seat note only when relevant; accessible seats are never hidden by a filter. Copy: price levels name the price and the legend letter, and a taken-seat message offers the nearest alternatives. |
+| States | Seat taken during selection; hold timer in text; companion seats. A seat taken during selection says so and keeps the rest of the choice; an expired hold returns to the plan with the seats released. |
 | Responsive | Phone: section list then seat zoom; desktop plan. |
 | Motion | Zoom into section. Reduced motion: jump. |
 | Accessibility | List alternative for seat selection. |
-| Build | Seat holds server-side. |
+| Build | Seat holds server-side. Accept: capture the full plan, a zoomed section, a taken seat, an accessible filter, and an expired hold at 390 and a laptop, checking seat outlines are complete and tappable at the smallest zoom. |
 | AI mutation | 3D stadium flythroughs, neon seats. |
 | Fails when | General admission. |
 
@@ -156,14 +156,14 @@ and offline tolerance. Load a profile only when its realities affect a decision;
 | Composition | Sidebar: Shipments, Exceptions, Carriers, Reports. Shipment ledger: reference, origin, destination, status, ETA, last event; detail with event log. |
 | Type | Mono for references (IBM Plex Mono 13px), sans for text (IBM Plex Sans). |
 | Color | canvas #F3F3F1 · surface #FFFFFF · ink #131312 · muted #52524F · line #CDCDC8 · action #1E4F63 · on-action #FFFFFF. Exception amber and red with labels. |
-| Space and shape | 32px rows; square; ruled. |
+| Space and shape | 32px rows; square; ruled. Stroke and lift: the ledger uses a 1px row rule, square corners, and no cell borders; an exception row changes its status label and a left edge once; no shadows. |
 | Icons and imagery | None. |
-| Components | Bulk update, exception resolution with reason, export, notify customer. |
-| States | Exception, delayed, customs hold, delivered with proof. |
+| Components | Bulk update, exception resolution with reason, export, notify customer. Shown when: the proof of delivery appears only on delivered rows, the customs-hold reason only on held rows, and bulk actions only when rows are selected; no summary tiles above the ledger. Copy: statuses use the carrier's terms with the time, and exceptions name the cause and the next action. |
+| States | Exception, delayed, customs hold, delivered with proof. An empty exceptions list says no exceptions and the time it was last checked; a failed bulk update lists the rows that did not change. |
 | Responsive | Desktop; phone exception queue. |
 | Motion | None. |
 | Accessibility | Table semantics. |
-| Build | Event log append-only. |
+| Build | Event log append-only. Accept: capture a ledger, a filtered exceptions view, a bulk update, and a shipment detail at 1440 and a tablet, checking row rules and status columns align. |
 | AI mutation | Animated globes and trucks, KPI tiles. |
 | Fails when | Consumer tracking. |
 
@@ -177,14 +177,14 @@ and offline tolerance. Load a profile only when its realities affect a decision;
 | Composition | ETA window large; status step; map when out for delivery; timeline of events; delivery options (leave with neighbor, reschedule). |
 | Type | Rounded sans (Nunito Sans 17px). Arabic: Tajawal. |
 | Color | canvas #F5F7F6 · surface #FFFFFF · ink #1A1F1D · muted #525C58 · line #D5DDDA · action #1B6254 · on-action #FFFFFF. |
-| Space and shape | 16px radius blocks. |
+| Space and shape | 16px radius blocks. Stroke and lift: blocks are tonal with no borders; the current timeline step shows one filled node and a line, and past steps a hollow node; the map has no frame; no shadows. |
 | Icons and imagery | Map with driver position near delivery only. |
-| Components | Change delivery, contact support, proof of delivery photo. |
-| States | Delayed with reason; failed attempt with next steps; delivered with photo. |
+| Components | Change delivery, contact support, proof of delivery photo. Shown when: the map appears only when out for delivery, delivery options only before the attempt, and the proof photo only after delivery; no ads or upsells on the page. Copy: the ETA is a window with the date, and a failed attempt states the next step. |
+| States | Delayed with reason; failed attempt with next steps; delivered with photo. A parcel with no scans yet says it has not been picked up and when to check again; an expired link says so and offers the carrier contact. |
 | Responsive | Phone first. |
 | Motion | Driver marker updates smoothly. Reduced motion: position updates. |
 | Accessibility | ETA in text. |
-| Build | Public link with minimal data. |
+| Build | Public link with minimal data. Accept: capture in transit, out for delivery with the map, a failed attempt, and delivered with a photo at 390 on a slow connection, checking the ETA is the largest element and the timeline line is continuous. |
 | AI mutation | Animated truck mascots, vague ETAs. |
 | Fails when | Operators. |
 
@@ -198,14 +198,14 @@ and offline tolerance. Load a profile only when its realities affect a decision;
 | Composition | Stage: location (aisle-bay-shelf) at 48px, item photo and name, quantity to pick; scan field auto-focused; short pick and problem buttons. |
 | Type | Condensed display for locations and quantities (Barlow Condensed 700), sans body (Barlow 18px). |
 | Color | canvas #FFFFFF · surface #F2F2F2 · ink #000000 · muted #4A4A4A · line #000000 · action #0B3D91 · on-action #FFFFFF. Correct scan full-screen green with check and sound; wrong scan red with message and vibration. |
-| Space and shape | 3px outlines; square; buttons 64px. |
+| Space and shape | 3px outlines; square; buttons 64px. Stroke and lift: every element carries the same 3px outline and square corners; the scan field owns the strongest outline, and an error changes the field's color and message once; no shadows. |
 | Icons and imagery | Product images for verification. |
-| Components | Scan, short pick, damaged, skip with reason. |
-| States | Wrong item scanned; location empty; batch complete. |
+| Components | Scan, short pick, damaged, skip with reason. Shown when: the short-pick button appears next to the quantity, the damaged option only after a scan, and the batch-complete screen only at the end; no menu during a pick. Copy: location and quantity are the only large text, and errors say "Wrong item, scan again". |
+| States | Wrong item scanned; location empty; batch complete. A scanner disconnect says so and queues work locally; an empty batch says no tasks and shows the last sync. |
 | Responsive | Handheld portrait 360–480px. |
 | Motion | None; feedback via color, sound, vibration. |
 | Accessibility | High contrast for sunlight and cold rooms; glove targets. |
-| Build | Offline queue; scanner input as keyboard wedge. |
+| Build | Offline queue; scanner input as keyboard wedge. Accept: capture a pick, a wrong scan, an empty location, and batch complete on the handheld in glare and with a glove, checking targets are 64px and the outline is unbroken at the screen edge. |
 | AI mutation | Soft pastel cards, small targets, confirmation modals per scan. |
 | Fails when | Back-office analysis. |
 
@@ -219,14 +219,14 @@ and offline tolerance. Load a profile only when its realities affect a decision;
 | Composition | Sidebar: Items, Locations, Purchase orders, Transfers, Counts. Item list with SKU, name, on hand, available, reorder point; detail with levels by location and movement history. |
 | Type | Humanist sans (Source Sans 3 14px), tabular. |
 | Color | canvas #EFF1F0 · surface #FFFFFF · ink #161917 · muted #4F5652 · line #C9D0CC · action #2B5D3F · on-action #FFFFFF. Below reorder point amber with text. |
-| Space and shape | 36px rows; 4px radius. |
+| Space and shape | 36px rows; 4px radius. Stroke and lift: rows have one 1px rule and no card borders; a flagged negative stock shows a label and a left edge once; the open item changes fill; no shadows except menus. |
 | Icons and imagery | Small product thumbnails. |
-| Components | Adjust stock with reason, create PO from low stock, transfer. |
-| States | Negative stock flagged; pending receipt; count in progress locks item. |
+| Components | Adjust stock with reason, create PO from low stock, transfer. Shown when: the pending-receipt note appears only on items with a receipt, the count lock only while a count runs, and the create-PO action only for low stock; no inventory value charts above the list. Copy: reasons for adjustments are required and named, and levels carry units. |
+| States | Negative stock flagged; pending receipt; count in progress locks item. A failed adjustment keeps the form and says why; an empty location says no stock and offers a transfer. |
 | Responsive | Desktop; phone lookup. |
 | Motion | None. |
 | Accessibility | Table semantics. |
-| Build | Movements ledger as source of truth. |
+| Build | Movements ledger as source of truth. Accept: capture the item list with thousands of rows, a negative stock, a count in progress, and a PO from low stock at 1440 and a tablet, checking the virtualized rows keep their rules unbroken. |
 | AI mutation | KPI tiles, charts over lists. |
 | Fails when | Handheld tasks (Pick Path). |
 
@@ -240,14 +240,14 @@ and offline tolerance. Load a profile only when its realities affect a decision;
 | Composition | Left: item keys grouped by category tabs; right: ticket with lines, modifiers, totals, Pay. |
 | Type | Grotesk (Work Sans 18px on keys). Arabic: IBM Plex Sans Arabic. |
 | Color | canvas #EDEEEA · surface #FFFFFF · ink #161714 · muted #52544E · line #CFD1CA · action #1D5B3C · on-action #FFFFFF. Categories as tonal key colors with labels. |
-| Space and shape | Keys 80px, 8px radius, 8px gaps. |
+| Space and shape | Keys 80px, 8px radius, 8px gaps. Stroke and lift: keys are 80px with one 1px border and 8px radius; a pressed key shows a quick fill and no animation, and the selected tab changes weight and an underline; no shadows on keys. |
 | Icons and imagery | None (or small product photos optional). |
-| Components | Modifiers sheet, discount with permission, split bill, refund with manager approval. |
-| States | Offline payments queued; declined card; void with reason. |
+| Components | Modifiers sheet, discount with permission, split bill, refund with manager approval. Shown when: the modifier sheet opens only for items with modifiers, the manager approval only for refunds and large discounts, and the offline notice only while offline; no upsell prompts. Copy: lines name the item and modifiers in the staff's own words, and a void asks for a reason. |
+| States | Offline payments queued; declined card; void with reason. A declined card keeps the ticket and offers another method; an empty ticket shows the keys and no totals. |
 | Responsive | Tablet landscape; phone for mobile checkout. |
 | Motion | Key press feedback immediate (50ms); line added highlight. Reduced motion: none. |
 | Accessibility | Large keys; high contrast mode. |
-| Build | Offline-first; payment terminal integration. |
+| Build | Offline-first; payment terminal integration. Accept: capture a busy ticket, a modifier sheet, a declined card, and offline mode on a counter tablet in bright light, checking keys never shift layout between taps and the ticket stays visible. |
 | AI mutation | Consumer app look, small keys, animations delaying taps. |
 | Fails when | Back-office reporting. |
 
@@ -261,14 +261,14 @@ and offline tolerance. Load a profile only when its realities affect a decision;
 | Composition | Grid of map, vehicle status table, incident list, and service adherence; designed for large displays with operator workstation detail. |
 | Type | Technical sans (IBM Plex Sans), large sizes for wall (20px minimum). |
 | Color | canvas #111416 · surface #1A1F22 · ink #E9EDEF · muted #9EA8AE · line #2B3237 · action #6FC2D0 · on-action #111416. Incident severity with icon and label. |
-| Space and shape | Tonal blocks; 4px radius. |
+| Space and shape | Tonal blocks; 4px radius. Stroke and lift: blocks differ by tone with one 1px line; an incident changes its row label and a left edge once; route lines on the map are the only strong strokes; no glow or shadows. |
 | Icons and imagery | Maps with route lines. |
-| Components | Acknowledge incident, contact vehicle, reroute. |
-| States | Vehicle off route; communication lost; service gap. |
+| Components | Acknowledge incident, contact vehicle, reroute. Shown when: the off-route mark appears only past a threshold, the communication-lost state only on the vehicle affected, and the service-gap note only for gaps; quiet when normal, with no decorative counters. Copy: incidents name the vehicle, place, and time ("Bus 214, Route 9, 14:02"). |
+| States | Vehicle off route; communication lost; service gap. A feed that goes stale shows its age and greys the value; an all-normal wall shows a quiet summary line. |
 | Responsive | Wall displays and desktop workstations. |
 | Motion | Vehicle positions update smoothly; new incident highlight. Reduced motion: jumps. |
 | Accessibility | Status not color-only; readable at distance. |
-| Build | Real-time feeds with staleness indicators. |
+| Build | Real-time feeds with staleness indicators. Accept: capture normal operation, one incident, a stale feed, and a rerouting action on a large display and a workstation, checking text at the viewing distance is legible and block edges are unbroken. |
 | AI mutation | Glowing neon maps, 3D cities. |
 | Fails when | Customer-facing. |
 

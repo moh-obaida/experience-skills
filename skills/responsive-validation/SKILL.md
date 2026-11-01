@@ -4,7 +4,7 @@ description: "Use this skill whenever a user-facing workflow must survive a chan
 license: MIT
 compatibility: "The layout-report script needs Node.js 18+ and Playwright (or playwright-core with an installed Chrome). The checklist works without it."
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -35,6 +35,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -88,6 +92,7 @@ If a meaningful layout change can run, MUST load `references/validation-matrix.m
 7. **Before trusting any layout with ideal content, run `scripts/stress-content.mjs`** (long text, unbroken strings, RTL) at the narrowest and primary sizes; report only failures the stress introduced.
 
 8. **Workflow continuity:** on a narrow/short screen, repeatedly use the core instrument, open a secondary surface, return, recover focus, and continue with the on-screen keyboard visible. Check that the instrument remains usable and that conditional controls are still reachable. Preserve true RTL UI while commands, paths, code, and numeric syntax stay LTR where appropriate. A screenshot alone does not verify this.
+9. **At every breakpoint where the layout changes:** inspect border continuity, clipping, control continuity (same controls, same sizes, same order of importance), and composition in the render, not only overflow numbers. Run `scripts/layout-report.mjs --coherence` for stroke and repeated-component candidates per size (BORDLINE codes in `references/_shared/bordline.md`); a border that disappears, a ring that is cut, or a card that loses a side at one width is a responsive defect.
 
 ## Workflow
 

@@ -38,8 +38,9 @@ Env:
                      logged in, or ANTHROPIC_API_KEY must be set.
 
 Each run: a fresh temporary project containing the scenario's fixtures; for "with", all skills
-copied to .claude/skills/. Review runs are read-only. Edit runs enable file changes and record a
-before/after file snapshot plus changed files. The judge sees only the scenario and the answer.`;
+copied to the selected agent's project skill directory. Review runs are read-only. Edit runs enable
+file changes and record a before/after file snapshot plus changed files. The judge sees only the
+scenario and the answer.`;
 
 function parse(argv) {
   const opts = { conditions: ['with', 'without'], maxTurns: 30, parallel: 2, agent: 'claude', mode: 'review', repeat: 1 };
@@ -108,7 +109,8 @@ function snapshotProject(root) {
   const files = {};
   const visit = (dir) => {
     for (const entry of readdirSync(dir)) {
-      if (entry === '.claude' || entry === '.benchmark' || entry === '.git' || entry === 'node_modules') continue;
+      if (entry === '.claude' || entry === '.benchmark' || entry === '.git' || entry === 'node_modules'
+        || (dir === join(root, '.agents') && entry === 'skills')) continue;
       const path = join(dir, entry);
       const rel = path.slice(root.length + 1);
       if (statSync(path).isDirectory()) visit(path);
@@ -119,22 +121,23 @@ function snapshotProject(root) {
   return files;
 }
 
-function prepareProject(entry, condition) {
+function prepareProject(entry, condition, agent) {
   const dir = mkdtempSync(join(tmpdir(), `xs-eval-${basename(entry.file, '.md')}-${condition}-`));
   for (const [dest, src] of Object.entries(entry.fixtures ?? {})) cpSync(join(ROOT, src), join(dir, dest));
   writeFileSync(join(dir, 'README.md'), '# Product under review\n\nFiles in this folder belong to the product described in the request.\n');
   mkdirSync(join(dir, '.benchmark'), { recursive: true });
   cpSync(join(ROOT, 'scripts', 'eval-render.mjs'), join(dir, '.benchmark', 'render.mjs'));
   if (condition === 'with') {
-    mkdirSync(join(dir, '.claude', 'skills'), { recursive: true });
-    cpSync(join(ROOT, 'skills'), join(dir, '.claude', 'skills'), { recursive: true });
+    const skillDirectory = agent === 'codex' ? join(dir, '.agents', 'skills') : join(dir, '.claude', 'skills');
+    mkdirSync(skillDirectory, { recursive: true });
+    cpSync(join(ROOT, 'skills'), skillDirectory, { recursive: true });
   }
   return dir;
 }
 
 async function runOne(entry, scenario, condition, opts, outDir, sample = 1) {
   const id = basename(entry.file, '.md');
-  const project = prepareProject(entry, condition);
+  const project = prepareProject(entry, condition, opts.agent);
   const mode = opts.mode !== 'review' ? opts.mode : (entry.mode ?? scenario.mode ?? 'review');
   const runOpts = { ...opts, mode };
   const scenarioId = opts.repeat > 1 ? `${id}#${sample}` : id;

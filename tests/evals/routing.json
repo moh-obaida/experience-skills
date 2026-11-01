@@ -513,9 +513,147 @@
         "use-all-skills",
         "state-design"
       ]
+    },
+    {
+      "input": "The one selected tab underline is doubled on hover and its focus ring is clipped by the tab strip. Trace the cause and tell me whether the CSS or shared component owns it.",
+      "expected": [
+        "visual-coherence-audit",
+        "interface-forensics"
+      ],
+      "notExpected": [
+        "ui-necessity-audit",
+        "composition-review",
+        "microcopy-quality",
+        "state-by-state-review",
+        "cross-route-consistency",
+        "screenshot-acceptance",
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "The live game is centered on status cards while the question and answer controls are buried. Diagnose the whole-screen hierarchy before proposing any repair.",
+      "expected": [
+        "composition-review"
+      ],
+      "notExpected": [
+        "visual-identity",
+        "ui-necessity-audit",
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "The lobby repeats a team count and a healthy connection pill next to the labeled teams. Decide which information needs to stay and when it should appear.",
+      "expected": [
+        "ui-necessity-audit"
+      ],
+      "notExpected": [
+        "composition-review",
+        "cross-route-consistency",
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "Review the join prompt, the vague FIRST IN and NEXT answer labels, and an ordinary validation message that exposes ERR_204 and a payload path.",
+      "expected": [
+        "microcopy-quality"
+      ],
+      "notExpected": [
+        "ui-necessity-audit",
+        "state-by-state-review",
+        "anti-ai-slop",
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "Audit the empty, invalid, corrected, saving, and success states. An error appears before the host acts and remains after correction; Saved appears while the request is still pending.",
+      "expected": [
+        "state-by-state-review"
+      ],
+      "notExpected": [
+        "state-design",
+        "microcopy-quality",
+        "visual-coherence-audit",
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "Our public page, dashboard, and editor implement the language selector, selected tabs, primary buttons, and the same invalid-code error differently. Find the shared owner and keep legitimate page differences.",
+      "expected": [
+        "cross-route-consistency"
+      ],
+      "notExpected": [
+        "visual-identity",
+        "composition-review",
+        "ui-necessity-audit",
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "Compare the before and after join flow at desktop and phone sizes, then inspect the Arabic error state and keyboard focus. Report what the rendered evidence actually shows.",
+      "expected": [
+        "screenshot-acceptance",
+        "responsive-validation"
+      ],
+      "notExpected": [
+        "visual-identity",
+        "composition-repair",
+        "use-all-skills"
+      ]
+    },
+    {
+      "input": "Audit this multi-route classroom game: clipped strokes, redundant lobby UI, a buried question, vague answer labels, premature errors, and inconsistent language controls appear across its states. Repair material issues and verify the changed routes.",
+      "expected": [
+        "experience-architect",
+        "use-all-skills",
+        "visual-coherence-audit",
+        "ui-necessity-audit",
+        "composition-review",
+        "microcopy-quality",
+        "state-by-state-review",
+        "cross-route-consistency",
+        "screenshot-acceptance"
+      ],
+      "notExpected": []
+    },
+    {
+      "input": "Everything passes tests, but please inspect this rendered screen at its relevant size and state. If the task is clear and the interface is already coherent, recommend no redesign.",
+      "expected": [
+        "screenshot-acceptance"
+      ],
+      "notExpected": [
+        "visual-identity",
+        "composition-repair",
+        "anti-slop-ui",
+        "use-all-skills"
+      ]
     }
   ],
   "scenarios": [
+    {
+      "file": "tests/scenarios/experience-quality-review.md",
+      "expected": [
+        "use-all-skills",
+        "visual-coherence-audit",
+        "ui-necessity-audit",
+        "composition-review",
+        "microcopy-quality",
+        "state-by-state-review",
+        "cross-route-consistency",
+        "screenshot-acceptance"
+      ],
+      "fixtures": {
+        "visual.html": "tests/fixtures/pages/bordline-defects.html",
+        "clean.html": "tests/fixtures/pages/bordline-clean.html",
+        "necessity.html": "tests/fixtures/pages/experience-necessity.html",
+        "composition.html": "tests/fixtures/pages/experience-composition.html",
+        "copy.html": "tests/fixtures/pages/experience-microcopy.html",
+        "states.html": "tests/fixtures/pages/experience-states.html",
+        "routes.html": "tests/fixtures/pages/experience-cross-route.html",
+        "acceptance.html": "tests/fixtures/pages/experience-acceptance.html"
+      },
+      "mode": "review",
+      "anchor": "experience-quality-v1.1"
+    },
     {
       "file": "tests/scenarios/blank-saas-dashboard.md",
       "expected": [

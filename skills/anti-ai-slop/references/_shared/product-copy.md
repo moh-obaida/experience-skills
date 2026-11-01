@@ -159,3 +159,37 @@ Before shipping a string, check it against:
 Short, literal, idiom-free strings translate better and are less likely to break layouts in longer
 languages. Generic marketing phrases are often the hardest to translate naturally — another reason
 specific, concrete copy tends to travel better across languages than aspirational copy.
+
+## Accuracy before voice
+
+Natural-sounding copy that misstates the product is worse than stiff copy that is right. Check
+meaning first, tone second. Each failure below has a different fix.
+
+| Failure | What it looks like (invented examples) | Fix |
+|---|---|---|
+| Misleading implication | "Already have a template?" above an importer that accepts any spreadsheet. It implies templates are the only supported format | Name the real input: "Import a spreadsheet" with the accepted formats where they matter |
+| Wrong assumption | "Welcome back" to a first visit; "your team" to a solo user; "26 playable letters" shown to someone who never chose a letter set | State only what is true for this user and state |
+| Ambiguous label | "FIRST IN" and "NEXT" as answer-order labels when players cannot tell whether they mean who answered first, who answers next, or the order of questions | Say what is ordered: "Fastest correct answer scores first"; or show the order with the thing it orders |
+| Unclear term | "Board size" meaning the number of cells to some users and the number of players to others | Use the term the user already uses; define it once, in place, if it is domain vocabulary |
+| Internal terminology | An error that reads `ROOM_CODE_INVALID`, or a button that says "Hydrate" | Replace with the user's concept. Keep identifiers in diagnostics, support views, and admin tools, where they help |
+| Error with no recovery | "Invalid input" | Say which field, what is wrong, and what is accepted: "Room codes are 4 letters. Check the code on the host screen" |
+| Contradiction | A banner says "All changes saved" beside a button that says "Save changes" in its enabled state | Make the states agree, then make the words match |
+| Repetition | The same sentence in a heading, a subheading, and a tooltip; pricing repeated in each tier card as prose | Say it once, where the decision is made; link from the others |
+| Vague action | "Submit," "Continue," "OK" on a screen with two possible continuations | Label by outcome: "Create quiz," "Join game" |
+| Over-explaining the obvious | "Click the button below to proceed" | Delete. The button is the instruction |
+
+## When longer is right
+
+Do not shorten a message automatically. A longer explanation is correct when the decision is
+consequential or the situation is complicated: a deletion that cannot be undone, a billing change
+that renews on a date, a permission that exposes data, a failure the user can fix in only one way.
+Length that carries a consequence, a condition, or a recovery step earns its place; length that
+restates the interface does not.
+
+## Preserving meaning in a rewrite
+
+A rewrite changes words, not facts. Before accepting one, confirm that it keeps the functional
+meaning, the product's actual behavior, every constraint (limits, dates, eligibility, units,
+currency), the localization intent, accessibility (labels still name controls; error text still
+associates with its field), the appropriate tone for the moment, and any legal or financial
+precision. If you cannot verify a fact in the new wording, do not invent it; ask or mark it.

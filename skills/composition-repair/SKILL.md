@@ -4,7 +4,7 @@ description: "Use this skill whenever a page, screen, dashboard, or view looks e
 license: MIT
 compatibility: "Measurement scripts need Node.js 18+ and Playwright (or playwright-core with an installed Chrome). All guidance works without them."
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -36,6 +36,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -61,12 +65,14 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - Sticky headers, footers, or toolbars eat a short viewport.
 - A layout changed and must be verified in the rendered result.
 - Someone called a sparse page "premium" or "spacious" without evidence.
+- A composition-review verdict of RESTRUCTURE or LOCAL REPAIR arrives with a handoff.
 
 ## Do not use this when
 
 - The structure is sound and the problem is identity ("generic") → visual-identity.
 - The data is genuinely empty → empty-state-design first.
 - The task is a regression sweep across many sizes → responsive-validation.
+- Whether the screen needs restructuring at all is unclear → composition-review diagnoses first; this skill repairs.
 
 ## Mandatory conditional loading
 
@@ -103,6 +109,7 @@ If structure or whitespace changes, MUST load `references/_shared/compositions-i
     `references/hierarchy-and-alignment.md`; for content-to-container ratio or negative space, load
     `references/viewport-and-space.md`. Preserve justified sparse or dense composition. A good
     layout may need no change.
+13. **When a composition-review handoff arrives:** repair only the named failing relationship, keep its preserve list, and verify its expected attention or allocation change. If your own inspection contradicts the verdict, state the evidence instead of silently widening or discarding it. Without a verdict on a PAGE-scope or larger screen, make the preserve, local-repair, or restructure call yourself before restyling anything.
 
 ## Workflow
 
@@ -140,9 +147,7 @@ If structure or whitespace changes, MUST load `references/_shared/compositions-i
 
 ## Execution rules
 
-- Use the product's existing grid, spacing scale, and components; new values become tokens.
-- Fixed heights on content containers are suspicious; they clip real content.
-- Never hide overflow without finding what overflows.
+- Use the product's existing grid, spacing scale, and components; new values become tokens. Fixed heights on content containers clip real content; never hide overflow without finding what overflows.
 - Keep DOM order aligned with visual order; headings in order; reflow at 320 CSS px.
 
 ## Precedent and design intelligence
@@ -165,19 +170,14 @@ Adapted third-party material in the composition files is credited in `references
 
 ## Failure modes
 
-- Re-centering harder: a bigger lonely card with a shadow.
-- Filler added to look full.
-- Container reflex.
-- Fixing 1440px and breaking 360px.
-- Declaring success from CSS.
+Re-centering harder; filler added to look full; the container reflex; fixing 1440px and breaking 360px; declaring success from CSS.
 
 ## Completion criteria
 
 - Visual attention and surface allocation match P0 and supporting roles; the diagnosed relationship
   improved in the before/after renders, or that delta is explicitly unverified.
 - The first viewport shows what the user needs first; remaining space has a stated job.
-- No overflow, collisions, or clipping at checked sizes (measured where possible).
-- Grouping works without boxing everything.
+- No overflow, collisions, or clipping at checked sizes (measured where possible); grouping works without boxing everything.
 - Evidence levels stated; unverified sizes and states listed.
 - When restructuring materially, use a named composition from `compositions-index.md` only if it improves the observed layout; a product-derived composition is valid. Any needed handoff includes P0,
   viewport budget, dead regions, responsive behavior, and verification status.

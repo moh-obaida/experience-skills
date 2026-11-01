@@ -1,7 +1,7 @@
 // Unit tests for the agent evaluation harness helpers (no agent is run).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -158,6 +158,25 @@ test('run-agent-evals --help and --dry-run work without calling an agent', () =>
   assert.match(build.stdout, /codex-not-called exec --json/);
 });
 
+test('Codex eval installs all skills under the Codex project discovery directory', () => {
+  const script = join(ROOT, 'scripts', 'run-agent-evals.mjs');
+  const result = spawnSync(process.execPath, [script, '--dry-run', '--keep', '--agent', 'codex', '--conditions', 'with', '--scenarios', 'experience-quality-review'], {
+    encoding: 'utf8', env: { ...process.env, CODEX_BIN: 'codex-not-called' },
+  });
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /DRY RUN: 1 runs/);
+  const project = result.stdout.match(/cwd=(.+)/)?.[1]?.trim();
+  assert.ok(project, result.stdout);
+  try {
+    const installed = join(project, '.agents', 'skills');
+    assert.equal(readdirSync(installed).length, 22);
+    assert.ok(existsSync(join(installed, 'visual-coherence-audit', 'SKILL.md')));
+    assert.equal(existsSync(join(project, '.claude', 'skills')), false);
+  } finally {
+    rmSync(project, { recursive: true, force: true });
+  }
+});
+
 
 test('full pass signals reward selective build and journey verification', () => {
   const event = (item) => JSON.stringify({ type: 'item.completed', item: item.type === 'command_execution' ? { exit_code: 0, ...item } : item });
@@ -192,6 +211,8 @@ test('Codex shell read parser expands brace paths and observed wildcard headings
   assert.deepEqual(wildcard.skills, ['use-all-skills','visual-identity']);
   const delimited = shellSkillReads('for f in .claude/skills/*/SKILL.md; do printf "===== %s =====" "$f"; cat "$f"; done', '===== .claude/skills/workflow-compression/SKILL.md =====\n===== .claude/skills/anti-slop-ui/SKILL.md =====');
   assert.deepEqual(delimited.skills, ['workflow-compression','anti-slop-ui']);
+  const projectSkill = shellSkillReads('cat .agents/skills/screenshot-acceptance/SKILL.md');
+  assert.deepEqual(projectSkill.skills, ['screenshot-acceptance']);
 });
 
 test('a denied browser preview is not rendered evidence', () => {

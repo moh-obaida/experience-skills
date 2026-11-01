@@ -19,3 +19,4 @@ points to it.
 | `interruptions-and-consent.md` | Precedent: Interruptions, Overlays, and Consent | `shared/precedent/interruptions-and-consent.md` |
 | `known-context-and-defaults.md` | Precedent: Using What the Product Already Knows | `shared/precedent/known-context-and-defaults.md` |
 | `controls-and-inputs.md` | Precedent: Controls and Inputs | `shared/precedent/controls-and-inputs.md` |
+| `control-necessity.md` | Control and Content Necessity | `shared/anti-patterns/control-necessity.md` |

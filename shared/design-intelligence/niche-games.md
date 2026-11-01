@@ -89,14 +89,14 @@ from a couch, a phone, or a controller. Load a profile through `niche-atlas-inde
 | Composition | Full-bleed key art or live 3D scene; HUD-style edges: party top-left, currencies top-right, mode and Play bottom-right, social panel right. Post-match: result banner, personal performance row, team scoreboard table, progression bars. |
 | Type | Condensed display for states and numbers (Barlow Condensed 700 or Saira Condensed; fallback `Arial Narrow, sans-serif`), clean sans for body (Barlow 16px). Scales for 10-foot UI: body ≥ 24px at 1080p TV. Arabic: Cairo or Changa for display, Noto Sans Arabic body. |
 | Color | canvas #0E1116 · surface #161B22 · ink #F2F4F7 · muted #A1A9B5 · line #2A313B · action #F2C14E · on-action #0E1116. Team roles blue #4EA3F2 and orange #F28C4E, each paired with a shape (chevron, diamond); rank tiers named, not only colored. |
-| Space and shape | 8px base; square panels with 2px accent edges; Play button 64px tall; safe-area margins 5% for TV. |
+| Space and shape | 8px base; square panels with 2px accent edges; Play button 64px tall; safe-area margins 5% for TV. Stroke and lift: one 2px accent edge per panel, never a full box plus an edge; the focused slot owns the focus frame and nothing else marks it; no shadows, depth comes from tonal steps. |
 | Icons and imagery | Key art, character renders, mode art; icons as solid glyphs readable at 24px. |
-| Components | Focusable grid navigation with visible focus frame; Ready/Play states with countdown; loadout slots with compare. Primary action: Play (or Accept when a match is found). |
+| Components | Focusable grid navigation with visible focus frame; Ready/Play states with countdown; loadout slots with compare. Primary action: Play (or Accept when a match is found). Shown when: party, currency, and social panels sit at screen edges only in menus and fade out during a match; connection status is silent while healthy and becomes the reconnect overlay when lost; no decorative rank badges outside ranked screens. Copy: states say the loop stage and the wait ("Searching, 0:42 of about 1:30"), never "Please wait". |
 | States | Queue shows elapsed and estimated time with cancel; match found accept timer with sound and vibration; reconnecting overlay with countdown and "Rejoin"; degraded server banner. |
 | Responsive | TV/PC 16:9 first; ultrawide keeps HUD within 16:9 safe area; mobile landscape uses thumb zones and larger targets. |
 | Motion | Choreographed transitions between loop stages (300–500ms), result reveal sequence, rank-up celebration once; menus respond within 100ms. Reduced motion: cuts. |
 | Accessibility | Colorblind team presets, text size, subtitles, controller remapping, focus order sane with D-pad. |
-| Build | UI state machine mirrors the loop (lobby, queue, found, loading, match, post); `--focus-frame:3px solid var(--action)`. |
+| Build | UI state machine mirrors the loop (lobby, queue, found, loading, match, post); `--focus-frame:3px solid var(--action)`. Accept: capture lobby, queue, match found, reconnecting, and post-match at 16:9 TV size and phone landscape, with the D-pad focus frame visible and uncut at every screen edge. |
 | AI mutation | SaaS sidebar with neon gradient, cards for scoreboard, hover-only menus, glass everywhere. |
 | Fails when | Casual or cozy games; players new to the genre who need gentle onboarding. |
 
@@ -110,14 +110,14 @@ from a couch, a phone, or a controller. Load a profile through `niche-atlas-inde
 | Composition | Big stage showing the room code and players on the TV; phones show only the player's current choice. Rules as three illustrated steps. |
 | Type | Rounded heavy sans (Fredoka or Baloo 2), 48–96px on TV, 20px body on phones. Arabic: Baloo Bhaijaan 2. |
 | Color | canvas #FFF4DC · surface #FFFFFF · ink #231A12 · muted #5E4E3E · line #231A12 · action #C2410C · on-action #FFFFFF. Player colors are six saturated roles with names and patterns. |
-| Space and shape | 3px ink outlines, 20px radii, offset solid shadows (4px, ink) for pressable things only; targets ≥ 56px. |
+| Space and shape | 3px ink outlines, 20px radii, offset solid shadows (4px, ink) for pressable things only; targets ≥ 56px. Stroke and lift: every shape has the same 3px ink outline; only pressable things carry the offset shadow, and pressing flattens it, so a shadow always means "tap me" and never marks selection. |
 | Icons and imagery | Illustrated characters and props from the game's world. |
-| Components | Standard input for the join code (large, numeric keyboard); Ready button; host controls separated. |
+| Components | Standard input for the join code (large, numeric keyboard); Ready button; host controls separated. Shown when: the rules strip appears only to a first-time player and the host's controls only on the host's phone; the TV shows no connection pill, only who is missing; no counts that repeat what the player row already shows. Copy: short verbs a child can read aloud ("Pick one", "Waiting for Sam"), never codes or "Error". |
 | States | Waiting for players shows who is missing; host left promotes a new host; late joiners spectate. |
 | Responsive | TV 16:9 stage; phones portrait controllers; tablet can be both. |
 | Motion | Bouncy entrances for players joining (spring), celebration on round win; controls themselves do not bounce. Reduced motion: fades. |
 | Accessibility | Big text, colorblind-safe player roles with patterns, audio cues with captions. |
-| Build | `--outline:3px solid var(--ink); --press-shadow:4px 4px 0 var(--ink)`. Test the join flow on a slow phone. |
+| Build | `--outline:3px solid var(--ink); --press-shadow:4px 4px 0 var(--ink)`. Test the join flow on a slow phone. Accept: capture the join, waiting, round, and host-left states on the TV and on a 360px phone, and confirm the outline is continuous around every rounded shape with the shadow clipped by nothing. |
 | AI mutation | Glass cards, gradient code boxes with glowing segments, dark SaaS UI. |
 | Fails when | Competitive or serious games; long-session management menus. |
 
@@ -131,14 +131,14 @@ from a couch, a phone, or a controller. Load a profile through `niche-atlas-inde
 | Composition | Map fills the screen; resource bar top; selected entity panel bottom-left; alerts/right-side event stack; ledgers and trees as full-screen overlays. |
 | Type | Classical serif for headings and names (Cormorant SC or EB Garamond), compact sans for numbers and tooltips (Source Sans 3 with tabular figures). Arabic: Amiri headings, Noto Sans Arabic data. |
 | Color | canvas #E9E2D0 · surface #F5F0E3 · ink #231F17 · muted #5A5140 · line #BFB39A · action #5B2A1A · on-action #FFFFFF. Faction colors with emblem shapes; map overlays (supply, loyalty) use sequential scales with legends. |
-| Space and shape | Panels with 2px radius and engraved-rule borders; dense 28px rows in ledgers. |
+| Space and shape | Panels with 2px radius and engraved-rule borders; dense 28px rows in ledgers. Stroke and lift: panels use one engraved double rule on every side; a selected entity is marked once, by its map symbol halo, not also by a panel border; no shadows over the map. |
 | Icons and imagery | The map and its cartographic symbols; resource icons with labels on hover and in a legend. |
-| Components | Nested tooltips (hover a term to explain it); turn summary listing consequences; order queue editable. Primary action: End turn with warnings of idle units. |
+| Components | Nested tooltips (hover a term to explain it); turn summary listing consequences; order queue editable. Primary action: End turn with warnings of idle units. Shown when: tooltips open on hover or focus only and never repeat a label already on screen; the alert stack shows only items that change a decision this turn; no standing tutorial banner after the first game. Copy: ledgers use the game's own terms with units ("-3 food per turn"), and a warning names the unit or city at fault. |
 | States | Unassigned units, starving cities, and threats listed before End turn; fog of war clear; autosave notice. |
 | Responsive | Desktop first; UI scale setting 80–150%; handheld PCs need larger panels. |
 | Motion | Units move with causal paths; numbers change with brief highlight; no ambient UI motion. Reduced motion: instant with highlight. |
 | Accessibility | UI scale, colorblind map modes, full hotkey remapping, tooltips reachable via keyboard. |
-| Build | Tooltip system with term registry; ledger tables sortable. |
+| Build | Tooltip system with term registry; ledger tables sortable. Accept: capture the map with a panel open, the End turn warning list, and a full ledger at 1440 and a tablet width, checking that rules stay continuous where panels meet the map edge. |
 | AI mutation | Minimalist hiding of numbers, neon sci-fi HUD in a historical setting, generic icon grids. |
 | Fails when | Action games; casual audiences. |
 
@@ -152,14 +152,14 @@ from a couch, a phone, or a controller. Load a profile through `niche-atlas-inde
 | Composition | Tabs across the top (Gear, Journal, Map, Craft); Gear shows character figure with slots, inventory grid, and a compare panel that appears on focus. Journal is a two-page spread. |
 | Type | Book serif for names and lore (Alegreya or Spectral), sans for stats (Alegreya Sans). Arabic: Aref Ruqaa for decorative titles only, Noto Naskh Arabic for text. |
 | Color | canvas #1C1814 · surface #26201A · ink #EDE3D1 · muted #A89A84 · line #3A3128 · action #C99A4B · on-action #1C1814. Rarity tiers named and shaped (border style), not color alone. |
-| Space and shape | Item slots square with worn edges (texture), panels 6px radius, journal pages square: radius tells object type. |
+| Space and shape | Item slots square with worn edges (texture), panels 6px radius, journal pages square: radius tells object type. Stroke and lift: slots keep one worn edge texture and the same 1px stroke; the focused slot swaps the edge color and adds no second ring; panels sit flat on the texture with no drop shadow. |
 | Icons and imagery | Painted item icons, parchment and leather textures at low contrast behind text. |
-| Components | Compare shows deltas (+12 armor) with arrows and color; sort and filter inventory; mark junk. |
+| Components | Compare shows deltas (+12 armor) with arrows and color; sort and filter inventory; mark junk. Shown when: the compare panel appears only when an item has focus, new-item marks clear after the first view, and quest text shows only the active step; no permanent stat badges on every slot. Copy: item and quest text uses the world's voice, but requirements stay literal ("Needs Smithing 12"). |
 | States | New items marked once, then cleared; overweight shown in the header with consequence; locked recipes explain requirements. |
 | Responsive | TV/PC; handheld needs 1.3x scale; controller focus is primary. |
 | Motion | Ambient: candle flicker or page turn when opening the journal (under 400ms); focus moves instantly. Reduced motion: no ambient. |
 | Accessibility | Text scale, texture opacity slider, deltas in text. |
-| Build | Texture as low-opacity background images under solid text surfaces; never text directly on high-contrast texture. |
+| Build | Texture as low-opacity background images under solid text surfaces; never text directly on high-contrast texture. Accept: capture the inventory with compare open, an overweight header, and a locked recipe, and verify text sits on solid surfaces and slot edges are uncut at the grid boundary. |
 | AI mutation | Flat web inventory, new-badges everywhere, hidden compare. |
 | Fails when | Competitive shooters or casual games where speed matters more than immersion. |
 
@@ -173,14 +173,14 @@ from a couch, a phone, or a controller. Load a profile through `niche-atlas-inde
 | Composition | The play field is the page; title and "Press Space / Tap to start" over it; controls legend at the bottom; score and share after game over. |
 | Type | Pixel font for titles and scores (Pixelify Sans or Silkscreen), readable sans for instructions (Rubik 16px) because pixel fonts fail at body sizes. |
 | Color | canvas #0B1F1E · surface #12302E · ink #F4F1DE · muted #A9C2BB · line #F4F1DE · action #F2A541 · on-action #0B1F1E. |
-| Space and shape | Integer scaling of pixel art; 2px outlines; square buttons. |
+| Space and shape | Integer scaling of pixel art; 2px outlines; square buttons. Stroke and lift: every button and panel has the same 2px outline and square corners; no shadows, and the pressed state shifts one pixel instead of adding a layer. |
 | Icons and imagery | The game's own sprites. |
-| Components | Pause on blur, mute toggle, share score, leaderboard optional. |
+| Components | Pause on blur, mute toggle, share score, leaderboard optional. Shown when: the controls legend shows until the first input, the mute toggle shows only if the game has audio, and the leaderboard row shows only after a score exists; nothing but the play field appears during play. Copy: one imperative line to start ("Press Space"), and a game-over line that names the score. |
 | States | Audio blocked until first interaction explained by an icon; offline play; loading bar for assets over 1s. |
 | Responsive | Canvas scales by integer factors; touch controls appear on touch devices; rotate prompt only when essential. |
 | Motion | Screen shake and flashes limited and optional; game over sequence under 1s. Reduced motion: no shake, no flashes. |
 | Accessibility | Photosensitivity: no flashes over 3 per second; remappable keys. |
-| Build | `image-rendering: pixelated`; request animation frame with pause on visibility change. |
+| Build | `image-rendering: pixelated`; request animation frame with pause on visibility change. Accept: capture title, play, pause-on-blur, audio blocked, and game over at integer scales on desktop and a phone, confirming outlines stay pixel-aligned and unblurred. |
 | AI mutation | Landing page before the game, sign-up modal, SaaS nav bar. |
 | Fails when | Games needing long menus or account systems. |
 
@@ -194,14 +194,14 @@ from a couch, a phone, or a controller. Load a profile through `niche-atlas-inde
 | Composition | Sidebar with library filters and friends; main grid of cover art (2:3) with install state; game page with hero art, Play button, and update/news beneath. |
 | Type | Grotesk (Hanken Grotesk or Manrope 14–15px); game titles use their own logos on game pages only. |
 | Color | canvas #121315 · surface #1B1D20 · ink #ECEDEE · muted #9EA2A8 · line #2C2F33 · action #8FC1B5 · on-action #121315. |
-| Space and shape | 16px grid gaps; 4px radius covers; panels layered by tone. |
+| Space and shape | 16px grid gaps; 4px radius covers; panels layered by tone. Stroke and lift: covers carry no border; the selected cover gets one 2px action stroke inset inside its tile so the grid never clips it; surfaces are separated by tone, not shadow. |
 | Icons and imagery | Official cover art and screenshots; missing art shows title on a neutral tile, never a broken frame. |
-| Components | Play/Install/Update as one state-aware button; download queue with pause and bandwidth. |
+| Components | Play/Install/Update as one state-aware button; download queue with pause and bandwidth. Shown when: update, verify, and server-status chips appear only when that state is true; an installed and current game shows no badge at all; the download queue is hidden when empty. Copy: the single state button says what happens ("Install 24 GB", "Update", "Play"). |
 | States | Updating with size and time; verifying files; offline mode label; server status per game. |
 | Responsive | Desktop; big-picture mode for controllers with larger tiles and focus navigation; phone remote install. |
 | Motion | Cover hover lifts 2px; download progress smooth. Reduced motion: none. |
 | Accessibility | Controller focus visible; state in text. |
-| Build | Single source of truth for install state; `--cover-ratio:2/3`. |
+| Build | Single source of truth for install state; `--cover-ratio:2/3`. Accept: capture the grid with installed, updating, and missing-art tiles and a game page at desktop and phone, checking the selected stroke is complete on every tile in the grid edges. |
 | AI mutation | Promotional carousels dominating library, gradient cards, empty artwork frames. |
 | Fails when | Single-game products; stores selling to new players (needs merchandising). |
 
@@ -215,14 +215,14 @@ from a couch, a phone, or a controller. Load a profile through `niche-atlas-inde
 | Composition | Party members as player cards across the center-bottom over the live scene (characters in the world); tabs: Party, Friends, Invites, Recent; voice indicators on each member. |
 | Type | Humanist sans (Nunito Sans or Figtree 16px), names 18px semibold. Arabic: Noto Sans Arabic; names render in their own script. |
 | Color | canvas #10141A · surface #1A2029 · ink #F0F3F6 · muted #A3ADBA · line #2B3440 · action #FF7A59 · on-action #10141A. Overlay panels at 85% surface with blur so the world stays visible. |
-| Space and shape | 10px radius cards, 12px gaps, focus frames 3px. |
+| Space and shape | 10px radius cards, 12px gaps, focus frames 3px. Stroke and lift: player cards share one 1px stroke; the ready state changes the card's fill, and the speaking state owns a separate 3px ring, so one card never shows both as the same signal; blur is the only depth. |
 | Icons and imagery | Avatars, banners, and characters chosen by players. |
-| Components | Invite, join, kick (host), mute, report; ready toggle. |
+| Components | Invite, join, kick (host), mute, report; ready toggle. Shown when: the kick control appears only to the host, the report control only on another player, and the voice indicator only while someone speaks; the pending-invite badge disappears once answered. Copy: states name the person and the action ("Mira is deciding"), not "Pending". |
 | States | Invite pending, member loading, member in another mode, cross-platform label, blocked user hidden. |
 | Responsive | Controller focus on TV; PC mouse; mobile bottom sheet. |
 | Motion | Member joins with a slide-up (200ms); speaking indicator pulses with voice level. Reduced motion: static speaking icon. |
 | Accessibility | Speaking indicators have text in screen-reader mode; captioned voice when available. |
-| Build | Blur only over live 3D scenes; solid fallback on low-end devices. |
+| Build | Blur only over live 3D scenes; solid fallback on low-end devices. Accept: capture a full party, an invite pending, a member in another mode, and the low-end solid fallback, with focus frames uncut on the screen edge cards. |
 | AI mutation | Glass over a flat background, gradient avatars, dashboard-style friend stats. |
 | Fails when | Single-player games; web communities (use social niche). |
 
@@ -236,14 +236,14 @@ from a couch, a phone, or a controller. Load a profile through `niche-atlas-inde
 | Composition | Bottom tabs (Stats, Builds, Map, News); searchable indexes of items, heroes, or weapons with sortable columns; detail pages with stat tables. |
 | Type | Technical sans with tabular figures (Rubik or IBM Plex Sans 14px). |
 | Color | canvas #F3F4F6 · surface #FFFFFF · ink #14171C · muted #515865 · line #CDD2DA · action #0D5C63 · on-action #FFFFFF. Game roles (classes, elements) mapped to named colors with icons. |
-| Space and shape | 44px rows, 4px radius, bordered tables. |
+| Space and shape | 44px rows, 4px radius, bordered tables. Stroke and lift: tables use one 1px row rule and a 1px outer stroke, with no cell borders; the sorted column owns its header marker alone; no shadows on a phone. |
 | Icons and imagery | Official item icons, charts of win rates and trends. |
-| Components | Search with filters, compare two items, save builds, share links. |
+| Components | Search with filters, compare two items, save builds, share links. Shown when: the patch version appears on every stat but a stale-data label appears only after a newer patch exists; compare mode shows only the two chosen items; no ad or tip banners above the table. Copy: stat names match the game's in-game words, and stale labels say which patch they are from. |
 | States | Patch version on every stat; stale data after patch flagged; offline cached. |
 | Responsive | Phone first; tablet two columns; desktop full tables. |
 | Motion | None. |
 | Accessibility | Tables with headers; dark mode for night play. |
-| Build | Data versioned by patch; `--row-h:44px`. |
+| Build | Data versioned by patch; `--row-h:44px`. Accept: capture an index, a detail table, compare, a stale-after-patch case, and offline at 390px with one hand reach, checking table rules stay continuous when columns scroll. |
 | AI mutation | Neon gaming aesthetic on a reference tool, card grids for tabular data. |
 | Fails when | In-game UI; casual players who never look up stats. |
 
@@ -257,14 +257,14 @@ from a couch, a phone, or a controller. Load a profile through `niche-atlas-inde
 | Composition | An explorable illustrated scene; tapping objects opens notebook pages with the concept, a question, and a drawing; the notebook itself is a persistent tab showing discoveries. |
 | Type | Handwritten display for titles only (Patrick Hand or Kalam), readable body (Andika or Lexend 18px) because learners are still reading. Arabic: Reem Kufi titles, Noto Sans Arabic body. |
 | Color | canvas #F2EBD9 · surface #FBF7EC · ink #2A2418 · muted #5F5540 · line #CDBF9E · action #2F5D50 · on-action #FFFFFF. |
-| Space and shape | 12px radius notebook cards on paper; tap targets ≥ 48px. |
+| Space and shape | 12px radius notebook cards on paper; tap targets ≥ 48px. Stroke and lift: notebook cards use one hand-drawn 2px edge applied to every card; silhouettes of undiscovered items are unstroked, and the mastered mark replaces the edge color instead of adding a badge. |
 | Icons and imagery | Illustrations of the subject, drawn accurately (a correct heart, a correct map). |
-| Components | Drag-to-classify, label-the-diagram, predict-then-observe; teacher view separate. |
+| Components | Drag-to-classify, label-the-diagram, predict-then-observe; teacher view separate. Shown when: hints appear only after two attempts, the teacher view only to a teacher account, and notebook pages only for discovered items; no score counters on the exploration scene. Copy: questions use the learner's words and prompts, not exam phrasing, and feedback names what they noticed. |
 | States | Discovered, not yet discovered (silhouette), mastered; hint after two attempts; teacher-assigned quests. |
 | Responsive | Tablet landscape first; phone portrait with scene panning; classroom projector mode. |
 | Motion | Objects respond physically to touch (wobble, open); discovery adds to notebook with a short flight. Reduced motion: fade. |
 | Accessibility | Narration toggle, dyslexia-friendly body font, no timed pressure. |
-| Build | Learning objectives as data tied to each discovery. |
+| Build | Learning objectives as data tied to each discovery. Accept: capture the scene, a notebook page, a silhouette, a hint state, and the teacher view on a tablet and phone, verifying drawings are not clipped by the card edge. |
 | AI mutation | Candy gradients, coin rewards dominating, dark-pattern streaks. |
 | Fails when | Older learners needing efficient practice (use education niche systems). |
 
@@ -278,14 +278,14 @@ from a couch, a phone, or a controller. Load a profile through `niche-atlas-inde
 | Composition | Stream or live match view left; scoreboard, player stats, and event feed right; bracket view full-width below or as a tab. |
 | Type | Condensed display for scores and team names (Saira Condensed 700), sans for stats (Saira 14px tabular). |
 | Color | canvas #0C0E12 · surface #151922 · ink #F5F6F8 · muted #A0A7B4 · line #262C38 · action #FFD166 · on-action #0C0E12. Team colors from the teams, validated for contrast, with logos. |
-| Space and shape | Square blocks; score digits huge (48px); tonal blocks separate teams. |
+| Space and shape | Square blocks; score digits huge (48px); tonal blocks separate teams. Stroke and lift: team blocks are separated by tone with no outlines, and the followed team gets one 3px edge; digits use no shadow; the live marker is the only animated element. |
 | Icons and imagery | Team logos, player photos, live video. |
-| Components | Bracket with zoom and path highlight; match timeline of key events; follow team. |
+| Components | Bracket with zoom and path highlight; match timeline of key events; follow team. Shown when: the countdown shows only for upcoming matches, the delayed notice only when the feed is late, and spoiler-free mode hides every result including bracket highlights; the follow control appears once per team. Copy: times and statuses are plain and timestamped ("Delayed, updated 14:02"). |
 | States | Live, upcoming (countdown), delayed, completed with VOD; spoiler-free mode hides results. |
 | Responsive | Desktop split; tablet stacked; phone scores and bracket with stream on tap. |
 | Motion | Score change punches (scale 1.1, 200ms); event feed inserts. Reduced motion: color flash only. |
 | Accessibility | Scores in text; spoiler mode respects preferences. |
-| Build | Websocket-driven with last-update timestamp; bracket as data. |
+| Build | Websocket-driven with last-update timestamp; bracket as data. Accept: capture live, upcoming, delayed, completed, and spoiler-free views at stream width and a phone, checking bracket paths stay continuous and no team block is cut at the panel edge. |
 | AI mutation | Neon glow on everything, hidden stats, card grids for teams. |
 | Fails when | Casual games without competitive scene. |
 

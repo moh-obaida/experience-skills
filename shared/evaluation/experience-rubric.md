@@ -21,6 +21,12 @@ screenshot, assumption), and a **verdict** in words.
 | Accessibility | Can everyone perceive and operate it? | Contrast, focus, semantics, reduced motion | Mouse-only; color-only meaning |
 | Motion meaning | Does motion explain events? | Event-driven, interruptible, reduced-motion | Uniform entrance animation |
 | Slop risk | Could this be any AI-generated product? | Specific, justified choices | Gradients, glass, pills, fake stats |
+| Visual coherence | Do strokes, radii, shadows, indicators, and repeated components agree, and do borders read as continuous? | One owner per indicator; same role, same look; clean focus rings | Cut or uneven borders, doubled indicators, clipped rings, drifting cards |
+| Element necessity | Does every visible element carry information or an action the user needs now? | Each label, badge, and notice has a job; safeguards intact | Repeated facts, decorative separators, permanent notices for rare states |
+| Language quality | Is the wording accurate, specific, and natural for this product and locale? | Errors state problem and fix; labels name outcomes; native in each language | Internal codes, vague actions, misleading assumptions, literal translation |
+| State timing | Does each element appear because the state makes it useful, and clear when it ends? | Errors follow the attempt and clear on correction; transitions clean up | Premature or lingering errors, stale labels, controls with no reason |
+| Cross-route consistency | Do shared patterns behave and look the same across routes, while page types stay distinct? | One component per pattern; named variants | Different language selectors, tab conventions, validation treatments |
+| Rendered acceptance | Is visual quality shown in captured states, sizes, and directions? | Viewed captures, classified differences, honest coverage | Claims from tests or source; initial state only; desktop LTR only |
 | Evidence quality | How strong is the basis for these conclusions? | Rendered and measured | Assumed |
 
 ## Verdict vocabulary

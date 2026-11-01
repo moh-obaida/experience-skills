@@ -4,6 +4,27 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org/). All skills share the repository version.
 
+## [1.1.0] - 2026-10-16
+
+### Added
+- Seven focused experience-quality skills for visual coherence, UI necessity, composition review,
+  microcopy, state-by-state review, cross-route consistency, and rendered acceptance.
+- Deterministic style and rendered-text probes plus sanitized regression fixtures covering 36 defect
+  cases and seven positive controls. The fixtures are invented and are not observations of a real product.
+- A structural audit for actionable quality decisions across the 30 general and 151 niche systems.
+
+### Changed
+- Integrated the new specialists into architect diagnosis, selective `use-all-skills` orchestration,
+  shared contracts, relevant existing skills, and routing evaluations.
+- Strengthened visual, necessity, copy, and rendered-acceptance decisions in all 181 authored systems
+  while preserving each system's composition, density, and visual identity.
+- Updated every skill's metadata and the package to version 1.1.0.
+
+### Evaluation limits
+- The sanitized benchmark records expected findings and false-positive guards; no model-based
+  benchmark results are claimed. The original private screenshots were not available.
+- Structural audit signals prompt review; they do not certify design quality or rendered behavior.
+
 ## [1.0.1] - 2026-10-08
 
 ### Added

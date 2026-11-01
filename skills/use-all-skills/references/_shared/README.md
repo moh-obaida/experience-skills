@@ -43,3 +43,4 @@ points to it.
 | `niche-physical.md` | Niche Atlas: Physical-World Operations | `shared/design-intelligence/niche-physical.md` |
 | `niche-creative.md` | Niche Atlas: Creative Software | `shared/design-intelligence/niche-creative.md` |
 | `niche-personal.md` | Niche Atlas: Personal Products | `shared/design-intelligence/niche-personal.md` |
+| `quality-findings.md` | Quality Findings: Shared Record, Vocabularies, and Ownership | `shared/evaluation/quality-findings.md` |

@@ -22,6 +22,12 @@ into the skills that use it (mainly visual-identity, composition-repair, and ant
 | `niche-atlas-index.md` + 15 niche files | The Niche Design Atlas: 90 niche profiles (reality, jobs, density, surfaces, states, interaction, trust, generated-UI failures) and 151 authored niche-adapted systems, each with a thesis, fingerprint, layer contract (composition through failure conditions), and seven contrast-validated color roles. Fingerprints and contrast do not prove rendered diversity; the selector adds silhouette, grayscale, structural, and expressive tests. Authored with AI assistance and critiqued; not observations. |
 | `anti-generic-alternatives.md` | For 17 common defaults: the job they try to do and alternatives from different families, with precedent. |
 
+For v1.1, the authored library contains **181 systems: 30 general and 151 niche**. The
+`npm run audit:system-quality` check verifies substantive, non-duplicated decisions for stroke and
+lift, conditional visibility, product-specific copy, and rendered acceptance in each entry. Its
+prose signals are heuristic prompts for review; they do not certify the decisions or rendered
+quality. State coverage remains product-specific rather than a quota applied to every system.
+
 Precedent modules (`shared/precedent/`, 24 files) interpret dated observations of real products
 (`research/observations/`, 271 observations across 107 surfaces).
 

@@ -360,3 +360,52 @@ name both; they usually share one root cause and one fix.
 Pair this module with `product-copy.md` when the failing element is a string
 rather than a control, and with `fake-density.md` when the pattern is filling
 sparseness rather than misjudging an individual control.
+
+## Verdicts: what to do with a questionable element
+
+Asking the questions is not enough; every questionable element ends in one verdict, and each
+verdict has a different cost and a different proof.
+
+| Verdict | Use when | What you must show |
+|---|---|---|
+| KEEP | The element communicates something needed now, or enables an action, or protects the user | The need, in one sentence. "Keep" is a finding too |
+| REMOVE | The same information or action is visible or reachable with no loss, and nothing safeguards, discloses, or aids recovery | Where the information still lives; the step count or the lost fact is unchanged |
+| MERGE | Two elements carry one fact or one action | Which one survives, and that it carries both meanings |
+| RELOCATE | The element is right but at the wrong place or weight (prominence beyond frequency, a global control repeated locally) | Its new place and why that place is reached when needed |
+| REWRITE | The element is needed but its words mislead, repeat, or assume | Hand the rewrite to microcopy-quality when wording is the issue |
+| CONDITIONAL DISPLAY | The element is needed only in some states, and always rendering it costs space or attention when it is not | The state that makes it useful, and the state that hides it. Also the fallback so the need is never invisible |
+| NEEDS PRODUCT DECISION | Removal would touch policy, legal, safety, revenue, or a user group the evidence does not cover | The question for the owner, with the evidence so far |
+
+## Redundancy is a relationship
+
+An element is redundant relative to something else visible at the same time and for the same user,
+not in itself. A "Two teams" caption under two clearly labeled team panels is redundant. The same
+words in a setup form, where the number is a choice, are not. Always name the other element that
+already carries the information, and check that it is visible in every state where the candidate is.
+If the other element appears only on some states, the candidate may be the one that carries the
+information when it is absent: that is CONDITIONAL DISPLAY or KEEP, not REMOVE.
+
+## Appearance timing
+
+Many elements fail on when they appear, not on whether they exist. Ask for each: what state makes it
+useful? An insufficient-players notice is useful when the host attempts to start, or as a quiet
+requirement line that becomes a blocking message only at that moment; it is clutter when it occupies the
+lobby continuously and shows the same text for every visitor. A "connected" indicator is noise while the
+connection is healthy and essential the moment it is lost or reconnecting; its healthy state can
+be silent as long as degraded and lost states are loud and recoverable. When a safeguard moves from
+always-on to conditional, say what makes it appear, and test that it does.
+
+## Never remove
+
+Do not recommend removing, hiding, or weakening: security information, required disclosures and
+legal text, accessibility affordances (labels, landmarks, skip links, focus indicators), critical
+status, destructive-action safeguards, and recovery paths. If one looks redundant or heavy, reduce
+its cost (position, wording, timing) or send it to NEEDS PRODUCT DECISION. Decoration is removable;
+protection is not.
+
+## Choices that are not choices
+
+A setup option with one sensible answer for nearly everyone is a question the product should have
+answered. Test: how many users would pick a non-default value, and what does it cost the rest to
+see it? If the evidence is silent, propose a default with a visible way to change it, and mark the
+removal as a product decision. Do not invent usage numbers.

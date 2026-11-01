@@ -114,6 +114,13 @@ Full text: [docs/philosophy.md](docs/philosophy.md). Where each principle change
 | [`interface-forensics`](skills/interface-forensics/SKILL.md) | quality | A specific page or component needs exhaustive rendered inspection, source tracing, and verified repair. |
 | [`use-all-skills`](skills/use-all-skills/SKILL.md) | router | Orchestrate a substantial product build or audit, or respond to an explicit all-skills request by considering every specialist and activating only those with material value. |
 | [`anti-ai-slop`](skills/anti-ai-slop/SKILL.md) | quality | An existing site or app looks AI-generated or template-made and must be repaired end to end while keeping its own identity. |
+| [`visual-coherence-audit`](skills/visual-coherence-audit/SKILL.md) | visual | A rendered UI works but looks off: cut-off or uneven borders, doubled indicators, clipped focus rings, or repeated components that differ. |
+| [`ui-necessity-audit`](skills/ui-necessity-audit/SKILL.md) | quality | A screen carries redundant labels, badges, cards, separators, notices, or options that may not earn their place. |
+| [`composition-review`](skills/composition-review/SKILL.md) | visual | A whole screen needs a structured composition diagnosis: focal point, allocation, balance, nesting, stepper and form relation, desktop to mobile. |
+| [`microcopy-quality`](skills/microcopy-quality/SKILL.md) | quality | Interface wording is robotic, misleading, vague, repetitive, shows internal codes, or reads as a literal translation. |
+| [`state-by-state-review`](skills/state-by-state-review/SKILL.md) | states | A built interface must be audited across its real states and transitions: premature or stale errors, lingering success, irrelevant controls, lost focus. |
+| [`cross-route-consistency`](skills/cross-route-consistency/SKILL.md) | quality | The same pattern looks or behaves differently from route to route: language selectors, tabs, buttons, validation, shared defects patched per page. |
+| [`screenshot-acceptance`](skills/screenshot-acceptance/SKILL.md) | verification | A meaningful UI change needs rendered, evidence-based acceptance: review a screenshot, compare before and after, or capture a live page. |
 <!-- skills-table:end -->
 
 Start with `experience-architect` if you are unsure. It diagnoses the problem and pulls in only

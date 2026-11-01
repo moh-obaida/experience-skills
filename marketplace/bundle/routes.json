@@ -60,5 +60,33 @@
   "anti-ai-slop": {
     "examples": ["Repair the AI-generated look end to end", "Make this template-made app distinctive while preserving its identity"],
     "routeWhen": "An existing implementation needs source-level repair for generic or template-made design."
+  },
+  "visual-coherence-audit": {
+    "examples": ["The border looks cut off", "Two underlines appear on hover", "Repeated panels have different strokes"],
+    "routeWhen": "A rendered screen has stroke, indicator, clipping, connector, edge, or repeated-component inconsistency."
+  },
+  "ui-necessity-audit": {
+    "examples": ["Does this status pill earn its place?", "The screen repeats counts and instructions"],
+    "routeWhen": "A screen may contain redundant labels, badges, panels, separators, notices, or choices."
+  },
+  "composition-review": {
+    "examples": ["The primary game action is buried", "Review this screen's visual hierarchy"],
+    "routeWhen": "The whole-screen relationship between the primary task, supporting regions, and available space is in doubt."
+  },
+  "microcopy-quality": {
+    "examples": ["This error shows an internal code", "The import instructions are misleading"],
+    "routeWhen": "User-facing wording may be vague, inaccurate, repetitive, unnatural, or inconsistent with product behavior."
+  },
+  "state-by-state-review": {
+    "examples": ["The error stays after the field is corrected", "Saved appears before the request finishes"],
+    "routeWhen": "A built interface needs its real states, visibility timing, transitions, or recovery audited."
+  },
+  "cross-route-consistency": {
+    "examples": ["Language selectors differ between routes", "The same tabs have different selected styles"],
+    "routeWhen": "A shared pattern may drift across routes or be implemented under conflicting contracts."
+  },
+  "screenshot-acceptance": {
+    "examples": ["Tests pass but focus is clipped in the screenshot", "Check desktop, phone, and Arabic captures"],
+    "routeWhen": "A release or completion claim needs rendered acceptance across required routes, states, sizes, or directions."
   }
 }

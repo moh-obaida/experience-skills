@@ -20,3 +20,4 @@ points to it.
 | `model-instincts.md` | Model Instincts | `shared/anti-patterns/model-instincts.md` |
 | `experience-routing.md` | Precedent: Cross-Concern Product Surfaces | `shared/precedent/experience-routing.md` |
 | `specification-pressure.md` | Specification Pressure | `shared/evaluation/specification-pressure.md` |
+| `quality-findings.md` | Quality Findings: Shared Record, Vocabularies, and Ownership | `shared/evaluation/quality-findings.md` |

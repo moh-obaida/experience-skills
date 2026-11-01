@@ -3,7 +3,7 @@ name: workflow-compression
 description: "Use this skill whenever the user asks to make a flow faster, simpler, shorter, or 'one tap'; when a wizard, checkout, onboarding, setup, transfer, form, or CLI prompt sequence takes too many steps, screens, questions, confirmations, or waits; or when users re-enter information the software already knows. Maps the workflow step by step, classifies friction (redundant input, unnecessary choice, repeated configuration, navigation tax, confirmation tax, serial work, memory failure, waiting tax, dead ends, expert tax, interruptions, hidden status), and removes work the software could do while preserving safety and meaningful human judgment. Always counts steps before and after."
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -35,6 +35,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small

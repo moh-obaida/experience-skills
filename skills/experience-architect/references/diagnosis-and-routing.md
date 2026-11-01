@@ -34,6 +34,14 @@ specialists can act on. Many symptoms map to more than one class; confirm with o
 | "Use all skills" / "full Experience Skills pass" | Explicit complete-project orchestration | Consider all siblings; activate only those that address material risks, then build and verify |
 | "Audit this page" / "go over every inch" / "check the CSS too" | Page-scoped surface defects requiring rendered and source evidence | Inspect every region, control, state, and trace significant findings to source |
 | "Remove the AI look from our site" / "it looks like every v0 site" | Generated decisions across an existing product; identity buried | Render, extract the identity, sweep every surface, classify and trace generated patterns |
+| "The border looks cut off" / "a line is missing on the card" / "two underlines on hover" / "the focus ring is clipped" | BORDLINE stroke defect, duplicate indicator, clipping | Render the state, zoom to 200%, read computed style, pseudo-elements, and clipping ancestors |
+| "This page looks badly arranged" / "everything is centered but it feels off" | Screen-level composition failure | First-impression pass; allocation of regions against the job |
+| "There are too many unnecessary labels / badges / cards" | Redundant, decorative, or mistimed elements | Name what each element tells the user that is not already visible |
+| "The wording sounds AI-generated" / "robotic" / "the error shows a code" | Generic or inaccurate copy, internal identifiers, no recovery | Read each string against the real behavior |
+| "The interface looks different on every page" | Cross-route drift, duplicate implementations | Inventory shared patterns across routes |
+| "Everything works, but it still looks wrong" / "it passed every test but looks unfinished" | Quality the checks cannot see | Render the states; check strokes, consistency, composition, wording, state timing |
+| "The error appears before I do anything" | Premature state, state timing | Reach the state; trace what triggers and clears it |
+| "Is it really fixed?" / "verify the UI" / "compare before and after" | Visual claim without rendered evidence | Plan, capture, view, classify differences |
 | "Make it pop" / "make it modern" | Vague; often identity or hierarchy | Ask what feels wrong now; observe first |
 
 When visual symptoms share an allocation or hierarchy cause, route that cause once. A dominant
@@ -98,6 +106,13 @@ Each class names its observable signal, so a symptom can be confirmed before rou
 | Overly dense focused page | A single-purpose page crowded with secondary content | composition-repair, product-friction |
 | Design direction mismatch | The visual direction contradicts audience or context | visual-identity (selection procedure) |
 | Product-specific identity missing | Nothing derived from the product's mechanic, object, or content | visual-identity |
+| Stroke or component inconsistency on a working screen | Cut, partial, uneven, or doubled borders; clipped rings; same-role components that differ | visual-coherence-audit (one finding at the shared owner when many instances) |
+| Elements that may not earn their place | Repeated facts, decorative separators, permanent notices for rare states, options with one answer | ui-necessity-audit |
+| Whole screen composition unclear | Focal point, allocation, balance, nesting, stepper-and-form relation, desktop-to-mobile order in question | composition-review; composition-repair only after a RESTRUCTURE verdict |
+| Poor or misleading wording | Internal codes, wrong assumptions, vague actions, literal translations, repeated text | microcopy-quality |
+| Operating states inconsistent | Errors before action or after correction, stale labels, irrelevant controls, lost focus | state-by-state-review; state-design when the model is missing |
+| Same pattern differs across routes | Language selector, tabs, buttons, validation, headers drift | cross-route-consistency, repairing the owning component |
+| Visual result claimed without evidence | A test run or diff is offered as proof of how it looks | screenshot-acceptance |
 | Proposed redesign worse than current | A proposal adds cost without serving the goal better | critical-review, then the domain specialist |
 
 ## Specialist compositions
@@ -115,6 +130,14 @@ Recipes for common multi-class problems. Order matters: structure before surface
 | Join / sign-in feels generic | composition-repair → visual-identity → interaction-design → anti-slop-ui | Dead space measured → environment derived → control kept standard → gate |
 | Mobile breaks | responsive-validation → composition-repair → interaction-design | Failing sizes → restructure → reach and targets |
 | Long job holds users hostage | state-design → workflow-compression | Job lifecycle and honesty → waiting tax removed |
+
+| Looks wrong though everything passes (one cut border) | visual-coherence-audit → screenshot-acceptance | Defect record with owner → verified captures in the same states |
+| Same defect or drift on many routes | cross-route-consistency → visual-coherence-audit → screenshot-acceptance | Inventory and owner → component fix → rendered comparison across routes |
+| Cluttered or over-explained screen | ui-necessity-audit → microcopy-quality (survivors only) → composition-review only if allocation is wrong | Verdict table → rewrites → relation to fix |
+| Badly arranged page | composition-review → composition-repair → screenshot-acceptance | Verdict and handoff → repaired relation → captures at both sizes |
+| Wording sounds generated, errors show codes | microcopy-quality → state-by-state-review when timing is also wrong | Rewrites with preserved facts → state boundaries |
+| Errors appear early or linger | state-by-state-review → microcopy-quality or state-design | State matrix with root cause → wording or model change |
+| Broad multi-route experience audit | Choose only those of the seven quality specialists with an observed concern; order: composition-review, ui-necessity-audit, visual-coherence-audit, cross-route-consistency, microcopy-quality, state-by-state-review; end with screenshot-acceptance | One shared finding record; each finding has one owner |
 
 After loading a specialist, carry its output forward explicitly (for example the counted flow, the
 state matrix, the chosen direction); do not let the next specialist re-diagnose from scratch.
@@ -145,6 +168,13 @@ to the user that the full skill exists.
 | Specialist | Route here when | Fallback method if not installed |
 |---|---|---|
 | use-all-skills | Explicit all-skills request or complete substantial starter-product build | Inspect job, loop, instrument, and invariants; choose Build or Audit Mode; consider every specialist, activate a justified subset, implement, verify primary journeys, and review only unresolved material concerns. |
+| visual-coherence-audit | A working screen looks off at the stroke or component level: cut, partial, uneven, doubled borders, clipped focus rings, drifting repeated components | Render rest, hover, focus, selected, error, narrow, and 200% zoom. Read computed border, outline, shadow, pseudo-elements, and clipping ancestors per suspect. Count indicator layers on selected and hovered items. Compare same-role instances. Fix at the owner and rerender. |
+| ui-necessity-audit | Elements that look redundant, decorative, mistimed, or optional | For each doubtful element ask what it tells or does that is already visible. Give one verdict (keep, remove, merge, relocate, rewrite, conditional display, needs product decision) with proof. Never remove safeguards, disclosures, accessibility affordances, or recovery. |
+| composition-review | The whole screen feels badly arranged, and a diagnosis should come before any repair | First-impression pass. Judge allocation, focal point, nesting, and the instrument-to-support relation per region. Verdict: preserve, local repair, restructure, state-appropriate, or preference. |
+| microcopy-quality | Wording is robotic, misleading, vague, repeated, technical, or poorly translated | Check each string against real behavior. Fix meaning and recovery first, tone second. Keep facts, constraints, locale, and precision. No internal identifiers in ordinary errors. |
+| state-by-state-review | A built feature behaves inconsistently across states and transitions | Choose states from the product's mechanics. Reach them, ask what triggers each, what the user knows and can do, what shows and hides. Test transitions: errors follow the attempt and clear on correction. |
+| cross-route-consistency | Shared patterns differ between routes | Inventory shared patterns, classify each difference (intentional, contextual, drift, duplicate, conflicting, override regression), fix the owning component, verify across routes. |
+| screenshot-acceptance | A visual claim needs rendered proof, or screenshots need an expert read or comparison | Plan routes, states, sizes, directions, themes. Capture and view. Classify differences. Verdict with coverage; NOT VERIFIED IN RENDERED OUTPUT when not rendered. |
 | interface-forensics | Audit this exact page, find every meaningful issue, check CSS/source, or repair a specific rendered surface | Render and scan the full page. Record viewport/state. For each significant defect trace element → component → winning style/behavior → root cause; fix and rerender. State unverified gaps. |
 | composition-repair | Dead space, no focal point, cramped, centered-but-not-composed, overflow, collisions, sticky chrome eating the viewport, scroll confusion | Rank content (P0–P4). Give P0 the focal position and size. Relate content to viewport (not just centered). Remove container soup. Render at 3 sizes. Check overflow and overlaps. |
 | visual-identity | Generic look, fails the logo test, personality on controls instead of environment, trend copying | List the product's domain, content, mechanics, audience. Derive 2–4 identity carriers (type voice, color roles, motif, surface). Apply them to the environment, not to controls. Run the logo test. |

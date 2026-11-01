@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Route fixture: editor (invented)</title><style>* { box-sizing: border-box; } body { margin: 0; font: 15px/1.4 system-ui, sans-serif; background: #f6f5f1; color: #1d2320; } header { display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 24px; background: #fff; border-bottom: 1px solid #d3d8d0; } header a.brand { font-weight: 700; text-decoration: none; color: inherit; } main { padding: 24px; max-width: 720px; } .tabs { display: flex; gap: 6px; margin: 0 0 16px; } .tabs a { padding: 8px 14px; text-decoration: none; color: #1d2320; }
+ header button.lang-switch { height: 30px; padding: 0 14px; border: 0; border-radius: 15px; background: #e6e9e3; font: inherit; font-size: 13px; }
+ .tabs a[aria-selected="true"] { background: #1e5143; color: #fff; border-radius: 999px; }
+ button.primary { height: 36px; padding: 0 22px; border: 0; border-radius: 18px; background: #1e5143; color: #fff; font: inherit; font-weight: 600; }
+ input.field { height: 36px; padding: 0 10px; border: 1px solid #8a928d; border-radius: 2px; font: inherit; width: 260px; }
+</style></head><body>
+<header><a class="brand" href="#">Quizroom</a><button class="lang-switch" aria-label="Language">EN ▾</button></header>
+<main><nav class="tabs" role="tablist"><a href="#" role="tab" aria-selected="true">Questions</a><a href="#" role="tab" aria-selected="false">Settings</a></nav>
+<p><input class="field" aria-label="Quiz title" placeholder="Quiz title"> <button class="primary">Save quiz</button></p></main></body></html>

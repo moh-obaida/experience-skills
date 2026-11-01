@@ -34,6 +34,26 @@ Findings carry their level. A repair is "verified" only at levels 1–2.
 
 The full-product scenario measures Build Mode and selective activation. It no longer rewards loading every available specialist or selecting an Atlas system merely to fill a ledger. Historical eval reports retain their original criteria and should not be interpreted as v0.6 results.
 
+### v1.1 experience-quality benchmark
+
+`tests/evals/experience-quality-v1.1.json` defines 36 invented defect cases and seven positive
+controls across visual coherence, UI necessity, composition, microcopy, state behavior, cross-route
+consistency, and rendered acceptance. The fixtures are sanitized and do not represent the unavailable
+private screenshots. `experience-quality-review` maps them into the agent
+harness as a broad review anchor. Run it with `npm run eval:agents -- --scenarios
+experience-quality-review --repeat 3`; the result tests v1.1 against an unskilled control, not a
+same-scenario v1.0.1 skill snapshot.
+
+On 2026-10-16, the first attempt could not start: Claude authentication had expired and Codex could
+not initialize its app server (`Operation not permitted`). On 2026-10-17, a Codex run completed
+both conditions, but the first with-skills project had no Codex-discoverable skills. This exposed
+and fixed the harness to install project skills under `.agents/skills`. After broadening the
+conductor trigger for mature multi-route reviews, a corrected smoke run loaded all eight expected
+skills (the conductor and seven reviewers) with no extra project skills. This establishes routing
+only: Chrome blocked the workspace `file://` pages and the Claude judge returned no grading JSON.
+No quality delta or rendered acceptance result is inferred; the behavioral comparison remains
+unmeasured until rendered inputs and a working judge are available.
+
 ### Enforcement telemetry
 
 The behavioral harness records more than whether an answer mentioned a principle. Each transcript

@@ -17,6 +17,17 @@ A fingerprint is a useful duplicate filter, never sufficient proof of diversity.
 
 For each chosen system or product adaptation, state: what it improves; what it sacrifices; “do not choose when”; likely failure; and “do not accidentally become…”. Rejection criteria protect the product better than broad niche-fit claims. A common degeneration deserves an implementation and review check. Preserve strong existing behavior when an Atlas alternative only looks tidier.
 
+## Quality decisions every entry makes
+
+Working screens fail in ways that tokens and checks do not catch: a card with one side of its border missing, two indicators marking one selected tab, a status pill that repeats the heading beside it, an error that shows before the user acts, wording that exposes an internal code, a language control that changes shape on every route. An entry prevents these by deciding four things for its own product, as labeled clauses inside its existing rows (not as new headings):
+
+- **Stroke and lift** (in the geometry row): the stroke rule per component role, which single element owns the selected and hover indicator, and the elevation policy. One owner per indicator; a selected state changes the owner's stroke or fill, and never adds a second layer on the same edge.
+- **Shown when** (in Components): what appears only in the state that makes it useful, and what the system refuses to show (decorative status, labels that repeat a visible fact, standing notices for rare conditions). Safeguards, disclosures, accessibility affordances, and recovery paths are never traded away for calm.
+- **Copy** (in Components or States, or the copy row): how this product names objects, actions, and errors; real behavior over aspiration; no internal identifiers in ordinary messages.
+- **Accept** (in Build or the failure row): the rendered captures that show the signature trait holds, in the states, sizes, and directions where it is most likely to break.
+
+Each clause is a decision grounded in the entry's mechanic. A clause that could move to another entry unchanged is boilerplate. Visual complexity is not personality: a system earns character from its mechanic, geometry, and causal response, not from extra borders, badges, or ornament. Expressive and dense systems keep their expression; every treatment has one owner and one job.
+
 ## Implementation contract
 
 Translate only used roles into tokens and components. Define canvas, instrument surface, supporting surface, ink, action, selected/focus, and semantic states as needed. Color must do a job: where does chroma enter on action, where does it recede, and how do progress, success, and error differ from brand? A dark mode is a role remapping, never an automatic inversion. Typography must serve scanning, reading, code, language, and personality; serif is one option, not an antidote to generic UI. Geometry and component density follow the task. Familiar control semantics stay intact.

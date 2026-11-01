@@ -85,14 +85,14 @@ loop, and explanation needs are clear.
 | Composition | Primary screen: the live command instrument owns most of the workspace; resulting machine state stays adjacent on desktop or one direct switch away on phone. A compact task brief sits above or beside it, while hints appear only after request or attempts. Progress follows demonstrated outcomes, not visited pages. |
 | Type | Bold condensed sans for short task and state headings, plain humanist sans for instruction, mono only inside commands, paths, output, and machine data. Test ambiguous glyphs and mixed Arabic/LTR command lines. |
 | Color | canvas #101719 · surface #1B2427 · ink #EDF3F1 · muted #B4C6C2 · line #536662 · action #F2CB36 · on-action #101719. The bright operational color belongs to the active prompt and true progression; completed work keeps a quieter trace. Errors use labelled, distinct status color and preserve raw output. The instrument must never fade into gray. |
-| Space and shape | Compact square controls and firm separators; the active line gets the strongest contrast. Avoid large paper margins. The instrument grows before explanation does. |
+| Space and shape | Compact square controls and firm separators; the active line gets the strongest contrast. Avoid large paper margins. The instrument grows before explanation does. Stroke and lift: separators are firm 1px lines, and the active input line owns the strongest stroke; a wrong-but-valid result recolors its line only, and no panel carries a shadow. |
 | Icons and imagery | No decorative terminal chrome. File and environment changes are real labelled state, not illustration. |
-| Components | Command input with persistent focus/re-entry, history and keyboard conventions; adjacent environment view shows create, move, rename, and delete consequences. Hint and reset are secondary; reset names what it clears and preserves. |
+| Components | Command input with persistent focus/re-entry, history and keyboard conventions; adjacent environment view shows create, move, rename, and delete consequences. Hint and reset are secondary; reset names what it clears and preserves. Shown when: hints appear only after a request or two attempts, the reset note only when reset is chosen, and the next-task control only after an outcome is checked; no streak counters or decorative terminal chrome. Copy: results echo the real command output and add one plain sentence interpreting it, and a wrong result names what changed in the environment. |
 | States | Valid starting environment on each task; running, wrong-but-valid result, parse error, completed, review-needed, locked, and next-available are distinct. Completion checks outcome and accepts alternate valid methods where practical. Machine state and learning progress have separate owners. |
 | Responsive | Desktop instrument remains dominant with compact environment view; phone gives the instrument full width, moves brief/hints into a dismissible surface, and returns focus after Files. The keyboard must not hide the active line or Continue. RTL UI keeps commands and paths LTR. |
 | Motion | A brief causal signal connects execution to changed state and a completed objective; repeated command entry never waits for animation. Reduced motion uses an immediate static change mark. |
 | Accessibility | Keyboard and screen-reader path through command, output, changed environment, error explanation, and next action; focus returns after secondary surfaces; status is never color-only. |
-| Build | Initialize each scenario deterministically; persist progress separately from the simulated environment; test execute → mistake → inspect → recover → execute → complete → next, including reload and reset. |
+| Build | Initialize each scenario deterministically; persist progress separately from the simulated environment; test execute → mistake → inspect → recover → execute → complete → next, including reload and reset. Accept: capture a fresh task, a wrong-but-valid result, a parse error, a completed task, and reload mid-task at 1440 and a phone with the keyboard open, checking the input stays visible and the environment pane keeps its borders. |
 | AI mutation | Neon hacker costume, fake traffic-light window, confetti, explanatory prose dominating a tiny terminal, or progress awarded for one expected command string. |
 | Fails when | Practice does not use a real interactive instrument, mobile cannot preserve usable input, or the environment's consequences cannot be shown honestly. Do not accidentally become a dashboard of decorative panels. |
 
@@ -108,14 +108,14 @@ loop, and explanation needs are clear.
 | Composition | Sidebar: course sections (Modules, Assignments, Grades, People). Course home: "Continue: Lesson 3.2" row with due date, then upcoming deadlines, then the full module index with states per lesson. |
 | Type | Humanist sans (Source Sans 3 or Noto Sans; fallback `system-ui`). 28/18/16/13px; long readings at 18px. Arabic: Noto Sans Arabic; mixed-direction course titles isolated. |
 | Color | canvas #F7F7F4 · surface #FFFFFF · ink #1D2120 · muted #555C59 · line #D7DAD5 · action #22577A · on-action #FFFFFF. States use icon + label: done, in progress, due soon, overdue, locked. |
-| Space and shape | 8px base; module rows 48px; ruled lists; 4px radius controls. |
+| Space and shape | 8px base; module rows 48px; ruled lists; 4px radius controls. Stroke and lift: lists are ruled by one 1px line and never boxed; the current lesson marks itself by weight and an inline marker, and an overdue row adds a text label, not a second border; no shadows. |
 | Icons and imagery | Content-type icons (video, reading, quiz, assignment); course imagery only in catalog. |
-| Components | Continue as the primary action; assignment submission with file preview and confirmation receipt; grade view with rubric. |
+| Components | Continue as the primary action; assignment submission with file preview and confirmation receipt; grade view with rubric. Shown when: the penalty policy appears only on overdue items, the prerequisite only on locked lessons, and the instructor checklist only to instructors on an empty course; Continue is always first. Copy: due dates read with a weekday and time zone, and receipts list file names and a timestamp. |
 | States | Overdue shows penalty policy; locked shows the prerequisite; submitted shows timestamp and file names. Empty course: instructor-facing checklist. |
 | Responsive | Desktop sidebar; tablet sections as tabs; phone: Continue row, deadlines, module accordion. |
 | Motion | None. |
 | Accessibility | Video captions and transcripts required; keyboard-complete quizzes. |
-| Build | Course structure as data; each lesson has state and due date fields. |
+| Build | Course structure as data; each lesson has state and due date fields. Accept: capture course home with an overdue lesson, a locked lesson, a submitted assignment receipt, and an empty course as instructor at 1440 and 390, checking ruled rows meet the sidebar edge cleanly. |
 | AI mutation | Hero banner course home, progress rings, feature cards for "Modules" and "Grades". |
 | Fails when | Self-directed exploratory learning; children. |
 
@@ -129,14 +129,14 @@ loop, and explanation needs are clear.
 | Composition | Full-screen stage with one prompt or diagram; results appear on the stage; teacher controls in a separate presenter view (next, reveal, pause, anonymize). |
 | Type | Grotesk with large x-height (Work Sans or Atkinson Hyperlegible for body), 64–120px on stage. Arabic: Tajawal or Noto Kufi Arabic for stage titles. |
 | Color | canvas #1F2A26 · surface #2A3833 · ink #F4F1E8 · muted #B9C4BD · line #3E4F48 · action #F2C94C · on-action #1F2A26. Chalkboard green-black with chalk-white and one yellow; answer options use four colors plus letters. |
-| Space and shape | Stage margins 6%; tonal blocks for options; 12px radius. |
+| Space and shape | Stage margins 6%; tonal blocks for options; 12px radius. Stroke and lift: option blocks are tonal fills with no outlines; the revealed correct option adds one thick outline, and the student device's chosen option shows a fill plus a check, never two borders; no shadows on the projector view. |
 | Icons and imagery | Diagrams and figures sized for projection. |
-| Components | Student devices show only answer buttons (large, lettered). Reveal controlled by teacher. |
+| Components | Student devices show only answer buttons (large, lettered). Reveal controlled by teacher. Shown when: results show only after the teacher reveals, the response count only to the teacher's presenter view and the stage while waiting, and the anonymize option only in the presenter view; no decorative timers on the stage. Copy: stage text is one short question in teacher's words, and student buttons carry letters only. |
 | States | Waiting for responses with count; anonymous mode; late joiners see the current question. |
 | Responsive | Projector 16:9 and 4:3; student phones portrait; presenter view on laptop. |
 | Motion | Results bars grow on reveal (400ms) so the room sees the change. Reduced motion: instant. |
 | Accessibility | Contrast measured for projectors (wash-out): ink at ≥ 10:1; letters with colors. |
-| Build | Presenter and stage views share state via websocket; test at 1024×768. |
+| Build | Presenter and stage views share state via websocket; test at 1024×768. Accept: capture the stage with a prompt, results, anonymous mode, and a late joiner at 1024×768 and on a phone, from the back-row distance, checking option edges are unclipped at the 6% margin. |
 | AI mutation | SaaS dashboard during class, tiny text, glassy cards. |
 | Fails when | Self-paced learning; dense reference. |
 
@@ -150,14 +150,14 @@ loop, and explanation needs are clear.
 | Composition | Each session is a scene (a café, a pharmacy) with a photograph, a short dialogue, and exercises embedded in the conversation; review at the end. |
 | Type | Target language set in a script-appropriate face at 22–28px (for Arabic: Noto Naskh Arabic with full diacritics; for Japanese: Noto Serif JP), native-language UI in a sans (Source Sans 3). Never letter-space or italicize scripts that do not use it. |
 | Color | canvas #F6F1E7 · surface #FFFDF8 · ink #22201B · muted #5C564B · line #DCD3C1 · action #1E5B6B · on-action #FFFFFF. Feedback: correct teal, near-miss amber with the difference highlighted. |
-| Space and shape | 8px base; dialogue lines as quiet blocks, 10px radius; tap targets 48px. |
+| Space and shape | 8px base; dialogue lines as quiet blocks, 10px radius; tap targets 48px. Stroke and lift: dialogue lines have no borders and differ by tone; the tapped word gets one underline, and the speaking line adds a fill, so the two marks never overlap; no shadows. |
 | Icons and imagery | Real-place photography (licensed), audio waveforms for listening. |
-| Components | Play audio (slow/normal), record and compare, type with on-screen keyboard for other scripts, word tap for gloss. |
+| Components | Play audio (slow/normal), record and compare, type with on-screen keyboard for other scripts, word tap for gloss. Shown when: the gloss opens only on a word tap, the microphone fallback only when permission is denied, and the review count only when items are due; no gamified streak banners. Copy: feedback names the exact letter or sound at fault, and target-language text keeps its own script and direction. |
 | States | Microphone denied offers typing; near-miss shows the exact letter or sound; review due count. |
 | Responsive | Phone first; tablet side-by-side dialogue and exercise; desktop keyboard shortcuts. |
 | Motion | Tapped words expand gloss in place (150ms); recorded waveform draws live. Reduced motion: static. |
 | Accessibility | Transcripts for audio, adjustable speed, RTL layout for RTL target languages within LTR UI handled per element. |
-| Build | Per-script typography tokens (`--font-target`, `--size-target`); test diacritics and line-height. |
+| Build | Per-script typography tokens (`--font-target`, `--size-target`); test diacritics and line-height. Accept: capture a scene, a gloss, a denied microphone, a near-miss, and the review screen in a left-to-right and a right-to-left script at 390, checking diacritics are not clipped by line height. |
 | AI mutation | Streak flames and guilt copy, cartoon owls, one Latin font for all scripts. |
 | Fails when | Test prep or academic grammar reference (use Syllabus Spine or Seminar Reader). |
 
@@ -171,14 +171,14 @@ loop, and explanation needs are clear.
 | Composition | Hub of 4–6 large illustrated activity doors; each activity full-screen with a visible home button; parent area behind a hold-to-open or math gate. |
 | Type | Rounded, simple letterforms (Andika or Sniglet for titles; Andika body 22px+); letters taught use school-style forms. Arabic: a school-style Naskh (Noto Naskh Arabic) with diacritics. |
 | Color | canvas #FFF7E8 · surface #FFFFFF · ink #2B2118 · muted #5E5041 · line #2B2118 · action #B23A1F · on-action #FFFFFF. Each activity has its own color role with an illustrated icon; no reliance on color to navigate. |
-| Space and shape | 3px outlines, 24px radii, targets ≥ 64px, 24px spacing between targets. |
+| Space and shape | 3px outlines, 24px radii, targets ≥ 64px, 24px spacing between targets. Stroke and lift: every shape carries the same 3px outline and large radius; the chosen activity door gets a thicker outline plus a bounce, not a color ring; shadows are none, with depth from the outline only. |
 | Icons and imagery | Friendly illustrations drawn for the subject; one character at most as guide. |
-| Components | Audio instruction button on every screen; drag with generous snap; no text input. |
+| Components | Audio instruction button on every screen; drag with generous snap; no text input. Shown when: the parent area appears only after the hold or math gate, the replay-instruction button on every screen, and praise only on completion; no text labels a child must read, no ads, no external links outside the gate. Copy: every child string has audio, and parent text is plain and separate. |
 | States | Needs help: replay instruction then demonstrate; completed: short praise; time limit set by parent ends gently. |
 | Responsive | Tablet landscape first; phone with larger scaling; no desktop assumptions. |
 | Motion | Celebration after completion (under 1.5s), gentle idle movement on the current target only. Reduced motion: static stars. |
 | Accessibility | Audio for all instructions, captions for parents, no flashing, no ads or purchases in child areas. |
-| Build | All child-facing strings have audio; parent gate on external links and settings. |
+| Build | All child-facing strings have audio; parent gate on external links and settings. Accept: capture the hub, an activity with help, a completion, and the gated parent area on a tablet in two orientations, checking targets are at least 64px and outlines are unbroken on the screen edge. |
 | AI mutation | Neon gradients, dense menus, small text, reward coins everywhere. |
 | Fails when | Older learners; any reading-heavy content. |
 
@@ -192,14 +192,14 @@ loop, and explanation needs are clear.
 | Composition | Header: exam name, time remaining (text), question n of N, save status. Center: question and answers. Footer: previous, flag, next. Question navigator panel lists answered, flagged, unanswered. |
 | Type | Institutional sans (Public Sans or Atkinson Hyperlegible 18px). Arabic: Noto Sans Arabic 19px. |
 | Color | canvas #F5F5F2 · surface #FFFFFF · ink #1A1A1A · muted #545454 · line #CFCFC9 · action #1F4E79 · on-action #FFFFFF. No red until time is under 5 minutes, and even then with text. |
-| Space and shape | 8px base; answer options 56px rows with full-row click targets; 4px radius. |
+| Space and shape | 8px base; answer options 56px rows with full-row click targets; 4px radius. Stroke and lift: answer rows share one 1px border and a selected row changes fill and shows one check, never a second ring; flagged and answered states are text markers in the navigator; no shadows. |
 | Icons and imagery | Question figures only, with zoom. |
-| Components | Radio or checkbox answers with visible selection; flag for review; review screen before submit listing unanswered questions. Submit confirmation states it is final. |
+| Components | Radio or checkbox answers with visible selection; flag for review; review screen before submit listing unanswered questions. Submit confirmation states it is final. Shown when: the save indicator shows per question and the connection note only when connection drops; the review screen lists unanswered items before submit, and the final confirmation always says the submission is final because it is a safeguard; no decorative progress animation. Copy: instructions are exact and neutral, and timer text says time remaining. |
 | States | Answer saved indicator per question; connection lost keeps answers locally and says so; time extension accommodations reflected in the timer. |
 | Responsive | Desktop and tablet; phone allowed only if the exam permits, with navigator as a sheet. |
 | Motion | None; timer updates without animation. |
 | Accessibility | Screen-reader tested, zoom to 200% without horizontal scroll, extra-time settings. |
-| Build | Autosave every answer change; server time authoritative. |
+| Build | Autosave every answer change; server time authoritative. Accept: capture a question, the navigator, a flagged item, a connection loss with local save, an extension in the timer, and the review screen at 1440 and a phone, checking the selected answer is unmistakable and the timer is never hidden. |
 | AI mutation | Animated countdown rings, gradients, confetti on submit. |
 | Fails when | Practice and learning contexts where feedback should be immediate. |
 
@@ -213,14 +213,14 @@ loop, and explanation needs are clear.
 | Composition | One card centered at readable width; rating buttons below after flip; deck list and stats as other tabs. |
 | Type | Grotesk (Hanken Grotesk or Manrope 22–28px on cards), content fonts for math and scripts. Arabic: IBM Plex Sans Arabic. |
 | Color | canvas #EDEFF1 · surface #FFFFFF · ink #17191C · muted #525862 · line #CDD2D8 · action #1D5B4F · on-action #FFFFFF. Ratings: Again, Hard, Good, Easy in text with next-interval hints. |
-| Space and shape | Card 12px radius with a real shadow (it is an object); 4:3 max card ratio; buttons 48px. |
+| Space and shape | Card 12px radius with a real shadow (it is an object); 4:3 max card ratio; buttons 48px. Stroke and lift: the card is the only object with a real shadow and a 12px radius, and it has no border; rating buttons have one stroke, and a pressed rating fills once; the deck list is flat. |
 | Icons and imagery | Learner-supplied images and audio on cards. |
-| Components | Space to flip, 1–4 to rate; undo last rating; edit card inline. |
-| States | "Done for today" with next due time; overdue backlog capped with an honest count. |
+| Components | Space to flip, 1–4 to rate; undo last rating; edit card inline. Shown when: ratings appear only after the flip, the next-interval hint only beside each rating, and the backlog count only when overdue; no XP bars or streak flames. Copy: ratings read Again, Hard, Good, Easy with their intervals, and the done screen gives the next due time. |
+| States | "Done for today" with next due time; overdue backlog capped with an honest count. A sync failure after a session shows the ratings kept on the device with a retry; a new deck shows an empty deck with an add-card prompt. |
 | Responsive | Phone full-width cards with bottom rating bar; desktop keyboard-first. |
 | Motion | Card flips (250ms 3D rotate) because the metaphor is physical; next card slides in. Reduced motion: crossfade. |
 | Accessibility | Keyboard complete; audio cards have text alternatives. |
-| Build | Scheduling algorithm separate from UI; ratings logged with time. |
+| Build | Scheduling algorithm separate from UI; ratings logged with time. Accept: capture a front, a back, the rating row, a done-for-today screen, and a long-text card at 390 and a laptop, checking the shadow is not clipped at the card edge and text never overflows. |
 | AI mutation | Gamified XP bars, streak guilt, glass cards. |
 | Fails when | Conceptual learning needing explanation. |
 
@@ -234,14 +234,14 @@ loop, and explanation needs are clear.
 | Composition | Reading on the left at 66ch; annotation and discussion column right, aligned to highlighted passages; layer toggles (mine, group, instructor). |
 | Type | Editorial serif (Spectral or Crimson Pro 18px) for readings, sans for annotations (Source Sans 3). Arabic: Amiri. |
 | Color | canvas #ECE9E1 · surface #FDFCF8 · ink #211F1B · muted #5B574F · line #D5CFC2 · action #6B2D3A · on-action #FFFFFF. Annotation layers: instructor oxblood, group ochre, mine blue; highlights at 25% with underline. |
-| Space and shape | Square pages; annotations with 1px left rule. |
+| Space and shape | Square pages; annotations with 1px left rule. Stroke and lift: annotations carry the same 1px left rule; the active highlight and its thread share one color, so a selection has one mark in the text and one in the column; pages have no shadow. |
 | Icons and imagery | Figures in readings; avatars in discussion. |
-| Components | Highlight and comment; reply threads; instructor pins; export notes. |
-| States | Anonymous mode; due-by for discussion; orphaned annotations after text edits flagged. |
+| Components | Highlight and comment; reply threads; instructor pins; export notes. Shown when: instructor pins and group layers show only when those layers are on, orphaned notes only after the text changed, and anonymous mode marks itself in the composer; no engagement counters. Copy: author names and layer names are always visible on a comment, and due-by dates carry a time. |
+| States | Anonymous mode; due-by for discussion; orphaned annotations after text edits flagged. A failed comment post keeps the draft and offers retry; a reading with no annotations shows the reading alone with the layer toggles. |
 | Responsive | Desktop split; tablet annotations as overlay; phone reading with annotation markers. |
 | Motion | None. |
 | Accessibility | Annotations reachable in reading order; highlight colors with underline patterns. |
-| Build | Robust text anchoring; PDF and HTML sources. |
+| Build | Robust text anchoring; PDF and HTML sources. Accept: capture a reading with all layers, a dense thread, an orphaned annotation, and a narrow view where notes become a sheet, checking each rule stays aligned to its passage. |
 | AI mutation | Cards for readings, gradient headers, emoji reactions dominating. |
 | Fails when | Short practice tasks; children. |
 
@@ -255,14 +255,14 @@ loop, and explanation needs are clear.
 | Composition | Sidebar of classes; grid of students (rows) by skills (columns) with mastery cells; right panel for a selected student with suggested next assignment. |
 | Type | Technical sans (IBM Plex Sans 13–14px), tabular numbers. Arabic: IBM Plex Sans Arabic. |
 | Color | canvas #F6F7F5 · surface #FFFFFF · ink #1A1D1C · muted #535957 · line #D3D8D5 · action #2A5C45 · on-action #FFFFFF. Mastery scale: sequential single-hue with text labels (Not started, Practicing, Mastered). |
-| Space and shape | 32px cells, 1px grid, 4px radius panels. |
+| Space and shape | 32px cells, 1px grid, 4px radius panels. Stroke and lift: cells share one 1px grid and no cell borders; the selected student row and skill column highlight by fill, and hatched cells mean insufficient data, never failure; panels flat. |
 | Icons and imagery | Data graphics only. |
-| Components | Group students by need; assign practice to a group; message parents. |
-| States | Insufficient data shown as hatched, never as failure; absent students noted. |
+| Components | Group students by need; assign practice to a group; message parents. Shown when: the suggested assignment appears only for a selected student, the absent note only for absent students, and parent messaging only after a group is chosen; no ranking or class-leaderboard view. Copy: skills use the curriculum's names, and insufficient data reads "Not enough practice yet". |
+| States | Insufficient data shown as hatched, never as failure; absent students noted. An empty class shows how to add learners; a failed assignment send keeps the group selected and says what did not send. |
 | Responsive | Desktop; tablet horizontal scroll with pinned names; phone per-student view. |
 | Motion | None. |
 | Accessibility | Cells have text values; grid keyboard navigable. |
-| Build | Privacy: student names never in URLs; export respects permissions. |
+| Build | Privacy: student names never in URLs; export respects permissions. Accept: capture a full grid, a hatched cell, a selected student, and a class with no data on a laptop and a tablet, checking grid lines are continuous and names never appear in URLs. |
 | AI mutation | KPI cards for class averages, leaderboard of students, red cells shaming. |
 | Fails when | Learner-facing screens. |
 
@@ -276,14 +276,14 @@ loop, and explanation needs are clear.
 | Composition | Whiteboard or document large left; video tiles small right with notes and session timer; controls bottom. |
 | Type | Humanist sans (Figtree 15px). Arabic: Noto Sans Arabic. |
 | Color | canvas #EEF1F2 · surface #FFFFFF · ink #1B2023 · muted #515A60 · line #CBD3D8 · action #255F85 · on-action #FFFFFF. Each participant's pen color assigned with name label. |
-| Space and shape | 8px radius panels; floating control bar 12px radius. |
+| Space and shape | 8px radius panels; floating control bar 12px radius. Stroke and lift: panels have one 1px line, the video tiles no border, and the floating control bar the only shadow; the active tool owns one outline and nothing else marks it. |
 | Icons and imagery | Video and shared content. |
-| Components | Mute, camera, share screen, pen, end session (confirm), notes auto-saved and shared after. |
-| States | Connection weak indicator per participant; reconnecting preserves board; session ending in 5 minutes notice. |
+| Components | Mute, camera, share screen, pen, end session (confirm), notes auto-saved and shared after. Shown when: the weak-connection mark shows only on the affected participant, the five-minute notice only near the end, and End session asks for confirmation because it is final; no decorative reactions. Copy: notices name the person and the action ("Mira's connection is weak"). |
+| States | Connection weak indicator per participant; reconnecting preserves board; session ending in 5 minutes notice. Before the student joins the room shows a waiting message with the shared board ready; a dropped connection keeps the board and notes and says it is reconnecting. |
 | Responsive | Desktop and tablet (pen input); phone view-only board with video. |
 | Motion | Panels resize 200ms; no ambient. |
 | Accessibility | Live captions, keyboard controls. |
-| Build | Board state CRDT; notes persisted continuously. |
+| Build | Board state CRDT; notes persisted continuously. Accept: capture the board with video, a weak connection, reconnecting, and session ending at 1440 and a tablet, checking the control bar never covers the board's edge and the board keeps its stroke. |
 | AI mutation | Video tiles huge, gradients, gamification in a paid session. |
 | Fails when | Asynchronous courses. |
 
@@ -297,14 +297,14 @@ loop, and explanation needs are clear.
 | Composition | Top bar; program page shows the path of courses with hours, projects, and assessments; learner home shows current milestone and weekly plan. |
 | Type | Grotesk (Schibsted Grotesk or Work Sans), 36/22/16/13px. Arabic: IBM Plex Sans Arabic. |
 | Color | canvas #F4F2EE · surface #FFFFFF · ink #1C1B19 · muted #57544F · line #D9D4CB · action #1F4D3E · on-action #FFFFFF. |
-| Space and shape | Milestone blocks on tonal bands, 10px radius; 8px base. |
+| Space and shape | Milestone blocks on tonal bands, 10px radius; 8px base. Stroke and lift: milestone blocks are tonal bands with no border; the current milestone adds one outline, and a completed one changes fill and check only; no shadows except the certificate card. |
 | Icons and imagery | Photographs of instructors and real work contexts (not stock handshakes); project screenshots. |
-| Components | Weekly plan with time estimates; project submission with rubric; certificate with verifiable link. |
-| States | Behind schedule plan adjusts honestly; failed assessment shows retake policy; certificate verification page public. |
+| Components | Weekly plan with time estimates; project submission with rubric; certificate with verifiable link. Shown when: the retake policy shows only after a failed assessment, the schedule adjustment note only when behind, and the verification link only on issued certificates; no countdown or scarcity banners. Copy: time estimates are in hours with the assumption stated, and certificates show the verification ID. |
+| States | Behind schedule plan adjusts honestly; failed assessment shows retake policy; certificate verification page public. An enrolled learner with no progress sees the first milestone and weekly plan; a failed project submission keeps the upload and gives the rubric points missed. |
 | Responsive | Desktop path horizontal; phone vertical path with current milestone expanded. |
 | Motion | Milestone completion marks the path (300ms) and offers sharing once. Reduced motion: static. |
 | Accessibility | Transcripts, keyboard-complete assessments. |
-| Build | Credentials issued with verification IDs; program structure as data. |
+| Build | Credentials issued with verification IDs; program structure as data. Accept: capture a program page, learner home, a behind-schedule plan, a failed assessment, and a certificate verification page at 1440 and 390, checking band edges are continuous and the public page has no sign-in prompt. |
 | AI mutation | Salary-claim hero stats, stock photos, fake testimonials. |
 | Fails when | Children or casual hobby learning. |
 

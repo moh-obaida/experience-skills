@@ -10,3 +10,4 @@ points to it.
 |---|---|---|
 | `experience-core.md` | Experience Core: Operating Rules | `shared/philosophy/experience-core.md` |
 | `experience-operating-contract.md` | Experience Operating Contract | `shared/evaluation/experience-operating-contract.md` |
+| `bordline.md` | BORDLINE: Border, Outline, Pseudo-Element, and Clipping Defects | `shared/taxonomies/bordline.md` |

@@ -117,3 +117,32 @@ stop condition:
 Keep it to the source slice and facts that can change the next decision. A missing field makes the
 handoff incomplete; do not ask the receiver to infer it from earlier conversation. If no unresolved
 material concern remains, record `no handoff required` with the reason and stop the graph.
+
+## RENDERED QUALITY GAP — WORKS BUT LOOKS WRONG
+
+```text
+the one owning specialist → (cross-route-consistency if the cause is shared) → screenshot-acceptance
+```
+
+Use when tests, types, and scans pass but a person sees a defect or unfinished quality. Route by
+the symptom: strokes and component consistency to visual-coherence-audit; redundant or mistimed
+elements to ui-necessity-audit; whole-screen arrangement to composition-review; wording to
+microcopy-quality; state timing to state-by-state-review. Activate the first owner alone; a second
+needs its own observed concern. Hand over one finding record per owner (job, locked truth,
+evidence, root cause, owner, expected output). A defect that repeats across routes becomes one
+finding at the shared component, handled by cross-route-consistency. End with screenshot-acceptance
+or the render contract: same states and sizes, viewed captures, verdict with coverage. A single
+cut-off border is one specialist, never the whole set.
+
+## BROAD EXPERIENCE QUALITY AUDIT
+
+```text
+composition-review → ui-necessity-audit → visual-coherence-audit → cross-route-consistency → microcopy-quality → state-by-state-review → screenshot-acceptance
+```
+
+Use for a substantial multi-route request to find what is wrong with a built product. This is an
+ordering, not a checklist: activate only the members with an observed concern, in this order
+(structure first, then elements, strokes, route drift, words, state timing, verification). Share
+one finding record; an owner resolves each root cause once and later specialists skip anything an
+earlier one settled. Preserve what is good and say so. Stop when the next specialist would address
+only low-impact polish.

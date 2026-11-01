@@ -4,7 +4,7 @@ description: "Use this skill whenever source-level repair is requested for an ex
 license: MIT
 compatibility: "Browser rendering strongly recommended. The optional identity extractor needs Node.js 18+ and reads local source only."
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -42,6 +42,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -121,6 +125,7 @@ another structure, load `references/_shared/compositions-index.md` and
    S0/S1 as fixed, justified, or open with a reason, using the evidence format and naming what was
    protected.
 10. **Symmetric slop check:** inspect both excessive styling and underdesigned restraint. Warm cream, serif display, muted earth accents, hairlines, small uppercase labels, and quiet whitespace can form an Experience Skills house style when they have no product reason. Check the three-second task test, instrument prominence, active-state energy, and whether a live product has become a text document. Preserve justified density, color, play, and interaction character.
+11. **Overdesign check on every replacement:** the repair must not add decoration, color, motion, or ornamental containers the product's identity ledger does not carry. More is not better; run the remove-it test and the audience calibration in `references/_shared/anti-slop-gate.md` before accepting a replacement, and keep restrained products restrained.
 
 ## Workflow
 
@@ -176,8 +181,7 @@ a product can intentionally use a default.
 - S0/S1 findings are fixed at source, justified, or open with a reason; S2/S3 are listed.
 - Inspected before/after renders show the dominant cause reduced at its diagnosed level across the
   affected jobs, or explicitly say UNVERIFIED / unresolved; do not claim slop resolved from edits.
-- The outcome gate is PASS, REPAIR, or ESCALATE internally; no material dependency is unowned.
-- Both originality tests were answered with evidence; no new dominant weakness or slop was introduced.
+- The outcome gate is PASS, REPAIR, or ESCALATE internally; no material dependency is unowned. Both originality tests were answered with evidence; no new dominant weakness or slop was introduced.
 - The report says what was kept and why, not only what was removed.
 
 ## References
@@ -192,5 +196,3 @@ a product can intentionally use a default.
   `niche-commerce.md`, `niche-finance.md`, `niche-media.md`, `niche-social.md`, `niche-health.md`,
   `niche-public.md`, `niche-travel.md`, `niche-physical.md`, `niche-creative.md`,
   `niche-personal.md`, `third-party-notices.md`
-- Worked example: `references/_shared/identity-preserving-repair.md` (a repair that keeps a gradient
-  and removes the purple glow); logo test anchor: `references/_shared/logo-removal-test.md`.

@@ -1,6 +1,6 @@
 {
   "name": "experience-skills",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "description": "Portable agent skills for designing digital experiences that are distinctive, obvious, efficient, state-aware, and resistant to AI slop.",
   "license": "MIT",
@@ -19,6 +19,7 @@
     "audit:observations:write": "node scripts/audit-observations.mjs --write research/observations/metadata.json",
     "audit:repository": "node scripts/audit-repository.mjs",
     "audit:repository:write": "node scripts/audit-repository.mjs --write research/repository-audit-2026-09.md",
+    "audit:system-quality": "node scripts/audit-system-quality.mjs --strict",
     "check:catalog": "node scripts/generate-catalog.mjs --check",
     "test": "node --test \"tests/**/*.test.mjs\"",
     "eval:agents": "node scripts/run-agent-evals.mjs",

@@ -1,0 +1,4 @@
+{"phases":[
+  {"name":"typed-invalid","expectError":true,"steps":[{"fill":["#code","12"]},{"click":"#go"}]},
+  {"name":"corrected","expectNoErrors":true,"steps":[{"fill":["#code","KQRT"]}]}
+]}

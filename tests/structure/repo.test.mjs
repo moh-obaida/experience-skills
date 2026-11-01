@@ -16,9 +16,11 @@ const REQUIRED_SKILLS = [
   'interaction-design', 'state-design', 'motion-design', 'product-friction',
   'responsive-validation', 'empty-state-design', 'anti-slop-ui', 'critical-review',
   'interface-forensics', 'use-all-skills', 'anti-ai-slop',
+  'visual-coherence-audit', 'ui-necessity-audit', 'composition-review', 'microcopy-quality',
+  'state-by-state-review', 'cross-route-consistency', 'screenshot-acceptance',
 ];
 
-test('all fifteen required skills exist', () => {
+test('all twenty-two required skills exist', () => {
   assert.deepEqual(skillDirs(), [...REQUIRED_SKILLS].sort());
 });
 

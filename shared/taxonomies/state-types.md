@@ -93,3 +93,21 @@ Keep two layers separate:
 
 A failed status poll does not mean the job failed. A timeout on submit does not mean the
 payment did not happen. Designs must never collapse these into one message.
+
+## Visibility follows state
+
+A state's information and controls should appear because the state makes them useful, not because
+the component always renders them. For each element on a surface, name the state that makes it
+relevant. Elements that fail the test:
+
+- **Premature:** visible before the state that justifies it (an error before an attempt, a success
+  marker before the mutation finishes, a "no results" message before a search ran).
+- **Lingering:** still visible after the state ended (an error after correction, a spinner after
+  completion, a "saving" label after saving, a retry button after success).
+- **Irrelevant:** present in states where it cannot be used (filters on an empty list, a "Start"
+  control while the minimum has not been met and no reason is given).
+- **Contradictory:** two elements describing different states at once (a "Saved" banner beside an
+  enabled "Save" button with unsaved changes).
+
+The fix is usually at the state boundary: render the element from the state, release its space when
+the state ends, and make sure a transition clears everything the old state owned.

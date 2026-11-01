@@ -3,7 +3,7 @@ name: empty-state-design
 description: "Use this skill whenever a list, dashboard, library, inbox, search, or home screen has little or no content; when a first-run or new-account view is designed; when someone asks to make a sparse page 'less empty' or it feels unfinished; or when a page has been filled with illustrations, fake stats, tips, or marketing. Designs zero-item, one-item, first-run, empty-search, filtered-empty, no-permission, no-history, incomplete-setup, unavailable, archived, and skeleton-versus-empty states, and distinguishes intentional focus from dead space and useful density from filler, calibrated by page archetype."
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -35,6 +35,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -89,6 +93,7 @@ If a surface has zero or few items, MUST load `references/empty-state-types.md` 
 7. **Set density from the product archetype** (`references/_shared/product-archetypes.md`): a focused task may be spare; an operational surface needs real state; an experiential one keeps its world.
 
 8. **Continuity:** keep a route back to the core task and make the next real action obvious. Inspect a first-run state, a genuine zero state, and a filtered-empty state separately. If the sparse result serves the task, preserve it; do not fill or restyle it only to make the specialist contribute.
+9. **For every control and notice shown in an empty or first-use state:** is it usable or informative *here*? Filters, sort, bulk actions, and export over an empty list, or a warning about data that does not exist yet, are irrelevant-visible: hide or disable them with a stated reason, and keep the one action that fills the state. Audit the empty state against the other states of the surface with state-by-state-review when several exist.
 
 ## Workflow
 

@@ -51,6 +51,15 @@ Canonical names for composition and visual-quality problems. Use them in finding
 | C2 | GENERIC COPY | "Unlock your potential," "Seamlessly manage," "Get started today" |
 | C3 | MISSING STATE | Only the perfect-data state was designed |
 
+## Stroke and consistency defects
+
+Stroke-level rendering defects (cut-off, partial, uneven, or doubled borders, clipped focus rings,
+separator overreach, connector misalignment) use the BORDLINE codes BL1 to BL9 in the BORDLINE
+taxonomy. Repeated-component drift uses VC-VAR (computed style differs among same-role instances),
+VC-ICON (icon geometry), and VC-EDGE (content edges off by a few pixels). I5 INCONSISTENT covers the
+same meaning expressed differently across screens; trace it to the owning component before fixing
+pages one by one.
+
 Codes identify symptoms, not the full diagnosis. Explain the relationship and likely cause: a
 surface may be internally coherent yet receive more attention than its information or action earns.
 Group related symptoms under one cause rather than recommending a separate cosmetic fix for each.

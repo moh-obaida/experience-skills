@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Join (invented text-defect fixture)</title>
+<style>body{margin:0;padding:24px;font:15px/1.4 system-ui,sans-serif;background:#f6f5f1;color:#1d2320;width:640px}
+.error{color:#8a2b1f;margin:6px 0}.panel{background:#fff;border:1px solid #d3d8d0;padding:12px;margin:12px 0}</style></head><body>
+<h1>Join a game</h1>
+<!-- Premature error: shown at first render although nothing was attempted -->
+<div class="error" role="alert">Invalid input. ERR_ROOM_CODE_INVALID</div>
+<form id="f" onsubmit="return false">
+  <input id="code" aria-label="Room code" placeholder="Room code" aria-invalid="true">
+  <button id="go" type="button">Submit</button>
+  <div id="msg" class="error" role="alert" hidden></div>
+</form>
+<div class="panel"><h2>Two teams</h2><p>Two teams</p><p>Waiting for undefined players</p></div>
+<p>Something went wrong. Please note that in order to utilize seamless play, tap below.</p>
+<p lang="ar" dir="ltr">انضم إلى اللعبة باستخدام رمز الغرفة</p>
+<button aria-hidden="false"></button>
+<script>
+  // Stale error: appears on click, never clears when the code is corrected.
+  document.getElementById('go').addEventListener('click', () => {
+    const m = document.getElementById('msg'); m.hidden = false; m.textContent = 'rooms.join.code_invalid';
+  });
+</script></body></html>

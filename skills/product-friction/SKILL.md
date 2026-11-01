@@ -3,7 +3,7 @@ name: product-friction
 description: "Use this skill whenever a product or area feels hard to use overall, users get lost or keep asking the same support questions, terminology or duplicate concepts confuse people, features pile up without getting easier, an admin, settings, or setup area is being redesigned, or a whole product or area needs an audit rather than one flow. Finds and ranks product-level friction: terminology, cognitive load, discoverability, lost context, information architecture, dead ends, status ambiguity, unnecessary modes, inconsistent behavior, trust and transparency, first-use burden, and expert burden, in a prioritized friction ledger."
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   collection: experience-skills
 ---
 
@@ -37,6 +37,10 @@ Read that file (the full rules and evidence levels) before a full review, repair
   changes only if the change makes the task faster or more reliable.
 - **Every treatment has a job.** Every gradient, card, shadow, and animation needs one. No pattern
   is wrong by category, so keep one that does a job.
+- **Working is not finished.** Passing tests, types, or an accessibility scan say nothing about how
+  a screen looks or reads. Inspect rendered output for stroke continuity, repeated-component
+  consistency, whole-screen composition, wording, and when each element appears. Never remove a
+  safeguard, disclosure, or recovery path to look clean.
 - **Count steps before and after.** If the software already knows an answer, do not ask for it.
   Keep safeguards on money, deletion, and publishing. Automate mechanics, not judgment.
 - **Check real states, not the showcase:** empty, dense, long content, loading, error, a small
@@ -61,6 +65,7 @@ Read that file (the full rules and evidence levels) before a full review, repair
 - Users lose context between areas or sessions.
 - Newcomers struggle, or experts are slowed by beginner scaffolding.
 - You are asked to audit a whole product, area, or release.
+- Screens repeat the same explanation, duplicate navigation, or ask users to make decisions the product could make.
 
 ## Do not use this when
 
@@ -88,6 +93,7 @@ If the audit covers a product area, MUST load `references/friction-ledger.md`, `
 7. **When users distrust what the product shows or does** ("I thought it saved", "why did it change?"): use the trust lens in `references/trust-and-transparency.md` and record what users believed vs what was true.
 
 8. **Useful versus harmful friction:** distinguish deliberate practice, review, and consequential confirmation from repeated data entry, context loss, and waiting tax. Rank by effect on the repeated core loop; a brief pause with a clear purpose may be worth preserving.
+9. **Redundant explanation, duplicated navigation, unnecessary decision:** record each as friction with where it repeats and how often users meet it, and prefer removing or defaulting it over adding help. For a single screen's elements, apply the necessity verdicts in `references/_shared/control-necessity.md` (never remove safeguards, disclosures, or recovery); for a whole-screen sweep use ui-necessity-audit.
 
 ## Workflow
 
